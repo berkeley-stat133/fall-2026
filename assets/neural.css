@@ -1,0 +1,126 @@
+/* styles for the wall calendar are stored in the ejs
+file in the course-website-ejs extension directory */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;700&display=swap');
+
+/* navigation*/
+
+.navbar-title {
+  font-family: "Roboto Slab", serif !important;
+}
+
+/* remove right border from quarto sidebar */
+#quarto-sidebar.sidebar.sidebar-navigation {
+  border-right: none !important;
+}
+
+.navbar #quarto-search.type-overlay .aa-Autocomplete svg.aa-SubmitIcon {
+  width: 18px !important;
+  height: 18px !important;
+}
+
+/* homepage */
+
+/* Remove top spacing from homepage main content */
+body.quarto-homepage main#quarto-document-content {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+/* Also target the content div */
+body.quarto-homepage .content {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+.banner-grid {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.banner-text {
+    color: #444;
+    font-size: clamp(1.8em, 6vw, 50px);
+    line-height: 1.1;
+}
+
+.banner-left {
+  grid-column: 1;
+}
+
+.banner-right {
+  grid-column: 2;
+  text-align: center;
+}
+
+/* mobile responsive - stack blocks with image on top */
+@media (max-width: 768px) {
+  .banner-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .banner-left {
+    grid-column: 1;
+    order: 2; /* Text goes below image on mobile */
+  }
+  
+  .banner-right {
+    grid-column: 1;
+    order: 1; /* Image goes on top on mobile */
+  }
+  
+  .banner-text {
+    padding-top: 0em;
+  }
+}
+
+/* Scroll-triggered navbar styles */
+.navbar-brand {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 40px; /* Ensure consistent height */
+}
+
+.navbar-title {
+  transition: opacity 0.3s ease-in-out;
+  opacity: 1;
+  position: relative;
+  z-index: 2;
+}
+
+.navbar-brand-logo {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) rotate(-20deg);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  pointer-events: none;
+  z-index: 1;
+  will-change: transform;
+}
+
+/* When scrolled, fade out title and fade in logo with rotation */
+.navbar.scrolled .navbar-title {
+  opacity: 0;
+}
+
+.navbar.scrolled .navbar-brand-logo {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(-50%) rotate(0deg);
+}
+
+.navbar-brand-logo img {
+  height: 32px;
+  width: auto;
+  vertical-align: middle;
+  display: block;
+}
+
+
