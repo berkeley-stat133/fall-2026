@@ -1165,7 +1165,42 @@
     "href": "02-data-in-trees/slides.html#practice",
     "title": "Data in Trees",
     "section": "Practice",
-    "text": "Practice\n\n  \n    −\n    +\n \n 10:00\n \nUsing only the command line (not the file browser).\n\nWhat are the names of the files stored in ~/data-in-trees/red/stat/101/1/?\nWhat is the absolute path of the file named 014.txt?\nWhat is the relative path of the file named 014.txt from ~/data-in-trees/red/non-stat?\nWhat is the relative path of the directory at ~/data-in-trees/green/stat/ from ~/data-in-trees/red/non-stat?\nWhat is the song of the summer in ~/data-in-trees/red/non-stat/105/0/213.txt?"
+    "text": "Practice\n\n  \n    −\n    +\n \n 10:00\n \nUsing only the command line (not the file browser).\n\nWhat are the names of the files stored in ~/data-in-trees/red/stat/101/1/?\nWhat is the absolute path of the file named 014.txt?\nWhat is the relative path of the file named 014.txt from ~/data-in-trees/red/non-stat?\nWhat is the relative path of the directory at ~/data-in-trees/green/stat/ from ~/data-in-trees/red/non-stat?\nWhat is the song of the summer in ~/data-in-trees/red/non-stat/101/1/003.txt?"
+  },
+  {
+    "objectID": "02-data-in-trees/slides.html#solution-1",
+    "href": "02-data-in-trees/slides.html#solution-1",
+    "title": "Data in Trees",
+    "section": "Solution 1",
+    "text": "Solution 1\nWhat are the names of the files stored in ~/data-in-trees/red/stat/101/1/?1\n\nOne way is to move into the directory, then list its contents:\ncd ~/data-in-trees/red/stat/101/1/\nls\n012.txt  014.txt\n\n\nOr list the contents without moving, by giving ls the path directly:\nls ~/data-in-trees/red/stat/101/1/\n012.txt  014.txt\n\nThe trailing / isn’t strictly necessary here, but it’s good practice as it signals that the path points to a directory rather than a file."
+  },
+  {
+    "objectID": "02-data-in-trees/slides.html#solution-2",
+    "href": "02-data-in-trees/slides.html#solution-2",
+    "title": "Data in Trees",
+    "section": "Solution 2",
+    "text": "Solution 2\nWhat is the absolute path of the file named 014.txt?\n\nAn absolute path starts from the root /. Searching the tree, 014.txt lives inside red/stat/101/1/, so relative to home it is:\n~/data-in-trees/red/stat/101/1/014.txt\n\n\nRemember ~ is shorthand for home’s absolute path. On DataHub home is /home/jovyan, so the fully-written absolute path is:\n/home/jovyan/data-in-trees/red/stat/101/1/014.txt\n\n\nYou can confirm the home path by running pwd after cd ~."
+  },
+  {
+    "objectID": "02-data-in-trees/slides.html#solution-3",
+    "href": "02-data-in-trees/slides.html#solution-3",
+    "title": "Data in Trees",
+    "section": "Solution 3",
+    "text": "Solution 3\nWhat is the relative path of the file named 014.txt from ~/data-in-trees/red/non-stat?\n\nFrom red/non-stat, step up one level (..) to red, then descend into stat/101/1/:\n../stat/101/1/014.txt\n\n\nCheck it from that starting directory by printing the file at the relative path:\ncat ../stat/101/1/014.txt\nlebi tirar mas fotos\n5200"
+  },
+  {
+    "objectID": "02-data-in-trees/slides.html#solution-4",
+    "href": "02-data-in-trees/slides.html#solution-4",
+    "title": "Data in Trees",
+    "section": "Solution 4",
+    "text": "Solution 4\nWhat is the relative path of the directory at ~/data-in-trees/green/stat/ from ~/data-in-trees/red/non-stat?\n\nFrom red/non-stat, step up two levels: .. reaches red, and ../.. reaches data-in-trees. Then descend into green/stat:\n../../green/stat\n\n\nThe two colors (red, green) sit at the same level, so any path between them must first climb up to their shared parent, data-in-trees.\n\n\nCheck it by walking the path yourself. First confirm where you are:\npwd\n/home/jovyan/data-in-trees/red/non-stat\n\n\nThen follow the relative path and confirm you arrived:\ncd ../../green/stat\npwd\n/home/jovyan/data-in-trees/green/stat"
+  },
+  {
+    "objectID": "02-data-in-trees/slides.html#solution-5",
+    "href": "02-data-in-trees/slides.html#solution-5",
+    "title": "Data in Trees",
+    "section": "Solution 5",
+    "text": "Solution 5\nWhat is the song of the summer in ~/data-in-trees/red/non-stat/101/1/003.txt?\n\nPrint the file’s contents with cat:\ncat ~/data-in-trees/red/non-stat/101/1/003.txt\n\n\nwhich shows:\nlebi tirar mas fotos\n5200\n\n\nSo the song is lebi tirar mas fotos (the second line, 5200, is the accompanying count).\n\n\nAlternatively, cd into the file’s directory first, then cat just the bare file name:\ncd ~/data-in-trees/red/non-stat/101/1/\ncat 003.txt\nlebi tirar mas fotos\n5200"
   },
   {
     "objectID": "02-data-in-trees/slides.html#for-next-time",

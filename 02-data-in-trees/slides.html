@@ -585,7 +585,7 @@
 </section>
 <section id="practice" class="slide level2">
 <h2>Practice</h2>
-<div id="timer_9d3fc7150822d23b42304928e22f68a5c18b8a56" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="top: 0;right: 0;">
+<div id="timer_0463468c5c124f081b99e9d4523f37874412bca1" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="top: 0;right: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -598,8 +598,101 @@
 <li>What is the absolute path of the file named <code>014.txt</code>?</li>
 <li>What is the relative path of the file named <code>014.txt</code> from <code>~/data-in-trees/red/non-stat</code>?</li>
 <li>What is the relative path of the directory at <code>~/data-in-trees/green/stat/</code> from <code>~/data-in-trees/red/non-stat</code>?</li>
-<li>What is the song of the summer in <code>~/data-in-trees/red/non-stat/105/0/213.txt</code>?</li>
+<li>What is the song of the summer in <code>~/data-in-trees/red/non-stat/101/1/003.txt</code>?</li>
 </ol>
+</section></section>
+<section>
+<section id="solutions" class="title-slide slide level1 center">
+<h1>Solutions</h1>
+
+</section>
+<section id="solution-1" class="slide level2 smaller">
+<h2>Solution 1</h2>
+<p><em>What are the names of the files stored in <code>~/data-in-trees/red/stat/101/1/</code>?</em><sup>1</sup></p>
+<div class="fragment">
+<p>One way is to move into the directory, then list its contents:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a></a><span class="bu">cd</span> ~/data-in-trees/red/stat/101/1/</span>
+<span id="cb2-2"><a></a><span class="fu">ls</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource txt number-lines code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a></a>012.txt  014.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<p>Or list the contents without moving, by giving <code>ls</code> the path directly:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a></a><span class="fu">ls</span> ~/data-in-trees/red/stat/101/1/</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource txt number-lines code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a></a>012.txt  014.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn2"><p>The trailing <code>/</code> isn’t strictly necessary here, but it’s good practice as it signals that the path points to a directory rather than a file.</p></li></ol></aside></section>
+<section id="solution-2" class="slide level2 smaller">
+<h2>Solution 2</h2>
+<p><em>What is the absolute path of the file named <code>014.txt</code>?</em></p>
+<div class="fragment">
+<p>An absolute path starts from the root <code>/</code>. Searching the tree, <code>014.txt</code> lives inside <code>red/stat/101/1/</code>, so relative to home it is:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a></a><span class="ex">~/data-in-trees/red/stat/101/1/014.txt</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<p>Remember <code>~</code> is shorthand for home’s <em>absolute</em> path. On DataHub home is <code>/home/jovyan</code>, so the fully-written absolute path is:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a></a><span class="ex">/home/jovyan/data-in-trees/red/stat/101/1/014.txt</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<p>You can confirm the home path by running <code>pwd</code> after <code>cd ~</code>.</p>
+</div>
+</section>
+<section id="solution-3" class="slide level2 smaller">
+<h2>Solution 3</h2>
+<p><em>What is the relative path of the file named <code>014.txt</code> from <code>~/data-in-trees/red/non-stat</code>?</em></p>
+<div class="fragment">
+<p>From <code>red/non-stat</code>, step up one level (<code>..</code>) to <code>red</code>, then descend into <code>stat/101/1/</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a></a><span class="ex">../stat/101/1/014.txt</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<p>Check it from that starting directory by printing the file at the relative path:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a></a><span class="fu">cat</span> ../stat/101/1/014.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource txt number-lines code-with-copy"><code class="sourceCode default"><span id="cb10-1"><a></a>lebi tirar mas fotos</span>
+<span id="cb10-2"><a></a>5200</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="solution-4" class="slide level2 smaller">
+<h2>Solution 4</h2>
+<p><em>What is the relative path of the directory at <code>~/data-in-trees/green/stat/</code> from <code>~/data-in-trees/red/non-stat</code>?</em></p>
+<div class="fragment">
+<p>From <code>red/non-stat</code>, step up <strong>two</strong> levels: <code>..</code> reaches <code>red</code>, and <code>../..</code> reaches <code>data-in-trees</code>. Then descend into <code>green/stat</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a></a><span class="ex">../../green/stat</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<p>The two colors (<code>red</code>, <code>green</code>) sit at the same level, so any path between them must first climb up to their shared parent, <code>data-in-trees</code>.</p>
+</div>
+<div class="fragment">
+<p>Check it by walking the path yourself. First confirm where you are:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a></a><span class="bu">pwd</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource txt number-lines code-with-copy"><code class="sourceCode default"><span id="cb13-1"><a></a>/home/jovyan/data-in-trees/red/non-stat</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<p>Then follow the relative path and confirm you arrived:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a></a><span class="bu">cd</span> ../../green/stat</span>
+<span id="cb14-2"><a></a><span class="bu">pwd</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource txt number-lines code-with-copy"><code class="sourceCode default"><span id="cb15-1"><a></a>/home/jovyan/data-in-trees/green/stat</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="solution-5" class="slide level2 smaller">
+<h2>Solution 5</h2>
+<p><em>What is the song of the summer in <code>~/data-in-trees/red/non-stat/101/1/003.txt</code>?</em></p>
+<div class="fragment">
+<p>Print the file’s contents with <code>cat</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a></a><span class="fu">cat</span> ~/data-in-trees/red/non-stat/101/1/003.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<p>which shows:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode numberSource txt number-lines code-with-copy"><code class="sourceCode default"><span id="cb17-1"><a></a>lebi tirar mas fotos</span>
+<span id="cb17-2"><a></a>5200</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<p>So the song is <strong>lebi tirar mas fotos</strong> (the second line, <code>5200</code>, is the accompanying count).</p>
+</div>
+<div class="fragment">
+<p>Alternatively, <code>cd</code> into the file’s directory first, then <code>cat</code> just the bare file name:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a></a><span class="bu">cd</span> ~/data-in-trees/red/non-stat/101/1/</span>
+<span id="cb18-2"><a></a><span class="fu">cat</span> 003.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode numberSource txt number-lines code-with-copy"><code class="sourceCode default"><span id="cb19-1"><a></a>lebi tirar mas fotos</span>
+<span id="cb19-2"><a></a>5200</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <!-- ## For Next Time {background-video="images/tree.webm" background-video-loop="true" background-video-muted="true" background-size="cover"}
 
 <style>
@@ -610,6 +703,7 @@
   text-align: left;
 }
 </style> -->
+</div>
 </section>
 <section id="for-next-time" class="slide level2">
 <h2>For Next Time</h2>
