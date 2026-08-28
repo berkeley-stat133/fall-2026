@@ -1070,6 +1070,111 @@
     "text": "References\n\nAdvanced R, Chapter 3: Vectors\nR Coding Basics, Chapter 2: Properties of Vectors\nR Coding Basics, Chapter 3: Creating Vectors"
   },
   {
+    "objectID": "02-data-in-trees/slides.html#section",
+    "href": "02-data-in-trees/slides.html#section",
+    "title": "Data in Trees",
+    "section": "",
+    "text": "Gather up the stack of index cards from your students with answers to the questions asked in lecture.\nOn the board sketch a very simple version of the Question &gt; Data Product diagram seen in the first lecture: Question: what were the songs of summer for Stat 133 students? Then for data, draw a box for each individual index card. Then draw a big empty “computational” box, and then ask what sort of data products could answer this question. Students may suggest different types of visualizations (e.g.) barchart ordered in descending order by popularity), summary statistics (most popular song of Stat 133 students), estimates (most popular song of Berkeley students).\nToday we’ll focus on how to store that data on a computer. Draw one box inside the big “computational” box labelled “Storage”."
+  },
+  {
+    "objectID": "02-data-in-trees/slides.html#section-1",
+    "href": "02-data-in-trees/slides.html#section-1",
+    "title": "Data in Trees",
+    "section": "",
+    "text": "File\n\n\nA named container that stores data – such as text, images, or programs – on a computer disk. The file name usually ends in an extension (.txt, .png, .pdf) that indicates the format."
+  },
+  {
+    "objectID": "02-data-in-trees/slides.html#example",
+    "href": "02-data-in-trees/slides.html#example",
+    "title": "Data in Trees",
+    "section": "Example",
+    "text": "Example\n\n\n\n\n\n\n\n\n\n\n127.txt\n\nGolden Klaxons\n3000?\n\n\n\nOne way to store the data on the index card is as a text file. Read more about this particular format here: https://en.wikipedia.org/wiki/Text_file\nQuestions you could ask after showing the .txt:\n\nWhere did the number 127 come from? It was an arbitrary ID.\nDoes anyone see anything that might be a challenge as we try to analysis this txt file as data? We will likely have to remove the ? to treat 3000 as a number.\nDoes anyone know this song? Probably not, because it seems to be a mix of a song and an artist … see next slide."
+  },
+  {
+    "objectID": "02-data-in-trees/slides.html#section-2",
+    "href": "02-data-in-trees/slides.html#section-2",
+    "title": "Data in Trees",
+    "section": "",
+    "text": "I’m not sure what happened here! I can’t find a song called “Golden Klaxons”, only this one. The question for the students - how should we handle this? Should we fix it?\n(we’ll leave it for now and fix it in a later class)"
+  },
+  {
+    "objectID": "02-data-in-trees/slides.html#section-3",
+    "href": "02-data-in-trees/slides.html#section-3",
+    "title": "Data in Trees",
+    "section": "",
+    "text": "Directory (or folder)\n\n\nA named container that stores a set of files or other folders."
+  },
+  {
+    "objectID": "02-data-in-trees/slides.html#how-should-we-organize-our-cards-into-directories",
+    "href": "02-data-in-trees/slides.html#how-should-we-organize-our-cards-into-directories",
+    "title": "Data in Trees",
+    "section": "How should we organize our cards into directories?",
+    "text": "How should we organize our cards into directories?\nBoardwork.\n\nLead students into thinking about the information that we have on the other side of the card: Lab #, Years at Cal, and Stats Major (yes/no).\nAs they propose one form of sorting, say by years at Cal, ask them if we can do any sorting within each directory – in this case, by Stats Major.\nWhichever sorting scheme they propose, draw it on the board as a tree with a root node (an empty circle), with lines leading to each of the top level directory (say, circles labelled “One”, “Two”, “Three”, and “Four”), and then for each, lines leading to circles of the subdirectories (“S” for stats major, “NS” for non-stats major, say), then with lines leading to the files. For those, tape the index cards in the appropriate place."
+  },
+  {
+    "objectID": "02-data-in-trees/slides.html#section-4",
+    "href": "02-data-in-trees/slides.html#section-4",
+    "title": "Data in Trees",
+    "section": "",
+    "text": "How can we specify the location of a file/directory in the file system?\n\n\n\nPath\n\n\nA description of a file or directory’s location in the file system, written as a sequence of folder names that leads to it, separated by /.\n\nAbsolute path: Starts from the root of the file system, indicated by /. Example: /Documents/Schoolwork/HW1.pdf\n\n\n\nAsk: What absolute paths are found in our tree?\nReturn to the board and circle a file or two and ask for someone to provide you the absolute path. Write it on the board (be sure to start with /). Repeat by asking the path to a directory. Circle that directory and write the path next to it (it will start with a / and end with the name of that directory)."
+  },
+  {
+    "objectID": "02-data-in-trees/slides.html#section-5",
+    "href": "02-data-in-trees/slides.html#section-5",
+    "title": "Data in Trees",
+    "section": "",
+    "text": "How can we specify the location of a file/directory in the file system?\n\n\nPath\n\n\nA description of a file or directory’s location in the file system, written as a sequence of folder names that leads to it, separated by /.\nAbsolute path: Starts from the root of the file system, indicated by /. Example: /Documents/Schoolwork/HW1.pdf\nRelative path: Starts from the current directory and shows how to reach a target. .. means “go up one level”. Example if you’re in Documents, Schoolwork/HW1.pdf\n\n\n\nAsk: What relative paths are found in our tree?\nOn the board pick at least two relative paths for them to give you, one that goes from a directory to a file in a subdirectory, and another that requires going “up one level” to a file in a differet directory at the same level. You can indiated the “start” and “end” of the relative path using, say a square and a triangle."
+  },
+  {
+    "objectID": "02-data-in-trees/slides.html#section-6",
+    "href": "02-data-in-trees/slides.html#section-6",
+    "title": "Data in Trees",
+    "section": "",
+    "text": "I’m getting tired of always typing the trunk of the tree…\n\n\n\nHome directory\n\n\nA special designated directory in a file system that serves as a starting point for commonly-used paths.\nWritten as ~, a shorthand for its absolute path.\n\n\n\nOn the tree, designate one of the nodes as the home by drawing a house around it. Then ask:\nWhat is the absolute path of this file?"
+  },
+  {
+    "objectID": "02-data-in-trees/slides.html#getting-around-a-file-system",
+    "href": "02-data-in-trees/slides.html#getting-around-a-file-system",
+    "title": "Data in Trees",
+    "section": "Getting around a file system",
+    "text": "Getting around a file system\nWe will need to . . .\n\n\nKnow where we are\nKnow what’s around us\nChange where we are\nSee what’s in a file\n\n\n\n. . . all without pointing and clicking."
+  },
+  {
+    "objectID": "02-data-in-trees/slides.html#unix-commands",
+    "href": "02-data-in-trees/slides.html#unix-commands",
+    "title": "Data in Trees",
+    "section": "UNIX1 Commands",
+    "text": "UNIX1 Commands\n\n\npwd\n\n\nReturns your present working directory.\n\n\n\n\n\nls\n\n\nLists the contents of your present working directory.\n\n\n\nUNIX is a family of operating systems that includes Linux and MacOS. Most of the commands work on windows too."
+  },
+  {
+    "objectID": "02-data-in-trees/slides.html#section-7",
+    "href": "02-data-in-trees/slides.html#section-7",
+    "title": "Data in Trees",
+    "section": "",
+    "text": "cd\n\n\nChanges your directory to the path provided (after a space). Examples:\n\ncd Homework: (relative) only takes you into the Homework directory if you’re in Documents.\ncd /Document/Homework: (absolute) takes you into the Homework directory regardless of your pwd.\n\n\n\n\n\n\ncat\n\n\nPrints to the screen the contents of the file at the path provided. Example: cat 127.txt."
+  },
+  {
+    "objectID": "02-data-in-trees/slides.html#unix-commands-1",
+    "href": "02-data-in-trees/slides.html#unix-commands-1",
+    "title": "Data in Trees",
+    "section": "UNIX Commands",
+    "text": "UNIX Commands\n\nKnow where we are: pwd\nKnow what’s around us: ls\nChange where we are: cd\nSee what’s in a file cat\n\n\nThere are many more, like . . .\n\nMake a new directory: mkdir\nCopy a file: cp\nRemove a file: rm"
+  },
+  {
+    "objectID": "02-data-in-trees/slides.html#practice",
+    "href": "02-data-in-trees/slides.html#practice",
+    "title": "Data in Trees",
+    "section": "Practice",
+    "text": "Practice\n\n  \n    −\n    +\n \n 10:00\n \nUsing only the command line (not the file browser).\n\nWhat are the names of the files stored in ~/data-in-trees/red/stat/101/1/?\nWhat is the absolute path of the file named 014.txt?\nWhat is the relative path of the file named 014.txt from ~/data-in-trees/red/non-stat?\nWhat is the relative path of the directory at ~/data-in-trees/green/stat/ from ~/data-in-trees/red/non-stat?\nWhat is the song of the summer in ~/data-in-trees/red/non-stat/105/0/213.txt?"
+  },
+  {
+    "objectID": "02-data-in-trees/slides.html#for-next-time",
+    "href": "02-data-in-trees/slides.html#for-next-time",
+    "title": "Data in Trees",
+    "section": "For Next Time",
+    "text": "For Next Time\n\nFill out the Stat 133 Welcome Survey\nWork on the first questions from PS 1"
+  },
+  {
     "objectID": "26-spatial-1/ps.html",
     "href": "26-spatial-1/ps.html",
     "title": "STAT 133",
