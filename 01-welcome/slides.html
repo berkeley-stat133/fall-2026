@@ -30,7 +30,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-6248525f1bfeb46420cc643b2d6e76f6.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-1661f22b623b3ac3660186bd2906449d.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -125,6 +125,31 @@
       margin-right: 0; 
     }
   </style>
+  <style>
+    :root { --title-slide-offset: 7em; }
+  </style>
+  <style>
+    .reveal .title-overlay {
+      position: absolute;
+      top: 1rem;
+      left: 1.5rem;
+      max-width: 30%;
+      text-align: left;
+      color: #f2f2f2;
+      font-size: 1.4rem;
+      line-height: 1.3;
+      z-index: 10;
+      display: none;
+      /* Frosted-glass panel, matching `.intro` columns but a touch lighter. */
+      background: rgba(15, 15, 15, 0.6);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 12px;
+      padding: 0.75em 1em;
+    }
+    .reveal .title-overlay :is(p, li, a) { color: #f2f2f2; }
+    .reveal .title-overlay ul { margin: 0.2em 0 0 1em; }
+  </style>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -137,60 +162,6 @@
 <div class="quarto-title-authors">
 </div>
 
-</section>
-<section class="slide level2">
-
-<style>
-.reveal .title-overlay {
-  position: absolute;
-  top: 1rem;
-  left: 1.5rem;
-  max-width: 45%;
-  text-align: left;
-  color: #ffffff;
-  font-size: 1.7rem;
-  line-height: 1.3;
-  z-index: 10;
-  display: none;
-}
-.reveal .title-overlay ul { margin: 0.2em 0 0 1em; }
-</style>
-<div id="title-overlay-source" style="display:none;">
-We will begin at ten past. By that time, please
-<ul>
-<li>
-silence phones and put into your bag
-</li>
-<li>
-close and stow your laptops
-</li>
-</ul>
-</div>
-<script>
-window.addEventListener('load', function () {
-  var src = document.getElementById('title-overlay-source');
-  var reveal = document.querySelector('.reveal');
-  if (!src || !reveal) return;
-
-  var overlay = document.createElement('div');
-  overlay.className = 'title-overlay';
-  overlay.innerHTML = src.innerHTML;
-  reveal.appendChild(overlay);
-  src.remove();
-
-  function toggle() {
-    var current = document.querySelector('section.present');
-    overlay.style.display =
-      current && current.id === 'title-slide' ? 'block' : 'none';
-  }
-
-  if (window.Reveal && Reveal.on) {
-    Reveal.on('ready', toggle);
-    Reveal.on('slidechanged', toggle);
-  }
-  toggle();
-});
-</script>
 </section>
 <section id="making-data" class="slide level2">
 <h2>Making Data</h2>
@@ -230,7 +201,7 @@ window.addEventListener('load', function () {
 <section id="with-the-people-around-you" class="slide level2">
 <h2>With the people around you…</h2>
 <p>Take a few minutes to share your <strong>name</strong> and the answers to the questions that you wrote down.</p>
-<div id="timer_09429d673d1920a60c8bc56182928014d5b80386" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="top: 0;right: 0;">
+<div id="timer_b72650edaf329f39a73a42edac9e6cb6f8d948b9" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="top: 0;right: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -857,6 +828,36 @@ There has never been a more exciting time to compute with data.
           Reveal.configure({ slideNumber: 'c' });
         }
       });
+    </script>
+    <div id="title-overlay-source" style="display:none;"><p>We will begin at ten past. By that time, please</p>
+    <ul>
+    <li>silence phones and put into your bag</li>
+    <li>close and stow your laptops</li>
+    </ul></div>
+    <script>
+    window.addEventListener('load', function () {
+      var src = document.getElementById('title-overlay-source');
+      var reveal = document.querySelector('.reveal');
+      if (!src || !reveal) return;
+
+      var overlay = document.createElement('div');
+      overlay.className = 'title-overlay';
+      overlay.innerHTML = src.innerHTML;
+      reveal.appendChild(overlay);
+      src.remove();
+
+      function toggle() {
+        var current = document.querySelector('section.present');
+        overlay.style.display =
+          current && current.id === 'title-slide' ? 'block' : 'none';
+      }
+
+      if (window.Reveal && Reveal.on) {
+        Reveal.on('ready', toggle);
+        Reveal.on('slidechanged', toggle);
+      }
+      toggle();
+    });
     </script>
     
 
