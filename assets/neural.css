@@ -123,4 +123,29 @@ body.quarto-homepage .content {
   display: block;
 }
 
+/* Tools pages */
+
+/* Narrow the middle text column to 85% of its default (right-sidebar) width.
+   Pin to the body-content track so the width is identical whether or not the
+   page has a toc (without a toc Quarto would otherwise widen it to column-page-right). */
+body.tools-page main.content {
+  grid-column: body-content-start / body-content-end;
+  max-width: 85%;
+}
+
+/* Large logo anchoring the top of each tool page */
+.tool-logo {
+  height: 84px;
+  width: auto;
+  margin-bottom: 1.25rem;
+}
+
+/* Small logo shown next to each link on the Tools index */
+.tool-icon {
+  height: 26px;
+  width: auto;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+}
+
 
