@@ -1,49 +1,5 @@
 [
   {
-    "objectID": "tools/r.html",
-    "href": "tools/r.html",
-    "title": "R",
-    "section": "",
-    "text": "R is the programming language we use all semester for computing with data. On DataHub, R is already installed, but you will also want to install it on your own machine.",
-    "crumbs": [
-      "Tools",
-      "R"
-    ]
-  },
-  {
-    "objectID": "tools/r.html#installing-r-locally",
-    "href": "tools/r.html#installing-r-locally",
-    "title": "R",
-    "section": "Installing R locally",
-    "text": "Installing R locally\n\nGo to CRAN, the Comprehensive R Archive Network.\nChoose your operating system:\n\nmacOS: download the .pkg installer and open it.\nWindows: click base, download the installer, and run it.\n\nAccept the defaults during installation.",
-    "crumbs": [
-      "Tools",
-      "R"
-    ]
-  },
-  {
-    "objectID": "tools/r.html#checking-your-installation",
-    "href": "tools/r.html#checking-your-installation",
-    "title": "R",
-    "section": "Checking your installation",
-    "text": "Checking your installation\nOpen R (or a shell) and run:\nR.version.string\nYou should see the version of R you installed[^Fun fact: the unusual names of R versions come from snippets of text from the comic strip Peanuts.].",
-    "crumbs": [
-      "Tools",
-      "R"
-    ]
-  },
-  {
-    "objectID": "tools/r.html#launching-r",
-    "href": "tools/r.html#launching-r",
-    "title": "R",
-    "section": "Launching R",
-    "text": "Launching R\nTo open R from a shell, just type the command R and press Enter. This will open R at the command line. To close R and return to the shell, run the function q() to quit.",
-    "crumbs": [
-      "Tools",
-      "R"
-    ]
-  },
-  {
     "objectID": "tools/datahub.html",
     "href": "tools/datahub.html",
     "title": "DataHub",
@@ -88,6 +44,16 @@
     ]
   },
   {
+    "objectID": "tools/index.html",
+    "href": "tools/index.html",
+    "title": "Tools",
+    "section": "",
+    "text": "These pages are quick how-to guides for the computational tools we use in Stat 133. Each covers how to get set up and the handful of commands or steps you need to get going.\nIf you’re just getting started, DataHub is the fastest way to begin — everything is preinstalled. As the course progresses, you should install each of the tools on your own computer so that you can continue using them outside of the classroom.",
+    "crumbs": [
+      "Tools"
+    ]
+  },
+  {
     "objectID": "quiz-slides.html#academic-integrity",
     "href": "quiz-slides.html#academic-integrity",
     "title": "Quiz",
@@ -107,6 +73,83 @@
     "title": "Quiz",
     "section": "Group Quiz",
     "text": "Group Quiz\n\n\nBefore the quiz begins\n\nForm groups of 2-3 people.\n🧹 Everything except a pen/pencil and your cheat sheet must remain off your desk.\n📱 All electronic devices (laptop, phone, airbuds, smart watch) should be remain in your bag for the entire class period.\nWhen you get a group quiz, write all group members names on it but do not begin.\n\n\nDuring the quiz\n\n🗣️Discuss each of the problems and decide as a group which answer is best.\n⌛If you finish early, please raise your hand and we will collect your quiz.\n❗You must stop writing when time is called or risk a 0.\n\nGood luck! 🍀\n\n\n  \n    −\n    +\n \n 25:00"
+  },
+  {
+    "objectID": "projects/3-er-visits/slides.html#agenda",
+    "href": "projects/3-er-visits/slides.html#agenda",
+    "title": "Lab 3",
+    "section": "Agenda",
+    "text": "Agenda\n\nPositron Installation\nLab Review Worksheet (15 minutes)\nOverview of Project 3\nWork through select parts of Project 3\nGroup work and time for questions"
+  },
+  {
+    "objectID": "projects/3-er-visits/slides.html#positron-installation",
+    "href": "projects/3-er-visits/slides.html#positron-installation",
+    "title": "Lab 3",
+    "section": "Positron Installation",
+    "text": "Positron Installation\n\nVisit https://positron.posit.co/download.html and download the installer for your OS.\nKeep all default settings during installation."
+  },
+  {
+    "objectID": "projects/3-er-visits/slides.html#lab-review-worksheet",
+    "href": "projects/3-er-visits/slides.html#lab-review-worksheet",
+    "title": "Lab 3",
+    "section": "Lab Review Worksheet",
+    "text": "Lab Review Worksheet\n\n  \n    −\n    +\n \n 15:00\n \nGroup work to review essential material. To get started, Visit the following GitHub repository and read the README.md file.\n\n\n\n\nhttps://www.github.com/berkeley-stat133/worksheet-lab3"
+  },
+  {
+    "objectID": "projects/3-er-visits/slides.html#er-visits-project-overview",
+    "href": "projects/3-er-visits/slides.html#er-visits-project-overview",
+    "title": "Lab 3",
+    "section": "ER Visits Project Overview",
+    "text": "ER Visits Project Overview\n\nDataset: Collected by 25 Pediatric Emergency Care Applied Research Network (PECARN) emergency rooms on patients with minor head trauma.\nGoal: Practive Exploratory Data Analysis, a key step in most data science project.\nClient: Dr. Bayes, a pediatric emergency physician and researcher with PECARN."
+  },
+  {
+    "objectID": "projects/3-er-visits/slides.html#project-overview",
+    "href": "projects/3-er-visits/slides.html#project-overview",
+    "title": "Lab 3",
+    "section": "Project Overview",
+    "text": "Project Overview\nWe will work through three major steps:\n\nData Cleaning\nPrepare the dataset so it can be analyzed effectively.\nExploratory Data Analysis (EDA)\nUse visualizations and summaries to find interesting patterns.\nReporting Results\nCommunicate findings clearly to Dr. Bayes."
+  },
+  {
+    "objectID": "projects/3-er-visits/slides.html#data-cleaning",
+    "href": "projects/3-er-visits/slides.html#data-cleaning",
+    "title": "Lab 3",
+    "section": "Data Cleaning",
+    "text": "Data Cleaning\nWhy clean data?\n\nEnsure consistent formats in columns\nHandle missing (NA) or inconsistent values\nMakes dataset easier to work with\n\nKey dplyr functions:\n\nslice(), select(), arrange()\nmutate(), filter(), summarise(), group_by()"
+  },
+  {
+    "objectID": "projects/3-er-visits/slides.html#exploratory-data-analysis-eda",
+    "href": "projects/3-er-visits/slides.html#exploratory-data-analysis-eda",
+    "title": "Lab 3",
+    "section": "Exploratory Data Analysis (EDA)",
+    "text": "Exploratory Data Analysis (EDA)\n\nPurpose: uncover insights and understand the data before modeling\nTools:\n\nggplot2 for visualization.\ndplyr for summary tables and quick data manipulation.\ntidyr for reshaping.\nreadr for reading data.\nALL part of the tidyverse 🔥😮‍💨🙏💯"
+  },
+  {
+    "objectID": "projects/3-er-visits/slides.html#exploratory-data-analysis-eda-1",
+    "href": "projects/3-er-visits/slides.html#exploratory-data-analysis-eda-1",
+    "title": "Lab 3",
+    "section": "Exploratory Data Analysis (EDA)",
+    "text": "Exploratory Data Analysis (EDA)\n\nCommon plots:\n\nBar charts (categorical variables)\nHistograms (continuous variables)\nScatterplots (relationship between two variables)\nBoxplots and Violin plots (distributions across groups)\nFacets (compare subgroups)\n\nCommon summaries:\n\nMissing value analysis\nCounts and proportions\nMeans, medians, standard deviations"
+  },
+  {
+    "objectID": "projects/3-er-visits/slides.html#example-with-ggplot2",
+    "href": "projects/3-er-visits/slides.html#example-with-ggplot2",
+    "title": "Lab 3",
+    "section": "Example with ggplot2",
+    "text": "Example with ggplot2\nlibrary(ggplot2)\ndata |&gt; \n    ggplot(aes(x = age, fill = ct_scan_needed)) + \n    geom_histogram(bins=18) + \n    labs(title = \"Age Distribution by CT Scan Need\",\n         x = \"Age (years)\",\n         y = \"Count\") +\n    theme_minimal()"
+  },
+  {
+    "objectID": "projects/3-er-visits/slides.html#step-3-reporting-to-dr.-bayes",
+    "href": "projects/3-er-visits/slides.html#step-3-reporting-to-dr.-bayes",
+    "title": "Lab 3",
+    "section": "Step 3: Reporting to Dr. Bayes",
+    "text": "Step 3: Reporting to Dr. Bayes\nRemember your audience:\nDr. Bayes is a clinician, not a statistician.\nUse clear visuals and plain language.\n\nFocus on actionable insights:\n\nWhich patients are at highest risk?\nWhen might a CT be unnecessary?"
+  },
+  {
+    "objectID": "projects/3-er-visits/slides.html#project-work-time",
+    "href": "projects/3-er-visits/slides.html#project-work-time",
+    "title": "Lab 3",
+    "section": "Project Work Time",
+    "text": "Project Work Time\n\n  \n    −\n    +\n \n 25:00\n \nGet started on the project and feel free to ask questions."
   },
   {
     "objectID": "projects/6-ct-predict/slides.html#agenda",
@@ -165,53 +208,137 @@
     "text": "Project 5\nWork time for Project 5.\n\n  \n    −\n    +\n \n 30:00"
   },
   {
-    "objectID": "projects/1-index-cards/slides.html#using-the-shell-locally",
-    "href": "projects/1-index-cards/slides.html#using-the-shell-locally",
-    "title": "First Contact with R",
-    "section": "Using the Shell Locally",
-    "text": "Using the Shell Locally\n\n  \n    −\n    +\n \n 07:00\n \n\nMac:\n\n“zshell” (aka zsh) - UNIX based. Very similar to bash (Base UNIX Shell) with some added functionality.\nTo access, use the Mac’s “Termial” application.\n\nWindows:\n\nWill need to install “Git” if you don’t have it already.\n\nhttps://git-scm.com/downloads\n\nThis will give you access to the “Git Bash” application, which will let you use UNIX Shell on your Windows system."
+    "objectID": "projects/4-ev-power/slides.html#agenda",
+    "href": "projects/4-ev-power/slides.html#agenda",
+    "title": "EV Power Project",
+    "section": "Agenda",
+    "text": "Agenda\n\nOverview of Project\nLab Review Worksheet\nWork through select parts of Project 4\nGroup work and time for questions"
   },
   {
-    "objectID": "projects/1-index-cards/slides.html#brief-review-of-lecture",
-    "href": "projects/1-index-cards/slides.html#brief-review-of-lecture",
-    "title": "First Contact with R",
-    "section": "Brief Review of Lecture",
-    "text": "Brief Review of Lecture\nNew Shell Commands\n\n\nmkdir\n\n\nCreates a new directory.\n\n\n\n\ncp\n\n\nCopy file (arg1) to destination (arg2).\nExample: cp ~/Downloads/hw1.pdf ~/Documents/econ100b/hw/\n\n\n\n\nmv\n\n\nMove file (first argument) to destination directory (second argument).\nExample: mv ~/Downloads/hw1.pdf ~/.Trash\n\n\n\nThey have only heard mv in lecture briefly, so teach them the functionality."
+    "objectID": "projects/4-ev-power/slides.html#ev-power-project-overview",
+    "href": "projects/4-ev-power/slides.html#ev-power-project-overview",
+    "title": "EV Power Project",
+    "section": "EV Power Project Overview",
+    "text": "EV Power Project Overview\n\nElectric vehicles reduce direct emissions, but does the electricity used to charge them actually come from clean sources? How clean is the power that charges America’s EVs, and how does this vary across states?"
   },
   {
-    "objectID": "projects/1-index-cards/slides.html#brief-review-of-lecture-cont.",
-    "href": "projects/1-index-cards/slides.html#brief-review-of-lecture-cont.",
-    "title": "First Contact with R",
-    "section": "Brief Review of Lecture (cont.)",
-    "text": "Brief Review of Lecture (cont.)\nR Equivallent of Shell Commands:\n\ngetwd(): like pwd in Shell.\nsetwd(): like cd in Shell.\nlist.files(): like ls in Shell.\nreadLines(): like cat in Shell."
+    "objectID": "projects/4-ev-power/slides.html#previous-work",
+    "href": "projects/4-ev-power/slides.html#previous-work",
+    "title": "EV Power Project",
+    "section": "Previous Work",
+    "text": "Previous Work\nLet’s take a look at some work that’s been done in this field already. What are some improvements we could make in our own analysis?"
   },
   {
-    "objectID": "projects/1-index-cards/slides.html#brief-review-of-lecture-cont..",
-    "href": "projects/1-index-cards/slides.html#brief-review-of-lecture-cont..",
-    "title": "First Contact with R",
-    "section": "Brief Review of Lecture (cont..)",
-    "text": "Brief Review of Lecture (cont..)\n\na:b: Creates vector of numbers from a to b by 1.\nseq: Creates vector of numbers from \"from\" argument, to \"to\" argument, by steps defined in the \"by\" argument.\nrep: Repeats vector provided \"x\" a number of times defined by \"times\" argument."
+    "objectID": "projects/4-ev-power/slides.html#graph-1",
+    "href": "projects/4-ev-power/slides.html#graph-1",
+    "title": "EV Power Project",
+    "section": "Graph 1",
+    "text": "Graph 1\n\n\nSome problems with this one: outdated data, terrible/unclear color scheme, using data 2007-2017 but unclear of the metric (cumulative? average per year? etc), too many categories to be clear"
   },
   {
-    "objectID": "projects/1-index-cards/slides.html#vectorization",
-    "href": "projects/1-index-cards/slides.html#vectorization",
-    "title": "First Contact with R",
-    "section": "Vectorization",
-    "text": "Vectorization\n\nOperations on a single object also works on vectors.\n\n\nvec &lt;- c(72, 52, 10)\n\nvec / 2\n\n\n\n[1] 36 26  5\n\n\n\n\n\nvec * 3\n\n\n\n[1] 216 156  30\n\n\n\n\n\nvec - 6\n\n\n\n[1] 66 46  4"
+    "objectID": "projects/4-ev-power/slides.html#graph-2",
+    "href": "projects/4-ev-power/slides.html#graph-2",
+    "title": "EV Power Project",
+    "section": "Graph 2",
+    "text": "Graph 2\n\n\nLooks nicer but: Still problems with this one: outdated data, unreliable data source, strange bins of percentages"
   },
   {
-    "objectID": "projects/1-index-cards/slides.html#recycling",
-    "href": "projects/1-index-cards/slides.html#recycling",
-    "title": "First Contact with R",
-    "section": "Recycling",
-    "text": "Recycling\n\nOperations on two vectors of unequal length.\n\n\nvec1 &lt;- 1:10\nvec2 &lt;- c(1, 2)\n\nvec1 * vec2\n\n\n\n [1]  1  4  3  8  5 12  7 16  9 20\n\n\n\n\n\nvec3 &lt;- c(1, 2, 3)\n\nvec1 + vec3\n\n\n\n [1]  2  4  6  5  7  9  8 10 12 11"
+    "objectID": "projects/4-ev-power/slides.html#lets-try-it-ourseleves",
+    "href": "projects/4-ev-power/slides.html#lets-try-it-ourseleves",
+    "title": "EV Power Project",
+    "section": "Let’s Try it Ourseleves:",
+    "text": "Let’s Try it Ourseleves:\n\nDataset: Multiple tables covering U.S. electricity generation by source and average energy costs (2021–2023) from the US Energy Information Administration (EIA) and US Department of Energy\nGoal: Analyze the relationship between EV adoption and the cleanliness of each state’s energy mix to understand how “green” electric driving really is across the US using maps\nClient: The everyday consumer wanting to make informed, sustainable choices"
   },
   {
-    "objectID": "projects/1-index-cards/slides.html#lab-1-assignment",
-    "href": "projects/1-index-cards/slides.html#lab-1-assignment",
-    "title": "First Contact with R",
-    "section": "Lab 1 Assignment",
-    "text": "Lab 1 Assignment\n\n  \n    −\n    +\n \n 15:00\n \n\nWill be turned in physically.\nWritten responses. Please code along on your laptop.\n\nTwo Parts:\n\nShell\nR: Atomic Vectors, Vectorization, Recycling, Matrices, if statements, for loops.\n\nWork on selected problems.\n\nGive students 15 minutes to work on problems that you find important AND are in scope of lectures so far (nothing after 7)."
+    "objectID": "projects/4-ev-power/slides.html#defining-key-terms",
+    "href": "projects/4-ev-power/slides.html#defining-key-terms",
+    "title": "EV Power Project",
+    "section": "Defining Key Terms",
+    "text": "Defining Key Terms\nDirect emissions:\n\nGreenhouse gases released directly from a vehicle’s operation (exhaust from fuel combustion)\n\nClean energy:\n\nProduces little to no greenhouse gases (includes nuclear, hydro, wind, solar)\n\nRenewable energy:\n\nComes from naturally replenished sources like solar, wind, hydro, geothermal, biomass"
+  },
+  {
+    "objectID": "projects/4-ev-power/slides.html#data-sources",
+    "href": "projects/4-ev-power/slides.html#data-sources",
+    "title": "EV Power Project",
+    "section": "Data Sources",
+    "text": "Data Sources\n\n\nU.S. renewable energy use by state by year\n\nrenew_use_2021.csv\nrenew_use_2022.csv\nrenew_use_2023.csv\n\nAverage energy price by state by year\n\nav_energy_price_2021-2023.csv\n\n\nU.S. total energy use by state by year\n\ntotal_energy_use_2021.csv\ntotal_energy_use_2022.csv\ntotal_energy_use_2023.csv\n\nEV Registrations by state in 2023\n\nev-registrations-by_state_2023.csv"
+  },
+  {
+    "objectID": "projects/4-ev-power/slides.html#skill-for-this-project-string-manipulation",
+    "href": "projects/4-ev-power/slides.html#skill-for-this-project-string-manipulation",
+    "title": "EV Power Project",
+    "section": "Skill for this project: String Manipulation",
+    "text": "Skill for this project: String Manipulation\nPurpose: Clean and extract text patterns (like energy source names or units)\nCommon Regex Tools in R (using library {stringr}):\nstr_detect(string, pattern) → checks if a pattern exists\nstr_extract(string, pattern) → extracts the matching part\nstr_replace(string, pattern, replacement) → replaces text"
+  },
+  {
+    "objectID": "projects/4-ev-power/slides.html#skill-for-this-project-joining-tables",
+    "href": "projects/4-ev-power/slides.html#skill-for-this-project-joining-tables",
+    "title": "EV Power Project",
+    "section": "Skill for this project: Joining Tables",
+    "text": "Skill for this project: Joining Tables\nGoal: Combine datasets (for example: energy source + electricity cost + EV registration data)\nGiven left (X) table and right (Y) table\n\n\n\n\n\n\n\n\nJoin Type\nDescription\nResult\n\n\n\n\nleft_join()\nKeep all rows from the X table\nAll X + matching Y\n\n\nright_join()\nKeep all rows from the Y table\nAll Y + matching X\n\n\ninner_join()\nKeep only matching rows from both\nMatching only\n\n\nfull_join()\nKeep all rows from both tables\nAll data combined\n\n\nsemi_join()\nKeep rows from X that have matches in Y\nX (filtered)\n\n\nanti_join()\nKeep rows from X without matches in Y\nX (non-matching)"
+  },
+  {
+    "objectID": "projects/4-ev-power/slides.html#skill-for-this-project-pivots",
+    "href": "projects/4-ev-power/slides.html#skill-for-this-project-pivots",
+    "title": "EV Power Project",
+    "section": "Skill for this project: Pivots",
+    "text": "Skill for this project: Pivots\nIncluded in tidyr package\n\npivot_longer(data, cols, names_to, values_to)\npivot_wider(data, names_from, values_from)\n\nRefer to Tidyverse Documentation of Pivot for more information"
+  },
+  {
+    "objectID": "projects/4-ev-power/slides.html#skill-for-this-project-basic-mapping",
+    "href": "projects/4-ev-power/slides.html#skill-for-this-project-basic-mapping",
+    "title": "EV Power Project",
+    "section": "Skill for this project: Basic Mapping",
+    "text": "Skill for this project: Basic Mapping\nGoal: Visualize state-level metrics (like renewable share or EV ratio)\nLibraries: {maps}, {sf}, {ggplot2}\nChoropleth Maps\nMap where areas (like states) are colored based on a number.\n\nDarker or brighter colors usually mean higher numbers.\nLighter colors usually mean lower numbers.\nExample uses: population by state, election results, or renewable energy share."
+  },
+  {
+    "objectID": "projects/4-ev-power/slides.html#basic-example-of-syntax",
+    "href": "projects/4-ev-power/slides.html#basic-example-of-syntax",
+    "title": "EV Power Project",
+    "section": "Basic example of syntax:",
+    "text": "Basic example of syntax:\n\nlibrary(sf)\nlibrary(rnaturalearth)\nlibrary(dplyr)\nlibrary(ggplot2)\n\n# Get U.S. states as sf object\nus_states &lt;- ne_states(country = \"united states of america\", returnclass = \"sf\")"
+  },
+  {
+    "objectID": "projects/4-ev-power/slides.html#section",
+    "href": "projects/4-ev-power/slides.html#section",
+    "title": "EV Power Project",
+    "section": "",
+    "text": "# loading example data\npop_data &lt;- data.frame(\n  name = c(\"California\", \"Texas\", \"New York\", \"Florida\"),\n  population_millions = c(39, 30, 20, 22)\n)\n# Join the data by state name\nus_joined &lt;- us_states |&gt;\n  left_join(pop_data, by = \"name\")\n# Plot and color by population\nggplot(us_joined) +\n  geom_sf(aes(fill = population_millions), color = \"white\") +\n  scale_fill_continuous(name = \"Population (millions)\", na.value = \"grey90\") +\n  labs(title = \"Example: Coloring U.S. States by Population\") +\n  coord_sf(xlim = c(-125, -66), ylim = c(24, 50), expand = FALSE) +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\nWe add data with geom_sf() to color states by metric."
+  },
+  {
+    "objectID": "projects/4-ev-power/slides.html#interactive-maps---leaflet",
+    "href": "projects/4-ev-power/slides.html#interactive-maps---leaflet",
+    "title": "EV Power Project",
+    "section": "Interactive Maps - leaflet",
+    "text": "Interactive Maps - leaflet\nR package for creating interactive maps\n\n\nAdd base maps (e.g., OpenStreetMap, CartoDB)\n\nOverlay markers, polygons, and popups\n\nUse color palettes to represent data values\n\nFully interactive and embeddable in Shiny apps or Quarto documents"
+  },
+  {
+    "objectID": "projects/4-ev-power/slides.html#section-1",
+    "href": "projects/4-ev-power/slides.html#section-1",
+    "title": "EV Power Project",
+    "section": "",
+    "text": "library(leaflet)\n\nleaflet() |&gt;\n  addTiles() |&gt;\n  addMarkers(lng = -122.259, lat = 37.872, popup = \"UC Berkeley\")"
+  },
+  {
+    "objectID": "projects/4-ev-power/slides.html#putting-everything-together",
+    "href": "projects/4-ev-power/slides.html#putting-everything-together",
+    "title": "EV Power Project",
+    "section": "Putting everything together:",
+    "text": "Putting everything together:\nWorkflow :\n\nClean and extract relevant info with regex\n\nMerge datasets using appropriate table methods\n\nVisualize patterns geographically with maps\n\nPresent findings in a report PDF (or, optionally, a Quarto dashboard)\n\nDeliverable :\nA clear report PDF answering:\n\n“How renewable is the electricity powering EVs across the U.S.?”"
+  },
+  {
+    "objectID": "projects/4-ev-power/slides.html#lab-review-worksheet",
+    "href": "projects/4-ev-power/slides.html#lab-review-worksheet",
+    "title": "EV Power Project",
+    "section": "Lab Review Worksheet",
+    "text": "Lab Review Worksheet\n\n  \n    −\n    +\n \n 30:00\n \nGroup work to review essential material. To get started, visit the ed post with the links to EV Power Project repositories. Accept your assignment, clone the repository, and find worksheet.qmd."
+  },
+  {
+    "objectID": "projects/4-ev-power/slides.html#project-work-time",
+    "href": "projects/4-ev-power/slides.html#project-work-time",
+    "title": "EV Power Project",
+    "section": "Project Work Time",
+    "text": "Project Work Time\n\n  \n    −\n    +\n \n 30:00\n \nGet started on the project and feel free to ask questions."
   },
   {
     "objectID": "office-hours.html",
@@ -231,270 +358,137 @@
     "text": "Labs\nComing soon!"
   },
   {
-    "objectID": "04-atomic-vectors/slides.html#section",
-    "href": "04-atomic-vectors/slides.html#section",
+    "objectID": "04-atomic-vectors/notes.html",
+    "href": "04-atomic-vectors/notes.html",
     "title": "Atomic Vectors",
     "section": "",
-    "text": "Last Time\n\nR evaluates expressions like a calculator.\nFunctions take arguments and can have defaults.\nValues can be saved as objects in the environment.\nAn R session, like the shell, has a working directory.\nWarnings vs. errors.\n\n\nKey Ideas for Today\n\nAn atomic vector holds elements of a single type.\nSpecial values mark data that is missing or undefined.\nOperations are vectorized and vectors are recycled.\nMixing types triggers coercion.\nElements are pulled out by subsetting.\n\n\n\nConcept Acquisition\n\nAn atomic vector is an ordered collection of elements of the same type.\nThe four common types: logical, integer, double, character.\nNULL, NA, NaN, and Inf behave differently from one another.\nVectorization and vector recycling.\nImplicit coercion follows a hierarchy; explicit coercion is done by hand.\nSubsetting by index, by name, and by logical.\n\nTool Acquisition\n\nc(), typeof(), length().\n:, seq(), rep().\nna.rm = TRUE.\nas.double() and friends.\nvec[...].\n\nConcept Application\n\nPredict the type of a vector built from mixed inputs.\nWrite the shortest command that generates a given vector.\nPredict the result of arithmetic on vectors of unequal length.\nExtract a subset of elements three different ways."
+    "text": "R’s principle data structure to an ordered collection of elements of the same type. Created with the c() function.\n\ndbl_vec &lt;- c(3, 5, 1.2)\ndbl_vec\n\n[1] 3.0 5.0 1.2\n\nint_vec &lt;- c(3L, 5L, 1L)\nint_vec\n\n[1] 3 5 1\n\nchar_vec &lt;- c(\"cat\", \"dog\", \"dingo\")\nchar_vec\n\n[1] \"cat\"   \"dog\"   \"dingo\"\n\nlog_vec &lt;- c(TRUE, TRUE, FALSE)\nlog_vec\n\n[1]  TRUE  TRUE FALSE"
   },
   {
-    "objectID": "04-atomic-vectors/slides.html#atomic-vectors-1",
-    "href": "04-atomic-vectors/slides.html#atomic-vectors-1",
-    "title": "Atomic Vectors",
-    "section": "Atomic Vectors",
-    "text": "Atomic Vectors\n\n\nAtomic Vector\n\n\nR’s principal data structure: an ordered collection of elements of the same type. Created with the c() function (for combine).\n\n\n\nDraw a row of boxes on the board — an ordered sequence of cells, each holding one element. Emphasize ordered (position matters) and same type (no mixing)."
-  },
-  {
-    "objectID": "04-atomic-vectors/slides.html#the-four-common-types",
-    "href": "04-atomic-vectors/slides.html#the-four-common-types",
-    "title": "Atomic Vectors",
-    "section": "The four common types",
-    "text": "The four common types\ndbl_vec  &lt;- c(3, 5, 1.2)\nint_vec  &lt;- c(3L, 5L, 1L)\nchar_vec &lt;- c(\"cat\", \"dog\", \"dingo\")\nlog_vec  &lt;- c(TRUE, TRUE, FALSE)\n\n\n\n\nType\nLooks like\nNote\n\n\n\n\ndouble\n3, 1.2\nR’s default for numbers\n\n\ninteger\n3L\nthe L suffix is required\n\n\ncharacter\n\"dog\"\nquotes required\n\n\nlogical\nTRUE, FALSE\nalso T / F, but spell them out\n\n\n\n\nLive-code each assignment, then call the object on its own to print it. Point out the [1] index marker at the start of the printed line. Ask why c(3, 5, 1.2) is a double and not an integer — because 3 without the L is a double."
-  },
-  {
-    "objectID": "04-atomic-vectors/slides.html#inspecting-vectors",
-    "href": "04-atomic-vectors/slides.html#inspecting-vectors",
-    "title": "Atomic Vectors",
-    "section": "Inspecting vectors",
-    "text": "Inspecting vectors\ntypeof() returns the type of the vector.\nlength() returns the number of elements.\n\ntypeof(char_vec)\ntypeof(log_vec)\ntypeof(dbl_vec)\ntypeof(int_vec)\n\nlength(char_vec)\nlength(dbl_vec)\n\nThese two functions answer the two questions you can ask of any atomic vector: what’s in it? and how many? Run typeof() on all four and read the answers out loud — note \"double\" not \"numeric\"."
-  },
-  {
-    "objectID": "04-atomic-vectors/slides.html#guess-the-metaphor",
-    "href": "04-atomic-vectors/slides.html#guess-the-metaphor",
-    "title": "Atomic Vectors",
-    "section": "Guess the metaphor",
-    "text": "Guess the metaphor\n\n\nAn atomic vector is like a vineyard, an ordered, 1D set of things of the same type (grapes)."
-  },
-  {
-    "objectID": "04-atomic-vectors/slides.html#three-shortcuts",
-    "href": "04-atomic-vectors/slides.html#three-shortcuts",
-    "title": "Atomic Vectors",
-    "section": "Three shortcuts",
-    "text": "Three shortcuts\n: creates a sequence from the left number to the right, stepping by 1.\nseq() creates a sequence from a number to a number by an interval.\nrep() replicates a vector times times.\n\n4:8\nseq(from = 1, to = 3, by = .1)\nseq(1, 3, .1)\nrep(1:3, times = 2)\n\nConnect back to the last lecture: seq(1, 3, .1) and seq(from = 1, to = 3, by = .1) are the same call, one by position and one by name. Pull up ?seq and ?rep to show there are more arguments than we’re using (length.out, each) — a hook for the problem set."
-  },
-  {
-    "objectID": "04-atomic-vectors/slides.html#your-turn",
-    "href": "04-atomic-vectors/slides.html#your-turn",
-    "title": "Atomic Vectors",
-    "section": "Your turn",
-    "text": "Your turn\nWhat three commands will generate the following vectors?\n[1] 5.0 5.5 6.0 6.5 7.0\n[1]  2  1  0 -1 -2\n[1] \"cat\"   \"dog\"   \"dingo\" \"cat\"   \"dog\"   \"dingo\"\n\n  \n    −\n    +\n \n 01:00\n \n\nThe middle one is the interesting case: by must be negative to count down. seq(from = 2, to = -2, by = 1) errors — a good moment to read the error message together."
-  },
-  {
-    "objectID": "04-atomic-vectors/slides.html#solutions",
-    "href": "04-atomic-vectors/slides.html#solutions",
-    "title": "Atomic Vectors",
-    "section": "Solutions",
-    "text": "Solutions\nseq(from = 5, to = 7, by = .5)\nseq(from = 2, to = -2, by = -1)\n2:-2        # also works!\nrep(char_vec, times = 2)\n\nNote that the third answer reuses an object we already made rather than retyping the strings — that’s the point of saving objects."
-  },
-  {
-    "objectID": "04-atomic-vectors/slides.html#four-values-that-arent-ordinary-data",
-    "href": "04-atomic-vectors/slides.html#four-values-that-arent-ordinary-data",
-    "title": "Atomic Vectors",
-    "section": "Four values that aren’t ordinary data",
-    "text": "Four values that aren’t ordinary data\n\n\n\nValue\nMeaning\n\n\n\n\nNULL\ndoes not exist\n\n\nNA\nnot available / missing\n\n\nNaN\nnot a number (e.g. 0/0)\n\n\nInf\ninfinity (e.g. 1/0)\n\n\n\n\nNA is the one you’ll meet constantly in real data. NULL is the odd one: it is the absence of a value, so it takes up no room in a vector. Demonstrate on the board by drawing the row of boxes for c(NA, NULL, 1) — two boxes, not three."
-  },
-  {
-    "objectID": "04-atomic-vectors/slides.html#missing-values-are-contagious",
-    "href": "04-atomic-vectors/slides.html#missing-values-are-contagious",
-    "title": "Atomic Vectors",
-    "section": "Missing values are contagious",
-    "text": "Missing values are contagious\nc(NA, NULL, 1)\nmean(c(NA, NULL, 1))\nmean(c(NA, NULL, 1), na.rm = TRUE)\n\nAsk what length(c(NA, NULL, 1)) will be before running it. Then: why is the mean NA? Because the mean of a set that includes an unknown value is itself unknown — R is being careful, not broken. na.rm = TRUE tells R to drop the missing values first. Stress that this is a choice you are making about your data, not a bug fix."
-  },
-  {
-    "objectID": "04-atomic-vectors/slides.html#your-turn-1",
-    "href": "04-atomic-vectors/slides.html#your-turn-1",
-    "title": "Atomic Vectors",
-    "section": "Your Turn",
-    "text": "Your Turn\nWhat will these return?\nc(1, 2, 3) + c(2, 3, 4)\nc(1, 2, 3) + c(2, 3)\nc(1, \"dog\", TRUE)\n\n  \n    −\n    +\n \n 01:00\n \n\nPoll the room on each line before running it. All three surprise people in different ways, and each one motivates a concept on the next slides: vectorization, recycling, and coercion."
-  },
-  {
-    "objectID": "04-atomic-vectors/slides.html#vectorization-and-recycling",
-    "href": "04-atomic-vectors/slides.html#vectorization-and-recycling",
-    "title": "Atomic Vectors",
-    "section": "Vectorization and recycling",
-    "text": "Vectorization and recycling\n\n\nVectorization\n\n\nOperations and functions that run on an entire vector at once, element by element.\n\n\n\n\n\nVector Recycling\n\n\nIf an operation needs a longer vector than provided, R reuses the existing elements, in order, from the beginning."
-  },
-  {
-    "objectID": "04-atomic-vectors/slides.html#vectorization-and-recycling-1",
-    "href": "04-atomic-vectors/slides.html#vectorization-and-recycling-1",
-    "title": "Atomic Vectors",
-    "section": "Vectorization and recycling",
-    "text": "Vectorization and recycling\nlog(c(2, 6, 1))\nc(1, 2, 3) + c(2, 3, 4)\nc(1, 2, 3) + c(2, 3)\n\nOn the board, write the two vectors next to one another and draw the element-wise pairing. For the recycled case, write the shorter vector out again underneath — 2, 3, 2 — so students see where the third element came from. Note that R warns here because 3 isn’t a multiple of 2; when it is a multiple you get no warning at all, which is what makes recycling dangerous.\nIn most other languages, adding two collections requires writing a loop. Vectorization is a defining feature of R."
-  },
-  {
-    "objectID": "04-atomic-vectors/slides.html#type-coercion",
-    "href": "04-atomic-vectors/slides.html#type-coercion",
-    "title": "Atomic Vectors",
-    "section": "Type coercion",
-    "text": "Type coercion\n\n\nImplicit Coercion\n\n\nWhen you mix types, R converts them all to a single type so the vector stays atomic. It follows a hierarchy, always moving up:\n\n\n\nAnnotate slide with:\nlogical &lt; integer &lt; double &lt; character\nWrite the hierarchy on the board as an arrow. The rule: R picks the least-general type that can hold everything. c(1, \"dog\", TRUE) must go all the way up to character because only character can represent all three."
-  },
-  {
-    "objectID": "04-atomic-vectors/slides.html#implicit-coercion",
-    "href": "04-atomic-vectors/slides.html#implicit-coercion",
-    "title": "Atomic Vectors",
-    "section": "Implicit coercion",
-    "text": "Implicit coercion\nc(1, \"dog\", TRUE)\nc(TRUE, FALSE, 3)\nmean(c(TRUE, FALSE, FALSE))\n\nThe last line is worth dwelling on: TRUE becomes 1 and FALSE becomes 0, so the mean of a logical vector is the proportion of TRUEs. That’s a trick we’ll use over and over once we start filtering data."
-  },
-  {
-    "objectID": "04-atomic-vectors/slides.html#explicit-coercion",
-    "href": "04-atomic-vectors/slides.html#explicit-coercion",
-    "title": "Atomic Vectors",
-    "section": "Explicit coercion",
-    "text": "Explicit coercion\nas.___(x) converts x to the type ___.\n\ndistances &lt;- c(\"2800\", \"450\", \"10\")\ndistances\nmean(distances)\n\ndistances &lt;- as.double(distances)\ndistances\nmean(distances)\n\nThis isthe bug from last lecture. readLines() gives us character data; mean() on characters returns NA with a warning. Point out the quotes disappearing in the printed output after coercion.\nAsk what as.double(\"dog\") returns. NA, with a warning. Coercion that can’t succeed produces missing values, so always check afterward."
-  },
-  {
-    "objectID": "04-atomic-vectors/slides.html#subsetting-by-index",
-    "href": "04-atomic-vectors/slides.html#subsetting-by-index",
-    "title": "Atomic Vectors",
-    "section": "Subsetting by index",
-    "text": "Subsetting by index\nvec[index]\n\nchar_vec\nchar_vec[2]\nchar_vec[2:3]\nchar_vec[rep(3, 10)]\n\nAnnotate the anatomy on the board: the vector, the square bracket, and inside it another numeric vector of positions. That last point is the key insight — the thing inside the brackets is itself a vector, which is why 2:3 and rep(3, 10) both work.\nR indexes from 1, unlike Python and most other languages.\nThe rep(3, 10) example shows the result can be longer than the original."
-  },
-  {
-    "objectID": "04-atomic-vectors/slides.html#subsetting-by-name",
-    "href": "04-atomic-vectors/slides.html#subsetting-by-name",
-    "title": "Atomic Vectors",
-    "section": "Subsetting by name",
-    "text": "Subsetting by name\nnamed_char_vec &lt;- c(\"thrash\" = \"cat\",\n                    \"buzz\" = \"dog\",\n                    \"poppy\" = \"dingo\")\nnamed_char_vec\nnamed_char_vec[\"buzz\"]\nnamed_char_vec[rep(\"poppy\", 10)]\n\nNames are an attribute attached to a vector; note how printing changes to show a header row of names. The same pattern holds: whatever is inside the brackets is a vector, here a character vector."
-  },
-  {
-    "objectID": "04-atomic-vectors/slides.html#subsetting-by-logicals",
-    "href": "04-atomic-vectors/slides.html#subsetting-by-logicals",
-    "title": "Atomic Vectors",
-    "section": "Subsetting by logicals",
-    "text": "Subsetting by logicals\nnamed_char_vec[c(TRUE, FALSE, TRUE)]\n\nThe logical vector acts as a mask, one entry per element: keep, drop, keep. This is the least intuitive of the three but by far the most useful — next lecture we’ll generate those logicals from comparisons instead of typing them out, and that’s how filtering works.\nIf time permits, ask what happens when the logical vector is shorter than the vector being subset. Recycling, again."
-  },
-  {
-    "objectID": "04-atomic-vectors/slides.html#section-1",
-    "href": "04-atomic-vectors/slides.html#section-1",
+    "objectID": "04-atomic-vectors/notes.html#atomic-vectors",
+    "href": "04-atomic-vectors/notes.html#atomic-vectors",
     "title": "Atomic Vectors",
     "section": "",
-    "text": "Key Ideas for Today\n\nAn atomic vector holds elements of a single type.\nSpecial values mark data that is missing or undefined.\nOperations are vectorized and vectors are recycled.\nMixing types triggers coercion.\nElements are pulled out by subsetting.\n\n\n\nFor Next Time\n\nWork through the atomic vectors questions on PS 1.\nRead Advanced R, Ch. 3.1 - 3.2.\nRead R Coding Basics, Ch. 2–3."
+    "text": "R’s principle data structure to an ordered collection of elements of the same type. Created with the c() function.\n\ndbl_vec &lt;- c(3, 5, 1.2)\ndbl_vec\n\n[1] 3.0 5.0 1.2\n\nint_vec &lt;- c(3L, 5L, 1L)\nint_vec\n\n[1] 3 5 1\n\nchar_vec &lt;- c(\"cat\", \"dog\", \"dingo\")\nchar_vec\n\n[1] \"cat\"   \"dog\"   \"dingo\"\n\nlog_vec &lt;- c(TRUE, TRUE, FALSE)\nlog_vec\n\n[1]  TRUE  TRUE FALSE"
   },
   {
-    "objectID": "03-intro-to-r/slides.html#section",
-    "href": "03-intro-to-r/slides.html#section",
+    "objectID": "04-atomic-vectors/notes.html#inspecting-vectors",
+    "href": "04-atomic-vectors/notes.html#inspecting-vectors",
+    "title": "Atomic Vectors",
+    "section": "Inspecting Vectors",
+    "text": "Inspecting Vectors\ntypeof(): returns the type of the vector length(): returns the number of elements in the vector\n\ntypeof(char_vec)\n\n[1] \"character\"\n\ntypeof(log_vec)\n\n[1] \"logical\"\n\ntypeof(dbl_vec)\n\n[1] \"double\"\n\ntypeof(int_vec)\n\n[1] \"integer\"\n\nlength(char_vec)\n\n[1] 3\n\nlength(log_vec)\n\n[1] 3\n\nlength(dbl_vec)\n\n[1] 3\n\nlength(int_vec)\n\n[1] 3"
+  },
+  {
+    "objectID": "04-atomic-vectors/notes.html#creating-numeric-vectors-quickly",
+    "href": "04-atomic-vectors/notes.html#creating-numeric-vectors-quickly",
+    "title": "Atomic Vectors",
+    "section": "Creating numeric vectors (quickly)",
+    "text": "Creating numeric vectors (quickly)\n:: create a sequence from the left to the right number, separated by 1.\nseq(): creates a sequence from a number to a number by and interval.\nrep(): replicates a vector times times.\n\n4:8\n\n[1] 4 5 6 7 8\n\nseq(from = 1, to = 3, by = .1)\n\n [1] 1.0 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 1.9 2.0 2.1 2.2 2.3 2.4 2.5 2.6 2.7 2.8\n[20] 2.9 3.0\n\nseq(1, 3, .1)\n\n [1] 1.0 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 1.9 2.0 2.1 2.2 2.3 2.4 2.5 2.6 2.7 2.8\n[20] 2.9 3.0\n\nrep(1:3, times = 2)\n\n[1] 1 2 3 1 2 3\n\n# What three commands will generate the following vectors?\n# [1] 5.0 5.5 6.0 6.5 7.0\n# [1]  2  1  0 -1 -2\n# [1] \"cat\"   \"dog\"   \"dingo\" \"cat\"   \"dog\"   \"dingo\"\n\n\nseq(from = 5, to = 7, by = .5)\n\n[1] 5.0 5.5 6.0 6.5 7.0\n\nseq(from = 2, to = -2, by = -1)\n\n[1]  2  1  0 -1 -2\n\n2:-2 # also works!\n\n[1]  2  1  0 -1 -2\n\nrep(char_vec, times = 2)\n\n[1] \"cat\"   \"dog\"   \"dingo\" \"cat\"   \"dog\"   \"dingo\""
+  },
+  {
+    "objectID": "04-atomic-vectors/notes.html#special-values",
+    "href": "04-atomic-vectors/notes.html#special-values",
+    "title": "Atomic Vectors",
+    "section": "Special values",
+    "text": "Special values\nNULL: does not exist NA: not available / missing NaN: not a number (dividing by zero) Inf: infinity\n\nc(NA, NULL, 1)\n\n[1] NA  1\n\nmean(c(NA, NULL, 1))\n\n[1] NA\n\nmean(c(NA, NULL, 1), na.rm = TRUE)\n\n[1] 1"
+  },
+  {
+    "objectID": "04-atomic-vectors/notes.html#what-will-the-following-lines-return",
+    "href": "04-atomic-vectors/notes.html#what-will-the-following-lines-return",
+    "title": "Atomic Vectors",
+    "section": "What will the following lines return?",
+    "text": "What will the following lines return?\n\n# What do each of the following 3 lines of code return?\n# c(1, 2, 3) + c(2, 3, 4)\n# c(1, 2, 3) + c(2, 3)\n# c(1, \"dog\", TRUE)\n\nc(1, 2, 3) + c(2, 3, 4)\n\n[1] 3 5 7\n\nc(1, 2, 3) + c(2, 3)\n\nWarning in c(1, 2, 3) + c(2, 3): longer object length is not a multiple of\nshorter object length\n\n\n[1] 3 5 5\n\nc(1, \"dog\", TRUE)\n\n[1] \"1\"    \"dog\"  \"TRUE\""
+  },
+  {
+    "objectID": "04-atomic-vectors/notes.html#behavior-of-vectors",
+    "href": "04-atomic-vectors/notes.html#behavior-of-vectors",
+    "title": "Atomic Vectors",
+    "section": "Behavior of Vectors",
+    "text": "Behavior of Vectors\nVectorization: Operations and functions that can run on an entire vector at once.\nVector Recycling: If a function requires a longer vector than provided, it will fill with the existing elements, in order.\n\nc(2, 6, 1)^2\n\n[1]  4 36  1"
+  },
+  {
+    "objectID": "04-atomic-vectors/notes.html#type-coersion",
+    "href": "04-atomic-vectors/notes.html#type-coersion",
+    "title": "Atomic Vectors",
+    "section": "Type Coersion",
+    "text": "Type Coersion\nImplicit Coersion: Conversion of data types to ensure atomic vectors according to a hierarchy.\nLogical &lt; Integer &lt; Double &lt; Character\n\nc(TRUE, FALSE, 3)\n\n[1] 1 0 3\n\nmean(c(TRUE, FALSE, FALSE))\n\n[1] 0.3333333\n\n\nNote: logical vectors can be coerced to integers for mathematical operations\nExplicit Coersion\nas.__(x): sets x to be of type ___\n\ndistances &lt;- c(\"2800\", \"450\", \"10\")\ndistances\n\n[1] \"2800\" \"450\"  \"10\"  \n\nmean(distances)\n\nWarning in mean.default(distances): argument is not numeric or logical:\nreturning NA\n\n\n[1] NA\n\ndistances &lt;- as.double(distances)\ndistances\n\n[1] 2800  450   10\n\nmean(distances)\n\n[1] 1086.667"
+  },
+  {
+    "objectID": "04-atomic-vectors/notes.html#subsetting-by-index",
+    "href": "04-atomic-vectors/notes.html#subsetting-by-index",
+    "title": "Atomic Vectors",
+    "section": "Subsetting by Index",
+    "text": "Subsetting by Index\nvec[index]\nAnnotate with vec being “vector”, “square bracket”, and “numeric vector”\n\nchar_vec\n\n[1] \"cat\"   \"dog\"   \"dingo\"\n\nchar_vec[2]\n\n[1] \"dog\"\n\nchar_vec[2:3]\n\n[1] \"dog\"   \"dingo\"\n\nchar_vec[rep(3, 10)]\n\n [1] \"dingo\" \"dingo\" \"dingo\" \"dingo\" \"dingo\" \"dingo\" \"dingo\" \"dingo\" \"dingo\"\n[10] \"dingo\""
+  },
+  {
+    "objectID": "04-atomic-vectors/notes.html#subsetting-by-name",
+    "href": "04-atomic-vectors/notes.html#subsetting-by-name",
+    "title": "Atomic Vectors",
+    "section": "Subsetting by Name",
+    "text": "Subsetting by Name\n\nnamed_char_vec &lt;- c(\"thrash\" = \"cat\", \"buzz\" = \"dog\", \"poppy\" = \"dingo\")\nnamed_char_vec\n\n thrash    buzz   poppy \n  \"cat\"   \"dog\" \"dingo\" \n\nnamed_char_vec[\"buzz\"]\n\n buzz \n\"dog\" \n\nnamed_char_vec[rep(\"poppy\", 10)]\n\n  poppy   poppy   poppy   poppy   poppy   poppy   poppy   poppy   poppy   poppy \n\"dingo\" \"dingo\" \"dingo\" \"dingo\" \"dingo\" \"dingo\" \"dingo\" \"dingo\" \"dingo\" \"dingo\""
+  },
+  {
+    "objectID": "04-atomic-vectors/notes.html#subsetting-by-logicals",
+    "href": "04-atomic-vectors/notes.html#subsetting-by-logicals",
+    "title": "Atomic Vectors",
+    "section": "Subsetting by Logicals",
+    "text": "Subsetting by Logicals\n\nnamed_char_vec[c(TRUE, FALSE, TRUE)]\n\n thrash   poppy \n  \"cat\" \"dingo\""
+  },
+  {
+    "objectID": "04-atomic-vectors/notes.html#references",
+    "href": "04-atomic-vectors/notes.html#references",
+    "title": "Atomic Vectors",
+    "section": "References",
+    "text": "References\n\nAdvanced R, Chapter 3: Vectors\nR Coding Basics, Chapter 2: Properties of Vectors\nR Coding Basics, Chapter 3: Creating Vectors"
+  },
+  {
+    "objectID": "03-intro-to-r/notes.html",
+    "href": "03-intro-to-r/notes.html",
     "title": "Intro to R",
     "section": "",
-    "text": "Last Time\n\nData is stored on a computer disk in files.\nFiles are stored in directories.\nFiles and directories can be structured using a tree.\nEach file’s location is defined by its path.\nA UNIX shell is used to modify the file system.\n\n\nKey Ideas for Today\n\nR evaluates expressions like a calculator.\nFunctions take arguments and can have defaults.\nValues can be saved as objects in the environment.\nAn R session, like the shell, has a working directory.\nWarnings vs. errors.\n\n\n\nConcept Acquisition\n\nR evaluates expressions, like a calculator.\nFunctions take arguments (by position or by name) and can have defaults.\nValues can be saved as objects in the environment.\nAn R session, like the shell, has a working directory.\nWarnings vs. errors.\n\nTool Acquisition\n\nArithmetic and sqrt(), log().\n&lt;- for assignment; ? for help.\ngetwd(), list.files(), setwd(), readLines().\nas.numeric(), mean(), sd(), summary().\n\nConcept Application\n\nPredict the output of a chain of assignments and arithmetic.\nCall a function using arguments by position and by name.\nNavigate the file system from within R and read a file’s contents.\nConvert character data to numeric and summarize it.\n\nThis lecture is live-coded. Bring up the R console with the drop plugin (press `) and use the chalkboard to annotate."
+    "text": "*Annotate file system tree with a square labelled “shell” and another labelled “R”.\n\nBoth have the concept of a working directory that you can change.\nNow let’s live code."
   },
   {
-    "objectID": "03-intro-to-r/slides.html#shell-command-options",
-    "href": "03-intro-to-r/slides.html#shell-command-options",
-    "title": "Intro to R",
-    "section": "Shell Command Options",
-    "text": "Shell Command Options\nIn addition to path arguments, shell commands have options that change the way they work.\n\nA few ls options:\n\n\n\nOption\nMeaning\n\n\n\n\n-l\nLong format (permissions, owner, size, date)\n\n\n-h\nHuman-readable sizes (e.g. 4.0K), used with -l\n\n\n-R\nRecurse into subdirectories\n\n\n\n\nStart this slide by asking: we learned four key shell commands last time, what were they? And add them to the slide via annotation.\nAfter showing the options, demo them on datahub in the data in trees repo."
-  },
-  {
-    "objectID": "03-intro-to-r/slides.html#section-1",
-    "href": "03-intro-to-r/slides.html#section-1",
+    "objectID": "03-intro-to-r/notes.html#r-on-the-file-system",
+    "href": "03-intro-to-r/notes.html#r-on-the-file-system",
     "title": "Intro to R",
     "section": "",
-    "text": "Click through these to demonstrate how to"
+    "text": "*Annotate file system tree with a square labelled “shell” and another labelled “R”.\n\nBoth have the concept of a working directory that you can change.\nNow let’s live code."
   },
   {
-    "objectID": "03-intro-to-r/slides.html#r-is-a-calculator",
-    "href": "03-intro-to-r/slides.html#r-is-a-calculator",
+    "objectID": "03-intro-to-r/notes.html#r-on-the-file-system-1",
+    "href": "03-intro-to-r/notes.html#r-on-the-file-system-1",
     "title": "Intro to R",
-    "section": "R is a calculator",
-    "text": "R is a calculator\nStart R via the command line using\nR\nAnd exit it by running q().\n\nExamples of calculations:\n3 + 6\n3 * 6\nsqrt(9)\n\nStart off by starting R at the command line on JupyterHub. In time, transition over to the drop console (`) and type these live. Point out that R prints the result of each expression."
+    "section": "R on the file system",
+    "text": "R on the file system\n# Where am I?\ngetwd()\n\n# What's around me?\nls() # this doesn't do what you think it does\nlist.files()\n\n# Let's change that\nsetwd(\"data-in-trees/stats/three\")\n\n# Let's look at files\ncat(\"108.txt\") # this doesn't do what you think it does\n# Ask Gemini for the name of the function\n# bring up AI policy from syllabus\nreadLines(\"108.txt\")\n# Ask Gemini about warning\n\n## Def: Warning ##\n\n# let's move our \"working directory\"\nsetwd(\"../../non-stats\")\nreadLines(\"../stats/thee/108.txt\") # make a typo! to show an error message\n## Def: Error ##"
   },
   {
-    "objectID": "03-intro-to-r/slides.html#structure-of-an-r-function",
-    "href": "03-intro-to-r/slides.html#structure-of-an-r-function",
+    "objectID": "03-intro-to-r/notes.html#whats-the-distribution-of-distances",
+    "href": "03-intro-to-r/notes.html#whats-the-distribution-of-distances",
     "title": "Intro to R",
-    "section": "Structure of an R function",
-    "text": "Structure of an R function\n\n\nFunction\n\n\nA named procedure that takes arguments (inputs) and returns a value. Arguments can be supplied by position or by name, and some have default values.\n\n\n\nLive-code the one at a time. Draw out the anatomy on the chalkboard: function name, then arguments inside ().\n\nlog(10) uses the default base e.\nNaming an argument (base = 10) is unambiguous.\nBy position, the second argument is base, so log(10, 5) and log(5, 10) differ.\nWhen you name every argument, order stops mattering: log(base = 5, x = 10).\nYou can learn more about the function by pulling up it’s help file with ?\n\nlog(10)\nlog(10, base = 10)\n?log\nlog(10, base = 5)\nlog(10, 5)\nlog(5, 10)\nlog(base = 5, x = 10)"
+    "section": "What’s the distribution of distances",
+    "text": "What’s the distribution of distances\nreadLines(\"combined_output.txt\")\ndistances &lt;- readLines(\"combined_output.txt\")\n\nmean(distances) # whoops, took a mean of characters\n\ndistances &lt;- as.numeric(distances) # convert to numbers\nmean(distances)\nsd(distances)\nsummary(distances)\ngetwd() # like pwd\nlist.files() # like ls\nsetwd() # like cd\nreadLines() # like cat"
   },
   {
-    "objectID": "03-intro-to-r/slides.html#structure-of-an-r-function-1",
-    "href": "03-intro-to-r/slides.html#structure-of-an-r-function-1",
+    "objectID": "03-intro-to-r/notes.html#r-on-the-file-system-2",
+    "href": "03-intro-to-r/notes.html#r-on-the-file-system-2",
     "title": "Intro to R",
-    "section": "Structure of an R function",
-    "text": "Structure of an R function\n\nlog(10)\nlog(10, base = 10)\n?log\nlog(10, 5)\nlog(5, 10)\nlog(base = 5, x = 10)"
+    "section": "R on the file system",
+    "text": "R on the file system\n# Where am I?\ngetwd()\n\n# What's around me?\nls() # this doesn't do what I think it does\nlist.files()\n\n## Tree diagram and working direcory ##\nsystem(\"tree .\")\n\n# Let's change that\nsetwd(\"data-in-trees/stats/three\")\n\n# Let's look at files\ncat(\"108.txt\") # this doesn't do what you think it does?\n# Ask Gemini for the name of the function\n# bring up AI policy from syllabus\nreadLines(\"108.txt\")\n# Ask Gemini about warning\n\n## Def: Warning ##\n\n# let's move our \"working directory\"\nsetwd(\"../../non-stats\")\nreadLines(\"../stats/thee/108.txt\") # make a typo! to show an error message\n## Def: Error ##"
   },
   {
-    "objectID": "03-intro-to-r/slides.html#creating-objects",
-    "href": "03-intro-to-r/slides.html#creating-objects",
+    "objectID": "03-intro-to-r/notes.html#whats-the-distribution-of-distances-1",
+    "href": "03-intro-to-r/notes.html#whats-the-distribution-of-distances-1",
     "title": "Intro to R",
-    "section": "Creating objects",
-    "text": "Creating objects\n\n\nObject\n\n\nA value saved into your environment under a name, using the assignment arrow &lt;-. Calling the name on its own prints the value."
+    "section": "What’s the distribution of distances",
+    "text": "What’s the distribution of distances\nreadLines(\"combined_output.txt\")\ndistances &lt;- readLines(\"combined_output.txt\")\n\nmean(distances)\n\ndistances &lt;- as.numeric(distances)\nmean(distances)\nsd(distances)\nsummary(distances)"
   },
   {
-    "objectID": "03-intro-to-r/slides.html#creating-objects-1",
-    "href": "03-intro-to-r/slides.html#creating-objects-1",
-    "title": "Intro to R",
-    "section": "Creating objects",
-    "text": "Creating objects\na &lt;- 3 + 5      # save the result into an object named a\nprint(a)\na               # calling an object invokes print()\na + 2\na &lt;- a + 2      # overwrite a with a new value\nls()            # list objects in environment\n\nEmphasize that &lt;- does not print anything — the value is stored. Show the object appearing in the Environment. The last line is worth pausing on: the right side is computed first, then assigned back to a."
-  },
-  {
-    "objectID": "03-intro-to-r/slides.html#the-r-environment",
-    "href": "03-intro-to-r/slides.html#the-r-environment",
-    "title": "Intro to R",
-    "section": "The R environment",
-    "text": "The R environment\n\n\nEnvironment\n\n\nThe collection of all objects currently defined in your R session, each stored under its name. Assignment adds or updates an object in the environment; ls() lists what it contains.\n\n\n\nTie this back to the previous slide: the objects created with &lt;- all live in the environment. Show the Environment pane so students can see the names and values accumulating as they run code."
-  },
-  {
-    "objectID": "03-intro-to-r/slides.html#from-the-shell-to-r",
-    "href": "03-intro-to-r/slides.html#from-the-shell-to-r",
-    "title": "Intro to R",
-    "section": "From the shell to R",
-    "text": "From the shell to R\nLast time we moved around the file system at the command line. An R session has the same idea of a working directory — and its own functions to get around.\n\n\n\n\nTask\nShell\nR\n\n\n\n\nWhere am I?\npwd\ngetwd()\n\n\nWhat’s around me?\nls\nlist.files()\n\n\nChange where I am\ncd\nsetwd()\n\n\nSee a file’s contents\ncat\nreadLines()\n\n\n\n\nOn the board, sketch the file system tree and draw two boxes next to it, one labelled “shell” and one labelled “R”. Both have a working directory that you can move. Then live-code the R column."
-  },
-  {
-    "objectID": "03-intro-to-r/slides.html#where-am-i-whats-around-me",
-    "href": "03-intro-to-r/slides.html#where-am-i-whats-around-me",
-    "title": "Intro to R",
-    "section": "Where am I? What’s around me?",
-    "text": "Where am I? What’s around me?\ngetwd()\nls()            # careful: lists objects, not files!\nlist.files()\nsetwd()\nsystem(\"tree .\")\n\nThe gotcha: ls() in R lists objects in your environment, not files on disk — a false friend from the shell. list.files() is the file lister. system(\"tree .\") shells out to draw the tree we studied last time."
-  },
-  {
-    "objectID": "03-intro-to-r/slides.html#moving-and-reading-files",
-    "href": "03-intro-to-r/slides.html#moving-and-reading-files",
-    "title": "Intro to R",
-    "section": "Moving and reading files",
-    "text": "Moving and reading files\nsetwd(\"data-in-trees/blue/stat/101/1\")\ncat(\"109.txt\")          # not what you'd expect...\nreadLines(\"109.txt\")\n\ncat(\"108.txt\") prints the string 108.txt, not the file — a nice teachable surprise. Ask Gemini for the function that reads a file; land on readLines(). Reading 108.txt produces a warning about an incomplete final line — segue to the next slide."
-  },
-  {
-    "objectID": "03-intro-to-r/slides.html#warnings-and-errors",
-    "href": "03-intro-to-r/slides.html#warnings-and-errors",
-    "title": "Intro to R",
-    "section": "Warnings and errors",
-    "text": "Warnings and errors\n\n\nWarning\n\n\nA message telling you something might be off. The code still runs and returns a value.\n\n\n\n\n\nError\n\n\nA message telling you the code could not run. No value is returned."
-  },
-  {
-    "objectID": "03-intro-to-r/slides.html#warnings-and-errors-1",
-    "href": "03-intro-to-r/slides.html#warnings-and-errors-1",
-    "title": "Intro to R",
-    "section": "Warnings and errors",
-    "text": "Warnings and errors\nsetwd(\"../../../non-stat\")\nreadLines(\"100/1/100.txt\")   # note the typo\n\nMove the working directory up and over with a relative path (reinforcing last lecture). Then deliberately fumble the path — — to trigger a “cannot open file” error. Contrast: the warning earlier still returned the file’s lines; this error returns nothing."
-  },
-  {
-    "objectID": "03-intro-to-r/slides.html#how-far-did-we-travel-this-summer",
-    "href": "03-intro-to-r/slides.html#how-far-did-we-travel-this-summer",
-    "title": "Intro to R",
-    "section": "How far did we travel this summer?",
-    "text": "How far did we travel this summer?\nRecall the second question on your index card: the farthest you were from Cal this summer, in miles.\n\nAll of those values have been pulled out of the individual files and stacked into one:\nfind . -type f -name \"*.txt\" -print0 \\\n  | xargs -0 awk 'FNR==2 && /^[0-9,]+$/' \\\n  &gt; combined_output.txt\n\nThis connects today’s tools back to the index-card data from lectures 1–2. Don’t dwell on the find | xargs | awk incantation — just note that the command line let us grab the second line of every file and combine them. This is why the command line is worth knowing."
-  },
-  {
-    "objectID": "03-intro-to-r/slides.html#reading-the-distances-into-r",
-    "href": "03-intro-to-r/slides.html#reading-the-distances-into-r",
-    "title": "Intro to R",
-    "section": "Reading the distances into R",
-    "text": "Reading the distances into R\nreadLines(\"combined_output.txt\")\ndistances &lt;- readLines(\"combined_output.txt\")\n\nmean(distances)      # whoops — a mean of character strings\n\nreadLines() gives us a value per line, but each is a character string. mean() on characters returns NA with a warning. Ask the students what went wrong before revealing the fix."
-  },
-  {
-    "objectID": "03-intro-to-r/slides.html#converting-and-summarizing",
-    "href": "03-intro-to-r/slides.html#converting-and-summarizing",
-    "title": "Intro to R",
-    "section": "Converting and summarizing",
-    "text": "Converting and summarizing\ndistances &lt;- as.numeric(distances)   # text -&gt; numbers\nmean(distances)\nsd(distances)\nsummary(distances)\n\nas.numeric() coerces the strings to numbers; now the summaries work. Read summary() together — min, quartiles, median, mean, max — as a first look at the distribution. If any value fails to convert it becomes NA; watch for that."
-  },
-  {
-    "objectID": "03-intro-to-r/slides.html#section-4",
-    "href": "03-intro-to-r/slides.html#section-4",
-    "title": "Intro to R",
+    "objectID": "01-welcome/notes.html",
+    "href": "01-welcome/notes.html",
+    "title": "Welcome to Class",
     "section": "",
-    "text": "Key Ideas for Today\n\nR evaluates expressions like a calculator.\nFunctions take arguments and can have defaults.\nValues can be saved as objects in the environment.\nAn R session, like the shell, has a working directory.\nWarnings vs. errors.\n\n\n\nFor Next Time\n\nDownload and install R.\nIf on Windows, install git bash.\nWork through the R questions on PS 1 at your own console."
+    "text": "Concept Acquisition\n\nData is stored on a computer disk in files.\nFiles are stored in directories (or folders).\nFiles and directories can be structured using a tree.\nEach file’s location is defined by its path.\n\n\n\nTool Acquisition\n\nPaths are defined by concatenating nodes separated by a /.\n\n\n\nConcept Application\n\nGiven a file system tree,\n\nwrite down the absolute path to a file.\ngiven two file system items, write the relative path from one to the other.\n\nGiven a set of file paths, reconstruct the file system tree.\n\n\n\n\n**Before Class*:\n\nProject first slide showing laptop policy.\nWrite lab section number / times / GSIS on board.\nPass out index cards, one to each student."
   },
   {
     "objectID": "01-welcome/slides.html#making-data",
@@ -628,13 +622,6 @@
     "title": "Concepts in Computing with Data",
     "section": "Parting words",
     "text": "Parting words\n\n\nYou’ll get out of this course what you put into it.\nWe’re here to support you"
-  },
-  {
-    "objectID": "01-welcome/notes.html",
-    "href": "01-welcome/notes.html",
-    "title": "Welcome to Class",
-    "section": "",
-    "text": "Concept Acquisition\n\nData is stored on a computer disk in files.\nFiles are stored in directories (or folders).\nFiles and directories can be structured using a tree.\nEach file’s location is defined by its path.\n\n\n\nTool Acquisition\n\nPaths are defined by concatenating nodes separated by a /.\n\n\n\nConcept Application\n\nGiven a file system tree,\n\nwrite down the absolute path to a file.\ngiven two file system items, write the relative path from one to the other.\n\nGiven a set of file paths, reconstruct the file system tree.\n\n\n\n\n**Before Class*:\n\nProject first slide showing laptop policy.\nWrite lab section number / times / GSIS on board.\nPass out index cards, one to each student."
   },
   {
     "objectID": "02-data-in-trees/slides.html#section",
@@ -777,130 +764,270 @@
     "text": "For Next Time\n\nFill out the Stat 133 Welcome Survey\nWork on the first questions from PS 1"
   },
   {
-    "objectID": "03-intro-to-r/notes.html",
-    "href": "03-intro-to-r/notes.html",
+    "objectID": "03-intro-to-r/slides.html#section",
+    "href": "03-intro-to-r/slides.html#section",
     "title": "Intro to R",
     "section": "",
-    "text": "*Annotate file system tree with a square labelled “shell” and another labelled “R”.\n\nBoth have the concept of a working directory that you can change.\nNow let’s live code."
+    "text": "Last Time\n\nData is stored on a computer disk in files.\nFiles are stored in directories.\nFiles and directories can be structured using a tree.\nEach file’s location is defined by its path.\nA UNIX shell is used to modify the file system.\n\n\nKey Ideas for Today\n\nR evaluates expressions like a calculator.\nFunctions take arguments and can have defaults.\nValues can be saved as objects in the environment.\nAn R session, like the shell, has a working directory.\nWarnings vs. errors.\n\n\n\nConcept Acquisition\n\nR evaluates expressions, like a calculator.\nFunctions take arguments (by position or by name) and can have defaults.\nValues can be saved as objects in the environment.\nAn R session, like the shell, has a working directory.\nWarnings vs. errors.\n\nTool Acquisition\n\nArithmetic and sqrt(), log().\n&lt;- for assignment; ? for help.\ngetwd(), list.files(), setwd(), readLines().\nas.numeric(), mean(), sd(), summary().\n\nConcept Application\n\nPredict the output of a chain of assignments and arithmetic.\nCall a function using arguments by position and by name.\nNavigate the file system from within R and read a file’s contents.\nConvert character data to numeric and summarize it.\n\nThis lecture is live-coded. Bring up the R console with the drop plugin (press `) and use the chalkboard to annotate."
   },
   {
-    "objectID": "03-intro-to-r/notes.html#r-on-the-file-system",
-    "href": "03-intro-to-r/notes.html#r-on-the-file-system",
+    "objectID": "03-intro-to-r/slides.html#shell-command-options",
+    "href": "03-intro-to-r/slides.html#shell-command-options",
+    "title": "Intro to R",
+    "section": "Shell Command Options",
+    "text": "Shell Command Options\nIn addition to path arguments, shell commands have options that change the way they work.\n\nA few ls options:\n\n\n\nOption\nMeaning\n\n\n\n\n-l\nLong format (permissions, owner, size, date)\n\n\n-h\nHuman-readable sizes (e.g. 4.0K), used with -l\n\n\n-R\nRecurse into subdirectories\n\n\n\n\nStart this slide by asking: we learned four key shell commands last time, what were they? And add them to the slide via annotation.\nAfter showing the options, demo them on datahub in the data in trees repo."
+  },
+  {
+    "objectID": "03-intro-to-r/slides.html#section-1",
+    "href": "03-intro-to-r/slides.html#section-1",
     "title": "Intro to R",
     "section": "",
-    "text": "*Annotate file system tree with a square labelled “shell” and another labelled “R”.\n\nBoth have the concept of a working directory that you can change.\nNow let’s live code."
+    "text": "Click through these to demonstrate how to"
   },
   {
-    "objectID": "03-intro-to-r/notes.html#r-on-the-file-system-1",
-    "href": "03-intro-to-r/notes.html#r-on-the-file-system-1",
+    "objectID": "03-intro-to-r/slides.html#r-is-a-calculator",
+    "href": "03-intro-to-r/slides.html#r-is-a-calculator",
     "title": "Intro to R",
-    "section": "R on the file system",
-    "text": "R on the file system\n# Where am I?\ngetwd()\n\n# What's around me?\nls() # this doesn't do what you think it does\nlist.files()\n\n# Let's change that\nsetwd(\"data-in-trees/stats/three\")\n\n# Let's look at files\ncat(\"108.txt\") # this doesn't do what you think it does\n# Ask Gemini for the name of the function\n# bring up AI policy from syllabus\nreadLines(\"108.txt\")\n# Ask Gemini about warning\n\n## Def: Warning ##\n\n# let's move our \"working directory\"\nsetwd(\"../../non-stats\")\nreadLines(\"../stats/thee/108.txt\") # make a typo! to show an error message\n## Def: Error ##"
+    "section": "R is a calculator",
+    "text": "R is a calculator\nStart R via the command line using\nR\nAnd exit it by running q().\n\nExamples of calculations:\n3 + 6\n3 * 6\nsqrt(9)\n\nStart off by starting R at the command line on JupyterHub. In time, transition over to the drop console (`) and type these live. Point out that R prints the result of each expression."
   },
   {
-    "objectID": "03-intro-to-r/notes.html#whats-the-distribution-of-distances",
-    "href": "03-intro-to-r/notes.html#whats-the-distribution-of-distances",
+    "objectID": "03-intro-to-r/slides.html#structure-of-an-r-function",
+    "href": "03-intro-to-r/slides.html#structure-of-an-r-function",
     "title": "Intro to R",
-    "section": "What’s the distribution of distances",
-    "text": "What’s the distribution of distances\nreadLines(\"combined_output.txt\")\ndistances &lt;- readLines(\"combined_output.txt\")\n\nmean(distances) # whoops, took a mean of characters\n\ndistances &lt;- as.numeric(distances) # convert to numbers\nmean(distances)\nsd(distances)\nsummary(distances)\ngetwd() # like pwd\nlist.files() # like ls\nsetwd() # like cd\nreadLines() # like cat"
+    "section": "Structure of an R function",
+    "text": "Structure of an R function\n\n\nFunction\n\n\nA named procedure that takes arguments (inputs) and returns a value. Arguments can be supplied by position or by name, and some have default values.\n\n\n\nLive-code the one at a time. Draw out the anatomy on the chalkboard: function name, then arguments inside ().\n\nlog(10) uses the default base e.\nNaming an argument (base = 10) is unambiguous.\nBy position, the second argument is base, so log(10, 5) and log(5, 10) differ.\nWhen you name every argument, order stops mattering: log(base = 5, x = 10).\nYou can learn more about the function by pulling up it’s help file with ?\n\nlog(10)\nlog(10, base = 10)\n?log\nlog(10, base = 5)\nlog(10, 5)\nlog(5, 10)\nlog(base = 5, x = 10)"
   },
   {
-    "objectID": "03-intro-to-r/notes.html#r-on-the-file-system-2",
-    "href": "03-intro-to-r/notes.html#r-on-the-file-system-2",
+    "objectID": "03-intro-to-r/slides.html#structure-of-an-r-function-1",
+    "href": "03-intro-to-r/slides.html#structure-of-an-r-function-1",
     "title": "Intro to R",
-    "section": "R on the file system",
-    "text": "R on the file system\n# Where am I?\ngetwd()\n\n# What's around me?\nls() # this doesn't do what I think it does\nlist.files()\n\n## Tree diagram and working direcory ##\nsystem(\"tree .\")\n\n# Let's change that\nsetwd(\"data-in-trees/stats/three\")\n\n# Let's look at files\ncat(\"108.txt\") # this doesn't do what you think it does?\n# Ask Gemini for the name of the function\n# bring up AI policy from syllabus\nreadLines(\"108.txt\")\n# Ask Gemini about warning\n\n## Def: Warning ##\n\n# let's move our \"working directory\"\nsetwd(\"../../non-stats\")\nreadLines(\"../stats/thee/108.txt\") # make a typo! to show an error message\n## Def: Error ##"
+    "section": "Structure of an R function",
+    "text": "Structure of an R function\n\nlog(10)\nlog(10, base = 10)\n?log\nlog(10, 5)\nlog(5, 10)\nlog(base = 5, x = 10)"
   },
   {
-    "objectID": "03-intro-to-r/notes.html#whats-the-distribution-of-distances-1",
-    "href": "03-intro-to-r/notes.html#whats-the-distribution-of-distances-1",
+    "objectID": "03-intro-to-r/slides.html#creating-objects",
+    "href": "03-intro-to-r/slides.html#creating-objects",
     "title": "Intro to R",
-    "section": "What’s the distribution of distances",
-    "text": "What’s the distribution of distances\nreadLines(\"combined_output.txt\")\ndistances &lt;- readLines(\"combined_output.txt\")\n\nmean(distances)\n\ndistances &lt;- as.numeric(distances)\nmean(distances)\nsd(distances)\nsummary(distances)"
+    "section": "Creating objects",
+    "text": "Creating objects\n\n\nObject\n\n\nA value saved into your environment under a name, using the assignment arrow &lt;-. Calling the name on its own prints the value."
   },
   {
-    "objectID": "04-atomic-vectors/notes.html",
-    "href": "04-atomic-vectors/notes.html",
+    "objectID": "03-intro-to-r/slides.html#creating-objects-1",
+    "href": "03-intro-to-r/slides.html#creating-objects-1",
+    "title": "Intro to R",
+    "section": "Creating objects",
+    "text": "Creating objects\na &lt;- 3 + 5      # save the result into an object named a\nprint(a)\na               # calling an object invokes print()\na + 2\na &lt;- a + 2      # overwrite a with a new value\nls()            # list objects in environment\n\nEmphasize that &lt;- does not print anything — the value is stored. Show the object appearing in the Environment. The last line is worth pausing on: the right side is computed first, then assigned back to a."
+  },
+  {
+    "objectID": "03-intro-to-r/slides.html#the-r-environment",
+    "href": "03-intro-to-r/slides.html#the-r-environment",
+    "title": "Intro to R",
+    "section": "The R environment",
+    "text": "The R environment\n\n\nEnvironment\n\n\nThe collection of all objects currently defined in your R session, each stored under its name. Assignment adds or updates an object in the environment; ls() lists what it contains.\n\n\n\nTie this back to the previous slide: the objects created with &lt;- all live in the environment. Show the Environment pane so students can see the names and values accumulating as they run code."
+  },
+  {
+    "objectID": "03-intro-to-r/slides.html#from-the-shell-to-r",
+    "href": "03-intro-to-r/slides.html#from-the-shell-to-r",
+    "title": "Intro to R",
+    "section": "From the shell to R",
+    "text": "From the shell to R\nLast time we moved around the file system at the command line. An R session has the same idea of a working directory — and its own functions to get around.\n\n\n\n\nTask\nShell\nR\n\n\n\n\nWhere am I?\npwd\ngetwd()\n\n\nWhat’s around me?\nls\nlist.files()\n\n\nChange where I am\ncd\nsetwd()\n\n\nSee a file’s contents\ncat\nreadLines()\n\n\n\n\nOn the board, sketch the file system tree and draw two boxes next to it, one labelled “shell” and one labelled “R”. Both have a working directory that you can move. Then live-code the R column."
+  },
+  {
+    "objectID": "03-intro-to-r/slides.html#where-am-i-whats-around-me",
+    "href": "03-intro-to-r/slides.html#where-am-i-whats-around-me",
+    "title": "Intro to R",
+    "section": "Where am I? What’s around me?",
+    "text": "Where am I? What’s around me?\ngetwd()\nls()            # careful: lists objects, not files!\nlist.files()\nsetwd()\nsystem(\"tree .\")\n\nThe gotcha: ls() in R lists objects in your environment, not files on disk — a false friend from the shell. list.files() is the file lister. system(\"tree .\") shells out to draw the tree we studied last time."
+  },
+  {
+    "objectID": "03-intro-to-r/slides.html#moving-and-reading-files",
+    "href": "03-intro-to-r/slides.html#moving-and-reading-files",
+    "title": "Intro to R",
+    "section": "Moving and reading files",
+    "text": "Moving and reading files\nsetwd(\"data-in-trees/blue/stat/101/1\")\ncat(\"109.txt\")          # not what you'd expect...\nreadLines(\"109.txt\")\n\ncat(\"108.txt\") prints the string 108.txt, not the file — a nice teachable surprise. Ask Gemini for the function that reads a file; land on readLines(). Reading 108.txt produces a warning about an incomplete final line — segue to the next slide."
+  },
+  {
+    "objectID": "03-intro-to-r/slides.html#warnings-and-errors",
+    "href": "03-intro-to-r/slides.html#warnings-and-errors",
+    "title": "Intro to R",
+    "section": "Warnings and errors",
+    "text": "Warnings and errors\n\n\nWarning\n\n\nA message telling you something might be off. The code still runs and returns a value.\n\n\n\n\n\nError\n\n\nA message telling you the code could not run. No value is returned."
+  },
+  {
+    "objectID": "03-intro-to-r/slides.html#warnings-and-errors-1",
+    "href": "03-intro-to-r/slides.html#warnings-and-errors-1",
+    "title": "Intro to R",
+    "section": "Warnings and errors",
+    "text": "Warnings and errors\nsetwd(\"../../../non-stat\")\nreadLines(\"100/1/100.txt\")   # note the typo\n\nMove the working directory up and over with a relative path (reinforcing last lecture). Then deliberately fumble the path — — to trigger a “cannot open file” error. Contrast: the warning earlier still returned the file’s lines; this error returns nothing."
+  },
+  {
+    "objectID": "03-intro-to-r/slides.html#how-far-did-we-travel-this-summer",
+    "href": "03-intro-to-r/slides.html#how-far-did-we-travel-this-summer",
+    "title": "Intro to R",
+    "section": "How far did we travel this summer?",
+    "text": "How far did we travel this summer?\nRecall the second question on your index card: the farthest you were from Cal this summer, in miles.\n\nAll of those values have been pulled out of the individual files and stacked into one:\nfind . -type f -name \"*.txt\" -print0 \\\n  | xargs -0 awk 'FNR==2 && /^[0-9,]+$/' \\\n  &gt; combined_output.txt\n\nThis connects today’s tools back to the index-card data from lectures 1–2. Don’t dwell on the find | xargs | awk incantation — just note that the command line let us grab the second line of every file and combine them. This is why the command line is worth knowing."
+  },
+  {
+    "objectID": "03-intro-to-r/slides.html#reading-the-distances-into-r",
+    "href": "03-intro-to-r/slides.html#reading-the-distances-into-r",
+    "title": "Intro to R",
+    "section": "Reading the distances into R",
+    "text": "Reading the distances into R\nreadLines(\"combined_output.txt\")\ndistances &lt;- readLines(\"combined_output.txt\")\n\nmean(distances)      # whoops — a mean of character strings\n\nreadLines() gives us a value per line, but each is a character string. mean() on characters returns NA with a warning. Ask the students what went wrong before revealing the fix."
+  },
+  {
+    "objectID": "03-intro-to-r/slides.html#converting-and-summarizing",
+    "href": "03-intro-to-r/slides.html#converting-and-summarizing",
+    "title": "Intro to R",
+    "section": "Converting and summarizing",
+    "text": "Converting and summarizing\ndistances &lt;- as.numeric(distances)   # text -&gt; numbers\nmean(distances)\nsd(distances)\nsummary(distances)\n\nas.numeric() coerces the strings to numbers; now the summaries work. Read summary() together — min, quartiles, median, mean, max — as a first look at the distribution. If any value fails to convert it becomes NA; watch for that."
+  },
+  {
+    "objectID": "03-intro-to-r/slides.html#section-4",
+    "href": "03-intro-to-r/slides.html#section-4",
+    "title": "Intro to R",
+    "section": "",
+    "text": "Key Ideas for Today\n\nR evaluates expressions like a calculator.\nFunctions take arguments and can have defaults.\nValues can be saved as objects in the environment.\nAn R session, like the shell, has a working directory.\nWarnings vs. errors.\n\n\n\nFor Next Time\n\nDownload and install R.\nIf on Windows, install git bash.\nWork through the R questions on PS 1 at your own console."
+  },
+  {
+    "objectID": "04-atomic-vectors/slides.html#section",
+    "href": "04-atomic-vectors/slides.html#section",
     "title": "Atomic Vectors",
     "section": "",
-    "text": "R’s principle data structure to an ordered collection of elements of the same type. Created with the c() function.\n\ndbl_vec &lt;- c(3, 5, 1.2)\ndbl_vec\n\n[1] 3.0 5.0 1.2\n\nint_vec &lt;- c(3L, 5L, 1L)\nint_vec\n\n[1] 3 5 1\n\nchar_vec &lt;- c(\"cat\", \"dog\", \"dingo\")\nchar_vec\n\n[1] \"cat\"   \"dog\"   \"dingo\"\n\nlog_vec &lt;- c(TRUE, TRUE, FALSE)\nlog_vec\n\n[1]  TRUE  TRUE FALSE"
+    "text": "Last Time\n\nR evaluates expressions like a calculator.\nFunctions take arguments and can have defaults.\nValues can be saved as objects in the environment.\nAn R session, like the shell, has a working directory.\nWarnings vs. errors.\n\n\nKey Ideas for Today\n\nAn atomic vector holds elements of a single type.\nSpecial values mark data that is missing or undefined.\nOperations are vectorized and vectors are recycled.\nMixing types triggers coercion.\nElements are pulled out by subsetting.\n\n\n\nConcept Acquisition\n\nAn atomic vector is an ordered collection of elements of the same type.\nThe four common types: logical, integer, double, character.\nNULL, NA, NaN, and Inf behave differently from one another.\nVectorization and vector recycling.\nImplicit coercion follows a hierarchy; explicit coercion is done by hand.\nSubsetting by index, by name, and by logical.\n\nTool Acquisition\n\nc(), typeof(), length().\n:, seq(), rep().\nna.rm = TRUE.\nas.double() and friends.\nvec[...].\n\nConcept Application\n\nPredict the type of a vector built from mixed inputs.\nWrite the shortest command that generates a given vector.\nPredict the result of arithmetic on vectors of unequal length.\nExtract a subset of elements three different ways."
   },
   {
-    "objectID": "04-atomic-vectors/notes.html#atomic-vectors",
-    "href": "04-atomic-vectors/notes.html#atomic-vectors",
+    "objectID": "04-atomic-vectors/slides.html#atomic-vectors-1",
+    "href": "04-atomic-vectors/slides.html#atomic-vectors-1",
+    "title": "Atomic Vectors",
+    "section": "Atomic Vectors",
+    "text": "Atomic Vectors\n\n\nAtomic Vector\n\n\nR’s principal data structure: an ordered collection of elements of the same type. Created with the c() function (for combine).\n\n\n\nDraw a row of boxes on the board — an ordered sequence of cells, each holding one element. Emphasize ordered (position matters) and same type (no mixing)."
+  },
+  {
+    "objectID": "04-atomic-vectors/slides.html#the-four-common-types",
+    "href": "04-atomic-vectors/slides.html#the-four-common-types",
+    "title": "Atomic Vectors",
+    "section": "The four common types",
+    "text": "The four common types\ndbl_vec  &lt;- c(3, 5, 1.2)\nint_vec  &lt;- c(3L, 5L, 1L)\nchar_vec &lt;- c(\"cat\", \"dog\", \"dingo\")\nlog_vec  &lt;- c(TRUE, TRUE, FALSE)\n\n\n\n\nType\nLooks like\nNote\n\n\n\n\ndouble\n3, 1.2\nR’s default for numbers\n\n\ninteger\n3L\nthe L suffix is required\n\n\ncharacter\n\"dog\"\nquotes required\n\n\nlogical\nTRUE, FALSE\nalso T / F, but spell them out\n\n\n\n\nLive-code each assignment, then call the object on its own to print it. Point out the [1] index marker at the start of the printed line. Ask why c(3, 5, 1.2) is a double and not an integer — because 3 without the L is a double."
+  },
+  {
+    "objectID": "04-atomic-vectors/slides.html#inspecting-vectors",
+    "href": "04-atomic-vectors/slides.html#inspecting-vectors",
+    "title": "Atomic Vectors",
+    "section": "Inspecting vectors",
+    "text": "Inspecting vectors\ntypeof() returns the type of the vector.\nlength() returns the number of elements.\n\ntypeof(char_vec)\ntypeof(log_vec)\ntypeof(dbl_vec)\ntypeof(int_vec)\n\nlength(char_vec)\nlength(dbl_vec)\n\nThese two functions answer the two questions you can ask of any atomic vector: what’s in it? and how many? Run typeof() on all four and read the answers out loud — note \"double\" not \"numeric\"."
+  },
+  {
+    "objectID": "04-atomic-vectors/slides.html#guess-the-metaphor",
+    "href": "04-atomic-vectors/slides.html#guess-the-metaphor",
+    "title": "Atomic Vectors",
+    "section": "Guess the metaphor",
+    "text": "Guess the metaphor\n\n\nAn atomic vector is like a vineyard, an ordered, 1D set of things of the same type (grapes)."
+  },
+  {
+    "objectID": "04-atomic-vectors/slides.html#three-shortcuts",
+    "href": "04-atomic-vectors/slides.html#three-shortcuts",
+    "title": "Atomic Vectors",
+    "section": "Three shortcuts",
+    "text": "Three shortcuts\n: creates a sequence from the left number to the right, stepping by 1.\nseq() creates a sequence from a number to a number by an interval.\nrep() replicates a vector times times.\n\n4:8\nseq(from = 1, to = 3, by = .1)\nseq(1, 3, .1)\nrep(1:3, times = 2)\n\nConnect back to the last lecture: seq(1, 3, .1) and seq(from = 1, to = 3, by = .1) are the same call, one by position and one by name. Pull up ?seq and ?rep to show there are more arguments than we’re using (length.out, each) — a hook for the problem set."
+  },
+  {
+    "objectID": "04-atomic-vectors/slides.html#your-turn",
+    "href": "04-atomic-vectors/slides.html#your-turn",
+    "title": "Atomic Vectors",
+    "section": "Your turn",
+    "text": "Your turn\nWhat three commands will generate the following vectors?\n[1] 5.0 5.5 6.0 6.5 7.0\n[1]  2  1  0 -1 -2\n[1] \"cat\"   \"dog\"   \"dingo\" \"cat\"   \"dog\"   \"dingo\"\n\n  \n    −\n    +\n \n 01:00\n \n\nThe middle one is the interesting case: by must be negative to count down. seq(from = 2, to = -2, by = 1) errors — a good moment to read the error message together."
+  },
+  {
+    "objectID": "04-atomic-vectors/slides.html#solutions",
+    "href": "04-atomic-vectors/slides.html#solutions",
+    "title": "Atomic Vectors",
+    "section": "Solutions",
+    "text": "Solutions\nseq(from = 5, to = 7, by = .5)\nseq(from = 2, to = -2, by = -1)\n2:-2        # also works!\nrep(char_vec, times = 2)\n\nNote that the third answer reuses an object we already made rather than retyping the strings — that’s the point of saving objects."
+  },
+  {
+    "objectID": "04-atomic-vectors/slides.html#four-values-that-arent-ordinary-data",
+    "href": "04-atomic-vectors/slides.html#four-values-that-arent-ordinary-data",
+    "title": "Atomic Vectors",
+    "section": "Four values that aren’t ordinary data",
+    "text": "Four values that aren’t ordinary data\n\n\n\nValue\nMeaning\n\n\n\n\nNULL\ndoes not exist\n\n\nNA\nnot available / missing\n\n\nNaN\nnot a number (e.g. 0/0)\n\n\nInf\ninfinity (e.g. 1/0)\n\n\n\n\nNA is the one you’ll meet constantly in real data. NULL is the odd one: it is the absence of a value, so it takes up no room in a vector. Demonstrate on the board by drawing the row of boxes for c(NA, NULL, 1) — two boxes, not three."
+  },
+  {
+    "objectID": "04-atomic-vectors/slides.html#missing-values-are-contagious",
+    "href": "04-atomic-vectors/slides.html#missing-values-are-contagious",
+    "title": "Atomic Vectors",
+    "section": "Missing values are contagious",
+    "text": "Missing values are contagious\nc(NA, NULL, 1)\nmean(c(NA, NULL, 1))\nmean(c(NA, NULL, 1), na.rm = TRUE)\n\nAsk what length(c(NA, NULL, 1)) will be before running it. Then: why is the mean NA? Because the mean of a set that includes an unknown value is itself unknown — R is being careful, not broken. na.rm = TRUE tells R to drop the missing values first. Stress that this is a choice you are making about your data, not a bug fix."
+  },
+  {
+    "objectID": "04-atomic-vectors/slides.html#your-turn-1",
+    "href": "04-atomic-vectors/slides.html#your-turn-1",
+    "title": "Atomic Vectors",
+    "section": "Your Turn",
+    "text": "Your Turn\nWhat will these return?\nc(1, 2, 3) + c(2, 3, 4)\nc(1, 2, 3) + c(2, 3)\nc(1, \"dog\", TRUE)\n\n  \n    −\n    +\n \n 01:00\n \n\nPoll the room on each line before running it. All three surprise people in different ways, and each one motivates a concept on the next slides: vectorization, recycling, and coercion."
+  },
+  {
+    "objectID": "04-atomic-vectors/slides.html#vectorization-and-recycling",
+    "href": "04-atomic-vectors/slides.html#vectorization-and-recycling",
+    "title": "Atomic Vectors",
+    "section": "Vectorization and recycling",
+    "text": "Vectorization and recycling\n\n\nVectorization\n\n\nOperations and functions that run on an entire vector at once, element by element.\n\n\n\n\n\nVector Recycling\n\n\nIf an operation needs a longer vector than provided, R reuses the existing elements, in order, from the beginning."
+  },
+  {
+    "objectID": "04-atomic-vectors/slides.html#vectorization-and-recycling-1",
+    "href": "04-atomic-vectors/slides.html#vectorization-and-recycling-1",
+    "title": "Atomic Vectors",
+    "section": "Vectorization and recycling",
+    "text": "Vectorization and recycling\nlog(c(2, 6, 1))\nc(1, 2, 3) + c(2, 3, 4)\nc(1, 2, 3) + c(2, 3)\n\nOn the board, write the two vectors next to one another and draw the element-wise pairing. For the recycled case, write the shorter vector out again underneath — 2, 3, 2 — so students see where the third element came from. Note that R warns here because 3 isn’t a multiple of 2; when it is a multiple you get no warning at all, which is what makes recycling dangerous.\nIn most other languages, adding two collections requires writing a loop. Vectorization is a defining feature of R."
+  },
+  {
+    "objectID": "04-atomic-vectors/slides.html#type-coercion",
+    "href": "04-atomic-vectors/slides.html#type-coercion",
+    "title": "Atomic Vectors",
+    "section": "Type coercion",
+    "text": "Type coercion\n\n\nImplicit Coercion\n\n\nWhen you mix types, R converts them all to a single type so the vector stays atomic. It follows a hierarchy, always moving up:\n\n\n\nAnnotate slide with:\nlogical &lt; integer &lt; double &lt; character\nWrite the hierarchy on the board as an arrow. The rule: R picks the least-general type that can hold everything. c(1, \"dog\", TRUE) must go all the way up to character because only character can represent all three."
+  },
+  {
+    "objectID": "04-atomic-vectors/slides.html#implicit-coercion",
+    "href": "04-atomic-vectors/slides.html#implicit-coercion",
+    "title": "Atomic Vectors",
+    "section": "Implicit coercion",
+    "text": "Implicit coercion\nc(1, \"dog\", TRUE)\nc(TRUE, FALSE, 3)\nmean(c(TRUE, FALSE, FALSE))\n\nThe last line is worth dwelling on: TRUE becomes 1 and FALSE becomes 0, so the mean of a logical vector is the proportion of TRUEs. That’s a trick we’ll use over and over once we start filtering data."
+  },
+  {
+    "objectID": "04-atomic-vectors/slides.html#explicit-coercion",
+    "href": "04-atomic-vectors/slides.html#explicit-coercion",
+    "title": "Atomic Vectors",
+    "section": "Explicit coercion",
+    "text": "Explicit coercion\nas.___(x) converts x to the type ___.\n\ndistances &lt;- c(\"2800\", \"450\", \"10\")\ndistances\nmean(distances)\n\ndistances &lt;- as.double(distances)\ndistances\nmean(distances)\n\nThis isthe bug from last lecture. readLines() gives us character data; mean() on characters returns NA with a warning. Point out the quotes disappearing in the printed output after coercion.\nAsk what as.double(\"dog\") returns. NA, with a warning. Coercion that can’t succeed produces missing values, so always check afterward."
+  },
+  {
+    "objectID": "04-atomic-vectors/slides.html#subsetting-by-index",
+    "href": "04-atomic-vectors/slides.html#subsetting-by-index",
+    "title": "Atomic Vectors",
+    "section": "Subsetting by index",
+    "text": "Subsetting by index\nvec[index]\n\nchar_vec\nchar_vec[2]\nchar_vec[2:3]\nchar_vec[rep(3, 10)]\n\nAnnotate the anatomy on the board: the vector, the square bracket, and inside it another numeric vector of positions. That last point is the key insight — the thing inside the brackets is itself a vector, which is why 2:3 and rep(3, 10) both work.\nR indexes from 1, unlike Python and most other languages.\nThe rep(3, 10) example shows the result can be longer than the original."
+  },
+  {
+    "objectID": "04-atomic-vectors/slides.html#subsetting-by-name",
+    "href": "04-atomic-vectors/slides.html#subsetting-by-name",
+    "title": "Atomic Vectors",
+    "section": "Subsetting by name",
+    "text": "Subsetting by name\nnamed_char_vec &lt;- c(\"thrash\" = \"cat\",\n                    \"buzz\" = \"dog\",\n                    \"poppy\" = \"dingo\")\nnamed_char_vec\nnamed_char_vec[\"buzz\"]\nnamed_char_vec[rep(\"poppy\", 10)]\n\nNames are an attribute attached to a vector; note how printing changes to show a header row of names. The same pattern holds: whatever is inside the brackets is a vector, here a character vector."
+  },
+  {
+    "objectID": "04-atomic-vectors/slides.html#subsetting-by-logicals",
+    "href": "04-atomic-vectors/slides.html#subsetting-by-logicals",
+    "title": "Atomic Vectors",
+    "section": "Subsetting by logicals",
+    "text": "Subsetting by logicals\nnamed_char_vec[c(TRUE, FALSE, TRUE)]\n\nThe logical vector acts as a mask, one entry per element: keep, drop, keep. This is the least intuitive of the three but by far the most useful — next lecture we’ll generate those logicals from comparisons instead of typing them out, and that’s how filtering works.\nIf time permits, ask what happens when the logical vector is shorter than the vector being subset. Recycling, again."
+  },
+  {
+    "objectID": "04-atomic-vectors/slides.html#section-1",
+    "href": "04-atomic-vectors/slides.html#section-1",
     "title": "Atomic Vectors",
     "section": "",
-    "text": "R’s principle data structure to an ordered collection of elements of the same type. Created with the c() function.\n\ndbl_vec &lt;- c(3, 5, 1.2)\ndbl_vec\n\n[1] 3.0 5.0 1.2\n\nint_vec &lt;- c(3L, 5L, 1L)\nint_vec\n\n[1] 3 5 1\n\nchar_vec &lt;- c(\"cat\", \"dog\", \"dingo\")\nchar_vec\n\n[1] \"cat\"   \"dog\"   \"dingo\"\n\nlog_vec &lt;- c(TRUE, TRUE, FALSE)\nlog_vec\n\n[1]  TRUE  TRUE FALSE"
-  },
-  {
-    "objectID": "04-atomic-vectors/notes.html#inspecting-vectors",
-    "href": "04-atomic-vectors/notes.html#inspecting-vectors",
-    "title": "Atomic Vectors",
-    "section": "Inspecting Vectors",
-    "text": "Inspecting Vectors\ntypeof(): returns the type of the vector length(): returns the number of elements in the vector\n\ntypeof(char_vec)\n\n[1] \"character\"\n\ntypeof(log_vec)\n\n[1] \"logical\"\n\ntypeof(dbl_vec)\n\n[1] \"double\"\n\ntypeof(int_vec)\n\n[1] \"integer\"\n\nlength(char_vec)\n\n[1] 3\n\nlength(log_vec)\n\n[1] 3\n\nlength(dbl_vec)\n\n[1] 3\n\nlength(int_vec)\n\n[1] 3"
-  },
-  {
-    "objectID": "04-atomic-vectors/notes.html#creating-numeric-vectors-quickly",
-    "href": "04-atomic-vectors/notes.html#creating-numeric-vectors-quickly",
-    "title": "Atomic Vectors",
-    "section": "Creating numeric vectors (quickly)",
-    "text": "Creating numeric vectors (quickly)\n:: create a sequence from the left to the right number, separated by 1.\nseq(): creates a sequence from a number to a number by and interval.\nrep(): replicates a vector times times.\n\n4:8\n\n[1] 4 5 6 7 8\n\nseq(from = 1, to = 3, by = .1)\n\n [1] 1.0 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 1.9 2.0 2.1 2.2 2.3 2.4 2.5 2.6 2.7 2.8\n[20] 2.9 3.0\n\nseq(1, 3, .1)\n\n [1] 1.0 1.1 1.2 1.3 1.4 1.5 1.6 1.7 1.8 1.9 2.0 2.1 2.2 2.3 2.4 2.5 2.6 2.7 2.8\n[20] 2.9 3.0\n\nrep(1:3, times = 2)\n\n[1] 1 2 3 1 2 3\n\n# What three commands will generate the following vectors?\n# [1] 5.0 5.5 6.0 6.5 7.0\n# [1]  2  1  0 -1 -2\n# [1] \"cat\"   \"dog\"   \"dingo\" \"cat\"   \"dog\"   \"dingo\"\n\n\nseq(from = 5, to = 7, by = .5)\n\n[1] 5.0 5.5 6.0 6.5 7.0\n\nseq(from = 2, to = -2, by = -1)\n\n[1]  2  1  0 -1 -2\n\n2:-2 # also works!\n\n[1]  2  1  0 -1 -2\n\nrep(char_vec, times = 2)\n\n[1] \"cat\"   \"dog\"   \"dingo\" \"cat\"   \"dog\"   \"dingo\""
-  },
-  {
-    "objectID": "04-atomic-vectors/notes.html#special-values",
-    "href": "04-atomic-vectors/notes.html#special-values",
-    "title": "Atomic Vectors",
-    "section": "Special values",
-    "text": "Special values\nNULL: does not exist NA: not available / missing NaN: not a number (dividing by zero) Inf: infinity\n\nc(NA, NULL, 1)\n\n[1] NA  1\n\nmean(c(NA, NULL, 1))\n\n[1] NA\n\nmean(c(NA, NULL, 1), na.rm = TRUE)\n\n[1] 1"
-  },
-  {
-    "objectID": "04-atomic-vectors/notes.html#what-will-the-following-lines-return",
-    "href": "04-atomic-vectors/notes.html#what-will-the-following-lines-return",
-    "title": "Atomic Vectors",
-    "section": "What will the following lines return?",
-    "text": "What will the following lines return?\n\n# What do each of the following 3 lines of code return?\n# c(1, 2, 3) + c(2, 3, 4)\n# c(1, 2, 3) + c(2, 3)\n# c(1, \"dog\", TRUE)\n\nc(1, 2, 3) + c(2, 3, 4)\n\n[1] 3 5 7\n\nc(1, 2, 3) + c(2, 3)\n\nWarning in c(1, 2, 3) + c(2, 3): longer object length is not a multiple of\nshorter object length\n\n\n[1] 3 5 5\n\nc(1, \"dog\", TRUE)\n\n[1] \"1\"    \"dog\"  \"TRUE\""
-  },
-  {
-    "objectID": "04-atomic-vectors/notes.html#behavior-of-vectors",
-    "href": "04-atomic-vectors/notes.html#behavior-of-vectors",
-    "title": "Atomic Vectors",
-    "section": "Behavior of Vectors",
-    "text": "Behavior of Vectors\nVectorization: Operations and functions that can run on an entire vector at once.\nVector Recycling: If a function requires a longer vector than provided, it will fill with the existing elements, in order.\n\nc(2, 6, 1)^2\n\n[1]  4 36  1"
-  },
-  {
-    "objectID": "04-atomic-vectors/notes.html#type-coersion",
-    "href": "04-atomic-vectors/notes.html#type-coersion",
-    "title": "Atomic Vectors",
-    "section": "Type Coersion",
-    "text": "Type Coersion\nImplicit Coersion: Conversion of data types to ensure atomic vectors according to a hierarchy.\nLogical &lt; Integer &lt; Double &lt; Character\n\nc(TRUE, FALSE, 3)\n\n[1] 1 0 3\n\nmean(c(TRUE, FALSE, FALSE))\n\n[1] 0.3333333\n\n\nNote: logical vectors can be coerced to integers for mathematical operations\nExplicit Coersion\nas.__(x): sets x to be of type ___\n\ndistances &lt;- c(\"2800\", \"450\", \"10\")\ndistances\n\n[1] \"2800\" \"450\"  \"10\"  \n\nmean(distances)\n\nWarning in mean.default(distances): argument is not numeric or logical:\nreturning NA\n\n\n[1] NA\n\ndistances &lt;- as.double(distances)\ndistances\n\n[1] 2800  450   10\n\nmean(distances)\n\n[1] 1086.667"
-  },
-  {
-    "objectID": "04-atomic-vectors/notes.html#subsetting-by-index",
-    "href": "04-atomic-vectors/notes.html#subsetting-by-index",
-    "title": "Atomic Vectors",
-    "section": "Subsetting by Index",
-    "text": "Subsetting by Index\nvec[index]\nAnnotate with vec being “vector”, “square bracket”, and “numeric vector”\n\nchar_vec\n\n[1] \"cat\"   \"dog\"   \"dingo\"\n\nchar_vec[2]\n\n[1] \"dog\"\n\nchar_vec[2:3]\n\n[1] \"dog\"   \"dingo\"\n\nchar_vec[rep(3, 10)]\n\n [1] \"dingo\" \"dingo\" \"dingo\" \"dingo\" \"dingo\" \"dingo\" \"dingo\" \"dingo\" \"dingo\"\n[10] \"dingo\""
-  },
-  {
-    "objectID": "04-atomic-vectors/notes.html#subsetting-by-name",
-    "href": "04-atomic-vectors/notes.html#subsetting-by-name",
-    "title": "Atomic Vectors",
-    "section": "Subsetting by Name",
-    "text": "Subsetting by Name\n\nnamed_char_vec &lt;- c(\"thrash\" = \"cat\", \"buzz\" = \"dog\", \"poppy\" = \"dingo\")\nnamed_char_vec\n\n thrash    buzz   poppy \n  \"cat\"   \"dog\" \"dingo\" \n\nnamed_char_vec[\"buzz\"]\n\n buzz \n\"dog\" \n\nnamed_char_vec[rep(\"poppy\", 10)]\n\n  poppy   poppy   poppy   poppy   poppy   poppy   poppy   poppy   poppy   poppy \n\"dingo\" \"dingo\" \"dingo\" \"dingo\" \"dingo\" \"dingo\" \"dingo\" \"dingo\" \"dingo\" \"dingo\""
-  },
-  {
-    "objectID": "04-atomic-vectors/notes.html#subsetting-by-logicals",
-    "href": "04-atomic-vectors/notes.html#subsetting-by-logicals",
-    "title": "Atomic Vectors",
-    "section": "Subsetting by Logicals",
-    "text": "Subsetting by Logicals\n\nnamed_char_vec[c(TRUE, FALSE, TRUE)]\n\n thrash   poppy \n  \"cat\" \"dingo\""
-  },
-  {
-    "objectID": "04-atomic-vectors/notes.html#references",
-    "href": "04-atomic-vectors/notes.html#references",
-    "title": "Atomic Vectors",
-    "section": "References",
-    "text": "References\n\nAdvanced R, Chapter 3: Vectors\nR Coding Basics, Chapter 2: Properties of Vectors\nR Coding Basics, Chapter 3: Creating Vectors"
+    "text": "Key Ideas for Today\n\nAn atomic vector holds elements of a single type.\nSpecial values mark data that is missing or undefined.\nOperations are vectorized and vectors are recycled.\nMixing types triggers coercion.\nElements are pulled out by subsetting.\n\n\n\nFor Next Time\n\nWork through the atomic vectors questions on PS 1.\nRead Advanced R, Ch. 3.1 - 3.2.\nRead R Coding Basics, Ch. 2–3."
   },
   {
     "objectID": "for-next-time.html",
@@ -934,81 +1061,88 @@
     "text": "Notes\n\n\n    \n      \n      \n    \n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "projects/3-er-visits/slides.html#agenda",
-    "href": "projects/3-er-visits/slides.html#agenda",
-    "title": "Lab 3",
+    "objectID": "projects/5-gerrymandering/slides.html#agenda",
+    "href": "projects/5-gerrymandering/slides.html#agenda",
+    "title": "Project: Gerrymandering",
     "section": "Agenda",
-    "text": "Agenda\n\nPositron Installation\nLab Review Worksheet (15 minutes)\nOverview of Project 3\nWork through select parts of Project 3\nGroup work and time for questions"
+    "text": "Agenda\n\nIcebreaker\nProject Overview\nWorksheet\nProject Data\nProject Worktime"
   },
   {
-    "objectID": "projects/3-er-visits/slides.html#positron-installation",
-    "href": "projects/3-er-visits/slides.html#positron-installation",
-    "title": "Lab 3",
-    "section": "Positron Installation",
-    "text": "Positron Installation\n\nVisit https://positron.posit.co/download.html and download the installer for your OS.\nKeep all default settings during installation."
+    "objectID": "projects/5-gerrymandering/slides.html#california-votes",
+    "href": "projects/5-gerrymandering/slides.html#california-votes",
+    "title": "Project: Gerrymandering",
+    "section": "California Votes!",
+    "text": "California Votes!\n\nSpecial Election Nov 4th, 2025\nOnly statewide item: Proposition 50"
   },
   {
-    "objectID": "projects/3-er-visits/slides.html#lab-review-worksheet",
-    "href": "projects/3-er-visits/slides.html#lab-review-worksheet",
-    "title": "Lab 3",
-    "section": "Lab Review Worksheet",
-    "text": "Lab Review Worksheet\n\n  \n    −\n    +\n \n 15:00\n \nGroup work to review essential material. To get started, Visit the following GitHub repository and read the README.md file.\n\n\n\n\nhttps://www.github.com/berkeley-stat133/worksheet-lab3"
+    "objectID": "projects/5-gerrymandering/slides.html#current-map",
+    "href": "projects/5-gerrymandering/slides.html#current-map",
+    "title": "Project: Gerrymandering",
+    "section": "Current Map",
+    "text": "Current Map"
   },
   {
-    "objectID": "projects/3-er-visits/slides.html#er-visits-project-overview",
-    "href": "projects/3-er-visits/slides.html#er-visits-project-overview",
-    "title": "Lab 3",
-    "section": "ER Visits Project Overview",
-    "text": "ER Visits Project Overview\n\nDataset: Collected by 25 Pediatric Emergency Care Applied Research Network (PECARN) emergency rooms on patients with minor head trauma.\nGoal: Practive Exploratory Data Analysis, a key step in most data science project.\nClient: Dr. Bayes, a pediatric emergency physician and researcher with PECARN."
+    "objectID": "projects/5-gerrymandering/slides.html#proposed-map",
+    "href": "projects/5-gerrymandering/slides.html#proposed-map",
+    "title": "Project: Gerrymandering",
+    "section": "Proposed Map",
+    "text": "Proposed Map"
   },
   {
-    "objectID": "projects/3-er-visits/slides.html#project-overview",
-    "href": "projects/3-er-visits/slides.html#project-overview",
-    "title": "Lab 3",
-    "section": "Project Overview",
-    "text": "Project Overview\nWe will work through three major steps:\n\nData Cleaning\nPrepare the dataset so it can be analyzed effectively.\nExploratory Data Analysis (EDA)\nUse visualizations and summaries to find interesting patterns.\nReporting Results\nCommunicate findings clearly to Dr. Bayes."
+    "objectID": "projects/5-gerrymandering/slides.html#measures-of-partisan-redistricting",
+    "href": "projects/5-gerrymandering/slides.html#measures-of-partisan-redistricting",
+    "title": "Project: Gerrymandering",
+    "section": "Measures of Partisan Redistricting",
+    "text": "Measures of Partisan Redistricting\nMean-Median Score Suppose we observe an election where the vote share for Republicans in each of \\(n\\) districts is \\(v_1, \\ldots, v_N\\).\nThe mean-median score is:\n\\[\nM = \\textrm{mean}(v_i) - \\textrm{median}(v_i)\n\\]"
   },
   {
-    "objectID": "projects/3-er-visits/slides.html#data-cleaning",
-    "href": "projects/3-er-visits/slides.html#data-cleaning",
-    "title": "Lab 3",
-    "section": "Data Cleaning",
-    "text": "Data Cleaning\nWhy clean data?\n\nEnsure consistent formats in columns\nHandle missing (NA) or inconsistent values\nMakes dataset easier to work with\n\nKey dplyr functions:\n\nslice(), select(), arrange()\nmutate(), filter(), summarise(), group_by()"
+    "objectID": "projects/5-gerrymandering/slides.html#measures-of-partisan-redistricting-1",
+    "href": "projects/5-gerrymandering/slides.html#measures-of-partisan-redistricting-1",
+    "title": "Project: Gerrymandering",
+    "section": "Measures of Partisan Redistricting",
+    "text": "Measures of Partisan Redistricting\nSuppose two parties, A and B. The efficiency gap (EG) favoring party A for a given pattern of votes, is defined as the difference in wasted votes divided by the total number of votes:\n\\[\nEG = \\frac{W_B - W_A}{T}\n\\]\nWhere \\(W_B\\) is the number of wasted votes by Party B, \\(W_A\\) is the number of wasted votes by Party A, and \\(T\\) is the total votes cast."
   },
   {
-    "objectID": "projects/3-er-visits/slides.html#exploratory-data-analysis-eda",
-    "href": "projects/3-er-visits/slides.html#exploratory-data-analysis-eda",
-    "title": "Lab 3",
-    "section": "Exploratory Data Analysis (EDA)",
-    "text": "Exploratory Data Analysis (EDA)\n\nPurpose: uncover insights and understand the data before modeling\nTools:\n\nggplot2 for visualization.\ndplyr for summary tables and quick data manipulation.\ntidyr for reshaping.\nreadr for reading data.\nALL part of the tidyverse 🔥😮‍💨🙏💯"
+    "objectID": "projects/5-gerrymandering/slides.html#research-question",
+    "href": "projects/5-gerrymandering/slides.html#research-question",
+    "title": "Project: Gerrymandering",
+    "section": "Research Question",
+    "text": "Research Question\nWill adoption of a new district map lead to an increase in partisan advantage relative to 2024?\nIf so, by how much?"
   },
   {
-    "objectID": "projects/3-er-visits/slides.html#exploratory-data-analysis-eda-1",
-    "href": "projects/3-er-visits/slides.html#exploratory-data-analysis-eda-1",
-    "title": "Lab 3",
-    "section": "Exploratory Data Analysis (EDA)",
-    "text": "Exploratory Data Analysis (EDA)\n\nCommon plots:\n\nBar charts (categorical variables)\nHistograms (continuous variables)\nScatterplots (relationship between two variables)\nBoxplots and Violin plots (distributions across groups)\nFacets (compare subgroups)\n\nCommon summaries:\n\nMissing value analysis\nCounts and proportions\nMeans, medians, standard deviations"
+    "objectID": "projects/5-gerrymandering/slides.html#words-of-wisdom",
+    "href": "projects/5-gerrymandering/slides.html#words-of-wisdom",
+    "title": "Project: Gerrymandering",
+    "section": "Words of Wisdom",
+    "text": "Words of Wisdom\nMoon Duchin, from Political Geometry:\nThings I Don’t Believe In\n\nPresenting any single number as a metric of fairness\nEspecially any single number with a prescribed ideal\nRedistricting as optimization\n\n\nThings I Do Believe In\n\nUsing quantitative information to tell a qualitative story\n\n\n\n\nSelect items from “Political Geometry”, p. 25"
   },
   {
-    "objectID": "projects/3-er-visits/slides.html#example-with-ggplot2",
-    "href": "projects/3-er-visits/slides.html#example-with-ggplot2",
-    "title": "Lab 3",
-    "section": "Example with ggplot2",
-    "text": "Example with ggplot2\nlibrary(ggplot2)\ndata |&gt; \n    ggplot(aes(x = age, fill = ct_scan_needed)) + \n    geom_histogram(bins=18) + \n    labs(title = \"Age Distribution by CT Scan Need\",\n         x = \"Age (years)\",\n         y = \"Count\") +\n    theme_minimal()"
+    "objectID": "projects/5-gerrymandering/slides.html#project-data-1",
+    "href": "projects/5-gerrymandering/slides.html#project-data-1",
+    "title": "Project: Gerrymandering",
+    "section": "Project Data",
+    "text": "Project Data\nTo measure potential partisan gerrymandering in 2024…\n\n\nWhat we need\n\nVote results by district\n\n\nWhat we have\n\nVote results by precinct"
   },
   {
-    "objectID": "projects/3-er-visits/slides.html#step-3-reporting-to-dr.-bayes",
-    "href": "projects/3-er-visits/slides.html#step-3-reporting-to-dr.-bayes",
-    "title": "Lab 3",
-    "section": "Step 3: Reporting to Dr. Bayes",
-    "text": "Step 3: Reporting to Dr. Bayes\nRemember your audience:\nDr. Bayes is a clinician, not a statistician.\nUse clear visuals and plain language.\n\nFocus on actionable insights:\n\nWhich patients are at highest risk?\nWhen might a CT be unnecessary?"
+    "objectID": "projects/5-gerrymandering/slides.html#source-of-2024-election-data",
+    "href": "projects/5-gerrymandering/slides.html#source-of-2024-election-data",
+    "title": "Project: Gerrymandering",
+    "section": "Source of 2024 Election Data",
+    "text": "Source of 2024 Election Data"
   },
   {
-    "objectID": "projects/3-er-visits/slides.html#project-work-time",
-    "href": "projects/3-er-visits/slides.html#project-work-time",
-    "title": "Lab 3",
-    "section": "Project Work Time",
-    "text": "Project Work Time\n\n  \n    −\n    +\n \n 25:00\n \nGet started on the project and feel free to ask questions."
+    "objectID": "projects/5-gerrymandering/slides.html#statement-of-vote-sov",
+    "href": "projects/5-gerrymandering/slides.html#statement-of-vote-sov",
+    "title": "Project: Gerrymandering",
+    "section": "2024 Statement of Vote (SOV)",
+    "text": "2024 Statement of Vote (SOV)\nStatewide by voting precincts (SVPREC)."
+  },
+  {
+    "objectID": "projects/5-gerrymandering/slides.html#different-areas",
+    "href": "projects/5-gerrymandering/slides.html#different-areas",
+    "title": "Project: Gerrymandering",
+    "section": "Different areas",
+    "text": "Different areas\nData in California exists at several different geographic areas:\nIn decreasing size…\n\nState\nCounty (also identified by FIPS code)\nCongressional District (CDDIST)\nVoting Precinct (SVPREC)\nCensus Block (has demographic data)\n\n\nVotes are recorded at the precinct level. Precincts are administered by the counties."
   },
   {
     "objectID": "projects/2-sampsons-monks/slides.html#agenda",
@@ -1102,6 +1236,55 @@
     "text": "Lab 2 Project\n\n  \n    −\n    +\n \n 15:00\n \nWorksheet:\n\nWritten responses. Please code along on your laptop. This is for your own practice / not turned in.\n\nProject:\n\nFour parts\nSubmit: project.R + README.md on GitHub Classroom\n\nWork on selected problems.\n\nGive students 15 minutes to work on problems that you find important and they may struggle with (suggest getting started with downloading packages, doing a visualization, writing the function)"
   },
   {
+    "objectID": "projects/1-index-cards/slides.html#using-the-shell-locally",
+    "href": "projects/1-index-cards/slides.html#using-the-shell-locally",
+    "title": "First Contact with R",
+    "section": "Using the Shell Locally",
+    "text": "Using the Shell Locally\n\n  \n    −\n    +\n \n 07:00\n \n\nMac:\n\n“zshell” (aka zsh) - UNIX based. Very similar to bash (Base UNIX Shell) with some added functionality.\nTo access, use the Mac’s “Termial” application.\n\nWindows:\n\nWill need to install “Git” if you don’t have it already.\n\nhttps://git-scm.com/downloads\n\nThis will give you access to the “Git Bash” application, which will let you use UNIX Shell on your Windows system."
+  },
+  {
+    "objectID": "projects/1-index-cards/slides.html#brief-review-of-lecture",
+    "href": "projects/1-index-cards/slides.html#brief-review-of-lecture",
+    "title": "First Contact with R",
+    "section": "Brief Review of Lecture",
+    "text": "Brief Review of Lecture\nNew Shell Commands\n\n\nmkdir\n\n\nCreates a new directory.\n\n\n\n\ncp\n\n\nCopy file (arg1) to destination (arg2).\nExample: cp ~/Downloads/hw1.pdf ~/Documents/econ100b/hw/\n\n\n\n\nmv\n\n\nMove file (first argument) to destination directory (second argument).\nExample: mv ~/Downloads/hw1.pdf ~/.Trash\n\n\n\nThey have only heard mv in lecture briefly, so teach them the functionality."
+  },
+  {
+    "objectID": "projects/1-index-cards/slides.html#brief-review-of-lecture-cont.",
+    "href": "projects/1-index-cards/slides.html#brief-review-of-lecture-cont.",
+    "title": "First Contact with R",
+    "section": "Brief Review of Lecture (cont.)",
+    "text": "Brief Review of Lecture (cont.)\nR Equivallent of Shell Commands:\n\ngetwd(): like pwd in Shell.\nsetwd(): like cd in Shell.\nlist.files(): like ls in Shell.\nreadLines(): like cat in Shell."
+  },
+  {
+    "objectID": "projects/1-index-cards/slides.html#brief-review-of-lecture-cont..",
+    "href": "projects/1-index-cards/slides.html#brief-review-of-lecture-cont..",
+    "title": "First Contact with R",
+    "section": "Brief Review of Lecture (cont..)",
+    "text": "Brief Review of Lecture (cont..)\n\na:b: Creates vector of numbers from a to b by 1.\nseq: Creates vector of numbers from \"from\" argument, to \"to\" argument, by steps defined in the \"by\" argument.\nrep: Repeats vector provided \"x\" a number of times defined by \"times\" argument."
+  },
+  {
+    "objectID": "projects/1-index-cards/slides.html#vectorization",
+    "href": "projects/1-index-cards/slides.html#vectorization",
+    "title": "First Contact with R",
+    "section": "Vectorization",
+    "text": "Vectorization\n\nOperations on a single object also works on vectors.\n\n\nvec &lt;- c(72, 52, 10)\n\nvec / 2\n\n\n\n[1] 36 26  5\n\n\n\n\n\nvec * 3\n\n\n\n[1] 216 156  30\n\n\n\n\n\nvec - 6\n\n\n\n[1] 66 46  4"
+  },
+  {
+    "objectID": "projects/1-index-cards/slides.html#recycling",
+    "href": "projects/1-index-cards/slides.html#recycling",
+    "title": "First Contact with R",
+    "section": "Recycling",
+    "text": "Recycling\n\nOperations on two vectors of unequal length.\n\n\nvec1 &lt;- 1:10\nvec2 &lt;- c(1, 2)\n\nvec1 * vec2\n\n\n\n [1]  1  4  3  8  5 12  7 16  9 20\n\n\n\n\n\nvec3 &lt;- c(1, 2, 3)\n\nvec1 + vec3\n\n\n\n [1]  2  4  6  5  7  9  8 10 12 11"
+  },
+  {
+    "objectID": "projects/1-index-cards/slides.html#lab-1-assignment",
+    "href": "projects/1-index-cards/slides.html#lab-1-assignment",
+    "title": "First Contact with R",
+    "section": "Lab 1 Assignment",
+    "text": "Lab 1 Assignment\n\n  \n    −\n    +\n \n 15:00\n \n\nWill be turned in physically.\nWritten responses. Please code along on your laptop.\n\nTwo Parts:\n\nShell\nR: Atomic Vectors, Vectorization, Recycling, Matrices, if statements, for loops.\n\nWork on selected problems.\n\nGive students 15 minutes to work on problems that you find important AND are in scope of lectures so far (nothing after 7)."
+  },
+  {
     "objectID": "projects/1-index-cards/worksheet.html",
     "href": "projects/1-index-cards/worksheet.html",
     "title": "STAT 133",
@@ -1109,228 +1292,11 @@
     "text": "…"
   },
   {
-    "objectID": "projects/5-gerrymandering/slides.html#agenda",
-    "href": "projects/5-gerrymandering/slides.html#agenda",
-    "title": "Project: Gerrymandering",
-    "section": "Agenda",
-    "text": "Agenda\n\nIcebreaker\nProject Overview\nWorksheet\nProject Data\nProject Worktime"
-  },
-  {
-    "objectID": "projects/5-gerrymandering/slides.html#california-votes",
-    "href": "projects/5-gerrymandering/slides.html#california-votes",
-    "title": "Project: Gerrymandering",
-    "section": "California Votes!",
-    "text": "California Votes!\n\nSpecial Election Nov 4th, 2025\nOnly statewide item: Proposition 50"
-  },
-  {
-    "objectID": "projects/5-gerrymandering/slides.html#current-map",
-    "href": "projects/5-gerrymandering/slides.html#current-map",
-    "title": "Project: Gerrymandering",
-    "section": "Current Map",
-    "text": "Current Map"
-  },
-  {
-    "objectID": "projects/5-gerrymandering/slides.html#proposed-map",
-    "href": "projects/5-gerrymandering/slides.html#proposed-map",
-    "title": "Project: Gerrymandering",
-    "section": "Proposed Map",
-    "text": "Proposed Map"
-  },
-  {
-    "objectID": "projects/5-gerrymandering/slides.html#measures-of-partisan-redistricting",
-    "href": "projects/5-gerrymandering/slides.html#measures-of-partisan-redistricting",
-    "title": "Project: Gerrymandering",
-    "section": "Measures of Partisan Redistricting",
-    "text": "Measures of Partisan Redistricting\nMean-Median Score Suppose we observe an election where the vote share for Republicans in each of \\(n\\) districts is \\(v_1, \\ldots, v_N\\).\nThe mean-median score is:\n\\[\nM = \\textrm{mean}(v_i) - \\textrm{median}(v_i)\n\\]"
-  },
-  {
-    "objectID": "projects/5-gerrymandering/slides.html#measures-of-partisan-redistricting-1",
-    "href": "projects/5-gerrymandering/slides.html#measures-of-partisan-redistricting-1",
-    "title": "Project: Gerrymandering",
-    "section": "Measures of Partisan Redistricting",
-    "text": "Measures of Partisan Redistricting\nSuppose two parties, A and B. The efficiency gap (EG) favoring party A for a given pattern of votes, is defined as the difference in wasted votes divided by the total number of votes:\n\\[\nEG = \\frac{W_B - W_A}{T}\n\\]\nWhere \\(W_B\\) is the number of wasted votes by Party B, \\(W_A\\) is the number of wasted votes by Party A, and \\(T\\) is the total votes cast."
-  },
-  {
-    "objectID": "projects/5-gerrymandering/slides.html#research-question",
-    "href": "projects/5-gerrymandering/slides.html#research-question",
-    "title": "Project: Gerrymandering",
-    "section": "Research Question",
-    "text": "Research Question\nWill adoption of a new district map lead to an increase in partisan advantage relative to 2024?\nIf so, by how much?"
-  },
-  {
-    "objectID": "projects/5-gerrymandering/slides.html#words-of-wisdom",
-    "href": "projects/5-gerrymandering/slides.html#words-of-wisdom",
-    "title": "Project: Gerrymandering",
-    "section": "Words of Wisdom",
-    "text": "Words of Wisdom\nMoon Duchin, from Political Geometry:\nThings I Don’t Believe In\n\nPresenting any single number as a metric of fairness\nEspecially any single number with a prescribed ideal\nRedistricting as optimization\n\n\nThings I Do Believe In\n\nUsing quantitative information to tell a qualitative story\n\n\n\n\nSelect items from “Political Geometry”, p. 25"
-  },
-  {
-    "objectID": "projects/5-gerrymandering/slides.html#project-data-1",
-    "href": "projects/5-gerrymandering/slides.html#project-data-1",
-    "title": "Project: Gerrymandering",
-    "section": "Project Data",
-    "text": "Project Data\nTo measure potential partisan gerrymandering in 2024…\n\n\nWhat we need\n\nVote results by district\n\n\nWhat we have\n\nVote results by precinct"
-  },
-  {
-    "objectID": "projects/5-gerrymandering/slides.html#source-of-2024-election-data",
-    "href": "projects/5-gerrymandering/slides.html#source-of-2024-election-data",
-    "title": "Project: Gerrymandering",
-    "section": "Source of 2024 Election Data",
-    "text": "Source of 2024 Election Data"
-  },
-  {
-    "objectID": "projects/5-gerrymandering/slides.html#statement-of-vote-sov",
-    "href": "projects/5-gerrymandering/slides.html#statement-of-vote-sov",
-    "title": "Project: Gerrymandering",
-    "section": "2024 Statement of Vote (SOV)",
-    "text": "2024 Statement of Vote (SOV)\nStatewide by voting precincts (SVPREC)."
-  },
-  {
-    "objectID": "projects/5-gerrymandering/slides.html#different-areas",
-    "href": "projects/5-gerrymandering/slides.html#different-areas",
-    "title": "Project: Gerrymandering",
-    "section": "Different areas",
-    "text": "Different areas\nData in California exists at several different geographic areas:\nIn decreasing size…\n\nState\nCounty (also identified by FIPS code)\nCongressional District (CDDIST)\nVoting Precinct (SVPREC)\nCensus Block (has demographic data)\n\n\nVotes are recorded at the precinct level. Precincts are administered by the counties."
-  },
-  {
-    "objectID": "projects/4-ev-power/slides.html#agenda",
-    "href": "projects/4-ev-power/slides.html#agenda",
-    "title": "EV Power Project",
-    "section": "Agenda",
-    "text": "Agenda\n\nOverview of Project\nLab Review Worksheet\nWork through select parts of Project 4\nGroup work and time for questions"
-  },
-  {
-    "objectID": "projects/4-ev-power/slides.html#ev-power-project-overview",
-    "href": "projects/4-ev-power/slides.html#ev-power-project-overview",
-    "title": "EV Power Project",
-    "section": "EV Power Project Overview",
-    "text": "EV Power Project Overview\n\nElectric vehicles reduce direct emissions, but does the electricity used to charge them actually come from clean sources? How clean is the power that charges America’s EVs, and how does this vary across states?"
-  },
-  {
-    "objectID": "projects/4-ev-power/slides.html#previous-work",
-    "href": "projects/4-ev-power/slides.html#previous-work",
-    "title": "EV Power Project",
-    "section": "Previous Work",
-    "text": "Previous Work\nLet’s take a look at some work that’s been done in this field already. What are some improvements we could make in our own analysis?"
-  },
-  {
-    "objectID": "projects/4-ev-power/slides.html#graph-1",
-    "href": "projects/4-ev-power/slides.html#graph-1",
-    "title": "EV Power Project",
-    "section": "Graph 1",
-    "text": "Graph 1\n\n\nSome problems with this one: outdated data, terrible/unclear color scheme, using data 2007-2017 but unclear of the metric (cumulative? average per year? etc), too many categories to be clear"
-  },
-  {
-    "objectID": "projects/4-ev-power/slides.html#graph-2",
-    "href": "projects/4-ev-power/slides.html#graph-2",
-    "title": "EV Power Project",
-    "section": "Graph 2",
-    "text": "Graph 2\n\n\nLooks nicer but: Still problems with this one: outdated data, unreliable data source, strange bins of percentages"
-  },
-  {
-    "objectID": "projects/4-ev-power/slides.html#lets-try-it-ourseleves",
-    "href": "projects/4-ev-power/slides.html#lets-try-it-ourseleves",
-    "title": "EV Power Project",
-    "section": "Let’s Try it Ourseleves:",
-    "text": "Let’s Try it Ourseleves:\n\nDataset: Multiple tables covering U.S. electricity generation by source and average energy costs (2021–2023) from the US Energy Information Administration (EIA) and US Department of Energy\nGoal: Analyze the relationship between EV adoption and the cleanliness of each state’s energy mix to understand how “green” electric driving really is across the US using maps\nClient: The everyday consumer wanting to make informed, sustainable choices"
-  },
-  {
-    "objectID": "projects/4-ev-power/slides.html#defining-key-terms",
-    "href": "projects/4-ev-power/slides.html#defining-key-terms",
-    "title": "EV Power Project",
-    "section": "Defining Key Terms",
-    "text": "Defining Key Terms\nDirect emissions:\n\nGreenhouse gases released directly from a vehicle’s operation (exhaust from fuel combustion)\n\nClean energy:\n\nProduces little to no greenhouse gases (includes nuclear, hydro, wind, solar)\n\nRenewable energy:\n\nComes from naturally replenished sources like solar, wind, hydro, geothermal, biomass"
-  },
-  {
-    "objectID": "projects/4-ev-power/slides.html#data-sources",
-    "href": "projects/4-ev-power/slides.html#data-sources",
-    "title": "EV Power Project",
-    "section": "Data Sources",
-    "text": "Data Sources\n\n\nU.S. renewable energy use by state by year\n\nrenew_use_2021.csv\nrenew_use_2022.csv\nrenew_use_2023.csv\n\nAverage energy price by state by year\n\nav_energy_price_2021-2023.csv\n\n\nU.S. total energy use by state by year\n\ntotal_energy_use_2021.csv\ntotal_energy_use_2022.csv\ntotal_energy_use_2023.csv\n\nEV Registrations by state in 2023\n\nev-registrations-by_state_2023.csv"
-  },
-  {
-    "objectID": "projects/4-ev-power/slides.html#skill-for-this-project-string-manipulation",
-    "href": "projects/4-ev-power/slides.html#skill-for-this-project-string-manipulation",
-    "title": "EV Power Project",
-    "section": "Skill for this project: String Manipulation",
-    "text": "Skill for this project: String Manipulation\nPurpose: Clean and extract text patterns (like energy source names or units)\nCommon Regex Tools in R (using library {stringr}):\nstr_detect(string, pattern) → checks if a pattern exists\nstr_extract(string, pattern) → extracts the matching part\nstr_replace(string, pattern, replacement) → replaces text"
-  },
-  {
-    "objectID": "projects/4-ev-power/slides.html#skill-for-this-project-joining-tables",
-    "href": "projects/4-ev-power/slides.html#skill-for-this-project-joining-tables",
-    "title": "EV Power Project",
-    "section": "Skill for this project: Joining Tables",
-    "text": "Skill for this project: Joining Tables\nGoal: Combine datasets (for example: energy source + electricity cost + EV registration data)\nGiven left (X) table and right (Y) table\n\n\n\n\n\n\n\n\nJoin Type\nDescription\nResult\n\n\n\n\nleft_join()\nKeep all rows from the X table\nAll X + matching Y\n\n\nright_join()\nKeep all rows from the Y table\nAll Y + matching X\n\n\ninner_join()\nKeep only matching rows from both\nMatching only\n\n\nfull_join()\nKeep all rows from both tables\nAll data combined\n\n\nsemi_join()\nKeep rows from X that have matches in Y\nX (filtered)\n\n\nanti_join()\nKeep rows from X without matches in Y\nX (non-matching)"
-  },
-  {
-    "objectID": "projects/4-ev-power/slides.html#skill-for-this-project-pivots",
-    "href": "projects/4-ev-power/slides.html#skill-for-this-project-pivots",
-    "title": "EV Power Project",
-    "section": "Skill for this project: Pivots",
-    "text": "Skill for this project: Pivots\nIncluded in tidyr package\n\npivot_longer(data, cols, names_to, values_to)\npivot_wider(data, names_from, values_from)\n\nRefer to Tidyverse Documentation of Pivot for more information"
-  },
-  {
-    "objectID": "projects/4-ev-power/slides.html#skill-for-this-project-basic-mapping",
-    "href": "projects/4-ev-power/slides.html#skill-for-this-project-basic-mapping",
-    "title": "EV Power Project",
-    "section": "Skill for this project: Basic Mapping",
-    "text": "Skill for this project: Basic Mapping\nGoal: Visualize state-level metrics (like renewable share or EV ratio)\nLibraries: {maps}, {sf}, {ggplot2}\nChoropleth Maps\nMap where areas (like states) are colored based on a number.\n\nDarker or brighter colors usually mean higher numbers.\nLighter colors usually mean lower numbers.\nExample uses: population by state, election results, or renewable energy share."
-  },
-  {
-    "objectID": "projects/4-ev-power/slides.html#basic-example-of-syntax",
-    "href": "projects/4-ev-power/slides.html#basic-example-of-syntax",
-    "title": "EV Power Project",
-    "section": "Basic example of syntax:",
-    "text": "Basic example of syntax:\n\nlibrary(sf)\nlibrary(rnaturalearth)\nlibrary(dplyr)\nlibrary(ggplot2)\n\n# Get U.S. states as sf object\nus_states &lt;- ne_states(country = \"united states of america\", returnclass = \"sf\")"
-  },
-  {
-    "objectID": "projects/4-ev-power/slides.html#section",
-    "href": "projects/4-ev-power/slides.html#section",
-    "title": "EV Power Project",
-    "section": "",
-    "text": "# loading example data\npop_data &lt;- data.frame(\n  name = c(\"California\", \"Texas\", \"New York\", \"Florida\"),\n  population_millions = c(39, 30, 20, 22)\n)\n# Join the data by state name\nus_joined &lt;- us_states |&gt;\n  left_join(pop_data, by = \"name\")\n# Plot and color by population\nggplot(us_joined) +\n  geom_sf(aes(fill = population_millions), color = \"white\") +\n  scale_fill_continuous(name = \"Population (millions)\", na.value = \"grey90\") +\n  labs(title = \"Example: Coloring U.S. States by Population\") +\n  coord_sf(xlim = c(-125, -66), ylim = c(24, 50), expand = FALSE) +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\nWe add data with geom_sf() to color states by metric."
-  },
-  {
-    "objectID": "projects/4-ev-power/slides.html#interactive-maps---leaflet",
-    "href": "projects/4-ev-power/slides.html#interactive-maps---leaflet",
-    "title": "EV Power Project",
-    "section": "Interactive Maps - leaflet",
-    "text": "Interactive Maps - leaflet\nR package for creating interactive maps\n\n\nAdd base maps (e.g., OpenStreetMap, CartoDB)\n\nOverlay markers, polygons, and popups\n\nUse color palettes to represent data values\n\nFully interactive and embeddable in Shiny apps or Quarto documents"
-  },
-  {
-    "objectID": "projects/4-ev-power/slides.html#section-1",
-    "href": "projects/4-ev-power/slides.html#section-1",
-    "title": "EV Power Project",
-    "section": "",
-    "text": "library(leaflet)\n\nleaflet() |&gt;\n  addTiles() |&gt;\n  addMarkers(lng = -122.259, lat = 37.872, popup = \"UC Berkeley\")"
-  },
-  {
-    "objectID": "projects/4-ev-power/slides.html#putting-everything-together",
-    "href": "projects/4-ev-power/slides.html#putting-everything-together",
-    "title": "EV Power Project",
-    "section": "Putting everything together:",
-    "text": "Putting everything together:\nWorkflow :\n\nClean and extract relevant info with regex\n\nMerge datasets using appropriate table methods\n\nVisualize patterns geographically with maps\n\nPresent findings in a report PDF (or, optionally, a Quarto dashboard)\n\nDeliverable :\nA clear report PDF answering:\n\n“How renewable is the electricity powering EVs across the U.S.?”"
-  },
-  {
-    "objectID": "projects/4-ev-power/slides.html#lab-review-worksheet",
-    "href": "projects/4-ev-power/slides.html#lab-review-worksheet",
-    "title": "EV Power Project",
-    "section": "Lab Review Worksheet",
-    "text": "Lab Review Worksheet\n\n  \n    −\n    +\n \n 30:00\n \nGroup work to review essential material. To get started, visit the ed post with the links to EV Power Project repositories. Accept your assignment, clone the repository, and find worksheet.qmd."
-  },
-  {
-    "objectID": "projects/4-ev-power/slides.html#project-work-time",
-    "href": "projects/4-ev-power/slides.html#project-work-time",
-    "title": "EV Power Project",
-    "section": "Project Work Time",
-    "text": "Project Work Time\n\n  \n    −\n    +\n \n 30:00\n \nGet started on the project and feel free to ask questions."
-  },
-  {
     "objectID": "syllabus.html",
     "href": "syllabus.html",
     "title": "Syllabus",
     "section": "",
-    "text": "An introduction to computationally intensive applied statistics. Topics will include organization storage of data, visualization and graphics, statistical learning and data mining, model validation procedures, and the presentation of results. This course uses R as its primary computing language.\n\n\nClass Format\nThis is an in-person class with three lectures each week and one two-hour lab led by a GSI. This class is designed assuming you’ll be in class. If you miss class, you’ll be able to find most materials from class - slides, snippets of code - published on the course wesite.\n\nHomework Parties\nTutors will offer Homework Party sessions several times each week. This is an opportunity to finish up any assignments that you’ve started in class or review any topics that are confusing for you. You’re welcome to attend any session that works well for your schedule. Check the Office Hours page to see the homework party schedule.\nHomework Parties are a great place to go to meet other students and collaborate on assignments with tutors on hand to help you get unstuck.\n\n\nOffice Hours\nOffice hours are an opportunity to chat one-on-one with your instructor and GSIs. Please come to office hours! Coming to office hours does not send a signal that you are behind or need extra help. On the contrary, coming to office hours early and often tends to co-occur with success in the course. We’re happy to chat about the course material, statistics in general, careers in statistics, and whatever other statistics or data science topics are on your mind! Please check the Office Hours page to see the times of the various office hour/homework party sessions.\n\n\n\nMaterials\n\nComputational tools\nEach student will need a laptop in order to engage with the computing aspects of this class. Throughout the semester you’ll be installing several different software tools, all of which are free. We will be mainly using the computing and programming environment R (via RStudio) to analyze data in this class. We will also ask you to use a command line interface to interact with your operating system. You do need your own computer to use R and do the assignments. No need to install these ahead of time; we’ll guide you through how to get set up.\nAbout half of the students in 133 have some coding experience in Python or R and about half do not. For those who come from Data 8 or some previous coding experience in python, the first labs will help you transfer that knowledge over to R. Both languages are excellent platforms for analyzing data, are widely used in data science, and have their individual strengths. R has been developed within the statistics community specifically for data analysis, while python is a general-purpose programming language but has large data analysis capabilities.\n\n\nSupplementary texts\nYour primary reference throughout the course will be the notes that you take in class but there are also several terrific books that are free and online that can expand your knowledge.\n\nAdvanced R, Hadley Wickham\nR for Data Science, Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund\nR packages, Hadley Wickham and Jenny Bryan\n\n\n\n\nCourse communication\n\nbCourses\nWe don’t use bCourses for much. It is primarily used to disseminate important announcements for the entire class such as the initial welcome announcement, final exam information etc.\n\n\nDiscussion forum\nThe official discussion forum for the class will be hosted on Ed. Ed is a forum to ask and answer questions with your fellow students and course staff. It’s a useful resource for learning from your peers and seeking help from tutors and instructors.\nIf you have a question about the material or assignments (or anything related to the course), create a new post to ask your question on Ed. If it is about something personal, then mark it as “private”, and only course staff will be able to see your post. This is the best way to contact us if you have a personal concern, as it ensures the fastest response. If your question does not include personal information and can be answered by other students, make sure it is public.\nIn a course this large, the instructors have a difficult time responding to individual emails, so please use the class forum or visit office hours if you wish to contact us.\n\n\n\nAssignments, Exams, and Grading\n\nTurning-in assignments\nYou will be turning in your assignments on a platform called Pensive, the younger sibling of Gradescope. Note that regrade requests will need to be submitted by a deadline, which will usually be about a week the grades are released.\n\n\nProblem Sets\nProblem sets provide you with essential practice on the ideas and techniques discussed in class. They will be due roughly every week or two\nYou’re encouraged to work on your Problem Sets during one of the Group Tutoring sessions\n\n\nProjects\nProjects are open-ended assignments assignments designed to apply the concepts from the lecture notes in the cause of doing an analysis of real data. This will involve both writing code and communicating your thoughts and findings in English. Your Projects will be due before your corresponding Project Studio, roughly every 2-3 weeks.\nYou’re encouraged to work on your Projects during one of the Homework Party sessions.\n\n\nQuizzes\nQuizzes reinforce the most important concepts from the lecture. They cover the material from lecture, problem sets, and projects up until the time of the quiz.\nQuizzes in this course will be administered in the Computer-Based Testing Facility (CBTF). Students are responsible for reading and following all CBTF policies and procedures, including instantiating a PrairieTest account, submitting any DSP accommodations in advance, and reserving and attending exam sessions on time. During CBTF quizzes, students may use only the materials and resources expressly authorized by the course; unauthorized devices, materials, or resources are prohibited. CBTF proctors monitor all sessions and will document and report any suspected academic misconduct to the course staff. Suspected violations will be handled in accordance with the Berkeley Honor Code and the UC Berkeley Code of Student Conduct, and may result in penalties up to and including a failing grade on the quiz or in the course and referral to the Center for Student Conduct.\n\n\nFinal Exam\nThe paper-and-pencil final exam will be held in person during finals week. It is a comprehensive exam and covers the material from the lecture, problem sets, and projects.\nThe final exam is scheduled for Monday December 14th from 7-10 pm.\n\n\nGrading\nYour final grade in this class is, to the best of our ability, a measure of your understanding of the concepts of computing with data. As such, the lions share of your grade comes from measures of your individual understanding: quizzes and the final. The project studios are also very important. They give us a sense of how well you understand the work you’ve done and give you practice talking through your reasoning in front of an audience.\nThe best way to prepare for these assessments is to earnestly engage with the problem sets and projects. Their role in the course is practice and they’ll be your single most effective way to learn. We want to see that you are keeping to a sensible schedule, so the problem sets will be submitted and graded credit/no credit, where full credit is given for any submission. The projects will not be graded per se, but they will need to be completed in order to discuss them at your Project Studio.\n\nProblem Sets: 1%\nProject Studio: 20%\nQuizzes: 49%\nFinal: 30%\n\nThe grades will not be curved (&gt; 90% is some kind of A, 80-90 is some kind of B, etc.), so there is no limit to the number of As and Bs that are earned.\n\n\n\nPolicies\n\nLate Work\nRigorously completing the problem sets and projects is for your own benefit. Since they must be completed in order to take the Quizzes and participate in Project Studio, no late work is accepted.\n\n\nCollaboration policy\nOn problem sets and projects, we strongly encourage collaboration between students. One of the best ways to learn is to talk things through with someone else. At the same time, these are your best opportunity to practice and learn, so be cautious not to lean to heavily on the understanding of a peer when working through your assignments.\n\n\nAI policy\nPlease be thoughtful when using AI tools for your schoolwork. Doing so on problem sets and projects robs you of a valuable opportunity to learn and undermines your performance on exams. At the same time, they can be helpful in providing feedback on your writing.\nAt the end of the course, we’ll bring in AI tools for coding and learn how to use them. They’re very powerful, but you need firm mental models of the way code works before you’re able to use them well. For that reason, we suggest you refrain from using them until they’re introduced in class.\n\n\nAccomodations for students with disabilities\nStat 133 is a course that is designed to allow all students to succeed. If you have letters of accommodation from the Disabled Students’ Program, please share them with your instructor as soon as possible, and we will work out the necessary arrangements.\n\n\nStaying healthy\nMaintaining your health and that of the Berkeley community is of primary importance, so if you are feeling ill or have been exposed to illness, please do not come to class. You’re encouraged to reach out to fellow students to discuss the class materials or stop by the homework parties or office hours to chat with a tutor or the instructor.\n\n\n\nFrequently Asked Questions\n\nWhat should I do if I’m on the waitlist?\nAttend both lecture and lab and submit all assignments on time. Unfortunately we cannot grow the size of the class any more, so places will become available only when students drop. If you have an urgent need for the course, visit the drop in advising sessions in our department: https://statistics.berkeley.edu/academics/undergrad/advising.\nWhat should I do if I’m a Concurrent Enrollment student?\nPlease do the same as the waitlisted students. If / when the waitlist clears, contact the instructor to be added to the class.\nAre class sessions recorded?\nNo.\nIs attendance in lecture required?\nNo.\nAre time conflicts allowed?\nNo.\nWhat if I join the class late?\nIf you join the class within the first two weeks, read through all of the material on the course website that you’ve missed. Also ask a neighbor in lecture if you can borrow their notes. Finally, visit the Homework Parties to discuss any topics you’ve missed. If you’ve missed any assignments in the first two weeks, request an extension from your GSI.\nAfter two weeks into the semester, you’ll have too much material that you’ll need to make up, so you will have to wait to a subsequent semester to take the course.\n\n\n\nCampus Resources\nUC Berkeley has a vast wealth of resources to help with all aspects of student life. You can read about them at the links below.\n\nBerkeley Supportal- great place to start\nDisabled Students’ Program\nUniversity Health Services\nUCB Path to Care\nStudent Learning Center\nBerkeley International Office\nOmbuds Office for Students and Postdoctoral Appointees\nGender Equity Resource Center\nCenter for Educational Justice & Community Engagement\nUHS Counseling and Psychological Services (CAPS)\nCampus Academic Accommodations Hub\nASUC Student Advocate’s Office\nBasic Needs Center\nASUC Mental Health Resources Guide",
+    "text": "An introduction to computationally intensive applied statistics. Topics will include organization storage of data, visualization and graphics, statistical learning and data mining, model validation procedures, and the presentation of results. This course uses R as its primary computing language.\n\n\nClass Format\nThis is an in-person class with three lectures each week and one two-hour lab led by a GSI. This class is designed assuming you’ll be in class. If you miss class, you’ll be able to find most materials from class - slides, snippets of code - published on the course wesite.\n\nHomework Parties\nTutors will offer Homework Party sessions several times each week. This is an opportunity to finish up any assignments that you’ve started in class or review any topics that are confusing for you. You’re welcome to attend any session that works well for your schedule. Check the Office Hours page to see the homework party schedule.\nHomework Parties are a great place to go to meet other students and collaborate on assignments with tutors on hand to help you get unstuck.\n\n\nOffice Hours\nOffice hours are an opportunity to chat one-on-one with your instructor and GSIs. Please come to office hours! Coming to office hours does not send a signal that you are behind or need extra help. On the contrary, coming to office hours early and often tends to co-occur with success in the course. We’re happy to chat about the course material, statistics in general, careers in statistics, and whatever other statistics or data science topics are on your mind! Please check the Office Hours page to see the times of the various office hour/homework party sessions.\n\n\n\nMaterials\n\nComputational tools\nEach student will need a laptop in order to engage with the computing aspects of this class. Throughout the semester you’ll be installing several different software tools, all of which are free. We will be mainly using the computing and programming environment R (via RStudio) to analyze data in this class. We will also ask you to use a command line interface to interact with your operating system. You do need your own computer to use R and do the assignments. No need to install these ahead of time; we’ll guide you through how to get set up.\nAbout half of the students in 133 have some coding experience in Python or R and about half do not. For those who come from Data 8 or some previous coding experience in python, the first labs will help you transfer that knowledge over to R. Both languages are excellent platforms for analyzing data, are widely used in data science, and have their individual strengths. R has been developed within the statistics community specifically for data analysis, while python is a general-purpose programming language but has large data analysis capabilities.\n\n\nSupplementary texts\nYour primary reference throughout the course will be the notes that you take in class but there are also several terrific books that are free and online that can expand your knowledge.\n\nAdvanced R, Hadley Wickham\nR for Data Science, Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund\nR packages, Hadley Wickham and Jenny Bryan\nR Coding Basics, Gaston Sanchez\n\n\n\n\nCourse communication\n\nbCourses\nWe don’t use bCourses for much. It is primarily used to disseminate important announcements for the entire class such as the initial welcome announcement, final exam information etc.\n\n\nDiscussion forum\nThe official discussion forum for the class will be hosted on Ed. Ed is a forum to ask and answer questions with your fellow students and course staff. It’s a useful resource for learning from your peers and seeking help from tutors and instructors.\nIf you have a question about the material or assignments (or anything related to the course), create a new post to ask your question on Ed. If it is about something personal, then mark it as “private”, and only course staff will be able to see your post. This is the best way to contact us if you have a personal concern, as it ensures the fastest response. If your question does not include personal information and can be answered by other students, make sure it is public.\nIn a course this large, the instructors have a difficult time responding to individual emails, so please use the class forum or visit office hours if you wish to contact us.\n\n\n\nAssignments, Exams, and Grading\n\nTurning-in assignments\nYou will be turning in your assignments on a platform called Pensive, the younger sibling of Gradescope. Note that regrade requests will need to be submitted by a deadline, which will usually be about a week the grades are released.\n\n\nProblem Sets\nProblem sets provide you with essential practice on the ideas and techniques discussed in class. They will be due roughly every week or two\nYou’re encouraged to work on your Problem Sets during one of the Group Tutoring sessions\n\n\nProjects\nProjects are open-ended assignments assignments designed to apply the concepts from the lecture notes in the cause of doing an analysis of real data. This will involve both writing code and communicating your thoughts and findings in English. Your Projects will be due before your corresponding Project Studio, roughly every 2-3 weeks.\nYou’re encouraged to work on your Projects during one of the Homework Party sessions.\n\n\nQuizzes\nQuizzes reinforce the most important concepts from the lecture. They cover the material from lecture, problem sets, and projects up until the time of the quiz.\nQuizzes in this course will be administered in the Computer-Based Testing Facility (CBTF). Students are responsible for reading and following all CBTF policies and procedures, including instantiating a PrairieTest account, submitting any DSP accommodations in advance, and reserving and attending exam sessions on time. During CBTF quizzes, students may use only the materials and resources expressly authorized by the course; unauthorized devices, materials, or resources are prohibited. CBTF proctors monitor all sessions and will document and report any suspected academic misconduct to the course staff. Suspected violations will be handled in accordance with the Berkeley Honor Code and the UC Berkeley Code of Student Conduct, and may result in penalties up to and including a failing grade on the quiz or in the course and referral to the Center for Student Conduct.\n\n\nFinal Exam\nThe paper-and-pencil final exam will be held in person during finals week. It is a comprehensive exam and covers the material from the lecture, problem sets, and projects.\nThe final exam is scheduled for Monday December 14th from 7-10 pm.\n\n\nGrading\nYour final grade in this class is, to the best of our ability, a measure of your understanding of the concepts of computing with data. As such, the lions share of your grade comes from measures of your individual understanding: quizzes and the final. The project studios are also very important. They give us a sense of how well you understand the work you’ve done and give you practice talking through your reasoning in front of an audience.\nThe best way to prepare for these assessments is to earnestly engage with the problem sets and projects. Their role in the course is practice and they’ll be your single most effective way to learn. We want to see that you are keeping to a sensible schedule, so the problem sets will be submitted and graded credit/no credit, where full credit is given for any submission. The projects will not be graded per se, but they will need to be completed in order to discuss them at your Project Studio.\n\nProblem Sets: 1%\nProject Studio: 20%\nQuizzes: 49%\nFinal: 30%\n\nThe grades will not be curved (&gt; 90% is some kind of A, 80-90 is some kind of B, etc.), so there is no limit to the number of As and Bs that are earned.\n\n\n\nPolicies\n\nLate Work\nRigorously completing the problem sets and projects is for your own benefit. Since they must be completed in order to take the Quizzes and participate in Project Studio, no late work is accepted.\n\n\nCollaboration policy\nOn problem sets and projects, we strongly encourage collaboration between students. One of the best ways to learn is to talk things through with someone else. At the same time, these are your best opportunity to practice and learn, so be cautious not to lean to heavily on the understanding of a peer when working through your assignments.\n\n\nAI policy\nPlease be thoughtful when using AI tools for your schoolwork. Doing so on problem sets and projects robs you of a valuable opportunity to learn and undermines your performance on exams. At the same time, they can be helpful in providing feedback on your writing.\nAt the end of the course, we’ll bring in AI tools for coding and learn how to use them. They’re very powerful, but you need firm mental models of the way code works before you’re able to use them well. For that reason, we suggest you refrain from using them until they’re introduced in class.\n\n\nAccomodations for students with disabilities\nStat 133 is a course that is designed to allow all students to succeed. If you have letters of accommodation from the Disabled Students’ Program, please share them with your instructor as soon as possible, and we will work out the necessary arrangements.\n\n\nStaying healthy\nMaintaining your health and that of the Berkeley community is of primary importance, so if you are feeling ill or have been exposed to illness, please do not come to class. You’re encouraged to reach out to fellow students to discuss the class materials or stop by the homework parties or office hours to chat with a tutor or the instructor.\n\n\n\nFrequently Asked Questions\n\nWhat should I do if I’m on the waitlist?\nAttend both lecture and lab and submit all assignments on time. Unfortunately we cannot grow the size of the class any more, so places will become available only when students drop. If you have an urgent need for the course, visit the drop in advising sessions in our department: https://statistics.berkeley.edu/academics/undergrad/advising.\nWhat should I do if I’m a Concurrent Enrollment student?\nPlease do the same as the waitlisted students. If / when the waitlist clears, contact the instructor to be added to the class.\nAre class sessions recorded?\nNo.\nIs attendance in lecture required?\nNo.\nAre time conflicts allowed?\nNo.\nWhat if I join the class late?\nIf you join the class within the first two weeks, read through all of the material on the course website that you’ve missed. Also ask a neighbor in lecture if you can borrow their notes. Finally, visit the Homework Parties to discuss any topics you’ve missed. If you’ve missed any assignments in the first two weeks, request an extension from your GSI.\nAfter two weeks into the semester, you’ll have too much material that you’ll need to make up, so you will have to wait to a subsequent semester to take the course.\n\n\n\nCampus Resources\nUC Berkeley has a vast wealth of resources to help with all aspects of student life. You can read about them at the links below.\n\nBerkeley Supportal- great place to start\nDisabled Students’ Program\nUniversity Health Services\nUCB Path to Care\nStudent Learning Center\nBerkeley International Office\nOmbuds Office for Students and Postdoctoral Appointees\nGender Equity Resource Center\nCenter for Educational Justice & Community Engagement\nUHS Counseling and Psychological Services (CAPS)\nCampus Academic Accommodations Hub\nASUC Student Advocate’s Office\nBasic Needs Center\nASUC Mental Health Resources Guide",
     "crumbs": [
       "Syllabus"
     ]
@@ -1380,13 +1346,47 @@
     ]
   },
   {
-    "objectID": "tools/index.html",
-    "href": "tools/index.html",
-    "title": "Tools",
+    "objectID": "tools/r.html",
+    "href": "tools/r.html",
+    "title": "R",
     "section": "",
-    "text": "These pages are quick how-to guides for the computational tools we use in Stat 133. Each covers how to get set up and the handful of commands or steps you need to get going.\nIf you’re just getting started, DataHub is the fastest way to begin — everything is preinstalled. As the course progresses, you should install each of the tools on your own computer so that you can continue using them outside of the classroom.",
+    "text": "R is the programming language we use all semester for computing with data. On DataHub, R is already installed, but you will also want to install it on your own machine.",
     "crumbs": [
-      "Tools"
+      "Tools",
+      "R"
+    ]
+  },
+  {
+    "objectID": "tools/r.html#installing-r-locally",
+    "href": "tools/r.html#installing-r-locally",
+    "title": "R",
+    "section": "Installing R locally",
+    "text": "Installing R locally\n\nGo to CRAN, the Comprehensive R Archive Network.\nChoose your operating system:\n\nmacOS: download the .pkg installer and open it.\nWindows: click base, download the installer, and run it.\n\nAccept the defaults during installation.",
+    "crumbs": [
+      "Tools",
+      "R"
+    ]
+  },
+  {
+    "objectID": "tools/r.html#checking-your-installation",
+    "href": "tools/r.html#checking-your-installation",
+    "title": "R",
+    "section": "Checking your installation",
+    "text": "Checking your installation\nOpen R (or a shell) and run:\nR.version.string\nYou should see the version of R you installed[^Fun fact: the unusual names of R versions come from snippets of text from the comic strip Peanuts.].",
+    "crumbs": [
+      "Tools",
+      "R"
+    ]
+  },
+  {
+    "objectID": "tools/r.html#launching-r",
+    "href": "tools/r.html#launching-r",
+    "title": "R",
+    "section": "Launching R",
+    "text": "Launching R\nTo open R from a shell, just type the command R and press Enter. This will open R at the command line. To close R and return to the shell, run the function q() to quit.",
+    "crumbs": [
+      "Tools",
+      "R"
     ]
   }
 ]
