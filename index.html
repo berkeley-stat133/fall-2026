@@ -43,9 +43,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-854d6955a8347e4ed4dab0858cdf34c6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-cd26f361049f7e5e18fa4482b008ba01.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-cd26f361049f7e5e18fa4482b008ba01.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-cd26f361049f7e5e18fa4482b008ba01.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-442ef32305b44cc7d4211c12271d276a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-442ef32305b44cc7d4211c12271d276a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-442ef32305b44cc7d4211c12271d276a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -90,6 +90,34 @@ ul.task-list li input[type="checkbox"] {
 
     window['quarto-listings'] = window['quarto-listings'] || {};
     window['quarto-listings']['listing-wall-calendar'] = new List('listing-wall-calendar', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-this-week .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-week','listing-days',{ data: ['index'] },{ data: ['categories'] }],
+      
+      searchColumns: ["listing-week","listing-days"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-this-week'] = new List('listing-this-week', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -257,41 +285,211 @@ window.Quarto = {
 <p><img src="assets/stat133_logo-main.png" class="img-fluid" alt="Hex logo of Stat 133 showing a teal bear." width="312"></p>
 </div>
 </div>
-<!-- :::{#this-week}
-::: -->
-<div id="listing-wall-calendar" class="quarto-listing quarto-listing-container-custom">
+<div id="listing-this-week" class="quarto-listing quarto-listing-container-custom">
+<!-- NOTE: locally modified copy of the qmd-lab template. Re-installing or
+     updating the course-website-ejs extension will overwrite these changes.
+     Shared card styles live in the schedule-wall-calendar template; only the
+     this-week overrides belong here. -->
 <style>
-.calendar, .this-week {
+
+.this-week {
+  position: relative;
+  padding-left: 15px;
+  margin-bottom: 3.5rem;
+}
+
+.this-week::before {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: 1.25rem;
+  bottom: 1.25rem;
+  width: 4px;
+  border-radius: 2px;
+  background: #006666c2; /* brand teal, see _brand.yml */
+}
+
+.calendar {
+  padding-top: 1.5rem;
+}
+@media (max-width: 768px) {
+  .this-week .week-x-box {
+    grid-auto-flow: row;
+    grid-template-columns: 1fr;
+  }
+}
+
+</style>
+
+<!-- Create each week -->
+<div class="this-week">
+
+<div class="week-x-box">
+
+  <!-- Create each day -->
+  <div class="daily-sched">
+  
+    <div class="card-media">
+    <img src="03-intro-to-r/images/grove-banner.webp" alt="" loading="lazy" decoding="async">
+    </div>
+  
+  <div class="date-cell">
+  <span>Aug 31</span>
+  </div>
+  <div class="daily-topic-cell">
+  <span class="daily-topic">Intro to R</span>
+  </div>
+  <div class="items-cell">
+  <!-- Create btns for docs -->
+  <!-- ...docs listed under before-class key -->
+  
+  <!-- ...docs listed under in-class key -->
+  
+  <!-- ...docs listed directly under day item -->
+  
+    <div>
+    
+      
+        
+        
+        
+          <a href="./03-intro-to-r/slides.html" class="res Slides-res">Slides</a>
+        
+      
+    
+      
+    
+    </div>
+  
+  <!-- ...things that are due -->
+  
+  </div>
+  </div>
+  
+
+  <!-- Create each day -->
+  <div class="daily-sched">
+  
+    <div class="card-media">
+    <img src="04-atomic-vectors/images/vineyard-banner.webp" alt="" loading="lazy" decoding="async" style="object-position: center 40%;">
+    </div>
+  
+  <div class="date-cell">
+  <span>Sep 2</span>
+  </div>
+  <div class="daily-topic-cell">
+  <span class="daily-topic">Atomic Vectors</span>
+  </div>
+  <div class="items-cell">
+  <!-- Create btns for docs -->
+  <!-- ...docs listed under before-class key -->
+  
+  <!-- ...docs listed under in-class key -->
+  
+  <!-- ...docs listed directly under day item -->
+  
+    <div>
+    
+      
+        
+        
+        
+          <a href="./04-atomic-vectors/slides.html" class="res Slides-res">Slides</a>
+        
+      
+    
+    </div>
+  
+  <!-- ...things that are due -->
+  
+  </div>
+  </div>
+  
+
+  <!-- Create each day -->
+  <div class="daily-sched">
+  
+  <div class="date-cell">
+  <span>Sep 4</span>
+  </div>
+  <div class="daily-topic-cell">
+  <span class="daily-topic">Extending Vectors</span>
+  </div>
+  <div class="items-cell">
+  <!-- Create btns for docs -->
+  <!-- ...docs listed under before-class key -->
+  
+  <!-- ...docs listed under in-class key -->
+  
+  <!-- ...docs listed directly under day item -->
+  
+    <div>
+    
+      
+        
+        
+        
+          <a href="./05-extending-vectors/slides.html" class="res Slides-res">Slides</a>
+        
+      
+    
+    </div>
+  
+  <!-- ...things that are due -->
+  
+  </div>
+  </div>
+  
+
+</div>
+</div>
+
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
+<div id="listing-wall-calendar" class="quarto-listing quarto-listing-container-custom">
+<!-- NOTE: locally modified copy of the qmd-lab template. Re-installing or
+     updating the course-website-ejs extension will overwrite these changes.
+     Shared calendar/this-week card styles live here; the this-week template
+     carries only its own overrides. -->
+<style>
+.calendar {
   padding-left: 15px;
   padding-right: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
-.calendar .week-x-box, .this-week .week-x-box {
+.week-x-box {
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
   min-height: 200px;
   gap: 8px;
 }
-.calendar .week-x-box .daily-sched, .this-week .week-x-box .daily-sched {
+.week-x-box .daily-sched {
   padding: 3px 8px 17px 8px;
   border-radius: 8px; 
   /* background-color: #F5F5F7; */
 }
-.calendar .week-x-box .daily-sched .date-cell, .this-week .week-x-box .daily-sched .date-cell {
+.week-x-box .daily-sched .date-cell {
   text-align: center;
   font-variant: small-caps;
   font-size: 0.8em;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.55);
 }
-.calendar .week-x-box .daily-sched .daily-topic-cell, .this-week .week-x-box .daily-sched .daily-topic-cell {
+
+.week-x-box .daily-sched .daily-topic-cell {
   padding: .0rem .75rem .5rem .75rem; 
 }
-.calendar .week-x-box .daily-sched .daily-topic-cell .daily-topic, .this-week .week-x-box .daily-sched .daily-topic-cell .daily-topic {
+.week-x-box .daily-sched .daily-topic-cell .daily-topic {
   font-size: 1.1em;
+  line-height: 1.25;
 }
-.calendar .week-x-box .daily-sched .items-cell, .this-week .week-x-box .daily-sched .items-cell {
+.week-x-box .daily-sched .items-cell {
   padding-left: 12px;
 }
-.calendar .week-x-box .daily-sched .items-cell .before-in-class, .this-week .week-x-box .daily-sched .items-cell .before-in-class {
+.week-x-box .daily-sched .items-cell .before-in-class {
   font-size: 0.8em;
 }
 
@@ -300,7 +498,7 @@ window.Quarto = {
 }
 
 @media (max-width: 768px) {
-  .calendar .week-x-box, .this-week .week-x-box {
+  .week-x-box {
     grid-auto-flow: row; /* Ensures it flows in one column */
     grid-template-columns: 1fr;
   }
@@ -310,16 +508,14 @@ window.Quarto = {
   display:inline-flex; align-items:center; gap:.25rem;
   font-size:.8rem;
   padding:.25rem .5rem;
-  border:1px solid #d1d5db;
   border-radius:.5rem;
-  background:#f8f9fa;
-  color:#374151;
+  background:#006666; /* brand teal, see _brand.yml */
+  color:#f8f9fa;
   text-decoration:none;
   transition:background .15s ease, border-color .15s ease;
 }
 .res:hover {
-  background:#e5e7eb; /* light gray hover */
-  border-color:#9ca3af;
+  background:#3d8c8c; /* lighter teal */
 }
 .res i { font-size:.9em; }
 
@@ -335,9 +531,22 @@ window.Quarto = {
 /* if you uncomment the next line you can see the design. */
 /* .daily-sched   { --unit-color: #d74d57; } */
 
-.daily-sched{
+.daily-sched {
   position:relative;
-  border-radius:10px; background:#f6f7f9; overflow:hidden;
+  border-radius:10px;
+  background: #f3f4f6;
+  overflow:hidden;
+}
+
+/* calendar cards sit slightly back from the this-week cards */
+.calendar .daily-sched {
+  opacity: 0.92;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .daily-sched:hover {
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+  }
 }
 
 /* diagonal corner ribbon */
@@ -355,16 +564,45 @@ window.Quarto = {
   border-top-right-radius:10px;  /* when using a block instead of triangle */
 }
 
+/* ---- lecture banner image ---- */
+/* Set with an `image:` key on a day in _schedule.yml. Shared by the wall
+   calendar and the this-week cards. Images are stored full-frame; the card
+   shows a horizontal band of them. Which band is chosen by object-position:
+   50% is the vertical middle, smaller values slide the band up, larger down.
+   Override per lecture with an `image-pos` key (e.g. `image-pos: 40%`). */
+.card-media {
+  /* cancel the card's own top/side padding so the band is full-bleed */
+  margin: -3px -8px 0.5rem -8px;
+  line-height: 0;
+}
+.card-media img {
+  display: block;
+  width: 100%;
+  height: 64px;
+  object-fit: cover;
+  object-position: center 50%;
+  /* muted at rest so 40 photos don't compete with the topic titles */
+  filter: saturate(.5) brightness(.98);
+  transition: filter .2s ease;
+}
+.daily-sched:hover .card-media img {
+  filter: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .card-media img { transition: none; }
+}
+
 </style>
 <div class="calendar">
 
   <!-- Create each week -->
-  <h4 class="anchored">Week 1</h4>
+  <!-- <h4>Week 1</h4> -->
   <div class="week-x-box">
 
   
     <!-- Create each day -->
     <div class="daily-sched">
+    
     <div class="date-cell">
     <span>Aug 24</span>
     </div>
@@ -388,29 +626,11 @@ window.Quarto = {
   
     <!-- Create each day -->
     <div class="daily-sched">
-    <div class="date-cell">
-    <span>Aug 25</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic"></span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create btns for docs -->
-    <!-- ...docs listed under before-class key -->
     
-    <!-- ...docs listed under in-class key -->
+      <div class="card-media">
+      <img src="01-welcome/images/tech-banner.webp" alt="" loading="lazy" decoding="async">
+      </div>
     
-    <!-- ...docs listed directly under day item -->
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
     <div class="date-cell">
     <span>Aug 26</span>
     </div>
@@ -446,29 +666,11 @@ window.Quarto = {
   
     <!-- Create each day -->
     <div class="daily-sched">
-    <div class="date-cell">
-    <span>Aug 27</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic"></span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create btns for docs -->
-    <!-- ...docs listed under before-class key -->
     
-    <!-- ...docs listed under in-class key -->
+      <div class="card-media">
+      <img src="02-data-in-trees/images/tree-banner.webp" alt="" loading="lazy" decoding="async">
+      </div>
     
-    <!-- ...docs listed directly under day item -->
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
     <div class="date-cell">
     <span>Aug 28</span>
     </div>
@@ -510,12 +712,17 @@ window.Quarto = {
   </div>
 
   <!-- Create each week -->
-  <h4 class="anchored">Week 2</h4>
+  <!-- <h4>Week 2</h4> -->
   <div class="week-x-box">
 
   
     <!-- Create each day -->
     <div class="daily-sched">
+    
+      <div class="card-media">
+      <img src="03-intro-to-r/images/grove-banner.webp" alt="" loading="lazy" decoding="async">
+      </div>
+    
     <div class="date-cell">
     <span>Aug 31</span>
     </div>
@@ -553,29 +760,11 @@ window.Quarto = {
   
     <!-- Create each day -->
     <div class="daily-sched">
-    <div class="date-cell">
-    <span>Sep 1</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic"></span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create btns for docs -->
-    <!-- ...docs listed under before-class key -->
     
-    <!-- ...docs listed under in-class key -->
+      <div class="card-media">
+      <img src="04-atomic-vectors/images/vineyard-banner.webp" alt="" loading="lazy" decoding="async" style="object-position: center 40%;">
+      </div>
     
-    <!-- ...docs listed directly under day item -->
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
     <div class="date-cell">
     <span>Sep 2</span>
     </div>
@@ -611,34 +800,12 @@ window.Quarto = {
   
     <!-- Create each day -->
     <div class="daily-sched">
-    <div class="date-cell">
-    <span>Sep 3</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic"></span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create btns for docs -->
-    <!-- ...docs listed under before-class key -->
     
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
     <div class="date-cell">
     <span>Sep 4</span>
     </div>
     <div class="daily-topic-cell">
-    <span class="daily-topic">Working with Vectors</span>
+    <span class="daily-topic">Extending Vectors</span>
     </div>
 
     <div class="items-cell">
@@ -655,7 +822,7 @@ window.Quarto = {
           
           
           
-            <span class="res unpublished">Slides</span>
+            <a href="./05-extending-vectors/slides.html" class="res Slides-res">Slides</a>
           
         
       
@@ -671,12 +838,13 @@ window.Quarto = {
   </div>
 
   <!-- Create each week -->
-  <h4 class="anchored">Week 3</h4>
+  <!-- <h4>Week 3</h4> -->
   <div class="week-x-box">
 
   
     <!-- Create each day -->
     <div class="daily-sched">
+    
     <div class="date-cell">
     <span>Sep 7</span>
     </div>
@@ -700,111 +868,9 @@ window.Quarto = {
   
     <!-- Create each day -->
     <div class="daily-sched">
-    <div class="date-cell">
-    <span>Sep 8</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic"></span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create btns for docs -->
-    <!-- ...docs listed under before-class key -->
     
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-    <!-- ...things that are due tomorrow -->
-    
-      <div>
-      <span class="before-in-class">Due:</span><br>
-      
-        <ul class="assignment-list">
-        
-          <li>PS 1</li>
-        
-        </ul>
-      
-      </div>
-    
-    </div>
-    </div>
-    
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
     <div class="date-cell">
     <span>Sep 9</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic">Extending Vectors</span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create btns for docs -->
-    <!-- ...docs listed under before-class key -->
-    
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-      <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
-      </div>
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
-    <div class="date-cell">
-    <span>Sep 10</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic"></span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create btns for docs -->
-    <!-- ...docs listed under before-class key -->
-    
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-    <!-- ...things that are due tomorrow -->
-    
-      <div>
-      <span class="before-in-class">Due:</span><br>
-      
-        <ul class="assignment-list">
-        
-          <li>Quiz 1</li>
-        
-        </ul>
-      
-      </div>
-    
-    </div>
-    </div>
-    
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
-    <div class="date-cell">
-    <span>Sep 11</span>
     </div>
     <div class="daily-topic-cell">
     <span class="daily-topic">Lists</span>
@@ -832,33 +898,15 @@ window.Quarto = {
     
     <!-- ...things that are due tomorrow -->
     
-      <div>
-      <span class="before-in-class">Due:</span><br>
-      
-        <ul class="assignment-list">
-        
-          <li>Quiz 1</li>
-        
-        </ul>
-      
-      </div>
-    
     </div>
     </div>
     
-  
-  
-  </div>
-
-  <!-- Create each week -->
-  <h4 class="anchored">Week 4</h4>
-  <div class="week-x-box">
-
   
     <!-- Create each day -->
     <div class="daily-sched">
+    
     <div class="date-cell">
-    <span>Sep 14</span>
+    <span>Sep 11</span>
     </div>
     <div class="daily-topic-cell">
     <span class="daily-topic">Control Flow</span>
@@ -886,37 +934,34 @@ window.Quarto = {
     
     <!-- ...things that are due tomorrow -->
     
+      <div>
+      <span class="before-in-class">Due:</span><br>
+      
+        <ul class="assignment-list">
+        
+          <li>Quiz 1</li>
+        
+        </ul>
+      
+      </div>
+    
     </div>
     </div>
     
   
-    <!-- Create each day -->
-    <div class="daily-sched">
-    <div class="date-cell">
-    <span>Sep 15</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic"></span>
-    </div>
+  
+  </div>
 
-    <div class="items-cell">
-    <!-- Create btns for docs -->
-    <!-- ...docs listed under before-class key -->
-    
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
+  <!-- Create each week -->
+  <!-- <h4>Week 4</h4> -->
+  <div class="week-x-box">
+
   
     <!-- Create each day -->
     <div class="daily-sched">
+    
     <div class="date-cell">
-    <span>Sep 16</span>
+    <span>Sep 14</span>
     </div>
     <div class="daily-topic-cell">
     <span class="daily-topic">Functions</span>
@@ -950,11 +995,12 @@ window.Quarto = {
   
     <!-- Create each day -->
     <div class="daily-sched">
+    
     <div class="date-cell">
-    <span>Sep 17</span>
+    <span>Sep 16</span>
     </div>
     <div class="daily-topic-cell">
-    <span class="daily-topic"></span>
+    <span class="daily-topic">The R Ecosystem</span>
     </div>
 
     <div class="items-cell">
@@ -965,6 +1011,18 @@ window.Quarto = {
     
     <!-- ...docs listed directly under day item -->
     
+      <div>
+      
+        
+          
+          
+          
+            <span class="res unpublished">Slides</span>
+          
+        
+      
+      </div>
+    
     <!-- ...things that are due tomorrow -->
     
     </div>
@@ -973,11 +1031,12 @@ window.Quarto = {
   
     <!-- Create each day -->
     <div class="daily-sched">
+    
     <div class="date-cell">
     <span>Sep 18</span>
     </div>
     <div class="daily-topic-cell">
-    <span class="daily-topic">The R Ecosystem</span>
+    <span class="daily-topic">Factors and Data Frames</span>
     </div>
 
     <div class="items-cell">
@@ -1010,72 +1069,15 @@ window.Quarto = {
   </div>
 
   <!-- Create each week -->
-  <h4 class="anchored">Week 5</h4>
+  <!-- <h4>Week 5</h4> -->
   <div class="week-x-box">
 
   
     <!-- Create each day -->
     <div class="daily-sched">
+    
     <div class="date-cell">
     <span>Sep 21</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic">Factors and Data Frames</span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create btns for docs -->
-    <!-- ...docs listed under before-class key -->
-    
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-      <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
-      </div>
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
-    <div class="date-cell">
-    <span>Sep 22</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic"></span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create btns for docs -->
-    <!-- ...docs listed under before-class key -->
-    
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
-    <div class="date-cell">
-    <span>Sep 23</span>
     </div>
     <div class="daily-topic-cell">
     <span class="daily-topic">Git &amp; GitHub</span>
@@ -1111,11 +1113,12 @@ window.Quarto = {
   
     <!-- Create each day -->
     <div class="daily-sched">
+    
     <div class="date-cell">
-    <span>Sep 24</span>
+    <span>Sep 23</span>
     </div>
     <div class="daily-topic-cell">
-    <span class="daily-topic"></span>
+    <span class="daily-topic">Data Wrangling I</span>
     </div>
 
     <div class="items-cell">
@@ -1126,6 +1129,18 @@ window.Quarto = {
     
     <!-- ...docs listed directly under day item -->
     
+      <div>
+      
+        
+          
+          
+          
+            <span class="res unpublished">Slides</span>
+          
+        
+      
+      </div>
+    
     <!-- ...things that are due tomorrow -->
     
     </div>
@@ -1134,11 +1149,12 @@ window.Quarto = {
   
     <!-- Create each day -->
     <div class="daily-sched">
+    
     <div class="date-cell">
     <span>Sep 25</span>
     </div>
     <div class="daily-topic-cell">
-    <span class="daily-topic">Data Wrangling I</span>
+    <span class="daily-topic">Data Wrangling II</span>
     </div>
 
     <div class="items-cell">
@@ -1171,72 +1187,15 @@ window.Quarto = {
   </div>
 
   <!-- Create each week -->
-  <h4 class="anchored">Week 6</h4>
+  <!-- <h4>Week 6</h4> -->
   <div class="week-x-box">
 
   
     <!-- Create each day -->
     <div class="daily-sched">
+    
     <div class="date-cell">
     <span>Sep 28</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic">Data Wrangling II</span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create btns for docs -->
-    <!-- ...docs listed under before-class key -->
-    
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-      <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
-      </div>
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
-    <div class="date-cell">
-    <span>Sep 29</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic"></span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create btns for docs -->
-    <!-- ...docs listed under before-class key -->
-    
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
-    <div class="date-cell">
-    <span>Sep 30</span>
     </div>
     <div class="daily-topic-cell">
     <span class="daily-topic">Intro to Data Viz</span>
@@ -1270,31 +1229,9 @@ window.Quarto = {
   
     <!-- Create each day -->
     <div class="daily-sched">
+    
     <div class="date-cell">
-    <span>Oct 1</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic"></span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create btns for docs -->
-    <!-- ...docs listed under before-class key -->
-    
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
-    <div class="date-cell">
-    <span>Oct 2</span>
+    <span>Sep 30</span>
     </div>
     <div class="daily-topic-cell">
     <span class="daily-topic">Grammar of Graphics</span>
@@ -1326,18 +1263,11 @@ window.Quarto = {
     </div>
     
   
-  
-  </div>
-
-  <!-- Create each week -->
-  <h4 class="anchored">Week 7</h4>
-  <div class="week-x-box">
-
-  
     <!-- Create each day -->
     <div class="daily-sched">
+    
     <div class="date-cell">
-    <span>Oct 5</span>
+    <span>Oct 2</span>
     </div>
     <div class="daily-topic-cell">
     <span class="daily-topic">EDA</span>
@@ -1373,33 +1303,19 @@ window.Quarto = {
     </div>
     
   
-    <!-- Create each day -->
-    <div class="daily-sched">
-    <div class="date-cell">
-    <span>Oct 6</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic"></span>
-    </div>
+  
+  </div>
 
-    <div class="items-cell">
-    <!-- Create btns for docs -->
-    <!-- ...docs listed under before-class key -->
-    
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
+  <!-- Create each week -->
+  <!-- <h4>Week 7</h4> -->
+  <div class="week-x-box">
+
   
     <!-- Create each day -->
     <div class="daily-sched">
+    
     <div class="date-cell">
-    <span>Oct 7</span>
+    <span>Oct 5</span>
     </div>
     <div class="daily-topic-cell">
     <span class="daily-topic">Explanatory DA</span>
@@ -1433,11 +1349,12 @@ window.Quarto = {
   
     <!-- Create each day -->
     <div class="daily-sched">
+    
     <div class="date-cell">
-    <span>Oct 8</span>
+    <span>Oct 7</span>
     </div>
     <div class="daily-topic-cell">
-    <span class="daily-topic"></span>
+    <span class="daily-topic">Joins and Pivots</span>
     </div>
 
     <div class="items-cell">
@@ -1448,6 +1365,18 @@ window.Quarto = {
     
     <!-- ...docs listed directly under day item -->
     
+      <div>
+      
+        
+          
+          
+          
+            <span class="res unpublished">Slides</span>
+          
+        
+      
+      </div>
+    
     <!-- ...things that are due tomorrow -->
     
     </div>
@@ -1456,11 +1385,12 @@ window.Quarto = {
   
     <!-- Create each day -->
     <div class="daily-sched">
+    
     <div class="date-cell">
     <span>Oct 9</span>
     </div>
     <div class="daily-topic-cell">
-    <span class="daily-topic">Joins and Pivots</span>
+    <span class="daily-topic">Quarto</span>
     </div>
 
     <div class="items-cell">
@@ -1493,72 +1423,15 @@ window.Quarto = {
   </div>
 
   <!-- Create each week -->
-  <h4 class="anchored">Week 8</h4>
+  <!-- <h4>Week 8</h4> -->
   <div class="week-x-box">
 
   
     <!-- Create each day -->
     <div class="daily-sched">
+    
     <div class="date-cell">
     <span>Oct 12</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic">Quarto</span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create btns for docs -->
-    <!-- ...docs listed under before-class key -->
-    
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-      <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
-      </div>
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
-    <div class="date-cell">
-    <span>Oct 13</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic"></span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create btns for docs -->
-    <!-- ...docs listed under before-class key -->
-    
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
-    <div class="date-cell">
-    <span>Oct 14</span>
     </div>
     <div class="daily-topic-cell">
     <span class="daily-topic">Strings I</span>
@@ -1592,11 +1465,12 @@ window.Quarto = {
   
     <!-- Create each day -->
     <div class="daily-sched">
+    
     <div class="date-cell">
-    <span>Oct 15</span>
+    <span>Oct 14</span>
     </div>
     <div class="daily-topic-cell">
-    <span class="daily-topic"></span>
+    <span class="daily-topic">Strings II</span>
     </div>
 
     <div class="items-cell">
@@ -1607,6 +1481,18 @@ window.Quarto = {
     
     <!-- ...docs listed directly under day item -->
     
+      <div>
+      
+        
+          
+          
+          
+            <span class="res unpublished">Slides</span>
+          
+        
+      
+      </div>
+    
     <!-- ...things that are due tomorrow -->
     
     </div>
@@ -1615,11 +1501,12 @@ window.Quarto = {
   
     <!-- Create each day -->
     <div class="daily-sched">
+    
     <div class="date-cell">
     <span>Oct 16</span>
     </div>
     <div class="daily-topic-cell">
-    <span class="daily-topic">Strings II</span>
+    <span class="daily-topic">Text Analysis</span>
     </div>
 
     <div class="items-cell">
@@ -1652,72 +1539,15 @@ window.Quarto = {
   </div>
 
   <!-- Create each week -->
-  <h4 class="anchored">Week 9</h4>
+  <!-- <h4>Week 9</h4> -->
   <div class="week-x-box">
 
   
     <!-- Create each day -->
     <div class="daily-sched">
+    
     <div class="date-cell">
     <span>Oct 19</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic">Text Analysis</span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create btns for docs -->
-    <!-- ...docs listed under before-class key -->
-    
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-      <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
-      </div>
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
-    <div class="date-cell">
-    <span>Oct 20</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic"></span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create btns for docs -->
-    <!-- ...docs listed under before-class key -->
-    
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
-    <div class="date-cell">
-    <span>Oct 21</span>
     </div>
     <div class="daily-topic-cell">
     <span class="daily-topic">Dates and Times I</span>
@@ -1751,11 +1581,12 @@ window.Quarto = {
   
     <!-- Create each day -->
     <div class="daily-sched">
+    
     <div class="date-cell">
-    <span>Oct 22</span>
+    <span>Oct 21</span>
     </div>
     <div class="daily-topic-cell">
-    <span class="daily-topic"></span>
+    <span class="daily-topic">Dates and Times II</span>
     </div>
 
     <div class="items-cell">
@@ -1766,6 +1597,18 @@ window.Quarto = {
     
     <!-- ...docs listed directly under day item -->
     
+      <div>
+      
+        
+          
+          
+          
+            <span class="res unpublished">Slides</span>
+          
+        
+      
+      </div>
+    
     <!-- ...things that are due tomorrow -->
     
     </div>
@@ -1774,11 +1617,12 @@ window.Quarto = {
   
     <!-- Create each day -->
     <div class="daily-sched">
+    
     <div class="date-cell">
     <span>Oct 23</span>
     </div>
     <div class="daily-topic-cell">
-    <span class="daily-topic">Dates and Times II</span>
+    <span class="daily-topic">Spatial Data I</span>
     </div>
 
     <div class="items-cell">
@@ -1811,72 +1655,15 @@ window.Quarto = {
   </div>
 
   <!-- Create each week -->
-  <h4 class="anchored">Week 10</h4>
+  <!-- <h4>Week 10</h4> -->
   <div class="week-x-box">
 
   
     <!-- Create each day -->
     <div class="daily-sched">
+    
     <div class="date-cell">
     <span>Oct 26</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic">Spatial Data I</span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create btns for docs -->
-    <!-- ...docs listed under before-class key -->
-    
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-      <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
-      </div>
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
-    <div class="date-cell">
-    <span>Oct 27</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic"></span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create btns for docs -->
-    <!-- ...docs listed under before-class key -->
-    
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
-    <div class="date-cell">
-    <span>Oct 28</span>
     </div>
     <div class="daily-topic-cell">
     <span class="daily-topic">Gerrymandering</span>
@@ -1910,11 +1697,12 @@ window.Quarto = {
   
     <!-- Create each day -->
     <div class="daily-sched">
+    
     <div class="date-cell">
-    <span>Oct 29</span>
+    <span>Oct 28</span>
     </div>
     <div class="daily-topic-cell">
-    <span class="daily-topic"></span>
+    <span class="daily-topic">Spatial Data II</span>
     </div>
 
     <div class="items-cell">
@@ -1925,6 +1713,18 @@ window.Quarto = {
     
     <!-- ...docs listed directly under day item -->
     
+      <div>
+      
+        
+          
+          
+          
+            <span class="res unpublished">Slides</span>
+          
+        
+      
+      </div>
+    
     <!-- ...things that are due tomorrow -->
     
     </div>
@@ -1933,11 +1733,12 @@ window.Quarto = {
   
     <!-- Create each day -->
     <div class="daily-sched">
+    
     <div class="date-cell">
     <span>Oct 30</span>
     </div>
     <div class="daily-topic-cell">
-    <span class="daily-topic">Spatial Data II</span>
+    <span class="daily-topic">Dashboards</span>
     </div>
 
     <div class="items-cell">
@@ -1970,72 +1771,15 @@ window.Quarto = {
   </div>
 
   <!-- Create each week -->
-  <h4 class="anchored">Week 11</h4>
+  <!-- <h4>Week 11</h4> -->
   <div class="week-x-box">
 
   
     <!-- Create each day -->
     <div class="daily-sched">
+    
     <div class="date-cell">
     <span>Nov 2</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic">Dashboards</span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create btns for docs -->
-    <!-- ...docs listed under before-class key -->
-    
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-      <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
-      </div>
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
-    <div class="date-cell">
-    <span>Nov 3</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic"></span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create btns for docs -->
-    <!-- ...docs listed under before-class key -->
-    
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
-    <div class="date-cell">
-    <span>Nov 4</span>
     </div>
     <div class="daily-topic-cell">
     <span class="daily-topic">Election Day</span>
@@ -2069,31 +1813,9 @@ window.Quarto = {
   
     <!-- Create each day -->
     <div class="daily-sched">
+    
     <div class="date-cell">
-    <span>Nov 5</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic"></span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create btns for docs -->
-    <!-- ...docs listed under before-class key -->
-    
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
-    <div class="date-cell">
-    <span>Nov 6</span>
+    <span>Nov 4</span>
     </div>
     <div class="daily-topic-cell">
     <span class="daily-topic">R Packages I</span>
@@ -2125,18 +1847,11 @@ window.Quarto = {
     </div>
     
   
-  
-  </div>
-
-  <!-- Create each week -->
-  <h4 class="anchored">Week 12</h4>
-  <div class="week-x-box">
-
-  
     <!-- Create each day -->
     <div class="daily-sched">
+    
     <div class="date-cell">
-    <span>Nov 9</span>
+    <span>Nov 6</span>
     </div>
     <div class="daily-topic-cell">
     <span class="daily-topic">R Packages II</span>
@@ -2168,13 +1883,22 @@ window.Quarto = {
     </div>
     
   
+  
+  </div>
+
+  <!-- Create each week -->
+  <!-- <h4>Week 12</h4> -->
+  <div class="week-x-box">
+
+  
     <!-- Create each day -->
     <div class="daily-sched">
+    
     <div class="date-cell">
-    <span>Nov 10</span>
+    <span>Nov 9</span>
     </div>
     <div class="daily-topic-cell">
-    <span class="daily-topic"></span>
+    <span class="daily-topic">Prediction I</span>
     </div>
 
     <div class="items-cell">
@@ -2185,6 +1909,18 @@ window.Quarto = {
     
     <!-- ...docs listed directly under day item -->
     
+      <div>
+      
+        
+          
+          
+          
+            <span class="res unpublished">Slides</span>
+          
+        
+      
+      </div>
+    
     <!-- ...things that are due tomorrow -->
     
     </div>
@@ -2193,6 +1929,7 @@ window.Quarto = {
   
     <!-- Create each day -->
     <div class="daily-sched">
+    
     <div class="date-cell">
     <span>Nov 11</span>
     </div>
@@ -2216,34 +1953,12 @@ window.Quarto = {
   
     <!-- Create each day -->
     <div class="daily-sched">
-    <div class="date-cell">
-    <span>Nov 12</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic"></span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create btns for docs -->
-    <!-- ...docs listed under before-class key -->
     
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
     <div class="date-cell">
     <span>Nov 13</span>
     </div>
     <div class="daily-topic-cell">
-    <span class="daily-topic">Prediction I</span>
+    <span class="daily-topic">Prediction II</span>
     </div>
 
     <div class="items-cell">
@@ -2276,72 +1991,15 @@ window.Quarto = {
   </div>
 
   <!-- Create each week -->
-  <h4 class="anchored">Week 13</h4>
+  <!-- <h4>Week 13</h4> -->
   <div class="week-x-box">
 
   
     <!-- Create each day -->
     <div class="daily-sched">
+    
     <div class="date-cell">
     <span>Nov 16</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic">Prediction II</span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create btns for docs -->
-    <!-- ...docs listed under before-class key -->
-    
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-      <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
-      </div>
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
-    <div class="date-cell">
-    <span>Nov 17</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic"></span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create btns for docs -->
-    <!-- ...docs listed under before-class key -->
-    
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
-    <div class="date-cell">
-    <span>Nov 18</span>
     </div>
     <div class="daily-topic-cell">
     <span class="daily-topic">Classification</span>
@@ -2375,31 +2033,9 @@ window.Quarto = {
   
     <!-- Create each day -->
     <div class="daily-sched">
+    
     <div class="date-cell">
-    <span>Nov 19</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic"></span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create btns for docs -->
-    <!-- ...docs listed under before-class key -->
-    
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
-    <div class="date-cell">
-    <span>Nov 20</span>
+    <span>Nov 18</span>
     </div>
     <div class="daily-topic-cell">
     <span class="daily-topic">APIs I</span>
@@ -2431,18 +2067,11 @@ window.Quarto = {
     </div>
     
   
-  
-  </div>
-
-  <!-- Create each week -->
-  <h4 class="anchored">Week 14</h4>
-  <div class="week-x-box">
-
-  
     <!-- Create each day -->
     <div class="daily-sched">
+    
     <div class="date-cell">
-    <span>Nov 23</span>
+    <span>Nov 20</span>
     </div>
     <div class="daily-topic-cell">
     <span class="daily-topic">APIs II</span>
@@ -2474,110 +2103,19 @@ window.Quarto = {
     </div>
     
   
-    <!-- Create each day -->
-    <div class="daily-sched">
-    <div class="date-cell">
-    <span>Nov 24</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic"></span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create btns for docs -->
-    <!-- ...docs listed under before-class key -->
-    
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
-    <div class="date-cell">
-    <span>Nov 25</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic">No Class: Non-Instructional Day</span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create btns for docs -->
-    <!-- ...docs listed under before-class key -->
-    
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
-    <div class="date-cell">
-    <span>Nov 26</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic">No Class: Thanksgiving</span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create btns for docs -->
-    <!-- ...docs listed under before-class key -->
-    
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
-    <div class="date-cell">
-    <span>Nov 27</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic">No Class: Thanksgiving</span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create btns for docs -->
-    <!-- ...docs listed under before-class key -->
-    
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
-  
   
   </div>
 
   <!-- Create each week -->
-  <h4 class="anchored">Week 15</h4>
+  <!-- <h4>Week 14</h4> -->
   <div class="week-x-box">
 
   
     <!-- Create each day -->
     <div class="daily-sched">
+    
     <div class="date-cell">
-    <span>Nov 30</span>
+    <span>Nov 23</span>
     </div>
     <div class="daily-topic-cell">
     <span class="daily-topic">LLMs</span>
@@ -2611,11 +2149,12 @@ window.Quarto = {
   
     <!-- Create each day -->
     <div class="daily-sched">
+    
     <div class="date-cell">
-    <span>Dec 1</span>
+    <span>Nov 25</span>
     </div>
     <div class="daily-topic-cell">
-    <span class="daily-topic"></span>
+    <span class="daily-topic">No Class: Non-Instructional Day</span>
     </div>
 
     <div class="items-cell">
@@ -2634,8 +2173,41 @@ window.Quarto = {
   
     <!-- Create each day -->
     <div class="daily-sched">
+    
     <div class="date-cell">
-    <span>Dec 2</span>
+    <span>Nov 27</span>
+    </div>
+    <div class="daily-topic-cell">
+    <span class="daily-topic">No Class: Thanksgiving</span>
+    </div>
+
+    <div class="items-cell">
+    <!-- Create btns for docs -->
+    <!-- ...docs listed under before-class key -->
+    
+    <!-- ...docs listed under in-class key -->
+    
+    <!-- ...docs listed directly under day item -->
+    
+    <!-- ...things that are due tomorrow -->
+    
+    </div>
+    </div>
+    
+  
+  
+  </div>
+
+  <!-- Create each week -->
+  <!-- <h4>Week 15</h4> -->
+  <div class="week-x-box">
+
+  
+    <!-- Create each day -->
+    <div class="daily-sched">
+    
+    <div class="date-cell">
+    <span>Nov 30</span>
     </div>
     <div class="daily-topic-cell">
     <span class="daily-topic">LLMs in IDEs</span>
@@ -2669,31 +2241,9 @@ window.Quarto = {
   
     <!-- Create each day -->
     <div class="daily-sched">
+    
     <div class="date-cell">
-    <span>Dec 3</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic"></span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create btns for docs -->
-    <!-- ...docs listed under before-class key -->
-    
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
-    <div class="date-cell">
-    <span>Dec 4</span>
+    <span>Dec 2</span>
     </div>
     <div class="daily-topic-cell">
     <span class="daily-topic">Abstraction</span>
@@ -2725,16 +2275,41 @@ window.Quarto = {
     </div>
     
   
+    <!-- Create each day -->
+    <div class="daily-sched">
+    
+    <div class="date-cell">
+    <span>Dec 4</span>
+    </div>
+    <div class="daily-topic-cell">
+    <span class="daily-topic"></span>
+    </div>
+
+    <div class="items-cell">
+    <!-- Create btns for docs -->
+    <!-- ...docs listed under before-class key -->
+    
+    <!-- ...docs listed under in-class key -->
+    
+    <!-- ...docs listed directly under day item -->
+    
+    <!-- ...things that are due tomorrow -->
+    
+    </div>
+    </div>
+    
+  
   
   </div>
 
   <!-- Create each week -->
-  <h4 class="anchored">Week 16</h4>
+  <!-- <h4>Week 16</h4> -->
   <div class="week-x-box">
 
   
     <!-- Create each day -->
     <div class="daily-sched">
+    
     <div class="date-cell">
     <span>Dec 7</span>
     </div>
@@ -2770,29 +2345,7 @@ window.Quarto = {
   
     <!-- Create each day -->
     <div class="daily-sched">
-    <div class="date-cell">
-    <span>Dec 8</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic"></span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create btns for docs -->
-    <!-- ...docs listed under before-class key -->
     
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
     <div class="date-cell">
     <span>Dec 9</span>
     </div>
@@ -2808,18 +2361,6 @@ window.Quarto = {
     
     <!-- ...docs listed directly under day item -->
     
-      <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
-      </div>
-    
     <!-- ...things that are due tomorrow -->
     
     </div>
@@ -2828,29 +2369,7 @@ window.Quarto = {
   
     <!-- Create each day -->
     <div class="daily-sched">
-    <div class="date-cell">
-    <span>Dec 10</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic"></span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create btns for docs -->
-    <!-- ...docs listed under before-class key -->
     
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
     <div class="date-cell">
     <span>Dec 11</span>
     </div>
@@ -2876,12 +2395,13 @@ window.Quarto = {
   </div>
 
   <!-- Create each week -->
-  <h4 class="anchored">Week 17</h4>
+  <!-- <h4>Week 17</h4> -->
   <div class="week-x-box">
 
   
     <!-- Create each day -->
     <div class="daily-sched">
+    
     <div class="date-cell">
     <span>Dec 14</span>
     </div>
@@ -2905,29 +2425,7 @@ window.Quarto = {
   
     <!-- Create each day -->
     <div class="daily-sched">
-    <div class="date-cell">
-    <span>Dec 15</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic"></span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create btns for docs -->
-    <!-- ...docs listed under before-class key -->
     
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
     <div class="date-cell">
     <span>Dec 16</span>
     </div>
@@ -2951,29 +2449,7 @@ window.Quarto = {
   
     <!-- Create each day -->
     <div class="daily-sched">
-    <div class="date-cell">
-    <span>Dec 17</span>
-    </div>
-    <div class="daily-topic-cell">
-    <span class="daily-topic"></span>
-    </div>
-
-    <div class="items-cell">
-    <!-- Create btns for docs -->
-    <!-- ...docs listed under before-class key -->
     
-    <!-- ...docs listed under in-class key -->
-    
-    <!-- ...docs listed directly under day item -->
-    
-    <!-- ...things that are due tomorrow -->
-    
-    </div>
-    </div>
-    
-  
-    <!-- Create each day -->
-    <div class="daily-sched">
     <div class="date-cell">
     <span>Dec 18</span>
     </div>
@@ -3408,6 +2884,25 @@ window.Quarto = {
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="./license.html">
+<p>License</p>
+</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 
