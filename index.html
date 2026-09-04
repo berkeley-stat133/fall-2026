@@ -327,15 +327,15 @@ window.Quarto = {
 <div class="week-x-box">
 
   <!-- Create each day -->
+  
   <div class="daily-sched">
   
     <div class="card-media">
     <img src="03-intro-to-r/images/grove-banner.webp" alt="" loading="lazy" decoding="async">
+    <a class="card-media-link" href="./03-intro-to-r/slides.html" aria-hidden="true" tabindex="-1"></a>
+    <span class="cal-date">Aug 31</span>
     </div>
   
-  <div class="date-cell">
-  <span>Aug 31</span>
-  </div>
   <div class="daily-topic-cell">
   <span class="daily-topic">Intro to R</span>
   </div>
@@ -348,35 +348,26 @@ window.Quarto = {
   <!-- ...docs listed directly under day item -->
   
     <div>
-    
-      
-        
-        
-        
-          <a href="./03-intro-to-r/slides.html" class="res Slides-res">Slides</a>
-        
-      
-    
-      
-    
+    <div class="res-row"><a href="./03-intro-to-r/slides.html" class="res Slides-res">Slides</a></div>
     </div>
   
-  <!-- ...things that are due -->
+  <!-- ...short announcements, no link chrome (this replaces the former
+       `due:` key -- due dates are now written as notes) -->
   
   </div>
   </div>
   
 
   <!-- Create each day -->
+  
   <div class="daily-sched">
   
     <div class="card-media">
     <img src="04-atomic-vectors/images/vineyard-banner.webp" alt="" loading="lazy" decoding="async" style="object-position: center 40%;">
+    <a class="card-media-link" href="./04-atomic-vectors/slides.html" aria-hidden="true" tabindex="-1"></a>
+    <span class="cal-date">Sep 2</span>
     </div>
   
-  <div class="date-cell">
-  <span>Sep 2</span>
-  </div>
   <div class="daily-topic-cell">
   <span class="daily-topic">Atomic Vectors</span>
   </div>
@@ -389,29 +380,26 @@ window.Quarto = {
   <!-- ...docs listed directly under day item -->
   
     <div>
-    
-      
-        
-        
-        
-          <a href="./04-atomic-vectors/slides.html" class="res Slides-res">Slides</a>
-        
-      
-    
+    <div class="res-row"><a href="./04-atomic-vectors/slides.html" class="res Slides-res">Slides</a></div>
     </div>
   
-  <!-- ...things that are due -->
+  <!-- ...short announcements, no link chrome (this replaces the former
+       `due:` key -- due dates are now written as notes) -->
   
   </div>
   </div>
   
 
   <!-- Create each day -->
+  
   <div class="daily-sched">
   
-  <div class="date-cell">
-  <span>Sep 4</span>
-  </div>
+    <div class="card-media">
+    <img src="05-extending-vectors/images/stables-banner.webp" alt="" loading="lazy" decoding="async">
+    <a class="card-media-link" href="./05-extending-vectors/slides.html" aria-hidden="true" tabindex="-1"></a>
+    <span class="cal-date">Sep 4</span>
+    </div>
+  
   <div class="daily-topic-cell">
   <span class="daily-topic">Extending Vectors</span>
   </div>
@@ -424,18 +412,11 @@ window.Quarto = {
   <!-- ...docs listed directly under day item -->
   
     <div>
-    
-      
-        
-        
-        
-          <a href="./05-extending-vectors/slides.html" class="res Slides-res">Slides</a>
-        
-      
-    
+    <div class="res-row"><a href="./05-extending-vectors/slides.html" class="res Slides-res">Slides</a></div>
     </div>
   
-  <!-- ...things that are due -->
+  <!-- ...short announcements, no link chrome (this replaces the former
+       `due:` key -- due dates are now written as notes) -->
   
   </div>
   </div>
@@ -452,6 +433,10 @@ window.Quarto = {
      Shared calendar/this-week card styles live here; the this-week template
      carries only its own overrides. -->
 <style>
+:root {
+  /* muted brand teal (#006666, see _brand.yml), ~22% teal over white */
+  --banner-muted-teal: #c7e0e0;
+}
 .calendar {
   padding-left: 15px;
   padding-right: 15px;
@@ -471,16 +456,8 @@ window.Quarto = {
   border-radius: 8px; 
   /* background-color: #F5F5F7; */
 }
-.week-x-box .daily-sched .date-cell {
-  text-align: center;
-  font-variant: small-caps;
-  font-size: 0.8em;
-  font-weight: 500;
-  color: rgba(0, 0, 0, 0.55);
-}
-
 .week-x-box .daily-sched .daily-topic-cell {
-  padding: .0rem .75rem .5rem .75rem; 
+  padding: .15rem .75rem .5rem .75rem;
 }
 .week-x-box .daily-sched .daily-topic-cell .daily-topic {
   font-size: 1.1em;
@@ -490,10 +467,6 @@ window.Quarto = {
   padding-left: 12px;
 }
 .week-x-box .daily-sched .items-cell .before-in-class {
-  font-size: 0.8em;
-}
-
-.assignment-list {
   font-size: 0.8em;
 }
 
@@ -526,6 +499,58 @@ window.Quarto = {
   cursor: not-allowed;
   pointer-events: none;    /* actually blocks clicking */
 }
+
+/* Three tiers of card content, so the slides link stays the obvious action as
+   more items land on a card:
+     tier 1  .res        filled teal   -- slides (the primary click target)
+     tier 2  .res-ghost  outlined      -- recurring resources: projects, tools
+     tier 3  .card-note  no chrome     -- short announcements, from `note:` */
+
+.res-ghost {
+  display:inline-flex; align-items:center; gap:.25rem;
+  font-size:.8rem;
+  padding:.25rem .5rem;
+  border-radius:.5rem;
+  background:transparent;
+  color:#006666;
+  border:1px solid rgba(0, 102, 102, .45);
+  text-decoration:none;
+  transition:background .15s ease, border-color .15s ease;
+}
+.res-ghost:hover {
+  background:rgba(0, 102, 102, .08);
+  border-color:#006666;
+}
+.res-ghost.unpublished {
+  color:#9ca3af;
+  border-color:#e5e7eb;
+  background:transparent;
+  cursor:not-allowed;
+  pointer-events:none;
+}
+
+/* keeps tier-1 and tier-2 pills on a shared wrapping line rather than stacking */
+.res-row {
+  display:flex;
+  flex-wrap:wrap;
+  gap:.3rem;
+  margin-bottom:.35rem;
+}
+
+.card-note {
+  font-size:.78rem;
+  font-style:italic;
+  line-height:1.3;
+  color:rgba(0, 0, 0, .6);
+  margin:.45rem 0 0 0;
+  padding-right:.5rem;
+}
+.card-note a {
+  color:#006666;
+  text-decoration:underline;
+  text-underline-offset:2px;
+}
+.card-note + .card-note { margin-top:.2rem; }
 
 /* TODO: set up unit color in upper right corner */
 /* if you uncomment the next line you can see the design. */
@@ -574,11 +599,15 @@ window.Quarto = {
   /* cancel the card's own top/side padding so the band is full-bleed */
   margin: -3px -8px 0.5rem -8px;
   line-height: 0;
+  /* positioning context for the date chip */
+  position: relative;
 }
 .card-media img {
   display: block;
   width: 100%;
-  height: 64px;
+  /* 72 rather than 64: the date used to occupy its own line below the banner
+     and now sits on top of it, so the band absorbs some of the freed height */
+  height: 72px;
   object-fit: cover;
   object-position: center 50%;
   /* muted at rest so 40 photos don't compete with the topic titles */
@@ -592,7 +621,68 @@ window.Quarto = {
   .card-media img { transition: none; }
 }
 
+/* stand-in banner used when a day has no `image:` in _schedule.yml *or* the
+   day is still in the future, so every card keeps the same top band and
+   unreleased days read as "nothing here yet". Deliberately static (no hover
+   change) so it doesn't imply there's a photo to reveal. */
+/* NB: do not name this class `placeholder` -- Bootstrap ships a `.placeholder`
+   utility (currentcolor background, opacity .5, inline-block, glow animation)
+   that clobbers this band. */
+.card-media.muted-banner {
+  display: block;
+  height: 72px;
+  /* muted brand teal (#006666, see _brand.yml). Deliberately more saturated
+     than a "light wash" would suggest -- against the card's own #f3f4f6
+     background, anything paler reads as plain gray rather than teal. */
+  background: var(--banner-muted-teal, #cfe4e2);
+}
+
+/* ---- date chip ---- */
+/* The date sits in the banner's top-left rather than on its own line between
+   the banner and the topic. It carries its own translucent white background so
+   it stays legible over any of the ~40 lecture photos as well as over the flat
+   teal band of an unreleased day. Shared by the wall calendar and this-week. */
+.cal-date {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  line-height: 1.2;
+  font-variant: small-caps;
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  color: rgba(0, 0, 0, 0.72);
+  background: rgba(255, 255, 255, 0.88);
+  padding: .1rem .4rem;
+  border-radius: .375rem;
+  backdrop-filter: saturate(1.4) blur(2px);
+  /* above the banner's click overlay so the chip stays readable and the
+     overlay doesn't swallow it */
+  z-index: 2;
+}
+
+/* ---- banner as a click target ---- */
+/* The banner is a second, larger route to the day's slides. It's a transparent
+   overlay rather than a wrapper around the <img> so the date chip can sit on
+   top of it. Hidden from assistive tech and from the tab order because it
+   duplicates the visible Slides pill -- the pill remains the accessible path. */
+.card-media-link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: block;
+}
+
+/* future days: teal band plus a slightly recessed card */
+.daily-sched.is-future {
+  opacity: 0.82;
+}
+.daily-sched.is-future .daily-topic {
+  color: rgba(0, 0, 0, 0.72);
+}
+
 </style>
+
 <div class="calendar">
 
   <!-- Create each week -->
@@ -601,11 +691,12 @@ window.Quarto = {
 
   
     <!-- Create each day -->
+    
+    
     <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Aug 24</span>
-    </div>
+      <div class="card-media muted-banner"><span class="cal-date">Aug 24</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic"></span>
     </div>
@@ -618,22 +709,24 @@ window.Quarto = {
     
     <!-- ...docs listed directly under day item -->
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
     
   
     <!-- Create each day -->
+    
+    
     <div class="daily-sched">
     
       <div class="card-media">
       <img src="01-welcome/images/tech-banner.webp" alt="" loading="lazy" decoding="async">
+      <a class="card-media-link" href="./01-welcome/slides.html" aria-hidden="true" tabindex="-1"></a>
+      <span class="cal-date">Aug 26</span>
       </div>
     
-    <div class="date-cell">
-    <span>Aug 26</span>
-    </div>
     <div class="daily-topic-cell">
     <span class="daily-topic">Welcome</span>
     </div>
@@ -647,33 +740,27 @@ window.Quarto = {
     <!-- ...docs listed directly under day item -->
     
       <div>
-      
-        
-          
-          
-          
-            <a href="./01-welcome/slides.html" class="res Slides-res">Slides</a>
-          
-        
-      
+      <div class="res-row"><a href="./01-welcome/slides.html" class="res Slides-res">Slides</a></div>
       </div>
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
     
   
     <!-- Create each day -->
+    
+    
     <div class="daily-sched">
     
       <div class="card-media">
       <img src="02-data-in-trees/images/tree-banner.webp" alt="" loading="lazy" decoding="async">
+      <a class="card-media-link" href="./02-data-in-trees/slides.html" aria-hidden="true" tabindex="-1"></a>
+      <span class="cal-date">Aug 28</span>
       </div>
     
-    <div class="date-cell">
-    <span>Aug 28</span>
-    </div>
     <div class="daily-topic-cell">
     <span class="daily-topic">Data in Trees</span>
     </div>
@@ -687,22 +774,11 @@ window.Quarto = {
     <!-- ...docs listed directly under day item -->
     
       <div>
-      
-        
-          
-          
-          
-            <a href="./02-data-in-trees/slides.html" class="res Slides-res">Slides</a>
-          
-        
-      
-        
-      
-        
-      
+      <div class="res-row"><a href="./02-data-in-trees/slides.html" class="res Slides-res">Slides</a></div>
       </div>
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
@@ -717,15 +793,16 @@ window.Quarto = {
 
   
     <!-- Create each day -->
+    
+    
     <div class="daily-sched">
     
       <div class="card-media">
       <img src="03-intro-to-r/images/grove-banner.webp" alt="" loading="lazy" decoding="async">
+      <a class="card-media-link" href="./03-intro-to-r/slides.html" aria-hidden="true" tabindex="-1"></a>
+      <span class="cal-date">Aug 31</span>
       </div>
     
-    <div class="date-cell">
-    <span>Aug 31</span>
-    </div>
     <div class="daily-topic-cell">
     <span class="daily-topic">Intro to R</span>
     </div>
@@ -739,35 +816,27 @@ window.Quarto = {
     <!-- ...docs listed directly under day item -->
     
       <div>
-      
-        
-          
-          
-          
-            <a href="./03-intro-to-r/slides.html" class="res Slides-res">Slides</a>
-          
-        
-      
-        
-      
+      <div class="res-row"><a href="./03-intro-to-r/slides.html" class="res Slides-res">Slides</a></div>
       </div>
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
     
   
     <!-- Create each day -->
+    
+    
     <div class="daily-sched">
     
       <div class="card-media">
       <img src="04-atomic-vectors/images/vineyard-banner.webp" alt="" loading="lazy" decoding="async" style="object-position: center 40%;">
+      <a class="card-media-link" href="./04-atomic-vectors/slides.html" aria-hidden="true" tabindex="-1"></a>
+      <span class="cal-date">Sep 2</span>
       </div>
     
-    <div class="date-cell">
-    <span>Sep 2</span>
-    </div>
     <div class="daily-topic-cell">
     <span class="daily-topic">Atomic Vectors</span>
     </div>
@@ -781,29 +850,27 @@ window.Quarto = {
     <!-- ...docs listed directly under day item -->
     
       <div>
-      
-        
-          
-          
-          
-            <a href="./04-atomic-vectors/slides.html" class="res Slides-res">Slides</a>
-          
-        
-      
+      <div class="res-row"><a href="./04-atomic-vectors/slides.html" class="res Slides-res">Slides</a></div>
       </div>
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
     
   
     <!-- Create each day -->
+    
+    
     <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Sep 4</span>
-    </div>
+      <div class="card-media">
+      <img src="05-extending-vectors/images/stables-banner.webp" alt="" loading="lazy" decoding="async">
+      <a class="card-media-link" href="./05-extending-vectors/slides.html" aria-hidden="true" tabindex="-1"></a>
+      <span class="cal-date">Sep 4</span>
+      </div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">Extending Vectors</span>
     </div>
@@ -817,18 +884,11 @@ window.Quarto = {
     <!-- ...docs listed directly under day item -->
     
       <div>
-      
-        
-          
-          
-          
-            <a href="./05-extending-vectors/slides.html" class="res Slides-res">Slides</a>
-          
-        
-      
+      <div class="res-row"><a href="./05-extending-vectors/slides.html" class="res Slides-res">Slides</a></div>
       </div>
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
@@ -843,11 +903,12 @@ window.Quarto = {
 
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Sep 7</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Sep 7</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">No Class: Labor Day</span>
     </div>
@@ -860,18 +921,20 @@ window.Quarto = {
     
     <!-- ...docs listed directly under day item -->
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
     
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Sep 9</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Sep 9</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">Lists</span>
     </div>
@@ -885,29 +948,23 @@ window.Quarto = {
     <!-- ...docs listed directly under day item -->
     
       <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
+      <div class="res-row"><span class="res unpublished">Slides</span></div>
       </div>
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
     
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Sep 11</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Sep 11</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">Control Flow</span>
     </div>
@@ -921,29 +978,13 @@ window.Quarto = {
     <!-- ...docs listed directly under day item -->
     
       <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
+      <div class="res-row"><span class="res unpublished">Slides</span></div>
       </div>
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
-      <div>
-      <span class="before-in-class">Due:</span><br>
-      
-        <ul class="assignment-list">
-        
-          <li>Quiz 1</li>
-        
-        </ul>
-      
-      </div>
+      <p class="card-note">Quiz 1 due</p>
     
     </div>
     </div>
@@ -958,11 +999,12 @@ window.Quarto = {
 
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Sep 14</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Sep 14</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">Functions</span>
     </div>
@@ -976,29 +1018,23 @@ window.Quarto = {
     <!-- ...docs listed directly under day item -->
     
       <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
+      <div class="res-row"><span class="res unpublished">Slides</span></div>
       </div>
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
     
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Sep 16</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Sep 16</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">The R Ecosystem</span>
     </div>
@@ -1012,29 +1048,23 @@ window.Quarto = {
     <!-- ...docs listed directly under day item -->
     
       <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
+      <div class="res-row"><span class="res unpublished">Slides</span></div>
       </div>
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
     
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Sep 18</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Sep 18</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">Factors and Data Frames</span>
     </div>
@@ -1048,18 +1078,11 @@ window.Quarto = {
     <!-- ...docs listed directly under day item -->
     
       <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
+      <div class="res-row"><span class="res unpublished">Slides</span></div>
       </div>
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
@@ -1074,11 +1097,12 @@ window.Quarto = {
 
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Sep 21</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Sep 21</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">Git &amp; GitHub</span>
     </div>
@@ -1092,31 +1116,23 @@ window.Quarto = {
     <!-- ...docs listed directly under day item -->
     
       <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
-        
-      
+      <div class="res-row"><span class="res unpublished">Slides</span></div>
       </div>
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
     
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Sep 23</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Sep 23</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">Data Wrangling I</span>
     </div>
@@ -1130,29 +1146,23 @@ window.Quarto = {
     <!-- ...docs listed directly under day item -->
     
       <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
+      <div class="res-row"><span class="res unpublished">Slides</span></div>
       </div>
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
     
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Sep 25</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Sep 25</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">Data Wrangling II</span>
     </div>
@@ -1166,18 +1176,11 @@ window.Quarto = {
     <!-- ...docs listed directly under day item -->
     
       <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
+      <div class="res-row"><span class="res unpublished">Slides</span></div>
       </div>
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
@@ -1192,11 +1195,12 @@ window.Quarto = {
 
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Sep 28</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Sep 28</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">Intro to Data Viz</span>
     </div>
@@ -1210,29 +1214,23 @@ window.Quarto = {
     <!-- ...docs listed directly under day item -->
     
       <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
+      <div class="res-row"><span class="res unpublished">Slides</span></div>
       </div>
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
     
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Sep 30</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Sep 30</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">Grammar of Graphics</span>
     </div>
@@ -1246,29 +1244,23 @@ window.Quarto = {
     <!-- ...docs listed directly under day item -->
     
       <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
+      <div class="res-row"><span class="res unpublished">Slides</span></div>
       </div>
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
     
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Oct 2</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Oct 2</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">EDA</span>
     </div>
@@ -1282,22 +1274,11 @@ window.Quarto = {
     <!-- ...docs listed directly under day item -->
     
       <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
-        
-      
-        
-      
+      <div class="res-row"><span class="res unpublished">Slides</span></div>
       </div>
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
@@ -1312,11 +1293,12 @@ window.Quarto = {
 
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Oct 5</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Oct 5</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">Explanatory DA</span>
     </div>
@@ -1330,29 +1312,23 @@ window.Quarto = {
     <!-- ...docs listed directly under day item -->
     
       <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
+      <div class="res-row"><span class="res unpublished">Slides</span></div>
       </div>
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
     
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Oct 7</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Oct 7</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">Joins and Pivots</span>
     </div>
@@ -1366,29 +1342,23 @@ window.Quarto = {
     <!-- ...docs listed directly under day item -->
     
       <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
+      <div class="res-row"><span class="res unpublished">Slides</span></div>
       </div>
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
     
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Oct 9</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Oct 9</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">Quarto</span>
     </div>
@@ -1402,18 +1372,11 @@ window.Quarto = {
     <!-- ...docs listed directly under day item -->
     
       <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
+      <div class="res-row"><span class="res unpublished">Slides</span></div>
       </div>
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
@@ -1428,11 +1391,12 @@ window.Quarto = {
 
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Oct 12</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Oct 12</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">Strings I</span>
     </div>
@@ -1446,29 +1410,23 @@ window.Quarto = {
     <!-- ...docs listed directly under day item -->
     
       <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
+      <div class="res-row"><span class="res unpublished">Slides</span></div>
       </div>
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
     
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Oct 14</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Oct 14</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">Strings II</span>
     </div>
@@ -1482,29 +1440,23 @@ window.Quarto = {
     <!-- ...docs listed directly under day item -->
     
       <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
+      <div class="res-row"><span class="res unpublished">Slides</span></div>
       </div>
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
     
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Oct 16</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Oct 16</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">Text Analysis</span>
     </div>
@@ -1518,18 +1470,11 @@ window.Quarto = {
     <!-- ...docs listed directly under day item -->
     
       <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
+      <div class="res-row"><span class="res unpublished">Slides</span></div>
       </div>
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
@@ -1544,11 +1489,12 @@ window.Quarto = {
 
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Oct 19</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Oct 19</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">Dates and Times I</span>
     </div>
@@ -1562,29 +1508,23 @@ window.Quarto = {
     <!-- ...docs listed directly under day item -->
     
       <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
+      <div class="res-row"><span class="res unpublished">Slides</span></div>
       </div>
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
     
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Oct 21</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Oct 21</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">Dates and Times II</span>
     </div>
@@ -1598,29 +1538,23 @@ window.Quarto = {
     <!-- ...docs listed directly under day item -->
     
       <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
+      <div class="res-row"><span class="res unpublished">Slides</span></div>
       </div>
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
     
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Oct 23</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Oct 23</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">Spatial Data I</span>
     </div>
@@ -1634,18 +1568,11 @@ window.Quarto = {
     <!-- ...docs listed directly under day item -->
     
       <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
+      <div class="res-row"><span class="res unpublished">Slides</span></div>
       </div>
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
@@ -1660,11 +1587,12 @@ window.Quarto = {
 
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Oct 26</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Oct 26</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">Gerrymandering</span>
     </div>
@@ -1678,29 +1606,23 @@ window.Quarto = {
     <!-- ...docs listed directly under day item -->
     
       <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
+      <div class="res-row"><span class="res unpublished">Slides</span></div>
       </div>
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
     
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Oct 28</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Oct 28</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">Spatial Data II</span>
     </div>
@@ -1714,29 +1636,23 @@ window.Quarto = {
     <!-- ...docs listed directly under day item -->
     
       <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
+      <div class="res-row"><span class="res unpublished">Slides</span></div>
       </div>
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
     
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Oct 30</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Oct 30</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">Dashboards</span>
     </div>
@@ -1750,18 +1666,11 @@ window.Quarto = {
     <!-- ...docs listed directly under day item -->
     
       <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
+      <div class="res-row"><span class="res unpublished">Slides</span></div>
       </div>
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
@@ -1776,11 +1685,12 @@ window.Quarto = {
 
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Nov 2</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Nov 2</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">Election Day</span>
     </div>
@@ -1794,29 +1704,23 @@ window.Quarto = {
     <!-- ...docs listed directly under day item -->
     
       <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
+      <div class="res-row"><span class="res unpublished">Slides</span></div>
       </div>
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
     
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Nov 4</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Nov 4</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">R Packages I</span>
     </div>
@@ -1830,29 +1734,23 @@ window.Quarto = {
     <!-- ...docs listed directly under day item -->
     
       <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
+      <div class="res-row"><span class="res unpublished">Slides</span></div>
       </div>
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
     
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Nov 6</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Nov 6</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">R Packages II</span>
     </div>
@@ -1866,18 +1764,11 @@ window.Quarto = {
     <!-- ...docs listed directly under day item -->
     
       <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
+      <div class="res-row"><span class="res unpublished">Slides</span></div>
       </div>
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
@@ -1892,11 +1783,12 @@ window.Quarto = {
 
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Nov 9</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Nov 9</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">Prediction I</span>
     </div>
@@ -1910,29 +1802,23 @@ window.Quarto = {
     <!-- ...docs listed directly under day item -->
     
       <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
+      <div class="res-row"><span class="res unpublished">Slides</span></div>
       </div>
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
     
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Nov 11</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Nov 11</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">No Class: Veterans Day</span>
     </div>
@@ -1945,18 +1831,20 @@ window.Quarto = {
     
     <!-- ...docs listed directly under day item -->
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
     
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Nov 13</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Nov 13</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">Prediction II</span>
     </div>
@@ -1970,18 +1858,11 @@ window.Quarto = {
     <!-- ...docs listed directly under day item -->
     
       <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
+      <div class="res-row"><span class="res unpublished">Slides</span></div>
       </div>
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
@@ -1996,11 +1877,12 @@ window.Quarto = {
 
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Nov 16</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Nov 16</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">Classification</span>
     </div>
@@ -2014,29 +1896,23 @@ window.Quarto = {
     <!-- ...docs listed directly under day item -->
     
       <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
+      <div class="res-row"><span class="res unpublished">Slides</span></div>
       </div>
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
     
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Nov 18</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Nov 18</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">APIs I</span>
     </div>
@@ -2050,29 +1926,23 @@ window.Quarto = {
     <!-- ...docs listed directly under day item -->
     
       <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
+      <div class="res-row"><span class="res unpublished">Slides</span></div>
       </div>
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
     
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Nov 20</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Nov 20</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">APIs II</span>
     </div>
@@ -2086,18 +1956,11 @@ window.Quarto = {
     <!-- ...docs listed directly under day item -->
     
       <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
+      <div class="res-row"><span class="res unpublished">Slides</span></div>
       </div>
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
@@ -2112,11 +1975,12 @@ window.Quarto = {
 
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Nov 23</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Nov 23</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">LLMs</span>
     </div>
@@ -2130,29 +1994,23 @@ window.Quarto = {
     <!-- ...docs listed directly under day item -->
     
       <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
+      <div class="res-row"><span class="res unpublished">Slides</span></div>
       </div>
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
     
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Nov 25</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Nov 25</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">No Class: Non-Instructional Day</span>
     </div>
@@ -2165,18 +2023,20 @@ window.Quarto = {
     
     <!-- ...docs listed directly under day item -->
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
     
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Nov 27</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Nov 27</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">No Class: Thanksgiving</span>
     </div>
@@ -2189,7 +2049,8 @@ window.Quarto = {
     
     <!-- ...docs listed directly under day item -->
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
@@ -2204,11 +2065,12 @@ window.Quarto = {
 
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Nov 30</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Nov 30</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">LLMs in IDEs</span>
     </div>
@@ -2222,29 +2084,23 @@ window.Quarto = {
     <!-- ...docs listed directly under day item -->
     
       <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
+      <div class="res-row"><span class="res unpublished">Slides</span></div>
       </div>
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
     
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Dec 2</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Dec 2</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">Abstraction</span>
     </div>
@@ -2258,29 +2114,23 @@ window.Quarto = {
     <!-- ...docs listed directly under day item -->
     
       <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
+      <div class="res-row"><span class="res unpublished">Slides</span></div>
       </div>
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
     
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Dec 4</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Dec 4</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic"></span>
     </div>
@@ -2293,7 +2143,8 @@ window.Quarto = {
     
     <!-- ...docs listed directly under day item -->
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
@@ -2308,11 +2159,12 @@ window.Quarto = {
 
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Dec 7</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Dec 7</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">RRR</span>
     </div>
@@ -2326,29 +2178,23 @@ window.Quarto = {
     <!-- ...docs listed directly under day item -->
     
       <div>
-      
-        
-          
-          
-          
-            <span class="res unpublished">Slides</span>
-          
-        
-      
+      <div class="res-row"><span class="res unpublished">Slides</span></div>
       </div>
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
     
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Dec 9</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Dec 9</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">RRR</span>
     </div>
@@ -2361,18 +2207,20 @@ window.Quarto = {
     
     <!-- ...docs listed directly under day item -->
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
     
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Dec 11</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Dec 11</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">RRR</span>
     </div>
@@ -2385,7 +2233,8 @@ window.Quarto = {
     
     <!-- ...docs listed directly under day item -->
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
@@ -2400,11 +2249,12 @@ window.Quarto = {
 
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Dec 14</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Dec 14</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic">Final Exam 7-10 pm</span>
     </div>
@@ -2417,18 +2267,20 @@ window.Quarto = {
     
     <!-- ...docs listed directly under day item -->
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
     
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Dec 16</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Dec 16</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic"></span>
     </div>
@@ -2441,18 +2293,20 @@ window.Quarto = {
     
     <!-- ...docs listed directly under day item -->
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
     
   
     <!-- Create each day -->
-    <div class="daily-sched">
     
-    <div class="date-cell">
-    <span>Dec 18</span>
-    </div>
+    
+    <div class="daily-sched is-future">
+    
+      <div class="card-media muted-banner"><span class="cal-date">Dec 18</span></div>
+    
     <div class="daily-topic-cell">
     <span class="daily-topic"></span>
     </div>
@@ -2465,7 +2319,8 @@ window.Quarto = {
     
     <!-- ...docs listed directly under day item -->
     
-    <!-- ...things that are due tomorrow -->
+    <!-- ...short announcements, no link chrome (this replaces the former
+         `due:` key -- due dates are now written as notes) -->
     
     </div>
     </div>
