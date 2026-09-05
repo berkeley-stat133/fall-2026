@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R – STAT 133</title>
+<title>The R App – STAT 133</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -133,7 +133,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tools/index.html">Tools</a></li><li class="breadcrumb-item"><a href="../tools/r.html">R</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tools/index.html">Tools</a></li><li class="breadcrumb-item"><a href="../tools/r-app.html">R App</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -187,13 +187,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tools/r.html" class="sidebar-item-text sidebar-link active">
+  <a href="../tools/r.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../tools/r-app.html" class="sidebar-item-text sidebar-link">
+  <a href="../tools/r-app.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">R App</span></a>
   </div>
 </li>
@@ -244,9 +244,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content column-page-right" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tools/index.html">Tools</a></li><li class="breadcrumb-item"><a href="../tools/r.html">R</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../tools/index.html">Tools</a></li><li class="breadcrumb-item"><a href="../tools/r-app.html">R App</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">R</h1>
+<h1 class="title">The R App</h1>
 </div>
 
 
@@ -264,39 +264,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p><img src="images/r.svg" class="tool-logo" alt="R logo" height="84"></p>
-<p><strong>R</strong> is the programming language we use all semester for computing with data. On DataHub, R is already installed, but you will also want to install it on your own machine.</p>
-<section id="installing-r-locally" class="level2">
-<h2 class="anchored" data-anchor-id="installing-r-locally">Installing R locally</h2>
-<p>Start at <a href="https://cran.r-project.org">CRAN</a>, the Comprehensive R Archive Network, then follow the steps for your operating system.</p>
+<p>When you install R, you also get a small graphical application bundled with it: <strong>R.app</strong> on macOS and <strong>Rgui</strong> on Windows. It gives you an R console plus a simple editor for writing scripts, without installing anything else. It is the quickest way to start writing R on your own machine.</p>
+<section id="opening-the-r-app" class="level2">
+<h2 class="anchored" data-anchor-id="opening-the-r-app">Opening the R App</h2>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">macOS</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Windows</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <ol type="1">
-<li>Click <strong>Download R for macOS</strong>.</li>
-<li>Download the <code>.pkg</code> installer that matches your machine (Apple silicon or Intel).</li>
-<li>Open the installer and accept the defaults.</li>
+<li>Open <strong>Finder</strong> and go to the <strong>Applications</strong> folder.</li>
+<li>Double-click <strong>R</strong> (the blue R icon). This is <code>R.app</code>.</li>
+<li>You can also press <kbd>⌘</kbd> + <kbd>Space</kbd> to open Spotlight, type <code>R</code>, and press Enter.</li>
 </ol>
+<p>If you have both <code>R.app</code> and <code>R64.app</code>, either one is fine on a modern Mac.</p>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <ol type="1">
-<li>Click <strong>Download R for Windows</strong>, then <strong>base</strong>.</li>
-<li>Download the installer and run it.</li>
-<li>Accept the defaults.</li>
+<li>Click the <strong>Start</strong> menu and type <code>R</code>.</li>
+<li>Choose <strong>R x.y.z</strong> (the version number will match what you installed). This opens <code>Rgui</code>.</li>
+<li>You can also find it under <strong>All Apps → R → R x.y.z</strong>.</li>
 </ol>
+<p>If Windows shows both <strong>R i386</strong> and <strong>R x64</strong>, choose <strong>R x64</strong>.</p>
 </div>
 </div>
 </div>
+<p>When the app opens you will see the R console with the <code>&gt;</code> prompt. Type an expression and press Enter to run it:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="checking-your-installation" class="level2">
-<h2 class="anchored" data-anchor-id="checking-your-installation">Checking your installation</h2>
-<p>Open R (or a shell) and run:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>R.version.string</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>You should see the version of R you installed[^Fun fact: the unusual names of R versions come from snippets of text from the comic strip Peanuts.].</p>
+<section id="writing-an-r-script" class="level2">
+<h2 class="anchored" data-anchor-id="writing-an-r-script">Writing an R script</h2>
+<p>The console is good for one-off commands, but anything you want to keep should go in a <strong>script</strong> — a plain text file with the <code>.R</code> extension that holds a sequence of R commands.</p>
+<p>To open a new, empty script:</p>
+<ul>
+<li><strong>macOS</strong>: <strong>File → New Document</strong>, or press <kbd>⌘</kbd> + <kbd>N</kbd>.</li>
+<li><strong>Windows</strong>: <strong>File → New script</strong>, or press <kbd>Ctrl</kbd> + <kbd>N</kbd>.</li>
+</ul>
+<p>An editor window opens. Type your code there, one command per line:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">23</span>, <span class="dv">42</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Nothing runs as you type. To run a line, put your cursor on it and press:</p>
+<ul>
+<li><strong>macOS</strong>: <kbd>⌘</kbd> + <kbd>Enter</kbd></li>
+<li><strong>Windows</strong>: <kbd>Ctrl</kbd> + <kbd>R</kbd></li>
+</ul>
+<p>To run several lines, select them first and use the same shortcut. The commands are sent to the console, where you will see the output.</p>
 </section>
-<section id="launching-r" class="level2">
-<h2 class="anchored" data-anchor-id="launching-r">Launching R</h2>
-<p>To open R from a shell, just type the command <code>R</code> and press Enter. This will open R at the command line. To close R and return to the shell, run the function <code>q()</code> to quit.</p>
+<section id="saving-your-script" class="level2">
+<h2 class="anchored" data-anchor-id="saving-your-script">Saving your script</h2>
+<p>Save early and often.</p>
+<ul>
+<li><strong>macOS</strong>: <strong>File → Save</strong>, or <kbd>⌘</kbd> + <kbd>S</kbd>.</li>
+<li><strong>Windows</strong>: <strong>File → Save</strong>, or <kbd>Ctrl</kbd> + <kbd>S</kbd>.</li>
+</ul>
+<p>In the save dialog:</p>
+<ol type="1">
+<li>Choose a folder you can find again — a <code>stat133</code> folder in your Documents is a good habit.</li>
+<li>Give the file a short, descriptive name with no spaces, ending in <code>.R</code>, such as <code>vector-practice.R</code>.</li>
+<li>Click <strong>Save</strong>.</li>
+</ol>
+<p>To reopen it later, use <strong>File → Open Document</strong> (macOS) or <strong>File → Open script</strong> (Windows) and select the file.</p>
+</section>
+<section id="tips" class="level2">
+<h2 class="anchored" data-anchor-id="tips">Tips</h2>
+<ul>
+<li>Use <code>#</code> to start a comment. Everything after it on that line is ignored by R.</li>
+<li>Keep the script as the record of what you did; treat the console as scratch paper.</li>
+</ul>
 
 
 </section>

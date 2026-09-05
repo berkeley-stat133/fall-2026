@@ -1,17 +1,17 @@
 [
   {
-    "objectID": "for-next-time.html",
-    "href": "for-next-time.html",
+    "objectID": "for-next-time.html#from-fall-2026",
+    "href": "for-next-time.html#from-fall-2026",
     "title": "STAT 133",
-    "section": "",
-    "text": "Syllabus\n\ndownweight projects\nframe quizzes that the group part is optional\nremove automatic quiz drop and switch form so that it’s quiz specific\n\nStarting them on JupyterClassic was great, then terminal / git bash, the R command line, then R app.\nFor Lab 0, have students transcribe the index cards in lab to go through the process of data digitization.\nBe clearer about the fact that shell commands like ls, cat, mkdir, cp, mv take paths as their arguments, and those paths can be relative or absolute\nBe more deliberate about the home directory, ~, and introduce it in lecture.\nConsider using the norm of ending each path to a dir with / and also teaching what . does at the start of a path.\nBe more deliberate about introducing the R environment and how it differs from files on the file system (data structures in memory vs data files on disk).\nMove factors to end of Vectors stuff, before matrices.\nFor each project, write out the cogs of the computational machine that will need to be in place - data digitization, reshaping, text data, time / date, spatial, etc - and ensure each lab goes all the way through to the communication step. Each lab, you spiral back over some similar elements and add some new ones.\nWhen introducing matrices, introduce the notion of attributes attributes() and a class: it changes the behavior of print(), e.g., even though the matrix is a a vector.That opens the door to factors and date times.\nUnits: Filesystems and the Shell, R: Data Structures, R: as a programming language,\nHave a separate section of the website for “Tools” that contains install / walkthroughs of: shell, R, git, quarto, Positron. Push these out ahead of the first time they’re used in class so that they’re not seeing them for the first time in lab section.\nConsider added a pre tidyverse lecture that’s about data IO: reading and writing different types of files.\nActually, yeah, that might be the best way to do the units here:\n\nReading and Writing Data (base + readr)\n\nread/write files (txt, csv, json, Rda)\nencoding\n\nData Wrangling (dplyr, tidyr)\n\nCol types\nMissing data\nReshaping\nNormalization\n\nEDA (ggplot2, stringr, lubridate, leaflet)\n\nStatistical summaries\nData visualization\n\nModeling ()\nSharing your work (Dashboards, APIs)\n\nSlide classes: Definition, Your Turn, Example, Historical Note.\nStart talking bits and bytes for storing data (numbers) and the compact hexademical notation and then come back to it for the hexadecimal encoding of unicode characters.\nOne of the units should be “weird types of data” and include\n\nNetworks (treated early on)\nText\nDate/Time\nGeographic\n\nFor date/time stuff:\n\nCould potentially build full project out of the “city that never sleeps”\nuse consistent visual metaphor of dot for point in time, star for origin (1970), segments for time spans (durations). potentially build up “timeline” over course of all of the examples - layers each example on the same timeline.\n\nOther Project Ideas\n\nChris Lowe’s Sharks: geospatial / temporal\nCollege Scorecard\nBART / MUNI ridership data for date-time stuff\n\nFor spatial data, switch the order of the lectures. Have the first one on “making” spatial data. Have the second one working with existing data (talk about coordinate systems, projections, shapefiles, and maps). Maybe need a third lecture to really demonstrate doing the sf operations on real data. For the first (sf geometry lecture), actually show geometric features (a cut out hexagon and square, a rod (for a line), and a tiny ball (for a point)).\nDo add a class or two on SQL\nMove “R packages” up before they use external packages and have them use and add to their project over the course of the semester. It can hold:\n\nData that they collect\nSome sort of “signature” that they can add to their projects\nFunction to calculate quiz grade\n\nConsider adding a unit on simulation. Could cover\n\nr() family of functions\nbootstrapping/permutations tests\ncode up famous probability problems: birthday problem, monte hall, buffon’s needle, german tank problem, CLT.\n\nConsider having a class-wide package that every student must add something to by the end of the semester (practice with git).\nAlternatively, they could be group projects.\nIn addition to the prediction competition, hold a data visualization competition (have a GSI plan and execute it).\nAdd a project where they analyze their own app usage:\n\nthey make a data request from an app they use (gmail, insta, tiktok, youtube, maps, reddit) or use a data set collected from one of the GSIs.\nit’ll have lots of cool jsons\nthis could be a final project with a presentation component during RRR week\ncould have them to do this or the prediction competition (or both) for a final project.\nthese could be graded with a higher bar for getting credit: above a certain prediction accuracy and having a poster at the symposium.\n\nData cleaning / EDA checklist\n\nconfirm dims\ncheck col types\ncheck whether unique ids are unique\ncheck for missing values\ncheck distributions of variables\n\noutliers\nlevels for factors\nrange and outliers (based on Z) of numerics"
+    "section": "From Fall 2026",
+    "text": "From Fall 2026\n\nEither deliberately include or exclude mkdir, cp, mv.\nWhoops, do factors right after atomic vectors before matrices."
   },
   {
-    "objectID": "for-next-time.html#notes-for-next-time",
-    "href": "for-next-time.html#notes-for-next-time",
+    "objectID": "for-next-time.html#from-fall-2025",
+    "href": "for-next-time.html#from-fall-2025",
     "title": "STAT 133",
-    "section": "",
-    "text": "Syllabus\n\ndownweight projects\nframe quizzes that the group part is optional\nremove automatic quiz drop and switch form so that it’s quiz specific\n\nStarting them on JupyterClassic was great, then terminal / git bash, the R command line, then R app.\nFor Lab 0, have students transcribe the index cards in lab to go through the process of data digitization.\nBe clearer about the fact that shell commands like ls, cat, mkdir, cp, mv take paths as their arguments, and those paths can be relative or absolute\nBe more deliberate about the home directory, ~, and introduce it in lecture.\nConsider using the norm of ending each path to a dir with / and also teaching what . does at the start of a path.\nBe more deliberate about introducing the R environment and how it differs from files on the file system (data structures in memory vs data files on disk).\nMove factors to end of Vectors stuff, before matrices.\nFor each project, write out the cogs of the computational machine that will need to be in place - data digitization, reshaping, text data, time / date, spatial, etc - and ensure each lab goes all the way through to the communication step. Each lab, you spiral back over some similar elements and add some new ones.\nWhen introducing matrices, introduce the notion of attributes attributes() and a class: it changes the behavior of print(), e.g., even though the matrix is a a vector.That opens the door to factors and date times.\nUnits: Filesystems and the Shell, R: Data Structures, R: as a programming language,\nHave a separate section of the website for “Tools” that contains install / walkthroughs of: shell, R, git, quarto, Positron. Push these out ahead of the first time they’re used in class so that they’re not seeing them for the first time in lab section.\nConsider added a pre tidyverse lecture that’s about data IO: reading and writing different types of files.\nActually, yeah, that might be the best way to do the units here:\n\nReading and Writing Data (base + readr)\n\nread/write files (txt, csv, json, Rda)\nencoding\n\nData Wrangling (dplyr, tidyr)\n\nCol types\nMissing data\nReshaping\nNormalization\n\nEDA (ggplot2, stringr, lubridate, leaflet)\n\nStatistical summaries\nData visualization\n\nModeling ()\nSharing your work (Dashboards, APIs)\n\nSlide classes: Definition, Your Turn, Example, Historical Note.\nStart talking bits and bytes for storing data (numbers) and the compact hexademical notation and then come back to it for the hexadecimal encoding of unicode characters.\nOne of the units should be “weird types of data” and include\n\nNetworks (treated early on)\nText\nDate/Time\nGeographic\n\nFor date/time stuff:\n\nCould potentially build full project out of the “city that never sleeps”\nuse consistent visual metaphor of dot for point in time, star for origin (1970), segments for time spans (durations). potentially build up “timeline” over course of all of the examples - layers each example on the same timeline.\n\nOther Project Ideas\n\nChris Lowe’s Sharks: geospatial / temporal\nCollege Scorecard\nBART / MUNI ridership data for date-time stuff\n\nFor spatial data, switch the order of the lectures. Have the first one on “making” spatial data. Have the second one working with existing data (talk about coordinate systems, projections, shapefiles, and maps). Maybe need a third lecture to really demonstrate doing the sf operations on real data. For the first (sf geometry lecture), actually show geometric features (a cut out hexagon and square, a rod (for a line), and a tiny ball (for a point)).\nDo add a class or two on SQL\nMove “R packages” up before they use external packages and have them use and add to their project over the course of the semester. It can hold:\n\nData that they collect\nSome sort of “signature” that they can add to their projects\nFunction to calculate quiz grade\n\nConsider adding a unit on simulation. Could cover\n\nr() family of functions\nbootstrapping/permutations tests\ncode up famous probability problems: birthday problem, monte hall, buffon’s needle, german tank problem, CLT.\n\nConsider having a class-wide package that every student must add something to by the end of the semester (practice with git).\nAlternatively, they could be group projects.\nIn addition to the prediction competition, hold a data visualization competition (have a GSI plan and execute it).\nAdd a project where they analyze their own app usage:\n\nthey make a data request from an app they use (gmail, insta, tiktok, youtube, maps, reddit) or use a data set collected from one of the GSIs.\nit’ll have lots of cool jsons\nthis could be a final project with a presentation component during RRR week\ncould have them to do this or the prediction competition (or both) for a final project.\nthese could be graded with a higher bar for getting credit: above a certain prediction accuracy and having a poster at the symposium.\n\nData cleaning / EDA checklist\n\nconfirm dims\ncheck col types\ncheck whether unique ids are unique\ncheck for missing values\ncheck distributions of variables\n\noutliers\nlevels for factors\nrange and outliers (based on Z) of numerics"
+    "section": "From Fall 2025",
+    "text": "From Fall 2025\n\nSyllabus\n\ndownweight projects\nframe quizzes that the group part is optional\nremove automatic quiz drop and switch form so that it’s quiz specific\n\nStarting them on JupyterClassic was great, then terminal / git bash, the R command line, then R app.\nFor Lab 0, have students transcribe the index cards in lab to go through the process of data digitization.\nBe clearer about the fact that shell commands like ls, cat, mkdir, cp, mv take paths as their arguments, and those paths can be relative or absolute\nBe more deliberate about the home directory, ~, and introduce it in lecture.\nConsider using the norm of ending each path to a dir with / and also teaching what . does at the start of a path.\nBe more deliberate about introducing the R environment and how it differs from files on the file system (data structures in memory vs data files on disk).\nMove factors to end of Vectors stuff, before matrices.\nFor each project, write out the cogs of the computational machine that will need to be in place - data digitization, reshaping, text data, time / date, spatial, etc - and ensure each lab goes all the way through to the communication step. Each lab, you spiral back over some similar elements and add some new ones.\nWhen introducing matrices, introduce the notion of attributes attributes() and a class: it changes the behavior of print(), e.g., even though the matrix is a a vector.That opens the door to factors and date times.\nUnits: Filesystems and the Shell, R: Data Structures, R: as a programming language,\nHave a separate section of the website for “Tools” that contains install / walkthroughs of: shell, R, git, quarto, Positron. Push these out ahead of the first time they’re used in class so that they’re not seeing them for the first time in lab section.\nConsider added a pre tidyverse lecture that’s about data IO: reading and writing different types of files.\nActually, yeah, that might be the best way to do the units here:\n\nReading and Writing Data (base + readr)\n\nread/write files (txt, csv, json, Rda)\nencoding\n\nData Wrangling (dplyr, tidyr)\n\nCol types\nMissing data\nReshaping\nNormalization\n\nEDA (ggplot2, stringr, lubridate, leaflet)\n\nStatistical summaries\nData visualization\n\nModeling ()\nSharing your work (Dashboards, APIs)\n\nSlide classes: Definition, Your Turn, Example, Historical Note.\nStart talking bits and bytes for storing data (numbers) and the compact hexademical notation and then come back to it for the hexadecimal encoding of unicode characters.\nOne of the units should be “weird types of data” and include\n\nNetworks (treated early on)\nText\nDate/Time\nGeographic\n\nFor date/time stuff:\n\nCould potentially build full project out of the “city that never sleeps”\nuse consistent visual metaphor of dot for point in time, star for origin (1970), segments for time spans (durations). potentially build up “timeline” over course of all of the examples - layers each example on the same timeline.\n\nOther Project Ideas\n\nChris Lowe’s Sharks: geospatial / temporal\nCollege Scorecard\nBART / MUNI ridership data for date-time stuff\n\nFor spatial data, switch the order of the lectures. Have the first one on “making” spatial data. Have the second one working with existing data (talk about coordinate systems, projections, shapefiles, and maps). Maybe need a third lecture to really demonstrate doing the sf operations on real data. For the first (sf geometry lecture), actually show geometric features (a cut out hexagon and square, a rod (for a line), and a tiny ball (for a point)).\nDo add a class or two on SQL\nMove “R packages” up before they use external packages and have them use and add to their project over the course of the semester. It can hold:\n\nData that they collect\nSome sort of “signature” that they can add to their projects\nFunction to calculate quiz grade\n\nConsider adding a unit on simulation. Could cover\n\nr() family of functions\nbootstrapping/permutations tests\ncode up famous probability problems: birthday problem, monte hall, buffon’s needle, german tank problem, CLT.\n\nConsider having a class-wide package that every student must add something to by the end of the semester (practice with git).\nAlternatively, they could be group projects.\nIn addition to the prediction competition, hold a data visualization competition (have a GSI plan and execute it).\nAdd a project where they analyze their own app usage:\n\nthey make a data request from an app they use (gmail, insta, tiktok, youtube, maps, reddit) or use a data set collected from one of the GSIs.\nit’ll have lots of cool jsons\nthis could be a final project with a presentation component during RRR week\ncould have them to do this or the prediction competition (or both) for a final project.\nthese could be graded with a higher bar for getting credit: above a certain prediction accuracy and having a poster at the symposium.\n\nData cleaning / EDA checklist\n\nconfirm dims\ncheck col types\ncheck whether unique ids are unique\ncheck for missing values\ncheck distributions of variables\n\noutliers\nlevels for factors\nrange and outliers (based on Z) of numerics"
   },
   {
     "objectID": "tools/r.html",
@@ -29,7 +29,7 @@
     "href": "tools/r.html#installing-r-locally",
     "title": "R",
     "section": "Installing R locally",
-    "text": "Installing R locally\n\nGo to CRAN, the Comprehensive R Archive Network.\nChoose your operating system:\n\nmacOS: download the .pkg installer and open it.\nWindows: click base, download the installer, and run it.\n\nAccept the defaults during installation.",
+    "text": "Installing R locally\nStart at CRAN, the Comprehensive R Archive Network, then follow the steps for your operating system.\n\nmacOSWindows\n\n\n\nClick Download R for macOS.\nDownload the .pkg installer that matches your machine (Apple silicon or Intel).\nOpen the installer and accept the defaults.\n\n\n\n\nClick Download R for Windows, then base.\nDownload the installer and run it.\nAccept the defaults.",
     "crumbs": [
       "Tools",
       "R"
@@ -58,223 +58,72 @@
     ]
   },
   {
-    "objectID": "tools/datahub.html",
-    "href": "tools/datahub.html",
-    "title": "DataHub",
+    "objectID": "tools/index.html",
+    "href": "tools/index.html",
+    "title": "Tools",
     "section": "",
-    "text": "DataHub is UC Berkeley’s browser-based computing environment. It gives you a full R and RStudio/Positron setup in the cloud, so there is nothing to install on your own machine. For Stat 133 we use the Statistics department’s hub at stat.datahub.berkeley.edu.",
+    "text": "These pages are quick how-to guides for the computational tools we use in Stat 133. Each covers how to get set up and the handful of commands or steps you need to get going.\nIf you’re just getting started, DataHub is the fastest way to begin — everything is preinstalled. As the course progresses, you should install each of the tools on your own computer so that you can continue using them outside of the classroom.",
     "crumbs": [
-      "Tools",
-      "DataHub"
+      "Tools"
     ]
   },
   {
-    "objectID": "tools/datahub.html#getting-started",
-    "href": "tools/datahub.html#getting-started",
-    "title": "DataHub",
-    "section": "Getting started",
-    "text": "Getting started\n\nOpen https://stat.datahub.berkeley.edu in your browser.\nSign in with your CalNet ID (the same credentials you use for bCourses).\nAuthorize the hub the first time you log in. After a short pause your personal server will spin up.",
-    "crumbs": [
-      "Tools",
-      "DataHub"
-    ]
-  },
-  {
-    "objectID": "tools/datahub.html#working-on-the-hub",
-    "href": "tools/datahub.html#working-on-the-hub",
-    "title": "DataHub",
-    "section": "Working on the hub",
-    "text": "Working on the hub\n\nYour files live on a persistent home directory, so your work is saved between sessions.\nLaunch a session from the DataHub launcher (RStudio, a terminal, or a notebook) to start working.\nCourse materials are typically distributed with a link that pulls the files directly into your DataHub account.",
-    "crumbs": [
-      "Tools",
-      "DataHub"
-    ]
-  },
-  {
-    "objectID": "tools/datahub.html#tips",
-    "href": "tools/datahub.html#tips",
-    "title": "DataHub",
-    "section": "Tips",
-    "text": "Tips\n\nIf your session becomes unresponsive, use File → Log Out and log back in to restart your server (you can also try refreshing your browser).\nThe hub times out after a period of inactivity, so save your work often.\nNeed more help? See the campus DataHub documentation.",
-    "crumbs": [
-      "Tools",
-      "DataHub"
-    ]
-  },
-  {
-    "objectID": "quiz-slides.html#academic-integrity",
-    "href": "quiz-slides.html#academic-integrity",
-    "title": "Quiz",
-    "section": "Academic Integrity",
-    "text": "Academic Integrity\nAcademic integrity is tantamount. Your individual quiz must represent your own work absent the help of other students - either in the room or in another quiz section. All electronics must be stowed and your eyes must not wander to other students quizzes. Conveying information to other students about the content of the quiz violates principles of academic integrity. All instances of academic misconduct will be taken seriously, handled by me personally, and will be coordinated with the Office of Student Conduct.\nDuring the group quiz, you are of course encouraged to collaborate with your teammates (but only your teammates) to answer the questions.\nIf the proctor sees your eyes wandering, you’ll be reseated at the front of the class.\n\nProf. Bray"
-  },
-  {
-    "objectID": "quiz-slides.html#individual-quiz",
-    "href": "quiz-slides.html#individual-quiz",
-    "title": "Quiz",
-    "section": "Individual Quiz",
-    "text": "Individual Quiz\n\n\nBefore the quiz begins\n\n🧹 Clear your desk of everything except a pen/pencil and your cheat sheet.\n🧢 Remove hats, hoods, and sunglasses.\n📱 All electronic devices (laptop, phone, airbuds, smart watch) should be remain in your bag for the entire class period.\nSpread out as much as possible so that you are not too close to each other.\nWhen you get a quiz, cover it with your cheat sheet and do not begin.\n\n\nDuring the quiz\n\n👀 Keep your eyes on your own quiz.\nIf you need to use the bathroom, bring your quiz and phone to the front of the class.\n⌛If you finish early, please raise your hand and we will collect your quiz.\n❗You must stop writing when time is called or risk a 0.\n\nGood luck! 🍀\n\n\n  \n    −\n    +\n \n 40:00"
-  },
-  {
-    "objectID": "quiz-slides.html#group-quiz",
-    "href": "quiz-slides.html#group-quiz",
-    "title": "Quiz",
-    "section": "Group Quiz",
-    "text": "Group Quiz\n\n\nBefore the quiz begins\n\nForm groups of 2-3 people.\n🧹 Everything except a pen/pencil and your cheat sheet must remain off your desk.\n📱 All electronic devices (laptop, phone, airbuds, smart watch) should be remain in your bag for the entire class period.\nWhen you get a group quiz, write all group members names on it but do not begin.\n\n\nDuring the quiz\n\n🗣️Discuss each of the problems and decide as a group which answer is best.\n⌛If you finish early, please raise your hand and we will collect your quiz.\n❗You must stop writing when time is called or risk a 0.\n\nGood luck! 🍀\n\n\n  \n    −\n    +\n \n 25:00"
-  },
-  {
-    "objectID": "projects/2-sampsons-monks/slides.html#agenda",
-    "href": "projects/2-sampsons-monks/slides.html#agenda",
-    "title": "Lab 2",
-    "section": "Agenda",
-    "text": "Agenda\n\nBrief lecture review\nReview key concepts\nTime to work in groups on lab worksheet (15 minutes)\nDiscuss Project 2 + Work through select parts\nTime for questions"
-  },
-  {
-    "objectID": "projects/2-sampsons-monks/slides.html#brief-review-of-lecture-control-flow",
-    "href": "projects/2-sampsons-monks/slides.html#brief-review-of-lecture-control-flow",
-    "title": "Lab 2",
-    "section": "Brief Review of Lecture: Control Flow",
-    "text": "Brief Review of Lecture: Control Flow\nIf / Else = Conditional Behavior\nif (x &gt; 0) {\n  print(\"positive\")\n} else {\n  print(\"not positive\")\n}\nVectorized If/Else statements are also possible:\n\nx = 0\nifelse(test = x &lt; 0, yes = \"is positive :)\", no = \"is negative :(\")\n\n\n\n[1] \"is negative :(\"\n\n\nFor loops = repeat over items\nfor (i in 1:5) {\n  print(i^2)\n}"
-  },
-  {
-    "objectID": "projects/2-sampsons-monks/slides.html#brief-review-of-lecture-functions",
-    "href": "projects/2-sampsons-monks/slides.html#brief-review-of-lecture-functions",
-    "title": "Lab 2",
-    "section": "Brief Review of Lecture: Functions",
-    "text": "Brief Review of Lecture: Functions\n\nfunction_name &lt;- function(arg1, arg2, ...) {\n  # code to execute\n  result &lt;- arg1 + arg2  # example operation\n  return(result)         # optional, returns result\n}"
-  },
-  {
-    "objectID": "projects/2-sampsons-monks/slides.html#sampsons-monks-project-background-concepts",
-    "href": "projects/2-sampsons-monks/slides.html#sampsons-monks-project-background-concepts",
-    "title": "Lab 2",
-    "section": "Sampson’s Monks Project: Background Concepts",
-    "text": "Sampson’s Monks Project: Background Concepts\n\nPackages in R\nSociomatrices\nNetwork visualizations & statistics\nRandom vs. observed networks\n\n\nMotivate for students that we will be working on the project and turning it in in 2 weeks, and it will be about the monks data. These are some of the necessary skills they will need for the project"
-  },
-  {
-    "objectID": "projects/2-sampsons-monks/slides.html#packages-libraries",
-    "href": "projects/2-sampsons-monks/slides.html#packages-libraries",
-    "title": "Lab 2",
-    "section": "Packages & Libraries",
-    "text": "Packages & Libraries\n\nBase R is powerful, but we use packages to extend its capabilities\nPackages collections of functions & datasets\n\nlibrary() is used to load a previously installed package into an R session.\n\nInstall and load:\ninstall.packages(\"igraph\") # only need to do once!\nlibrary(igraph)"
-  },
-  {
-    "objectID": "projects/2-sampsons-monks/slides.html#packages-to-use-today",
-    "href": "projects/2-sampsons-monks/slides.html#packages-to-use-today",
-    "title": "Lab 2",
-    "section": "Packages to use today:",
-    "text": "Packages to use today:\nigraph (network analysis & static plots)\n\naccepts adjacency matrices.\n\nnetworkD3 (interactive plots)\n\nexpects data frames of nodes and edges, not a network object.\nnodes are the names/points in the resulting plot\nedges are the directed lines between the points\n\nEven though the information is already in sampson, you still need to extract it into the right format for networkD3."
-  },
-  {
-    "objectID": "projects/2-sampsons-monks/slides.html#what-do-networks-look-like",
-    "href": "projects/2-sampsons-monks/slides.html#what-do-networks-look-like",
-    "title": "Lab 2",
-    "section": "What do networks look like?",
-    "text": "What do networks look like?\n\nLet’s use a familar dataset to create network plots!"
-  },
-  {
-    "objectID": "projects/2-sampsons-monks/slides.html#our-dataset-sampsons-monks",
-    "href": "projects/2-sampsons-monks/slides.html#our-dataset-sampsons-monks",
-    "title": "Lab 2",
-    "section": "Our Dataset: Sampson’s Monks",
-    "text": "Our Dataset: Sampson’s Monks\n\nData collected in a New England monastery (1960s)\nMonks reported:\n\nLiking relationships (time 1, time 2, time 3)\nDisliking relationships (time 1)\n\nClassic dataset for studying group dynamics and conflict\nStored as a list of matrices in lda package, which we will use to get the data"
-  },
-  {
-    "objectID": "projects/2-sampsons-monks/slides.html#our-dataset-sampsons-monks-continued",
-    "href": "projects/2-sampsons-monks/slides.html#our-dataset-sampsons-monks-continued",
-    "title": "Lab 2",
-    "section": "Our Dataset: Sampson’s Monks (continued)",
-    "text": "Our Dataset: Sampson’s Monks (continued)\nFrom this matrix, we can get:\n\nIn-degree (col sums) = number of ties received / how many monks said they liked them\nOut-degree (row sums) = number of ties sent / how many monks they said they liked"
-  },
-  {
-    "objectID": "projects/2-sampsons-monks/slides.html#static-vs.-interactive-plots",
-    "href": "projects/2-sampsons-monks/slides.html#static-vs.-interactive-plots",
-    "title": "Lab 2",
-    "section": "Static vs. Interactive Plots",
-    "text": "Static vs. Interactive Plots\n\nYou will create one of each in your project\nStatic plots = easy and quick to create using plot() from igraph\nInteractive plots = can zoom, hover, drag nodes using forceNetwork() from networkD3"
-  },
-  {
-    "objectID": "projects/2-sampsons-monks/slides.html#why-compare-random-vs.-observed",
-    "href": "projects/2-sampsons-monks/slides.html#why-compare-random-vs.-observed",
-    "title": "Lab 2",
-    "section": "Why Compare Random vs. Observed?",
-    "text": "Why Compare Random vs. Observed?\nIn your project, you will be asked to compare the observed sociomatrix with one that you have generated.\n\nRandom sociomatrix = ties assigned by chance\nObserved monk network = structured by social dynamics\nKey question: What features do we see in the real network that random ones lack?\n\nShows the complexity of real social systems"
-  },
-  {
-    "objectID": "projects/2-sampsons-monks/slides.html#lab-review-worksheet",
-    "href": "projects/2-sampsons-monks/slides.html#lab-review-worksheet",
-    "title": "Lab 2",
-    "section": "Lab Review Worksheet",
-    "text": "Lab Review Worksheet\n\n  \n    −\n    +\n \n 30:00\n \nGroup work to review essential material\n\nLab worksheet is meant to give students the skills they need for the project, which they will mostly be taking home and working on in their own time. Lab worksheet is fully during lab. Can go over the answers to this in lab or have them volunteer answers."
-  },
-  {
-    "objectID": "projects/2-sampsons-monks/slides.html#lab-2-project",
-    "href": "projects/2-sampsons-monks/slides.html#lab-2-project",
-    "title": "Lab 2",
-    "section": "Lab 2 Project",
-    "text": "Lab 2 Project\n\n  \n    −\n    +\n \n 15:00\n \nWorksheet:\n\nWritten responses. Please code along on your laptop. This is for your own practice / not turned in.\n\nProject:\n\nFour parts\nSubmit: project.R + README.md on GitHub Classroom\n\nWork on selected problems.\n\nGive students 15 minutes to work on problems that you find important and they may struggle with (suggest getting started with downloading packages, doing a visualization, writing the function)"
-  },
-  {
-    "objectID": "projects/1-index-cards/slides.html#using-the-shell-locally",
-    "href": "projects/1-index-cards/slides.html#using-the-shell-locally",
-    "title": "First Contact with R",
-    "section": "Using the Shell Locally",
-    "text": "Using the Shell Locally\n\n  \n    −\n    +\n \n 07:00\n \n\nMac:\n\n“zshell” (aka zsh) - UNIX based. Very similar to bash (Base UNIX Shell) with some added functionality.\nTo access, use the Mac’s “Termial” application.\n\nWindows:\n\nWill need to install “Git” if you don’t have it already.\n\nhttps://git-scm.com/downloads\n\nThis will give you access to the “Git Bash” application, which will let you use UNIX Shell on your Windows system."
-  },
-  {
-    "objectID": "projects/1-index-cards/slides.html#brief-review-of-lecture",
-    "href": "projects/1-index-cards/slides.html#brief-review-of-lecture",
-    "title": "First Contact with R",
-    "section": "Brief Review of Lecture",
-    "text": "Brief Review of Lecture\nNew Shell Commands\n\n\nmkdir\n\n\nCreates a new directory.\n\n\n\n\ncp\n\n\nCopy file (arg1) to destination (arg2).\nExample: cp ~/Downloads/hw1.pdf ~/Documents/econ100b/hw/\n\n\n\n\nmv\n\n\nMove file (first argument) to destination directory (second argument).\nExample: mv ~/Downloads/hw1.pdf ~/.Trash\n\n\n\nThey have only heard mv in lecture briefly, so teach them the functionality."
-  },
-  {
-    "objectID": "projects/1-index-cards/slides.html#brief-review-of-lecture-cont.",
-    "href": "projects/1-index-cards/slides.html#brief-review-of-lecture-cont.",
-    "title": "First Contact with R",
-    "section": "Brief Review of Lecture (cont.)",
-    "text": "Brief Review of Lecture (cont.)\nR Equivallent of Shell Commands:\n\ngetwd(): like pwd in Shell.\nsetwd(): like cd in Shell.\nlist.files(): like ls in Shell.\nreadLines(): like cat in Shell."
-  },
-  {
-    "objectID": "projects/1-index-cards/slides.html#brief-review-of-lecture-cont..",
-    "href": "projects/1-index-cards/slides.html#brief-review-of-lecture-cont..",
-    "title": "First Contact with R",
-    "section": "Brief Review of Lecture (cont..)",
-    "text": "Brief Review of Lecture (cont..)\n\na:b: Creates vector of numbers from a to b by 1.\nseq: Creates vector of numbers from \"from\" argument, to \"to\" argument, by steps defined in the \"by\" argument.\nrep: Repeats vector provided \"x\" a number of times defined by \"times\" argument."
-  },
-  {
-    "objectID": "projects/1-index-cards/slides.html#vectorization",
-    "href": "projects/1-index-cards/slides.html#vectorization",
-    "title": "First Contact with R",
-    "section": "Vectorization",
-    "text": "Vectorization\n\nOperations on a single object also works on vectors.\n\n\nvec &lt;- c(72, 52, 10)\n\nvec / 2\n\n\n\n[1] 36 26  5\n\n\n\n\n\nvec * 3\n\n\n\n[1] 216 156  30\n\n\n\n\n\nvec - 6\n\n\n\n[1] 66 46  4"
-  },
-  {
-    "objectID": "projects/1-index-cards/slides.html#recycling",
-    "href": "projects/1-index-cards/slides.html#recycling",
-    "title": "First Contact with R",
-    "section": "Recycling",
-    "text": "Recycling\n\nOperations on two vectors of unequal length.\n\n\nvec1 &lt;- 1:10\nvec2 &lt;- c(1, 2)\n\nvec1 * vec2\n\n\n\n [1]  1  4  3  8  5 12  7 16  9 20\n\n\n\n\n\nvec3 &lt;- c(1, 2, 3)\n\nvec1 + vec3\n\n\n\n [1]  2  4  6  5  7  9  8 10 12 11"
-  },
-  {
-    "objectID": "projects/1-index-cards/slides.html#lab-1-assignment",
-    "href": "projects/1-index-cards/slides.html#lab-1-assignment",
-    "title": "First Contact with R",
-    "section": "Lab 1 Assignment",
-    "text": "Lab 1 Assignment\n\n  \n    −\n    +\n \n 15:00\n \n\nWill be turned in physically.\nWritten responses. Please code along on your laptop.\n\nTwo Parts:\n\nShell\nR: Atomic Vectors, Vectorization, Recycling, Matrices, if statements, for loops.\n\nWork on selected problems.\n\nGive students 15 minutes to work on problems that you find important AND are in scope of lectures so far (nothing after 7)."
-  },
-  {
-    "objectID": "notes.html",
-    "href": "notes.html",
-    "title": "Notes",
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": "Syllabus",
     "section": "",
-    "text": "Notes\n\n\n    \n      \n      \n    \n\n\n\n\n\nNo matching items"
+    "text": "An introduction to computationally intensive applied statistics. Topics will include organization storage of data, visualization and graphics, statistical learning and data mining, model validation procedures, and the presentation of results. This course uses R as its primary computing language.\n\n\nClass Format\nThis is an in-person class with three lectures each week and one two-hour lab led by a GSI. This class is designed assuming you’ll be in class. If you miss class, you’ll be able to find most materials from class - slides, snippets of code - published on the course wesite.\n\nHomework Parties\nTutors will offer Homework Party sessions several times each week. This is an opportunity to finish up any assignments that you’ve started in class or review any topics that are confusing for you. You’re welcome to attend any session that works well for your schedule. Check the Office Hours page to see the homework party schedule.\nHomework Parties are a great place to go to meet other students and collaborate on assignments with tutors on hand to help you get unstuck.\n\n\nOffice Hours\nOffice hours are an opportunity to chat one-on-one with your instructor and GSIs. Please come to office hours! Coming to office hours does not send a signal that you are behind or need extra help. On the contrary, coming to office hours early and often tends to co-occur with success in the course. We’re happy to chat about the course material, statistics in general, careers in statistics, and whatever other statistics or data science topics are on your mind! Please check the Office Hours page to see the times of the various office hour/homework party sessions.\n\n\n\nMaterials\n\nComputational tools\nEach student will need a laptop in order to engage with the computing aspects of this class. Throughout the semester you’ll be installing several different software tools, all of which are free. We will be mainly using the computing and programming environment R (via RStudio) to analyze data in this class. We will also ask you to use a command line interface to interact with your operating system. You do need your own computer to use R and do the assignments. No need to install these ahead of time; we’ll guide you through how to get set up.\nAbout half of the students in 133 have some coding experience in Python or R and about half do not. For those who come from Data 8 or some previous coding experience in python, the first labs will help you transfer that knowledge over to R. Both languages are excellent platforms for analyzing data, are widely used in data science, and have their individual strengths. R has been developed within the statistics community specifically for data analysis, while python is a general-purpose programming language but has large data analysis capabilities.\n\n\nSupplementary texts\nYour primary reference throughout the course will be the notes that you take in class but there are also several terrific books that are free and online that can expand your knowledge.\n\nAdvanced R, Hadley Wickham\nR for Data Science, Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund\nR packages, Hadley Wickham and Jenny Bryan\nR Coding Basics, Gaston Sanchez\n\n\n\n\nCourse communication\n\nbCourses\nWe don’t use bCourses for much. It is primarily used to disseminate important announcements for the entire class such as the initial welcome announcement, final exam information etc.\n\n\nDiscussion forum\nThe official discussion forum for the class will be hosted on Ed. Ed is a forum to ask and answer questions with your fellow students and course staff. It’s a useful resource for learning from your peers and seeking help from tutors and instructors.\nIf you have a question about the material or assignments (or anything related to the course), create a new post to ask your question on Ed. If it is about something personal, then mark it as “private”, and only course staff will be able to see your post. This is the best way to contact us if you have a personal concern, as it ensures the fastest response. If your question does not include personal information and can be answered by other students, make sure it is public.\nIn a course this large, the instructors have a difficult time responding to individual emails, so please use the class forum or visit office hours if you wish to contact us.\n\n\n\nAssignments, Exams, and Grading\n\nTurning-in assignments\nYou will be turning in your assignments on a platform called Pensive, the younger sibling of Gradescope. Note that regrade requests will need to be submitted by a deadline, which will usually be about a week the grades are released.\n\n\nProblem Sets\nProblem sets provide you with essential practice on the ideas and techniques discussed in class. They will be due roughly every week or two\nYou’re encouraged to work on your Problem Sets during one of the Group Tutoring sessions\n\n\nProjects\nProjects are open-ended assignments assignments designed to apply the concepts from the lecture notes in the cause of doing an analysis of real data. This will involve both writing code and communicating your thoughts and findings in English. Your Projects will be due before your corresponding Project Studio, roughly every 2-3 weeks.\nYou’re encouraged to work on your Projects during one of the Homework Party sessions.\n\n\nQuizzes\nQuizzes reinforce the most important concepts from the lecture. They cover the material from lecture, problem sets, and projects up until the time of the quiz.\nQuizzes in this course will be administered in the Computer-Based Testing Facility (CBTF). Students are responsible for reading and following all CBTF policies and procedures, including instantiating a PrairieTest account, submitting any DSP accommodations in advance, and reserving and attending exam sessions on time. During CBTF quizzes, students may use only the materials and resources expressly authorized by the course; unauthorized devices, materials, or resources are prohibited. CBTF proctors monitor all sessions and will document and report any suspected academic misconduct to the course staff. Suspected violations will be handled in accordance with the Berkeley Honor Code and the UC Berkeley Code of Student Conduct, and may result in penalties up to and including a failing grade on the quiz or in the course and referral to the Center for Student Conduct.\n\n\nFinal Exam\nThe paper-and-pencil final exam will be held in person during finals week. It is a comprehensive exam and covers the material from the lecture, problem sets, and projects.\nThe final exam is scheduled for Monday December 14th from 7-10 pm.\n\n\nGrading\nYour final grade in this class is, to the best of our ability, a measure of your understanding of the concepts of computing with data. As such, the lions share of your grade comes from measures of your individual understanding: quizzes and the final. The project studios are also very important. They give us a sense of how well you understand the work you’ve done and give you practice talking through your reasoning in front of an audience.\nThe best way to prepare for these assessments is to earnestly engage with the problem sets and projects. Their role in the course is practice and they’ll be your single most effective way to learn. We want to see that you are keeping to a sensible schedule, so the problem sets will be submitted and graded credit/no credit, where full credit is given for any submission. The projects will not be graded per se, but they will need to be completed in order to discuss them at your Project Studio.\n\nProblem Sets: 1%\nProject Studio: 20%\nQuizzes: 49%\nFinal: 30%\n\nThe grades will not be curved (&gt; 90% is some kind of A, 80-90 is some kind of B, etc.), so there is no limit to the number of As and Bs that are earned.\n\n\n\nPolicies\n\nLate Work\nRigorously completing the problem sets and projects is for your own benefit. Since they must be completed in order to take the Quizzes and participate in Project Studio, no late work is accepted.\n\n\nCollaboration policy\nOn problem sets and projects, we strongly encourage collaboration between students. One of the best ways to learn is to talk things through with someone else. At the same time, these are your best opportunity to practice and learn, so be cautious not to lean to heavily on the understanding of a peer when working through your assignments.\n\n\nAI policy\nPlease be thoughtful when using AI tools for your schoolwork. Doing so on problem sets and projects robs you of a valuable opportunity to learn and undermines your performance on exams. At the same time, they can be helpful in providing feedback on your writing.\nAt the end of the course, we’ll bring in AI tools for coding and learn how to use them. They’re very powerful, but you need firm mental models of the way code works before you’re able to use them well. For that reason, we suggest you refrain from using them until they’re introduced in class.\n\n\nAccomodations for students with disabilities\nStat 133 is a course that is designed to allow all students to succeed. If you have letters of accommodation from the Disabled Students’ Program, please share them with your instructor as soon as possible, and we will work out the necessary arrangements.\n\n\nStaying healthy\nMaintaining your health and that of the Berkeley community is of primary importance, so if you are feeling ill or have been exposed to illness, please do not come to class. You’re encouraged to reach out to fellow students to discuss the class materials or stop by the homework parties or office hours to chat with a tutor or the instructor.\n\n\n\nFrequently Asked Questions\n\nWhat should I do if I’m on the waitlist?\nAttend both lecture and lab and submit all assignments on time. Unfortunately we cannot grow the size of the class any more, so places will become available only when students drop. If you have an urgent need for the course, visit the drop in advising sessions in our department: https://statistics.berkeley.edu/academics/undergrad/advising.\nWhat should I do if I’m a Concurrent Enrollment student?\nPlease do the same as the waitlisted students. If / when the waitlist clears, contact the instructor to be added to the class.\nAre class sessions recorded?\nNo.\nIs attendance in lecture required?\nNo.\nAre time conflicts allowed?\nNo.\nWhat if I join the class late?\nIf you join the class within the first two weeks, read through all of the material on the course website that you’ve missed. Also ask a neighbor in lecture if you can borrow their notes. Finally, visit the Homework Parties to discuss any topics you’ve missed. If you’ve missed any assignments in the first two weeks, request an extension from your GSI.\nAfter two weeks into the semester, you’ll have too much material that you’ll need to make up, so you will have to wait to a subsequent semester to take the course.\n\n\n\nCampus Resources\nUC Berkeley has a vast wealth of resources to help with all aspects of student life. You can read about them at the links below.\n\nBerkeley Supportal- great place to start\nDisabled Students’ Program\nUniversity Health Services\nUCB Path to Care\nStudent Learning Center\nBerkeley International Office\nOmbuds Office for Students and Postdoctoral Appointees\nGender Equity Resource Center\nCenter for Educational Justice & Community Engagement\nUHS Counseling and Psychological Services (CAPS)\nCampus Academic Accommodations Hub\nASUC Student Advocate’s Office\nBasic Needs Center\nASUC Mental Health Resources Guide",
+    "crumbs": [
+      "Syllabus"
+    ]
   },
   {
-    "objectID": "labs.html",
-    "href": "labs.html",
-    "title": "Labs",
+    "objectID": "projects/2-sampsons-monks/project.html",
+    "href": "projects/2-sampsons-monks/project.html",
+    "title": "Project 1: Sampson’s Monks",
     "section": "",
-    "text": "Labs\nComing soon!"
+    "text": "In this project, you will analyze and model Sampson’s Monks dataset, a classic dataset in social network analysis.\nBy completing this project, you will:\n\nWork with matrices and lists in applied settings\nPractice row/column operations for network statistics\nUse functions, control flow, and libraries\nUnderstand the contrast between random vs. real-world networks\n\nThere are two components: the worksheet and the project. The worksheet will help you familiarize yourself with the computational tools you’ll need. This should be done first. The project is the main event: your analysis of the data set.\nYou will submit:\n\nA worksheet .R file with your well-commented code\nA project .R file with your well-commented code.\n\nBoth files should be submitted to their respective Pensive assignments before your scheduled Project Studio.\n\n\n\nWorksheetProject\n\n\n\nMatrices\n\nSection 1: Matrices + Operations\nThree students take a class together and study for a project, midterm, and final together.\n\nStudent A scores: 12, 23, 34\n\nStudent B scores: 45, 56, 67\n\nStudent C scores: 78, 89, 64\n\nQ1: Create a matrix containing their scores.\nUse matrix() to create the 3x3 matrix:\nQ2: Name the rows and columns\nUse colnames() and rownames() to label rows and columns.\nQ3: Compute each student’s average score\nWhich student has the highest average?\n\n\n\nPlots\nQ4: How can we make simple graphs in Base R?\nRead the documention for plot(), boxplot(), and histogram() and run at least one example of each.\nQ5: Create a histogram using the matrix scores\nHint: Convert the matrix to a normal vector first using as.vector().\nQ6: Use the built-in airquality dataset\nThis dataset contains daily New York air quality measurements from May–September 1973 spread across several vectors.\n\nairquality$airOzone: Ozone concentration (ppb)\n\nairquality$Solar.R: Solar radiation (langley)\n\nairquality$Wind: Wind speed (mph)\n\nairquality$Temp: Temperature (°F)\n\nairquality$Month: Month (5 = May, …, 9 = September)\n\nairquality$Day: Day of the month\n\na) Construct a histogram of Ozone\nb) Construct a scatterplot of Ozone vs Temperature\nc) Construct a boxplot of Temperature by Month\n\n\nIntro to Packages\nQ7: Install and load the packages\nInstall and load the igraph and networkD3 packages by running the following code:\ninstall.packages(\"igraph\")    # you only need to run this line once\ninstall.packages(\"networkD3\") # you only need to run this line once\nlibrary(\"igraph\")\nlibrary(\"networkD3\")\nQ8: What are igraph and networkD3?\nHow are these libraries useful for network analysis and visualization? Browse their documentation here: https://r.igraph.org/, http://christophergandrud.github.io/networkD3/.\nQ9: Explore usage\nRun these examples and describe what they do.\na) igraph example\ng &lt;- graph(edges = c(1,2, 2,3, 3,1), n = 3, directed = FALSE)\nplot(g)\nb) networkD3 example\nsimpleNetwork(data.frame(source = c(\"A\", \"B\", \"C\"), \n                         target = c(\"B\", \"C\", \"A\")))\n\n\n\n\nPart 0: Setting Up\nOpen your R app and install and load the necessary packages for this project: lda, igraph, and networkD3. lda contains the monks data.\n\n\nPart 1: Visualizing the Network\nCreate two network visualizations about monk relationships using one of the matrices in the “sampson” dataset from the lda package, such as SAMPLK2:\n\nA static plot using igraph::plot.igraph()\nAn interactive plot using networkD3::forceNetwork()\n\nBefore plotting, check what data structure your plotting function accepts: igraph accepts an adjacency matrix. networkD3 needs dataframes of nodes and edges, not an adjacency matrix. You will need to write code to transform the matrix into that format.\n\n\nPart 2: Summary Statistics on a Sociomatrix\nNow that we have our sociomatrix, we can find summary statistics on it to better understand our data. Choose one sociomatrix from the dataset. Compute summary measures:\n\nOut-degree\nIn-degree\nMean tie strength\nStore results in a list that keeps track of different measures.\nMake a barplot of the in-degree statistic.\nWhich monk is most liked? Which monk is least liked?\n\n\n\nPart 3: A simple model of a social network\nOne way to learn more about the social dynamics underlying the monk’s network is to compare it to a network generated using a simple but well-understood mechanism; that is to say: a model.\nWrite a function that will generate a network according to the rule that each monk assigns their likes (or dislikes) completely at random. This function should be general enough to allow the user to generate a network of any size. (Hint: for loops can be helpful here)\nFeel free to add additional complexity into your model (for example, assigning the likes randomly but with unequal probabilities).\n\n\nPart 4: Model vs Observations\nApply the same techniques you used in parts 1 and 2 (visualization and summary statistics) to describe the structure of the network that was simulated by your model. In 3-5 sentences, compare these networks: In what ways is the observed network monk_mat similar to your generated network? In what ways is it different? What patterns appear in the observed network that are missing from your generated one?"
+  },
+  {
+    "objectID": "office-hours.html",
+    "href": "office-hours.html",
+    "title": "Office Hours",
+    "section": "",
+    "text": "Office Hours\nPlease stop by during office hours to chat in a small group setting course staff.",
+    "crumbs": [
+      "Office Hours"
+    ]
+  },
+  {
+    "objectID": "license.html",
+    "href": "license.html",
+    "title": "License",
+    "section": "",
+    "text": "Unless otherwise noted, all curricular content on this site — lecture slides, notes, problem sets, projects, and accompanying code — is licensed under a Creative Commons Attribution 4.0 International License (CC BY 4.0).\nYou are free to share and adapt this material for any purpose, including commercially, provided you give appropriate credit, link to the license, and indicate if changes were made.\nSuggested attribution:\n\nMaterials from Stat 133: Concepts in Computing with Data, Department of Statistics, UC Berkeley, used under CC BY 4.0."
+  },
+  {
+    "objectID": "license.html#curricular-content",
+    "href": "license.html#curricular-content",
+    "title": "License",
+    "section": "",
+    "text": "Unless otherwise noted, all curricular content on this site — lecture slides, notes, problem sets, projects, and accompanying code — is licensed under a Creative Commons Attribution 4.0 International License (CC BY 4.0).\nYou are free to share and adapt this material for any purpose, including commercially, provided you give appropriate credit, link to the license, and indicate if changes were made.\nSuggested attribution:\n\nMaterials from Stat 133: Concepts in Computing with Data, Department of Statistics, UC Berkeley, used under CC BY 4.0."
+  },
+  {
+    "objectID": "license.html#artwork",
+    "href": "license.html#artwork",
+    "title": "License",
+    "section": "Artwork",
+    "text": "Artwork\nThe fantasy scenes appearing on the course calendar and elsewhere on this site are Scenes by Czepeku and are used under Czepeku’s Commercial Use Licence. They are reproduced here in watermarked form, as that license requires.\nThese images are not covered by the CC BY 4.0 license above and are not offered for download, redistribution, or resale as standalone items. All rights in them remain with Czepeku. If you wish to use them, see czepeku.com."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "STAT 133",
+    "section": "",
+    "text": "Concepts in Computing with Data\nStat 133 UC Berkeley\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n  \n  \n  \n    \n    \n    \n    Aug 31\n    \n  \n  \n  Intro to R\n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n    Slides\n    \n  \n  \n  \n  \n  \n  \n\n  \n  \n  \n  \n    \n    \n    \n    Sep 2\n    \n  \n  \n  Atomic Vectors\n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n    Slides\n    \n  \n  \n  \n  \n  \n  \n\n  \n  \n  \n  \n    \n    \n    \n    Sep 4\n    \n  \n  \n  Extending Vectors\n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n    SlidesProject\n    \n  \n  \n  \n    Sign up for Quiz 1\n  \n  \n  \n  \n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Aug 24\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 26\n      \n    \n    \n    Welcome\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 28\n      \n    \n    \n    Data in Trees\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 31\n      \n    \n    \n    Intro to R\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 2\n      \n    \n    \n    Atomic Vectors\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 4\n      \n    \n    \n    Extending Vectors\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n      Sign up for Quiz 1\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Sep 7\n    \n    \n    No Class: Labor Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Sep 9\n    \n    \n    Lists\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 1: 9/10-9/11\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Sep 11\n    \n    \n    Control Flow\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Sep 14\n    \n    \n    Functions\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 2\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Sep 16\n    \n    \n    The R Ecosystem\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Sep 18\n    \n    \n    Factors and Data Frames\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Sep 21\n    \n    \n    Git & GitHub\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 2: 9/21-9/22\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Sep 23\n    \n    \n    Data Wrangling I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Sep 25\n    \n    \n    Data Wrangling II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Sep 28\n    \n    \n    Intro to Data Viz\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 3\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Sep 30\n    \n    \n    Grammar of Graphics\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 2\n    \n    \n    EDA\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Oct 5\n    \n    \n    Explanatory DA\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 3: 10/5-10/6\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 7\n    \n    \n    Joins and Pivots\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 9\n    \n    \n    Quarto\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Oct 12\n    \n    \n    Strings I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 4\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 14\n    \n    \n    Strings II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 16\n    \n    \n    Text Analysis\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Oct 19\n    \n    \n    Dates and Times I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 4: 10/19-10/20\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 21\n    \n    \n    Dates and Times II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 23\n    \n    \n    Spatial Data I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Oct 26\n    \n    \n    Gerrymandering\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 5\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 28\n    \n    \n    Spatial Data II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 30\n    \n    \n    Dashboards\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 2\n    \n    \n    Election Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 5: 11/2-11/3\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 4\n    \n    \n    R Packages I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 6\n    \n    \n    R Packages II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 9\n    \n    \n    Prediction I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 6\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 11\n    \n    \n    No Class: Veterans Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 13\n    \n    \n    Prediction II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 16\n    \n    \n    Classification\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 6: 11/16-11/17\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 18\n    \n    \n    APIs I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 20\n    \n    \n    APIs II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 23\n    \n    \n    LLMs\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 25\n    \n    \n    No Class: Non-Instructional Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 27\n    \n    \n    No Class: Thanksgiving\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 30\n    \n    \n    LLMs in IDEs\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 2\n    \n    \n    Abstraction\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 4\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Dec 7\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 9\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 11\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Dec 14\n    \n    \n    Final Exam 7-10 pm\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 16\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 18\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n\n\nNo matching items",
+    "crumbs": [
+      "Home"
+    ]
   },
   {
     "objectID": "04-atomic-vectors/slides.html#section",
@@ -984,64 +833,277 @@
     "text": "Key Ideas for Today\n\nComments mark text that R will not evaluate.\nSubsetting can be used to change a vector in place.\nA matrix is a vector with a dimension attribute.\nMatrices are subset by [row, col] or by [el].\nRow- and column-wise summaries operate on whole margins.\n\n\nFor Next Time\n\nSign up for Quiz 1 on PrairieTest.\nStart Project 1: Sampson’s Monks.\nWork on problem set."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "STAT 133",
+    "objectID": "labs.html",
+    "href": "labs.html",
+    "title": "Labs",
     "section": "",
-    "text": "Concepts in Computing with Data\nStat 133 UC Berkeley\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n  \n  \n  \n    \n    \n    \n    Aug 31\n    \n  \n  \n  Intro to R\n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n    Slides\n    \n  \n  \n  \n  \n  \n  \n\n  \n  \n  \n  \n    \n    \n    \n    Sep 2\n    \n  \n  \n  Atomic Vectors\n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n    Slides\n    \n  \n  \n  \n  \n  \n  \n\n  \n  \n  \n  \n    \n    \n    \n    Sep 4\n    \n  \n  \n  Extending Vectors\n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n    Slides\n    \n  \n  \n  \n  \n  \n  \n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Aug 24\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 26\n      \n    \n    \n    Welcome\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 28\n      \n    \n    \n    Data in Trees\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 31\n      \n    \n    \n    Intro to R\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 2\n      \n    \n    \n    Atomic Vectors\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 4\n      \n    \n    \n    Extending Vectors\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Sep 7\n    \n    \n    No Class: Labor Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Sep 9\n    \n    \n    Lists\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Sep 11\n    \n    \n    Control Flow\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 1 due\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Sep 14\n    \n    \n    Functions\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Sep 16\n    \n    \n    The R Ecosystem\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Sep 18\n    \n    \n    Factors and Data Frames\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Sep 21\n    \n    \n    Git & GitHub\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Sep 23\n    \n    \n    Data Wrangling I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Sep 25\n    \n    \n    Data Wrangling II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Sep 28\n    \n    \n    Intro to Data Viz\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Sep 30\n    \n    \n    Grammar of Graphics\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 2\n    \n    \n    EDA\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Oct 5\n    \n    \n    Explanatory DA\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 7\n    \n    \n    Joins and Pivots\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 9\n    \n    \n    Quarto\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Oct 12\n    \n    \n    Strings I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 14\n    \n    \n    Strings II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 16\n    \n    \n    Text Analysis\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Oct 19\n    \n    \n    Dates and Times I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 21\n    \n    \n    Dates and Times II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 23\n    \n    \n    Spatial Data I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Oct 26\n    \n    \n    Gerrymandering\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 28\n    \n    \n    Spatial Data II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 30\n    \n    \n    Dashboards\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 2\n    \n    \n    Election Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 4\n    \n    \n    R Packages I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 6\n    \n    \n    R Packages II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 9\n    \n    \n    Prediction I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 11\n    \n    \n    No Class: Veterans Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 13\n    \n    \n    Prediction II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 16\n    \n    \n    Classification\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 18\n    \n    \n    APIs I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 20\n    \n    \n    APIs II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 23\n    \n    \n    LLMs\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 25\n    \n    \n    No Class: Non-Instructional Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 27\n    \n    \n    No Class: Thanksgiving\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 30\n    \n    \n    LLMs in IDEs\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 2\n    \n    \n    Abstraction\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 4\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Dec 7\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 9\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 11\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Dec 14\n    \n    \n    Final Exam 7-10 pm\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 16\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 18\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n\n\nNo matching items",
+    "text": "Labs\nComing soon!"
+  },
+  {
+    "objectID": "notes.html",
+    "href": "notes.html",
+    "title": "Notes",
+    "section": "",
+    "text": "Notes\n\n\n    \n      \n      \n    \n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "projects/1-index-cards/slides.html#using-the-shell-locally",
+    "href": "projects/1-index-cards/slides.html#using-the-shell-locally",
+    "title": "First Contact with R",
+    "section": "Using the Shell Locally",
+    "text": "Using the Shell Locally\n\n  \n    −\n    +\n \n 07:00\n \n\nMac:\n\n“zshell” (aka zsh) - UNIX based. Very similar to bash (Base UNIX Shell) with some added functionality.\nTo access, use the Mac’s “Termial” application.\n\nWindows:\n\nWill need to install “Git” if you don’t have it already.\n\nhttps://git-scm.com/downloads\n\nThis will give you access to the “Git Bash” application, which will let you use UNIX Shell on your Windows system."
+  },
+  {
+    "objectID": "projects/1-index-cards/slides.html#brief-review-of-lecture",
+    "href": "projects/1-index-cards/slides.html#brief-review-of-lecture",
+    "title": "First Contact with R",
+    "section": "Brief Review of Lecture",
+    "text": "Brief Review of Lecture\nNew Shell Commands\n\n\nmkdir\n\n\nCreates a new directory.\n\n\n\n\ncp\n\n\nCopy file (arg1) to destination (arg2).\nExample: cp ~/Downloads/hw1.pdf ~/Documents/econ100b/hw/\n\n\n\n\nmv\n\n\nMove file (first argument) to destination directory (second argument).\nExample: mv ~/Downloads/hw1.pdf ~/.Trash\n\n\n\nThey have only heard mv in lecture briefly, so teach them the functionality."
+  },
+  {
+    "objectID": "projects/1-index-cards/slides.html#brief-review-of-lecture-cont.",
+    "href": "projects/1-index-cards/slides.html#brief-review-of-lecture-cont.",
+    "title": "First Contact with R",
+    "section": "Brief Review of Lecture (cont.)",
+    "text": "Brief Review of Lecture (cont.)\nR Equivallent of Shell Commands:\n\ngetwd(): like pwd in Shell.\nsetwd(): like cd in Shell.\nlist.files(): like ls in Shell.\nreadLines(): like cat in Shell."
+  },
+  {
+    "objectID": "projects/1-index-cards/slides.html#brief-review-of-lecture-cont..",
+    "href": "projects/1-index-cards/slides.html#brief-review-of-lecture-cont..",
+    "title": "First Contact with R",
+    "section": "Brief Review of Lecture (cont..)",
+    "text": "Brief Review of Lecture (cont..)\n\na:b: Creates vector of numbers from a to b by 1.\nseq: Creates vector of numbers from \"from\" argument, to \"to\" argument, by steps defined in the \"by\" argument.\nrep: Repeats vector provided \"x\" a number of times defined by \"times\" argument."
+  },
+  {
+    "objectID": "projects/1-index-cards/slides.html#vectorization",
+    "href": "projects/1-index-cards/slides.html#vectorization",
+    "title": "First Contact with R",
+    "section": "Vectorization",
+    "text": "Vectorization\n\nOperations on a single object also works on vectors.\n\n\nvec &lt;- c(72, 52, 10)\n\nvec / 2\n\n\n\n[1] 36 26  5\n\n\n\n\n\nvec * 3\n\n\n\n[1] 216 156  30\n\n\n\n\n\nvec - 6\n\n\n\n[1] 66 46  4"
+  },
+  {
+    "objectID": "projects/1-index-cards/slides.html#recycling",
+    "href": "projects/1-index-cards/slides.html#recycling",
+    "title": "First Contact with R",
+    "section": "Recycling",
+    "text": "Recycling\n\nOperations on two vectors of unequal length.\n\n\nvec1 &lt;- 1:10\nvec2 &lt;- c(1, 2)\n\nvec1 * vec2\n\n\n\n [1]  1  4  3  8  5 12  7 16  9 20\n\n\n\n\n\nvec3 &lt;- c(1, 2, 3)\n\nvec1 + vec3\n\n\n\n [1]  2  4  6  5  7  9  8 10 12 11"
+  },
+  {
+    "objectID": "projects/1-index-cards/slides.html#lab-1-assignment",
+    "href": "projects/1-index-cards/slides.html#lab-1-assignment",
+    "title": "First Contact with R",
+    "section": "Lab 1 Assignment",
+    "text": "Lab 1 Assignment\n\n  \n    −\n    +\n \n 15:00\n \n\nWill be turned in physically.\nWritten responses. Please code along on your laptop.\n\nTwo Parts:\n\nShell\nR: Atomic Vectors, Vectorization, Recycling, Matrices, if statements, for loops.\n\nWork on selected problems.\n\nGive students 15 minutes to work on problems that you find important AND are in scope of lectures so far (nothing after 7)."
+  },
+  {
+    "objectID": "projects/2-sampsons-monks/slides.html#agenda",
+    "href": "projects/2-sampsons-monks/slides.html#agenda",
+    "title": "Lab 2",
+    "section": "Agenda",
+    "text": "Agenda\n\nBrief lecture review\nReview key concepts\nTime to work in groups on lab worksheet (15 minutes)\nDiscuss Project 2 + Work through select parts\nTime for questions"
+  },
+  {
+    "objectID": "projects/2-sampsons-monks/slides.html#brief-review-of-lecture-control-flow",
+    "href": "projects/2-sampsons-monks/slides.html#brief-review-of-lecture-control-flow",
+    "title": "Lab 2",
+    "section": "Brief Review of Lecture: Control Flow",
+    "text": "Brief Review of Lecture: Control Flow\nIf / Else = Conditional Behavior\nif (x &gt; 0) {\n  print(\"positive\")\n} else {\n  print(\"not positive\")\n}\nVectorized If/Else statements are also possible:\n\nx = 0\nifelse(test = x &lt; 0, yes = \"is positive :)\", no = \"is negative :(\")\n\n\n\n[1] \"is negative :(\"\n\n\nFor loops = repeat over items\nfor (i in 1:5) {\n  print(i^2)\n}"
+  },
+  {
+    "objectID": "projects/2-sampsons-monks/slides.html#brief-review-of-lecture-functions",
+    "href": "projects/2-sampsons-monks/slides.html#brief-review-of-lecture-functions",
+    "title": "Lab 2",
+    "section": "Brief Review of Lecture: Functions",
+    "text": "Brief Review of Lecture: Functions\n\nfunction_name &lt;- function(arg1, arg2, ...) {\n  # code to execute\n  result &lt;- arg1 + arg2  # example operation\n  return(result)         # optional, returns result\n}"
+  },
+  {
+    "objectID": "projects/2-sampsons-monks/slides.html#sampsons-monks-project-background-concepts",
+    "href": "projects/2-sampsons-monks/slides.html#sampsons-monks-project-background-concepts",
+    "title": "Lab 2",
+    "section": "Sampson’s Monks Project: Background Concepts",
+    "text": "Sampson’s Monks Project: Background Concepts\n\nPackages in R\nSociomatrices\nNetwork visualizations & statistics\nRandom vs. observed networks\n\n\nMotivate for students that we will be working on the project and turning it in in 2 weeks, and it will be about the monks data. These are some of the necessary skills they will need for the project"
+  },
+  {
+    "objectID": "projects/2-sampsons-monks/slides.html#packages-libraries",
+    "href": "projects/2-sampsons-monks/slides.html#packages-libraries",
+    "title": "Lab 2",
+    "section": "Packages & Libraries",
+    "text": "Packages & Libraries\n\nBase R is powerful, but we use packages to extend its capabilities\nPackages collections of functions & datasets\n\nlibrary() is used to load a previously installed package into an R session.\n\nInstall and load:\ninstall.packages(\"igraph\") # only need to do once!\nlibrary(igraph)"
+  },
+  {
+    "objectID": "projects/2-sampsons-monks/slides.html#packages-to-use-today",
+    "href": "projects/2-sampsons-monks/slides.html#packages-to-use-today",
+    "title": "Lab 2",
+    "section": "Packages to use today:",
+    "text": "Packages to use today:\nigraph (network analysis & static plots)\n\naccepts adjacency matrices.\n\nnetworkD3 (interactive plots)\n\nexpects data frames of nodes and edges, not a network object.\nnodes are the names/points in the resulting plot\nedges are the directed lines between the points\n\nEven though the information is already in sampson, you still need to extract it into the right format for networkD3."
+  },
+  {
+    "objectID": "projects/2-sampsons-monks/slides.html#what-do-networks-look-like",
+    "href": "projects/2-sampsons-monks/slides.html#what-do-networks-look-like",
+    "title": "Lab 2",
+    "section": "What do networks look like?",
+    "text": "What do networks look like?\n\nLet’s use a familar dataset to create network plots!"
+  },
+  {
+    "objectID": "projects/2-sampsons-monks/slides.html#our-dataset-sampsons-monks",
+    "href": "projects/2-sampsons-monks/slides.html#our-dataset-sampsons-monks",
+    "title": "Lab 2",
+    "section": "Our Dataset: Sampson’s Monks",
+    "text": "Our Dataset: Sampson’s Monks\n\nData collected in a New England monastery (1960s)\nMonks reported:\n\nLiking relationships (time 1, time 2, time 3)\nDisliking relationships (time 1)\n\nClassic dataset for studying group dynamics and conflict\nStored as a list of matrices in lda package, which we will use to get the data"
+  },
+  {
+    "objectID": "projects/2-sampsons-monks/slides.html#our-dataset-sampsons-monks-continued",
+    "href": "projects/2-sampsons-monks/slides.html#our-dataset-sampsons-monks-continued",
+    "title": "Lab 2",
+    "section": "Our Dataset: Sampson’s Monks (continued)",
+    "text": "Our Dataset: Sampson’s Monks (continued)\nFrom this matrix, we can get:\n\nIn-degree (col sums) = number of ties received / how many monks said they liked them\nOut-degree (row sums) = number of ties sent / how many monks they said they liked"
+  },
+  {
+    "objectID": "projects/2-sampsons-monks/slides.html#static-vs.-interactive-plots",
+    "href": "projects/2-sampsons-monks/slides.html#static-vs.-interactive-plots",
+    "title": "Lab 2",
+    "section": "Static vs. Interactive Plots",
+    "text": "Static vs. Interactive Plots\n\nYou will create one of each in your project\nStatic plots = easy and quick to create using plot() from igraph\nInteractive plots = can zoom, hover, drag nodes using forceNetwork() from networkD3"
+  },
+  {
+    "objectID": "projects/2-sampsons-monks/slides.html#why-compare-random-vs.-observed",
+    "href": "projects/2-sampsons-monks/slides.html#why-compare-random-vs.-observed",
+    "title": "Lab 2",
+    "section": "Why Compare Random vs. Observed?",
+    "text": "Why Compare Random vs. Observed?\nIn your project, you will be asked to compare the observed sociomatrix with one that you have generated.\n\nRandom sociomatrix = ties assigned by chance\nObserved monk network = structured by social dynamics\nKey question: What features do we see in the real network that random ones lack?\n\nShows the complexity of real social systems"
+  },
+  {
+    "objectID": "projects/2-sampsons-monks/slides.html#lab-review-worksheet",
+    "href": "projects/2-sampsons-monks/slides.html#lab-review-worksheet",
+    "title": "Lab 2",
+    "section": "Lab Review Worksheet",
+    "text": "Lab Review Worksheet\n\n  \n    −\n    +\n \n 30:00\n \nGroup work to review essential material\n\nLab worksheet is meant to give students the skills they need for the project, which they will mostly be taking home and working on in their own time. Lab worksheet is fully during lab. Can go over the answers to this in lab or have them volunteer answers."
+  },
+  {
+    "objectID": "projects/2-sampsons-monks/slides.html#lab-2-project",
+    "href": "projects/2-sampsons-monks/slides.html#lab-2-project",
+    "title": "Lab 2",
+    "section": "Lab 2 Project",
+    "text": "Lab 2 Project\n\n  \n    −\n    +\n \n 15:00\n \nWorksheet:\n\nWritten responses. Please code along on your laptop. This is for your own practice / not turned in.\n\nProject:\n\nFour parts\nSubmit: project.R + README.md on GitHub Classroom\n\nWork on selected problems.\n\nGive students 15 minutes to work on problems that you find important and they may struggle with (suggest getting started with downloading packages, doing a visualization, writing the function)"
+  },
+  {
+    "objectID": "quiz-slides.html#academic-integrity",
+    "href": "quiz-slides.html#academic-integrity",
+    "title": "Quiz",
+    "section": "Academic Integrity",
+    "text": "Academic Integrity\nAcademic integrity is tantamount. Your individual quiz must represent your own work absent the help of other students - either in the room or in another quiz section. All electronics must be stowed and your eyes must not wander to other students quizzes. Conveying information to other students about the content of the quiz violates principles of academic integrity. All instances of academic misconduct will be taken seriously, handled by me personally, and will be coordinated with the Office of Student Conduct.\nDuring the group quiz, you are of course encouraged to collaborate with your teammates (but only your teammates) to answer the questions.\nIf the proctor sees your eyes wandering, you’ll be reseated at the front of the class.\n\nProf. Bray"
+  },
+  {
+    "objectID": "quiz-slides.html#individual-quiz",
+    "href": "quiz-slides.html#individual-quiz",
+    "title": "Quiz",
+    "section": "Individual Quiz",
+    "text": "Individual Quiz\n\n\nBefore the quiz begins\n\n🧹 Clear your desk of everything except a pen/pencil and your cheat sheet.\n🧢 Remove hats, hoods, and sunglasses.\n📱 All electronic devices (laptop, phone, airbuds, smart watch) should be remain in your bag for the entire class period.\nSpread out as much as possible so that you are not too close to each other.\nWhen you get a quiz, cover it with your cheat sheet and do not begin.\n\n\nDuring the quiz\n\n👀 Keep your eyes on your own quiz.\nIf you need to use the bathroom, bring your quiz and phone to the front of the class.\n⌛If you finish early, please raise your hand and we will collect your quiz.\n❗You must stop writing when time is called or risk a 0.\n\nGood luck! 🍀\n\n\n  \n    −\n    +\n \n 40:00"
+  },
+  {
+    "objectID": "quiz-slides.html#group-quiz",
+    "href": "quiz-slides.html#group-quiz",
+    "title": "Quiz",
+    "section": "Group Quiz",
+    "text": "Group Quiz\n\n\nBefore the quiz begins\n\nForm groups of 2-3 people.\n🧹 Everything except a pen/pencil and your cheat sheet must remain off your desk.\n📱 All electronic devices (laptop, phone, airbuds, smart watch) should be remain in your bag for the entire class period.\nWhen you get a group quiz, write all group members names on it but do not begin.\n\n\nDuring the quiz\n\n🗣️Discuss each of the problems and decide as a group which answer is best.\n⌛If you finish early, please raise your hand and we will collect your quiz.\n❗You must stop writing when time is called or risk a 0.\n\nGood luck! 🍀\n\n\n  \n    −\n    +\n \n 25:00"
+  },
+  {
+    "objectID": "tools/datahub.html",
+    "href": "tools/datahub.html",
+    "title": "DataHub",
+    "section": "",
+    "text": "DataHub is UC Berkeley’s browser-based computing environment. It gives you a full R and RStudio/Positron setup in the cloud, so there is nothing to install on your own machine. For Stat 133 we use the Statistics department’s hub at stat.datahub.berkeley.edu.",
     "crumbs": [
-      "Home"
+      "Tools",
+      "DataHub"
     ]
   },
   {
-    "objectID": "license.html",
-    "href": "license.html",
-    "title": "License",
-    "section": "",
-    "text": "Unless otherwise noted, all curricular content on this site — lecture slides, notes, problem sets, projects, and accompanying code — is licensed under a Creative Commons Attribution 4.0 International License (CC BY 4.0).\nYou are free to share and adapt this material for any purpose, including commercially, provided you give appropriate credit, link to the license, and indicate if changes were made.\nSuggested attribution:\n\nMaterials from Stat 133: Concepts in Computing with Data, Department of Statistics, UC Berkeley, used under CC BY 4.0."
-  },
-  {
-    "objectID": "license.html#curricular-content",
-    "href": "license.html#curricular-content",
-    "title": "License",
-    "section": "",
-    "text": "Unless otherwise noted, all curricular content on this site — lecture slides, notes, problem sets, projects, and accompanying code — is licensed under a Creative Commons Attribution 4.0 International License (CC BY 4.0).\nYou are free to share and adapt this material for any purpose, including commercially, provided you give appropriate credit, link to the license, and indicate if changes were made.\nSuggested attribution:\n\nMaterials from Stat 133: Concepts in Computing with Data, Department of Statistics, UC Berkeley, used under CC BY 4.0."
-  },
-  {
-    "objectID": "license.html#artwork",
-    "href": "license.html#artwork",
-    "title": "License",
-    "section": "Artwork",
-    "text": "Artwork\nThe fantasy scenes appearing on the course calendar and elsewhere on this site are Scenes by Czepeku and are used under Czepeku’s Commercial Use Licence. They are reproduced here in watermarked form, as that license requires.\nThese images are not covered by the CC BY 4.0 license above and are not offered for download, redistribution, or resale as standalone items. All rights in them remain with Czepeku. If you wish to use them, see czepeku.com."
-  },
-  {
-    "objectID": "office-hours.html",
-    "href": "office-hours.html",
-    "title": "Office Hours",
-    "section": "",
-    "text": "Office Hours\nPlease stop by during office hours to chat in a small group setting course staff.",
+    "objectID": "tools/datahub.html#getting-started",
+    "href": "tools/datahub.html#getting-started",
+    "title": "DataHub",
+    "section": "Getting started",
+    "text": "Getting started\n\nOpen https://stat.datahub.berkeley.edu in your browser.\nSign in with your CalNet ID (the same credentials you use for bCourses).\nAuthorize the hub the first time you log in. After a short pause your personal server will spin up.",
     "crumbs": [
-      "Office Hours"
+      "Tools",
+      "DataHub"
     ]
   },
   {
-    "objectID": "syllabus.html",
-    "href": "syllabus.html",
-    "title": "Syllabus",
-    "section": "",
-    "text": "An introduction to computationally intensive applied statistics. Topics will include organization storage of data, visualization and graphics, statistical learning and data mining, model validation procedures, and the presentation of results. This course uses R as its primary computing language.\n\n\nClass Format\nThis is an in-person class with three lectures each week and one two-hour lab led by a GSI. This class is designed assuming you’ll be in class. If you miss class, you’ll be able to find most materials from class - slides, snippets of code - published on the course wesite.\n\nHomework Parties\nTutors will offer Homework Party sessions several times each week. This is an opportunity to finish up any assignments that you’ve started in class or review any topics that are confusing for you. You’re welcome to attend any session that works well for your schedule. Check the Office Hours page to see the homework party schedule.\nHomework Parties are a great place to go to meet other students and collaborate on assignments with tutors on hand to help you get unstuck.\n\n\nOffice Hours\nOffice hours are an opportunity to chat one-on-one with your instructor and GSIs. Please come to office hours! Coming to office hours does not send a signal that you are behind or need extra help. On the contrary, coming to office hours early and often tends to co-occur with success in the course. We’re happy to chat about the course material, statistics in general, careers in statistics, and whatever other statistics or data science topics are on your mind! Please check the Office Hours page to see the times of the various office hour/homework party sessions.\n\n\n\nMaterials\n\nComputational tools\nEach student will need a laptop in order to engage with the computing aspects of this class. Throughout the semester you’ll be installing several different software tools, all of which are free. We will be mainly using the computing and programming environment R (via RStudio) to analyze data in this class. We will also ask you to use a command line interface to interact with your operating system. You do need your own computer to use R and do the assignments. No need to install these ahead of time; we’ll guide you through how to get set up.\nAbout half of the students in 133 have some coding experience in Python or R and about half do not. For those who come from Data 8 or some previous coding experience in python, the first labs will help you transfer that knowledge over to R. Both languages are excellent platforms for analyzing data, are widely used in data science, and have their individual strengths. R has been developed within the statistics community specifically for data analysis, while python is a general-purpose programming language but has large data analysis capabilities.\n\n\nSupplementary texts\nYour primary reference throughout the course will be the notes that you take in class but there are also several terrific books that are free and online that can expand your knowledge.\n\nAdvanced R, Hadley Wickham\nR for Data Science, Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund\nR packages, Hadley Wickham and Jenny Bryan\nR Coding Basics, Gaston Sanchez\n\n\n\n\nCourse communication\n\nbCourses\nWe don’t use bCourses for much. It is primarily used to disseminate important announcements for the entire class such as the initial welcome announcement, final exam information etc.\n\n\nDiscussion forum\nThe official discussion forum for the class will be hosted on Ed. Ed is a forum to ask and answer questions with your fellow students and course staff. It’s a useful resource for learning from your peers and seeking help from tutors and instructors.\nIf you have a question about the material or assignments (or anything related to the course), create a new post to ask your question on Ed. If it is about something personal, then mark it as “private”, and only course staff will be able to see your post. This is the best way to contact us if you have a personal concern, as it ensures the fastest response. If your question does not include personal information and can be answered by other students, make sure it is public.\nIn a course this large, the instructors have a difficult time responding to individual emails, so please use the class forum or visit office hours if you wish to contact us.\n\n\n\nAssignments, Exams, and Grading\n\nTurning-in assignments\nYou will be turning in your assignments on a platform called Pensive, the younger sibling of Gradescope. Note that regrade requests will need to be submitted by a deadline, which will usually be about a week the grades are released.\n\n\nProblem Sets\nProblem sets provide you with essential practice on the ideas and techniques discussed in class. They will be due roughly every week or two\nYou’re encouraged to work on your Problem Sets during one of the Group Tutoring sessions\n\n\nProjects\nProjects are open-ended assignments assignments designed to apply the concepts from the lecture notes in the cause of doing an analysis of real data. This will involve both writing code and communicating your thoughts and findings in English. Your Projects will be due before your corresponding Project Studio, roughly every 2-3 weeks.\nYou’re encouraged to work on your Projects during one of the Homework Party sessions.\n\n\nQuizzes\nQuizzes reinforce the most important concepts from the lecture. They cover the material from lecture, problem sets, and projects up until the time of the quiz.\nQuizzes in this course will be administered in the Computer-Based Testing Facility (CBTF). Students are responsible for reading and following all CBTF policies and procedures, including instantiating a PrairieTest account, submitting any DSP accommodations in advance, and reserving and attending exam sessions on time. During CBTF quizzes, students may use only the materials and resources expressly authorized by the course; unauthorized devices, materials, or resources are prohibited. CBTF proctors monitor all sessions and will document and report any suspected academic misconduct to the course staff. Suspected violations will be handled in accordance with the Berkeley Honor Code and the UC Berkeley Code of Student Conduct, and may result in penalties up to and including a failing grade on the quiz or in the course and referral to the Center for Student Conduct.\n\n\nFinal Exam\nThe paper-and-pencil final exam will be held in person during finals week. It is a comprehensive exam and covers the material from the lecture, problem sets, and projects.\nThe final exam is scheduled for Monday December 14th from 7-10 pm.\n\n\nGrading\nYour final grade in this class is, to the best of our ability, a measure of your understanding of the concepts of computing with data. As such, the lions share of your grade comes from measures of your individual understanding: quizzes and the final. The project studios are also very important. They give us a sense of how well you understand the work you’ve done and give you practice talking through your reasoning in front of an audience.\nThe best way to prepare for these assessments is to earnestly engage with the problem sets and projects. Their role in the course is practice and they’ll be your single most effective way to learn. We want to see that you are keeping to a sensible schedule, so the problem sets will be submitted and graded credit/no credit, where full credit is given for any submission. The projects will not be graded per se, but they will need to be completed in order to discuss them at your Project Studio.\n\nProblem Sets: 1%\nProject Studio: 20%\nQuizzes: 49%\nFinal: 30%\n\nThe grades will not be curved (&gt; 90% is some kind of A, 80-90 is some kind of B, etc.), so there is no limit to the number of As and Bs that are earned.\n\n\n\nPolicies\n\nLate Work\nRigorously completing the problem sets and projects is for your own benefit. Since they must be completed in order to take the Quizzes and participate in Project Studio, no late work is accepted.\n\n\nCollaboration policy\nOn problem sets and projects, we strongly encourage collaboration between students. One of the best ways to learn is to talk things through with someone else. At the same time, these are your best opportunity to practice and learn, so be cautious not to lean to heavily on the understanding of a peer when working through your assignments.\n\n\nAI policy\nPlease be thoughtful when using AI tools for your schoolwork. Doing so on problem sets and projects robs you of a valuable opportunity to learn and undermines your performance on exams. At the same time, they can be helpful in providing feedback on your writing.\nAt the end of the course, we’ll bring in AI tools for coding and learn how to use them. They’re very powerful, but you need firm mental models of the way code works before you’re able to use them well. For that reason, we suggest you refrain from using them until they’re introduced in class.\n\n\nAccomodations for students with disabilities\nStat 133 is a course that is designed to allow all students to succeed. If you have letters of accommodation from the Disabled Students’ Program, please share them with your instructor as soon as possible, and we will work out the necessary arrangements.\n\n\nStaying healthy\nMaintaining your health and that of the Berkeley community is of primary importance, so if you are feeling ill or have been exposed to illness, please do not come to class. You’re encouraged to reach out to fellow students to discuss the class materials or stop by the homework parties or office hours to chat with a tutor or the instructor.\n\n\n\nFrequently Asked Questions\n\nWhat should I do if I’m on the waitlist?\nAttend both lecture and lab and submit all assignments on time. Unfortunately we cannot grow the size of the class any more, so places will become available only when students drop. If you have an urgent need for the course, visit the drop in advising sessions in our department: https://statistics.berkeley.edu/academics/undergrad/advising.\nWhat should I do if I’m a Concurrent Enrollment student?\nPlease do the same as the waitlisted students. If / when the waitlist clears, contact the instructor to be added to the class.\nAre class sessions recorded?\nNo.\nIs attendance in lecture required?\nNo.\nAre time conflicts allowed?\nNo.\nWhat if I join the class late?\nIf you join the class within the first two weeks, read through all of the material on the course website that you’ve missed. Also ask a neighbor in lecture if you can borrow their notes. Finally, visit the Homework Parties to discuss any topics you’ve missed. If you’ve missed any assignments in the first two weeks, request an extension from your GSI.\nAfter two weeks into the semester, you’ll have too much material that you’ll need to make up, so you will have to wait to a subsequent semester to take the course.\n\n\n\nCampus Resources\nUC Berkeley has a vast wealth of resources to help with all aspects of student life. You can read about them at the links below.\n\nBerkeley Supportal- great place to start\nDisabled Students’ Program\nUniversity Health Services\nUCB Path to Care\nStudent Learning Center\nBerkeley International Office\nOmbuds Office for Students and Postdoctoral Appointees\nGender Equity Resource Center\nCenter for Educational Justice & Community Engagement\nUHS Counseling and Psychological Services (CAPS)\nCampus Academic Accommodations Hub\nASUC Student Advocate’s Office\nBasic Needs Center\nASUC Mental Health Resources Guide",
+    "objectID": "tools/datahub.html#working-on-the-hub",
+    "href": "tools/datahub.html#working-on-the-hub",
+    "title": "DataHub",
+    "section": "Working on the hub",
+    "text": "Working on the hub\n\nYour files live on a persistent home directory, so your work is saved between sessions.\nLaunch a session from the DataHub launcher (RStudio, a terminal, or a notebook) to start working.\nCourse materials are typically distributed with a link that pulls the files directly into your DataHub account.",
     "crumbs": [
-      "Syllabus"
+      "Tools",
+      "DataHub"
     ]
   },
   {
-    "objectID": "tools/index.html",
-    "href": "tools/index.html",
-    "title": "Tools",
-    "section": "",
-    "text": "These pages are quick how-to guides for the computational tools we use in Stat 133. Each covers how to get set up and the handful of commands or steps you need to get going.\nIf you’re just getting started, DataHub is the fastest way to begin — everything is preinstalled. As the course progresses, you should install each of the tools on your own computer so that you can continue using them outside of the classroom.",
+    "objectID": "tools/datahub.html#tips",
+    "href": "tools/datahub.html#tips",
+    "title": "DataHub",
+    "section": "Tips",
+    "text": "Tips\n\nIf your session becomes unresponsive, use File → Log Out and log back in to restart your server (you can also try refreshing your browser).\nThe hub times out after a period of inactivity, so save your work often.\nNeed more help? See the campus DataHub documentation.",
     "crumbs": [
-      "Tools"
+      "Tools",
+      "DataHub"
+    ]
+  },
+  {
+    "objectID": "tools/r-app.html",
+    "href": "tools/r-app.html",
+    "title": "The R App",
+    "section": "",
+    "text": "When you install R, you also get a small graphical application bundled with it: R.app on macOS and Rgui on Windows. It gives you an R console plus a simple editor for writing scripts, without installing anything else. It is the quickest way to start writing R on your own machine.",
+    "crumbs": [
+      "Tools",
+      "R App"
+    ]
+  },
+  {
+    "objectID": "tools/r-app.html#opening-the-r-app",
+    "href": "tools/r-app.html#opening-the-r-app",
+    "title": "The R App",
+    "section": "Opening the R App",
+    "text": "Opening the R App\n\nmacOSWindows\n\n\n\nOpen Finder and go to the Applications folder.\nDouble-click R (the blue R icon). This is R.app.\nYou can also press ⌘ + Space to open Spotlight, type R, and press Enter.\n\nIf you have both R.app and R64.app, either one is fine on a modern Mac.\n\n\n\nClick the Start menu and type R.\nChoose R x.y.z (the version number will match what you installed). This opens Rgui.\nYou can also find it under All Apps → R → R x.y.z.\n\nIf Windows shows both R i386 and R x64, choose R x64.\n\n\n\nWhen the app opens you will see the R console with the &gt; prompt. Type an expression and press Enter to run it:\n2 + 2",
+    "crumbs": [
+      "Tools",
+      "R App"
+    ]
+  },
+  {
+    "objectID": "tools/r-app.html#writing-an-r-script",
+    "href": "tools/r-app.html#writing-an-r-script",
+    "title": "The R App",
+    "section": "Writing an R script",
+    "text": "Writing an R script\nThe console is good for one-off commands, but anything you want to keep should go in a script — a plain text file with the .R extension that holds a sequence of R commands.\nTo open a new, empty script:\n\nmacOS: File → New Document, or press ⌘ + N.\nWindows: File → New script, or press Ctrl + N.\n\nAn editor window opens. Type your code there, one command per line:\nx &lt;- c(4, 8, 15, 16, 23, 42)\nmean(x)\nNothing runs as you type. To run a line, put your cursor on it and press:\n\nmacOS: ⌘ + Enter\nWindows: Ctrl + R\n\nTo run several lines, select them first and use the same shortcut. The commands are sent to the console, where you will see the output.",
+    "crumbs": [
+      "Tools",
+      "R App"
+    ]
+  },
+  {
+    "objectID": "tools/r-app.html#saving-your-script",
+    "href": "tools/r-app.html#saving-your-script",
+    "title": "The R App",
+    "section": "Saving your script",
+    "text": "Saving your script\nSave early and often.\n\nmacOS: File → Save, or ⌘ + S.\nWindows: File → Save, or Ctrl + S.\n\nIn the save dialog:\n\nChoose a folder you can find again — a stat133 folder in your Documents is a good habit.\nGive the file a short, descriptive name with no spaces, ending in .R, such as vector-practice.R.\nClick Save.\n\nTo reopen it later, use File → Open Document (macOS) or File → Open script (Windows) and select the file.",
+    "crumbs": [
+      "Tools",
+      "R App"
+    ]
+  },
+  {
+    "objectID": "tools/r-app.html#tips",
+    "href": "tools/r-app.html#tips",
+    "title": "The R App",
+    "section": "Tips",
+    "text": "Tips\n\nUse # to start a comment. Everything after it on that line is ignored by R.\nKeep the script as the record of what you did; treat the console as scratch paper.",
+    "crumbs": [
+      "Tools",
+      "R App"
     ]
   },
   {
@@ -1060,7 +1122,7 @@
     "href": "tools/shell.html#opening-a-shell",
     "title": "The Shell",
     "section": "Opening a shell",
-    "text": "Opening a shell\n\nmacOS — Terminal\n\nPress ⌘ + Space to open Spotlight.\nType Terminal and press Return.\n\nTerminal comes preinstalled on every Mac.\n\n\nWindows — Git Bash\nWindows has several shells, but for this course use Git Bash, which behaves like the macOS/Linux shell.\n\nInstall Git for Windows (this also gives you Git Bash).\nOpen the Start menu, type Git Bash, and press Enter.",
+    "text": "Opening a shell\n\nmacOSWindows\n\n\nUse Terminal, which comes preinstalled on every Mac.\n\nPress ⌘ + Space to open Spotlight.\nType Terminal and press Return.\n\n\n\nWindows has several shells, but for this course use Git Bash, which behaves like the macOS/Linux shell.\n\nInstall Git for Windows (this also gives you Git Bash).\nOpen the Start menu, type Git Bash, and press Enter.",
     "crumbs": [
       "Tools",
       "Shell"
