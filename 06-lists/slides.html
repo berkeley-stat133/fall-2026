@@ -96,7 +96,7 @@
     code span.vs { color: #032f62; } /* VerbatimString */
     code span.wa { color: #ff5555; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-1661f22b623b3ac3660186bd2906449d.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-63434d2e05fbe63be9c6da0a0607727f.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -204,42 +204,126 @@
 </div>
 
 </section>
-<section id="section" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title"></h2>
-<p><strong>Discuss with a neighbor</strong></p>
-<p>Which of the following four objects are the same?</p>
+<section id="section" class="slide level2 intro" data-background-color="var(--intro-bg)">
+<h2></h2>
+<div class="columns">
+<div class="column">
+<h3 id="last-time">Last Time</h3>
+<ol type="1">
+<li class="fragment"><em>Comments</em> mark text that R will not evaluate.</li>
+<li class="fragment">Subsetting can be used to change a vector <em>in place</em>.</li>
+<li class="fragment">A <em>matrix</em> is a vector with a <em>dimension</em> attribute.</li>
+<li class="fragment">Matrices are subset by <code>[row, col]</code> or by <code>[el]</code>.</li>
+<li class="fragment"><em>Row- and column-wise</em> summaries operate on whole margins.</li>
+</ol>
+</div><div class="column">
+<h3 id="key-ideas-for-today">Key Ideas for Today</h3>
+<ol type="1">
+<li class="fragment">A <em>list</em> is a <em>non-atomic</em> vector: types can be mixed.</li>
+<li class="fragment"><code>[]</code> subsets a list and returns a <em>list</em>.</li>
+<li class="fragment"><code>[[ ]]</code> and <code>$</code> return the <em>object inside</em> the list.</li>
+<li class="fragment">Lists can <em>nest</em>, so subsetting can be <em>chained</em>.</li>
+<li class="fragment"><code>$</code> allows subsetting by <em>name</em>.</li>
+</ol>
+</div></div>
+<aside class="notes">
+<h4 id="concept-acquisition">Concept Acquisition</h4>
+<ol type="1">
+<li>Atomic means one type and no nesting; lists relax both restrictions.</li>
+<li>A list is still a vector: it has a length and an order.</li>
+<li><code>[]</code> preserves the container; <code>[[ ]]</code> and <code>$</code> extract the contents.</li>
+<li>Elements of a list can be named, and named lists can be subset by name.</li>
+<li>Lists can contain lists, which is what makes them a <em>recursive</em> structure.</li>
+</ol>
+<h4 id="tool-acquisition">Tool Acquisition</h4>
+<ol type="1">
+<li><code>list()</code>, <code>length()</code>, <code>typeof()</code>.</li>
+<li><code>x[i]</code>, <code>x[-i]</code>, <code>x[c("a", "b")]</code>, <code>x[log_vec]</code>.</li>
+<li><code>x[[i]]</code>, <code>x$name</code>.</li>
+<li><code>str()</code> for peering into nested lists.</li>
+</ol>
+<h4 id="concept-application">Concept Application</h4>
+<ol type="1">
+<li>Predict whether an expression returns a list or the object inside it.</li>
+<li>Draw the train diagram for a given subsetting expression.</li>
+<li>Write the shortest expression that extracts a value from a nested list.</li>
+</ol>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="one-more-way-to-subset-a-vector" class="slide level2">
+<h2>One more way to subset a vector…</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb1-1" class="hljs-ln-code"><a></a><span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">6</span>)</span>
-<span id="cb1-2" class="hljs-ln-code"><a></a><span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">3</span>) <span class="sc">+</span> <span class="fu">seq</span>(<span class="dv">4</span>, <span class="dv">6</span>)</span>
-<span id="cb1-3" class="hljs-ln-code"><a></a><span class="fu">c</span>(<span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="fu">seq</span>(<span class="dv">4</span>, <span class="dv">6</span>))</span>
-<span id="cb1-4" class="hljs-ln-code"><a></a><span class="fu">c</span>(<span class="fu">c</span>(<span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="fu">seq</span>(<span class="dv">4</span>, <span class="dv">6</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span></span>
+<span id="cb1-2"><a></a>x[<span class="sc">-</span><span class="dv">2</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="timer_ca8caf39d458b9ba02b0a984743deed9b25cf6fe" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
-  <div class="countdown-controls">
-    <button class="countdown-bump-down">−</button>
-    <button class="countdown-bump-up">+</button>
- </div>
- <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">30</span></code>
- </div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 3</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p><em>Negative indexing</em> will drop that element (or set of elements) from the vector.</p>
+</div>
 </section>
 <section id="section-1" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <p><strong>Discuss with a neighbor</strong></p>
 <p>Which of the following four objects are the same?</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">6</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb3-1" class="hljs-ln-code"><a></a><span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">6</span>)</span>
+<span id="cb3-2" class="hljs-ln-code"><a></a><span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">3</span>) <span class="sc">+</span> <span class="fu">seq</span>(<span class="dv">4</span>, <span class="dv">6</span>)</span>
+<span id="cb3-3" class="hljs-ln-code"><a></a><span class="fu">c</span>(<span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="fu">seq</span>(<span class="dv">4</span>, <span class="dv">6</span>))</span>
+<span id="cb3-4" class="hljs-ln-code"><a></a><span class="fu">c</span>(<span class="fu">c</span>(<span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="fu">seq</span>(<span class="dv">4</span>, <span class="dv">6</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="timer_691e6cba4242b89815249fc9704eaae81fe77736" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+  <div class="countdown-controls">
+    <button class="countdown-bump-down">−</button>
+    <button class="countdown-bump-up">+</button>
+ </div>
+ <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">30</span></code>
+ </div>
+<aside class="notes">
+<p>Draw attention to why the last two are the same: <code>c()</code> flattens, so nesting <code>c()</code> inside <code>c()</code> buys you nothing. That is the constraint we relax today.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-2" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"></h2>
+<p><strong>Discuss with a neighbor</strong></p>
+<p>Which of the following four objects are the same?</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">6</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1 2 3 4 5 6</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">3</span>) <span class="sc">+</span> <span class="fu">seq</span>(<span class="dv">4</span>, <span class="dv">6</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">3</span>) <span class="sc">+</span> <span class="fu">seq</span>(<span class="dv">4</span>, <span class="dv">6</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5 7 9</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">c</span>(<span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="fu">seq</span>(<span class="dv">4</span>, <span class="dv">6</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">c</span>(<span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="fu">seq</span>(<span class="dv">4</span>, <span class="dv">6</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1 2 3 4 5 6</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">c</span>(<span class="fu">c</span>(<span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="fu">seq</span>(<span class="dv">4</span>, <span class="dv">6</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">c</span>(<span class="fu">c</span>(<span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="fu">seq</span>(<span class="dv">4</span>, <span class="dv">6</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1 2 3 4 5 6</code></pre>
 </div>
@@ -252,41 +336,36 @@
 <li class="fragment">All elements of the same type</li>
 <li class="fragment">Cannot contain other vectors</li>
 </ol>
+<aside class="notes">
+<p>On the board: the row of boxes from two lectures ago, with a note under it listing the two restrictions. Today we cross both of them out.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section>
-<section id="lists-type-heterogeneity" class="title-slide slide level1 center">
-<h1>Lists: Type Heterogeneity</h1>
+<section id="introducing-lists" class="title-slide slide level1 center">
+<h1>Introducing Lists</h1>
 
 </section>
 <section id="lists-defined" class="slide level2">
 <h2>Lists, defined</h2>
-<p>A list is a <em>non-atomic</em> vector that can contain:</p>
-<ol type="1">
-<li class="fragment">Atomic vectors of different types</li>
-<li class="fragment">Other lists</li>
-</ol>
+<div class="definition">
+<div class="definition-header">
+<p>List</p>
+</div>
+<div class="definition-content">
+<p>A <em>non-atomic</em> vector that can contain atomic vectors of different <strong>types</strong>, as well as other lists. Created with <code>list()</code>.</p>
+</div>
+</div>
 <div class="fragment">
-<p>Created with <code>list()</code>.</p>
-</div>
-<div class="fragment">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">list</span>(<span class="dv">1</span>, <span class="st">"rabbit"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output cell-output-stdout">
-<pre><code>[[1]]
-[1] 1
-
-[[2]]
-[1] "rabbit"</code></pre>
-</div>
-</div>
-</div>
-</section>
-<section id="contains-atomic-vectors-of-different-types" class="slide level2">
-<h2>“Contains atomic vectors of different types”</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">list</span>(<span class="dv">1</span>, <span class="st">"rabbit"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -299,9 +378,40 @@
 [1] "rabbit"</code></pre>
 </div>
 </div>
+<aside class="notes">
+<p>Read the printed output together — the <code>[[1]]</code> and <code>[[2]]</code> headers are new, and they are the first hint that a list element is a container rather than a value.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section>
+<section id="contains-atomic-vectors-of-different-types" class="slide level2">
+<h2>“Contains atomic vectors of different types”</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">list</span>(<span class="dv">1</span>, <span class="st">"rabbit"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+[1] 1
+
+[[2]]
+[1] "rabbit"</code></pre>
+</div>
+</div>
 </div><div class="column fragment" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">list</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="st">"a"</span>, <span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">list</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="st">"a"</span>, <span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -316,11 +426,26 @@
 </div>
 </div>
 </div></div>
+<aside class="notes">
+<p>Ask for <code>length()</code> of the right-hand list before running it. Three, not seven — each element is one slot no matter how much it holds. That is the idea the train metaphor will make concrete.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="subsetting-with" class="title-slide slide level1 center">
+<h1>Subsetting with <code>[]</code></h1>
+
 </section>
-<section id="subsetting" class="slide level2">
-<h2>Subsetting</h2>
-</section>
-<section id="subsetting-with" class="slide level2 scrollable" data-auto-animate="true">
+<section id="subsetting-with-1" class="slide level2 scrollable" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Subsetting with <code>[]</code></h2>
 <p><code>[]</code> extracts elements of a vector (atomic or non-atomic) using a subsetting (atomic) vector.</p>
 <ul>
@@ -328,8 +453,8 @@
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>vec <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span></span>
-<span id="cb16-2"><a></a>vec[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>vec <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span></span>
+<span id="cb18-2"><a></a>vec[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -339,8 +464,8 @@
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(vec, <span class="at">nrow =</span> <span class="dv">2</span>)</span>
-<span id="cb18-2"><a></a>mat</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(vec, <span class="at">nrow =</span> <span class="dv">2</span>)</span>
+<span id="cb20-2"><a></a>mat</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -352,7 +477,7 @@
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>mat[<span class="dv">2</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>mat[<span class="dv">2</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -361,7 +486,7 @@
 </div>
 </div>
 </section>
-<section id="subsetting-with-1" class="slide level2 scrollable" data-auto-animate="true">
+<section id="subsetting-with-2" class="slide level2 scrollable" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Subsetting with <code>[]</code></h2>
 <p><code>[]</code> extracts elements of a vector (atomic or non-atomic) using a subsetting (atomic) vector.</p>
 <ul>
@@ -370,8 +495,8 @@
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="st">"a"</span>, <span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>)</span>
-<span id="cb22-2"><a></a>x[<span class="dv">1</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="st">"a"</span>, <span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>)</span>
+<span id="cb24-2"><a></a>x[<span class="dv">1</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -382,7 +507,7 @@
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>x[<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>x[<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -393,14 +518,27 @@
 [1] 4 5 6</code></pre>
 </div>
 </div>
+<aside class="notes">
+<p>The key line is <code>x[1]</code>: it returns a <em>list of length one</em>, not the vector <code>1:3</code>. Everything students know about subsetting vectors still applies — index, negative index, name, logical — the only new thing is what comes back.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </div>
 </section>
 <section id="yes-you-can-name-elements-of-a-list" class="slide level2 scrollable">
 <h2>Yes, you can name elements of a list</h2>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>named_x <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">"Ape"</span> <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="st">"Boy"</span> <span class="ot">=</span> <span class="st">"a"</span>, <span class="st">"Cat"</span> <span class="ot">=</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>)</span>
-<span id="cb26-2"><a></a>named_x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>named_x <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">"Ape"</span> <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="st">"Boy"</span> <span class="ot">=</span> <span class="st">"a"</span>, <span class="st">"Cat"</span> <span class="ot">=</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>)</span>
+<span id="cb28-2"><a></a>named_x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -417,7 +555,7 @@ $Cat
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>named_x[<span class="fu">c</span>(<span class="st">"Boy"</span>, <span class="st">"Cat"</span>)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>named_x[<span class="fu">c</span>(<span class="st">"Boy"</span>, <span class="st">"Cat"</span>)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -434,8 +572,7 @@ $Cat
 <h2>Yes, it works with logicals too</h2>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>named_x <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">"Ape"</span> <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="st">"Boy"</span> <span class="ot">=</span> <span class="st">"a"</span>, <span class="st">"Cat"</span> <span class="ot">=</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>)</span>
-<span id="cb30-2"><a></a>named_x[<span class="fu">c</span>(<span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>named_x[<span class="fu">c</span>(<span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -449,16 +586,21 @@ $Cat
 <p>But what if you want the actual data structure <em>inside</em> the list?</p>
 </blockquote>
 </div>
+</section></section>
+<section>
+<section id="subsetting-with-3" class="title-slide slide level1 center">
+<h1>Subsetting with <code>[[ ]]</code></h1>
+
 </section>
 <section id="subsetting-single-elements-with" class="slide level2">
-<h2>Subsetting single elements with <code>[[]]</code></h2>
+<h2>Subsetting single elements with <code>[[ ]]</code></h2>
 <div class="fragment">
-<p><code>[[i]]</code> Extracts original object inside the list.</p>
+<p><code>[[i]]</code> extracts the original object inside the list.</p>
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="st">"a"</span>, <span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>)</span>
-<span id="cb32-2"><a></a>x[[<span class="dv">1</span>]]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="st">"a"</span>, <span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>)</span>
+<span id="cb34-2"><a></a>x[[<span class="dv">1</span>]]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -467,7 +609,7 @@ $Cat
 </div>
 </div>
 <div class="fragment">
-<p>To tell <code>[]</code> and <code>[[]]</code> apart, let’s use a metaphor of a train.</p>
+<p>To tell <code>[]</code> and <code>[[ ]]</code> apart, let’s use a metaphor of a train.</p>
 <aside class="notes">
 <p>Sketch first of the following image slides.</p>
 <style type="text/css">
@@ -483,7 +625,30 @@ $Cat
       }</style></aside>
 </div>
 </section>
-<section id="section-2" class="slide level2">
+<section id="guess-the-metaphor" class="slide level2 intro" data-background-color="var(--intro-bg)">
+<h2>Guess the metaphor</h2>
+<div class="fragment">
+<blockquote>
+<p>A list is like a <em>train</em>: an ordered line of cars, each holding cargo of whatever kind. <code>[]</code> gives you back a train; <code>[[ ]]</code> gives you the cargo.</p>
+</blockquote>
+</div>
+</section>
+<section id="section-3" class="slide level2">
+<h2></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/train1.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/train2.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+</section>
+<section id="section-4" class="slide level2">
 <h2></h2>
 
 <img data-src="images/train1.png" class="quarto-figure quarto-figure-center r-stretch"><p>Draw the appropriate train or car for each of the following</p>
@@ -494,7 +659,7 @@ $Cat
 <li class="fragment"><code>x[c(1, 1)]</code></li>
 <li class="fragment"><code>c(x[[3]], x[[1]])</code></li>
 </ol>
-<div id="timer_ca8caf39d458b9ba02b0a984743deed9b25cf6fe" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_691e6cba4242b89815249fc9704eaae81fe77736" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -502,18 +667,23 @@ $Cat
  <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">30</span></code>
  </div>
 </section>
-<section id="section-3" class="slide level2" data-background-image="images/train2.png" data-background-size="contain" data-auto-animate="true">
+<section id="section-5" class="slide level2" data-background-image="images/train2.png" data-background-size="contain" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 </section>
-<section id="section-4" class="slide level2" data-background-image="images/train3.png" data-background-size="contain" data-auto-animate="true">
+<section id="section-6" class="slide level2" data-background-image="images/train3.png" data-background-size="contain" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
+</section></section>
+<section>
+<section id="subsetting-with-4" class="title-slide slide level1 center">
+<h1>Subsetting with <code>$</code></h1>
+
 </section>
 <section id="subsetting-single-elements-with-1" class="slide level2">
 <h2>Subsetting single elements with <code>$</code></h2>
 <p><code>$</code> will extract a single element of a list by name.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a>named_x <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">"Ape"</span> <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="st">"Boy"</span> <span class="ot">=</span> <span class="st">"a"</span>, <span class="st">"Cat"</span> <span class="ot">=</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>)</span>
-<span id="cb34-2"><a></a>named_x<span class="sc">$</span>Cat</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a>named_x <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="st">"Ape"</span> <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="st">"Boy"</span> <span class="ot">=</span> <span class="st">"a"</span>, <span class="st">"Cat"</span> <span class="ot">=</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>)</span>
+<span id="cb36-2"><a></a>named_x<span class="sc">$</span>Cat</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -522,7 +692,7 @@ $Cat
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a>named_x<span class="sc">$</span>C</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a>named_x<span class="sc">$</span>C</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -532,11 +702,24 @@ $Cat
 </div>
 <div class="fragment">
 <p>Permits partial matching.</p>
+<aside class="notes">
+<p>Partial matching is convenient at the console and dangerous in a script: adding an element named <code>Cow</code> later would break <code>named_x$C</code>. <code>[[ ]]</code> requires the full name, which is why it is the safer choice in saved code.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </div>
 </section></section>
 <section>
-<section id="lists-nesting" class="title-slide slide level1 center">
-<h1>Lists: Nesting</h1>
+<section id="nesting" class="title-slide slide level1 center">
+<h1>Nesting</h1>
 
 </section>
 <section id="lists-defined-1" class="slide level2 scrollable">
@@ -550,7 +733,7 @@ $Cat
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a><span class="fu">list</span>(<span class="dv">1</span>, <span class="st">"rabbit"</span>, <span class="fu">list</span>(<span class="cn">TRUE</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a><span class="fu">list</span>(<span class="dv">1</span>, <span class="st">"rabbit"</span>, <span class="fu">list</span>(<span class="cn">TRUE</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -568,21 +751,37 @@ $Cat
 [1] 1 2 3</code></pre>
 </div>
 </div>
+<aside class="notes">
+<p>Point at the nested <code>[[3]][[1]]</code> labels in the printed output. R is telling you the path you would type to get there.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </div>
 </section>
 <section id="implications-for-subsetting" class="slide level2">
 <h2>Implications for subsetting</h2>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a>y <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span>, <span class="st">"rabbit"</span>, <span class="fu">list</span>(<span class="cn">TRUE</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a></a>y <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span>, <span class="st">"rabbit"</span>, <span class="fu">list</span>(<span class="cn">TRUE</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 
 </div>
+</div>
+<div class="fragment">
+<p>Draw the train:</p>
 <aside class="notes">
 <p>Drop:</p>
 <ol type="1">
-<li>length(y[3])</li>
+<li><code>length(y[3])</code> vs.&nbsp;<code>length(y[[3]])</code></li>
 </ol>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -596,33 +795,65 @@ $Cat
           display:block!important;
       }</style></aside>
 </div>
-<div class="fragment">
-<p>Draw the train:</p>
-</div>
 </section>
-<section id="section-5" class="slide level2">
-<h2></h2>
+<section id="your-turn" class="slide level2">
+<h2>Your Turn</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a>y <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span>, <span class="st">"rabbit"</span>, <span class="fu">list</span>(<span class="cn">TRUE</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a>y <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="dv">1</span>, <span class="st">"rabbit"</span>, <span class="fu">list</span>(<span class="cn">TRUE</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 
 </div>
-<p>Draw the train and then write the R code to extract:</p>
+<p>Draw the train, then write the R code to extract:</p>
 <ol type="1">
-<li class="fragment">The list containing the character vector with <code>"rabbit</code>”</li>
+<li class="fragment">The list containing the character vector with <code>"rabbit"</code></li>
 <li class="fragment">The vector <code>"rabbit"</code></li>
 <li class="fragment">The second element of the list element in <code>y</code></li>
 <li class="fragment">The vector <code>1:3</code></li>
-<li class="fragment">The element <code>2</code>.</li>
+<li class="fragment">The element <code>2</code></li>
 </ol>
-<div id="timer_ca8caf39d458b9ba02b0a984743deed9b25cf6fe" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_691e6cba4242b89815249fc9704eaae81fe77736" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
  </div>
  <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
  </div>
+<aside class="notes">
+<p>The last one is trickiest: <code>y[[3]][[2]][2]</code> chains all three operations.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-7" class="slide level2 intro" data-background-color="var(--intro-bg)">
+<h2></h2>
+<div class="columns">
+<div class="column">
+<h3 id="key-ideas-for-today-1">Key Ideas for Today</h3>
+<ol type="1">
+<li class="fragment">A <em>list</em> is a <em>non-atomic</em> vector: types can be mixed.</li>
+<li class="fragment"><code>[]</code> subsets a list and returns a <em>list</em>.</li>
+<li class="fragment"><code>[[ ]]</code> and <code>$</code> return the <em>object inside</em> the list.</li>
+<li class="fragment">Lists can <em>nest</em>, so subsetting can be <em>chained</em>.</li>
+<li class="fragment"><code>$</code> matches by name, and permits <em>partial matching</em>.</li>
+</ol>
+</div><div class="column">
+<h3 id="for-next-time">For Next Time</h3>
+<ol type="1">
+<li class="fragment">Good luck on Quiz 1!</li>
+<li class="fragment">Work through the lists questions on the problem set.</li>
+<li class="fragment">Work through Project 1: Sampson’s Monks.</li>
+<li class="fragment">Read <a href="https://adv-r.hadley.nz/vectors-chap.html#lists">Advanced R, Ch. 3.3</a>.</li>
+</ol>
+</div></div>
 </section></section>
 <section id="references" class="title-slide slide level1 center">
 <h1>References</h1>
