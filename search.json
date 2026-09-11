@@ -128,7 +128,14 @@
     "href": "07-control-flow/slides.html#examples-1",
     "title": "Control Flow",
     "section": "Examples",
-    "text": "Examples\n\nc(\"apple\", \"kiwi\") %in% c(\"apple\", \"orange\", \"apple\", \"kiwi\")\n\n\n\n[1] TRUE TRUE\n\n\n\n\nc(\"apple\", \"orange\", \"apple\", \"kiwi\") %in% c(\"apple\", \"kiwi\")\n\n\n\n[1]  TRUE FALSE  TRUE  TRUE\n\n\n\n\n\nDon’t forget logicals are 1s and 0s.\n\n\n\n\nm &lt;- matrix(1:4, nrow = 2)\nsum(m &gt; 2)\n\n\n\n[1] 2"
+    "text": "Examples\n\nc(\"apple\", \"kiwi\") %in% c(\"apple\", \"orange\", \"apple\", \"kiwi\")\n\n\n\n[1] TRUE TRUE\n\n\n\n\nc(\"apple\", \"orange\", \"apple\", \"kiwi\") %in% c(\"apple\", \"kiwi\")\n\n\n\n[1]  TRUE FALSE  TRUE  TRUE\n\n\n\n\n\nDon’t forget logicals are 1s and 0s."
+  },
+  {
+    "objectID": "07-control-flow/slides.html#examples-2",
+    "href": "07-control-flow/slides.html#examples-2",
+    "title": "Control Flow",
+    "section": "Examples",
+    "text": "Examples\n\nm &lt;- matrix(1:4, nrow = 2)\nm\n\n\n\n     [,1] [,2]\n[1,]    1    3\n[2,]    2    4\n\n\n\n\nm &gt; 2\n\n\n\n      [,1] [,2]\n[1,] FALSE TRUE\n[2,] FALSE TRUE\n\n\n\n\n\nsum(m &gt; 2)\n\n\n\n[1] 2\n\n\n\n\n\nsum(m[m &gt; 2])\n\n\n\n[1] 7"
   },
   {
     "objectID": "07-control-flow/slides.html#getting-to-campus",
@@ -142,18 +149,18 @@
     "href": "07-control-flow/slides.html#a-random-condition-in-r",
     "title": "Control Flow",
     "section": "A random condition in R",
-    "text": "A random condition in R\n\n\nsample(x = -10:10, size = 1)\n\n\n\n[1] -1\n\n\n\n\nsample() will randomly sample 1 element from the vector x."
+    "text": "A random condition in R\n\n\nsample(x = -10:10, size = 1)\n\n\n\n[1] -3\n\n\n\n\nsample() will randomly sample 1 element from the vector x."
   },
   {
-    "objectID": "07-control-flow/slides.html#section-2",
-    "href": "07-control-flow/slides.html#section-2",
+    "objectID": "07-control-flow/slides.html#section-1",
+    "href": "07-control-flow/slides.html#section-1",
     "title": "Control Flow",
     "section": "",
     "text": "if-then Statement\n\n\nExecutes a block of code only when a condition evaluates to TRUE; otherwise the block is skipped.\n\n\n\n\nx &lt;- sample(x = -10:10, size = 1)\n\nif (x &gt; 0) {\n  print(\"x is positive :)\")\n}\n\n\nDrop:\n\nRun this multiple times to see how it’s random.\nCould set x &lt;- 1 to make it deterministic or even just TRUE.\nAnnotate code with different colors: if-then syntax, logical condition, and what to do."
   },
   {
-    "objectID": "07-control-flow/slides.html#section-3",
-    "href": "07-control-flow/slides.html#section-3",
+    "objectID": "07-control-flow/slides.html#section-2",
+    "href": "07-control-flow/slides.html#section-2",
     "title": "Control Flow",
     "section": "",
     "text": "if-else Statement\n\n\nExecutes one block of code if a condition is met and a different block if it is not — exactly one branch always runs.\n\n\n\n\nx &lt;- sample(x = -10:10, size = 1)\n\nif (x &gt; 0) {\n  print(\"x is positive :)\")\n} else {\n  print(\"x is negative :(\")\n}\n\n\nSimilarly, run it multiple times and annotate code with different colors: if-then syntax, logical condition, and what to do."
@@ -173,15 +180,15 @@
     "text": "Getting to Campus\n\nIf my bike is working\n     then I ride my bike to campus.\nIf my bike is not working and I have enough time\n     then I ride the bus to campus.\nIf my bike is not working and I don’t have enough time\n     then I take a cab.\n\n\nYour Turn\nUsing the R objects bike_working and enough_time, both logical vectors of length 1, write this decision tree in R using nested if-then statements and print().\n\n  \n    −\n    +\n \n 02:30"
   },
   {
-    "objectID": "07-control-flow/slides.html#section-4",
-    "href": "07-control-flow/slides.html#section-4",
+    "objectID": "07-control-flow/slides.html#section-3",
+    "href": "07-control-flow/slides.html#section-3",
     "title": "Control Flow",
     "section": "",
     "text": "if (bike_working) {\n  print(\"ride bike\")\n} else if (enough_time) {\n  print(\"ride bus\")\n} else {\n  print(\"call cab\")\n}\n\n\nIf time you can set the values of bike_working and enough_time to verify that it works."
   },
   {
-    "objectID": "07-control-flow/slides.html#section-5",
-    "href": "07-control-flow/slides.html#section-5",
+    "objectID": "07-control-flow/slides.html#section-4",
+    "href": "07-control-flow/slides.html#section-4",
     "title": "Control Flow",
     "section": "",
     "text": "For Loop\n\n\nRepeats a block of code once for each element of a vector, with a loop variable taking each value in turn.\n\n\n\nProf. Sanchez Slides\n\n\n\n\nfor (item in vector) {\n    perform_action\n}"
@@ -198,35 +205,35 @@
     "href": "07-control-flow/slides.html#what-if-x-has-multiple-elements",
     "title": "Control Flow",
     "section": "What if x has multiple elements?",
-    "text": "What if x has multiple elements?\n\n\nx &lt;- rnorm(3)\nx\n\n\n\n[1] -0.143954843 -0.008077857  0.464397492\n\n\n\n\n\n\n\n\n\n\n      if (x &gt; 0) {\n        print(\"x is positive :)\")\n      }\n\n\n\nAnnotate this if-then by wrapping it in a for loop."
+    "text": "What if x has multiple elements?\n\n\nx &lt;- rnorm(3)\nx\n\n\n\n[1] -0.4045366  0.3053125  0.8116059\n\n\n\n\n\n\n\n\n\n\n      if (x &gt; 0) {\n        print(\"x is positive :)\")\n      }\n\n\n\nAnnotate this if-then by wrapping it in a for loop."
   },
   {
     "objectID": "07-control-flow/slides.html#option-1",
     "href": "07-control-flow/slides.html#option-1",
     "title": "Control Flow",
     "section": "Option 1",
-    "text": "Option 1\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(\"x is positive :)\")\n  }\n}\n\n\n\n[1] \"x is positive :)\""
+    "text": "Option 1\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(\"x is positive :)\")\n  }\n}\n\n\n\n[1] \"x is positive :)\"\n[1] \"x is positive :)\""
   },
   {
     "objectID": "07-control-flow/slides.html#option-2",
     "href": "07-control-flow/slides.html#option-2",
     "title": "Control Flow",
     "section": "Option 2",
-    "text": "Option 2\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(paste(\"element\", i, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"element 3 is positive :)\""
+    "text": "Option 2\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(paste(\"element\", i, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"element 2 is positive :)\"\n[1] \"element 3 is positive :)\""
   },
   {
     "objectID": "07-control-flow/slides.html#option-3",
     "href": "07-control-flow/slides.html#option-3",
     "title": "Control Flow",
     "section": "Option 3",
-    "text": "Option 3\n\nfor (x_elem in x) {\n  if (x_elem &gt; 0) {\n    print(paste(x_elem, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"0.46439749247927 is positive :)\""
+    "text": "Option 3\n\nfor (x_elem in x) {\n  if (x_elem &gt; 0) {\n    print(paste(x_elem, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"0.30531249942526 is positive :)\"\n[1] \"0.811605946660987 is positive :)\""
   },
   {
     "objectID": "07-control-flow/slides.html#ifelse",
     "href": "07-control-flow/slides.html#ifelse",
     "title": "Control Flow",
     "section": "ifelse()",
-    "text": "ifelse()\n\n\nifelse()\n\n\nA vectorized if-else: applies a condition to every element of a vector at once, without an explicit loop.\n\n\n\n\nx &lt; 0 \n\n\n\n[1]  TRUE  TRUE FALSE\n\n\n\n\n\nifelse(test = x &lt; 0, yes = \"is positive :)\", no = \"is negative :(\")\n\n\n\n[1] \"is positive :)\" \"is positive :)\" \"is negative :(\""
+    "text": "ifelse()\n\n\nifelse()\n\n\nA vectorized if-else: applies a condition to every element of a vector at once, without an explicit loop.\n\n\n\n\nx &lt; 0 \n\n\n\n[1]  TRUE FALSE FALSE\n\n\n\n\n\nifelse(test = x &lt; 0, yes = \"is positive :)\", no = \"is negative :(\")\n\n\n\n[1] \"is positive :)\" \"is negative :(\" \"is negative :(\""
   },
   {
     "objectID": "07-control-flow/slides.html#guess-the-metaphor",
@@ -236,11 +243,11 @@
     "text": "Guess the metaphor\n\n\nAn if-then statement is like a fork in the road: the computer will take one of two paths based on a condition."
   },
   {
-    "objectID": "07-control-flow/slides.html#section-6",
-    "href": "07-control-flow/slides.html#section-6",
+    "objectID": "07-control-flow/slides.html#section-5",
+    "href": "07-control-flow/slides.html#section-5",
     "title": "Control Flow",
     "section": "",
-    "text": "Key Ideas for Today\n\nUse comparison operators to compare two values.\nif-then runs code only when a condition is TRUE.\nif-else chooses between two blocks of code based on condition.\nA for loop repeats code for each element of a vector.\nifelse() is a vectorized if-else.\n\n\nFor Next Time\n\nPractice with Control Flow\nFinish Project prepare for Project Studio 1!"
+    "text": "Key Ideas for Today\n\nUse comparison operators to compare two values.\nif-then runs code only when a condition is TRUE.\nif-else chooses between two blocks of code based on condition.\nA for loop repeats code for each element of a vector.\nifelse() is a vectorized if-else.\n\n\nFor Next Time\n\nPractice with Control Flow\nFinish Project and prepare for Project Studio 1!"
   },
   {
     "objectID": "05-extending-vectors/slides.html#section",
