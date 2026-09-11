@@ -490,9 +490,12 @@ window.Quarto = {
 </section>
 <section id="part-3-a-simple-model-of-a-social-network" class="level3">
 <h3 class="anchored" data-anchor-id="part-3-a-simple-model-of-a-social-network">Part 3: A simple model of a social network</h3>
-<p>[This component will be discussed in the lecture on Control Flow]</p>
 <p>One way to learn more about the social dynamics underlying the monk’s network is to compare it to a network generated using a simple but well-understood mechanism; that is to say: a model.</p>
-<p>Generate a network according to the rule that each monk assigns their likes (or dislikes) completely at random. This function should be general enough to allow the user to generate a network of any size. <em>(Hint: for loops can be helpful here)</em></p>
+<p>Generate a network according to the rule that each monk assigns their likes (or dislikes) completely at random. The following observations will help you form your code:</p>
+<ol type="1">
+<li>You can represent a monk’s choices as a single vector. You can create that vector randomly using the <code>sample()</code> function.</li>
+<li>You can use a for loop to change-in-place each vector of a blank matrix. See example from lecture on the Fibonacci Sequence for a vector analog</li>
+</ol>
 <p>Feel free to add additional complexity into your model (for example, assigning the likes randomly but with unequal probabilities).</p>
 </section>
 <section id="part-4-model-vs-observations" class="level3">
