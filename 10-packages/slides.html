@@ -28,7 +28,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-1661f22b623b3ac3660186bd2906449d.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-63434d2e05fbe63be9c6da0a0607727f.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -136,6 +136,58 @@
 </div>
 
 </section>
+<section id="section" class="slide level2 intro" data-background-color="var(--intro-bg)">
+<h2></h2>
+<div class="columns">
+<div class="column">
+<h3 id="last-time">Last Time</h3>
+<ol type="1">
+<li class="fragment">A <em>function</em> bundles code into a reusable tool.</li>
+<li class="fragment">Functions created with <code>function()</code>, saved as <em>objects</em>.</li>
+<li class="fragment"><em>Arguments</em> make it flexible; <em>defaults</em> make it quick.</li>
+<li class="fragment">The last expression is <em>returned</em> (or use <code>return()</code>).</li>
+<li class="fragment"><em>Scoping</em> determines where a function looks for objects.</li>
+</ol>
+</div><div class="column">
+<h3 id="key-ideas-for-today">Key Ideas for Today</h3>
+<ol type="1">
+<li class="fragment">R descends from <em>S</em>, a language built at Bell Labs, and was reimplemented as free software.</li>
+<li class="fragment"><em>Open-source software</em> grants users the right to use, study, change, and distribute code.</li>
+<li class="fragment"><em>Packages</em> extend R with community-contributed tools beyond base R.</li>
+<li class="fragment">The <em>tidyverse</em> is a family of packages sharing a common design and grammar.</li>
+<li class="fragment">Widely-used packages (<code>ggplot2</code>, <code>shiny</code>) come from individual contributors like Hadley Wickham and Joe Cheng.</li>
+</ol>
+</div></div>
+<aside class="notes">
+<h4 id="concept-acquisition">Concept Acquisition</h4>
+<ol type="1">
+<li>R originated as an open-source reimplementation of S, a statistical language developed at Bell Labs.</li>
+<li>Open-source licenses grant users the right to use, study, modify, and redistribute software and its source.</li>
+<li>R’s capabilities are extended chiefly through packages contributed by the community, not just base R functions.</li>
+<li>The tidyverse is a coherent collection of packages that share an underlying design philosophy and syntax.</li>
+</ol>
+<h4 id="tool-acquisition">Tool Acquisition</h4>
+<ol type="1">
+<li>No new R syntax today; the focus is on the ecosystem surrounding R (CRAN, packages, package authors).</li>
+<li>Introduce package names by their hex logos: <code>ggplot2</code>, <code>shiny</code>.</li>
+</ol>
+<h4 id="concept-application">Concept Application</h4>
+<ol type="1">
+<li>Explain how R’s open-source licensing enabled community packages like <code>ggplot2</code> and <code>shiny</code> to exist.</li>
+<li>Identify examples of open-source software students already use.</li>
+</ol>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="the-birth-of-r-1976" class="slide level2">
 <h2>The Birth of R (1976)</h2>
 
@@ -159,14 +211,14 @@
 </div>
 </div></div>
 </section>
-<section id="section" class="slide level2" data-background-image="images/r-boilerplate.png" data-background-size="contain">
+<section id="section-1" class="slide level2" data-background-image="images/r-boilerplate.png" data-background-size="contain">
 <h2></h2>
 </section>
 <section id="open-source-software" class="slide level2">
 <h2><img data-src="images/wikipedia.png"> Open-Source Software</h2>
 <p><span class="fragment fade-in-then-semi-out"><strong>Open-source software</strong> (OSS) is computer software that is released under a license in which the copyright holder grants users the rights to</span> <span class="fragment fade-in-then-semi-out">use, study, change, and distribute the software and its source code to anyone and for any purpose</span>. <span class="fragment fade-in-then-semi-out">Open-source software may be developed in a collaborative, public manner. Open-source software is a prominent example of open collaboration, meaning any capable user is able to participate online in development, making the number of possible contributors indefinite.</span></p>
 </section>
-<section id="section-1" class="slide level2" data-background-image="images/hex-tidyverse.webp" data-background-size="contain">
+<section id="section-2" class="slide level2" data-background-image="images/hex-tidyverse.webp" data-background-size="contain">
 <h2></h2>
 </section>
 <section id="ggplot2-by-hadley-wickham" class="slide level2">
@@ -181,9 +233,30 @@
 <section id="shiny-by-joe-cheng" class="slide level2">
 <h2><code>shiny</code> by Joe Cheng</h2>
 
-
-
 <img data-src="images/joe-cheng.jpg" class="r-stretch"></section>
+<section id="section-3" class="slide level2 intro" data-background-color="var(--intro-bg)">
+<h2></h2>
+<div class="columns">
+<div class="column">
+<h3 id="key-ideas-for-today-1">Key Ideas for Today</h3>
+<ol type="1">
+<li>R descends from <em>S</em>, a language built at Bell Labs, and was reimplemented as free software.</li>
+<li><em>Open-source software</em> grants users the right to use, study, change, and distribute code.</li>
+<li><em>Packages</em> extend R with community-contributed tools beyond base R.</li>
+<li>The <em>tidyverse</em> is a family of packages sharing a common design and grammar.</li>
+<li>Widely-used packages (<code>ggplot2</code>, <code>shiny</code>) come from individual contributors like Hadley Wickham and Joe Cheng.</li>
+</ol>
+</div><div class="column">
+<h3 id="for-next-time">For Next Time</h3>
+<ol type="1">
+<li class="fragment">Work through PS 2, <a href="https://www.pensive.com/">due 9/19 at 11:59 pm</a>.</li>
+<li class="fragment">Explore CRAN or the tidyverse website for a package that interests you.</li>
+<li class="fragment">Come prepared to work with factors and data frames next lecture.</li>
+</ol>
+</div></div>
+
+
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="../site_libs/quarto-contrib/quarto-project/stat133/stat133slides/stat133-logo-vsmall.png" class="slide-logo"></p>

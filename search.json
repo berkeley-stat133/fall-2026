@@ -103,6 +103,55 @@
     "text": "Labs\nComing soon!"
   },
   {
+    "objectID": "10-packages/slides.html#section",
+    "href": "10-packages/slides.html#section",
+    "title": "The R Ecosystem",
+    "section": "",
+    "text": "Last Time\n\nA function bundles code into a reusable tool.\nFunctions created with function(), saved as objects.\nArguments make it flexible; defaults make it quick.\nThe last expression is returned (or use return()).\nScoping determines where a function looks for objects.\n\n\nKey Ideas for Today\n\nR descends from S, a language built at Bell Labs, and was reimplemented as free software.\nOpen-source software grants users the right to use, study, change, and distribute code.\nPackages extend R with community-contributed tools beyond base R.\nThe tidyverse is a family of packages sharing a common design and grammar.\nWidely-used packages (ggplot2, shiny) come from individual contributors like Hadley Wickham and Joe Cheng.\n\n\n\nConcept Acquisition\n\nR originated as an open-source reimplementation of S, a statistical language developed at Bell Labs.\nOpen-source licenses grant users the right to use, study, modify, and redistribute software and its source.\nR’s capabilities are extended chiefly through packages contributed by the community, not just base R functions.\nThe tidyverse is a coherent collection of packages that share an underlying design philosophy and syntax.\n\nTool Acquisition\n\nNo new R syntax today; the focus is on the ecosystem surrounding R (CRAN, packages, package authors).\nIntroduce package names by their hex logos: ggplot2, shiny.\n\nConcept Application\n\nExplain how R’s open-source licensing enabled community packages like ggplot2 and shiny to exist.\nIdentify examples of open-source software students already use."
+  },
+  {
+    "objectID": "10-packages/slides.html#the-birth-of-r-1976",
+    "href": "10-packages/slides.html#the-birth-of-r-1976",
+    "title": "The R Ecosystem",
+    "section": "The Birth of R (1976)",
+    "text": "The Birth of R (1976)"
+  },
+  {
+    "objectID": "10-packages/slides.html#s---r",
+    "href": "10-packages/slides.html#s---r",
+    "title": "The R Ecosystem",
+    "section": "S -> R",
+    "text": "S -&gt; R\n\n\n\n\n\nJohn Chambers, Bell Labs\n\n\n\n\n\n\nRobert Gentlemen and Ross Ihaka, University of Auckland"
+  },
+  {
+    "objectID": "10-packages/slides.html#open-source-software",
+    "href": "10-packages/slides.html#open-source-software",
+    "title": "The R Ecosystem",
+    "section": " Open-Source Software",
+    "text": "Open-Source Software\nOpen-source software (OSS) is computer software that is released under a license in which the copyright holder grants users the rights to use, study, change, and distribute the software and its source code to anyone and for any purpose. Open-source software may be developed in a collaborative, public manner. Open-source software is a prominent example of open collaboration, meaning any capable user is able to participate online in development, making the number of possible contributors indefinite."
+  },
+  {
+    "objectID": "10-packages/slides.html#ggplot2-by-hadley-wickham",
+    "href": "10-packages/slides.html#ggplot2-by-hadley-wickham",
+    "title": "The R Ecosystem",
+    "section": "ggplot2 by Hadley Wickham",
+    "text": "ggplot2 by Hadley Wickham"
+  },
+  {
+    "objectID": "10-packages/slides.html#shiny-by-joe-cheng",
+    "href": "10-packages/slides.html#shiny-by-joe-cheng",
+    "title": "The R Ecosystem",
+    "section": "shiny by Joe Cheng",
+    "text": "shiny by Joe Cheng"
+  },
+  {
+    "objectID": "10-packages/slides.html#section-3",
+    "href": "10-packages/slides.html#section-3",
+    "title": "The R Ecosystem",
+    "section": "",
+    "text": "Key Ideas for Today\n\nR descends from S, a language built at Bell Labs, and was reimplemented as free software.\nOpen-source software grants users the right to use, study, change, and distribute code.\nPackages extend R with community-contributed tools beyond base R.\nThe tidyverse is a family of packages sharing a common design and grammar.\nWidely-used packages (ggplot2, shiny) come from individual contributors like Hadley Wickham and Joe Cheng.\n\n\nFor Next Time\n\nWork through PS 2, due 9/19 at 11:59 pm.\nExplore CRAN or the tidyverse website for a package that interests you.\nCome prepared to work with factors and data frames next lecture."
+  },
+  {
     "objectID": "08-functions/slides.html#section",
     "href": "08-functions/slides.html#section",
     "title": "Functions",
@@ -1164,7 +1213,7 @@
     "href": "07-control-flow/slides.html#a-random-condition-in-r",
     "title": "Control Flow",
     "section": "A random condition in R",
-    "text": "A random condition in R\n\n\nsample(x = -10:10, size = 1)\n\n\n\n[1] -3\n\n\n\n\nsample() will randomly sample 1 element from the vector x."
+    "text": "A random condition in R\n\n\nsample(x = -10:10, size = 1)\n\n\n\n[1] 2\n\n\n\n\nsample() will randomly sample 1 element from the vector x."
   },
   {
     "objectID": "07-control-flow/slides.html#section-1",
@@ -1220,7 +1269,7 @@
     "href": "07-control-flow/slides.html#what-if-x-has-multiple-elements",
     "title": "Control Flow",
     "section": "What if x has multiple elements?",
-    "text": "What if x has multiple elements?\n\n\nx &lt;- rnorm(3)\nx\n\n\n\n[1]  0.03805281 -1.57189615 -0.88087774\n\n\n\n\n\n\n\n\n\n\n      if (x &gt; 0) {\n        print(\"x is positive :)\")\n      }\n\n\n\nAnnotate this if-then by wrapping it in a for loop."
+    "text": "What if x has multiple elements?\n\n\nx &lt;- rnorm(3)\nx\n\n\n\n[1]  0.6546830 -0.4713413 -1.5590616\n\n\n\n\n\n\n\n\n\n\n      if (x &gt; 0) {\n        print(\"x is positive :)\")\n      }\n\n\n\nAnnotate this if-then by wrapping it in a for loop."
   },
   {
     "objectID": "07-control-flow/slides.html#option-1",
@@ -1241,7 +1290,7 @@
     "href": "07-control-flow/slides.html#option-3",
     "title": "Control Flow",
     "section": "Option 3",
-    "text": "Option 3\n\nfor (x_elem in x) {\n  if (x_elem &gt; 0) {\n    print(paste(x_elem, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"0.0380528092104174 is positive :)\""
+    "text": "Option 3\n\nfor (x_elem in x) {\n  if (x_elem &gt; 0) {\n    print(paste(x_elem, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"0.654682994445479 is positive :)\""
   },
   {
     "objectID": "07-control-flow/slides.html#ifelse",
@@ -1265,11 +1314,214 @@
     "text": "Key Ideas for Today\n\nUse comparison operators to compare two values.\nif-then runs code only when a condition is TRUE.\nif-else chooses between two blocks of code based on condition.\nA for loop repeats code for each element of a vector.\nifelse() is a vectorized if-else.\n\n\nFor Next Time\n\nPractice with Control Flow\nFinish Project and prepare for Project Studio 1!"
   },
   {
+    "objectID": "09-dataframes/slides.html#section",
+    "href": "09-dataframes/slides.html#section",
+    "title": "Factors and Data Frames",
+    "section": "",
+    "text": "Last Time\n\nA function bundles code into a reusable tool.\nFunctions created with function(), saved as objects.\nArguments make it flexible; defaults make it quick.\nThe last expression is returned (or use return()).\nScoping determines where a function looks for objects.\n\n\nKey Ideas for Today\n\nA factor stores categorical data as integer with levels lookup.\nAn object’s class lets functions behave differently.\nOrdered factors allow meaningful sorting.\nA data frame is a named list of equal-length vectors.\nData frames subset like a list $, [[]], [] and like a matrix [r,c].\n\n\n\nConcept Acquisition\n\nA factor encodes categorical data as an integer vector paired with a levels attribute, which is more compact than a character vector and preserves meaning.\nAn object’s class attribute lets generic functions like summary() dispatch different behavior — a first taste of object-oriented programming.\nOrdered factors (ordered = TRUE) can be sorted meaningfully, not just alphabetically.\nAtomic vectors, matrices, and lists are each insufficient for storing related, mixed-type, rectangular data.\nA data frame is a named list of equal-length vectors, giving it both list-like and matrix-like subsetting.\n\nTool Acquisition\n\nfactor(), levels(), ordered = TRUE.\nclass(), summary(), sort().\ndata.frame(), names(), row.names(), str(), dim(), nrow(), ncol().\nas_tibble() from the tibble package.\n\nConcept Application\n\nConvert a character vector to a factor and visualize its distribution with barplot().\nAdd a level and reorder a factor sensibly, then re-plot.\nConstruct a data frame using dataframe().\nSubset a data frame using both matrix- and list-style syntax."
+  },
+  {
+    "objectID": "09-dataframes/slides.html#something-to-ponder-.-.-.",
+    "href": "09-dataframes/slides.html#something-to-ponder-.-.-.",
+    "title": "Factors and Data Frames",
+    "section": "Something to ponder . . .",
+    "text": "Something to ponder . . .\nImagine you collect University ID number and major from 5 friends:\n\nuid &lt;- c(\"3850278\", \"5869204\", \"4728112\", \"3829651\", \"3859278\")\nmaj &lt;- c(\"statistics\", \"economics\", \"statistics\", \"data\", \"economics\")\n\n\n\n\n\nConceptually, in what ways is the data in these two vectors similar? In what ways is it different?\nImagine instead you asked 100 friends. For each vector, can you think of a more efficient way for the computer to store that data?"
+  },
+  {
+    "objectID": "09-dataframes/slides.html#section-1",
+    "href": "09-dataframes/slides.html#section-1",
+    "title": "Factors and Data Frames",
+    "section": "",
+    "text": "Imagine you collect University ID number and major from 5 friends:\n\nuid &lt;- c(\"3850278\", \"5869204\", \"4728112\", \"3829651\", \"3859278\")\nmaj &lt;- c(\"STAT\", \"ECON\", \"STAT\", \"DATA\", \"ECON\")\n\n\n\n\n\nConceptually, in what ways is the data in these two vectors similar? In what ways is it different?\nImagine instead you asked 100 friends. For each vector, can you think of a more efficient way for the computer to store that data?"
+  },
+  {
+    "objectID": "09-dataframes/slides.html#factors-1",
+    "href": "09-dataframes/slides.html#factors-1",
+    "title": "Factors and Data Frames",
+    "section": "Factors",
+    "text": "Factors\nA data structure for storing categorical data. Stores the values in an integer vector and adds a levels attribute to map integers to character strings. Created with factor().\n\n\nmaj &lt;- factor(x = c(\"STAT\", \"ECON\", \"STAT\", \"DATA\", \"ECON\"))\nmaj\n\n\n\n[1] STAT ECON STAT DATA ECON\nLevels: DATA ECON STAT\n\n\n\nDraw two versions of the same data: as a character vector as an integer vector coupled with a levels lookup table."
+  },
+  {
+    "objectID": "09-dataframes/slides.html#section-2",
+    "href": "09-dataframes/slides.html#section-2",
+    "title": "Factors and Data Frames",
+    "section": "",
+    "text": "as.integer(maj)\n\n\n\n[1] 3 2 3 1 2\n\n\n\n\n\nc(maj, 2L)\n\n\n\n[1] 3 2 3 1 2 2"
+  },
+  {
+    "objectID": "09-dataframes/slides.html#attributes",
+    "href": "09-dataframes/slides.html#attributes",
+    "title": "Factors and Data Frames",
+    "section": "Attributes",
+    "text": "Attributes\nObjects built on top of simpler data structures can have attributes. A factor’s attributes include its class and levels.\n\n\nclass(maj)\n\n\n\n[1] \"factor\"\n\n\n\n\n\nlevels(maj)\n\n\n\n[1] \"DATA\" \"ECON\" \"STAT\""
+  },
+  {
+    "objectID": "09-dataframes/slides.html#setting-levels",
+    "href": "09-dataframes/slides.html#setting-levels",
+    "title": "Factors and Data Frames",
+    "section": "Setting Levels",
+    "text": "Setting Levels\nQuickly change all of the values with a particular level.\n\n\nlevels(maj) &lt;- c(\"DATA\", \"ECON\", \"STATISTICS\")\nmaj\n\n\n\n[1] STATISTICS ECON       STATISTICS DATA       ECON      \nLevels: DATA ECON STATISTICS\n\n\n\n\nAdd a level even if it’s not observed.\n\n\n\nlevels(maj) &lt;- c(\"DATA\", \"ECON\", \"STATISTICS\", \"BIO\")\nmaj\n\n\n\n[1] STATISTICS ECON       STATISTICS DATA       ECON      \nLevels: DATA ECON STATISTICS BIO"
+  },
+  {
+    "objectID": "09-dataframes/slides.html#taking-advantage-of-class",
+    "href": "09-dataframes/slides.html#taking-advantage-of-class",
+    "title": "Factors and Data Frames",
+    "section": "Taking advantage of class",
+    "text": "Taking advantage of class\n\nCertain functions behaved differently depending on the class of the object that is passed to it.\n\n\n\nclass(1:4)\n\n\n\n[1] \"integer\"\n\n\n\n\n\nsummary(1:4)\n\n\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n   1.00    1.75    2.50    2.50    3.25    4.00 \n\n\n\n\n\nclass(maj)\n\n\n\n[1] \"factor\"\n\n\n\n\n\nsummary(maj)\n\n\n\n      DATA       ECON STATISTICS        BIO \n         1          2          2          0 \n\n\n\nlive code to compare vectors to matrices in terms of class and typeof"
+  },
+  {
+    "objectID": "09-dataframes/slides.html#ordering-levels",
+    "href": "09-dataframes/slides.html#ordering-levels",
+    "title": "Factors and Data Frames",
+    "section": "Ordering levels",
+    "text": "Ordering levels\nYou can create a factor with ordered levels by adding ordered = TRUE.\n\nmaj_or &lt;- factor(x = c(\"STAT\", \"ECON\", \"STAT\", \"DATA\", \"ECON\"),\n                 levels = c(\"STAT\", \"ECON\", \"DATA\", \"BIO\"),\n                 ordered = TRUE)\n\n\n\nmaj_or\n\n\n\n[1] STAT ECON STAT DATA ECON\nLevels: STAT &lt; ECON &lt; DATA &lt; BIO\n\n\n\n\n\nsort(maj_or)\n\n\n\n[1] STAT STAT ECON ECON DATA\nLevels: STAT &lt; ECON &lt; DATA &lt; BIO"
+  },
+  {
+    "objectID": "09-dataframes/slides.html#section-3",
+    "href": "09-dataframes/slides.html#section-3",
+    "title": "Factors and Data Frames",
+    "section": "",
+    "text": "barplot(summary(maj_or))\n\n\n\n\n\n\n\n\n\n\n\n\nbarplot(summary(maj))"
+  },
+  {
+    "objectID": "09-dataframes/slides.html#factors-and-matrices",
+    "href": "09-dataframes/slides.html#factors-and-matrices",
+    "title": "Factors and Data Frames",
+    "section": "Factors and Matrices",
+    "text": "Factors and Matrices\nBoth are augmented versions of atomic vectors that are given classes to allow for special behavior.\n\n\nmat &lt;- matrix(1:4, ncol = 2)\nclass(mat)\n\n\n\n[1] \"matrix\" \"array\" \n\n\n\n\n\nsummary(mat)\n\n\n\n       V1             V2      \n Min.   :1.00   Min.   :3.00  \n 1st Qu.:1.25   1st Qu.:3.25  \n Median :1.50   Median :3.50  \n Mean   :1.50   Mean   :3.50  \n 3rd Qu.:1.75   3rd Qu.:3.75  \n Max.   :2.00   Max.   :4.00"
+  },
+  {
+    "objectID": "09-dataframes/slides.html#factors-and-matrices-1",
+    "href": "09-dataframes/slides.html#factors-and-matrices-1",
+    "title": "Factors and Data Frames",
+    "section": "Factors and Matrices",
+    "text": "Factors and Matrices\nBoth are augmented versions of atomic vectors that are given classes to allow for special behavior.\n\nmat &lt;- matrix(1:4, ncol = 2)\nclass(mat)\n\n[1] \"matrix\" \"array\" \n\n\n\n\nThis is a form of object oriented programming."
+  },
+  {
+    "objectID": "09-dataframes/slides.html#guess-the-metaphor",
+    "href": "09-dataframes/slides.html#guess-the-metaphor",
+    "title": "Factors and Data Frames",
+    "section": "Guess the Metaphor",
+    "text": "Guess the Metaphor\n\nA factor is like a listing of garment sizes, S &lt; M &lt; L, that can take on values in a known and ordered set."
+  },
+  {
+    "objectID": "09-dataframes/slides.html#factors-are-everywhere-.-.-.",
+    "href": "09-dataframes/slides.html#factors-are-everywhere-.-.-.",
+    "title": "Factors and Data Frames",
+    "section": "Factors are everywhere . . .",
+    "text": "Factors are everywhere . . ."
+  },
+  {
+    "objectID": "09-dataframes/slides.html#the-limitation-of-atomic-vectors",
+    "href": "09-dataframes/slides.html#the-limitation-of-atomic-vectors",
+    "title": "Factors and Data Frames",
+    "section": "The Limitation of Atomic Vectors",
+    "text": "The Limitation of Atomic Vectors\n\n\nsongs &lt;- factor(c(\"Golden by Huntrix\", \"Stay with me\", \"4me4u\", \"Golden by Huntrix\"))\ndistances &lt;- c(2000, 800, 100, 10)\n\n\n\n\n\nQuestion: What was the song and distance of the second index card?\n\n\n\nsongs[2]\n\n\n\n[1] Stay with me\nLevels: 4me4u Golden by Huntrix Stay with me\n\ndistances[2]\n\n[1] 800\n\n\n\n\n😬 This is brittle!"
+  },
+  {
+    "objectID": "09-dataframes/slides.html#the-limitation-of-matrices",
+    "href": "09-dataframes/slides.html#the-limitation-of-matrices",
+    "title": "Factors and Data Frames",
+    "section": "The Limitation of Matrices",
+    "text": "The Limitation of Matrices\n\n\nmat &lt;- matrix(c(songs, distances), ncol = 2)\n\n\n\n\nmat[2,]\n\n\n\n[1]   3 800\n\n\n\n\nQuestion: Summarize the distribution of songs and distances.\n\n\n\nsummary(mat)\n\n\n\n       V1             V2        \n Min.   :1.00   Min.   :  10.0  \n 1st Qu.:1.75   1st Qu.:  77.5  \n Median :2.00   Median : 450.0  \n Mean   :2.00   Mean   : 727.5  \n 3rd Qu.:2.25   3rd Qu.:1100.0  \n Max.   :3.00   Max.   :2000.0  \n\n\n\n\n🤬 Matrices must contain only one type."
+  },
+  {
+    "objectID": "09-dataframes/slides.html#the-limitation-of-lists",
+    "href": "09-dataframes/slides.html#the-limitation-of-lists",
+    "title": "Factors and Data Frames",
+    "section": "The Limitation of Lists",
+    "text": "The Limitation of Lists\n\n\nlst &lt;- list(\"songs\" = songs, \"distances\" = distances)\n\n\n\n\nsummary(lst[[\"songs\"]])\n\n\n\n            4me4u Golden by Huntrix      Stay with me \n                1                 2                 1 \n\n\n\n\n\nsummary(lst[[\"distances\"]])\n\n\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n   10.0    77.5   450.0   727.5  1100.0  2000.0 \n\n\n\nLists can hold different types."
+  },
+  {
+    "objectID": "09-dataframes/slides.html#the-limitation-of-lists-1",
+    "href": "09-dataframes/slides.html#the-limitation-of-lists-1",
+    "title": "Factors and Data Frames",
+    "section": "The Limitation of Lists",
+    "text": "The Limitation of Lists\n\nlst &lt;- list(\"songs\" = songs, \"distances\" = distances)\n\n\n\nlst[[\"songs\"]][2]\n\n\n\n[1] Stay with me\nLevels: 4me4u Golden by Huntrix Stay with me\n\nlst[[\"distances\"]][2]\n\n[1] 800\n\n\n\n\n\nLists can hold different types.\nBut are complicated to subset 🤯.\n\n\nYou could also point out that there is nothing enforcing the fact that the two vectors are the same length, so a for loop that iterated over the index might error out."
+  },
+  {
+    "objectID": "09-dataframes/slides.html#data-structures-in-r",
+    "href": "09-dataframes/slides.html#data-structures-in-r",
+    "title": "Factors and Data Frames",
+    "section": "Data Structures in R",
+    "text": "Data Structures in R\nboardwork\n\nSketch the following diagram."
+  },
+  {
+    "objectID": "09-dataframes/slides.html#data-frame",
+    "href": "09-dataframes/slides.html#data-frame",
+    "title": "Factors and Data Frames",
+    "section": "Data Frame",
+    "text": "Data Frame\nA data frame is a named list of vectors of the same length. Holds attributes for (column) names, row.names, and its class, “data.frame”. Created with data.frame().\n\n\nstar_wars &lt;- data.frame(\n    name = c(\"Anakin\", \"Padme\", \"Luke\", \"Leia\"),\n    gender = c(\"male\", \"female\", \"male\", \"female\"),\n    height = c(1.88, 1.65, 1.72, 1.50),\n    weight = c(84, 45, 77, 49)\n)\nstar_wars\n\n\n\n    name gender height weight\n1 Anakin   male   1.88     84\n2  Padme female   1.65     45\n3   Luke   male   1.72     77\n4   Leia female   1.50     49"
+  },
+  {
+    "objectID": "09-dataframes/slides.html#data-frame-attributes",
+    "href": "09-dataframes/slides.html#data-frame-attributes",
+    "title": "Factors and Data Frames",
+    "section": "Data Frame Attributes",
+    "text": "Data Frame Attributes\n\n\nnames(star_wars)\n\n\n\n[1] \"name\"   \"gender\" \"height\" \"weight\"\n\n\n\n\n\nrow.names(star_wars)\n\n\n\n[1] \"1\" \"2\" \"3\" \"4\"\n\n\n\n\n\nclass(star_wars)\n\n\n\n[1] \"data.frame\""
+  },
+  {
+    "objectID": "09-dataframes/slides.html#other-useful-functions-for-data-frames",
+    "href": "09-dataframes/slides.html#other-useful-functions-for-data-frames",
+    "title": "Factors and Data Frames",
+    "section": "Other useful functions for Data Frames",
+    "text": "Other useful functions for Data Frames\n\nsummary()\nstr()\nhead()\ndim()\nncol()\nnrow()\n\n\nstar_wars &lt;- data.frame(\n    name = c(\"Anakin\", \"Padme\", \"Luke\", \"Leia\"),\n    gender = c(\"male\", \"female\", \"male\", \"female\"),\n    height = c(1.88, 1.65, 1.72, 1.50),\n    weight = c(84, 45, 77, 49)\n)\n\n\nlive code"
+  },
+  {
+    "objectID": "09-dataframes/slides.html#index-cards-as-a-data-frame",
+    "href": "09-dataframes/slides.html#index-cards-as-a-data-frame",
+    "title": "Factors and Data Frames",
+    "section": "Index Cards as a Data Frame",
+    "text": "Index Cards as a Data Frame\n\nindex_cards &lt;- data.frame(songs, distances)\nindex_cards\n\n\n\n              songs distances\n1 Golden by Huntrix      2000\n2      Stay with me       800\n3             4me4u       100\n4 Golden by Huntrix        10\n\n\n\n\nsummary(index_cards)\n\n\n\n               songs     distances     \n 4me4u            :1   Min.   :  10.0  \n Golden by Huntrix:2   1st Qu.:  77.5  \n Stay with me     :1   Median : 450.0  \n                       Mean   : 727.5  \n                       3rd Qu.:1100.0  \n                       Max.   :2000.0"
+  },
+  {
+    "objectID": "09-dataframes/slides.html#index-cards-as-a-data-frame-cont.",
+    "href": "09-dataframes/slides.html#index-cards-as-a-data-frame-cont.",
+    "title": "Factors and Data Frames",
+    "section": "Index Cards as a Data Frame, cont.",
+    "text": "Index Cards as a Data Frame, cont.\n\n\nindex_cards[2, ]\n\n\n\n         songs distances\n2 Stay with me       800\n\n\n\n\n👍👍"
+  },
+  {
+    "objectID": "09-dataframes/slides.html#guess-the-metaphor-1",
+    "href": "09-dataframes/slides.html#guess-the-metaphor-1",
+    "title": "Factors and Data Frames",
+    "section": "Guess the Metaphor",
+    "text": "Guess the Metaphor\n\nA data frame is like a listing of the characteristics of various garments, with one row for each garment, one column for each characteristic (of different types).\n\n\n\n\n  size   color price\n1    M scarlet   230\n2    S crimson   170\n3    L  purple   285\n4    S   white   180\n5    M   black   210\n\n\nQuestion\n\n\n    name gender height weight\n1 Anakin   male   1.88     84\n2  Padme female   1.65     45\n3   Luke   male   1.72     77\n4   Leia female   1.50     49\n\n\nUsing what you know about matrix and list subsetting, write code to subset from star_wars…\n\nThe data frame containing only height and weight.\nThe character vector gender.\nThe data frame containing only the last row.\nThe value 1.88\n\n\n  \n    −\n    +\n \n 02:30"
+  },
+  {
+    "objectID": "09-dataframes/slides.html#subsetting-data-frames",
+    "href": "09-dataframes/slides.html#subsetting-data-frames",
+    "title": "Factors and Data Frames",
+    "section": "Subsetting Data Frames",
+    "text": "Subsetting Data Frames\nData frames can be subset either as a two dimensional array (matrix [row, col] subsetting) or as a one dimensional list ([], [[]] or $ subsetting))."
+  },
+  {
+    "objectID": "09-dataframes/slides.html#the-evolution-of-the-data-frame",
+    "href": "09-dataframes/slides.html#the-evolution-of-the-data-frame",
+    "title": "Factors and Data Frames",
+    "section": "The Evolution of the Data Frame",
+    "text": "The Evolution of the Data Frame\n\n1990: Data Frame (R)\n\n\n\n2009: Pandas DF (Py)\n\n\n\n2016: Tibble (R)\n\n\n\n2020: Polars (R/Py)"
+  },
+  {
+    "objectID": "09-dataframes/slides.html#tibbles",
+    "href": "09-dataframes/slides.html#tibbles",
+    "title": "Factors and Data Frames",
+    "section": "Tibbles",
+    "text": "Tibbles\nAn updated version of a data frame with convenient behaviors.\n\n\nlibrary(tibble)\nstar_wars_tbl &lt;- as_tibble(star_wars)\nstar_wars_tbl\n\n\n\n# A tibble: 4 × 4\n  name   gender height weight\n  &lt;chr&gt;  &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt;\n1 Anakin male     1.88     84\n2 Padme  female   1.65     45\n3 Luke   male     1.72     77\n4 Leia   female   1.5      49\n\n\n\n\n\nThe main difference is that tibbles are lazy and surly: they do less and complain more - Hadley Wickham"
+  },
+  {
+    "objectID": "09-dataframes/slides.html#section-4",
+    "href": "09-dataframes/slides.html#section-4",
+    "title": "Factors and Data Frames",
+    "section": "",
+    "text": "Key Ideas for Today\n\nA factor stores categorical data as integer with levels lookup.\nAn object’s class lets functions behave differently.\nOrdered factors allow meaningful sorting.\nA data frame is a named list of equal-length vectors.\nData frames subset like a list $, [[]], [] and like a matrix [r,c].\n\n\n\nFor Next Time\n\nSign up for Quiz 2.\nPS 2 due this Saturday night.\nCome to office hours / tutoring!"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "STAT 133",
     "section": "",
-    "text": "Concepts in Computing with Data\nStat 133 UC Berkeley\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n  \n  \n  \n    \n    \n    \n    Sep 14\n    \n  \n  \n  Functions\n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n    Slides\n    \n  \n  \n  \n    Sign up for Quiz 2\n  \n    Project Studio 1 this week\n  \n  \n  \n  \n\n  \n  \n  \n  \n    Sep 16\n  \n  \n  The R Ecosystem\n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n    Slides\n    \n  \n  \n  \n  \n  \n  \n\n  \n  \n  \n  \n    Sep 18\n  \n  \n  Factors and Data Frames\n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n    Slides\n    \n  \n  \n  \n    PS 2 due 9/19 at 11:59 pm\n  \n  \n  \n  \n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Aug 24\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 26\n      \n    \n    \n    Welcome\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 28\n      \n    \n    \n    Data in Trees\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 31\n      \n    \n    \n    Intro to R\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 2\n      \n    \n    \n    Atomic Vectors\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 4\n      \n    \n    \n    Extending Vectors\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n      Sign up for Quiz 1\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Sep 7\n    \n    \n    No Class: Labor Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 9\n      \n    \n    \n    Lists\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 1: 9/10-9/11\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 11\n      \n    \n    \n    Control Flow\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 14\n      \n    \n    \n    Functions\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 2\n    \n      Project Studio 1 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Sep 16\n    \n    \n    The R Ecosystem\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Sep 18\n    \n    \n    Factors and Data Frames\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 2 due 9/19 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Sep 21\n    \n    \n    Git & GitHub\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 2: 9/21-9/22\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Sep 23\n    \n    \n    Data Wrangling I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Sep 25\n    \n    \n    Data Wrangling II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Sep 28\n    \n    \n    Intro to Data Viz\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 3\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Sep 30\n    \n    \n    Grammar of Graphics\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 2\n    \n    \n    EDA\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 3 due 10/03 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Oct 5\n    \n    \n    Explanatory DA\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 3: 10/5-10/6\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 7\n    \n    \n    Joins and Pivots\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 9\n    \n    \n    Quarto\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Oct 12\n    \n    \n    Strings I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 4\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 14\n    \n    \n    Strings II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 16\n    \n    \n    Text Analysis\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 4 due 10/17 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Oct 19\n    \n    \n    Dates and Times I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 4: 10/19-10/20\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 21\n    \n    \n    Dates and Times II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 23\n    \n    \n    Spatial Data I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Oct 26\n    \n    \n    Gerrymandering\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 5\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 28\n    \n    \n    Spatial Data II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 30\n    \n    \n    Dashboards\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 5 due 10/31 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 2\n    \n    \n    Election Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 5: 11/2-11/3\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 4\n    \n    \n    R Packages I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 6\n    \n    \n    R Packages II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 9\n    \n    \n    Prediction I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 6\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 11\n    \n    \n    No Class: Veterans Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 13\n    \n    \n    Prediction II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 6 due 11/14 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 16\n    \n    \n    Classification\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 6: 11/16-11/17\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 18\n    \n    \n    APIs I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 20\n    \n    \n    APIs II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 23\n    \n    \n    LLMs\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 7\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 25\n    \n    \n    No Class: Non-Instructional Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 27\n    \n    \n    No Class: Thanksgiving\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 30\n    \n    \n    LLMs in IDEs\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 7 due today at 6:00 pm\n    \n      Quiz 7: 12/1-12/4\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 2\n    \n    \n    Abstraction\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 4\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Dec 7\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 9\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 11\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Dec 14\n    \n    \n    Final Exam 7-10 pm\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 16\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 18\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n\n\nNo matching items",
+    "text": "Concepts in Computing with Data\nStat 133 UC Berkeley\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n  \n  \n  \n    \n    \n    \n    Sep 14\n    \n  \n  \n  Functions\n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n    Slides\n    \n  \n  \n  \n    Sign up for Quiz 2\n  \n    Project Studio 1 this week\n  \n  \n  \n  \n\n  \n  \n  \n  \n    \n    \n    \n    Sep 16\n    \n  \n  \n  Factors and Data Frames\n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n    Slides\n    \n  \n  \n  \n  \n  \n  \n\n  \n  \n  \n  \n    \n    \n    \n    Sep 18\n    \n  \n  \n  The R Ecosystem\n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n    Slides\n    \n  \n  \n  \n    PS 2 due 9/19 at 11:59 pm\n  \n  \n  \n  \n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Aug 24\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 26\n      \n    \n    \n    Welcome\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 28\n      \n    \n    \n    Data in Trees\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 31\n      \n    \n    \n    Intro to R\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 2\n      \n    \n    \n    Atomic Vectors\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 4\n      \n    \n    \n    Extending Vectors\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n      Sign up for Quiz 1\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Sep 7\n    \n    \n    No Class: Labor Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 9\n      \n    \n    \n    Lists\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 1: 9/10-9/11\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 11\n      \n    \n    \n    Control Flow\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 14\n      \n    \n    \n    Functions\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 2\n    \n      Project Studio 1 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 16\n      \n    \n    \n    Factors and Data Frames\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Sep 18\n    \n    \n    The R Ecosystem\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 2 due 9/19 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Sep 21\n    \n    \n    Git & GitHub\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 2: 9/21-9/22\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Sep 23\n    \n    \n    Data Wrangling I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Sep 25\n    \n    \n    Data Wrangling II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Sep 28\n    \n    \n    Intro to Data Viz\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 3\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Sep 30\n    \n    \n    Grammar of Graphics\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 2\n    \n    \n    EDA\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 3 due 10/03 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Oct 5\n    \n    \n    Explanatory DA\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 3: 10/5-10/6\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 7\n    \n    \n    Joins and Pivots\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 9\n    \n    \n    Quarto\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Oct 12\n    \n    \n    Strings I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 4\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 14\n    \n    \n    Strings II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 16\n    \n    \n    Text Analysis\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 4 due 10/17 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Oct 19\n    \n    \n    Dates and Times I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 4: 10/19-10/20\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 21\n    \n    \n    Dates and Times II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 23\n    \n    \n    Spatial Data I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Oct 26\n    \n    \n    Gerrymandering\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 5\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 28\n    \n    \n    Spatial Data II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 30\n    \n    \n    Dashboards\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 5 due 10/31 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 2\n    \n    \n    Election Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 5: 11/2-11/3\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 4\n    \n    \n    R Packages I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 6\n    \n    \n    R Packages II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 9\n    \n    \n    Prediction I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 6\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 11\n    \n    \n    No Class: Veterans Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 13\n    \n    \n    Prediction II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 6 due 11/14 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 16\n    \n    \n    Classification\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 6: 11/16-11/17\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 18\n    \n    \n    APIs I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 20\n    \n    \n    APIs II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 23\n    \n    \n    LLMs\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 7\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 25\n    \n    \n    No Class: Non-Instructional Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 27\n    \n    \n    No Class: Thanksgiving\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 30\n    \n    \n    LLMs in IDEs\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 7 due today at 6:00 pm\n    \n      Quiz 7: 12/1-12/4\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 2\n    \n    \n    Abstraction\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 4\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Dec 7\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 9\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 11\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Dec 14\n    \n    \n    Final Exam 7-10 pm\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 16\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 18\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n\n\nNo matching items",
     "crumbs": [
       "Home"
     ]
