@@ -298,7 +298,14 @@
 </section>
 <section id="factors-1" class="slide level2">
 <h2>Factors</h2>
+<div class="definition">
+<div class="definition-header">
+<p>Factor</p>
+</div>
+<div class="definition-content">
 <p>A data structure for storing categorical data. Stores the values in an integer vector and adds a <code>levels</code> attribute to map integers to character strings. Created with <code>factor()</code>.</p>
+</div>
+</div>
 <div class="fragment">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>maj <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">"STAT"</span>, <span class="st">"ECON"</span>, <span class="st">"STAT"</span>, <span class="st">"DATA"</span>, <span class="st">"ECON"</span>))</span>
@@ -350,7 +357,14 @@ Levels: DATA ECON STAT</code></pre>
 </section>
 <section id="attributes" class="slide level2">
 <h2>Attributes</h2>
-<p>Objects built on top of simpler data structures can have <em>attributes</em>. A factor’s attributes include its <code>class</code> and <code>levels</code>.</p>
+<div class="definition">
+<div class="definition-header">
+<p>Attributes</p>
+</div>
+<div class="definition-content">
+<p>Metadata attached to an object that customize its behavior, on top of the simpler data structure it’s built from. A factor’s attributes include its <code>class</code> and <code>levels</code>.</p>
+</div>
+</div>
 <div class="fragment">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">class</span>(maj)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -756,7 +770,14 @@ Levels: 4me4u Golden by Huntrix Stay with me</code></pre>
 </section>
 <section id="data-frame" class="slide level2">
 <h2>Data Frame</h2>
-<p>A <strong>data frame</strong> is a named list of vectors of the same length. Holds attributes for (column) <code>names</code>, <code>row.names</code>, and its class, “data.frame”. Created with <code>data.frame()</code>.</p>
+<div class="definition">
+<div class="definition-header">
+<p>Data Frame</p>
+</div>
+<div class="definition-content">
+<p>A named list of vectors of the same length. Holds attributes for (column) <code>names</code>, <code>row.names</code>, and its class, “data.frame”. Created with <code>data.frame()</code>.</p>
+</div>
+</div>
 <div class="fragment">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a></a>star_wars <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
@@ -908,7 +929,10 @@ Levels: 4me4u Golden by Huntrix Stay with me</code></pre>
 5    M   black   210</code></pre>
 </div>
 </div>
-<h4 id="question">Question</h4>
+</div>
+</section>
+<section id="question" class="slide level2">
+<h2>Question</h2>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>    name gender height weight
@@ -925,14 +949,13 @@ Levels: 4me4u Golden by Huntrix Stay with me</code></pre>
 <li>The data frame containing only the last row.</li>
 <li>The value <code>1.88</code></li>
 </ol>
-<div id="timer_ab4a68117c3065b74880147381bbf86b22e48443" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_ad2a2ed8f8f01aeb6c299d2bf1e1887e2cfafa33" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
  </div>
  <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">30</span></code>
  </div>
-</div>
 </section>
 <section id="subsetting-data-frames" class="slide level2">
 <h2>Subsetting Data Frames</h2>
@@ -959,7 +982,14 @@ Levels: 4me4u Golden by Huntrix Stay with me</code></pre>
 </section>
 <section id="tibbles" class="slide level2">
 <h2>Tibbles</h2>
+<div class="definition">
+<div class="definition-header">
+<p>Tibble</p>
+</div>
+<div class="definition-content">
 <p>An updated version of a data frame with convenient behaviors.</p>
+</div>
+</div>
 <div class="fragment">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a></a><span class="fu">library</span>(tibble)</span>
