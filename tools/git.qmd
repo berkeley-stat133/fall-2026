@@ -1,0 +1,139 @@
+---
+title: "Git and GitHub"
+page-layout: full
+toc: false
+body-classes: tools-page
+---
+
+![](images/git.png){.tool-logo height=84 fig-alt="Git logo"}
+
+**Git** is a version-control system that tracks changes to your files, and
+**GitHub** is a website for hosting Git repositories. Together they let you save
+snapshots of your work and share it.
+
+The best way to be sure you're set with Git and GitHub is to fill out and follow the form [here](https://docs.google.com/forms/d/e/1FAIpQLSfAYl_CH6oAFZbj29_uI4UfTl67A_aKjes9nrhH7C-bA17PPQ/viewform?usp=publish-editor).
+
+## Installing Git
+
+On DataHub, Git is already installed. To install it on your own machine:
+
+::: {.panel-tabset}
+
+### macOS
+
+Open [Terminal](shell.qmd) and run:
+
+```bash
+git --version
+```
+
+If Git is missing, macOS will offer to install the developer tools. Accept and
+let it finish, then run the command again to confirm.
+
+### Windows
+
+Install [Git for Windows](https://git-scm.com/download/win), which also
+provides [Git Bash](shell.qmd). Open Git Bash and confirm with:
+
+```bash
+git --version
+```
+
+:::
+
+## One-time setup
+
+Tell Git who you are:
+
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "you@berkeley.edu"
+```
+
+## The core workflow
+
+| Step | Command | Meaning |
+|------|---------|---------|
+| Clone | `git clone <url>` | Copy a repository to your machine |
+| Stage | `git add <file>` | Mark changes to be saved |
+| Commit | `git commit -m "message"` | Save a snapshot with a note |
+| Push | `git push` | Upload commits to GitHub |
+| Pull | `git pull` | Download others' commits |
+
+Check the state of your repository at any time with:
+
+```bash
+git status
+```
+
+## Github
+
+Go to <https://github.com/> to set up a free account. Whichever email address you use to create your account, it should agree with same as the email you used in `git config --global user.email "you@berkeley.edu"`. If you expect to not use Github after leaving Berkeley, then just use your Berkeley email. If you think you might use it after graduation, use your personal email.
+
+## Authenticating with a personal access token
+
+GitHub will not accept your account password from the command line. Instead you
+use a **personal access token** (PAT): a long string of characters that acts as
+a password for Git. You create it in the browser, then paste it into the
+terminal whenever Git asks for a password.
+
+### 1. Create the token in your browser
+
+1. Sign in at <https://github.com/> and go to
+   <https://github.com/settings/tokens?type=beta> (**Settings → Developer
+   settings → Personal access tokens → Fine-grained tokens**).
+2. Click **Generate new token**.
+3. Fill in the form:
+   - **Token name**: something you'll recognize, like `stat133-positron`.
+   - **Expiration**: pick a date after the end of the semester.
+   - **Repository access**: *All repositories*.
+   - **Permissions**: under *Repository permissions*, set **Contents** to
+     **Read and write**. Leave everything else alone.
+4. Click **Generate token**, then copy the token that appears.
+
+::: {.callout-warning}
+The token is shown **only once**. Copy it now. If you lose it, delete it on
+GitHub and generate a new one — that's normal and costs you nothing.
+:::
+
+### 2. Paste it at the prompt
+
+Do something that talks to GitHub, such as cloning one of your repositories or
+running `git push` from inside one. In Positron's [Terminal](shell.qmd) pane:
+
+```bash
+git clone https://github.com/USERNAME/REPO.git
+```
+
+Git will prompt you twice:
+
+```
+Username for 'https://github.com': your-github-username
+Password for 'https://github.com': <paste your token here>
+```
+
+Paste the **token**, not your GitHub password. Nothing will appear on screen as
+you paste — that's expected. Press Return.
+
+That's it. Git will ask you to paste the token again for each push or clone
+until the token expires — for a handful of assignments that's a minor
+annoyance, not a problem.
+
+::: {.callout-tip}
+## Don't want to paste it every time?
+
+You can ask Git to remember the token so you're only prompted once:
+
+- **macOS**: `git config --global credential.helper osxkeychain`
+- **Windows**: `git config --global credential.helper manager`
+
+Run the command once, then paste the token at the next prompt. Git stores it
+and won't ask again.
+:::
+
+## Tips
+
+- Commit early and often, with short but descriptive messages.
+- `git status` is your friend — run it whenever you're unsure what's going on.
+- Treat your PAT like a password: don't paste it into a script, a `.qmd` file,
+  or a repository.

@@ -1,0 +1,73 @@
+---
+title: "Positron"
+page-layout: full
+toc: false
+body-classes: tools-page
+---
+
+![](images/positron.png){.tool-logo height=84 fig-alt="Positron logo"}
+
+**Positron** is the code editor (IDE) we use to write and run R and Quarto. It
+is built by Posit, the same company behind RStudio, and is designed for data
+science.
+
+## Installing Positron
+
+1. Go to <https://positron.posit.co>.
+2. Download the installer for your operating system.
+3. Run the installer and open Positron.
+
+Make sure you already have [R](r.qmd) installed so Positron can find it.
+
+## The layout
+
+- **Editor**: where you write scripts and `.qmd` documents.
+- **Console**: a live R session for running code interactively.
+- **Variables / Environment**: shows the objects currently in memory.
+- **Plots**, **Help**, and a **Terminal** are available in the side panes.
+
+## Opening a folder from a GitHub repository
+
+Most of the projects in this course start by copying ("cloning") a repository
+from GitHub onto your computer and opening it as a Positron folder.
+
+1. On GitHub, open the repository and click the green **Code** button. Copy the
+   **HTTPS** URL, which ends in `.git`.
+2. In Positron, open the Command Palette with **⇧⌘P** (macOS) or
+   **Ctrl + Shift + P** (Windows) and run **Git: Clone**.
+3. Paste the URL and press Return.
+4. Choose a folder on your computer to put the repository in — somewhere you'll
+   find again, like `Documents/stat133/`. Positron creates a new subfolder
+   named after the repository.
+5. When prompted, choose **Open** to switch to the new folder.
+
+The first time you clone, Git will ask for your GitHub username and a personal
+access token; see [Git and GitHub](git.qmd) for how to set that up.
+
+### Knowing which folder you're in
+
+Positron always has exactly one folder open, and everything — the console's
+working directory, the file paths in your code, which repository `git` commands
+act on — is relative to that folder.
+
+Check which one it is in the **top-right corner** of the window, next to the
+interpreter selector: it shows the name of the open folder alongside the
+running R session. You can also confirm from the console:
+
+```r
+getwd()
+```
+
+If that isn't the folder you expect, use **File → Open Folder** to switch.
+Opening a *file* from another project does not change the open folder.
+
+## Running code
+
+- Put your cursor on a line and press **⌘ + Return** (macOS) or
+  **Ctrl + Enter** (Windows) to run it in the console.
+- Open a `.qmd` file and click **Render** to preview a Quarto document.
+
+## Tips
+
+- Use the built-in **Terminal** pane to run [shell](shell.qmd) and
+  [Git](git.qmd) commands without leaving the editor.
