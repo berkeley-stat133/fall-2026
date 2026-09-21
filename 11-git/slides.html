@@ -9,7 +9,7 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-8b4baf804e461d9b72633f0de59a0cac.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.27">
 
-  <title>STAT 133 – Git &amp; Github</title>
+  <title>STAT 133 – Git &amp; GitHub</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -94,7 +94,7 @@
     code span.vs { color: #032f62; } /* VerbatimString */
     code span.wa { color: #ff5555; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-1661f22b623b3ac3660186bd2906449d.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-63434d2e05fbe63be9c6da0a0607727f.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -195,12 +195,70 @@
     <div class="slides">
 
 <section id="title-slide" data-background-image="../site_libs/quarto-contrib/quarto-project/stat133/stat133slides/stat133_slide.png" data-background-size="contain" class="quarto-title-block center">
-  <h1 class="title">Git &amp; Github</h1>
+  <h1 class="title">Git &amp; GitHub</h1>
   <p class="subtitle">Tools for robust, collaborative coding</p>
 
 <div class="quarto-title-authors">
 </div>
 
+</section>
+<section id="section" class="slide level2 intro" data-background-color="var(--intro-bg)">
+<h2></h2>
+<div class="columns">
+<div class="column">
+<h3 id="last-time">Last Time</h3>
+<ol type="1">
+<li class="fragment"><code>dplyr</code> verbs take a data frame as their first argument and return one.
+<ul>
+<li class="fragment"><em><code>slice()</code></em></li>
+<li class="fragment"><em><code>select()</code></em></li>
+<li class="fragment"><em><code>filter()</code></em></li>
+<li class="fragment"><em><code>mutate()</code></em></li>
+<li class="fragment"><em><code>arrange()</code></em></li>
+<li class="fragment"><em><code>summarize()</code></em></li>
+</ul></li>
+</ol>
+</div><div class="column">
+<h3 id="key-ideas-for-today">Key Ideas for Today</h3>
+<ol type="1">
+<li class="fragment"><em>git</em> tracks changes to files.</li>
+<li class="fragment">A <em>repository</em> (repo) is a directory tracked by git.</li>
+<li class="fragment">The <em>staging area</em> holds changes for a snapshot.</li>
+<li class="fragment">A <em>commit</em> is a snapshot of staged changes with a message.</li>
+<li class="fragment">A <em>remote</em> is a web-hosted repo (GitHub) you <em>push</em> to and <em>clone</em> from.</li>
+</ol>
+</div></div>
+<aside class="notes">
+<h4 id="concept-acquisition">Concept Acquisition</h4>
+<ol type="1">
+<li>git is a free, open-source command-line tool for tracking changes to files, built to coordinate collaborative coding; it lets you save work, document your process, share, and collaborate.</li>
+<li>A repository is a directory tracked by git; changes move from working directory to staging area (<code>add</code>) to a saved snapshot (<code>commit</code>).</li>
+<li>A commit pairs a snapshot with a message, building a history you can review with <code>git log</code>.</li>
+<li>GitHub hosts remote repos so work can be shared and synced across machines and collaborators.</li>
+</ol>
+<h4 id="tool-acquisition">Tool Acquisition</h4>
+<ol type="1">
+<li><code>git init</code>, <code>git add</code>, <code>git commit -m</code>, <code>git log --oneline</code>.</li>
+<li><code>git remote add</code>, <code>git push -u origin main</code>, <code>git clone</code>.</li>
+<li>Non-git shell commands used alongside: <code>mkdir</code>, <code>cd</code>, <code>echo</code>.</li>
+</ol>
+<h4 id="concept-application">Concept Application</h4>
+<ol type="1">
+<li>Initialize a repo for a new project, stage a file, and commit it with a message.</li>
+<li>Edit a file, then stage and commit the change to build a two-commit history.</li>
+<li>Create a GitHub repo, link it as <code>origin</code>, and push local commits to it.</li>
+</ol>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="computational-toolbox" class="slide level2">
 <h2>Computational Toolbox</h2>
@@ -215,7 +273,7 @@
 <h1>git</h1>
 
 </section>
-<section id="section" class="slide level2">
+<section id="section-1" class="slide level2">
 <h2></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -237,8 +295,40 @@
 &nbsp;&nbsp;&nbsp;&nbsp;share it and,<br>
 &nbsp;&nbsp;&nbsp;&nbsp;collaborate with others.</p>
 </section>
-<section id="section-1" class="slide level2" data-background-image="images/diy-vs-git.png" data-background-size="contain">
+<section id="section-2" class="slide level2" data-background-image="images/diy-vs-git.png" data-background-size="contain">
 <h2></h2>
+</section>
+<section id="section-3" class="slide level2">
+<h2></h2>
+<div class="definition">
+<div class="definition-header">
+<p>Repository</p>
+</div>
+<div class="definition-content">
+<p>A directory whose changes are tracked by git. Also called a “repo”. Initialized with <code>git init</code>.</p>
+</div>
+</div>
+<div class="fragment">
+<div class="definition">
+<div class="definition-header">
+<p>Staging Area</p>
+</div>
+<div class="definition-content">
+<p>The set of changes queued up to be included in the next snapshot. Files are moved into it with <code>git add</code>.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="section-4" class="slide level2">
+<h2></h2>
+<div class="definition">
+<div class="definition-header">
+<p>Commit</p>
+</div>
+<div class="definition-content">
+<p>A snapshot of the files in the staging area, saved with a descriptive message. Created with <code>git commit -m</code>.</p>
+</div>
+</div>
 </section>
 <section id="git-commands-to-get-started" class="slide level2">
 <h2>Git commands to get started</h2>
@@ -265,7 +355,7 @@
       }</style></aside>
 </div>
 </section>
-<section id="section-2" class="slide level2" data-auto-animate="true">
+<section id="section-5" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column smaller" style="width:40%;">
@@ -279,7 +369,7 @@
 <p><img data-src="images/wedding-photographer.png"></p>
 </div></div>
 </section>
-<section id="section-3" class="slide level2" data-auto-animate="true">
+<section id="section-6" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:40%;">
@@ -303,7 +393,7 @@
 <h1>Example 1: Demo Project</h1>
 
 </section>
-<section id="section-4" class="slide level2" data-auto-animate="true">
+<section id="section-7" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -313,8 +403,21 @@
 <li>Create new directory for my project.</li>
 </ol>
 </div></div>
+<aside class="notes">
+<p>Live code alongside, setting up this repo on your desktop. In the second half, you will be linking it to GitHub.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="section-5" class="slide level2" data-auto-animate="true">
+<section id="section-8" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -327,7 +430,7 @@
 </ol>
 </div></div>
 </section>
-<section id="section-6" class="slide level2" data-auto-animate="true">
+<section id="section-9" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -342,7 +445,7 @@
 </ol>
 </div></div>
 </section>
-<section id="section-7" class="slide level2" data-auto-animate="true">
+<section id="section-10" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -359,7 +462,7 @@
 </ol>
 </div></div>
 </section>
-<section id="section-8" class="slide level2" data-auto-animate="true">
+<section id="section-11" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -378,7 +481,7 @@
 </ol>
 </div></div>
 </section>
-<section id="section-9" class="slide level2" data-auto-animate="true">
+<section id="section-12" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -399,7 +502,7 @@
 </ol>
 </div></div>
 </section>
-<section id="section-10" class="slide level2" data-auto-animate="true">
+<section id="section-13" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -422,7 +525,7 @@
 </ol>
 </div></div>
 </section>
-<section id="section-11" class="slide level2" data-auto-animate="true">
+<section id="section-14" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -449,7 +552,7 @@
 </ol>
 </div></div>
 </section>
-<section id="section-12" class="slide level2" data-auto-animate="true">
+<section id="section-15" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -477,7 +580,28 @@
 <li>View the commit history.</li>
 </ol>
 </div></div>
-</section></section>
+</section>
+<section id="guess-the-metaphor" class="slide level2 intro" data-background-color="var(--intro-bg)">
+<h2>Guess the Metaphor</h2>
+<p>A tracking files on git is like wandering into <em>Medusa’s Lair</em>: first you walk into the lair (<code>git add</code>) then she petrifies you where you stand (<code>git commit</code>).</p>
+<aside class="notes">
+<p>Okay, this isn’t a great metaphor actually because you can keep walking around after being petrified. It’s more like the terracotta soldiers of xian, each commit you leave a snapshop of yourself.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-16" class="slide level2">
+<h2></h2>
+
+<img data-src="images/xian.jpg" class="r-stretch quarto-figure-center"><p class="caption">Terracotta Warrior of Xian</p></section></section>
 <section>
 <section id="github" class="title-slide slide level1 center">
 <h1>GitHub</h1>
@@ -514,7 +638,7 @@
 </section>
 <section id="create-a-repo" class="slide level2">
 <h2>Create a repo</h2>
-<p>Live Coding to set up <code>https://github.com/andrewpbray/demo-project.git</code></p>
+<p>Live coding to set up <code>https://github.com/andrewpbray/demo-project.git</code></p>
 </section>
 <section id="sharing-your-work" class="slide level2">
 <h2>Sharing your work</h2>
@@ -522,6 +646,14 @@
 <img data-src="images/wedding-photographer.png" class="r-stretch"></section>
 <section id="sharing-your-work-1" class="slide level2">
 <h2>Sharing your work</h2>
+<div class="definition">
+<div class="definition-header">
+<p>Remote</p>
+</div>
+<div class="definition-content">
+<p>A web-hosted copy of a repository (e.g.&nbsp;on GitHub) that you link to with <code>git remote add</code> and sync with <code>git push</code>. The default name is <code>origin</code>.</p>
+</div>
+</div>
 <div class="columns">
 <div class="column" style="width:40%;">
 <ul>
@@ -533,7 +665,7 @@
 <span id="cb11-2"><a></a><span class="fu">git</span> push <span class="at">-u</span> wedding-pics main</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></div>
 </section>
-<section id="section-13" class="slide level2" data-auto-animate="true">
+<section id="section-17" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -544,7 +676,7 @@
 </ol>
 </div></div>
 </section>
-<section id="section-14" class="slide level2" data-auto-animate="true">
+<section id="section-18" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -556,38 +688,59 @@
 <li>Push all commits in local repo to remote</li>
 </ol>
 </div></div>
-<!-- # Example 2: Index Card Data Frame
-
-:::{.notes}
-Sketch data pipeline with a bunch of index cards as input data and what I want coming out is the data frame with all four columns: major, year, song, distance.
-:::
- -->
 </section></section>
 <section>
-<section id="next-steps" class="title-slide slide level1 center">
-<h1>Next Steps</h1>
+<section id="project-workflow" class="title-slide slide level1 center">
+<h1>Project Workflow</h1>
 
 </section>
 <section id="survey" class="slide level2">
 <h2>Survey</h2>
 <ol type="1">
-<li class="fragment">Prompt you to set up GitHub account.</li>
-<li class="fragment">Guide you through git installation.</li>
-<li class="fragment">Guide you through git configuration.</li>
+<li>Prompt you to set up GitHub account.</li>
+<li>Guide you through git installation.</li>
+<li>Guide you through git configuration.</li>
 </ol>
 </section>
-<section id="github-classroom" class="slide level2">
-<h2>GitHub Classroom</h2>
+<section id="project-workflow-1" class="slide level2">
+<h2>Project Workflow</h2>
+<p>boardwork</p>
+<aside class="notes">
+<p>Sketch repo on github with GSI and student access, clone step into Positron, commit/push to turn in work.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-19" class="slide level2 intro" data-background-color="var(--intro-bg)">
+<h2></h2>
+<div class="columns">
+<div class="column">
+<section id="key-ideas-for-today-1" class="nonincremental">
+<h3>Key Ideas for Today</h3>
 <ol type="1">
-<li class="fragment">We will post a link to Ed with a Demo Project link.</li>
-<li class="fragment">When you click it, you’ll get a new repo in your account.</li>
-<li class="fragment">You will <em>clone</em> the repo locally, work on it, then <em>push</em> your work.</li>
+<li class="fragment"><em>git</em> tracks changes to files.</li>
+<li class="fragment">A <em>repository</em> (repo) is a directory tracked by git.</li>
+<li class="fragment">The <em>staging area</em> holds changes for a snapshot.</li>
+<li class="fragment">A <em>commit</em> is a snapshot of staged changes with a message.</li>
+<li class="fragment">A <em>remote</em> is a web-hosted repo (GitHub) you <em>push</em> to and <em>clone</em> from.</li>
 </ol>
-<!-- ## Survey
-
-1. `git --version`
-2. `git config --global --list`
-3.  -->
+</section>
+</div><div class="column">
+<h3 id="for-next-time">For Next Time</h3>
+<ol type="1">
+<li class="fragment"><a href="https://us.prairietest.com/">Quiz 2</a>: 9/21-9/22.</li>
+<li class="fragment">Complete the git setup survey (GitHub account, install, configuration).</li>
+<li class="fragment">Project 2 is nigh!</li>
+</ol>
+</div></div>
 
 
 </section></section>
