@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>labs – STAT 133</title>
+<title>Project 2: Zero-Emissions Vehicles in California – STAT 133</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,30 +20,65 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-854d6955a8347e4ed4dab0858cdf34c6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-8a0808be5b7c0f3678666e7f6e600685.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-854d6955a8347e4ed4dab0858cdf34c6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-442ef32305b44cc7d4211c12271d276a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-442ef32305b44cc7d4211c12271d276a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-442ef32305b44cc7d4211c12271d276a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-854d6955a8347e4ed4dab0858cdf34c6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-8a0808be5b7c0f3678666e7f6e600685.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-854d6955a8347e4ed4dab0858cdf34c6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-442ef32305b44cc7d4211c12271d276a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-442ef32305b44cc7d4211c12271d276a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-442ef32305b44cc7d4211c12271d276a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -74,17 +109,17 @@ ul.task-list li input[type="checkbox"] {
 <script src="assets/scroll-branding.js"></script>
 
 
-<link rel="stylesheet" href="assets/neural.css">
+<link rel="stylesheet" href="../../assets/neural.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed quarto-light">
+<body class="nav-sidebar docked nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">STAT 133</span>
     </a>
   </div>
@@ -98,40 +133,40 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../projects/2-sampsons-monks/project.html">Projects</a></li><li class="breadcrumb-item"><a href="../../projects/3-electric-vehicles/project.html">Zero Emission Vehicles</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./syllabus.html" class="sidebar-item-text sidebar-link">
+  <a href="../../syllabus.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Syllabus</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./office-hours.html" class="sidebar-item-text sidebar-link">
+  <a href="../../office-hours.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Office Hours</span></a>
   </div>
 </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./tools/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../../tools/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tools</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -140,37 +175,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tools/datahub.html" class="sidebar-item-text sidebar-link">
+  <a href="../../tools/datahub.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">DataHub</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tools/shell.html" class="sidebar-item-text sidebar-link">
+  <a href="../../tools/shell.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Shell</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tools/r.html" class="sidebar-item-text sidebar-link">
+  <a href="../../tools/r.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tools/r-app.html" class="sidebar-item-text sidebar-link">
+  <a href="../../tools/r-app.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">R App</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tools/git.html" class="sidebar-item-text sidebar-link">
+  <a href="../../tools/git.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Git</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tools/positron.html" class="sidebar-item-text sidebar-link">
+  <a href="../../tools/positron.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Positron</span></a>
   </div>
 </li>
@@ -188,13 +223,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./projects/2-sampsons-monks/project.html" class="sidebar-item-text sidebar-link">
+  <a href="../../projects/2-sampsons-monks/project.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sampson’s Monks</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./projects/3-electric-vehicles/project.html" class="sidebar-item-text sidebar-link">
+  <a href="../../projects/3-electric-vehicles/project.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Zero Emission Vehicles</span></a>
   </div>
 </li>
@@ -212,19 +247,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./problem-sets/ps1.pdf" class="sidebar-item-text sidebar-link">
+  <a href="../../problem-sets/ps1.pdf" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PS 1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./problem-sets/ps2.pdf" class="sidebar-item-text sidebar-link">
+  <a href="../../problem-sets/ps2.pdf" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PS 2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./problem-sets/ps3.pdf" class="sidebar-item-text sidebar-link">
+  <a href="../../problem-sets/ps3.pdf" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PS 3</span></a>
   </div>
 </li>
@@ -237,19 +272,121 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../projects/2-sampsons-monks/project.html">Projects</a></li><li class="breadcrumb-item"><a href="../../projects/3-electric-vehicles/project.html">Zero Emission Vehicles</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Project 2: Zero-Emissions Vehicles in California</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<section id="labs" class="level1">
-<h1>Labs</h1>
-<p>Coming soon!</p>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>In this project, you will analyze recent data collected by the State of California on new zero-emissions vehicles. Fundamentally, your goal is to characterize the trends in zero-emissions vehicles over the last few years using summary statistics.</p>
+<p>By completing this project, you will:</p>
+<ul>
+<li>Work with dataframes and factors in an applied setting</li>
+<li>Link a particular data question to a well-chosen statistic</li>
+<li>Consider how to calculate a well-chosen statistic from a data frame through fundamental data frame operations</li>
+</ul>
+<section id="part-1-the-cec-dashboard" class="level3">
+<h3 class="anchored" data-anchor-id="part-1-the-cec-dashboard">Part 1: The CEC Dashboard</h3>
+<p>The California Energy Commission is California’s primary energy policy and planning agency, established by the Legislature in 1974 and headquartered in Sacramento. One of its projects is to track data on the adoption of zero-emission vehicles (ZEVs) across the state. They present a current version of that data in a <a href="https://www.energy.ca.gov/data-reports/energy-almanac/zero-emission-vehicle-and-infrastructure-statistics-collection/new-zev">dashboard</a>:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://www.energy.ca.gov/data-reports/energy-almanac/zero-emission-vehicle-and-infrastructure-statistics-collection/new-zev"><img src="images/zev-dashboard.png" class="screenshot img-fluid quarto-figure quarto-figure-center figure-img" width="500"></a></p>
+</figure>
+</div>
+<p>Read every component of that page to understand the source of the data, then interact with the dashboard to explore the data.</p>
+<p>What are <strong>three different questions</strong> that can be answered by interacting this dashboard? Select three questions that you are truly curious about.</p>
+</section>
+<section id="part-2-the-data-behind-the-dashboard" class="level3">
+<h3 class="anchored" data-anchor-id="part-2-the-data-behind-the-dashboard">Part 2: The Data Behind the Dashboard</h3>
+<p>Next, follow the the links to download the data behind the dashboard, specifically a file called <code>New_ZEV_Sales_Last_updated_07-17-2026_ada.xlsx</code>. Save it to your computer in your project repo in a subdirectory called <code>data/</code>. Open the file in Excel if you have it, otherwise you can import it to Google Spreadsheets and view it there.</p>
+<p>To read the “County” sheet into R as a data frame, you can use the <code>read_excel()</code> function in the <code>readxl</code> package.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("readxl") # run this once to install the package</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>zev <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/New_ZEV_Sales_Last_updated_07-17-2026_ada.xlsx"</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">sheet =</span> <span class="st">"County"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>You can then either print the data frame to the screen to see it or, more practically, use <code>View(zev)</code> to open the Positron data viewer.</p>
+<p>After reading all three sheets of the Excel file as well as the documentation on the original dashboard site, state as precisely as possible: does this data record new ZEV sales? Or new purchases? Or new registrations? What types of transactions are included and what are excluded from this tally?</p>
+<p>For the Country sheet in particular, what does every row refer to (i.e.&nbsp;what is the unit of observation)?</p>
+</section>
+<section id="part-3-checking-the-dashboard" class="level3">
+<h3 class="anchored" data-anchor-id="part-3-checking-the-dashboard">Part 3: Checking the Dashboard</h3>
+<p>Find where on the Dashboard each of the following statistics are reported, then recreate them from the <code>zev</code> data using a <code>dplyr</code> pipeline. If there are any you cannot recreate, state why not.</p>
+<ol type="1">
+<li>Cumulative light-duty ZEV sales through 2026</li>
+<li>Year-to-date 2026 total sales</li>
+<li>Year-to-date 2026 total sales for the county that you’re from (if you’re not from California, use Alameda County, where we are now).</li>
+<li>The 2026 total sales separated by BEV, PHEV, and FCEV</li>
+<li>The year-to-date (YTD) Zev Share</li>
+<li>A table of counts of 2026 Tesla sales, split by model</li>
+<li>A table of counts of 2026 sales, split first by make, then by model<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
+</ol>
+</section>
+<section id="part-4-beyond-the-dashboard" class="level3">
+<h3 class="anchored" data-anchor-id="part-4-beyond-the-dashboard">Part 4: Beyond the Dashboard</h3>
+<p>There are many more interesting phenomena that we can learn about using this data set. Select four of the following five questions to answer. For each one, state the strongest reason someone could argue that your analysis is misleading.</p>
+<section id="a.-your-questions" class="level4">
+<h4 class="anchored" data-anchor-id="a.-your-questions">A. Your Questions</h4>
+<p>Return to the questions that you wrote in Part 2 and select one to answer with the data (or if you cannot, explain what additional data you would need to answer it).</p>
+</section>
+<section id="b.-tax-credit-effect" class="level4">
+<h4 class="anchored" data-anchor-id="b.-tax-credit-effect">B. Tax Credit Effect</h4>
+<p>The previous federal administration put in place financial incentives to encourage people to purchase electric vehicles. Those incentives ended on September 30, 2025. Is there a Q3 2025 surge followed by a Q4 drop, and does it differ between BEVs and PHEVs?</p>
+</section>
+<section id="c.-market-concentration" class="level4">
+<h4 class="anchored" data-anchor-id="c.-market-concentration">C. Market Concentration</h4>
+<p>Compute a <a href="https://en.wikipedia.org/wiki/Herfindahl%E2%80%93Hirschman_index">Herfindahl index</a> across makes for each year. Is the ZEV market becoming more or less concentrated?<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+</section>
+<section id="d.-brand-geography" class="level4">
+<h4 class="anchored" data-anchor-id="d.-brand-geography">D. Brand Geography</h4>
+<p>Which make is disproportionately popular in each county compared with its statewide share? For example, a certain car make might make up only 15% of sales statewide but might be 45% of sales in Alameda. That make would be disproportionately population in Alameda county.</p>
+<p>Think carefully about how to construct this statistic. If needed, you are welcome to exclude data if that would make the statistic more meaningful.</p>
+</section>
+<section id="e.-the-elon-effect" class="level4">
+<h4 class="anchored" data-anchor-id="e.-the-elon-effect">E. The Elon Effect</h4>
+<p>In January and February of 2025, Elon Musk, the CEO of Tesla, took an active role in the newly created Department of Government Efficiency (DOGE). The actions of that agency were politically divisive, leading some left-leaning voters to shun the Tesla brand.</p>
+<p>Is there any evidence of this Elon effect in the data? That is: did Tesla sales drop in left-leaning counties relative to right-leaning counties?</p>
+<p>Here are two lists of clearly-leaning counties, based on the 2024 presidential election results:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dem_counties <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Alameda"</span>, <span class="st">"San Francisco"</span>, <span class="st">"Santa Clara"</span>, <span class="st">"Marin"</span>,</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"San Mateo"</span>, <span class="st">"Los Angeles"</span>, <span class="st">"Santa Cruz"</span>, <span class="st">"Humboldt"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>rep_counties <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Kern"</span>, <span class="st">"Shasta"</span>, <span class="st">"Modoc"</span>, <span class="st">"Lassen"</span>, <span class="st">"Tehama"</span>, <span class="st">"Kings"</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"Placer"</span>, <span class="st">"El Dorado"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Some things to think about as you put together your analysis:</p>
+<ul>
+<li>Which year(s) should you compare 2025 to? Note that Tesla’s share was already changing from year to year before 2025.</li>
+<li>Should your statistic be Tesla’s raw sales count or Tesla’s proportion of all ZEV sales in a county? Think about what each version does and doesn’t control for.</li>
+</ul>
 
 
 </section>
+</section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>The dashboard carefully arranges the rows of this table. If you’d like an extra challenge, replicate this arrangement using R.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Hint: this can be mostly cleanly done by writing a function that takes a vector of counts and returns the index value. That function can then be applied as a summary statistic inside <code>summarize()</code>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -659,7 +796,7 @@ ul.task-list li input[type="checkbox"] {
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="./license.html">
+    <a class="nav-link" href="../../license.html">
 <p>License</p>
 </a>
   </li>  

@@ -148,4 +148,10 @@ body.tools-page main.content {
   margin-right: 0.5rem;
 }
 
+/* macOS-style whole-window screenshot: rounded corners + soft drop shadow */
+.screenshot {
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+}
+
 
