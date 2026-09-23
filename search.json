@@ -1965,7 +1965,7 @@
     "href": "07-control-flow/slides.html#a-random-condition-in-r",
     "title": "Control Flow",
     "section": "A random condition in R",
-    "text": "A random condition in R\n\n\nsample(x = -10:10, size = 1)\n\n\n\n[1] -9\n\n\n\n\nsample() will randomly sample 1 element from the vector x."
+    "text": "A random condition in R\n\n\nsample(x = -10:10, size = 1)\n\n\n\n[1] 10\n\n\n\n\nsample() will randomly sample 1 element from the vector x."
   },
   {
     "objectID": "07-control-flow/slides.html#section-1",
@@ -2021,7 +2021,7 @@
     "href": "07-control-flow/slides.html#what-if-x-has-multiple-elements",
     "title": "Control Flow",
     "section": "What if x has multiple elements?",
-    "text": "What if x has multiple elements?\n\n\nx &lt;- rnorm(3)\nx\n\n\n\n[1] -0.4666316 -0.3845101  0.1091930\n\n\n\n\n\n\n\n\n\n\n      if (x &gt; 0) {\n        print(\"x is positive :)\")\n      }\n\n\n\nAnnotate this if-then by wrapping it in a for loop."
+    "text": "What if x has multiple elements?\n\n\nx &lt;- rnorm(3)\nx\n\n\n\n[1] -0.1939664 -0.8674432  0.5042600\n\n\n\n\n\n\n\n\n\n\n      if (x &gt; 0) {\n        print(\"x is positive :)\")\n      }\n\n\n\nAnnotate this if-then by wrapping it in a for loop."
   },
   {
     "objectID": "07-control-flow/slides.html#option-1",
@@ -2042,7 +2042,7 @@
     "href": "07-control-flow/slides.html#option-3",
     "title": "Control Flow",
     "section": "Option 3",
-    "text": "Option 3\n\nfor (x_elem in x) {\n  if (x_elem &gt; 0) {\n    print(paste(x_elem, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"0.109192999300586 is positive :)\""
+    "text": "Option 3\n\nfor (x_elem in x) {\n  if (x_elem &gt; 0) {\n    print(paste(x_elem, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"0.50425995817124 is positive :)\""
   },
   {
     "objectID": "07-control-flow/slides.html#ifelse",
