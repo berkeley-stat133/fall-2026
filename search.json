@@ -168,56 +168,516 @@
     "text": "Group Quiz\n\n\nBefore the quiz begins\n\nForm groups of 2-3 people.\n🧹 Everything except a pen/pencil and your cheat sheet must remain off your desk.\n📱 All electronic devices (laptop, phone, airbuds, smart watch) should be remain in your bag for the entire class period.\nWhen you get a group quiz, write all group members names on it but do not begin.\n\n\nDuring the quiz\n\n🗣️Discuss each of the problems and decide as a group which answer is best.\n⌛If you finish early, please raise your hand and we will collect your quiz.\n❗You must stop writing when time is called or risk a 0.\n\nGood luck! 🍀\n\n\n  \n    −\n    +\n \n 25:00"
   },
   {
-    "objectID": "projects/2-sampsons-monks/project.html",
-    "href": "projects/2-sampsons-monks/project.html",
-    "title": "Project 1: Sampson’s Monks",
+    "objectID": "projects/3-er-visits/slides.html#agenda",
+    "href": "projects/3-er-visits/slides.html#agenda",
+    "title": "Lab 3",
+    "section": "Agenda",
+    "text": "Agenda\n\nPositron Installation\nLab Review Worksheet (15 minutes)\nOverview of Project 3\nWork through select parts of Project 3\nGroup work and time for questions"
+  },
+  {
+    "objectID": "projects/3-er-visits/slides.html#positron-installation",
+    "href": "projects/3-er-visits/slides.html#positron-installation",
+    "title": "Lab 3",
+    "section": "Positron Installation",
+    "text": "Positron Installation\n\nVisit https://positron.posit.co/download.html and download the installer for your OS.\nKeep all default settings during installation."
+  },
+  {
+    "objectID": "projects/3-er-visits/slides.html#lab-review-worksheet",
+    "href": "projects/3-er-visits/slides.html#lab-review-worksheet",
+    "title": "Lab 3",
+    "section": "Lab Review Worksheet",
+    "text": "Lab Review Worksheet\n\n  \n    −\n    +\n \n 15:00\n \nGroup work to review essential material. To get started, Visit the following GitHub repository and read the README.md file.\n\n\n\n\nhttps://www.github.com/berkeley-stat133/worksheet-lab3"
+  },
+  {
+    "objectID": "projects/3-er-visits/slides.html#er-visits-project-overview",
+    "href": "projects/3-er-visits/slides.html#er-visits-project-overview",
+    "title": "Lab 3",
+    "section": "ER Visits Project Overview",
+    "text": "ER Visits Project Overview\n\nDataset: Collected by 25 Pediatric Emergency Care Applied Research Network (PECARN) emergency rooms on patients with minor head trauma.\nGoal: Practive Exploratory Data Analysis, a key step in most data science project.\nClient: Dr. Bayes, a pediatric emergency physician and researcher with PECARN."
+  },
+  {
+    "objectID": "projects/3-er-visits/slides.html#project-overview",
+    "href": "projects/3-er-visits/slides.html#project-overview",
+    "title": "Lab 3",
+    "section": "Project Overview",
+    "text": "Project Overview\nWe will work through three major steps:\n\nData Cleaning\nPrepare the dataset so it can be analyzed effectively.\nExploratory Data Analysis (EDA)\nUse visualizations and summaries to find interesting patterns.\nReporting Results\nCommunicate findings clearly to Dr. Bayes."
+  },
+  {
+    "objectID": "projects/3-er-visits/slides.html#data-cleaning",
+    "href": "projects/3-er-visits/slides.html#data-cleaning",
+    "title": "Lab 3",
+    "section": "Data Cleaning",
+    "text": "Data Cleaning\nWhy clean data?\n\nEnsure consistent formats in columns\nHandle missing (NA) or inconsistent values\nMakes dataset easier to work with\n\nKey dplyr functions:\n\nslice(), select(), arrange()\nmutate(), filter(), summarise(), group_by()"
+  },
+  {
+    "objectID": "projects/3-er-visits/slides.html#exploratory-data-analysis-eda",
+    "href": "projects/3-er-visits/slides.html#exploratory-data-analysis-eda",
+    "title": "Lab 3",
+    "section": "Exploratory Data Analysis (EDA)",
+    "text": "Exploratory Data Analysis (EDA)\n\nPurpose: uncover insights and understand the data before modeling\nTools:\n\nggplot2 for visualization.\ndplyr for summary tables and quick data manipulation.\ntidyr for reshaping.\nreadr for reading data.\nALL part of the tidyverse 🔥😮‍💨🙏💯"
+  },
+  {
+    "objectID": "projects/3-er-visits/slides.html#exploratory-data-analysis-eda-1",
+    "href": "projects/3-er-visits/slides.html#exploratory-data-analysis-eda-1",
+    "title": "Lab 3",
+    "section": "Exploratory Data Analysis (EDA)",
+    "text": "Exploratory Data Analysis (EDA)\n\nCommon plots:\n\nBar charts (categorical variables)\nHistograms (continuous variables)\nScatterplots (relationship between two variables)\nBoxplots and Violin plots (distributions across groups)\nFacets (compare subgroups)\n\nCommon summaries:\n\nMissing value analysis\nCounts and proportions\nMeans, medians, standard deviations"
+  },
+  {
+    "objectID": "projects/3-er-visits/slides.html#example-with-ggplot2",
+    "href": "projects/3-er-visits/slides.html#example-with-ggplot2",
+    "title": "Lab 3",
+    "section": "Example with ggplot2",
+    "text": "Example with ggplot2\nlibrary(ggplot2)\ndata |&gt; \n    ggplot(aes(x = age, fill = ct_scan_needed)) + \n    geom_histogram(bins=18) + \n    labs(title = \"Age Distribution by CT Scan Need\",\n         x = \"Age (years)\",\n         y = \"Count\") +\n    theme_minimal()"
+  },
+  {
+    "objectID": "projects/3-er-visits/slides.html#step-3-reporting-to-dr.-bayes",
+    "href": "projects/3-er-visits/slides.html#step-3-reporting-to-dr.-bayes",
+    "title": "Lab 3",
+    "section": "Step 3: Reporting to Dr. Bayes",
+    "text": "Step 3: Reporting to Dr. Bayes\nRemember your audience:\nDr. Bayes is a clinician, not a statistician.\nUse clear visuals and plain language.\n\nFocus on actionable insights:\n\nWhich patients are at highest risk?\nWhen might a CT be unnecessary?"
+  },
+  {
+    "objectID": "projects/3-er-visits/slides.html#project-work-time",
+    "href": "projects/3-er-visits/slides.html#project-work-time",
+    "title": "Lab 3",
+    "section": "Project Work Time",
+    "text": "Project Work Time\n\n  \n    −\n    +\n \n 25:00\n \nGet started on the project and feel free to ask questions."
+  },
+  {
+    "objectID": "projects/3-electric-vehicles/project.html",
+    "href": "projects/3-electric-vehicles/project.html",
+    "title": "Project 2: Zero-Emissions Vehicles in California",
     "section": "",
-    "text": "In this project, you will analyze and model Sampson’s Monks dataset, a classic dataset in social network analysis.\nBy completing this project, you will:\n\nWork with matrices and lists in applied settings\nPractice row/column operations for network statistics\nUse functions, control flow, and libraries\nUnderstand the contrast between random vs. real-world networks\n\nThere are two components: the worksheet and the project. The worksheet will help you familiarize yourself with the computational tools you’ll need. This should be done first. The project is the main event: your analysis of the data set.\nYou will submit:\n\nA worksheet .R file with your well-commented code\nA project .R file with your well-commented code.\n\nBoth files should be submitted to their respective Pensive assignments before your scheduled Project Studio.\n\n\n\nWorksheetProject\n\n\n\nMatrices\n\nSection 1: Matrices + Operations\nThree students take a class together and study for a project, midterm, and final together.\n\nStudent A scores: 12, 23, 34\n\nStudent B scores: 45, 56, 67\n\nStudent C scores: 78, 89, 64\n\nQ1: Create a matrix containing their scores.\nUse matrix() to create the 3x3 matrix:\nQ2: Name the rows and columns\nUse colnames() and rownames() to label rows and columns.\nQ3: Compute each student’s average score\nWhich student has the highest average?\n\n\n\nPlots\nQ4: How can we make simple graphs in Base R?\nRead the documention for plot(), boxplot(), and hist() and run at least one example of each.\nQ5: Create a histogram using the matrix scores\nHint: Convert the matrix to a normal vector first using as.vector().\nQ6: Use the built-in airquality dataset\nThis dataset contains daily New York air quality measurements from May–September 1973 spread across several vectors.\n\nairquality$Ozone: Ozone concentration (ppb)\n\nairquality$Solar.R: Solar radiation (langley)\n\nairquality$Wind: Wind speed (mph)\n\nairquality$Temp: Temperature (°F)\n\nairquality$Month: Month (5 = May, …, 9 = September)\n\nairquality$Day: Day of the month\n\na) Construct a histogram of Ozone\nb) Construct a scatterplot of Ozone vs Temperature\nc) Construct a boxplot of Temperature by Month\n\n\nIntro to Packages\nQ7: Install and load the packages\nInstall and load the igraph and networkD3 packages by running the following code:\ninstall.packages(\"igraph\")    # you only need to run this line once\ninstall.packages(\"networkD3\") # you only need to run this line once\nlibrary(\"igraph\")\nlibrary(\"networkD3\")\nQ8: What are igraph and networkD3?\nHow are these libraries useful for network analysis and visualization? Browse their documentation here: https://r.igraph.org/, http://christophergandrud.github.io/networkD3/.\nQ9: Explore usage\nRun these examples and describe what they do.\na) igraph example\ng &lt;- graph(edges = c(1,2, 2,3, 3,1), n = 3, directed = FALSE)\nplot(g)\nb) networkD3 example\nsimpleNetwork(data.frame(source = c(\"A\", \"B\", \"C\"), \n                         target = c(\"B\", \"C\", \"A\")))\n\n\n\n\nPart 0: Setting Up\nOpen your R app and install and load the necessary packages for this project: lda, igraph, and networkD3. lda contains the monks data.\n\n# Run this lines once to install packages on your machine\n# install.packages(\"lda\")\n# install.packages(\"igraph\")\n# install.packages(\"networkD3\")\n\n# Run these lines once per session to load packages\nlibrary(lda)\nlibrary(igraph)\nlibrary(networkD3)\n\ndata(sampson)              # load the monks data from lda\nsamplk1 &lt;- sampson$SAMPLK1 # extract one of the matrices\n\nsampson contains 10 different matrices, each one a sociomatrix that describes the network of a different type of relationship. All 10 matrices describe the same 18 monks, in the same row and column order.\n\n\n\nName\nRelation\n\n\n\n\nSAMPLK1, SAMPLK2, SAMPLK3\nLiking, at three successive time points\n\n\nSAMPDLK\nDisliking\n\n\nSAMPES\nEsteem\n\n\nSAMPDES\nDisesteem\n\n\nSAMPIN\nPositive influence\n\n\nSAMPNIN\nNegative influence\n\n\nSAMPPR\nPraise\n\n\nSAMNPR\nBlame (negative praise)\n\n\n\nIn each network, each node represents a single monk and each edge represents a relationship pointing from one monk to another. Every monk was asked to name only his top three choices on each relationship. Paradoxically, a monk’s first choice gets a 3 (3 points) while his third choice gets a 1 (1 point); a 0 means “not nominated”.\n\n\nPart 1: Visualizing the Network\nCreate two network visualizations select one of Sampson’s matrices (not SAMPLK1) that describe monk relationships and form two plots:\n\nA static plot using igraph::plot.igraph()\nAn interactive plot using networkD3::forceNetwork()\n\nBefore plotting, check what data structure your plotting function accepts and create it accordingly. networkD3 requires dataframes of nodes and edges, not a sociomatrix. You can use the following code to convert one of Sampson’s matrices (called monk_mat here) into the structures that networkD3 expects.\n\nnodes &lt;- data.frame(name = rownames(monk_mat), group = 1)\nedges &lt;- which(monk_mat &gt; 0, arr.ind = TRUE)\n\nlinks &lt;- data.frame(\n  source = edges[, \"row\"] - 1,\n  target = edges[, \"col\"] - 1,\n  value  = monk_mat[edges] \n)\n\nTry visualizing a few different matrices before deciding on one that you find most interesting. Read the documentation on each of the plotting functions to understand the arguments they make available, then tune the plots to your liking.\n\n\nPart 2: Summary Statistics on a Sociomatrix\nA picture of a network is suggestive but hard to reason about precisely. Summary statistics let us describe the same structure numerically. A few terms first.\n\nNode: one monk. There are 18, one per row and one per column.\nEdge: a nomination from one monk to another. Edges here are directed: monk \\(i\\) nominating monk \\(j\\) (row \\(i\\), column \\(j\\)) is not the same as monk \\(j\\) nominating monk \\(i\\).\nEdge weight: the number in the cell, 3, 2, or 1, recording whether the nomination was that monk’s first, second, or third choice. A 0 means there is no edge.\nOut-degree of a node: the number of edges originating at it, i.e. how many other monks that monk nominated.\nIn-degree of a node: the number of edges pointing to it, i.e. how many other monks nominated that monk.\nOut-strength and in-strength: the sum of the edge weights leaving or arriving at a node. These credit a first-choice nomination more heavily than a third-choice one.\n\nSolutions below use SAMPDLK (disliking) as the chosen matrix; student answers will differ depending on their choice.\n\nReport which matrix you chose, and describe in one sentence what a large value means for that relation (e.g. for SAMPDLK, a high in-degree means a monk was frequently named as disliked).\nCompute the out-degree and in-degree of each monk. rowSums() and colSums() will do this in one line each, once you have turned the weights into TRUE/FALSE values with a comparison such as monk_mat &gt; 0.\nCompute the out-strength and in-strength of each monk.\nMake a histogram of in-degree and a histogram of in-strength. Compare their shapes to a histogram of out-degree. Why is the out-degree distribution so much narrower? (Look back at how the monks were surveyed.)\nMake a scatterplot of in-degree against in-strength, one point per monk. What would it mean for a monk to fall well above or well below the general trend?\nWhich monk received the most nominations on your chosen relation, and which received the fewest? Do you get the same answer using in-degree as you do using in-strength? If not, explain the disagreement.\n\n\n\nPart 3: A simple model of a social network\nOne way to learn more about the social dynamics underlying the monk’s network is to compare it to a network generated using a simple but well-understood mechanism; that is to say: a model.\nGenerate a network according to the rule that each monk assigns their likes (or dislikes) completely at random. The following observations will help you form your code:\n\nYou can represent a monk’s choices as a single vector. You can create that vector randomly using the sample() function.\nYou can use a for loop to change-in-place each vector of a blank matrix. See example from lecture on the Fibonacci Sequence for a vector analog\n\nFeel free to add additional complexity into your model (for example, assigning the likes randomly but with unequal probabilities).\n\n\nPart 4: Model vs Observations\nApply the same techniques you used in parts 1 and 2 (visualization and summary statistics) to describe the structure of the network that was simulated by your model. In 3-5 sentences, compare these networks: In what ways is the observed network monk_mat similar to your generated network? In what ways is it different? What patterns appear in the observed network that are missing from your generated one?",
+    "text": "In this project, you will analyze recent data collected by the State of California on new zero-emissions vehicles. Fundamentally, your goal is to characterize the trends in zero-emissions vehicles over the last few years using summary statistics.\nBy completing this project, you will:",
     "crumbs": [
       "Projects",
-      "Sampson's Monks"
+      "Zero Emission Vehicles"
     ]
   },
   {
-    "objectID": "office-hours.html",
-    "href": "office-hours.html",
-    "title": "Office Hours",
-    "section": "",
-    "text": "Office Hours\nPlease stop by during office hours to chat in a small group setting course staff.",
+    "objectID": "projects/3-electric-vehicles/project.html#footnotes",
+    "href": "projects/3-electric-vehicles/project.html#footnotes",
+    "title": "Project 2: Zero-Emissions Vehicles in California",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThe dashboard carefully arranges the rows of this table. If you’d like an extra challenge, replicate this arrangement using R.↩︎\nHint: this can be mostly cleanly done by writing a function that takes a vector of counts and returns the index value. That function can then be applied as a summary statistic inside summarize().↩︎",
     "crumbs": [
-      "Office Hours"
+      "Projects",
+      "Zero Emission Vehicles"
     ]
   },
   {
-    "objectID": "license.html",
-    "href": "license.html",
-    "title": "License",
-    "section": "",
-    "text": "Unless otherwise noted, all curricular content on this site — lecture slides, notes, problem sets, projects, and accompanying code — is licensed under a Creative Commons Attribution 4.0 International License (CC BY 4.0).\nYou are free to share and adapt this material for any purpose, including commercially, provided you give appropriate credit, link to the license, and indicate if changes were made.\nSuggested attribution:\n\nMaterials from Stat 133: Concepts in Computing with Data, Department of Statistics, UC Berkeley, used under CC BY 4.0."
+    "objectID": "projects/2-sampsons-monks/slides.html#agenda",
+    "href": "projects/2-sampsons-monks/slides.html#agenda",
+    "title": "Lab 2",
+    "section": "Agenda",
+    "text": "Agenda\n\nBrief lecture review\nReview key concepts\nTime to work in groups on lab worksheet (15 minutes)\nDiscuss Project 2 + Work through select parts\nTime for questions"
   },
   {
-    "objectID": "license.html#curricular-content",
-    "href": "license.html#curricular-content",
-    "title": "License",
-    "section": "",
-    "text": "Unless otherwise noted, all curricular content on this site — lecture slides, notes, problem sets, projects, and accompanying code — is licensed under a Creative Commons Attribution 4.0 International License (CC BY 4.0).\nYou are free to share and adapt this material for any purpose, including commercially, provided you give appropriate credit, link to the license, and indicate if changes were made.\nSuggested attribution:\n\nMaterials from Stat 133: Concepts in Computing with Data, Department of Statistics, UC Berkeley, used under CC BY 4.0."
+    "objectID": "projects/2-sampsons-monks/slides.html#brief-review-of-lecture-control-flow",
+    "href": "projects/2-sampsons-monks/slides.html#brief-review-of-lecture-control-flow",
+    "title": "Lab 2",
+    "section": "Brief Review of Lecture: Control Flow",
+    "text": "Brief Review of Lecture: Control Flow\nIf / Else = Conditional Behavior\nif (x &gt; 0) {\n  print(\"positive\")\n} else {\n  print(\"not positive\")\n}\nVectorized If/Else statements are also possible:\n\nx = 0\nifelse(test = x &lt; 0, yes = \"is positive :)\", no = \"is negative :(\")\n\n\n\n[1] \"is negative :(\"\n\n\nFor loops = repeat over items\nfor (i in 1:5) {\n  print(i^2)\n}"
   },
   {
-    "objectID": "license.html#artwork",
-    "href": "license.html#artwork",
-    "title": "License",
-    "section": "Artwork",
-    "text": "Artwork\nThe fantasy scenes appearing on the course calendar and elsewhere on this site are Scenes by Czepeku and are used under Czepeku’s Commercial Use Licence. They are reproduced here in watermarked form, as that license requires.\nThese images are not covered by the CC BY 4.0 license above and are not offered for download, redistribution, or resale as standalone items. All rights in them remain with Czepeku. If you wish to use them, see czepeku.com."
+    "objectID": "projects/2-sampsons-monks/slides.html#brief-review-of-lecture-functions",
+    "href": "projects/2-sampsons-monks/slides.html#brief-review-of-lecture-functions",
+    "title": "Lab 2",
+    "section": "Brief Review of Lecture: Functions",
+    "text": "Brief Review of Lecture: Functions\n\nfunction_name &lt;- function(arg1, arg2, ...) {\n  # code to execute\n  result &lt;- arg1 + arg2  # example operation\n  return(result)         # optional, returns result\n}"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "STAT 133",
+    "objectID": "projects/2-sampsons-monks/slides.html#sampsons-monks-project-background-concepts",
+    "href": "projects/2-sampsons-monks/slides.html#sampsons-monks-project-background-concepts",
+    "title": "Lab 2",
+    "section": "Sampson’s Monks Project: Background Concepts",
+    "text": "Sampson’s Monks Project: Background Concepts\n\nPackages in R\nSociomatrices\nNetwork visualizations & statistics\nRandom vs. observed networks\n\n\nMotivate for students that we will be working on the project and turning it in in 2 weeks, and it will be about the monks data. These are some of the necessary skills they will need for the project"
+  },
+  {
+    "objectID": "projects/2-sampsons-monks/slides.html#packages-libraries",
+    "href": "projects/2-sampsons-monks/slides.html#packages-libraries",
+    "title": "Lab 2",
+    "section": "Packages & Libraries",
+    "text": "Packages & Libraries\n\nBase R is powerful, but we use packages to extend its capabilities\nPackages collections of functions & datasets\n\nlibrary() is used to load a previously installed package into an R session.\n\nInstall and load:\ninstall.packages(\"igraph\") # only need to do once!\nlibrary(igraph)"
+  },
+  {
+    "objectID": "projects/2-sampsons-monks/slides.html#packages-to-use-today",
+    "href": "projects/2-sampsons-monks/slides.html#packages-to-use-today",
+    "title": "Lab 2",
+    "section": "Packages to use today:",
+    "text": "Packages to use today:\nigraph (network analysis & static plots)\n\naccepts adjacency matrices.\n\nnetworkD3 (interactive plots)\n\nexpects data frames of nodes and edges, not a network object.\nnodes are the names/points in the resulting plot\nedges are the directed lines between the points\n\nEven though the information is already in sampson, you still need to extract it into the right format for networkD3."
+  },
+  {
+    "objectID": "projects/2-sampsons-monks/slides.html#what-do-networks-look-like",
+    "href": "projects/2-sampsons-monks/slides.html#what-do-networks-look-like",
+    "title": "Lab 2",
+    "section": "What do networks look like?",
+    "text": "What do networks look like?\n\nLet’s use a familar dataset to create network plots!"
+  },
+  {
+    "objectID": "projects/2-sampsons-monks/slides.html#our-dataset-sampsons-monks",
+    "href": "projects/2-sampsons-monks/slides.html#our-dataset-sampsons-monks",
+    "title": "Lab 2",
+    "section": "Our Dataset: Sampson’s Monks",
+    "text": "Our Dataset: Sampson’s Monks\n\nData collected in a New England monastery (1960s)\nMonks reported:\n\nLiking relationships (time 1, time 2, time 3)\nDisliking relationships (time 1)\n\nClassic dataset for studying group dynamics and conflict\nStored as a list of matrices in lda package, which we will use to get the data"
+  },
+  {
+    "objectID": "projects/2-sampsons-monks/slides.html#our-dataset-sampsons-monks-continued",
+    "href": "projects/2-sampsons-monks/slides.html#our-dataset-sampsons-monks-continued",
+    "title": "Lab 2",
+    "section": "Our Dataset: Sampson’s Monks (continued)",
+    "text": "Our Dataset: Sampson’s Monks (continued)\nFrom this matrix, we can get:\n\nIn-degree (col sums) = number of ties received / how many monks said they liked them\nOut-degree (row sums) = number of ties sent / how many monks they said they liked"
+  },
+  {
+    "objectID": "projects/2-sampsons-monks/slides.html#static-vs.-interactive-plots",
+    "href": "projects/2-sampsons-monks/slides.html#static-vs.-interactive-plots",
+    "title": "Lab 2",
+    "section": "Static vs. Interactive Plots",
+    "text": "Static vs. Interactive Plots\n\nYou will create one of each in your project\nStatic plots = easy and quick to create using plot() from igraph\nInteractive plots = can zoom, hover, drag nodes using forceNetwork() from networkD3"
+  },
+  {
+    "objectID": "projects/2-sampsons-monks/slides.html#why-compare-random-vs.-observed",
+    "href": "projects/2-sampsons-monks/slides.html#why-compare-random-vs.-observed",
+    "title": "Lab 2",
+    "section": "Why Compare Random vs. Observed?",
+    "text": "Why Compare Random vs. Observed?\nIn your project, you will be asked to compare the observed sociomatrix with one that you have generated.\n\nRandom sociomatrix = ties assigned by chance\nObserved monk network = structured by social dynamics\nKey question: What features do we see in the real network that random ones lack?\n\nShows the complexity of real social systems"
+  },
+  {
+    "objectID": "projects/2-sampsons-monks/slides.html#lab-review-worksheet",
+    "href": "projects/2-sampsons-monks/slides.html#lab-review-worksheet",
+    "title": "Lab 2",
+    "section": "Lab Review Worksheet",
+    "text": "Lab Review Worksheet\n\n  \n    −\n    +\n \n 30:00\n \nGroup work to review essential material\n\nLab worksheet is meant to give students the skills they need for the project, which they will mostly be taking home and working on in their own time. Lab worksheet is fully during lab. Can go over the answers to this in lab or have them volunteer answers."
+  },
+  {
+    "objectID": "projects/2-sampsons-monks/slides.html#lab-2-project",
+    "href": "projects/2-sampsons-monks/slides.html#lab-2-project",
+    "title": "Lab 2",
+    "section": "Lab 2 Project",
+    "text": "Lab 2 Project\n\n  \n    −\n    +\n \n 15:00\n \nWorksheet:\n\nWritten responses. Please code along on your laptop. This is for your own practice / not turned in.\n\nProject:\n\nFour parts\nSubmit: project.R + README.md on GitHub Classroom\n\nWork on selected problems.\n\nGive students 15 minutes to work on problems that you find important and they may struggle with (suggest getting started with downloading packages, doing a visualization, writing the function)"
+  },
+  {
+    "objectID": "projects/1-index-cards/slides.html#using-the-shell-locally",
+    "href": "projects/1-index-cards/slides.html#using-the-shell-locally",
+    "title": "First Contact with R",
+    "section": "Using the Shell Locally",
+    "text": "Using the Shell Locally\n\n  \n    −\n    +\n \n 07:00\n \n\nMac:\n\n“zshell” (aka zsh) - UNIX based. Very similar to bash (Base UNIX Shell) with some added functionality.\nTo access, use the Mac’s “Termial” application.\n\nWindows:\n\nWill need to install “Git” if you don’t have it already.\n\nhttps://git-scm.com/downloads\n\nThis will give you access to the “Git Bash” application, which will let you use UNIX Shell on your Windows system."
+  },
+  {
+    "objectID": "projects/1-index-cards/slides.html#brief-review-of-lecture",
+    "href": "projects/1-index-cards/slides.html#brief-review-of-lecture",
+    "title": "First Contact with R",
+    "section": "Brief Review of Lecture",
+    "text": "Brief Review of Lecture\nNew Shell Commands\n\n\nmkdir\n\n\nCreates a new directory.\n\n\n\n\ncp\n\n\nCopy file (arg1) to destination (arg2).\nExample: cp ~/Downloads/hw1.pdf ~/Documents/econ100b/hw/\n\n\n\n\nmv\n\n\nMove file (first argument) to destination directory (second argument).\nExample: mv ~/Downloads/hw1.pdf ~/.Trash\n\n\n\nThey have only heard mv in lecture briefly, so teach them the functionality."
+  },
+  {
+    "objectID": "projects/1-index-cards/slides.html#brief-review-of-lecture-cont.",
+    "href": "projects/1-index-cards/slides.html#brief-review-of-lecture-cont.",
+    "title": "First Contact with R",
+    "section": "Brief Review of Lecture (cont.)",
+    "text": "Brief Review of Lecture (cont.)\nR Equivallent of Shell Commands:\n\ngetwd(): like pwd in Shell.\nsetwd(): like cd in Shell.\nlist.files(): like ls in Shell.\nreadLines(): like cat in Shell."
+  },
+  {
+    "objectID": "projects/1-index-cards/slides.html#brief-review-of-lecture-cont..",
+    "href": "projects/1-index-cards/slides.html#brief-review-of-lecture-cont..",
+    "title": "First Contact with R",
+    "section": "Brief Review of Lecture (cont..)",
+    "text": "Brief Review of Lecture (cont..)\n\na:b: Creates vector of numbers from a to b by 1.\nseq: Creates vector of numbers from \"from\" argument, to \"to\" argument, by steps defined in the \"by\" argument.\nrep: Repeats vector provided \"x\" a number of times defined by \"times\" argument."
+  },
+  {
+    "objectID": "projects/1-index-cards/slides.html#vectorization",
+    "href": "projects/1-index-cards/slides.html#vectorization",
+    "title": "First Contact with R",
+    "section": "Vectorization",
+    "text": "Vectorization\n\nOperations on a single object also works on vectors.\n\n\nvec &lt;- c(72, 52, 10)\n\nvec / 2\n\n\n\n[1] 36 26  5\n\n\n\n\n\nvec * 3\n\n\n\n[1] 216 156  30\n\n\n\n\n\nvec - 6\n\n\n\n[1] 66 46  4"
+  },
+  {
+    "objectID": "projects/1-index-cards/slides.html#recycling",
+    "href": "projects/1-index-cards/slides.html#recycling",
+    "title": "First Contact with R",
+    "section": "Recycling",
+    "text": "Recycling\n\nOperations on two vectors of unequal length.\n\n\nvec1 &lt;- 1:10\nvec2 &lt;- c(1, 2)\n\nvec1 * vec2\n\n\n\n [1]  1  4  3  8  5 12  7 16  9 20\n\n\n\n\n\nvec3 &lt;- c(1, 2, 3)\n\nvec1 + vec3\n\n\n\n [1]  2  4  6  5  7  9  8 10 12 11"
+  },
+  {
+    "objectID": "projects/1-index-cards/slides.html#lab-1-assignment",
+    "href": "projects/1-index-cards/slides.html#lab-1-assignment",
+    "title": "First Contact with R",
+    "section": "Lab 1 Assignment",
+    "text": "Lab 1 Assignment\n\n  \n    −\n    +\n \n 15:00\n \n\nWill be turned in physically.\nWritten responses. Please code along on your laptop.\n\nTwo Parts:\n\nShell\nR: Atomic Vectors, Vectorization, Recycling, Matrices, if statements, for loops.\n\nWork on selected problems.\n\nGive students 15 minutes to work on problems that you find important AND are in scope of lectures so far (nothing after 7)."
+  },
+  {
+    "objectID": "notes.html",
+    "href": "notes.html",
+    "title": "Notes",
     "section": "",
-    "text": "Concepts in Computing with Data\nStat 133 UC Berkeley\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n  \n  \n  \n    \n    \n    \n    Sep 21\n    \n  \n  \n  Git & GitHub\n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n    SlidesProject\n    \n  \n  \n  \n    Quiz 2: 9/21-9/22\n  \n  \n  \n  \n\n  \n  \n  \n  \n    Sep 23\n  \n  \n  Data Wrangling II\n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n    Slides\n    \n  \n  \n  \n  \n  \n  \n\n  \n  \n  \n  \n    Sep 25\n  \n  \n  Intro to Data Viz\n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n    Slides\n    \n  \n  \n  \n  \n  \n  \n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Aug 24\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 26\n      \n    \n    \n    Welcome\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 28\n      \n    \n    \n    Data in Trees\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 31\n      \n    \n    \n    Intro to R\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 2\n      \n    \n    \n    Atomic Vectors\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 4\n      \n    \n    \n    Extending Vectors\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n      Sign up for Quiz 1\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Sep 7\n    \n    \n    No Class: Labor Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 9\n      \n    \n    \n    Lists\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 1: 9/10-9/11\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 11\n      \n    \n    \n    Control Flow\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 14\n      \n    \n    \n    Functions\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 2\n    \n      Project Studio 1 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 16\n      \n    \n    \n    Factors and Data Frames\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 18\n      \n    \n    \n    Data Wrangling I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 2 due 9/19 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 21\n      \n    \n    \n    Git & GitHub\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n      Quiz 2: 9/21-9/22\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Sep 23\n    \n    \n    Data Wrangling II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Sep 25\n    \n    \n    Intro to Data Viz\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Sep 28\n    \n    \n    Grammar of Graphics\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 3\n    \n      Project Studio 2 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Sep 30\n    \n    \n    EDA\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 2\n    \n    \n    Explanatory DA\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 3 due 10/03 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Oct 5\n    \n    \n    Joins and Pivots\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 3: 10/5-10/6\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 7\n    \n    \n    Quarto\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 9\n    \n    \n    Strings I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Oct 12\n    \n    \n    Strings II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 4\n    \n      Project Studio 3 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 14\n    \n    \n    Text Analysis\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 16\n    \n    \n    Dates and Times I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 4 due 10/17 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Oct 19\n    \n    \n    Dates and Times II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 4: 10/19-10/20\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 21\n    \n    \n    Spatial Data I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 23\n    \n    \n    Gerrymandering\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Oct 26\n    \n    \n    Spatial Data II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 5\n    \n      Project Studio 4 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 28\n    \n    \n    Dashboards\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 30\n    \n    \n    Election Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 5 due 10/31 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 2\n    \n    \n    R Packages I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 5: 11/2-11/3\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 4\n    \n    \n    R Packages II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 6\n    \n    \n    Prediction I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 9\n    \n    \n    Prediction II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 6\n    \n      Project Studio 5 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 11\n    \n    \n    No Class: Veterans Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 13\n    \n    \n    Classification\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 6 due 11/14 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 16\n    \n    \n    APIs I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 6: 11/16-11/17\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 18\n    \n    \n    APIs II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 20\n    \n    \n    LLMs\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 23\n    \n    \n    LLMs in IDEs\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 7\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 25\n    \n    \n    No Class: Non-Instructional Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 27\n    \n    \n    No Class: Thanksgiving\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 30\n    \n    \n    Abstraction\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 7 due today at 6:00 pm\n    \n      Quiz 7: 12/1-12/4\n    \n      Project Studio 6 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 2\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 4\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Dec 7\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 9\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 11\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Dec 14\n    \n    \n    Final Exam 7-10 pm\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 16\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 18\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n\n\nNo matching items",
-    "crumbs": [
-      "Home"
-    ]
+    "text": "Notes\n\n\n    \n      \n      \n    \n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "labs.html",
+    "href": "labs.html",
+    "title": "Labs",
+    "section": "",
+    "text": "Labs\nComing soon!"
+  },
+  {
+    "objectID": "12-data-wrangling-2/slides.html#section",
+    "href": "12-data-wrangling-2/slides.html#section",
+    "title": "Data Wrangling II",
+    "section": "",
+    "text": "Last Time\n\ngit tracks changes to files.\nA repository (repo) is a directory tracked by git.\nThe staging area holds changes for a snapshot.\nA commit is a snapshot of staged changes with a message.\nA remote is a web-hosted repo (GitHub) you push to and clone from.\n\n\nKey Ideas for Today\n\nTwo more verbs: distinct() and *count().\nChain operations using the pipe operator (|&gt;).\nDebug a pipeline by breaking the pipe and inspecting each stage.\ngroup_by() puts rows into groups for downstream verbs.\n\n\n\nConcept Acquisition\n\nNesting, step-by-step objects, and pipelines are three ways to express the same multi-step computation; each trades off readability, intermediate clutter, and repetition of the data frame name.\nThe native pipe |&gt; follows magrittr’s %&gt;% and works with any function, not just dplyr verbs.\nGrouping changes the scope of the functions inside a verb: summarize() returns one row per group, filter() and mutate() evaluate within groups, and arrange() ignores grouping entirely.\nA grouped data frame stays grouped until it is reduced to one row per group or explicitly ungrouped.\n\nTool Acquisition\n\n|&gt;.\ngroup_by(), ungroup(), and the .by argument.\nGrouped forms of summarize(), filter(), mutate(), and arrange().\n\nConcept Application\n\nRewrite a nested or step-by-step computation as a pipeline.\nPredict the dimensions of the data frame at each stage of a pipe (the A/B/C/D question).\nCompute a group-wise summary and a group-wise z-score, and explain why the second requires ungroup() or .by downstream.\n\n\n\nBefore class, sketch out the effect that the different dplyr verbs from last class have on the shape of a data frame."
+  },
+  {
+    "objectID": "12-data-wrangling-2/slides.html#section-1",
+    "href": "12-data-wrangling-2/slides.html#section-1",
+    "title": "Data Wrangling II",
+    "section": "",
+    "text": "library(dplyr)\nstar_wars &lt;- data.frame(\n    name = c(\"Anakin\", \"Padme\", \"Luke\", \"JarJar\"),\n    homeworld = c(\"Tatooine\", \"Naboo\", \"Tatooine\", \"Naboo\"),\n    height = c(1.8, 1.6, 1.7, 1.9),\n    weight = c(84, 45, 77, 90)\n)\n\nTwo questions we can’t yet answer with slice(), select(), filter(), mutate(), arrange(), and summarize():\n\nWhich homeworlds show up in this data set?\nHow many characters come from each one?"
+  },
+  {
+    "objectID": "12-data-wrangling-2/slides.html#section-2",
+    "href": "12-data-wrangling-2/slides.html#section-2",
+    "title": "Data Wrangling II",
+    "section": "",
+    "text": "distinct()\n\n\nReturns the unique rows of a data frame.\n\n\n\n\n\n\nstar_wars\n\n    name homeworld height weight\n1 Anakin  Tatooine    1.8     84\n2  Padme     Naboo    1.6     45\n3   Luke  Tatooine    1.7     77\n4 JarJar     Naboo    1.9     90\n\n\n\n\ndistinct(star_wars, homeworld)\n\n\n\n  homeworld\n1  Tatooine\n2     Naboo"
+  },
+  {
+    "objectID": "12-data-wrangling-2/slides.html#section-3",
+    "href": "12-data-wrangling-2/slides.html#section-3",
+    "title": "Data Wrangling II",
+    "section": "",
+    "text": "distinct()\n\n\nReturns the unique rows of a data frame.\n\n\n\n\n\nstar_wars\n\n    name homeworld height weight\n1 Anakin  Tatooine    1.8     84\n2  Padme     Naboo    1.6     45\n3   Luke  Tatooine    1.7     77\n4 JarJar     Naboo    1.9     90\n\n\n\n\ndistinct(star_wars, homeworld,\n         heavy = weight &gt; 50)\n\n\n\n  homeworld heavy\n1  Tatooine  TRUE\n2     Naboo FALSE\n3     Naboo  TRUE\n\n\n\n\n\nWith multiple variables, it returns the unique combinations."
+  },
+  {
+    "objectID": "12-data-wrangling-2/slides.html#section-4",
+    "href": "12-data-wrangling-2/slides.html#section-4",
+    "title": "Data Wrangling II",
+    "section": "",
+    "text": "distinct()\n\n\nReturns the unique rows of a data frame.\n\n\n\n\n\nstar_wars\n\n    name homeworld height weight\n1 Anakin  Tatooine    1.8     84\n2  Padme     Naboo    1.6     45\n3   Luke  Tatooine    1.7     77\n4 JarJar     Naboo    1.9     90\n\n\n\n\ndistinct(star_wars)\n\n\n\n    name homeworld height weight\n1 Anakin  Tatooine    1.8     84\n2  Padme     Naboo    1.6     45\n3   Luke  Tatooine    1.7     77\n4 JarJar     Naboo    1.9     90\n\n\n\n\n\nWith no variables named, it works on the whole data frame — a quick check for duplicate rows."
+  },
+  {
+    "objectID": "12-data-wrangling-2/slides.html#section-5",
+    "href": "12-data-wrangling-2/slides.html#section-5",
+    "title": "Data Wrangling II",
+    "section": "",
+    "text": "count()\n\n\nCounts the number of rows for each value of a variable.\n\n\n\n\n\n\nstar_wars\n\n    name homeworld height weight\n1 Anakin  Tatooine    1.8     84\n2  Padme     Naboo    1.6     45\n3   Luke  Tatooine    1.7     77\n4 JarJar     Naboo    1.9     90\n\n\n\n\ncount(star_wars, homeworld)\n\n\n\n  homeworld n\n1     Naboo 2\n2  Tatooine 2\n\n\n\n\n\n\nSame rows as distinct(), plus a column n of counts."
+  },
+  {
+    "objectID": "12-data-wrangling-2/slides.html#section-6",
+    "href": "12-data-wrangling-2/slides.html#section-6",
+    "title": "Data Wrangling II",
+    "section": "",
+    "text": "count()\n\n\nCounts the number of rows for each value of a variable.\n\n\n\n\n\nstar_wars\n\n    name homeworld height weight\n1 Anakin  Tatooine    1.8     84\n2  Padme     Naboo    1.6     45\n3   Luke  Tatooine    1.7     77\n4 JarJar     Naboo    1.9     90\n\n\n\n\ncount(star_wars, homeworld,\n      heavy = weight &gt; 50)\n\n\n\n  homeworld heavy n\n1     Naboo FALSE 1\n2     Naboo  TRUE 1\n3  Tatooine  TRUE 2\n\n\n\n\n\nLike distinct(), it counts unique combinations of several variables."
+  },
+  {
+    "objectID": "12-data-wrangling-2/slides.html#section-7",
+    "href": "12-data-wrangling-2/slides.html#section-7",
+    "title": "Data Wrangling II",
+    "section": "",
+    "text": "library(dplyr)\nstar_wars &lt;- data.frame(\n    name = c(\"Anakin\", \"Padme\", \"Luke\", \"JarJar\"),\n    homeworld = c(\"Tatooine\", \"Naboo\", \"Tatooine\", \"Naboo\"),\n    height = c(1.8, 1.6, 1.7, 1.9),\n    weight = c(84, 45, 77, 90)\n)\n\nUsing base R data frame subsetting, create from star_wars…\n\nThe average height of characters from Tatooine\n\n\n\nLet’s look at three ways to solve this."
+  },
+  {
+    "objectID": "12-data-wrangling-2/slides.html#nesting",
+    "href": "12-data-wrangling-2/slides.html#nesting",
+    "title": "Data Wrangling II",
+    "section": "Nesting",
+    "text": "Nesting\n\nsummarize(filter(star_wars, homeworld == \"Tatooine\"), mean(height))\n\n\n\n  mean(height)\n1         1.75\n\n\n\n\n\n\nMust be read from the inside out 👎\nHard to keep track of arguments 👎\n\n\n\nAll in one line of code 👍\nOnly refer to one data frame 👍"
+  },
+  {
+    "objectID": "12-data-wrangling-2/slides.html#step-by-step",
+    "href": "12-data-wrangling-2/slides.html#step-by-step",
+    "title": "Data Wrangling II",
+    "section": "Step-by-step",
+    "text": "Step-by-step\n\nstar_wars2 &lt;- filter(star_wars, homeworld == \"Tatooine\")\nsummarize(star_wars2, mean(height))\n\n\n\n  mean(height)\n1         1.75\n\n\n\n\n\n\nHave to repeat data frame names 👎\nCreates unnecessary objects 👎\n\n\n\nStores intermediate objects 👍\nCan be read from top to bottom 👍"
+  },
+  {
+    "objectID": "12-data-wrangling-2/slides.html#data-pipelines-in-r",
+    "href": "12-data-wrangling-2/slides.html#data-pipelines-in-r",
+    "title": "Data Wrangling II",
+    "section": "Data Pipelines in R",
+    "text": "Data Pipelines in R\n\n\n\n2016: magrittr introduces %&gt;%\n\n|&gt;\n2021:\n\nR now provides a simple native forward pipe syntax |&gt;. The simple form of the forward pipe inserts the left-hand side as the first argument in the right-hand side call."
+  },
+  {
+    "objectID": "12-data-wrangling-2/slides.html#using-the-pipe-operator",
+    "href": "12-data-wrangling-2/slides.html#using-the-pipe-operator",
+    "title": "Data Wrangling II",
+    "section": "Using the Pipe Operator",
+    "text": "Using the Pipe Operator\n\nstar_wars |&gt;"
+  },
+  {
+    "objectID": "12-data-wrangling-2/slides.html#using-the-pipe-operator-1",
+    "href": "12-data-wrangling-2/slides.html#using-the-pipe-operator-1",
+    "title": "Data Wrangling II",
+    "section": "Using the Pipe Operator",
+    "text": "Using the Pipe Operator\n\nstar_wars |&gt;\n    filter(homeworld == \"Tatooine\") |&gt;"
+  },
+  {
+    "objectID": "12-data-wrangling-2/slides.html#using-the-pipe-operator-2",
+    "href": "12-data-wrangling-2/slides.html#using-the-pipe-operator-2",
+    "title": "Data Wrangling II",
+    "section": "Using the Pipe Operator",
+    "text": "Using the Pipe Operator\n\nstar_wars |&gt;\n    filter(homeworld == \"Tatooine\") |&gt;\n    summarize(mean(height))\n\n\n\n  mean(height)\n1         1.75\n\n\n\n\n\n\n🤷‍♂️\n\n\n\nCan be read like an english paragraph 👍\nOnly type the data once 👍\nNo leftover objects 👍"
+  },
+  {
+    "objectID": "12-data-wrangling-2/slides.html#understanding-your-pipeline",
+    "href": "12-data-wrangling-2/slides.html#understanding-your-pipeline",
+    "title": "Data Wrangling II",
+    "section": "Understanding your pipeline",
+    "text": "Understanding your pipeline\nIt’s good practice to understand the output of each line by breaking the pipe.\n\n\n\n\nstar_wars |&gt;\n    select(homeworld) |&gt;\n    filter(mean(height))\n\n\n\nError in `filter()`:\nℹ In argument: `mean(height)`.\nCaused by error:\n! object 'height' not found\n\n\n\n\nstar_wars |&gt;\n    select(homeworld)\n\n\n\n  homeworld\n1  Tatooine\n2     Naboo\n3  Tatooine\n4     Naboo"
+  },
+  {
+    "objectID": "12-data-wrangling-2/slides.html#section-9",
+    "href": "12-data-wrangling-2/slides.html#section-9",
+    "title": "Data Wrangling II",
+    "section": "",
+    "text": "star_wars |&gt; # A #&lt;&lt;\n    filter(homeworld == \"Naboo\",\n           name %in% c(\"Padme\", \"JarJar\")) |&gt; # B #&lt;&lt;\n    select(height, weight) |&gt; # C #&lt;&lt;\n    summarize(mean(height), sd(height),\n              mean(weight), sd(weight)) # D #&lt;&lt;\n\n\n\n\nQuestion: What are the dimensions of the data frame at each stage of the pipe: A, B, C, and D?\n\n  \n    −\n    +\n \n 02:00\n \n\nShow answer in drop by breaking the pipe"
+  },
+  {
+    "objectID": "12-data-wrangling-2/slides.html#works-everywhere",
+    "href": "12-data-wrangling-2/slides.html#works-everywhere",
+    "title": "Data Wrangling II",
+    "section": "|> works everywhere",
+    "text": "|&gt; works everywhere\n\nR now provides a simple native forward pipe syntax |&gt;. The simple form of the forward pipe inserts the left-hand side as the first argument in the right-hand side call.\n\n\n\nfactor(c(\"cat\", \"cat\", \"dog\")) |&gt; summary()\n\n\n\ncat dog \n  2   1"
+  },
+  {
+    "objectID": "12-data-wrangling-2/slides.html#section-11",
+    "href": "12-data-wrangling-2/slides.html#section-11",
+    "title": "Data Wrangling II",
+    "section": "",
+    "text": "library(dplyr)\nstar_wars &lt;- data.frame(\n    name = c(\"Anakin\", \"Padme\", \"Luke\", \"JarJar\"),\n    homeworld = c(\"Tatooine\", \"Naboo\", \"Tatooine\", \"Naboo\"),\n    height = c(1.8, 1.6, 1.7, 1.9),\n    weight = c(84, 45, 77, 90)\n)\n\nUsing base R data frame subsetting, create from star_wars…\n\nThe average height of characters from Tatooine across each planet\n\n\n\nYou could set up two pipelines with different filters. But there’s a better way."
+  },
+  {
+    "objectID": "12-data-wrangling-2/slides.html#section-12",
+    "href": "12-data-wrangling-2/slides.html#section-12",
+    "title": "Data Wrangling II",
+    "section": "",
+    "text": "group_by()\n\n\nFlags the rows of a data frame as belonging to a group defined by a variable, for use in downstream operations.\n\n\n\n\nstar_wars |&gt;\n    group_by(homeworld)\n\n\n\n# A tibble: 4 × 4\n# Groups:   homeworld [2]\n  name   homeworld height weight\n  &lt;chr&gt;  &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt;\n1 Anakin Tatooine     1.8     84\n2 Padme  Naboo        1.6     45\n3 Luke   Tatooine     1.7     77\n4 JarJar Naboo        1.9     90"
+  },
+  {
+    "objectID": "12-data-wrangling-2/slides.html#section-13",
+    "href": "12-data-wrangling-2/slides.html#section-13",
+    "title": "Data Wrangling II",
+    "section": "",
+    "text": "group_by()\n\n\nFlags the rows of a data frame as belonging to a group defined by a variable, for use in downstream operations.\n\n\n\nstar_wars |&gt;\n    group_by(homeworld) |&gt;\n    summarize(mean(height))\n\n\n\n# A tibble: 2 × 2\n  homeworld `mean(height)`\n  &lt;chr&gt;              &lt;dbl&gt;\n1 Naboo               1.75\n2 Tatooine            1.75"
+  },
+  {
+    "objectID": "12-data-wrangling-2/slides.html#section-14",
+    "href": "12-data-wrangling-2/slides.html#section-14",
+    "title": "Data Wrangling II",
+    "section": "",
+    "text": "Draw diagram"
+  },
+  {
+    "objectID": "12-data-wrangling-2/slides.html#group_by-with-summarize",
+    "href": "12-data-wrangling-2/slides.html#group_by-with-summarize",
+    "title": "Data Wrangling II",
+    "section": "group_by() with summarize()",
+    "text": "group_by() with summarize()\n\n\nstar_wars |&gt;\n    summarize(mean(height))\n\n\n\n  mean(height)\n1         1.75"
+  },
+  {
+    "objectID": "12-data-wrangling-2/slides.html#group_by-with-summarize-1",
+    "href": "12-data-wrangling-2/slides.html#group_by-with-summarize-1",
+    "title": "Data Wrangling II",
+    "section": "group_by() with summarize()",
+    "text": "group_by() with summarize()\n\nstar_wars |&gt;\n    group_by(homeworld) |&gt;\n    summarize(mean(height))\n\n\n\n# A tibble: 2 × 2\n  homeworld `mean(height)`\n  &lt;chr&gt;              &lt;dbl&gt;\n1 Naboo               1.75\n2 Tatooine            1.75\n\n\n\n\nMakes a summary row for each group."
+  },
+  {
+    "objectID": "12-data-wrangling-2/slides.html#group_by-summarize-n",
+    "href": "12-data-wrangling-2/slides.html#group_by-summarize-n",
+    "title": "Data Wrangling II",
+    "section": "group_by() + summarize() + n()",
+    "text": "group_by() + summarize() + n()\n\nstar_wars |&gt;\n    group_by(homeworld) |&gt;\n    summarize(n = n())\n\n\n\n# A tibble: 2 × 2\n  homeworld     n\n  &lt;chr&gt;     &lt;int&gt;\n1 Naboo         2\n2 Tatooine      2\n\n\n\n\nSame result as count(star_wars, homeworld) — count() is a shortcut for this exact pattern."
+  },
+  {
+    "objectID": "12-data-wrangling-2/slides.html#group_by-with-two-variables",
+    "href": "12-data-wrangling-2/slides.html#group_by-with-two-variables",
+    "title": "Data Wrangling II",
+    "section": "group_by() with two variables",
+    "text": "group_by() with two variables\n\nstar_wars |&gt;\n    group_by(homeworld, heavy = weight &gt; 50) |&gt;\n    summarize(n = n())\n\n\n\n# A tibble: 3 × 3\n# Groups:   homeworld [2]\n  homeworld heavy     n\n  &lt;chr&gt;     &lt;lgl&gt; &lt;int&gt;\n1 Naboo     FALSE     1\n2 Naboo     TRUE      1\n3 Tatooine  TRUE      2\n\n\n\n\nGroups are defined by every combination of the variables — same idea as count(star_wars, homeworld, heavy = weight &gt; 50)."
+  },
+  {
+    "objectID": "12-data-wrangling-2/slides.html#group_by-with-filter",
+    "href": "12-data-wrangling-2/slides.html#group_by-with-filter",
+    "title": "Data Wrangling II",
+    "section": "group_by() with filter()",
+    "text": "group_by() with filter()\n\n\nstar_wars |&gt;\n    filter(height == max(height))\n\n\n\n    name homeworld height weight\n1 JarJar     Naboo    1.9     90"
+  },
+  {
+    "objectID": "12-data-wrangling-2/slides.html#group_by-with-filter-1",
+    "href": "12-data-wrangling-2/slides.html#group_by-with-filter-1",
+    "title": "Data Wrangling II",
+    "section": "group_by() with filter()",
+    "text": "group_by() with filter()\n\nstar_wars |&gt;\n    group_by(homeworld) |&gt;\n    filter(height == max(height))\n\n\n\n# A tibble: 2 × 4\n# Groups:   homeworld [2]\n  name   homeworld height weight\n  &lt;chr&gt;  &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt;\n1 Anakin Tatooine     1.8     84\n2 JarJar Naboo        1.9     90\n\n\n\n\nChanges the scope of functions inside filter() to operate within groups.\n\n\nCan bring up drop to demonstrate how a condition like height &gt; 1.7 will operate the same with or without the grouping."
+  },
+  {
+    "objectID": "12-data-wrangling-2/slides.html#group_by-with-arrange",
+    "href": "12-data-wrangling-2/slides.html#group_by-with-arrange",
+    "title": "Data Wrangling II",
+    "section": "group_by() with arrange()",
+    "text": "group_by() with arrange()\n\n\nstar_wars |&gt;\n    arrange(desc(height))\n\n\n\n    name homeworld height weight\n1 JarJar     Naboo    1.9     90\n2 Anakin  Tatooine    1.8     84\n3   Luke  Tatooine    1.7     77\n4  Padme     Naboo    1.6     45"
+  },
+  {
+    "objectID": "12-data-wrangling-2/slides.html#group_by-with-arrange-1",
+    "href": "12-data-wrangling-2/slides.html#group_by-with-arrange-1",
+    "title": "Data Wrangling II",
+    "section": "group_by() with arrange()",
+    "text": "group_by() with arrange()\n\nstar_wars |&gt;\n    group_by(homeworld) |&gt;\n    arrange(desc(height))\n\n\n\n# A tibble: 4 × 4\n# Groups:   homeworld [2]\n  name   homeworld height weight\n  &lt;chr&gt;  &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt;\n1 JarJar Naboo        1.9     90\n2 Anakin Tatooine     1.8     84\n3 Luke   Tatooine     1.7     77\n4 Padme  Naboo        1.6     45\n\n\n\n\nArrange ignores group_by() and is always global\n\nWhy???"
+  },
+  {
+    "objectID": "12-data-wrangling-2/slides.html#section-15",
+    "href": "12-data-wrangling-2/slides.html#section-15",
+    "title": "Data Wrangling II",
+    "section": "",
+    "text": "star_wars |&gt;\n    arrange(homeworld, height)\n\n\n\n    name homeworld height weight\n1  Padme     Naboo    1.6     45\n2 JarJar     Naboo    1.9     90\n3   Luke  Tatooine    1.7     77\n4 Anakin  Tatooine    1.8     84"
+  },
+  {
+    "objectID": "12-data-wrangling-2/slides.html#group_by-with-mutate",
+    "href": "12-data-wrangling-2/slides.html#group_by-with-mutate",
+    "title": "Data Wrangling II",
+    "section": "group_by() with mutate()",
+    "text": "group_by() with mutate()\n\n\nstar_wars |&gt;\n    mutate(height_z = (height - mean(height)) / sd(height))\n\n\n\n    name homeworld height weight   height_z\n1 Anakin  Tatooine    1.8     84  0.3872983\n2  Padme     Naboo    1.6     45 -1.1618950\n3   Luke  Tatooine    1.7     77 -0.3872983\n4 JarJar     Naboo    1.9     90  1.1618950"
+  },
+  {
+    "objectID": "12-data-wrangling-2/slides.html#group_by-with-mutate-1",
+    "href": "12-data-wrangling-2/slides.html#group_by-with-mutate-1",
+    "title": "Data Wrangling II",
+    "section": "group_by() with mutate()",
+    "text": "group_by() with mutate()\n\nstar_wars |&gt;\n    group_by(homeworld) |&gt;\n    mutate(height_z = (height - mean(height)) / sd(height))\n\n\n\n# A tibble: 4 × 5\n# Groups:   homeworld [2]\n  name   homeworld height weight height_z\n  &lt;chr&gt;  &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;\n1 Anakin Tatooine     1.8     84    0.707\n2 Padme  Naboo        1.6     45   -0.707\n3 Luke   Tatooine     1.7     77   -0.707\n4 JarJar Naboo        1.9     90    0.707\n\n\n\n\nChanges the scope of functions inside mutate() to operate within groups."
+  },
+  {
+    "objectID": "12-data-wrangling-2/slides.html#statefulness",
+    "href": "12-data-wrangling-2/slides.html#statefulness",
+    "title": "Data Wrangling II",
+    "section": "Statefulness",
+    "text": "Statefulness\nWhat will this produce?\n\n\nstar_wars |&gt;\n    group_by(homeworld) |&gt;\n    mutate(height_z = (height - mean(height)) / sd(height)) |&gt;\n    summarize(mean(height_z))\n\n\n\n# A tibble: 2 × 2\n  homeworld `mean(height_z)`\n  &lt;chr&gt;                &lt;dbl&gt;\n1 Naboo                    0\n2 Tatooine                 0\n\n\n\n\n\nOnce grouped, a data frame stays grouped until reduced to one-row-per group or it is ungrouped.\n\n\ncan break the pipe after mutate to show it is still grouped"
+  },
+  {
+    "objectID": "12-data-wrangling-2/slides.html#statefulness-1",
+    "href": "12-data-wrangling-2/slides.html#statefulness-1",
+    "title": "Data Wrangling II",
+    "section": "Statefulness",
+    "text": "Statefulness\nWhat will this produce?\n\nstar_wars |&gt;\n    group_by(homeworld) |&gt;\n    mutate(height_z = (height - mean(height)) / sd(height)) |&gt;\n    ungroup() |&gt;\n    summarize(mean(height_z))\n\n\n\n# A tibble: 1 × 1\n  `mean(height_z)`\n             &lt;dbl&gt;\n1                0"
+  },
+  {
+    "objectID": "12-data-wrangling-2/slides.html#a-shortcut",
+    "href": "12-data-wrangling-2/slides.html#a-shortcut",
+    "title": "Data Wrangling II",
+    "section": "A shortcut",
+    "text": "A shortcut\n\n\n.by\n\n\nAn argument available in most dplyr functions that applies the function to the groups of another variable.\n\n\n\nNot stateful\nGood for single line operations\n\n\n\nstar_wars |&gt;\n    summarize(mean(height), .by = homeworld)\n\n\n\n  homeworld mean(height)\n1  Tatooine         1.75\n2     Naboo         1.75"
+  },
+  {
+    "objectID": "12-data-wrangling-2/slides.html#guess-the-metaphor",
+    "href": "12-data-wrangling-2/slides.html#guess-the-metaphor",
+    "title": "Data Wrangling II",
+    "section": "Guess the Metaphor",
+    "text": "Guess the Metaphor\nGroup-by are like tents: they put soldiers into groups so that you can do operations tent-by-tent instead of across all soldiers.\n\n\nsoldiers &lt;- data.frame(\n    name = c(\"Ali\", \"Boone\", \"Cruz\", \"Diaz\", \"Eze\", \"Fox\"),\n    tent = c(\"A\", \"A\", \"B\", \"B\", \"C\", \"C\"),\n    rations = c(3, 5, 2, 4, 6, 2))\n\n\n\n\n\n\nsoldiers |&gt;\n    group_by(tent) |&gt;\n    summarize(soldiers = n(), \n    rations = sum(rations))\n\n\n\n\n# A tibble: 3 × 3\n  tent  soldiers rations\n  &lt;chr&gt;    &lt;int&gt;   &lt;dbl&gt;\n1 A            2       8\n2 B            2       6\n3 C            2       8"
+  },
+  {
+    "objectID": "12-data-wrangling-2/slides.html#section-16",
+    "href": "12-data-wrangling-2/slides.html#section-16",
+    "title": "Data Wrangling II",
+    "section": "",
+    "text": "Key Ideas for Today\n\nTwo more verbs: distinct() and *count().\nChain operations using the pipe operator (|&gt;).\nDebug a pipeline by breaking the pipe and inspecting each stage.\ngroup_by() puts rows into groups for downstream verbs.\n\n\n\nFor Next Time\n\nProject 2 is underway — read the project description and worksheet.\nStart PS 3 (due 10/03 at 11:59 pm)."
   },
   {
     "objectID": "10-data-wrangling-1/slides.html#section",
@@ -1505,7 +1965,7 @@
     "href": "07-control-flow/slides.html#a-random-condition-in-r",
     "title": "Control Flow",
     "section": "A random condition in R",
-    "text": "A random condition in R\n\n\nsample(x = -10:10, size = 1)\n\n\n\n[1] -2\n\n\n\n\nsample() will randomly sample 1 element from the vector x."
+    "text": "A random condition in R\n\n\nsample(x = -10:10, size = 1)\n\n\n\n[1] -9\n\n\n\n\nsample() will randomly sample 1 element from the vector x."
   },
   {
     "objectID": "07-control-flow/slides.html#section-1",
@@ -1561,35 +2021,35 @@
     "href": "07-control-flow/slides.html#what-if-x-has-multiple-elements",
     "title": "Control Flow",
     "section": "What if x has multiple elements?",
-    "text": "What if x has multiple elements?\n\n\nx &lt;- rnorm(3)\nx\n\n\n\n[1] -1.2692655  2.0170286  0.7441081\n\n\n\n\n\n\n\n\n\n\n      if (x &gt; 0) {\n        print(\"x is positive :)\")\n      }\n\n\n\nAnnotate this if-then by wrapping it in a for loop."
+    "text": "What if x has multiple elements?\n\n\nx &lt;- rnorm(3)\nx\n\n\n\n[1] -0.4666316 -0.3845101  0.1091930\n\n\n\n\n\n\n\n\n\n\n      if (x &gt; 0) {\n        print(\"x is positive :)\")\n      }\n\n\n\nAnnotate this if-then by wrapping it in a for loop."
   },
   {
     "objectID": "07-control-flow/slides.html#option-1",
     "href": "07-control-flow/slides.html#option-1",
     "title": "Control Flow",
     "section": "Option 1",
-    "text": "Option 1\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(\"x is positive :)\")\n  }\n}\n\n\n\n[1] \"x is positive :)\"\n[1] \"x is positive :)\""
+    "text": "Option 1\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(\"x is positive :)\")\n  }\n}\n\n\n\n[1] \"x is positive :)\""
   },
   {
     "objectID": "07-control-flow/slides.html#option-2",
     "href": "07-control-flow/slides.html#option-2",
     "title": "Control Flow",
     "section": "Option 2",
-    "text": "Option 2\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(paste(\"element\", i, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"element 2 is positive :)\"\n[1] \"element 3 is positive :)\""
+    "text": "Option 2\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(paste(\"element\", i, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"element 3 is positive :)\""
   },
   {
     "objectID": "07-control-flow/slides.html#option-3",
     "href": "07-control-flow/slides.html#option-3",
     "title": "Control Flow",
     "section": "Option 3",
-    "text": "Option 3\n\nfor (x_elem in x) {\n  if (x_elem &gt; 0) {\n    print(paste(x_elem, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"2.0170286296929 is positive :)\"\n[1] \"0.744108127387856 is positive :)\""
+    "text": "Option 3\n\nfor (x_elem in x) {\n  if (x_elem &gt; 0) {\n    print(paste(x_elem, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"0.109192999300586 is positive :)\""
   },
   {
     "objectID": "07-control-flow/slides.html#ifelse",
     "href": "07-control-flow/slides.html#ifelse",
     "title": "Control Flow",
     "section": "ifelse()",
-    "text": "ifelse()\n\n\nifelse()\n\n\nA vectorized if-else: applies a condition to every element of a vector at once, without an explicit loop.\n\n\n\n\nx &lt; 0 \n\n\n\n[1]  TRUE FALSE FALSE\n\n\n\n\n\nifelse(test = x &lt; 0, yes = \"is positive :)\", no = \"is negative :(\")\n\n\n\n[1] \"is positive :)\" \"is negative :(\" \"is negative :(\""
+    "text": "ifelse()\n\n\nifelse()\n\n\nA vectorized if-else: applies a condition to every element of a vector at once, without an explicit loop.\n\n\n\n\nx &lt; 0 \n\n\n\n[1]  TRUE  TRUE FALSE\n\n\n\n\n\nifelse(test = x &lt; 0, yes = \"is positive :)\", no = \"is negative :(\")\n\n\n\n[1] \"is positive :)\" \"is positive :)\" \"is negative :(\""
   },
   {
     "objectID": "07-control-flow/slides.html#guess-the-metaphor",
@@ -2033,179 +2493,55 @@
     "text": "Key Ideas for Today\n\ngit tracks changes to files.\nA repository (repo) is a directory tracked by git.\nThe staging area holds changes for a snapshot.\nA commit is a snapshot of staged changes with a message.\nA remote is a web-hosted repo (GitHub) you push to and clone from.\n\n\n\nFor Next Time\n\nQuiz 2: 9/21-9/22.\nComplete the git setup survey (GitHub account, install, configuration).\nProject 2 is nigh!"
   },
   {
-    "objectID": "labs.html",
-    "href": "labs.html",
-    "title": "Labs",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "STAT 133",
     "section": "",
-    "text": "Labs\nComing soon!"
-  },
-  {
-    "objectID": "notes.html",
-    "href": "notes.html",
-    "title": "Notes",
-    "section": "",
-    "text": "Notes\n\n\n    \n      \n      \n    \n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "projects/1-index-cards/slides.html#using-the-shell-locally",
-    "href": "projects/1-index-cards/slides.html#using-the-shell-locally",
-    "title": "First Contact with R",
-    "section": "Using the Shell Locally",
-    "text": "Using the Shell Locally\n\n  \n    −\n    +\n \n 07:00\n \n\nMac:\n\n“zshell” (aka zsh) - UNIX based. Very similar to bash (Base UNIX Shell) with some added functionality.\nTo access, use the Mac’s “Termial” application.\n\nWindows:\n\nWill need to install “Git” if you don’t have it already.\n\nhttps://git-scm.com/downloads\n\nThis will give you access to the “Git Bash” application, which will let you use UNIX Shell on your Windows system."
-  },
-  {
-    "objectID": "projects/1-index-cards/slides.html#brief-review-of-lecture",
-    "href": "projects/1-index-cards/slides.html#brief-review-of-lecture",
-    "title": "First Contact with R",
-    "section": "Brief Review of Lecture",
-    "text": "Brief Review of Lecture\nNew Shell Commands\n\n\nmkdir\n\n\nCreates a new directory.\n\n\n\n\ncp\n\n\nCopy file (arg1) to destination (arg2).\nExample: cp ~/Downloads/hw1.pdf ~/Documents/econ100b/hw/\n\n\n\n\nmv\n\n\nMove file (first argument) to destination directory (second argument).\nExample: mv ~/Downloads/hw1.pdf ~/.Trash\n\n\n\nThey have only heard mv in lecture briefly, so teach them the functionality."
-  },
-  {
-    "objectID": "projects/1-index-cards/slides.html#brief-review-of-lecture-cont.",
-    "href": "projects/1-index-cards/slides.html#brief-review-of-lecture-cont.",
-    "title": "First Contact with R",
-    "section": "Brief Review of Lecture (cont.)",
-    "text": "Brief Review of Lecture (cont.)\nR Equivallent of Shell Commands:\n\ngetwd(): like pwd in Shell.\nsetwd(): like cd in Shell.\nlist.files(): like ls in Shell.\nreadLines(): like cat in Shell."
-  },
-  {
-    "objectID": "projects/1-index-cards/slides.html#brief-review-of-lecture-cont..",
-    "href": "projects/1-index-cards/slides.html#brief-review-of-lecture-cont..",
-    "title": "First Contact with R",
-    "section": "Brief Review of Lecture (cont..)",
-    "text": "Brief Review of Lecture (cont..)\n\na:b: Creates vector of numbers from a to b by 1.\nseq: Creates vector of numbers from \"from\" argument, to \"to\" argument, by steps defined in the \"by\" argument.\nrep: Repeats vector provided \"x\" a number of times defined by \"times\" argument."
-  },
-  {
-    "objectID": "projects/1-index-cards/slides.html#vectorization",
-    "href": "projects/1-index-cards/slides.html#vectorization",
-    "title": "First Contact with R",
-    "section": "Vectorization",
-    "text": "Vectorization\n\nOperations on a single object also works on vectors.\n\n\nvec &lt;- c(72, 52, 10)\n\nvec / 2\n\n\n\n[1] 36 26  5\n\n\n\n\n\nvec * 3\n\n\n\n[1] 216 156  30\n\n\n\n\n\nvec - 6\n\n\n\n[1] 66 46  4"
-  },
-  {
-    "objectID": "projects/1-index-cards/slides.html#recycling",
-    "href": "projects/1-index-cards/slides.html#recycling",
-    "title": "First Contact with R",
-    "section": "Recycling",
-    "text": "Recycling\n\nOperations on two vectors of unequal length.\n\n\nvec1 &lt;- 1:10\nvec2 &lt;- c(1, 2)\n\nvec1 * vec2\n\n\n\n [1]  1  4  3  8  5 12  7 16  9 20\n\n\n\n\n\nvec3 &lt;- c(1, 2, 3)\n\nvec1 + vec3\n\n\n\n [1]  2  4  6  5  7  9  8 10 12 11"
-  },
-  {
-    "objectID": "projects/1-index-cards/slides.html#lab-1-assignment",
-    "href": "projects/1-index-cards/slides.html#lab-1-assignment",
-    "title": "First Contact with R",
-    "section": "Lab 1 Assignment",
-    "text": "Lab 1 Assignment\n\n  \n    −\n    +\n \n 15:00\n \n\nWill be turned in physically.\nWritten responses. Please code along on your laptop.\n\nTwo Parts:\n\nShell\nR: Atomic Vectors, Vectorization, Recycling, Matrices, if statements, for loops.\n\nWork on selected problems.\n\nGive students 15 minutes to work on problems that you find important AND are in scope of lectures so far (nothing after 7)."
-  },
-  {
-    "objectID": "projects/2-sampsons-monks/slides.html#agenda",
-    "href": "projects/2-sampsons-monks/slides.html#agenda",
-    "title": "Lab 2",
-    "section": "Agenda",
-    "text": "Agenda\n\nBrief lecture review\nReview key concepts\nTime to work in groups on lab worksheet (15 minutes)\nDiscuss Project 2 + Work through select parts\nTime for questions"
-  },
-  {
-    "objectID": "projects/2-sampsons-monks/slides.html#brief-review-of-lecture-control-flow",
-    "href": "projects/2-sampsons-monks/slides.html#brief-review-of-lecture-control-flow",
-    "title": "Lab 2",
-    "section": "Brief Review of Lecture: Control Flow",
-    "text": "Brief Review of Lecture: Control Flow\nIf / Else = Conditional Behavior\nif (x &gt; 0) {\n  print(\"positive\")\n} else {\n  print(\"not positive\")\n}\nVectorized If/Else statements are also possible:\n\nx = 0\nifelse(test = x &lt; 0, yes = \"is positive :)\", no = \"is negative :(\")\n\n\n\n[1] \"is negative :(\"\n\n\nFor loops = repeat over items\nfor (i in 1:5) {\n  print(i^2)\n}"
-  },
-  {
-    "objectID": "projects/2-sampsons-monks/slides.html#brief-review-of-lecture-functions",
-    "href": "projects/2-sampsons-monks/slides.html#brief-review-of-lecture-functions",
-    "title": "Lab 2",
-    "section": "Brief Review of Lecture: Functions",
-    "text": "Brief Review of Lecture: Functions\n\nfunction_name &lt;- function(arg1, arg2, ...) {\n  # code to execute\n  result &lt;- arg1 + arg2  # example operation\n  return(result)         # optional, returns result\n}"
-  },
-  {
-    "objectID": "projects/2-sampsons-monks/slides.html#sampsons-monks-project-background-concepts",
-    "href": "projects/2-sampsons-monks/slides.html#sampsons-monks-project-background-concepts",
-    "title": "Lab 2",
-    "section": "Sampson’s Monks Project: Background Concepts",
-    "text": "Sampson’s Monks Project: Background Concepts\n\nPackages in R\nSociomatrices\nNetwork visualizations & statistics\nRandom vs. observed networks\n\n\nMotivate for students that we will be working on the project and turning it in in 2 weeks, and it will be about the monks data. These are some of the necessary skills they will need for the project"
-  },
-  {
-    "objectID": "projects/2-sampsons-monks/slides.html#packages-libraries",
-    "href": "projects/2-sampsons-monks/slides.html#packages-libraries",
-    "title": "Lab 2",
-    "section": "Packages & Libraries",
-    "text": "Packages & Libraries\n\nBase R is powerful, but we use packages to extend its capabilities\nPackages collections of functions & datasets\n\nlibrary() is used to load a previously installed package into an R session.\n\nInstall and load:\ninstall.packages(\"igraph\") # only need to do once!\nlibrary(igraph)"
-  },
-  {
-    "objectID": "projects/2-sampsons-monks/slides.html#packages-to-use-today",
-    "href": "projects/2-sampsons-monks/slides.html#packages-to-use-today",
-    "title": "Lab 2",
-    "section": "Packages to use today:",
-    "text": "Packages to use today:\nigraph (network analysis & static plots)\n\naccepts adjacency matrices.\n\nnetworkD3 (interactive plots)\n\nexpects data frames of nodes and edges, not a network object.\nnodes are the names/points in the resulting plot\nedges are the directed lines between the points\n\nEven though the information is already in sampson, you still need to extract it into the right format for networkD3."
-  },
-  {
-    "objectID": "projects/2-sampsons-monks/slides.html#what-do-networks-look-like",
-    "href": "projects/2-sampsons-monks/slides.html#what-do-networks-look-like",
-    "title": "Lab 2",
-    "section": "What do networks look like?",
-    "text": "What do networks look like?\n\nLet’s use a familar dataset to create network plots!"
-  },
-  {
-    "objectID": "projects/2-sampsons-monks/slides.html#our-dataset-sampsons-monks",
-    "href": "projects/2-sampsons-monks/slides.html#our-dataset-sampsons-monks",
-    "title": "Lab 2",
-    "section": "Our Dataset: Sampson’s Monks",
-    "text": "Our Dataset: Sampson’s Monks\n\nData collected in a New England monastery (1960s)\nMonks reported:\n\nLiking relationships (time 1, time 2, time 3)\nDisliking relationships (time 1)\n\nClassic dataset for studying group dynamics and conflict\nStored as a list of matrices in lda package, which we will use to get the data"
-  },
-  {
-    "objectID": "projects/2-sampsons-monks/slides.html#our-dataset-sampsons-monks-continued",
-    "href": "projects/2-sampsons-monks/slides.html#our-dataset-sampsons-monks-continued",
-    "title": "Lab 2",
-    "section": "Our Dataset: Sampson’s Monks (continued)",
-    "text": "Our Dataset: Sampson’s Monks (continued)\nFrom this matrix, we can get:\n\nIn-degree (col sums) = number of ties received / how many monks said they liked them\nOut-degree (row sums) = number of ties sent / how many monks they said they liked"
-  },
-  {
-    "objectID": "projects/2-sampsons-monks/slides.html#static-vs.-interactive-plots",
-    "href": "projects/2-sampsons-monks/slides.html#static-vs.-interactive-plots",
-    "title": "Lab 2",
-    "section": "Static vs. Interactive Plots",
-    "text": "Static vs. Interactive Plots\n\nYou will create one of each in your project\nStatic plots = easy and quick to create using plot() from igraph\nInteractive plots = can zoom, hover, drag nodes using forceNetwork() from networkD3"
-  },
-  {
-    "objectID": "projects/2-sampsons-monks/slides.html#why-compare-random-vs.-observed",
-    "href": "projects/2-sampsons-monks/slides.html#why-compare-random-vs.-observed",
-    "title": "Lab 2",
-    "section": "Why Compare Random vs. Observed?",
-    "text": "Why Compare Random vs. Observed?\nIn your project, you will be asked to compare the observed sociomatrix with one that you have generated.\n\nRandom sociomatrix = ties assigned by chance\nObserved monk network = structured by social dynamics\nKey question: What features do we see in the real network that random ones lack?\n\nShows the complexity of real social systems"
-  },
-  {
-    "objectID": "projects/2-sampsons-monks/slides.html#lab-review-worksheet",
-    "href": "projects/2-sampsons-monks/slides.html#lab-review-worksheet",
-    "title": "Lab 2",
-    "section": "Lab Review Worksheet",
-    "text": "Lab Review Worksheet\n\n  \n    −\n    +\n \n 30:00\n \nGroup work to review essential material\n\nLab worksheet is meant to give students the skills they need for the project, which they will mostly be taking home and working on in their own time. Lab worksheet is fully during lab. Can go over the answers to this in lab or have them volunteer answers."
-  },
-  {
-    "objectID": "projects/2-sampsons-monks/slides.html#lab-2-project",
-    "href": "projects/2-sampsons-monks/slides.html#lab-2-project",
-    "title": "Lab 2",
-    "section": "Lab 2 Project",
-    "text": "Lab 2 Project\n\n  \n    −\n    +\n \n 15:00\n \nWorksheet:\n\nWritten responses. Please code along on your laptop. This is for your own practice / not turned in.\n\nProject:\n\nFour parts\nSubmit: project.R + README.md on GitHub Classroom\n\nWork on selected problems.\n\nGive students 15 minutes to work on problems that you find important and they may struggle with (suggest getting started with downloading packages, doing a visualization, writing the function)"
-  },
-  {
-    "objectID": "projects/3-electric-vehicles/project.html",
-    "href": "projects/3-electric-vehicles/project.html",
-    "title": "Project 2: Zero-Emissions Vehicles in California",
-    "section": "",
-    "text": "In this project, you will analyze recent data collected by the State of California on new zero-emissions vehicles. Fundamentally, your goal is to characterize the trends in zero-emissions vehicles over the last few years using summary statistics.\nBy completing this project, you will:",
+    "text": "Concepts in Computing with Data\nStat 133 UC Berkeley\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n  \n  \n  \n    \n    \n    \n    Sep 21\n    \n  \n  \n  Git & GitHub\n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n    SlidesProject\n    \n  \n  \n  \n    Quiz 2: 9/21-9/22\n  \n  \n  \n  \n\n  \n  \n  \n  \n    \n    \n    \n    Sep 23\n    \n  \n  \n  Data Wrangling II\n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n    Slides\n    \n  \n  \n  \n  \n  \n  \n\n  \n  \n  \n  \n    Sep 25\n  \n  \n  Intro to Data Viz\n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n    Slides\n    \n  \n  \n  \n  \n  \n  \n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Aug 24\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 26\n      \n    \n    \n    Welcome\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 28\n      \n    \n    \n    Data in Trees\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 31\n      \n    \n    \n    Intro to R\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 2\n      \n    \n    \n    Atomic Vectors\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 4\n      \n    \n    \n    Extending Vectors\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n      Sign up for Quiz 1\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Sep 7\n    \n    \n    No Class: Labor Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 9\n      \n    \n    \n    Lists\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 1: 9/10-9/11\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 11\n      \n    \n    \n    Control Flow\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 14\n      \n    \n    \n    Functions\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 2\n    \n      Project Studio 1 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 16\n      \n    \n    \n    Factors and Data Frames\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 18\n      \n    \n    \n    Data Wrangling I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 2 due 9/19 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 21\n      \n    \n    \n    Git & GitHub\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n      Quiz 2: 9/21-9/22\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 23\n      \n    \n    \n    Data Wrangling II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Sep 25\n    \n    \n    Intro to Data Viz\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Sep 28\n    \n    \n    Grammar of Graphics\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 3\n    \n      Project Studio 2 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Sep 30\n    \n    \n    EDA\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 2\n    \n    \n    Explanatory DA\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 3 due 10/03 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Oct 5\n    \n    \n    Joins and Pivots\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 3: 10/5-10/6\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 7\n    \n    \n    Quarto\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 9\n    \n    \n    Strings I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Oct 12\n    \n    \n    Strings II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 4\n    \n      Project Studio 3 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 14\n    \n    \n    Text Analysis\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 16\n    \n    \n    Dates and Times I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 4 due 10/17 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Oct 19\n    \n    \n    Dates and Times II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 4: 10/19-10/20\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 21\n    \n    \n    Spatial Data I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 23\n    \n    \n    Gerrymandering\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Oct 26\n    \n    \n    Spatial Data II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 5\n    \n      Project Studio 4 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 28\n    \n    \n    Dashboards\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 30\n    \n    \n    Election Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 5 due 10/31 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 2\n    \n    \n    R Packages I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 5: 11/2-11/3\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 4\n    \n    \n    R Packages II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 6\n    \n    \n    Prediction I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 9\n    \n    \n    Prediction II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 6\n    \n      Project Studio 5 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 11\n    \n    \n    No Class: Veterans Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 13\n    \n    \n    Classification\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 6 due 11/14 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 16\n    \n    \n    APIs I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 6: 11/16-11/17\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 18\n    \n    \n    APIs II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 20\n    \n    \n    LLMs\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 23\n    \n    \n    LLMs in IDEs\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 7\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 25\n    \n    \n    No Class: Non-Instructional Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 27\n    \n    \n    No Class: Thanksgiving\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 30\n    \n    \n    Abstraction\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 7 due today at 6:00 pm\n    \n      Quiz 7: 12/1-12/4\n    \n      Project Studio 6 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 2\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 4\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Dec 7\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 9\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 11\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Dec 14\n    \n    \n    Final Exam 7-10 pm\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 16\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 18\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n\n\nNo matching items",
     "crumbs": [
-      "Projects",
-      "Zero Emission Vehicles"
+      "Home"
     ]
   },
   {
-    "objectID": "projects/3-electric-vehicles/project.html#footnotes",
-    "href": "projects/3-electric-vehicles/project.html#footnotes",
-    "title": "Project 2: Zero-Emissions Vehicles in California",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nThe dashboard carefully arranges the rows of this table. If you’d like an extra challenge, replicate this arrangement using R.↩︎\nHint: this can be mostly cleanly done by writing a function that takes a vector of counts and returns the index value. That function can then be applied as a summary statistic inside summarize().↩︎",
+    "objectID": "license.html",
+    "href": "license.html",
+    "title": "License",
+    "section": "",
+    "text": "Unless otherwise noted, all curricular content on this site — lecture slides, notes, problem sets, projects, and accompanying code — is licensed under a Creative Commons Attribution 4.0 International License (CC BY 4.0).\nYou are free to share and adapt this material for any purpose, including commercially, provided you give appropriate credit, link to the license, and indicate if changes were made.\nSuggested attribution:\n\nMaterials from Stat 133: Concepts in Computing with Data, Department of Statistics, UC Berkeley, used under CC BY 4.0."
+  },
+  {
+    "objectID": "license.html#curricular-content",
+    "href": "license.html#curricular-content",
+    "title": "License",
+    "section": "",
+    "text": "Unless otherwise noted, all curricular content on this site — lecture slides, notes, problem sets, projects, and accompanying code — is licensed under a Creative Commons Attribution 4.0 International License (CC BY 4.0).\nYou are free to share and adapt this material for any purpose, including commercially, provided you give appropriate credit, link to the license, and indicate if changes were made.\nSuggested attribution:\n\nMaterials from Stat 133: Concepts in Computing with Data, Department of Statistics, UC Berkeley, used under CC BY 4.0."
+  },
+  {
+    "objectID": "license.html#artwork",
+    "href": "license.html#artwork",
+    "title": "License",
+    "section": "Artwork",
+    "text": "Artwork\nThe fantasy scenes appearing on the course calendar and elsewhere on this site are Scenes by Czepeku and are used under Czepeku’s Commercial Use Licence. They are reproduced here in watermarked form, as that license requires.\nThese images are not covered by the CC BY 4.0 license above and are not offered for download, redistribution, or resale as standalone items. All rights in them remain with Czepeku. If you wish to use them, see czepeku.com."
+  },
+  {
+    "objectID": "office-hours.html",
+    "href": "office-hours.html",
+    "title": "Office Hours",
+    "section": "",
+    "text": "Office Hours\nPlease stop by during office hours to chat in a small group setting course staff.",
+    "crumbs": [
+      "Office Hours"
+    ]
+  },
+  {
+    "objectID": "projects/2-sampsons-monks/project.html",
+    "href": "projects/2-sampsons-monks/project.html",
+    "title": "Project 1: Sampson’s Monks",
+    "section": "",
+    "text": "In this project, you will analyze and model Sampson’s Monks dataset, a classic dataset in social network analysis.\nBy completing this project, you will:\n\nWork with matrices and lists in applied settings\nPractice row/column operations for network statistics\nUse functions, control flow, and libraries\nUnderstand the contrast between random vs. real-world networks\n\nThere are two components: the worksheet and the project. The worksheet will help you familiarize yourself with the computational tools you’ll need. This should be done first. The project is the main event: your analysis of the data set.\nYou will submit:\n\nA worksheet .R file with your well-commented code\nA project .R file with your well-commented code.\n\nBoth files should be submitted to their respective Pensive assignments before your scheduled Project Studio.\n\n\n\nWorksheetProject\n\n\n\nMatrices\n\nSection 1: Matrices + Operations\nThree students take a class together and study for a project, midterm, and final together.\n\nStudent A scores: 12, 23, 34\n\nStudent B scores: 45, 56, 67\n\nStudent C scores: 78, 89, 64\n\nQ1: Create a matrix containing their scores.\nUse matrix() to create the 3x3 matrix:\nQ2: Name the rows and columns\nUse colnames() and rownames() to label rows and columns.\nQ3: Compute each student’s average score\nWhich student has the highest average?\n\n\n\nPlots\nQ4: How can we make simple graphs in Base R?\nRead the documention for plot(), boxplot(), and hist() and run at least one example of each.\nQ5: Create a histogram using the matrix scores\nHint: Convert the matrix to a normal vector first using as.vector().\nQ6: Use the built-in airquality dataset\nThis dataset contains daily New York air quality measurements from May–September 1973 spread across several vectors.\n\nairquality$Ozone: Ozone concentration (ppb)\n\nairquality$Solar.R: Solar radiation (langley)\n\nairquality$Wind: Wind speed (mph)\n\nairquality$Temp: Temperature (°F)\n\nairquality$Month: Month (5 = May, …, 9 = September)\n\nairquality$Day: Day of the month\n\na) Construct a histogram of Ozone\nb) Construct a scatterplot of Ozone vs Temperature\nc) Construct a boxplot of Temperature by Month\n\n\nIntro to Packages\nQ7: Install and load the packages\nInstall and load the igraph and networkD3 packages by running the following code:\ninstall.packages(\"igraph\")    # you only need to run this line once\ninstall.packages(\"networkD3\") # you only need to run this line once\nlibrary(\"igraph\")\nlibrary(\"networkD3\")\nQ8: What are igraph and networkD3?\nHow are these libraries useful for network analysis and visualization? Browse their documentation here: https://r.igraph.org/, http://christophergandrud.github.io/networkD3/.\nQ9: Explore usage\nRun these examples and describe what they do.\na) igraph example\ng &lt;- graph(edges = c(1,2, 2,3, 3,1), n = 3, directed = FALSE)\nplot(g)\nb) networkD3 example\nsimpleNetwork(data.frame(source = c(\"A\", \"B\", \"C\"), \n                         target = c(\"B\", \"C\", \"A\")))\n\n\n\n\nPart 0: Setting Up\nOpen your R app and install and load the necessary packages for this project: lda, igraph, and networkD3. lda contains the monks data.\n\n# Run this lines once to install packages on your machine\n# install.packages(\"lda\")\n# install.packages(\"igraph\")\n# install.packages(\"networkD3\")\n\n# Run these lines once per session to load packages\nlibrary(lda)\nlibrary(igraph)\nlibrary(networkD3)\n\ndata(sampson)              # load the monks data from lda\nsamplk1 &lt;- sampson$SAMPLK1 # extract one of the matrices\n\nsampson contains 10 different matrices, each one a sociomatrix that describes the network of a different type of relationship. All 10 matrices describe the same 18 monks, in the same row and column order.\n\n\n\nName\nRelation\n\n\n\n\nSAMPLK1, SAMPLK2, SAMPLK3\nLiking, at three successive time points\n\n\nSAMPDLK\nDisliking\n\n\nSAMPES\nEsteem\n\n\nSAMPDES\nDisesteem\n\n\nSAMPIN\nPositive influence\n\n\nSAMPNIN\nNegative influence\n\n\nSAMPPR\nPraise\n\n\nSAMNPR\nBlame (negative praise)\n\n\n\nIn each network, each node represents a single monk and each edge represents a relationship pointing from one monk to another. Every monk was asked to name only his top three choices on each relationship. Paradoxically, a monk’s first choice gets a 3 (3 points) while his third choice gets a 1 (1 point); a 0 means “not nominated”.\n\n\nPart 1: Visualizing the Network\nCreate two network visualizations select one of Sampson’s matrices (not SAMPLK1) that describe monk relationships and form two plots:\n\nA static plot using igraph::plot.igraph()\nAn interactive plot using networkD3::forceNetwork()\n\nBefore plotting, check what data structure your plotting function accepts and create it accordingly. networkD3 requires dataframes of nodes and edges, not a sociomatrix. You can use the following code to convert one of Sampson’s matrices (called monk_mat here) into the structures that networkD3 expects.\n\nnodes &lt;- data.frame(name = rownames(monk_mat), group = 1)\nedges &lt;- which(monk_mat &gt; 0, arr.ind = TRUE)\n\nlinks &lt;- data.frame(\n  source = edges[, \"row\"] - 1,\n  target = edges[, \"col\"] - 1,\n  value  = monk_mat[edges] \n)\n\nTry visualizing a few different matrices before deciding on one that you find most interesting. Read the documentation on each of the plotting functions to understand the arguments they make available, then tune the plots to your liking.\n\n\nPart 2: Summary Statistics on a Sociomatrix\nA picture of a network is suggestive but hard to reason about precisely. Summary statistics let us describe the same structure numerically. A few terms first.\n\nNode: one monk. There are 18, one per row and one per column.\nEdge: a nomination from one monk to another. Edges here are directed: monk \\(i\\) nominating monk \\(j\\) (row \\(i\\), column \\(j\\)) is not the same as monk \\(j\\) nominating monk \\(i\\).\nEdge weight: the number in the cell, 3, 2, or 1, recording whether the nomination was that monk’s first, second, or third choice. A 0 means there is no edge.\nOut-degree of a node: the number of edges originating at it, i.e. how many other monks that monk nominated.\nIn-degree of a node: the number of edges pointing to it, i.e. how many other monks nominated that monk.\nOut-strength and in-strength: the sum of the edge weights leaving or arriving at a node. These credit a first-choice nomination more heavily than a third-choice one.\n\nSolutions below use SAMPDLK (disliking) as the chosen matrix; student answers will differ depending on their choice.\n\nReport which matrix you chose, and describe in one sentence what a large value means for that relation (e.g. for SAMPDLK, a high in-degree means a monk was frequently named as disliked).\nCompute the out-degree and in-degree of each monk. rowSums() and colSums() will do this in one line each, once you have turned the weights into TRUE/FALSE values with a comparison such as monk_mat &gt; 0.\nCompute the out-strength and in-strength of each monk.\nMake a histogram of in-degree and a histogram of in-strength. Compare their shapes to a histogram of out-degree. Why is the out-degree distribution so much narrower? (Look back at how the monks were surveyed.)\nMake a scatterplot of in-degree against in-strength, one point per monk. What would it mean for a monk to fall well above or well below the general trend?\nWhich monk received the most nominations on your chosen relation, and which received the fewest? Do you get the same answer using in-degree as you do using in-strength? If not, explain the disagreement.\n\n\n\nPart 3: A simple model of a social network\nOne way to learn more about the social dynamics underlying the monk’s network is to compare it to a network generated using a simple but well-understood mechanism; that is to say: a model.\nGenerate a network according to the rule that each monk assigns their likes (or dislikes) completely at random. The following observations will help you form your code:\n\nYou can represent a monk’s choices as a single vector. You can create that vector randomly using the sample() function.\nYou can use a for loop to change-in-place each vector of a blank matrix. See example from lecture on the Fibonacci Sequence for a vector analog\n\nFeel free to add additional complexity into your model (for example, assigning the likes randomly but with unequal probabilities).\n\n\nPart 4: Model vs Observations\nApply the same techniques you used in parts 1 and 2 (visualization and summary statistics) to describe the structure of the network that was simulated by your model. In 3-5 sentences, compare these networks: In what ways is the observed network monk_mat similar to your generated network? In what ways is it different? What patterns appear in the observed network that are missing from your generated one?",
     "crumbs": [
       "Projects",
-      "Zero Emission Vehicles"
+      "Sampson's Monks"
     ]
   },
   {
