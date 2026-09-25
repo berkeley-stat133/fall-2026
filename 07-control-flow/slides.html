@@ -457,7 +457,7 @@
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 9</code></pre>
+<pre><code>[1] 2</code></pre>
 </div>
 </div>
 </div>
@@ -580,7 +580,7 @@
 <div class="fragment">
 <h4 id="your-turn">Your Turn</h4>
 <p>Using the R objects <code>bike_working</code> and <code>enough_time</code>, both logical vectors of length 1, write this decision tree in R using nested if-then statements and <code>print()</code>.</p>
-<div id="timer_5cdab2bfa3b1a7a96a08fd250c9582ce02a85eb8" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_e8dde3b4bdea203fb17d4b7288815acc4e4bc7ee" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -677,7 +677,7 @@
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -2.119419 -0.733276 -0.437407</code></pre>
+<pre><code>[1] -0.9530744  0.2334738  0.3854406</code></pre>
 </div>
 </div>
 </div>
@@ -718,33 +718,42 @@
 <span id="cb33-5" class="hljs-ln-code"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
-
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "x is positive :)"
+[1] "x is positive :)"</code></pre>
+</div>
 </div>
 </section>
 <section id="option-2" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Option 2</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb34-1" class="hljs-ln-code"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(x)) {</span>
-<span id="cb34-2" class="hljs-ln-code"><a></a>  <span class="cf">if</span> (x[i] <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
-<span id="cb34-3" class="hljs-ln-code"><a></a>    <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"element"</span>, i, <span class="st">"is positive :)"</span>))</span>
-<span id="cb34-4" class="hljs-ln-code"><a></a>  }</span>
-<span id="cb34-5" class="hljs-ln-code"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb35-1" class="hljs-ln-code"><a></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(x)) {</span>
+<span id="cb35-2" class="hljs-ln-code"><a></a>  <span class="cf">if</span> (x[i] <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb35-3" class="hljs-ln-code"><a></a>    <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"element"</span>, i, <span class="st">"is positive :)"</span>))</span>
+<span id="cb35-4" class="hljs-ln-code"><a></a>  }</span>
+<span id="cb35-5" class="hljs-ln-code"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
-
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "element 2 is positive :)"
+[1] "element 3 is positive :)"</code></pre>
+</div>
 </div>
 </section>
 <section id="option-3" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Option 3</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb35-1" class="hljs-ln-code"><a></a><span class="cf">for</span> (x_elem <span class="cf">in</span> x) {</span>
-<span id="cb35-2" class="hljs-ln-code"><a></a>  <span class="cf">if</span> (x_elem <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
-<span id="cb35-3" class="hljs-ln-code"><a></a>    <span class="fu">print</span>(<span class="fu">paste</span>(x_elem, <span class="st">"is positive :)"</span>))</span>
-<span id="cb35-4" class="hljs-ln-code"><a></a>  }</span>
-<span id="cb35-5" class="hljs-ln-code"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb37-1" class="hljs-ln-code"><a></a><span class="cf">for</span> (x_elem <span class="cf">in</span> x) {</span>
+<span id="cb37-2" class="hljs-ln-code"><a></a>  <span class="cf">if</span> (x_elem <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb37-3" class="hljs-ln-code"><a></a>    <span class="fu">print</span>(<span class="fu">paste</span>(x_elem, <span class="st">"is positive :)"</span>))</span>
+<span id="cb37-4" class="hljs-ln-code"><a></a>  }</span>
+<span id="cb37-5" class="hljs-ln-code"><a></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
-
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "0.233473832411516 is positive :)"
+[1] "0.385440633137931 is positive :)"</code></pre>
+</div>
 </div>
 </section>
 <section id="ifelse" class="slide level2">
@@ -759,21 +768,21 @@
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a>x <span class="sc">&lt;</span> <span class="dv">0</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a>x <span class="sc">&lt;</span> <span class="dv">0</span> </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE TRUE TRUE</code></pre>
+<pre><code>[1]  TRUE FALSE FALSE</code></pre>
 </div>
 </div>
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a><span class="fu">ifelse</span>(<span class="at">test =</span> x <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="at">yes =</span> <span class="st">"is positive :)"</span>, <span class="at">no =</span> <span class="st">"is negative :("</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a><span class="fu">ifelse</span>(<span class="at">test =</span> x <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="at">yes =</span> <span class="st">"is positive :)"</span>, <span class="at">no =</span> <span class="st">"is negative :("</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "is positive :)" "is positive :)" "is positive :)"</code></pre>
+<pre><code>[1] "is positive :)" "is negative :(" "is negative :("</code></pre>
 </div>
 </div>
 </div>
