@@ -11,7 +11,7 @@
 <link href="../site_libs/quarto-contrib/countdown-0.5.0/countdown.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.27">
 
-  <title>STAT 133 – Quarto</title>
+  <title>STAT 133 – The Grammar of Graphics</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -197,8 +197,8 @@
     <div class="slides">
 
 <section id="title-slide" data-background-image="../site_libs/quarto-contrib/quarto-project/stat133/stat133slides/stat133_slide.png" data-background-size="contain" class="quarto-title-block center">
-  <h1 class="title">Quarto</h1>
-  <p class="subtitle">An open-source tool for scientific publishing</p>
+  <h1 class="title">The Grammar of Graphics</h1>
+  <p class="subtitle">A Language for Building Plots</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -210,41 +210,40 @@
 <div class="column">
 <h3 id="last-time">Last Time</h3>
 <ol type="1">
-<li class="fragment">Two more verbs: <em><code>distinct()</code></em> and <em><code>count()</code></em>.</li>
-<li class="fragment">Chain operations using the <em>pipe operator</em> (<code>|&gt;</code>).</li>
-<li class="fragment">Debug a pipeline by <em>breaking the pipe</em> and inspecting each stage.</li>
-<li class="fragment"><em><code>group_by()</code></em> puts rows into groups for downstream verbs.</li>
-</ol>
-</div><div class="column">
-<h3 id="key-ideas-for-today">Key Ideas for Today</h3>
-<ol type="1">
 <li class="fragment">A <em>Quarto document</em> mixes prose and code in a single <code>.qmd</code> file.</li>
 <li class="fragment">Format text using <em>Markdown</em> syntax.</li>
 <li class="fragment">Embed <em>code cells</em> with options to control evaluation and display.</li>
 <li class="fragment">Configure the <em>metadata</em> (YAML) to set its format and options.</li>
+</ol>
+</div><div class="column">
+<h3 id="key-ideas-for-today">Key Ideas for Today</h3>
+<ol type="1">
+<li class="fragment">A <em>visual channel</em> visually encodes variation in data.</li>
+<li class="fragment">An <em>aesthetic mapping</em> links a variable to a visual channel.</li>
+<li class="fragment">A <em>geometry</em> determines how obs are drawn on the plot.</li>
+<li class="fragment"><em>Mapping</em> an aesthetic to a variable is different from <em>setting</em> it to a constant.</li>
 </ol>
 </div></div>
 <aside class="notes">
 <h4 id="concept-acquisition">Concept Acquisition</h4>
 <ol type="1">
-<li>Literate programming interleaves natural-language explanation with source code, so a single document produces both the report and the analysis behind it.</li>
-<li>A Quarto document keeps prose, code, and metadata in separate regions of one file.</li>
-<li>Source is kept separate from output: one <code>.qmd</code> can be rendered to many formats (HTML, PDF, Word, slides).</li>
-<li>Positron brings the file system, shell, R/Python, git, and Quarto together in one environment.</li>
+<li>Plots that look different (histogram, density, box plot, bar chart, scatterplot) share a common underlying structure.</li>
+<li>A plot can be decomposed into data, aesthetic mappings, and a geometry.</li>
+<li>Visual channels differ in how well they encode ordered versus unordered variables.</li>
+<li>Mapping an aesthetic to a variable encodes variation in the data; setting it to a constant does not.</li>
 </ol>
 <h4 id="tool-acquisition">Tool Acquisition</h4>
 <ol type="1">
-<li><code>quarto render</code> and <code>quarto preview</code> at the command line.</li>
-<li>Markdown syntax for headers, italics, bold, ordered and unordered lists, footnotes, and images.</li>
-<li>Code cell syntax: opening and closing fences, language, and <code>#|</code> cell options (<code>eval</code>, <code>echo</code>, <code>message</code>, <code>warning</code>, figure size), plus displaying tables.</li>
-<li>YAML metadata: opening and closing fences and common <code>format</code> values.</li>
-<li>The Quarto Guide and Quarto Reference as documentation for finding new options.</li>
+<li><code>ggplot()</code> to create the canvas and <code>aes()</code> to declare mappings.</li>
+<li>Common aesthetics: <code>x</code>, <code>y</code>, <code>color</code>, <code>fill</code>, <code>size</code>, <code>shape</code>, <code>alpha</code>.</li>
+<li>Common geometries: <code>geom_point()</code>, <code>geom_bar()</code>/<code>geom_col()</code>, <code>geom_line()</code>, <code>geom_histogram()</code>, <code>geom_boxplot()</code>, <code>geom_violin()</code>, <code>geom_density()</code>.</li>
+<li>Adding layers with <code>+</code> (not <code>|&gt;</code>).</li>
 </ol>
 <h4 id="concept-application">Concept Application</h4>
 <ol type="1">
-<li>Open <code>hello-penguins.qmd</code> in Positron and work through its Markdown, code cells, and metadata, re-rendering along the way.</li>
-<li>Use the Quarto documentation to change the HTML theme, add a table of contents, and switch to <code>typst</code> or <code>pdf</code>.</li>
-<li>Convert the document to <code>revealjs</code> slides, add a slide, and change the transition style (bonus: install and use a Quarto extension theme).</li>
+<li>Identify what the a series of plots have in common and how they differ.</li>
+<li>Name the aesthetic mappings and geometries in a multi-variable scatterplot.</li>
+<li>Translate a plot into <code>ggplot2</code> code, and vice versa.</li>
 </ol>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -258,104 +257,281 @@
           display:block!important;
       }</style></aside>
 </section>
-<section>
-<section id="quarto-at-the-command-line" class="title-slide slide level1 center">
-<h1>Quarto at the Command Line</h1>
-<aside class="notes">
-<p>Motivation: our analyses are getting more complicated. Just providing code is a very insufficient way to communicate what the code is doing. Comments help but are messy.</p>
-<p>Start with a blackboard definition:</p>
-<p><strong>Literate programming</strong> is a programming paradigm introduced in 1984 by Donald Knuth in which a computer program is given as an explanation of how it works in a natural language, such as English, interspersed (embedded) with snippets of macros and traditional source code, from which compilable source code can be generated</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="the-plan" class="slide level2">
-<h2>The Plan</h2>
-<p>Together we will:</p>
-<ol type="1">
-<li>Create a new Quarto document.</li>
-<li>Render it and preview it.</li>
-<li>Add text with Markdown.</li>
-<li>Add code cells.</li>
-<li>Add metadata.</li>
-</ol>
-<aside class="notes">
-<p>Ask students to just watch, not follow along.</p>
-<p>Open terminal and go into dir on desktop. Run echo “hello world” &gt; hello.qmd then open that file with a text editor and go back and forth between the terminal and the editor to</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<section id="meet-the-palmer-penguins" class="slide level2 smaller">
+<h2>Meet the Palmer Penguins <img data-src="images/penguins-hex.png" width="80"></h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb1-2"><a></a>penguins</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 344 × 8
+   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+ 1 Adelie  Torgersen           39.1          18.7               181        3750
+ 2 Adelie  Torgersen           39.5          17.4               186        3800
+ 3 Adelie  Torgersen           40.3          18                 195        3250
+ 4 Adelie  Torgersen           NA            NA                  NA          NA
+ 5 Adelie  Torgersen           36.7          19.3               193        3450
+ 6 Adelie  Torgersen           39.3          20.6               190        3650
+ 7 Adelie  Torgersen           38.9          17.8               181        3625
+ 8 Adelie  Torgersen           39.2          19.6               195        4675
+ 9 Adelie  Torgersen           34.1          18.1               193        3475
+10 Adelie  Torgersen           42            20.2               190        4250
+# ℹ 334 more rows
+# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+</div>
+</div>
 </section>
 <section id="section-1" class="slide level2">
 <h2></h2>
-<div class="definition">
-<div class="definition-header">
-<p><code>quarto render</code></p>
-</div>
-<div class="definition-content">
-<p>Runs all of the code in a .qmd file, formats the text, and renders into a formatted document.</p>
-</div>
-</div>
-<div class="fragment">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a></a><span class="ex">quarto</span> render mydoc.qmd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
+<p><strong>Question</strong>: In terms of the way they are constructed…</p>
+
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" width="1536"><p>What do these plots have in common? How do they differ?</p>
+<div id="timer_9649ab1f707c631dfa57aaa85f36892c318430ee" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+  <div class="countdown-controls">
+    <button class="countdown-bump-down">−</button>
+    <button class="countdown-bump-up">+</button>
+ </div>
+ <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">20</span></code>
+ </div>
 </section>
 <section id="section-2" class="slide level2">
 <h2></h2>
+<p><strong>Question</strong>: What do these plots have in common? How do they differ?</p>
+
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"><div id="timer_9649ab1f707c631dfa57aaa85f36892c318430ee" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+  <div class="countdown-controls">
+    <button class="countdown-bump-down">−</button>
+    <button class="countdown-bump-up">+</button>
+ </div>
+ <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">20</span></code>
+ </div>
+</section>
+<section>
+<section id="the-grammar-of-graphics" class="title-slide slide level1 center">
+<h1>The Grammar of Graphics</h1>
+
+</section>
+<section id="the-grammar-of-graphics-1" class="slide level2">
+<h2>“The Grammar of Graphics”</h2>
+<p>Leland Wilkinson (1999)</p>
+<div class="columns">
+<div class="column">
+<ul>
+<li class="fragment">A grammar to describes all statistical graphics.</li>
+<li class="fragment">Underlies most modern data visualization software.</li>
+</ul>
+</div><div class="column fragment">
+<p><img data-src="images/grammar-of-graphics.png"></p>
+</div></div>
+</section>
+<section id="section-3" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"></h2>
 <div class="definition">
 <div class="definition-header">
-<p><code>quarto preview</code></p>
+<p>Aesthetic Mapping</p>
 </div>
 <div class="definition-content">
-<p>Renders a .qmd file and opens a live preview that automatically re-renders and refreshes whenever the file is saved.</p>
+<p>A link between a variable in the data and a visual channel that can encode its variation.</p>
 </div>
 </div>
 <div class="fragment">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a></a><span class="ex">quarto</span> preview mydoc.qmd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<h4 id="channels-for-ordered-variables">Channels for ordered variables</h4>
+<p><img data-src="images/channels-1.png"></p>
+
 </div>
+<aside><div>
+<p>From “Data Visualization” by Kieran Healy.</p>
+</div></aside></section>
+<section id="section-4" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"></h2>
+<div class="definition">
+<div class="definition-header">
+<p>Aesthetic Mapping</p>
+</div>
+<div class="definition-content">
+<p>A link between a variable in the data and a visual channel that can encode its variation.</p>
+</div>
+</div>
+<h4 id="channels-for-unordered-variables">Channels for unordered variables</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/channels-2.png" class="quarto-figure quarto-figure-center" width="600"></p>
+</figure>
+</div>
+
+<aside><div>
+<p>From “Data Visualization” by Kieran Healy.</p>
+</div></aside></section>
+<section id="section-5" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"></h2>
+<div class="definition">
+<div class="definition-header">
+<p>Geometry</p>
+</div>
+<div class="definition-content">
+<p>A description of how to translate the observations into marks on the page.</p>
+</div>
+</div>
+<div class="fragment">
+<h3 id="examples">Examples</h3>
+<ul>
+<li class="fragment">Point</li>
+<li class="fragment">Line</li>
+<li class="fragment">Bar</li>
+</ul>
+</div>
+</section>
+<section id="named-plots" class="slide level2">
+<h2>Named plots</h2>
+<aside class="notes">
+<p>Draw “Scatterplot” and “barchart” along with their description in the g of g.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="redux-1" class="slide level2">
+<h2>Redux 1</h2>
+
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center r-stretch" width="1536"></section>
+<section id="redux-1-1" class="slide level2">
+<h2>Redux 1</h2>
+
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"></section>
+<section id="section-6" class="slide level2">
+<h2></h2>
+<p><strong>Question</strong>: What are the aesthetic mappings and geometries used here?</p>
+
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"><div id="timer_9649ab1f707c631dfa57aaa85f36892c318430ee" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+  <div class="countdown-controls">
+    <button class="countdown-bump-down">−</button>
+    <button class="countdown-bump-up">+</button>
+ </div>
+ <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+ </div>
+</section>
+<section id="section-7" class="slide level2">
+<h2></h2>
+<p><strong>Question</strong>: <em>Newsmap</em> display at any given time, the most popular stories on Google News.</p>
+
+<img data-src="images/newsmap.png" class="r-stretch"><ol type="1">
+<li class="fragment">Write down the visual channels (there are 3).</li>
+<li class="fragment">Sketch the data frame behind the plot.</li>
+</ol>
+<div id="timer_9649ab1f707c631dfa57aaa85f36892c318430ee" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+  <div class="countdown-controls">
+    <button class="countdown-bump-down">−</button>
+    <button class="countdown-bump-up">+</button>
+ </div>
+ <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+ </div>
+</section>
+<section id="section-8" class="slide level2" data-background-image="images/newsmap.png" data-background-size="contain">
+<h2></h2>
+<div id="timer_9649ab1f707c631dfa57aaa85f36892c318430ee" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+  <div class="countdown-controls">
+    <button class="countdown-bump-down">−</button>
+    <button class="countdown-bump-up">+</button>
+ </div>
+ <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+ </div>
 </section>
 <section id="guess-the-metaphor" class="slide level2 intro" data-background-color="var(--intro-bg)">
 <h2>Guess the Metaphor</h2>
 <div class="fragment">
-<p>A Quarto doc is like a <em>spellbook</em>: the incantations (code) are written out next to the explanations of what they do and why (prose), and nothing happens until you cast it.</p>
-</div>
-<div class="fragment">
-<p>When you render, every spell runs in order and its effects (tables, figures, results) appear on the page, so anyone with the book can cast the same spells and get the same results.</p>
+<p>A plot is like a <em>war gaming board</em>: each piece is a mark specied by a geometry that encodes information on it’s characteristics through visual channels (color, shape, position).</p>
 </div>
 </section></section>
 <section>
-<section id="what-is-quarto" class="title-slide slide level1 center">
-<h1>What is Quarto?</h1>
+<section id="ggplot2" class="title-slide slide level1 center">
+<h1>ggplot2</h1>
 
 </section>
-<section id="section-3" class="slide level2">
-<h2></h2>
-<p>boardwork</p>
+<section id="section-9" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"></h2>
+
+<img data-src="images/tidyverse-hex.svg" class="quarto-figure quarto-figure-center r-stretch"></section>
+<section id="section-10" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="images/tidyverse-hex.svg"></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/dplyr-hex.svg"></p>
+</div></div>
+</section>
+<section id="section-11" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"></h2>
+<div class="columns">
+<div class="column" style="width:33%;">
+<p><img data-src="images/ggplot2-hex.svg"></p>
+</div><div class="column" style="width:33%;">
+<p><img data-src="images/tidyverse-hex.svg"></p>
+</div><div class="column" style="width:33%;">
+<p><img data-src="images/dplyr-hex.svg"></p>
+</div></div>
+</section>
+<section id="r-package-ggplot2" class="slide level2">
+<h2>R Package: <code>ggplot2</code></h2>
+<div class="fragment">
+<p>A plot can be decomposed into three primary elements:</p>
+<ol type="1">
+<li class="fragment">the <strong>data</strong>,</li>
+<li class="fragment">the <strong>aesthetic mapping</strong> of the variables in the data to visual channels, and</li>
+<li class="fragment">the <strong>geometry</strong> used to translate the observations into marks on the plot.</li>
+</ol>
+</div>
+</section>
+<section id="section-12" class="slide level2 smaller" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"></h2>
+<div class="columns">
+<div class="column">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb3-1" class="hljs-ln-code"><a></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb3-2" class="hljs-ln-code"><a></a>  <span class="fu">select</span>(bill_length_mm,</span>
+<span id="cb3-3" class="hljs-ln-code"><a></a>         flipper_length_mm,</span>
+<span id="cb3-4" class="hljs-ln-code"><a></a>         species)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 344 × 3
+   bill_length_mm flipper_length_mm species
+            &lt;dbl&gt;             &lt;int&gt; &lt;fct&gt;  
+ 1           39.1               181 Adelie 
+ 2           39.5               186 Adelie 
+ 3           40.3               195 Adelie 
+ 4           NA                  NA Adelie 
+ 5           36.7               193 Adelie 
+ 6           39.3               190 Adelie 
+ 7           38.9               181 Adelie 
+ 8           39.2               195 Adelie 
+ 9           34.1               193 Adelie 
+10           42                 190 Adelie 
+# ℹ 334 more rows</code></pre>
+</div>
+</div>
+</div><div class="column fragment">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-7-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
 <aside class="notes">
-<p>Draw diagram with a qmd file on the left with three sections, text, code, and yaml. Right arrow from that to a circle (the pandoc AST but don’t call it that) then arrows from the circle to three files: html, pdf, and docx.</p>
-<p>Below, write:</p>
-<p>Advantages:</p>
-<ul>
-<li>Separation of code and text but bundled in the same file</li>
-<li>Separation of source and output</li>
-<li>All while Literate Programming</li>
-</ul>
+<p>Draw arrows mapping variables to visual cues</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -368,136 +544,185 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="section-4" class="slide level2">
-<h2></h2>
-
-<img data-src="images/quarto-web.png" class="r-stretch"></section>
-<section id="section-5" class="slide level2">
-<h2></h2>
-
-<img data-src="images/quarto-guide.png" class="r-stretch"></section>
-<section id="quarto-in-positron" class="slide level2">
-<h2>Quarto in Positron</h2>
-<p>Our tools so far:</p>
-<ul>
-<li class="fragment">File Systems</li>
-<li class="fragment">Unix Shell</li>
-<li class="fragment">R (or Python)</li>
-<li class="fragment">git</li>
-<li class="fragment">quarto</li>
-</ul>
-<div class="fragment">
-<p>boardwork</p>
-<aside class="notes">
-<p>Draw diagram of positron as putting the file system, the terminal, R/Py, git, and quarto all in the same place.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<section id="section-13" class="slide level2 smaller" data-auto-animate="true">
+<h2 data-id="quarto-animate-title"></h2>
+<div class="columns">
+<div class="column">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb5-1" class="hljs-ln-code"><a></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb5-2" class="hljs-ln-code"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm,</span>
+<span id="cb5-3" class="hljs-ln-code"><a></a>             <span class="at">y =</span> flipper_length_mm,</span>
+<span id="cb5-4" class="hljs-ln-code"><a></a>             <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb5-5" class="hljs-ln-code"><a></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section></section>
-<section>
-<section id="making-a-quarto-doc" class="title-slide slide level1 center">
-<h1>Making a Quarto Doc</h1>
+<div class="cell fragment">
 
+</div>
+</div><div class="column">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-9-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
 </section>
-<section id="hello-penguins" class="slide level2">
-<h2>Hello Penguins!</h2>
-<p>Please download <code>hello-penguins.qmd</code> from Ed, put it in a directory on your desktop, then open it as a folder in Positron.</p>
-</section>
-<section id="markdown" class="slide level2">
-<h2>Markdown</h2>
+<section id="ggplot2-syntax" class="slide level2">
+<h2><code>ggplot2</code> syntax</h2>
+<p>Build your plot layer by layer, each one added on top of one another with <code>+</code> (not <code>|&gt;</code>).</p>
 <div class="fragment">
 <ul>
-<li>Headers</li>
-<li>Italics</li>
-<li>Bold</li>
-<li>Unorderd list</li>
-<li>Ordered List</li>
-<li>Footnote</li>
-<li>Image</li>
+<li class="fragment"><code>ggplot(df)</code> creates canvas</li>
+<li class="fragment"><code>aes()</code> creates mappings, called inside <code>ggplot()</code> or a <code>geom()</code></li>
+<li class="fragment"><code>geom_()</code> puts down marks using declared geometry</li>
+<li class="fragment">…and several more to polish the plot</li>
 </ul>
 </div>
 </section>
-<section id="code-cells" class="slide level2">
-<h2>Code Cells</h2>
+<section id="layer-by-layer" class="slide level2">
+<h2>Layer by layer</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm,</span>
+<span id="cb6-3"><a></a>             <span class="at">y =</span> flipper_length_mm,</span>
+<span id="cb6-4"><a></a>             <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb6-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb6-6"><a></a>  <span class="fu">theme_gray</span>(<span class="at">base_size =</span> <span class="dv">18</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+
+</div>
+<p>live code</p>
+</section>
+<section id="common-aes" class="slide level2">
+<h2>Common <code>aes()</code></h2>
+<div class="columns">
+<div class="column">
 <ul>
-<li>Begin / End</li>
-<li>Language</li>
-<li>Cell options behind <code>|#</code>
-<ul>
-<li>Evaluate code</li>
-<li>Show code</li>
-<li>Show message</li>
-<li>Show warnings</li>
-<li>Figure size</li>
-</ul></li>
-<li>Displaying tables</li>
+<li class="fragment"><code>x</code></li>
+<li class="fragment"><code>y</code></li>
+<li class="fragment"><code>color</code></li>
+<li class="fragment"><code>fill</code></li>
 </ul>
-</section>
-<section id="metadata" class="slide level2">
-<h2>Metadata</h2>
+</div><div class="column">
 <ul>
-<li>Begin / End</li>
-<li>Common formats</li>
-<li>YAML</li>
+<li class="fragment"><code>size</code></li>
+<li class="fragment"><code>shape</code></li>
+<li class="fragment"><code>alpha</code></li>
 </ul>
+</div></div>
 </section>
-<section id="your-turn-i" class="slide level2">
-<h2>Your Turn I</h2>
-<p>Using the Quarto Guide <a href="https://quarto.org/docs/guide/" class="uri">https://quarto.org/docs/guide/</a> and the Quarto Reference (<a href="https://quarto.org/docs/reference/" class="uri">https://quarto.org/docs/reference/</a>), do each of the following and then re-render your document.</p>
-<ol type="1">
-<li class="fragment">Change the theme of your HTML file</li>
-<li class="fragment">Add a table of contents</li>
-<li class="fragment">Change format to either <code>typst</code> or <code>pdf</code></li>
-</ol>
-<div id="timer_408544e672dbb4de04547775dd27fdb3443e730f" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
-  <div class="countdown-controls">
-    <button class="countdown-bump-down">−</button>
-    <button class="countdown-bump-up">+</button>
- </div>
- <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
- </div>
+<section id="common-geom_" class="slide level2">
+<h2>Common <code>geom_()</code></h2>
+<div class="columns">
+<div class="column">
+<ul>
+<li class="fragment"><code>geom_point()</code></li>
+<li class="fragment"><code>geom_bar() / geom_col()</code></li>
+<li class="fragment"><code>geom_line()</code></li>
+</ul>
+</div><div class="column">
+<ul>
+<li class="fragment"><code>geom_histogram()</code></li>
+<li class="fragment"><code>geom_boxplot()</code></li>
+<li class="fragment"><code>geom_violin()</code></li>
+<li class="fragment"><code>geom_density()</code></li>
+</ul>
+</div></div>
 </section>
-<section id="your-turn-ii" class="slide level2">
-<h2>Your Turn II</h2>
-<p>Using the Quarto Guide <a href="https://quarto.org/docs/guide/" class="uri">https://quarto.org/docs/guide/</a> and the Quarto Reference (<a href="https://quarto.org/docs/reference/" class="uri">https://quarto.org/docs/reference/</a>), do each of the following and then re-render your document.</p>
-<ol type="1">
-<li class="fragment">Change format to <code>revealjs</code></li>
-<li class="fragment">Add a new slide with a bulleted list of your three favorite foods</li>
-<li class="fragment">Change the transition style</li>
-<li class="fragment"><em>Bonus</em>: Run <code>quarto add schochastics/quarto-blackboard-theme</code> at the terminal (say yes to everything) then change format to <code>blackboard-revealjs</code>.</li>
-</ol>
-<div id="timer_408544e672dbb4de04547775dd27fdb3443e730f" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
-  <div class="countdown-controls">
-    <button class="countdown-bump-down">−</button>
-    <button class="countdown-bump-up">+</button>
- </div>
- <code class="countdown-time"><span class="countdown-digits minutes">04</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
- </div>
+<section id="mapping-vs-setting" class="slide level2">
+<h2>Mapping vs Setting</h2>
+<p>demo</p>
 </section>
-<section id="section-6" class="slide level2 intro" data-background-color="var(--intro-bg)">
+<section id="mapping-an-aesthetic" class="slide level2">
+<h2>Mapping an aesthetic</h2>
+<p><strong>Mapping</strong> connects an aesthetic to a <em>variable</em> in the data frame, so it varies from mark to mark. Mappings go <strong>inside</strong> <code>aes()</code>.</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm,</span>
+<span id="cb7-3"><a></a>             <span class="at">y =</span> flipper_length_mm,</span>
+<span id="cb7-4"><a></a>             <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb7-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb7-6"><a></a>  <span class="fu">theme_gray</span>(<span class="at">base_size =</span> <span class="dv">18</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="setting-an-aesthetic" class="slide level2">
+<h2>Setting an aesthetic</h2>
+<p><strong>Setting</strong> fixes an aesthetic to a <em>constant</em> value, so every mark looks the same. Settings go <strong>outside</strong> <code>aes()</code>, as an argument to the <code>geom_()</code>.</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb8-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm,</span>
+<span id="cb8-3"><a></a>             <span class="at">y =</span> flipper_length_mm)) <span class="sc">+</span></span>
+<span id="cb8-4"><a></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb8-5"><a></a>  <span class="fu">theme_gray</span>(<span class="at">base_size =</span> <span class="dv">18</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<!-- 
+## Two types of Viz
+
+::: {.columns}
+::: {.column}
+### Explanatory Data Analysis
+:::
+::: {.column}
+### Exploratory Data Analysis
+
+:::
+:::
+
+::: notes
+Add notes to each:
+
+Explanatory:
+- consumer: stakeholder
+- goal: tell a specific story
+- customized
+- polished aesthetic
+
+Exploratory:
+- consumer: the analyst
+- goal: uncover structure for further analysis
+- follow templates
+- prioritize quick and accurate interpretation
+::: -->
+</section>
+<section id="section-14" class="slide level2 intro" data-background-color="var(--intro-bg)">
 <h2></h2>
 <div class="columns">
 <div class="column">
 <h3 id="key-ideas-for-today-1">Key Ideas for Today</h3>
 <ol type="1">
-<li class="fragment">A <em>Quarto document</em> mixes prose and code in a single <code>.qmd</code> file.</li>
-<li class="fragment">Format text using <em>Markdown</em> syntax.</li>
-<li class="fragment">Embed <em>code cells</em> with options to control evaluation and display.</li>
-<li class="fragment">Configure the <em>metadata</em> (YAML) to set its format and options.</li>
+<li class="fragment">A <em>visual channel</em> visually encodes variation in data.</li>
+<li class="fragment">An <em>aesthetic mapping</em> links a variable to a visual channel.</li>
+<li class="fragment">A <em>geometry</em> determines how obs are drawn on the plot.</li>
+<li class="fragment"><em>Mapping</em> an aesthetic to a variable is different from <em>setting</em> it to a constant.</li>
 </ol>
 </div><div class="column">
 <h3 id="for-next-time">For Next Time</h3>
 <ol type="1">
-<li class="fragment">Project Studio 2 next week!</li>
+<li class="fragment"><a href="https://us.prairietest.com/">Sign up</a> for Quiz 3.</li>
+<li class="fragment">Project Studio 2 this week!</li>
+<li class="fragment">Start the Grammar of Graphics questions on the problem set.</li>
 </ol>
 </div></div>
 
