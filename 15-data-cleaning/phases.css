@@ -1,0 +1,19 @@
+/* Three-phase cards: equal-height, low-contrast boxes */
+.reveal .phase-cards.columns {
+  display: flex;
+  align-items: stretch;
+  gap: 0.6em;
+}
+
+.reveal .phase-cards > .column {
+  box-sizing: border-box;
+  padding: 0.3em 0.7em 0.5em;
+  background: rgba(58, 130, 122, 0.06);
+  border: 1px solid rgba(58, 130, 122, 0.25);
+  border-top: 4px solid rgba(58, 130, 122, 0.7);
+  border-radius: 4px;
+}
+
+.reveal .phase-cards > .column h3 {
+  margin-top: 0.2em;
+}
