@@ -495,14 +495,7 @@
     "href": "15-data-cleaning/slides.html#step-2-names-2",
     "title": "Data Cleaning",
     "section": "Step 2: Names",
-    "text": "Step 2: Names\n\n\nrename()\n\n\nChanges column names with the form new_name = old_name, leaving all other columns as they are.\n\n\n\nzev |&gt;\n  rename(year = `Data Year`, quarter = Quarter, county = COUNTY,\n         fuel_type = FUEL_TYPE, make = MAKE, model = MODEL,\n         n_vehicles = `Number of Vehicles`) |&gt;\n  names()\n\n\n\n[1] \"year\"       \"quarter\"    \"county\"     \"fuel_type\"  \"make\"      \n[6] \"model\"      \"n_vehicles\"\n\n\n\n\nConvention: all lowercase, words separated by _ (“snake case”).\n\n\nOptional aside: janitor::clean_names() does this automatically (data_year, number_of_vehicles, …). Handy, but you give up the choice of names."
-  },
-  {
-    "objectID": "15-data-cleaning/slides.html#section-3",
-    "href": "15-data-cleaning/slides.html#section-3",
-    "title": "Data Cleaning",
-    "section": "",
-    "text": "zev &lt;- zev |&gt;\n  rename(year = `Data Year`, quarter = Quarter, county = COUNTY,\n         fuel_type = FUEL_TYPE, make = MAKE, model = MODEL,\n         n_vehicles = `Number of Vehicles`)\n\n\n\n\nFrom here on, zev has the new names."
+    "text": "Step 2: Names\n\n\nrename()\n\n\nChanges column names with the form new_name = old_name, leaving all other columns as they are.\n\n\n\nzev |&gt;\n  rename(year = `Data Year`, quarter = Quarter, county = COUNTY,\n         fuel_type = FUEL_TYPE, make = MAKE, model = MODEL,\n         n_vehicles = `Number of Vehicles`) |&gt;\n  names()\n\n\n\n[1] \"year\"       \"quarter\"    \"county\"     \"fuel_type\"  \"make\"      \n[6] \"model\"      \"n_vehicles\"\n\n\n\n\nConvention: all lowercase, words separated by _ (“snake case”)."
   },
   {
     "objectID": "15-data-cleaning/slides.html#step-3-types",
@@ -659,39 +652,18 @@
     "text": "Step 8: Structure\n\n\nTidy Data\n\n\nA data frame where each variable is a column, each observation is a row, and each value is a cell.\n\n\n\n\n\nTidy (like zev):\n\n\n\ncounty\nquarter\nn\n\n\n\n\nAlameda\n1\n910\n\n\nAlameda\n2\n1004\n\n\n\n\nNot tidy: quarter is spread across column names.\n\n\n\ncounty\nQ1\nQ2\n\n\n\n\nAlameda\n910\n1004\n\n\n\n\n\n\n\nReshaping between these (pivoting) comes in Lecture 18.\n\n\nNumbers in these small tables are illustrative, not from zev."
   },
   {
-    "objectID": "15-data-cleaning/slides.html#decide-document-re-check",
-    "href": "15-data-cleaning/slides.html#decide-document-re-check",
+    "objectID": "15-data-cleaning/slides.html#decide-record-re-check",
+    "href": "15-data-cleaning/slides.html#decide-record-re-check",
     "title": "Data Cleaning",
-    "section": "Decide, document, re-check",
-    "text": "Decide, document, re-check\n\nzev_raw &lt;- read_excel(\"data/raw/New_ZEV_Sales_Last_updated_07-17-2026_ada.xlsx\",\n                      sheet = \"County\")\n\nzev &lt;- zev_raw |&gt;\n  # Snake-case names so no backticks are needed\n  rename(year = `Data Year`, quarter = Quarter, county = COUNTY,\n         fuel_type = FUEL_TYPE, make = MAKE, model = MODEL,\n         n_vehicles = `Number of Vehicles`) |&gt;\n  # Keep out-of-state registrations but flag them: needed for statewide\n  # totals, excluded from county-level comparisons\n  mutate(in_state = county != \"Out Of State\")\n  # Note: zero counts are implicit (no row), not NA\n\n# Nothing dropped; expectations still hold\nstopifnot(\n  nrow(zev) == nrow(zev_raw),\n  all(zev$quarter %in% 1:4),\n  all(zev$n_vehicles &gt;= 1)\n)\n\nreadr::write_csv(zev, \"data/clean/zev.csv\")\n\n\n\n\n\n\nCleaning is iterative: EDA (Friday) will turn up new problems, and you’ll come back here."
+    "section": "Decide, Record, Re-check",
+    "text": "Decide, Record, Re-check\n\nzev_raw &lt;- read_excel(\"data/raw/New_ZEV_Sales_Last_updated_07-17-2026_ada.xlsx\",\n                      sheet = \"County\")\n\nzev &lt;- zev_raw |&gt;\n  # Snake-case names so no backticks are needed\n  rename(year = `Data Year`, quarter = Quarter, county = COUNTY,\n         fuel_type = FUEL_TYPE, make = MAKE, model = MODEL,\n         n_vehicles = `Number of Vehicles`) |&gt;\n  # Keep out-of-state registrations but flag them: needed for statewide\n  # totals, excluded from county-level comparisons\n  mutate(in_state = county != \"Out Of State\")\n  # Note: zero counts are implicit (no row), not NA\n\n# Nothing dropped; expectations still hold\nstopifnot(\n  nrow(zev) == nrow(zev_raw),\n  all(zev$quarter %in% 1:4),\n  all(zev$n_vehicles &gt;= 1)\n)\n\nreadr::write_csv(zev, \"data/clean/zev.csv\")\n\n\n\n\n\n\nCleaning is iterative: EDA will turn up new problems, and you’ll return to cleaning."
   },
   {
-    "objectID": "15-data-cleaning/slides.html#a-messy-survey",
-    "href": "15-data-cleaning/slides.html#a-messy-survey",
+    "objectID": "15-data-cleaning/slides.html#guess-the-metaphor",
+    "href": "15-data-cleaning/slides.html#guess-the-metaphor",
     "title": "Data Cleaning",
-    "section": "A messy survey",
-    "text": "A messy survey\n\nsurvey &lt;- tibble::tibble(\n  `Student Name` = c(\"Ana\", \"Ben\", \"Cam\", \"Dev\", \"Eli\", \"Fay\",\n                     \"Gus\", \"Hana\", \"Ivy\", \"Ivy\", \"Jon\", \"Kai\"),\n  AGE = c(19, 20, -99, 21, 250, 19, 67, 20, 22, 22, 18, 20),\n  Campus = c(\"Berkeley\", \"berkeley\", \"Berkeley \", \"UCB\", \"Berkeley\", \"Laney\",\n             \"Berkeley\", \"UC Berkeley\", \"Berkeley\", \"Berkeley\", \"UCB\", \"berkeley\"),\n  commute_min = c(\"15\", \"N/A\", \"30\", \"\", \"10\", \"45\",\n                  \"20\", \"N/A\", \"5\", \"5\", \"25\", \"12\"),\n  steps = c(\"8,200\", \"1,200\", \"12,050\", \"6,000\", \"9,300\", \"4,750\",\n            \"10,400\", \"7,800\", \"3,100\", \"3,100\", \"11,000\", \"5,500\")\n)\n\nWith a partner, audit survey using the checklist. Find as many problems as you can and propose a fix for each.\n\n  \n    −\n    +\n \n 06:00"
-  },
-  {
-    "objectID": "15-data-cleaning/slides.html#what-did-you-find",
-    "href": "15-data-cleaning/slides.html#what-did-you-find",
-    "title": "Data Cleaning",
-    "section": "What did you find?",
-    "text": "What did you find?\n\n\n\n\n\n\n\n\nStep\nProblem\nProposed fix\n\n\n\n\nNames\nStudent Name is non-syntactic; casing is mixed\nrename()\n\n\nTypes\ncommute_min and steps are text\nas.numeric(), parse_number()\n\n\nMissing\n-99 in AGE; \"N/A\" and \"\" in commute_min\nna_if()\n\n\nDistinct\n5 spellings of Berkeley\ntrimws(), tolower(), case_when()\n\n\nRanges\nage 250 is impossible; age 67 is unusual but possible\n250 → NA; keep 67\n\n\nDuplicates\nIvy appears twice, identically\ndistinct()\n\n\n\n\nBuild this table from the room first; reveal it after. Push on the 250 vs 67 distinction and on whether to drop the row with age 250 or just set age to NA (the rest of that row is fine)."
-  },
-  {
-    "objectID": "15-data-cleaning/slides.html#one-way-to-clean-it",
-    "href": "15-data-cleaning/slides.html#one-way-to-clean-it",
-    "title": "Data Cleaning",
-    "section": "One way to clean it",
-    "text": "One way to clean it\n\nsurvey |&gt;\n  rename(name = `Student Name`, age = AGE, campus = Campus) |&gt;\n  distinct() |&gt;\n  mutate(\n    age = na_if(age, -99),\n    age = if_else(age &gt; 120, NA, age),\n    campus = trimws(tolower(campus)),\n    campus = case_when(\n      campus %in% c(\"ucb\", \"uc berkeley\") ~ \"berkeley\",\n      .default = campus\n    ),\n    commute_min = na_if(commute_min, \"N/A\"),\n    commute_min = na_if(commute_min, \"\"),\n    commute_min = as.numeric(commute_min),\n    steps = readr::parse_number(steps)\n  )\n\n\n\n# A tibble: 11 × 5\n   name    age campus   commute_min steps\n   &lt;chr&gt; &lt;dbl&gt; &lt;chr&gt;          &lt;dbl&gt; &lt;dbl&gt;\n 1 Ana      19 berkeley          15  8200\n 2 Ben      20 berkeley          NA  1200\n 3 Cam      NA berkeley          30 12050\n 4 Dev      21 berkeley          NA  6000\n 5 Eli      NA berkeley          10  9300\n 6 Fay      19 laney             45  4750\n 7 Gus      67 berkeley          20 10400\n 8 Hana     20 berkeley          NA  7800\n 9 Ivy      22 berkeley           5  3100\n10 Jon      18 berkeley          25 11000\n11 Kai      20 berkeley          12  5500\n\n\n\nreadr::parse_number() drops the grouping commas; as.numeric(\"8,200\") would give NA with a warning. Ask: which of these lines are decisions someone might reasonably make differently? (age 250 → NA vs drop row; merging “UC Berkeley”; whether “” means “no commute” or “didn’t answer”.)"
-  },
-  {
-    "objectID": "15-data-cleaning/slides.html#one-way-to-clean-it-1",
-    "href": "15-data-cleaning/slides.html#one-way-to-clean-it-1",
-    "title": "Data Cleaning",
-    "section": "One way to clean it",
-    "text": "One way to clean it\n\nsurvey |&gt;\n  rename(name = `Student Name`, age = AGE, campus = Campus) |&gt;\n  distinct() |&gt;\n  mutate(\n    age = na_if(age, -99),\n    age = if_else(age &gt; 120, NA, age),\n    campus = trimws(tolower(campus)),\n    campus = case_when(\n      campus %in% c(\"ucb\", \"uc berkeley\") ~ \"berkeley\",\n      .default = campus\n    ),\n    commute_min = na_if(commute_min, \"N/A\"),\n    commute_min = na_if(commute_min, \"\"),\n    commute_min = as.numeric(commute_min),\n    steps = readr::parse_number(steps)\n  )\n\n\n\n\nWhich of these lines are decisions that a reasonable analyst might make differently?\n\n  \n    −\n    +\n \n 02:00"
+    "section": "Guess the Metaphor",
+    "text": "Guess the Metaphor\n\nData cleaning is like a tax audit: you go through a checklist to see if the data (the tax return) conforms to standards and expectations. Where it doesn’t, you decide what to change to make it conform and record those changes."
   },
   {
     "objectID": "15-data-cleaning/slides.html#section-6",
@@ -2343,7 +2315,7 @@
     "href": "07-control-flow/slides.html#a-random-condition-in-r",
     "title": "Control Flow",
     "section": "A random condition in R",
-    "text": "A random condition in R\n\n\nsample(x = -10:10, size = 1)\n\n\n\n[1] 1\n\n\n\n\nsample() will randomly sample 1 element from the vector x."
+    "text": "A random condition in R\n\n\nsample(x = -10:10, size = 1)\n\n\n\n[1] 3\n\n\n\n\nsample() will randomly sample 1 element from the vector x."
   },
   {
     "objectID": "07-control-flow/slides.html#section-1",
@@ -2399,35 +2371,35 @@
     "href": "07-control-flow/slides.html#what-if-x-has-multiple-elements",
     "title": "Control Flow",
     "section": "What if x has multiple elements?",
-    "text": "What if x has multiple elements?\n\n\nx &lt;- rnorm(3)\nx\n\n\n\n[1] -1.48993965 -0.03316975 -0.55552665\n\n\n\n\n\n\n\n\n\n\n      if (x &gt; 0) {\n        print(\"x is positive :)\")\n      }\n\n\n\nAnnotate this if-then by wrapping it in a for loop."
+    "text": "What if x has multiple elements?\n\n\nx &lt;- rnorm(3)\nx\n\n\n\n[1]  0.4040161 -0.8563801 -1.3892433\n\n\n\n\n\n\n\n\n\n\n      if (x &gt; 0) {\n        print(\"x is positive :)\")\n      }\n\n\n\nAnnotate this if-then by wrapping it in a for loop."
   },
   {
     "objectID": "07-control-flow/slides.html#option-1",
     "href": "07-control-flow/slides.html#option-1",
     "title": "Control Flow",
     "section": "Option 1",
-    "text": "Option 1\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(\"x is positive :)\")\n  }\n}"
+    "text": "Option 1\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(\"x is positive :)\")\n  }\n}\n\n\n\n[1] \"x is positive :)\""
   },
   {
     "objectID": "07-control-flow/slides.html#option-2",
     "href": "07-control-flow/slides.html#option-2",
     "title": "Control Flow",
     "section": "Option 2",
-    "text": "Option 2\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(paste(\"element\", i, \"is positive :)\"))\n  }\n}"
+    "text": "Option 2\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(paste(\"element\", i, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"element 1 is positive :)\""
   },
   {
     "objectID": "07-control-flow/slides.html#option-3",
     "href": "07-control-flow/slides.html#option-3",
     "title": "Control Flow",
     "section": "Option 3",
-    "text": "Option 3\n\nfor (x_elem in x) {\n  if (x_elem &gt; 0) {\n    print(paste(x_elem, \"is positive :)\"))\n  }\n}"
+    "text": "Option 3\n\nfor (x_elem in x) {\n  if (x_elem &gt; 0) {\n    print(paste(x_elem, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"0.404016056182229 is positive :)\""
   },
   {
     "objectID": "07-control-flow/slides.html#ifelse",
     "href": "07-control-flow/slides.html#ifelse",
     "title": "Control Flow",
     "section": "ifelse()",
-    "text": "ifelse()\n\n\nifelse()\n\n\nA vectorized if-else: applies a condition to every element of a vector at once, without an explicit loop.\n\n\n\n\nx &lt; 0 \n\n\n\n[1] TRUE TRUE TRUE\n\n\n\n\n\nifelse(test = x &lt; 0, yes = \"is positive :)\", no = \"is negative :(\")\n\n\n\n[1] \"is positive :)\" \"is positive :)\" \"is positive :)\""
+    "text": "ifelse()\n\n\nifelse()\n\n\nA vectorized if-else: applies a condition to every element of a vector at once, without an explicit loop.\n\n\n\n\nx &lt; 0 \n\n\n\n[1] FALSE  TRUE  TRUE\n\n\n\n\n\nifelse(test = x &lt; 0, yes = \"is positive :)\", no = \"is negative :(\")\n\n\n\n[1] \"is negative :(\" \"is positive :)\" \"is positive :)\""
   },
   {
     "objectID": "07-control-flow/slides.html#guess-the-metaphor",
