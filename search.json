@@ -14,411 +14,308 @@
     "text": "From Fall 2025\n\nSyllabus\n\ndownweight projects\nframe quizzes that the group part is optional\nremove automatic quiz drop and switch form so that it’s quiz specific\n\nStarting them on JupyterClassic was great, then terminal / git bash, the R command line, then R app.\nFor Lab 0, have students transcribe the index cards in lab to go through the process of data digitization.\nBe clearer about the fact that shell commands like ls, cat, mkdir, cp, mv take paths as their arguments, and those paths can be relative or absolute\nBe more deliberate about the home directory, ~, and introduce it in lecture.\nConsider using the norm of ending each path to a dir with / and also teaching what . does at the start of a path.\nBe more deliberate about introducing the R environment and how it differs from files on the file system (data structures in memory vs data files on disk).\nMove factors to end of Vectors stuff, before matrices.\nFor each project, write out the cogs of the computational machine that will need to be in place - data digitization, reshaping, text data, time / date, spatial, etc - and ensure each lab goes all the way through to the communication step. Each lab, you spiral back over some similar elements and add some new ones.\nWhen introducing matrices, introduce the notion of attributes attributes() and a class: it changes the behavior of print(), e.g., even though the matrix is a a vector.That opens the door to factors and date times.\nUnits: Filesystems and the Shell, R: Data Structures, R: as a programming language,\nHave a separate section of the website for “Tools” that contains install / walkthroughs of: shell, R, git, quarto, Positron. Push these out ahead of the first time they’re used in class so that they’re not seeing them for the first time in lab section.\nConsider added a pre tidyverse lecture that’s about data IO: reading and writing different types of files.\nActually, yeah, that might be the best way to do the units here:\n\nReading and Writing Data (base + readr)\n\nread/write files (txt, csv, json, Rda)\nencoding\n\nData Wrangling (dplyr, tidyr)\n\nCol types\nMissing data\nReshaping\nNormalization\n\nEDA (ggplot2, stringr, lubridate, leaflet)\n\nStatistical summaries\nData visualization\n\nModeling ()\nSharing your work (Dashboards, APIs)\n\nSlide classes: Definition, Your Turn, Example, Historical Note.\nStart talking bits and bytes for storing data (numbers) and the compact hexademical notation and then come back to it for the hexadecimal encoding of unicode characters.\nOne of the units should be “weird types of data” and include\n\nNetworks (treated early on)\nText\nDate/Time\nGeographic\n\nFor date/time stuff:\n\nCould potentially build full project out of the “city that never sleeps”\nuse consistent visual metaphor of dot for point in time, star for origin (1970), segments for time spans (durations). potentially build up “timeline” over course of all of the examples - layers each example on the same timeline.\n\nOther Project Ideas\n\nChris Lowe’s Sharks: geospatial / temporal\nCollege Scorecard\nBART / MUNI ridership data for date-time stuff\n\nFor spatial data, switch the order of the lectures. Have the first one on “making” spatial data. Have the second one working with existing data (talk about coordinate systems, projections, shapefiles, and maps). Maybe need a third lecture to really demonstrate doing the sf operations on real data. For the first (sf geometry lecture), actually show geometric features (a cut out hexagon and square, a rod (for a line), and a tiny ball (for a point)).\nDo add a class or two on SQL\nMove “R packages” up before they use external packages and have them use and add to their project over the course of the semester. It can hold:\n\nData that they collect\nSome sort of “signature” that they can add to their projects\nFunction to calculate quiz grade\n\nConsider adding a unit on simulation. Could cover\n\nr() family of functions\nbootstrapping/permutations tests\ncode up famous probability problems: birthday problem, monte hall, buffon’s needle, german tank problem, CLT.\n\nConsider having a class-wide package that every student must add something to by the end of the semester (practice with git).\nAlternatively, they could be group projects.\nIn addition to the prediction competition, hold a data visualization competition (have a GSI plan and execute it).\nAdd a project where they analyze their own app usage:\n\nthey make a data request from an app they use (gmail, insta, tiktok, youtube, maps, reddit) or use a data set collected from one of the GSIs.\nit’ll have lots of cool jsons\nthis could be a final project with a presentation component during RRR week\ncould have them to do this or the prediction competition (or both) for a final project.\nthese could be graded with a higher bar for getting credit: above a certain prediction accuracy and having a poster at the symposium.\n\nData cleaning / EDA checklist\n\nconfirm dims\ncheck col types\ncheck whether unique ids are unique\ncheck for missing values\ncheck distributions of variables\n\noutliers\nlevels for factors\nrange and outliers (based on Z) of numerics"
   },
   {
-    "objectID": "tools/r.html",
-    "href": "tools/r.html",
-    "title": "R",
+    "objectID": "tools/shell.html",
+    "href": "tools/shell.html",
+    "title": "The Shell",
     "section": "",
-    "text": "R is the programming language we use all semester for computing with data. On DataHub, R is already installed, but you will also want to install it on your own machine.",
+    "text": "The shell (also called the command line or terminal) lets you talk to your computer by typing commands instead of clicking. We use it to run Git, launch R and Quarto, and move around the file system.",
     "crumbs": [
       "Tools",
-      "R"
+      "Shell"
     ]
   },
   {
-    "objectID": "tools/r.html#installing-r-locally",
-    "href": "tools/r.html#installing-r-locally",
-    "title": "R",
-    "section": "Installing R locally",
-    "text": "Installing R locally\nStart at CRAN, the Comprehensive R Archive Network, then follow the steps for your operating system.\n\nmacOSWindows\n\n\n\nClick Download R for macOS.\nDownload the .pkg installer that matches your machine (Apple silicon or Intel).\nOpen the installer and accept the defaults.\n\n\n\n\nClick Download R for Windows, then base.\nDownload the installer and run it.\nAccept the defaults.",
+    "objectID": "tools/shell.html#opening-a-shell",
+    "href": "tools/shell.html#opening-a-shell",
+    "title": "The Shell",
+    "section": "Opening a shell",
+    "text": "Opening a shell\n\nmacOSWindows\n\n\nUse Terminal, which comes preinstalled on every Mac.\n\nPress ⌘ + Space to open Spotlight.\nType Terminal and press Return.\n\n\n\nWindows has several shells, but for this course use Git Bash, which behaves like the macOS/Linux shell.\n\nInstall Git for Windows (this also gives you Git Bash).\nOpen the Start menu, type Git Bash, and press Enter.",
     "crumbs": [
       "Tools",
-      "R"
+      "Shell"
     ]
   },
   {
-    "objectID": "tools/r.html#checking-your-installation",
-    "href": "tools/r.html#checking-your-installation",
-    "title": "R",
-    "section": "Checking your installation",
-    "text": "Checking your installation\nOpen R (or a shell) and run:\nR.version.string\nYou should see the version of R you installed[^Fun fact: the unusual names of R versions come from snippets of text from the comic strip Peanuts.].",
+    "objectID": "tools/shell.html#a-few-starter-commands",
+    "href": "tools/shell.html#a-few-starter-commands",
+    "title": "The Shell",
+    "section": "A few starter commands",
+    "text": "A few starter commands\n\n\n\nCommand\nWhat it does\n\n\n\n\npwd\nPrint the current (working) directory\n\n\nls\nList files in the current directory\n\n\ncd folder\nChange into folder\n\n\ncd ..\nMove up one directory\n\n\ncat\nPrints the contents of a file",
     "crumbs": [
       "Tools",
-      "R"
+      "Shell"
     ]
   },
   {
-    "objectID": "tools/r.html#launching-r",
-    "href": "tools/r.html#launching-r",
-    "title": "R",
-    "section": "Launching R",
-    "text": "Launching R\nTo open R from a shell, just type the command R and press Enter. This will open R at the command line. To close R and return to the shell, run the function q() to quit.",
-    "crumbs": [
-      "Tools",
-      "R"
-    ]
-  },
-  {
-    "objectID": "tools/quarto.html",
-    "href": "tools/quarto.html",
-    "title": "Quarto",
-    "section": "",
-    "text": "Quarto is the publishing system we use to weave together text, code, and output into reports, slides, and websites. Quarto documents have the .qmd extension."
-  },
-  {
-    "objectID": "tools/quarto.html#installing-quarto",
-    "href": "tools/quarto.html#installing-quarto",
-    "title": "Quarto",
-    "section": "Installing Quarto",
-    "text": "Installing Quarto\nQuarto is already available on DataHub and ships with Positron. To install it locally:\n\nGo to https://quarto.org/docs/get-started.\nDownload the installer for your operating system and run it.\nConfirm the install from a shell:\nquarto --version"
-  },
-  {
-    "objectID": "tools/quarto.html#anatomy-of-a-.qmd-file",
-    "href": "tools/quarto.html#anatomy-of-a-.qmd-file",
-    "title": "Quarto",
-    "section": "Anatomy of a .qmd file",
-    "text": "Anatomy of a .qmd file\nA Quarto document has two parts:\n\nA YAML header between --- lines that sets the title, output format, and options.\nThe body, which mixes Markdown text with executable code chunks.\n\n---\ntitle: \"My Analysis\"\nformat: html\n---\n\nHere is some text.\n\n\n::: {.cell}\n\n```{.r .cell-code}\n1 + 1\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n[1] 2\n```\n\n\n:::\n:::"
-  },
-  {
-    "objectID": "tools/quarto.html#rendering",
-    "href": "tools/quarto.html#rendering",
-    "title": "Quarto",
-    "section": "Rendering",
-    "text": "Rendering\nRender a document to its output format with:\nquarto render my-doc.qmd\nIn Positron you can also click Render to preview the result."
-  },
-  {
-    "objectID": "tools/quarto.html#tips",
-    "href": "tools/quarto.html#tips",
-    "title": "Quarto",
+    "objectID": "tools/shell.html#tips",
+    "href": "tools/shell.html#tips",
+    "title": "The Shell",
     "section": "Tips",
-    "text": "Tips\n\nCode chunks start with ```{r} and end with ```.\nUse format: html for web pages and format: revealjs for slides.\nThe Quarto documentation is thorough and searchable."
+    "text": "Tips\n\nPress Tab to autocomplete file and folder names.\nPress the Up arrow to recall previous commands.\nPaths are case-sensitive on the shell — Data and data are different.",
+    "crumbs": [
+      "Tools",
+      "Shell"
+    ]
   },
   {
-    "objectID": "tools/index.html",
-    "href": "tools/index.html",
-    "title": "Tools",
+    "objectID": "tools/r-app.html",
+    "href": "tools/r-app.html",
+    "title": "The R App",
     "section": "",
-    "text": "These pages are quick how-to guides for the computational tools we use in Stat 133. Each covers how to get set up and the handful of commands or steps you need to get going.\nIf you’re just getting started, DataHub is the fastest way to begin — everything is preinstalled. As the course progresses, you should install each of the tools on your own computer so that you can continue using them outside of the classroom.",
-    "crumbs": [
-      "Tools"
-    ]
-  },
-  {
-    "objectID": "tools/datahub.html",
-    "href": "tools/datahub.html",
-    "title": "DataHub",
-    "section": "",
-    "text": "DataHub is UC Berkeley’s browser-based computing environment. It gives you a full R and RStudio/Positron setup in the cloud, so there is nothing to install on your own machine. For Stat 133 we use the Statistics department’s hub at stat.datahub.berkeley.edu.",
+    "text": "When you install R, you also get a small graphical application bundled with it: R.app on macOS and Rgui on Windows. It gives you an R console plus a simple editor for writing scripts, without installing anything else. It is the quickest way to start writing R on your own machine.",
     "crumbs": [
       "Tools",
-      "DataHub"
+      "R App"
     ]
   },
   {
-    "objectID": "tools/datahub.html#getting-started",
-    "href": "tools/datahub.html#getting-started",
-    "title": "DataHub",
-    "section": "Getting started",
-    "text": "Getting started\n\nOpen https://stat.datahub.berkeley.edu in your browser.\nSign in with your CalNet ID (the same credentials you use for bCourses).\nAuthorize the hub the first time you log in. After a short pause your personal server will spin up.",
+    "objectID": "tools/r-app.html#opening-the-r-app",
+    "href": "tools/r-app.html#opening-the-r-app",
+    "title": "The R App",
+    "section": "Opening the R App",
+    "text": "Opening the R App\n\nmacOSWindows\n\n\n\nOpen Finder and go to the Applications folder.\nDouble-click R (the blue R icon). This is R.app.\nYou can also press ⌘ + Space to open Spotlight, type R, and press Enter.\n\nIf you have both R.app and R64.app, either one is fine on a modern Mac.\n\n\n\nClick the Start menu and type R.\nChoose R x.y.z (the version number will match what you installed). This opens Rgui.\nYou can also find it under All Apps → R → R x.y.z.\n\nIf Windows shows both R i386 and R x64, choose R x64.\n\n\n\nWhen the app opens you will see the R console with the &gt; prompt. Type an expression and press Enter to run it:\n2 + 2",
     "crumbs": [
       "Tools",
-      "DataHub"
+      "R App"
     ]
   },
   {
-    "objectID": "tools/datahub.html#working-on-the-hub",
-    "href": "tools/datahub.html#working-on-the-hub",
-    "title": "DataHub",
-    "section": "Working on the hub",
-    "text": "Working on the hub\n\nYour files live on a persistent home directory, so your work is saved between sessions.\nLaunch a session from the DataHub launcher (RStudio, a terminal, or a notebook) to start working.\nCourse materials are typically distributed with a link that pulls the files directly into your DataHub account.",
+    "objectID": "tools/r-app.html#writing-an-r-script",
+    "href": "tools/r-app.html#writing-an-r-script",
+    "title": "The R App",
+    "section": "Writing an R script",
+    "text": "Writing an R script\nThe console is good for one-off commands, but anything you want to keep should go in a script — a plain text file with the .R extension that holds a sequence of R commands.\nTo open a new, empty script:\n\nmacOS: File → New Document, or press ⌘ + N.\nWindows: File → New script, or press Ctrl + N.\n\nAn editor window opens. Type your code there, one command per line:\nx &lt;- c(4, 8, 15, 16, 23, 42)\nmean(x)\nNothing runs as you type. To run a line, put your cursor on it and press:\n\nmacOS: ⌘ + Enter\nWindows: Ctrl + R\n\nTo run several lines, select them first and use the same shortcut. The commands are sent to the console, where you will see the output.",
     "crumbs": [
       "Tools",
-      "DataHub"
+      "R App"
     ]
   },
   {
-    "objectID": "tools/datahub.html#tips",
-    "href": "tools/datahub.html#tips",
-    "title": "DataHub",
+    "objectID": "tools/r-app.html#saving-your-script",
+    "href": "tools/r-app.html#saving-your-script",
+    "title": "The R App",
+    "section": "Saving your script",
+    "text": "Saving your script\nSave early and often.\n\nmacOS: File → Save, or ⌘ + S.\nWindows: File → Save, or Ctrl + S.\n\nIn the save dialog:\n\nChoose a folder you can find again — a stat133 folder in your Documents is a good habit.\nGive the file a short, descriptive name with no spaces, ending in .R, such as vector-practice.R.\nClick Save.\n\nTo reopen it later, use File → Open Document (macOS) or File → Open script (Windows) and select the file.",
+    "crumbs": [
+      "Tools",
+      "R App"
+    ]
+  },
+  {
+    "objectID": "tools/r-app.html#tips",
+    "href": "tools/r-app.html#tips",
+    "title": "The R App",
     "section": "Tips",
-    "text": "Tips\n\nIf your session becomes unresponsive, use File → Log Out and log back in to restart your server (you can also try refreshing your browser).\nThe hub times out after a period of inactivity, so save your work often.\nNeed more help? See the campus DataHub documentation.",
+    "text": "Tips\n\nUse # to start a comment. Everything after it on that line is ignored by R.\nKeep the script as the record of what you did; treat the console as scratch paper.",
     "crumbs": [
       "Tools",
-      "DataHub"
+      "R App"
     ]
   },
   {
-    "objectID": "quiz-slides.html#academic-integrity",
-    "href": "quiz-slides.html#academic-integrity",
-    "title": "Quiz",
-    "section": "Academic Integrity",
-    "text": "Academic Integrity\nAcademic integrity is tantamount. Your individual quiz must represent your own work absent the help of other students - either in the room or in another quiz section. All electronics must be stowed and your eyes must not wander to other students quizzes. Conveying information to other students about the content of the quiz violates principles of academic integrity. All instances of academic misconduct will be taken seriously, handled by me personally, and will be coordinated with the Office of Student Conduct.\nDuring the group quiz, you are of course encouraged to collaborate with your teammates (but only your teammates) to answer the questions.\nIf the proctor sees your eyes wandering, you’ll be reseated at the front of the class.\n\nProf. Bray"
-  },
-  {
-    "objectID": "quiz-slides.html#individual-quiz",
-    "href": "quiz-slides.html#individual-quiz",
-    "title": "Quiz",
-    "section": "Individual Quiz",
-    "text": "Individual Quiz\n\n\nBefore the quiz begins\n\n🧹 Clear your desk of everything except a pen/pencil and your cheat sheet.\n🧢 Remove hats, hoods, and sunglasses.\n📱 All electronic devices (laptop, phone, airbuds, smart watch) should be remain in your bag for the entire class period.\nSpread out as much as possible so that you are not too close to each other.\nWhen you get a quiz, cover it with your cheat sheet and do not begin.\n\n\nDuring the quiz\n\n👀 Keep your eyes on your own quiz.\nIf you need to use the bathroom, bring your quiz and phone to the front of the class.\n⌛If you finish early, please raise your hand and we will collect your quiz.\n❗You must stop writing when time is called or risk a 0.\n\nGood luck! 🍀\n\n\n  \n    −\n    +\n \n 40:00"
-  },
-  {
-    "objectID": "quiz-slides.html#group-quiz",
-    "href": "quiz-slides.html#group-quiz",
-    "title": "Quiz",
-    "section": "Group Quiz",
-    "text": "Group Quiz\n\n\nBefore the quiz begins\n\nForm groups of 2-3 people.\n🧹 Everything except a pen/pencil and your cheat sheet must remain off your desk.\n📱 All electronic devices (laptop, phone, airbuds, smart watch) should be remain in your bag for the entire class period.\nWhen you get a group quiz, write all group members names on it but do not begin.\n\n\nDuring the quiz\n\n🗣️Discuss each of the problems and decide as a group which answer is best.\n⌛If you finish early, please raise your hand and we will collect your quiz.\n❗You must stop writing when time is called or risk a 0.\n\nGood luck! 🍀\n\n\n  \n    −\n    +\n \n 25:00"
-  },
-  {
-    "objectID": "projects/3-er-visits/slides.html#agenda",
-    "href": "projects/3-er-visits/slides.html#agenda",
-    "title": "Lab 3",
-    "section": "Agenda",
-    "text": "Agenda\n\nPositron Installation\nLab Review Worksheet (15 minutes)\nOverview of Project 3\nWork through select parts of Project 3\nGroup work and time for questions"
-  },
-  {
-    "objectID": "projects/3-er-visits/slides.html#positron-installation",
-    "href": "projects/3-er-visits/slides.html#positron-installation",
-    "title": "Lab 3",
-    "section": "Positron Installation",
-    "text": "Positron Installation\n\nVisit https://positron.posit.co/download.html and download the installer for your OS.\nKeep all default settings during installation."
-  },
-  {
-    "objectID": "projects/3-er-visits/slides.html#lab-review-worksheet",
-    "href": "projects/3-er-visits/slides.html#lab-review-worksheet",
-    "title": "Lab 3",
-    "section": "Lab Review Worksheet",
-    "text": "Lab Review Worksheet\n\n  \n    −\n    +\n \n 15:00\n \nGroup work to review essential material. To get started, Visit the following GitHub repository and read the README.md file.\n\n\n\n\nhttps://www.github.com/berkeley-stat133/worksheet-lab3"
-  },
-  {
-    "objectID": "projects/3-er-visits/slides.html#er-visits-project-overview",
-    "href": "projects/3-er-visits/slides.html#er-visits-project-overview",
-    "title": "Lab 3",
-    "section": "ER Visits Project Overview",
-    "text": "ER Visits Project Overview\n\nDataset: Collected by 25 Pediatric Emergency Care Applied Research Network (PECARN) emergency rooms on patients with minor head trauma.\nGoal: Practive Exploratory Data Analysis, a key step in most data science project.\nClient: Dr. Bayes, a pediatric emergency physician and researcher with PECARN."
-  },
-  {
-    "objectID": "projects/3-er-visits/slides.html#project-overview",
-    "href": "projects/3-er-visits/slides.html#project-overview",
-    "title": "Lab 3",
-    "section": "Project Overview",
-    "text": "Project Overview\nWe will work through three major steps:\n\nData Cleaning\nPrepare the dataset so it can be analyzed effectively.\nExploratory Data Analysis (EDA)\nUse visualizations and summaries to find interesting patterns.\nReporting Results\nCommunicate findings clearly to Dr. Bayes."
-  },
-  {
-    "objectID": "projects/3-er-visits/slides.html#data-cleaning",
-    "href": "projects/3-er-visits/slides.html#data-cleaning",
-    "title": "Lab 3",
-    "section": "Data Cleaning",
-    "text": "Data Cleaning\nWhy clean data?\n\nEnsure consistent formats in columns\nHandle missing (NA) or inconsistent values\nMakes dataset easier to work with\n\nKey dplyr functions:\n\nslice(), select(), arrange()\nmutate(), filter(), summarise(), group_by()"
-  },
-  {
-    "objectID": "projects/3-er-visits/slides.html#exploratory-data-analysis-eda",
-    "href": "projects/3-er-visits/slides.html#exploratory-data-analysis-eda",
-    "title": "Lab 3",
-    "section": "Exploratory Data Analysis (EDA)",
-    "text": "Exploratory Data Analysis (EDA)\n\nPurpose: uncover insights and understand the data before modeling\nTools:\n\nggplot2 for visualization.\ndplyr for summary tables and quick data manipulation.\ntidyr for reshaping.\nreadr for reading data.\nALL part of the tidyverse 🔥😮‍💨🙏💯"
-  },
-  {
-    "objectID": "projects/3-er-visits/slides.html#exploratory-data-analysis-eda-1",
-    "href": "projects/3-er-visits/slides.html#exploratory-data-analysis-eda-1",
-    "title": "Lab 3",
-    "section": "Exploratory Data Analysis (EDA)",
-    "text": "Exploratory Data Analysis (EDA)\n\nCommon plots:\n\nBar charts (categorical variables)\nHistograms (continuous variables)\nScatterplots (relationship between two variables)\nBoxplots and Violin plots (distributions across groups)\nFacets (compare subgroups)\n\nCommon summaries:\n\nMissing value analysis\nCounts and proportions\nMeans, medians, standard deviations"
-  },
-  {
-    "objectID": "projects/3-er-visits/slides.html#example-with-ggplot2",
-    "href": "projects/3-er-visits/slides.html#example-with-ggplot2",
-    "title": "Lab 3",
-    "section": "Example with ggplot2",
-    "text": "Example with ggplot2\nlibrary(ggplot2)\ndata |&gt; \n    ggplot(aes(x = age, fill = ct_scan_needed)) + \n    geom_histogram(bins=18) + \n    labs(title = \"Age Distribution by CT Scan Need\",\n         x = \"Age (years)\",\n         y = \"Count\") +\n    theme_minimal()"
-  },
-  {
-    "objectID": "projects/3-er-visits/slides.html#step-3-reporting-to-dr.-bayes",
-    "href": "projects/3-er-visits/slides.html#step-3-reporting-to-dr.-bayes",
-    "title": "Lab 3",
-    "section": "Step 3: Reporting to Dr. Bayes",
-    "text": "Step 3: Reporting to Dr. Bayes\nRemember your audience:\nDr. Bayes is a clinician, not a statistician.\nUse clear visuals and plain language.\n\nFocus on actionable insights:\n\nWhich patients are at highest risk?\nWhen might a CT be unnecessary?"
-  },
-  {
-    "objectID": "projects/3-er-visits/slides.html#project-work-time",
-    "href": "projects/3-er-visits/slides.html#project-work-time",
-    "title": "Lab 3",
-    "section": "Project Work Time",
-    "text": "Project Work Time\n\n  \n    −\n    +\n \n 25:00\n \nGet started on the project and feel free to ask questions."
-  },
-  {
-    "objectID": "projects/3-electric-vehicles/project.html",
-    "href": "projects/3-electric-vehicles/project.html",
-    "title": "Project 2: Zero-Emissions Vehicles in California",
+    "objectID": "tools/positron.html",
+    "href": "tools/positron.html",
+    "title": "Positron",
     "section": "",
-    "text": "In this project, you will analyze recent data collected by the State of California on new zero-emissions vehicles. Fundamentally, your goal is to characterize the trends in zero-emissions vehicles over the last few years using summary statistics.\nBy completing this project, you will:",
+    "text": "Positron is the code editor (IDE) we use to write and run R and Quarto. It is built by Posit, the same company behind RStudio, and is designed for data science.",
+    "crumbs": [
+      "Tools",
+      "Positron"
+    ]
+  },
+  {
+    "objectID": "tools/positron.html#installing-positron",
+    "href": "tools/positron.html#installing-positron",
+    "title": "Positron",
+    "section": "Installing Positron",
+    "text": "Installing Positron\n\nGo to https://positron.posit.co.\nDownload the installer for your operating system.\nRun the installer and open Positron.\n\nMake sure you already have R installed so Positron can find it. If your computer is too old to run Positron, don’t fret. You can log into DataHub and work with Positron there.",
+    "crumbs": [
+      "Tools",
+      "Positron"
+    ]
+  },
+  {
+    "objectID": "tools/positron.html#the-layout",
+    "href": "tools/positron.html#the-layout",
+    "title": "Positron",
+    "section": "The layout",
+    "text": "The layout\n\nEditor: where you write scripts and .qmd documents.\nConsole: a live R session for running code interactively.\nVariables / Environment: shows the objects currently in memory.\nPlots, Help, and a Terminal are available in the side panes.",
+    "crumbs": [
+      "Tools",
+      "Positron"
+    ]
+  },
+  {
+    "objectID": "tools/positron.html#opening-a-folder-from-a-github-repository",
+    "href": "tools/positron.html#opening-a-folder-from-a-github-repository",
+    "title": "Positron",
+    "section": "Opening a folder from a GitHub repository",
+    "text": "Opening a folder from a GitHub repository\nMost of the projects in this course start by copying (“cloning”) a repository from GitHub onto your computer and opening it as a Positron folder.\n\nOn GitHub, open the repository and click the green Code button. Copy the HTTPS URL, which ends in .git.\nIn Positron, click the button in the upper left corner for New &gt; New Folder from Git, then paste the URL in the top box.\nChoose a folder on your computer to put the repository in — somewhere you’ll find again, like Documents/stat133/. Positron creates a new subfolder named after the repository.\nClick OK.\n\nThe first time you clone, Git may ask for your GitHub username and a personal access token; see Git and GitHub for how to set that up.\n\nKnowing which folder you’re in\nPositron always has exactly one folder open, and everything — the console’s working directory, the file paths in your code, which repository git commands act on — is relative to that folder.\nCheck which one it is in the top-right corner of the window, next to the interpreter selector: it shows the name of the open folder alongside the running R session. You can also confirm from the console:\ngetwd()\nIf that isn’t the folder you expect, use File → Open Folder to switch. Opening a file from another project does not change the open folder.",
+    "crumbs": [
+      "Tools",
+      "Positron"
+    ]
+  },
+  {
+    "objectID": "tools/positron.html#running-code",
+    "href": "tools/positron.html#running-code",
+    "title": "Positron",
+    "section": "Running code",
+    "text": "Running code\n\nPut your cursor on a line and press ⌘ + Return (macOS) or Ctrl + Enter (Windows) to run it in the console.\nOpen a .qmd file and click Render to preview a Quarto document.",
+    "crumbs": [
+      "Tools",
+      "Positron"
+    ]
+  },
+  {
+    "objectID": "tools/positron.html#tips",
+    "href": "tools/positron.html#tips",
+    "title": "Positron",
+    "section": "Tips",
+    "text": "Tips\n\nUse the built-in Terminal pane to run shell and Git commands without leaving the editor.",
+    "crumbs": [
+      "Tools",
+      "Positron"
+    ]
+  },
+  {
+    "objectID": "tools/git.html",
+    "href": "tools/git.html",
+    "title": "Git and GitHub",
+    "section": "",
+    "text": "Git is a version-control system that tracks changes to your files, and GitHub is a website for hosting Git repositories. Together they let you save snapshots of your work and share it.\nThe best way to be sure you’re set with Git and GitHub is to fill out and follow the form here.",
+    "crumbs": [
+      "Tools",
+      "Git"
+    ]
+  },
+  {
+    "objectID": "tools/git.html#installing-git",
+    "href": "tools/git.html#installing-git",
+    "title": "Git and GitHub",
+    "section": "Installing Git",
+    "text": "Installing Git\nOn DataHub, Git is already installed. To install it on your own machine:\n\nmacOSWindows\n\n\nOpen Terminal and run:\ngit --version\nIf Git is missing, macOS will offer to install the developer tools. Accept and let it finish, then run the command again to confirm.\n\n\nInstall Git for Windows, which also provides Git Bash. Open Git Bash and confirm with:\ngit --version",
+    "crumbs": [
+      "Tools",
+      "Git"
+    ]
+  },
+  {
+    "objectID": "tools/git.html#one-time-setup",
+    "href": "tools/git.html#one-time-setup",
+    "title": "Git and GitHub",
+    "section": "One-time setup",
+    "text": "One-time setup\nTell Git who you are:\ngit config --global user.name \"Your Name\"\ngit config --global user.email \"you@berkeley.edu\"",
+    "crumbs": [
+      "Tools",
+      "Git"
+    ]
+  },
+  {
+    "objectID": "tools/git.html#the-core-workflow",
+    "href": "tools/git.html#the-core-workflow",
+    "title": "Git and GitHub",
+    "section": "The core workflow",
+    "text": "The core workflow\n\n\n\nStep\nCommand\nMeaning\n\n\n\n\nClone\ngit clone &lt;url&gt;\nCopy a repository to your machine\n\n\nStage\ngit add &lt;file&gt;\nMark changes to be saved\n\n\nCommit\ngit commit -m \"message\"\nSave a snapshot with a note\n\n\nPush\ngit push\nUpload commits to GitHub\n\n\nPull\ngit pull\nDownload others’ commits\n\n\n\nCheck the state of your repository at any time with:\ngit status",
+    "crumbs": [
+      "Tools",
+      "Git"
+    ]
+  },
+  {
+    "objectID": "tools/git.html#github",
+    "href": "tools/git.html#github",
+    "title": "Git and GitHub",
+    "section": "Github",
+    "text": "Github\nGo to https://github.com/ to set up a free account. Whichever email address you use to create your account, it should agree with same as the email you used in git config --global user.email \"you@berkeley.edu\". If you expect to not use Github after leaving Berkeley, then just use your Berkeley email. If you think you might use it after graduation, use your personal email.",
+    "crumbs": [
+      "Tools",
+      "Git"
+    ]
+  },
+  {
+    "objectID": "tools/git.html#authenticating-with-a-personal-access-token",
+    "href": "tools/git.html#authenticating-with-a-personal-access-token",
+    "title": "Git and GitHub",
+    "section": "Authenticating with a personal access token",
+    "text": "Authenticating with a personal access token\nGitHub will not accept your account password from the command line. Instead you use a personal access token (PAT): a long string of characters that acts as a password for Git. You create it in the browser, then paste it into the terminal whenever Git asks for a password.\n\n1. Create the token in your browser\n\nSign in at https://github.com/ and go to https://github.com/settings/tokens?type=beta (Settings → Developer settings → Personal access tokens → Fine-grained tokens).\nClick Generate new token.\nFill in the form:\n\nToken name: something you’ll recognize, like stat133-positron.\nExpiration: pick a date after the end of the semester.\nRepository access: All repositories.\nPermissions: under Repository permissions, set Contents to Read and write. Leave everything else alone.\n\nClick Generate token, then copy the token that appears.\n\n\n\n\n\n\n\nWarning\n\n\n\nThe token is shown only once. Copy it now. If you lose it, delete it on GitHub and generate a new one — that’s normal and costs you nothing.\n\n\n\n\n2. Paste it at the prompt\nDo something that talks to GitHub, such as cloning one of your repositories or running git push from inside one. In Positron’s Terminal pane:\ngit clone https://github.com/USERNAME/REPO.git\nGit will prompt you twice:\nUsername for 'https://github.com': your-github-username\nPassword for 'https://github.com': &lt;paste your token here&gt;\nPaste the token, not your GitHub password. Nothing will appear on screen as you paste — that’s expected. Press Return.\nThat’s it. Git will ask you to paste the token again for each push or clone until the token expires — for a handful of assignments that’s a minor annoyance, not a problem.\n\n\n\n\n\n\nTipDon’t want to paste it every time?\n\n\n\nYou can ask Git to remember the token so you’re only prompted once:\n\nmacOS: git config --global credential.helper osxkeychain\nWindows: git config --global credential.helper manager\n\nRun the command once, then paste the token at the next prompt. Git stores it and won’t ask again.",
+    "crumbs": [
+      "Tools",
+      "Git"
+    ]
+  },
+  {
+    "objectID": "tools/git.html#tips",
+    "href": "tools/git.html#tips",
+    "title": "Git and GitHub",
+    "section": "Tips",
+    "text": "Tips\n\nCommit early and often, with short but descriptive messages.\ngit status is your friend — run it whenever you’re unsure what’s going on.\nTreat your PAT like a password: don’t paste it into a script, a .qmd file, or a repository.",
+    "crumbs": [
+      "Tools",
+      "Git"
+    ]
+  },
+  {
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": "Syllabus",
+    "section": "",
+    "text": "An introduction to computationally intensive applied statistics. Topics will include organization storage of data, visualization and graphics, statistical learning and data mining, model validation procedures, and the presentation of results. This course uses R as its primary computing language.\n\n\nClass Format\nThis is an in-person class with three lectures each week and one two-hour lab led by a GSI. This class is designed assuming you’ll be in class. If you miss class, you’ll be able to find most materials from class - slides, snippets of code - published on the course wesite.\n\nHomework Parties\nTutors will offer Homework Party sessions several times each week. This is an opportunity to finish up any assignments that you’ve started in class or review any topics that are confusing for you. You’re welcome to attend any session that works well for your schedule. Check the Office Hours page to see the homework party schedule.\nHomework Parties are a great place to go to meet other students and collaborate on assignments with tutors on hand to help you get unstuck.\n\n\nOffice Hours\nOffice hours are an opportunity to chat one-on-one with your instructor and GSIs. Please come to office hours! Coming to office hours does not send a signal that you are behind or need extra help. On the contrary, coming to office hours early and often tends to co-occur with success in the course. We’re happy to chat about the course material, statistics in general, careers in statistics, and whatever other statistics or data science topics are on your mind! Please check the Office Hours page to see the times of the various office hour/homework party sessions.\n\n\n\nMaterials\n\nComputational tools\nEach student will need a laptop in order to engage with the computing aspects of this class. Throughout the semester you’ll be installing several different software tools, all of which are free. We will be mainly using the computing and programming environment R (via RStudio) to analyze data in this class. We will also ask you to use a command line interface to interact with your operating system. You do need your own computer to use R and do the assignments. No need to install these ahead of time; we’ll guide you through how to get set up.\nAbout half of the students in 133 have some coding experience in Python or R and about half do not. For those who come from Data 8 or some previous coding experience in python, the first labs will help you transfer that knowledge over to R. Both languages are excellent platforms for analyzing data, are widely used in data science, and have their individual strengths. R has been developed within the statistics community specifically for data analysis, while python is a general-purpose programming language but has large data analysis capabilities.\n\n\nSupplementary texts\nYour primary reference throughout the course will be the notes that you take in class but there are also several terrific books that are free and online that can expand your knowledge.\n\nAdvanced R, Hadley Wickham\nR for Data Science, Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund\nR packages, Hadley Wickham and Jenny Bryan\nR Coding Basics, Gaston Sanchez\n\n\n\n\nCourse communication\n\nbCourses\nWe don’t use bCourses for much. It is primarily used to disseminate important announcements for the entire class such as the initial welcome announcement, final exam information etc.\n\n\nDiscussion forum\nThe official discussion forum for the class will be hosted on Ed. Ed is a forum to ask and answer questions with your fellow students and course staff. It’s a useful resource for learning from your peers and seeking help from tutors and instructors.\nIf you have a question about the material or assignments (or anything related to the course), create a new post to ask your question on Ed. If it is about something personal, then mark it as “private”, and only course staff will be able to see your post. This is the best way to contact us if you have a personal concern, as it ensures the fastest response. If your question does not include personal information and can be answered by other students, make sure it is public.\nIn a course this large, the instructors have a difficult time responding to individual emails, so please use the class forum or visit office hours if you wish to contact us.\n\n\n\nAssignments, Exams, and Grading\n\nTurning-in assignments\nYou will be turning in your assignments on a platform called Pensive, the younger sibling of Gradescope. Note that regrade requests will need to be submitted by a deadline, which will usually be about a week the grades are released.\n\n\nProblem Sets\nProblem sets provide you with essential practice on the ideas and techniques discussed in class. They will be due roughly every week or two\nYou’re encouraged to work on your Problem Sets during one of the Group Tutoring sessions\n\n\nProjects\nProjects are open-ended assignments assignments designed to apply the concepts from the lecture notes in the cause of doing an analysis of real data. This will involve both writing code and communicating your thoughts and findings in English. Your Projects will be due before your corresponding Project Studio, roughly every 2-3 weeks.\nYou’re encouraged to work on your Projects during one of the Homework Party sessions.\n\n\nQuizzes\nQuizzes reinforce the most important concepts from the lecture. They cover the material from lecture, problem sets, and projects up until the time of the quiz.\nQuizzes in this course will be administered in the Computer-Based Testing Facility (CBTF). Students are responsible for reading and following all CBTF policies and procedures, including instantiating a PrairieTest account, submitting any DSP accommodations in advance, and reserving and attending exam sessions on time. During CBTF quizzes, students may use only the materials and resources expressly authorized by the course; unauthorized devices, materials, or resources are prohibited. CBTF proctors monitor all sessions and will document and report any suspected academic misconduct to the course staff. Suspected violations will be handled in accordance with the Berkeley Honor Code and the UC Berkeley Code of Student Conduct, and may result in penalties up to and including a failing grade on the quiz or in the course and referral to the Center for Student Conduct.\n\n\nFinal Exam\nThe paper-and-pencil final exam will be held in person during finals week. It is a comprehensive exam and covers the material from the lecture, problem sets, and projects.\nThe final exam is scheduled for Monday December 14th from 7-10 pm.\n\n\nGrading\nYour final grade in this class is, to the best of our ability, a measure of your understanding of the concepts of computing with data. As such, the lions share of your grade comes from measures of your individual understanding: quizzes and the final. The project studios are also very important. They give us a sense of how well you understand the work you’ve done and give you practice talking through your reasoning in front of an audience.\nThe best way to prepare for these assessments is to earnestly engage with the problem sets and projects. Their role in the course is practice and they’ll be your single most effective way to learn. We want to see that you are keeping to a sensible schedule, so the problem sets will be submitted and graded credit/no credit, where full credit is given for any submission. The projects will not be graded per se, but they will need to be completed in order to discuss them at your Project Studio.\n\nProblem Sets: 1%\nProject Studio: 20%\nQuizzes: 49%\nFinal: 30%\n\nThe grades will not be curved (&gt; 90% is some kind of A, 80-90 is some kind of B, etc.), so there is no limit to the number of As and Bs that are earned.\n\n\n\nPolicies\n\nLate Work\nRigorously completing the problem sets and projects is for your own benefit. Since they must be completed in order to take the Quizzes and participate in Project Studio, no late work is accepted.\n\n\nCollaboration policy\nOn problem sets and projects, we strongly encourage collaboration between students. One of the best ways to learn is to talk things through with someone else. At the same time, these are your best opportunity to practice and learn, so be cautious not to lean to heavily on the understanding of a peer when working through your assignments.\n\n\nAI policy\nPlease be thoughtful when using AI tools for your schoolwork. Doing so on problem sets and projects robs you of a valuable opportunity to learn and undermines your performance on exams. At the same time, they can be helpful in providing feedback on your writing.\nAt the end of the course, we’ll bring in AI tools for coding and learn how to use them. They’re very powerful, but you need firm mental models of the way code works before you’re able to use them well. For that reason, we suggest you refrain from using them until they’re introduced in class.\n\n\nAccomodations for students with disabilities\nStat 133 is a course that is designed to allow all students to succeed. If you have letters of accommodation from the Disabled Students’ Program, please share them with your instructor as soon as possible, and we will work out the necessary arrangements.\n\n\nStaying healthy\nMaintaining your health and that of the Berkeley community is of primary importance, so if you are feeling ill or have been exposed to illness, please do not come to class. You’re encouraged to reach out to fellow students to discuss the class materials or stop by the homework parties or office hours to chat with a tutor or the instructor.\n\n\n\nFrequently Asked Questions\n\nWhat should I do if I’m on the waitlist?\nAttend both lecture and lab and submit all assignments on time. Unfortunately we cannot grow the size of the class any more, so places will become available only when students drop. If you have an urgent need for the course, visit the drop in advising sessions in our department: https://statistics.berkeley.edu/academics/undergrad/advising.\nWhat should I do if I’m a Concurrent Enrollment student?\nPlease do the same as the waitlisted students. If / when the waitlist clears, contact the instructor to be added to the class.\nAre class sessions recorded?\nNo.\nIs attendance in lecture required?\nNo.\nAre time conflicts allowed?\nNo.\nWhat if I join the class late?\nIf you join the class within the first two weeks, read through all of the material on the course website that you’ve missed. Also ask a neighbor in lecture if you can borrow their notes. Finally, visit the Homework Parties to discuss any topics you’ve missed. If you’ve missed any assignments in the first two weeks, request an extension from your GSI.\nAfter two weeks into the semester, you’ll have too much material that you’ll need to make up, so you will have to wait to a subsequent semester to take the course.\n\n\n\nCampus Resources\nUC Berkeley has a vast wealth of resources to help with all aspects of student life. You can read about them at the links below.\n\nBerkeley Supportal- great place to start\nDisabled Students’ Program\nUniversity Health Services\nUCB Path to Care\nStudent Learning Center\nBerkeley International Office\nOmbuds Office for Students and Postdoctoral Appointees\nGender Equity Resource Center\nCenter for Educational Justice & Community Engagement\nUHS Counseling and Psychological Services (CAPS)\nCampus Academic Accommodations Hub\nASUC Student Advocate’s Office\nBasic Needs Center\nASUC Mental Health Resources Guide",
+    "crumbs": [
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "projects/2-sampsons-monks/project.html",
+    "href": "projects/2-sampsons-monks/project.html",
+    "title": "Project 1: Sampson’s Monks",
+    "section": "",
+    "text": "In this project, you will analyze and model Sampson’s Monks dataset, a classic dataset in social network analysis.\nBy completing this project, you will:\n\nWork with matrices and lists in applied settings\nPractice row/column operations for network statistics\nUse functions, control flow, and libraries\nUnderstand the contrast between random vs. real-world networks\n\nThere are two components: the worksheet and the project. The worksheet will help you familiarize yourself with the computational tools you’ll need. This should be done first. The project is the main event: your analysis of the data set.\nYou will submit:\n\nA worksheet .R file with your well-commented code\nA project .R file with your well-commented code.\n\nBoth files should be submitted to their respective Pensive assignments before your scheduled Project Studio.\n\n\n\nWorksheetProject\n\n\n\nMatrices\n\nSection 1: Matrices + Operations\nThree students take a class together and study for a project, midterm, and final together.\n\nStudent A scores: 12, 23, 34\n\nStudent B scores: 45, 56, 67\n\nStudent C scores: 78, 89, 64\n\nQ1: Create a matrix containing their scores.\nUse matrix() to create the 3x3 matrix:\nQ2: Name the rows and columns\nUse colnames() and rownames() to label rows and columns.\nQ3: Compute each student’s average score\nWhich student has the highest average?\n\n\n\nPlots\nQ4: How can we make simple graphs in Base R?\nRead the documention for plot(), boxplot(), and hist() and run at least one example of each.\nQ5: Create a histogram using the matrix scores\nHint: Convert the matrix to a normal vector first using as.vector().\nQ6: Use the built-in airquality dataset\nThis dataset contains daily New York air quality measurements from May–September 1973 spread across several vectors.\n\nairquality$Ozone: Ozone concentration (ppb)\n\nairquality$Solar.R: Solar radiation (langley)\n\nairquality$Wind: Wind speed (mph)\n\nairquality$Temp: Temperature (°F)\n\nairquality$Month: Month (5 = May, …, 9 = September)\n\nairquality$Day: Day of the month\n\na) Construct a histogram of Ozone\nb) Construct a scatterplot of Ozone vs Temperature\nc) Construct a boxplot of Temperature by Month\n\n\nIntro to Packages\nQ7: Install and load the packages\nInstall and load the igraph and networkD3 packages by running the following code:\ninstall.packages(\"igraph\")    # you only need to run this line once\ninstall.packages(\"networkD3\") # you only need to run this line once\nlibrary(\"igraph\")\nlibrary(\"networkD3\")\nQ8: What are igraph and networkD3?\nHow are these libraries useful for network analysis and visualization? Browse their documentation here: https://r.igraph.org/, http://christophergandrud.github.io/networkD3/.\nQ9: Explore usage\nRun these examples and describe what they do.\na) igraph example\ng &lt;- graph(edges = c(1,2, 2,3, 3,1), n = 3, directed = FALSE)\nplot(g)\nb) networkD3 example\nsimpleNetwork(data.frame(source = c(\"A\", \"B\", \"C\"), \n                         target = c(\"B\", \"C\", \"A\")))\n\n\n\n\nPart 0: Setting Up\nOpen your R app and install and load the necessary packages for this project: lda, igraph, and networkD3. lda contains the monks data.\n\n# Run this lines once to install packages on your machine\n# install.packages(\"lda\")\n# install.packages(\"igraph\")\n# install.packages(\"networkD3\")\n\n# Run these lines once per session to load packages\nlibrary(lda)\nlibrary(igraph)\nlibrary(networkD3)\n\ndata(sampson)              # load the monks data from lda\nsamplk1 &lt;- sampson$SAMPLK1 # extract one of the matrices\n\nsampson contains 10 different matrices, each one a sociomatrix that describes the network of a different type of relationship. All 10 matrices describe the same 18 monks, in the same row and column order.\n\n\n\nName\nRelation\n\n\n\n\nSAMPLK1, SAMPLK2, SAMPLK3\nLiking, at three successive time points\n\n\nSAMPDLK\nDisliking\n\n\nSAMPES\nEsteem\n\n\nSAMPDES\nDisesteem\n\n\nSAMPIN\nPositive influence\n\n\nSAMPNIN\nNegative influence\n\n\nSAMPPR\nPraise\n\n\nSAMNPR\nBlame (negative praise)\n\n\n\nIn each network, each node represents a single monk and each edge represents a relationship pointing from one monk to another. Every monk was asked to name only his top three choices on each relationship. Paradoxically, a monk’s first choice gets a 3 (3 points) while his third choice gets a 1 (1 point); a 0 means “not nominated”.\n\n\nPart 1: Visualizing the Network\nCreate two network visualizations select one of Sampson’s matrices (not SAMPLK1) that describe monk relationships and form two plots:\n\nA static plot using igraph::plot.igraph()\nAn interactive plot using networkD3::forceNetwork()\n\nBefore plotting, check what data structure your plotting function accepts and create it accordingly. networkD3 requires dataframes of nodes and edges, not a sociomatrix. You can use the following code to convert one of Sampson’s matrices (called monk_mat here) into the structures that networkD3 expects.\n\nnodes &lt;- data.frame(name = rownames(monk_mat), group = 1)\nedges &lt;- which(monk_mat &gt; 0, arr.ind = TRUE)\n\nlinks &lt;- data.frame(\n  source = edges[, \"row\"] - 1,\n  target = edges[, \"col\"] - 1,\n  value  = monk_mat[edges] \n)\n\nTry visualizing a few different matrices before deciding on one that you find most interesting. Read the documentation on each of the plotting functions to understand the arguments they make available, then tune the plots to your liking.\n\n\nPart 2: Summary Statistics on a Sociomatrix\nA picture of a network is suggestive but hard to reason about precisely. Summary statistics let us describe the same structure numerically. A few terms first.\n\nNode: one monk. There are 18, one per row and one per column.\nEdge: a nomination from one monk to another. Edges here are directed: monk \\(i\\) nominating monk \\(j\\) (row \\(i\\), column \\(j\\)) is not the same as monk \\(j\\) nominating monk \\(i\\).\nEdge weight: the number in the cell, 3, 2, or 1, recording whether the nomination was that monk’s first, second, or third choice. A 0 means there is no edge.\nOut-degree of a node: the number of edges originating at it, i.e. how many other monks that monk nominated.\nIn-degree of a node: the number of edges pointing to it, i.e. how many other monks nominated that monk.\nOut-strength and in-strength: the sum of the edge weights leaving or arriving at a node. These credit a first-choice nomination more heavily than a third-choice one.\n\nSolutions below use SAMPDLK (disliking) as the chosen matrix; student answers will differ depending on their choice.\n\nReport which matrix you chose, and describe in one sentence what a large value means for that relation (e.g. for SAMPDLK, a high in-degree means a monk was frequently named as disliked).\nCompute the out-degree and in-degree of each monk. rowSums() and colSums() will do this in one line each, once you have turned the weights into TRUE/FALSE values with a comparison such as monk_mat &gt; 0.\nCompute the out-strength and in-strength of each monk.\nMake a histogram of in-degree and a histogram of in-strength. Compare their shapes to a histogram of out-degree. Why is the out-degree distribution so much narrower? (Look back at how the monks were surveyed.)\nMake a scatterplot of in-degree against in-strength, one point per monk. What would it mean for a monk to fall well above or well below the general trend?\nWhich monk received the most nominations on your chosen relation, and which received the fewest? Do you get the same answer using in-degree as you do using in-strength? If not, explain the disagreement.\n\n\n\nPart 3: A simple model of a social network\nOne way to learn more about the social dynamics underlying the monk’s network is to compare it to a network generated using a simple but well-understood mechanism; that is to say: a model.\nGenerate a network according to the rule that each monk assigns their likes (or dislikes) completely at random. The following observations will help you form your code:\n\nYou can represent a monk’s choices as a single vector. You can create that vector randomly using the sample() function.\nYou can use a for loop to change-in-place each vector of a blank matrix. See example from lecture on the Fibonacci Sequence for a vector analog\n\nFeel free to add additional complexity into your model (for example, assigning the likes randomly but with unequal probabilities).\n\n\nPart 4: Model vs Observations\nApply the same techniques you used in parts 1 and 2 (visualization and summary statistics) to describe the structure of the network that was simulated by your model. In 3-5 sentences, compare these networks: In what ways is the observed network monk_mat similar to your generated network? In what ways is it different? What patterns appear in the observed network that are missing from your generated one?",
     "crumbs": [
       "Projects",
-      "Zero Emission Vehicles"
+      "Sampson's Monks"
     ]
   },
   {
-    "objectID": "projects/3-electric-vehicles/project.html#footnotes",
-    "href": "projects/3-electric-vehicles/project.html#footnotes",
-    "title": "Project 2: Zero-Emissions Vehicles in California",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nThe dashboard carefully arranges the rows of this table. If you’d like an extra challenge, replicate this arrangement using R.↩︎\nHint: this can be most cleanly done by writing a function that takes a vector of counts and returns the index value. That function can then be applied as a summary statistic inside summarize().↩︎",
+    "objectID": "office-hours.html",
+    "href": "office-hours.html",
+    "title": "Office Hours",
+    "section": "",
+    "text": "Office Hours\nPlease stop by during office hours to chat in a small group setting course staff.",
     "crumbs": [
-      "Projects",
-      "Zero Emission Vehicles"
+      "Office Hours"
     ]
   },
   {
-    "objectID": "projects/2-sampsons-monks/slides.html#agenda",
-    "href": "projects/2-sampsons-monks/slides.html#agenda",
-    "title": "Lab 2",
-    "section": "Agenda",
-    "text": "Agenda\n\nBrief lecture review\nReview key concepts\nTime to work in groups on lab worksheet (15 minutes)\nDiscuss Project 2 + Work through select parts\nTime for questions"
-  },
-  {
-    "objectID": "projects/2-sampsons-monks/slides.html#brief-review-of-lecture-control-flow",
-    "href": "projects/2-sampsons-monks/slides.html#brief-review-of-lecture-control-flow",
-    "title": "Lab 2",
-    "section": "Brief Review of Lecture: Control Flow",
-    "text": "Brief Review of Lecture: Control Flow\nIf / Else = Conditional Behavior\nif (x &gt; 0) {\n  print(\"positive\")\n} else {\n  print(\"not positive\")\n}\nVectorized If/Else statements are also possible:\n\nx = 0\nifelse(test = x &lt; 0, yes = \"is positive :)\", no = \"is negative :(\")\n\n\n\n[1] \"is negative :(\"\n\n\nFor loops = repeat over items\nfor (i in 1:5) {\n  print(i^2)\n}"
-  },
-  {
-    "objectID": "projects/2-sampsons-monks/slides.html#brief-review-of-lecture-functions",
-    "href": "projects/2-sampsons-monks/slides.html#brief-review-of-lecture-functions",
-    "title": "Lab 2",
-    "section": "Brief Review of Lecture: Functions",
-    "text": "Brief Review of Lecture: Functions\n\nfunction_name &lt;- function(arg1, arg2, ...) {\n  # code to execute\n  result &lt;- arg1 + arg2  # example operation\n  return(result)         # optional, returns result\n}"
-  },
-  {
-    "objectID": "projects/2-sampsons-monks/slides.html#sampsons-monks-project-background-concepts",
-    "href": "projects/2-sampsons-monks/slides.html#sampsons-monks-project-background-concepts",
-    "title": "Lab 2",
-    "section": "Sampson’s Monks Project: Background Concepts",
-    "text": "Sampson’s Monks Project: Background Concepts\n\nPackages in R\nSociomatrices\nNetwork visualizations & statistics\nRandom vs. observed networks\n\n\nMotivate for students that we will be working on the project and turning it in in 2 weeks, and it will be about the monks data. These are some of the necessary skills they will need for the project"
-  },
-  {
-    "objectID": "projects/2-sampsons-monks/slides.html#packages-libraries",
-    "href": "projects/2-sampsons-monks/slides.html#packages-libraries",
-    "title": "Lab 2",
-    "section": "Packages & Libraries",
-    "text": "Packages & Libraries\n\nBase R is powerful, but we use packages to extend its capabilities\nPackages collections of functions & datasets\n\nlibrary() is used to load a previously installed package into an R session.\n\nInstall and load:\ninstall.packages(\"igraph\") # only need to do once!\nlibrary(igraph)"
-  },
-  {
-    "objectID": "projects/2-sampsons-monks/slides.html#packages-to-use-today",
-    "href": "projects/2-sampsons-monks/slides.html#packages-to-use-today",
-    "title": "Lab 2",
-    "section": "Packages to use today:",
-    "text": "Packages to use today:\nigraph (network analysis & static plots)\n\naccepts adjacency matrices.\n\nnetworkD3 (interactive plots)\n\nexpects data frames of nodes and edges, not a network object.\nnodes are the names/points in the resulting plot\nedges are the directed lines between the points\n\nEven though the information is already in sampson, you still need to extract it into the right format for networkD3."
-  },
-  {
-    "objectID": "projects/2-sampsons-monks/slides.html#what-do-networks-look-like",
-    "href": "projects/2-sampsons-monks/slides.html#what-do-networks-look-like",
-    "title": "Lab 2",
-    "section": "What do networks look like?",
-    "text": "What do networks look like?\n\nLet’s use a familar dataset to create network plots!"
-  },
-  {
-    "objectID": "projects/2-sampsons-monks/slides.html#our-dataset-sampsons-monks",
-    "href": "projects/2-sampsons-monks/slides.html#our-dataset-sampsons-monks",
-    "title": "Lab 2",
-    "section": "Our Dataset: Sampson’s Monks",
-    "text": "Our Dataset: Sampson’s Monks\n\nData collected in a New England monastery (1960s)\nMonks reported:\n\nLiking relationships (time 1, time 2, time 3)\nDisliking relationships (time 1)\n\nClassic dataset for studying group dynamics and conflict\nStored as a list of matrices in lda package, which we will use to get the data"
-  },
-  {
-    "objectID": "projects/2-sampsons-monks/slides.html#our-dataset-sampsons-monks-continued",
-    "href": "projects/2-sampsons-monks/slides.html#our-dataset-sampsons-monks-continued",
-    "title": "Lab 2",
-    "section": "Our Dataset: Sampson’s Monks (continued)",
-    "text": "Our Dataset: Sampson’s Monks (continued)\nFrom this matrix, we can get:\n\nIn-degree (col sums) = number of ties received / how many monks said they liked them\nOut-degree (row sums) = number of ties sent / how many monks they said they liked"
-  },
-  {
-    "objectID": "projects/2-sampsons-monks/slides.html#static-vs.-interactive-plots",
-    "href": "projects/2-sampsons-monks/slides.html#static-vs.-interactive-plots",
-    "title": "Lab 2",
-    "section": "Static vs. Interactive Plots",
-    "text": "Static vs. Interactive Plots\n\nYou will create one of each in your project\nStatic plots = easy and quick to create using plot() from igraph\nInteractive plots = can zoom, hover, drag nodes using forceNetwork() from networkD3"
-  },
-  {
-    "objectID": "projects/2-sampsons-monks/slides.html#why-compare-random-vs.-observed",
-    "href": "projects/2-sampsons-monks/slides.html#why-compare-random-vs.-observed",
-    "title": "Lab 2",
-    "section": "Why Compare Random vs. Observed?",
-    "text": "Why Compare Random vs. Observed?\nIn your project, you will be asked to compare the observed sociomatrix with one that you have generated.\n\nRandom sociomatrix = ties assigned by chance\nObserved monk network = structured by social dynamics\nKey question: What features do we see in the real network that random ones lack?\n\nShows the complexity of real social systems"
-  },
-  {
-    "objectID": "projects/2-sampsons-monks/slides.html#lab-review-worksheet",
-    "href": "projects/2-sampsons-monks/slides.html#lab-review-worksheet",
-    "title": "Lab 2",
-    "section": "Lab Review Worksheet",
-    "text": "Lab Review Worksheet\n\n  \n    −\n    +\n \n 30:00\n \nGroup work to review essential material\n\nLab worksheet is meant to give students the skills they need for the project, which they will mostly be taking home and working on in their own time. Lab worksheet is fully during lab. Can go over the answers to this in lab or have them volunteer answers."
-  },
-  {
-    "objectID": "projects/2-sampsons-monks/slides.html#lab-2-project",
-    "href": "projects/2-sampsons-monks/slides.html#lab-2-project",
-    "title": "Lab 2",
-    "section": "Lab 2 Project",
-    "text": "Lab 2 Project\n\n  \n    −\n    +\n \n 15:00\n \nWorksheet:\n\nWritten responses. Please code along on your laptop. This is for your own practice / not turned in.\n\nProject:\n\nFour parts\nSubmit: project.R + README.md on GitHub Classroom\n\nWork on selected problems.\n\nGive students 15 minutes to work on problems that you find important and they may struggle with (suggest getting started with downloading packages, doing a visualization, writing the function)"
-  },
-  {
-    "objectID": "projects/1-index-cards/slides.html#using-the-shell-locally",
-    "href": "projects/1-index-cards/slides.html#using-the-shell-locally",
-    "title": "First Contact with R",
-    "section": "Using the Shell Locally",
-    "text": "Using the Shell Locally\n\n  \n    −\n    +\n \n 07:00\n \n\nMac:\n\n“zshell” (aka zsh) - UNIX based. Very similar to bash (Base UNIX Shell) with some added functionality.\nTo access, use the Mac’s “Termial” application.\n\nWindows:\n\nWill need to install “Git” if you don’t have it already.\n\nhttps://git-scm.com/downloads\n\nThis will give you access to the “Git Bash” application, which will let you use UNIX Shell on your Windows system."
-  },
-  {
-    "objectID": "projects/1-index-cards/slides.html#brief-review-of-lecture",
-    "href": "projects/1-index-cards/slides.html#brief-review-of-lecture",
-    "title": "First Contact with R",
-    "section": "Brief Review of Lecture",
-    "text": "Brief Review of Lecture\nNew Shell Commands\n\n\nmkdir\n\n\nCreates a new directory.\n\n\n\n\ncp\n\n\nCopy file (arg1) to destination (arg2).\nExample: cp ~/Downloads/hw1.pdf ~/Documents/econ100b/hw/\n\n\n\n\nmv\n\n\nMove file (first argument) to destination directory (second argument).\nExample: mv ~/Downloads/hw1.pdf ~/.Trash\n\n\n\nThey have only heard mv in lecture briefly, so teach them the functionality."
-  },
-  {
-    "objectID": "projects/1-index-cards/slides.html#brief-review-of-lecture-cont.",
-    "href": "projects/1-index-cards/slides.html#brief-review-of-lecture-cont.",
-    "title": "First Contact with R",
-    "section": "Brief Review of Lecture (cont.)",
-    "text": "Brief Review of Lecture (cont.)\nR Equivallent of Shell Commands:\n\ngetwd(): like pwd in Shell.\nsetwd(): like cd in Shell.\nlist.files(): like ls in Shell.\nreadLines(): like cat in Shell."
-  },
-  {
-    "objectID": "projects/1-index-cards/slides.html#brief-review-of-lecture-cont..",
-    "href": "projects/1-index-cards/slides.html#brief-review-of-lecture-cont..",
-    "title": "First Contact with R",
-    "section": "Brief Review of Lecture (cont..)",
-    "text": "Brief Review of Lecture (cont..)\n\na:b: Creates vector of numbers from a to b by 1.\nseq: Creates vector of numbers from \"from\" argument, to \"to\" argument, by steps defined in the \"by\" argument.\nrep: Repeats vector provided \"x\" a number of times defined by \"times\" argument."
-  },
-  {
-    "objectID": "projects/1-index-cards/slides.html#vectorization",
-    "href": "projects/1-index-cards/slides.html#vectorization",
-    "title": "First Contact with R",
-    "section": "Vectorization",
-    "text": "Vectorization\n\nOperations on a single object also works on vectors.\n\n\nvec &lt;- c(72, 52, 10)\n\nvec / 2\n\n\n\n[1] 36 26  5\n\n\n\n\n\nvec * 3\n\n\n\n[1] 216 156  30\n\n\n\n\n\nvec - 6\n\n\n\n[1] 66 46  4"
-  },
-  {
-    "objectID": "projects/1-index-cards/slides.html#recycling",
-    "href": "projects/1-index-cards/slides.html#recycling",
-    "title": "First Contact with R",
-    "section": "Recycling",
-    "text": "Recycling\n\nOperations on two vectors of unequal length.\n\n\nvec1 &lt;- 1:10\nvec2 &lt;- c(1, 2)\n\nvec1 * vec2\n\n\n\n [1]  1  4  3  8  5 12  7 16  9 20\n\n\n\n\n\nvec3 &lt;- c(1, 2, 3)\n\nvec1 + vec3\n\n\n\n [1]  2  4  6  5  7  9  8 10 12 11"
-  },
-  {
-    "objectID": "projects/1-index-cards/slides.html#lab-1-assignment",
-    "href": "projects/1-index-cards/slides.html#lab-1-assignment",
-    "title": "First Contact with R",
-    "section": "Lab 1 Assignment",
-    "text": "Lab 1 Assignment\n\n  \n    −\n    +\n \n 15:00\n \n\nWill be turned in physically.\nWritten responses. Please code along on your laptop.\n\nTwo Parts:\n\nShell\nR: Atomic Vectors, Vectorization, Recycling, Matrices, if statements, for loops.\n\nWork on selected problems.\n\nGive students 15 minutes to work on problems that you find important AND are in scope of lectures so far (nothing after 7)."
-  },
-  {
-    "objectID": "notes.html",
-    "href": "notes.html",
-    "title": "Notes",
+    "objectID": "license.html",
+    "href": "license.html",
+    "title": "License",
     "section": "",
-    "text": "Notes\n\n\n    \n      \n      \n    \n\n\n\n\n\nNo matching items"
+    "text": "Unless otherwise noted, all curricular content on this site — lecture slides, notes, problem sets, projects, and accompanying code — is licensed under a Creative Commons Attribution 4.0 International License (CC BY 4.0).\nYou are free to share and adapt this material for any purpose, including commercially, provided you give appropriate credit, link to the license, and indicate if changes were made.\nSuggested attribution:\n\nMaterials from Stat 133: Concepts in Computing with Data, Department of Statistics, UC Berkeley, used under CC BY 4.0."
   },
   {
-    "objectID": "labs.html",
-    "href": "labs.html",
-    "title": "Labs",
+    "objectID": "license.html#curricular-content",
+    "href": "license.html#curricular-content",
+    "title": "License",
     "section": "",
-    "text": "Labs\nComing soon!"
+    "text": "Unless otherwise noted, all curricular content on this site — lecture slides, notes, problem sets, projects, and accompanying code — is licensed under a Creative Commons Attribution 4.0 International License (CC BY 4.0).\nYou are free to share and adapt this material for any purpose, including commercially, provided you give appropriate credit, link to the license, and indicate if changes were made.\nSuggested attribution:\n\nMaterials from Stat 133: Concepts in Computing with Data, Department of Statistics, UC Berkeley, used under CC BY 4.0."
+  },
+  {
+    "objectID": "license.html#artwork",
+    "href": "license.html#artwork",
+    "title": "License",
+    "section": "Artwork",
+    "text": "Artwork\nThe fantasy scenes appearing on the course calendar and elsewhere on this site are Scenes by Czepeku and are used under Czepeku’s Commercial Use Licence. They are reproduced here in watermarked form, as that license requires.\nThese images are not covered by the CC BY 4.0 license above and are not offered for download, redistribution, or resale as standalone items. All rights in them remain with Czepeku. If you wish to use them, see czepeku.com."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "STAT 133",
+    "section": "",
+    "text": "Concepts in Computing with Data\nStat 133 UC Berkeley\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n  \n  \n  \n    \n    \n    \n    Sep 28\n    \n  \n  \n  Grammar of Graphics\n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n    Slides\n    \n  \n  \n  \n    Sign up for Quiz 3\n  \n    Project Studio 2 this week\n  \n  \n  \n  \n\n  \n  \n  \n  \n    \n    \n    \n    Sep 30\n    \n  \n  \n  Data Cleaning\n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n    Slides\n    \n  \n  \n  \n  \n  \n  \n\n  \n  \n  \n  \n    \n    \n    \n    Oct 2\n    \n  \n  \n  EDA\n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n    Slides\n    \n  \n  \n  \n    PS 3 due 10/03 at 11:59 pm\n  \n  \n  \n  \n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Aug 24\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 26\n      \n    \n    \n    Welcome\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 28\n      \n    \n    \n    Data in Trees\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 31\n      \n    \n    \n    Intro to R\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 2\n      \n    \n    \n    Atomic Vectors\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 4\n      \n    \n    \n    Extending Vectors\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n      Sign up for Quiz 1\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Sep 7\n    \n    \n    No Class: Labor Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 9\n      \n    \n    \n    Lists\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 1: 9/10-9/11\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 11\n      \n    \n    \n    Control Flow\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 14\n      \n    \n    \n    Functions\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 2\n    \n      Project Studio 1 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 16\n      \n    \n    \n    Factors and Data Frames\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 18\n      \n    \n    \n    Data Wrangling I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 2 due 9/19 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 21\n      \n    \n    \n    Git & GitHub\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n      Quiz 2: 9/21-9/22\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 23\n      \n    \n    \n    Data Wrangling II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 25\n      \n    \n    \n    Quarto\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 28\n      \n    \n    \n    Grammar of Graphics\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 3\n    \n      Project Studio 2 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 30\n      \n    \n    \n    Data Cleaning\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 2\n      \n    \n    \n    EDA\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 3 due 10/03 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Oct 5\n    \n    \n    Explanatory DA\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 3: 10/5-10/6\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 7\n    \n    \n    Joins and Pivots\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 9\n    \n    \n    Strings I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Oct 12\n    \n    \n    Strings II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 4\n    \n      Project Studio 3 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 14\n    \n    \n    Text Analysis\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 16\n    \n    \n    Dates and Times I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 4 due 10/17 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Oct 19\n    \n    \n    Dates and Times II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 4: 10/19-10/20\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 21\n    \n    \n    Spatial Data I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 23\n    \n    \n    Gerrymandering\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Oct 26\n    \n    \n    Spatial Data II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 5\n    \n      Project Studio 4 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 28\n    \n    \n    Dashboards\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 30\n    \n    \n    Election Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 5 due 10/31 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 2\n    \n    \n    R Packages I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 5: 11/2-11/3\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 4\n    \n    \n    R Packages II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 6\n    \n    \n    Prediction I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 9\n    \n    \n    Prediction II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 6\n    \n      Project Studio 5 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 11\n    \n    \n    No Class: Veterans Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 13\n    \n    \n    Classification\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 6 due 11/14 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 16\n    \n    \n    APIs I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 6: 11/16-11/17\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 18\n    \n    \n    APIs II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 20\n    \n    \n    LLMs\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 23\n    \n    \n    LLMs in IDEs\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 7\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 25\n    \n    \n    No Class: Non-Instructional Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 27\n    \n    \n    No Class: Thanksgiving\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 30\n    \n    \n    Abstraction\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 7 due today at 6:00 pm\n    \n      Quiz 7: 12/1-12/4\n    \n      Project Studio 6 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 2\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 4\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Dec 7\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 9\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 11\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Dec 14\n    \n    \n    Final Exam 7-10 pm\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 16\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 18\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n\n\nNo matching items",
+    "crumbs": [
+      "Home"
+    ]
   },
   {
     "objectID": "15-data-cleaning/slides.html#section",
@@ -2315,7 +2212,7 @@
     "href": "07-control-flow/slides.html#a-random-condition-in-r",
     "title": "Control Flow",
     "section": "A random condition in R",
-    "text": "A random condition in R\n\n\nsample(x = -10:10, size = 1)\n\n\n\n[1] 3\n\n\n\n\nsample() will randomly sample 1 element from the vector x."
+    "text": "A random condition in R\n\n\nsample(x = -10:10, size = 1)\n\n\n\n[1] -1\n\n\n\n\nsample() will randomly sample 1 element from the vector x."
   },
   {
     "objectID": "07-control-flow/slides.html#section-1",
@@ -2371,35 +2268,35 @@
     "href": "07-control-flow/slides.html#what-if-x-has-multiple-elements",
     "title": "Control Flow",
     "section": "What if x has multiple elements?",
-    "text": "What if x has multiple elements?\n\n\nx &lt;- rnorm(3)\nx\n\n\n\n[1]  0.4040161 -0.8563801 -1.3892433\n\n\n\n\n\n\n\n\n\n\n      if (x &gt; 0) {\n        print(\"x is positive :)\")\n      }\n\n\n\nAnnotate this if-then by wrapping it in a for loop."
+    "text": "What if x has multiple elements?\n\n\nx &lt;- rnorm(3)\nx\n\n\n\n[1]  0.9711316 -0.9428501  0.9622538\n\n\n\n\n\n\n\n\n\n\n      if (x &gt; 0) {\n        print(\"x is positive :)\")\n      }\n\n\n\nAnnotate this if-then by wrapping it in a for loop."
   },
   {
     "objectID": "07-control-flow/slides.html#option-1",
     "href": "07-control-flow/slides.html#option-1",
     "title": "Control Flow",
     "section": "Option 1",
-    "text": "Option 1\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(\"x is positive :)\")\n  }\n}\n\n\n\n[1] \"x is positive :)\""
+    "text": "Option 1\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(\"x is positive :)\")\n  }\n}\n\n\n\n[1] \"x is positive :)\"\n[1] \"x is positive :)\""
   },
   {
     "objectID": "07-control-flow/slides.html#option-2",
     "href": "07-control-flow/slides.html#option-2",
     "title": "Control Flow",
     "section": "Option 2",
-    "text": "Option 2\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(paste(\"element\", i, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"element 1 is positive :)\""
+    "text": "Option 2\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(paste(\"element\", i, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"element 1 is positive :)\"\n[1] \"element 3 is positive :)\""
   },
   {
     "objectID": "07-control-flow/slides.html#option-3",
     "href": "07-control-flow/slides.html#option-3",
     "title": "Control Flow",
     "section": "Option 3",
-    "text": "Option 3\n\nfor (x_elem in x) {\n  if (x_elem &gt; 0) {\n    print(paste(x_elem, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"0.404016056182229 is positive :)\""
+    "text": "Option 3\n\nfor (x_elem in x) {\n  if (x_elem &gt; 0) {\n    print(paste(x_elem, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"0.971131594083262 is positive :)\"\n[1] \"0.962253788833349 is positive :)\""
   },
   {
     "objectID": "07-control-flow/slides.html#ifelse",
     "href": "07-control-flow/slides.html#ifelse",
     "title": "Control Flow",
     "section": "ifelse()",
-    "text": "ifelse()\n\n\nifelse()\n\n\nA vectorized if-else: applies a condition to every element of a vector at once, without an explicit loop.\n\n\n\n\nx &lt; 0 \n\n\n\n[1] FALSE  TRUE  TRUE\n\n\n\n\n\nifelse(test = x &lt; 0, yes = \"is positive :)\", no = \"is negative :(\")\n\n\n\n[1] \"is negative :(\" \"is positive :)\" \"is positive :)\""
+    "text": "ifelse()\n\n\nifelse()\n\n\nA vectorized if-else: applies a condition to every element of a vector at once, without an explicit loop.\n\n\n\n\nx &lt; 0 \n\n\n\n[1] FALSE  TRUE FALSE\n\n\n\n\n\nifelse(test = x &lt; 0, yes = \"is positive :)\", no = \"is negative :(\")\n\n\n\n[1] \"is negative :(\" \"is positive :)\" \"is negative :(\""
   },
   {
     "objectID": "07-control-flow/slides.html#guess-the-metaphor",
@@ -3053,307 +2950,837 @@
     "text": "Key Ideas for Today\n\nA visual channel visually encodes variation in data.\nAn aesthetic mapping links a variable to a visual channel.\nA geometry determines how obs are drawn on the plot.\nMapping an aesthetic to a variable is different from setting it to a constant.\n\n\nFor Next Time\n\nSign up for Quiz 3.\nProject Studio 2 this week!\nStart the Grammar of Graphics questions on the problem set."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "STAT 133",
+    "objectID": "16-eda/slides.html#section",
+    "href": "16-eda/slides.html#section",
+    "title": "Reading Data and EDA",
     "section": "",
-    "text": "Concepts in Computing with Data\nStat 133 UC Berkeley\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n  \n  \n  \n    \n    \n    \n    Sep 28\n    \n  \n  \n  Grammar of Graphics\n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n    Slides\n    \n  \n  \n  \n    Sign up for Quiz 3\n  \n    Project Studio 2 this week\n  \n  \n  \n  \n\n  \n  \n  \n  \n    \n    \n    \n    Sep 30\n    \n  \n  \n  Data Cleaning\n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n    Slides\n    \n  \n  \n  \n  \n  \n  \n\n  \n  \n  \n  \n    Oct 2\n  \n  \n  EDA\n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n    Slides\n    \n  \n  \n  \n    PS 3 due 10/03 at 11:59 pm\n  \n  \n  \n  \n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Aug 24\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 26\n      \n    \n    \n    Welcome\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 28\n      \n    \n    \n    Data in Trees\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 31\n      \n    \n    \n    Intro to R\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 2\n      \n    \n    \n    Atomic Vectors\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 4\n      \n    \n    \n    Extending Vectors\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n      Sign up for Quiz 1\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Sep 7\n    \n    \n    No Class: Labor Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 9\n      \n    \n    \n    Lists\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 1: 9/10-9/11\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 11\n      \n    \n    \n    Control Flow\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 14\n      \n    \n    \n    Functions\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 2\n    \n      Project Studio 1 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 16\n      \n    \n    \n    Factors and Data Frames\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 18\n      \n    \n    \n    Data Wrangling I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 2 due 9/19 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 21\n      \n    \n    \n    Git & GitHub\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n      Quiz 2: 9/21-9/22\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 23\n      \n    \n    \n    Data Wrangling II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 25\n      \n    \n    \n    Quarto\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 28\n      \n    \n    \n    Grammar of Graphics\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 3\n    \n      Project Studio 2 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 30\n      \n    \n    \n    Data Cleaning\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 2\n    \n    \n    EDA\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 3 due 10/03 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Oct 5\n    \n    \n    Explanatory DA\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 3: 10/5-10/6\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 7\n    \n    \n    Joins and Pivots\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 9\n    \n    \n    Strings I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Oct 12\n    \n    \n    Strings II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 4\n    \n      Project Studio 3 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 14\n    \n    \n    Text Analysis\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 16\n    \n    \n    Dates and Times I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 4 due 10/17 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Oct 19\n    \n    \n    Dates and Times II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 4: 10/19-10/20\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 21\n    \n    \n    Spatial Data I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 23\n    \n    \n    Gerrymandering\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Oct 26\n    \n    \n    Spatial Data II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 5\n    \n      Project Studio 4 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 28\n    \n    \n    Dashboards\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 30\n    \n    \n    Election Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 5 due 10/31 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 2\n    \n    \n    R Packages I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 5: 11/2-11/3\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 4\n    \n    \n    R Packages II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 6\n    \n    \n    Prediction I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 9\n    \n    \n    Prediction II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 6\n    \n      Project Studio 5 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 11\n    \n    \n    No Class: Veterans Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 13\n    \n    \n    Classification\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 6 due 11/14 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 16\n    \n    \n    APIs I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 6: 11/16-11/17\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 18\n    \n    \n    APIs II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 20\n    \n    \n    LLMs\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 23\n    \n    \n    LLMs in IDEs\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 7\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 25\n    \n    \n    No Class: Non-Instructional Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 27\n    \n    \n    No Class: Thanksgiving\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 30\n    \n    \n    Abstraction\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 7 due today at 6:00 pm\n    \n      Quiz 7: 12/1-12/4\n    \n      Project Studio 6 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 2\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 4\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Dec 7\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 9\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 11\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Dec 14\n    \n    \n    Final Exam 7-10 pm\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 16\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 18\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n\n\nNo matching items",
-    "crumbs": [
-      "Home"
-    ]
+    "text": "Last Time\n\nData cleaning is a set of decisions to ensure the data meets expections given its context and intended use.\nClean reproducibly: raw data is read-only; changes lives in code.\nAudit a data set against a checklist before analyzing.\n\n\nKey Ideas for Today\n\nPlain text files store characters; binary files need special software.\nYAML, CSV, and JSON add structure to plain text.\nEDA uncovers structure and generates new questions.\n\n\n\nConcept Acquisition\n\nEvery file is bytes on a disk; plain text files store characters, binary files (PDF, Excel) need specific software to decode.\nPlain text formats span a spectrum of structure, from none (.txt) to tabular (.csv) to nested (.yml, .json), and the structure determines the R object you get back (character vector, data frame, list).\nEDA is for the analyst: its goal is to uncover structure and generate new questions, guided by a set of common exploratory questions.\nExploratory and explanatory visualizations differ in audience, goal, and level of polish.\n\nTool Acquisition\n\nreadLines() / writeLines() and read_lines() / write_lines() for .txt.\nread.csv() / write.csv() and read_csv() / write_csv() for .csv.\nread_yaml() / write_yaml(), fromJSON() / toJSON() / write_json(), and excel_sheets() / read_excel().\ndim(), sapply(df, class), and sum() / mean() of is.na() for a first look.\ngeom_bar(), geom_col(), and count().\nlabs(), theme_minimal() and friends, theme(axis.text.x = element_text(...)), and setting color / fill.\n\nConcept Application\n\nExplain why read.csv() reads \"13,047\" as character while read_csv() parses it as a number.\nYour Turn: sketch the data frame behind the EV bar chart, describe its mappings and geometry, and state its main story.\nWork through the common exploratory questions on the EV registrations data.\nRequest personal data exports for Project 3, looking for multiple files and at least one JSON."
   },
   {
-    "objectID": "license.html",
-    "href": "license.html",
-    "title": "License",
+    "objectID": "16-eda/slides.html#section-1",
+    "href": "16-eda/slides.html#section-1",
+    "title": "Reading Data and EDA",
     "section": "",
-    "text": "Unless otherwise noted, all curricular content on this site — lecture slides, notes, problem sets, projects, and accompanying code — is licensed under a Creative Commons Attribution 4.0 International License (CC BY 4.0).\nYou are free to share and adapt this material for any purpose, including commercially, provided you give appropriate credit, link to the license, and indicate if changes were made.\nSuggested attribution:\n\nMaterials from Stat 133: Concepts in Computing with Data, Department of Statistics, UC Berkeley, used under CC BY 4.0."
+    "text": "Plain Text File\n\n\nA file that stores only characters, so it can be opened and read by any text editor, by cat in the shell, or by readLines() in R.\n\n\n\n\n\nBinary File\n\n\nA file that stores raw bytes meant to be decoded by specific software. Opened as text, it looks like gibberish.\n\n\n\n\n\nEvery file is bytes on a disk. Only plaintext encodes characters you can read."
   },
   {
-    "objectID": "license.html#curricular-content",
-    "href": "license.html#curricular-content",
-    "title": "License",
-    "section": "",
-    "text": "Unless otherwise noted, all curricular content on this site — lecture slides, notes, problem sets, projects, and accompanying code — is licensed under a Creative Commons Attribution 4.0 International License (CC BY 4.0).\nYou are free to share and adapt this material for any purpose, including commercially, provided you give appropriate credit, link to the license, and indicate if changes were made.\nSuggested attribution:\n\nMaterials from Stat 133: Concepts in Computing with Data, Department of Statistics, UC Berkeley, used under CC BY 4.0."
+    "objectID": "16-eda/slides.html#binary-files-pdf-and-excel",
+    "href": "16-eda/slides.html#binary-files-pdf-and-excel",
+    "title": "Reading Data and EDA",
+    "section": "Binary Files: PDF and Excel",
+    "text": "Binary Files: PDF and Excel\n\n\nPDF (.pdf)\n\nDescribes a printed page: fonts, positions, images\nGreat for humans to read\nData inside a PDF table is hard to get back out\n\n\nExcel (.xlsx)\n\nA zipped bundle of files: cell values, formulas, formatting, multiple sheets\nRequires Excel or a package like readxl to decode\n\n\n\n\nreadLines(\"data/New_ZEV_Sales_Last_updated_07-17-2026_ada.xlsx\", n = 2)\n\n\n\n\n\n\n[1] \"PK\\003\\004\\024\"                                                                                                                                                                           \n[2] \"?\\x889L\\xecҙ\\025\\xc8sbgٮ|\\xc8l!\\xf5\\xf9\\032USh9i\\xb0b\\x9er:\\\"y_dl\\xc0\\xf3D\\x9b\\xbf\\023\\xfd|-N\\x9c\\xc8R\\\"4\\022\\xf82\\xcfG\\xc7%\\xa0\\xf5\\177Z\\xb44\\xf1˝y\\xc47\\të\\xc8\\xf0ɂ\\x8b\\037\\xa8\\xde\\001\""
   },
   {
-    "objectID": "license.html#artwork",
-    "href": "license.html#artwork",
-    "title": "License",
-    "section": "Artwork",
-    "text": "Artwork\nThe fantasy scenes appearing on the course calendar and elsewhere on this site are Scenes by Czepeku and are used under Czepeku’s Commercial Use Licence. They are reproduced here in watermarked form, as that license requires.\nThese images are not covered by the CC BY 4.0 license above and are not offered for download, redistribution, or resale as standalone items. All rights in them remain with Czepeku. If you wish to use them, see czepeku.com."
+    "objectID": "16-eda/slides.html#reading-excel-files",
+    "href": "16-eda/slides.html#reading-excel-files",
+    "title": "Reading Data and EDA",
+    "section": "Reading Excel Files",
+    "text": "Reading Excel Files\nRecall the ZEV data from the Data Cleaning lecture.\n\nlibrary(readxl)\nexcel_sheets(\"data/New_ZEV_Sales_Last_updated_07-17-2026_ada.xlsx\")\nzev &lt;- read_excel(\"data/New_ZEV_Sales_Last_updated_07-17-2026_ada.xlsx\",\n                  sheet = \"County\")\nzev\n\n\n\n\n\n\n[1] \"Readme\" \"County\" \"ZIP\"   \n\n\n# A tibble: 77,898 × 7\n   `Data Year` Quarter COUNTY        FUEL_TYPE MAKE  MODEL  `Number of Vehicles`\n         &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;                 &lt;dbl&gt;\n 1        2008       3 Alameda       Electric  Tesla Roads…                    1\n 2        2008       3 San Francisco Electric  Tesla Roads…                    1\n 3        2008       3 San Mateo     Electric  Tesla Roads…                    3\n 4        2008       3 Santa Clara   Electric  Tesla Roads…                    4\n 5        2008       3 Sonoma        Electric  Tesla Roads…                    1\n 6        2008       4 Alameda       Electric  Tesla Roads…                    5\n 7        2008       4 Contra Costa  Electric  Tesla Roads…                    1\n 8        2008       4 Los Angeles   Electric  Tesla Roads…                   17\n 9        2008       4 Marin         Electric  Tesla Roads…                    3\n10        2008       4 Napa          Electric  Tesla Roads…                    1\n# ℹ 77,888 more rows\n\n\n\n\nreadxl only reads. To write a data frame out to .xlsx, use writexl::write_xlsx(), but consider whether a CSV would do."
   },
   {
-    "objectID": "office-hours.html",
-    "href": "office-hours.html",
-    "title": "Office Hours",
-    "section": "",
-    "text": "Office Hours\nPlease stop by during office hours to chat in a small group setting course staff.",
-    "crumbs": [
-      "Office Hours"
-    ]
+    "objectID": "16-eda/slides.html#plain-text",
+    "href": "16-eda/slides.html#plain-text",
+    "title": "Reading Data and EDA",
+    "section": "Plain Text",
+    "text": "Plain Text\n\n\n\n\n\n\n\n\nExtension\nStructure\nExample from class\n\n\n\n\n.txt\nNone; just lines of characters\nIndex cards\n\n\n.md\nMarkdown syntax for formatted prose\nREADME.md\n\n\n.R\nR code\nYour scripts\n\n\n.qmd\nYAML + Markdown + code cells\nproject.qmd\n\n\n.yml\nkey: value pairs, nested by indentation\n_schedule.yml\n\n\n.csv\nRows on lines, columns split by commas\nEV registrations\n\n\n.json\nNested {\"key\": value} objects and [arrays]\nProject 3"
   },
   {
-    "objectID": "projects/2-sampsons-monks/project.html",
-    "href": "projects/2-sampsons-monks/project.html",
-    "title": "Project 1: Sampson’s Monks",
+    "objectID": "16-eda/slides.html#txt-index-cards-revisited",
+    "href": "16-eda/slides.html#txt-index-cards-revisited",
+    "title": "Reading Data and EDA",
+    "section": ".txt: Index Cards Revisited",
+    "text": ".txt: Index Cards Revisited\n\n\nFrom Data in Trees:\n\n\n127.txt\n\nGolden Klaxons\n3000?\n\n\n\nThe only structure is the line break.\n\nBase R\n\nreadLines(\"data/127.txt\")\n\n\n\n[1] \"Golden Klaxons\" \"3000?\"         \n\n\nreadr\n\nlibrary(readr)\nread_lines(\"data/127.txt\")\n\n\n\n[1] \"Golden Klaxons\" \"3000?\""
+  },
+  {
+    "objectID": "16-eda/slides.html#writing-.txt",
+    "href": "16-eda/slides.html#writing-.txt",
+    "title": "Reading Data and EDA",
+    "section": "Writing .txt",
+    "text": "Writing .txt\nEach element of a character vector becomes one line.\n\ncard &lt;- c(\"Golden Klaxons\", \"3000\")\n\n# base R\nwriteLines(card, \"data/127-clean.txt\")\n\n# readr\nwrite_lines(card, \"data/127-clean.txt\")\n\n\n\n\n\n\n\n$ cat data/127-clean.txt\nGolden Klaxons\n3000"
+  },
+  {
+    "objectID": "16-eda/slides.html#md-text-plus-markup",
+    "href": "16-eda/slides.html#md-text-plus-markup",
+    "title": "Reading Data and EDA",
+    "section": ".md: Text Plus Markup",
+    "text": ".md: Text Plus Markup\nA Markdown file is a .txt file with markup: extra characters that tell a renderer how to display the text.\n\n\n\n\n127.md\n\n# Song of Summer\n\n**Golden Klaxons**, card `127`\n\n- Distance: *3000?* miles\n- Source: index card\n\n\n\nSong of Summer\nGolden Klaxons, card 127\n\nDistance: 3000? miles\nSource: index card\n\n\n\n\n\nreadLines(\"data/127.md\")\n\n\n\n[1] \"# Song of Summer\"               \"\"                              \n[3] \"**Golden Klaxons**, card `127`\" \"\"                              \n[5] \"- Distance: *3000?* miles\"      \"- Source: index card\""
+  },
+  {
+    "objectID": "16-eda/slides.html#r",
+    "href": "16-eda/slides.html#r",
+    "title": "Reading Data and EDA",
+    "section": ".R",
+    "text": ".R\nAn R script is plain text containing R code.\n\n\nread-cards.R\n\ncontents &lt;- c()\nnotecard_files &lt;- dir()\n\nfor (notecard_file in notecard_files) {\n    notecard &lt;- readLines(notecard_file)\n    contents &lt;- c(contents, notecard)\n}"
+  },
+  {
+    "objectID": "16-eda/slides.html#qmd-three-languages-in-one-file",
+    "href": "16-eda/slides.html#qmd-three-languages-in-one-file",
+    "title": "Reading Data and EDA",
+    "section": ".qmd: Three Languages in One File",
+    "text": ".qmd: Three Languages in One File\n\n\nhello-penguins.qmd\n\n---\ntitle: \"Hello, Penguins!\"\nformat: html\n---\n\n## Data\n\nFor this analysis we'll use the penguins dataset from the palmerpenguins package.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(tidyverse)\nlibrary(ggthemes)\nlibrary(palmerpenguins)\nlibrary(gt)\n```\n:::\n\n\nYAML metadata, Markdown prose, and R code cells, all in one plain text file that Quarto knows how to split apart."
+  },
+  {
+    "objectID": "16-eda/slides.html#section-2",
+    "href": "16-eda/slides.html#section-2",
+    "title": "Reading Data and EDA",
     "section": "",
-    "text": "In this project, you will analyze and model Sampson’s Monks dataset, a classic dataset in social network analysis.\nBy completing this project, you will:\n\nWork with matrices and lists in applied settings\nPractice row/column operations for network statistics\nUse functions, control flow, and libraries\nUnderstand the contrast between random vs. real-world networks\n\nThere are two components: the worksheet and the project. The worksheet will help you familiarize yourself with the computational tools you’ll need. This should be done first. The project is the main event: your analysis of the data set.\nYou will submit:\n\nA worksheet .R file with your well-commented code\nA project .R file with your well-commented code.\n\nBoth files should be submitted to their respective Pensive assignments before your scheduled Project Studio.\n\n\n\nWorksheetProject\n\n\n\nMatrices\n\nSection 1: Matrices + Operations\nThree students take a class together and study for a project, midterm, and final together.\n\nStudent A scores: 12, 23, 34\n\nStudent B scores: 45, 56, 67\n\nStudent C scores: 78, 89, 64\n\nQ1: Create a matrix containing their scores.\nUse matrix() to create the 3x3 matrix:\nQ2: Name the rows and columns\nUse colnames() and rownames() to label rows and columns.\nQ3: Compute each student’s average score\nWhich student has the highest average?\n\n\n\nPlots\nQ4: How can we make simple graphs in Base R?\nRead the documention for plot(), boxplot(), and hist() and run at least one example of each.\nQ5: Create a histogram using the matrix scores\nHint: Convert the matrix to a normal vector first using as.vector().\nQ6: Use the built-in airquality dataset\nThis dataset contains daily New York air quality measurements from May–September 1973 spread across several vectors.\n\nairquality$Ozone: Ozone concentration (ppb)\n\nairquality$Solar.R: Solar radiation (langley)\n\nairquality$Wind: Wind speed (mph)\n\nairquality$Temp: Temperature (°F)\n\nairquality$Month: Month (5 = May, …, 9 = September)\n\nairquality$Day: Day of the month\n\na) Construct a histogram of Ozone\nb) Construct a scatterplot of Ozone vs Temperature\nc) Construct a boxplot of Temperature by Month\n\n\nIntro to Packages\nQ7: Install and load the packages\nInstall and load the igraph and networkD3 packages by running the following code:\ninstall.packages(\"igraph\")    # you only need to run this line once\ninstall.packages(\"networkD3\") # you only need to run this line once\nlibrary(\"igraph\")\nlibrary(\"networkD3\")\nQ8: What are igraph and networkD3?\nHow are these libraries useful for network analysis and visualization? Browse their documentation here: https://r.igraph.org/, http://christophergandrud.github.io/networkD3/.\nQ9: Explore usage\nRun these examples and describe what they do.\na) igraph example\ng &lt;- graph(edges = c(1,2, 2,3, 3,1), n = 3, directed = FALSE)\nplot(g)\nb) networkD3 example\nsimpleNetwork(data.frame(source = c(\"A\", \"B\", \"C\"), \n                         target = c(\"B\", \"C\", \"A\")))\n\n\n\n\nPart 0: Setting Up\nOpen your R app and install and load the necessary packages for this project: lda, igraph, and networkD3. lda contains the monks data.\n\n# Run this lines once to install packages on your machine\n# install.packages(\"lda\")\n# install.packages(\"igraph\")\n# install.packages(\"networkD3\")\n\n# Run these lines once per session to load packages\nlibrary(lda)\nlibrary(igraph)\nlibrary(networkD3)\n\ndata(sampson)              # load the monks data from lda\nsamplk1 &lt;- sampson$SAMPLK1 # extract one of the matrices\n\nsampson contains 10 different matrices, each one a sociomatrix that describes the network of a different type of relationship. All 10 matrices describe the same 18 monks, in the same row and column order.\n\n\n\nName\nRelation\n\n\n\n\nSAMPLK1, SAMPLK2, SAMPLK3\nLiking, at three successive time points\n\n\nSAMPDLK\nDisliking\n\n\nSAMPES\nEsteem\n\n\nSAMPDES\nDisesteem\n\n\nSAMPIN\nPositive influence\n\n\nSAMPNIN\nNegative influence\n\n\nSAMPPR\nPraise\n\n\nSAMNPR\nBlame (negative praise)\n\n\n\nIn each network, each node represents a single monk and each edge represents a relationship pointing from one monk to another. Every monk was asked to name only his top three choices on each relationship. Paradoxically, a monk’s first choice gets a 3 (3 points) while his third choice gets a 1 (1 point); a 0 means “not nominated”.\n\n\nPart 1: Visualizing the Network\nCreate two network visualizations select one of Sampson’s matrices (not SAMPLK1) that describe monk relationships and form two plots:\n\nA static plot using igraph::plot.igraph()\nAn interactive plot using networkD3::forceNetwork()\n\nBefore plotting, check what data structure your plotting function accepts and create it accordingly. networkD3 requires dataframes of nodes and edges, not a sociomatrix. You can use the following code to convert one of Sampson’s matrices (called monk_mat here) into the structures that networkD3 expects.\n\nnodes &lt;- data.frame(name = rownames(monk_mat), group = 1)\nedges &lt;- which(monk_mat &gt; 0, arr.ind = TRUE)\n\nlinks &lt;- data.frame(\n  source = edges[, \"row\"] - 1,\n  target = edges[, \"col\"] - 1,\n  value  = monk_mat[edges] \n)\n\nTry visualizing a few different matrices before deciding on one that you find most interesting. Read the documentation on each of the plotting functions to understand the arguments they make available, then tune the plots to your liking.\n\n\nPart 2: Summary Statistics on a Sociomatrix\nA picture of a network is suggestive but hard to reason about precisely. Summary statistics let us describe the same structure numerically. A few terms first.\n\nNode: one monk. There are 18, one per row and one per column.\nEdge: a nomination from one monk to another. Edges here are directed: monk \\(i\\) nominating monk \\(j\\) (row \\(i\\), column \\(j\\)) is not the same as monk \\(j\\) nominating monk \\(i\\).\nEdge weight: the number in the cell, 3, 2, or 1, recording whether the nomination was that monk’s first, second, or third choice. A 0 means there is no edge.\nOut-degree of a node: the number of edges originating at it, i.e. how many other monks that monk nominated.\nIn-degree of a node: the number of edges pointing to it, i.e. how many other monks nominated that monk.\nOut-strength and in-strength: the sum of the edge weights leaving or arriving at a node. These credit a first-choice nomination more heavily than a third-choice one.\n\nSolutions below use SAMPDLK (disliking) as the chosen matrix; student answers will differ depending on their choice.\n\nReport which matrix you chose, and describe in one sentence what a large value means for that relation (e.g. for SAMPDLK, a high in-degree means a monk was frequently named as disliked).\nCompute the out-degree and in-degree of each monk. rowSums() and colSums() will do this in one line each, once you have turned the weights into TRUE/FALSE values with a comparison such as monk_mat &gt; 0.\nCompute the out-strength and in-strength of each monk.\nMake a histogram of in-degree and a histogram of in-strength. Compare their shapes to a histogram of out-degree. Why is the out-degree distribution so much narrower? (Look back at how the monks were surveyed.)\nMake a scatterplot of in-degree against in-strength, one point per monk. What would it mean for a monk to fall well above or well below the general trend?\nWhich monk received the most nominations on your chosen relation, and which received the fewest? Do you get the same answer using in-degree as you do using in-strength? If not, explain the disagreement.\n\n\n\nPart 3: A simple model of a social network\nOne way to learn more about the social dynamics underlying the monk’s network is to compare it to a network generated using a simple but well-understood mechanism; that is to say: a model.\nGenerate a network according to the rule that each monk assigns their likes (or dislikes) completely at random. The following observations will help you form your code:\n\nYou can represent a monk’s choices as a single vector. You can create that vector randomly using the sample() function.\nYou can use a for loop to change-in-place each vector of a blank matrix. See example from lecture on the Fibonacci Sequence for a vector analog\n\nFeel free to add additional complexity into your model (for example, assigning the likes randomly but with unequal probabilities).\n\n\nPart 4: Model vs Observations\nApply the same techniques you used in parts 1 and 2 (visualization and summary statistics) to describe the structure of the network that was simulated by your model. In 3-5 sentences, compare these networks: In what ways is the observed network monk_mat similar to your generated network? In what ways is it different? What patterns appear in the observed network that are missing from your generated one?",
+    "text": "YAML\n\n\nA plain text format for configuration and metadata built from key: value pairs. Indentation marks nesting and a leading - marks an item in a list.\n\n\n\nThe course website’s schedule is a YAML file:\n\n\n_schedule.yml (excerpt)\n\ntopic: \"Data in Trees\"\ndisplay-date: Aug 28\ndate: \"2026-08-28\"\nimage: 02-data-in-trees/images/tree-banner.webp\ndocs:\n  - type: Slides\n    href: 02-data-in-trees/slides.qmd\n  - type: Project\n    href: projects/1-index-cards/project.qmd"
+  },
+  {
+    "objectID": "16-eda/slides.html#reading-yaml-into-an-r-list",
+    "href": "16-eda/slides.html#reading-yaml-into-an-r-list",
+    "title": "Reading Data and EDA",
+    "section": "Reading YAML into an R list",
+    "text": "Reading YAML into an R list\n\nlibrary(yaml)\nday &lt;- read_yaml(\"data/data-in-trees-day.yml\")\nstr(day)\n\n\n\nList of 5\n $ topic       : chr \"Data in Trees\"\n $ display-date: chr \"Aug 28\"\n $ date        : chr \"2026-08-28\"\n $ image       : chr \"02-data-in-trees/images/tree-banner.webp\"\n $ docs        :List of 2\n  ..$ :List of 2\n  .. ..$ type: chr \"Slides\"\n  .. ..$ href: chr \"02-data-in-trees/slides.qmd\"\n  ..$ :List of 2\n  .. ..$ type: chr \"Project\"\n  .. ..$ href: chr \"projects/1-index-cards/project.qmd\"\n\n\n\n\nday$docs[[2]]$href\n\n\n\n[1] \"projects/1-index-cards/project.qmd\"\n\n\n\n\n\nWrite a list back out with write_yaml(day, \"day.yml\")."
+  },
+  {
+    "objectID": "16-eda/slides.html#section-3",
+    "href": "16-eda/slides.html#section-3",
+    "title": "Reading Data and EDA",
+    "section": "",
+    "text": "CSV\n\n\nA comma-separated values file stores tabular data with each row on a new line and each column delimited by a comma. A lingua franca for storing data frames in your file system.\n\n\n\nWhat does a data frame look like as plain text?\n\nlibrary(palmerpenguins)\npenguins |&gt;\n  head(3) |&gt;\n  format_csv() |&gt;\n  cat()\n\n\n\nspecies,island,bill_length_mm,bill_depth_mm,flipper_length_mm,body_mass_g,sex,year\nAdelie,Torgersen,39.1,18.7,181,3750,male,2007\nAdelie,Torgersen,39.5,17.4,186,3800,female,2007\nAdelie,Torgersen,40.3,18,195,3250,female,2007"
+  },
+  {
+    "objectID": "16-eda/slides.html#structure-of-a-csv",
+    "href": "16-eda/slides.html#structure-of-a-csv",
+    "title": "Reading Data and EDA",
+    "section": "Structure of a CSV",
+    "text": "Structure of a CSV\n\nFirst line: column names (the header)\nOne row per line, columns separated by commas\nMissing values written as NA"
+  },
+  {
+    "objectID": "16-eda/slides.html#a-csv-in-the-wild",
+    "href": "16-eda/slides.html#a-csv-in-the-wild",
+    "title": "Reading Data and EDA",
+    "section": "A CSV in the Wild",
+    "text": "A CSV in the Wild\nElectric vehicle registrations by state, which we’ll explore shortly.\n\n(base) andrewbray@MacBookPro fall-2026-private % cd 16-eda/data\n(base) andrewbray@MacBookPro data % ls\nev-registrations.csv    ev-xlsx.png\n(base) andrewbray@MacBookPro data % cat ev-registrations.csv\nState,Count\nAlabama,\"13,047\"\nAlaska,\"2,697\"\nArizona,\"89,798\"\nArkansas,\"7,108\"\nCalifornia,\"1,256,646\"\nColorado,\"90,083\"\nConnecticut,\"31,557\"\nDelaware,\"8,435\"\nDistrict of Columbia,\"8,066\"\nFlorida,\"254,878\"\nGeorgia,\"92,368\"\nHawaii,\"25,565\"\nIdaho,\"8,501\"\nIllinois,\"99,573\"\nIndiana,\"26,101\"\nIowa,\"9,031\"\nKansas,\"11,271\"\nKentucky,\"11,617\"\nLouisiana,\"8,150\"\nMaine,\"7,377\"\nMaryland,\"72,139\"\nMassachusetts,\"73,768\"\nMichigan,\"50,284\"\nMinnesota,\"37,050\"\nMississippi,\"3,590\"\nMissouri,\"26,861\"\nMontana,\"4,608\"\nNebraska,\"6,920\"\nNevada,\"47,361\"\nNew Hampshire,\"9,861\"\nNew Jersey,\"134,753\"\nNew Mexico,\"10,276\"\nNew York,\"131,250\"\nNorth Carolina,\"70,164\"\nNorth Dakota,959\nOhio,\"50,393\"\nOklahoma,\"22,843\"\nOregon,\"64,361\"\nPennsylvania,\"70,154\"\nRhode Island,\"6,396\"\nSouth Carolina,\"20,873\"\nSouth Dakota,\"1,675\"\nTennessee,\"33,221\"\nTexas,\"230,125\"\nUtah,\"39,998\"\nVermont,\"7,816\"\nVirginia,\"84,936\"\nWashington,\"152,101\"\nWest Virginia,\"2,758\"\nWisconsin,\"24,943\"\nWyoming,\"1,139\"\n\n\n\n\n\nAsk: why are most of the counts wrapped in quotes, but not North Dakota’s? (A comma inside a value would otherwise be read as a column delimiter.)"
+  },
+  {
+    "objectID": "16-eda/slides.html#reading-csvs",
+    "href": "16-eda/slides.html#reading-csvs",
+    "title": "Reading Data and EDA",
+    "section": "Reading CSVs",
+    "text": "Reading CSVs\n\nev &lt;- read.csv(\"data/ev-registrations.csv\")\nstr(ev)\n\n\n\n'data.frame':   51 obs. of  2 variables:\n $ State: chr  \"Alabama\" \"Alaska\" \"Arizona\" \"Arkansas\" ...\n $ Count: chr  \"13,047\" \"2,697\" \"89,798\" \"7,108\" ...\n\n\n\n\nCount came in as character: \"13,047\" isn’t a number to base R."
+  },
+  {
+    "objectID": "16-eda/slides.html#reading-csvs-1",
+    "href": "16-eda/slides.html#reading-csvs-1",
+    "title": "Reading Data and EDA",
+    "section": "Reading CSVs",
+    "text": "Reading CSVs\nreadr\n\nlibrary(readr)\n# library(tidyverse) # easy alternative\nev &lt;- read_csv(\"data/ev-registrations.csv\")\nev\n\n\n\n# A tibble: 51 × 2\n   State                  Count\n   &lt;chr&gt;                  &lt;dbl&gt;\n 1 Alabama                13047\n 2 Alaska                  2697\n 3 Arizona                89798\n 4 Arkansas                7108\n 5 California           1256646\n 6 Colorado               90083\n 7 Connecticut            31557\n 8 Delaware                8435\n 9 District of Columbia    8066\n10 Florida               254878\n# ℹ 41 more rows\n\n\n. . .\n\nread_csv() reports the column types it guessed and recognizes \"13,047\" as the number 13047."
+  },
+  {
+    "objectID": "16-eda/slides.html#writing-csvs",
+    "href": "16-eda/slides.html#writing-csvs",
+    "title": "Reading Data and EDA",
+    "section": "Writing CSVs",
+    "text": "Writing CSVs\n\n# base R\nwrite.csv(penguins, \"data/penguins.csv\", row.names = FALSE)\n\n# readr\nwrite_csv(penguins, \"data/penguins.csv\")\n\n\n\n\n\n\n\n\nWithout row.names = FALSE, base R adds an unnamed column of row numbers to the file."
+  },
+  {
+    "objectID": "16-eda/slides.html#section-4",
+    "href": "16-eda/slides.html#section-4",
+    "title": "Reading Data and EDA",
+    "section": "",
+    "text": "JSON\n\n\nJavaScript Object Notation: a plain text format of nested objects ({\"key\": value}) and arrays ([a, b, c]). The most common format for data sent over the web.\n\n\n\n\n\ncards.json\n\n[\n  {\"id\": 127, \"song\": \"Golden Klaxons\", \"distance\": \"3000?\"},\n  {\"id\": 14,  \"song\": \"Espresso\",       \"distance\": \"40\"},\n  {\"id\": 3,   \"song\": \"Let It Go\",      \"distance\": \"1200\"}\n]"
+  },
+  {
+    "objectID": "16-eda/slides.html#reading-and-writing-json",
+    "href": "16-eda/slides.html#reading-and-writing-json",
+    "title": "Reading Data and EDA",
+    "section": "Reading and Writing JSON",
+    "text": "Reading and Writing JSON\nAn array of objects that share the same keys becomes a data frame.\n\nlibrary(jsonlite)\ncards &lt;- fromJSON(\"data/cards.json\")\ncards\n\n\n\n   id           song distance\n1 127 Golden Klaxons    3000?\n2  14       Espresso       40\n3   3      Let It Go     1200"
+  },
+  {
+    "objectID": "16-eda/slides.html#reading-and-writing-json-1",
+    "href": "16-eda/slides.html#reading-and-writing-json-1",
+    "title": "Reading Data and EDA",
+    "section": "Reading and Writing JSON",
+    "text": "Reading and Writing JSON\nAn array of objects that share the same keys becomes a data frame.\n\ntoJSON(cards[1, ], pretty = TRUE)\n\n\n\n[\n  {\n    \"id\": 127,\n    \"song\": \"Golden Klaxons\",\n    \"distance\": \"3000?\"\n  }\n] \n\n\n\n\nTo write to a file: write_json(cards, \"data/cards.json\")."
+  },
+  {
+    "objectID": "16-eda/slides.html#reading-and-writing-summary",
+    "href": "16-eda/slides.html#reading-and-writing-summary",
+    "title": "Reading Data and EDA",
+    "section": "Reading and Writing: Summary",
+    "text": "Reading and Writing: Summary\n\n\n\n\n\n\n\n\nFormat\nBase R\nTidyverse and friends\n\n\n\n\n.txt\nreadLines() / writeLines()\nread_lines() / write_lines() (readr)\n\n\n.csv\nread.csv() / write.csv()\nread_csv() / write_csv() (readr)\n\n\n.yml\n\nread_yaml() / write_yaml() (yaml)\n\n\n.json\n\nfromJSON() / write_json() (jsonlite)\n\n\n.xlsx\n\nread_excel() (readxl) / write_xlsx() (writexl)"
+  },
+  {
+    "objectID": "16-eda/slides.html#readr-1",
+    "href": "16-eda/slides.html#readr-1",
+    "title": "Reading Data and EDA",
+    "section": "Readr",
+    "text": "Readr\nWhy prefer readr?\n\nReturns a tibble\nReports the column types it guessed\nConsistent read_*() / write_*() naming\nFaster on large files"
+  },
+  {
+    "objectID": "16-eda/slides.html#potential-apps",
+    "href": "16-eda/slides.html#potential-apps",
+    "title": "Reading Data and EDA",
+    "section": "Potential Apps",
+    "text": "Potential Apps\nRequest your data now!\n\n\n\nGoogle Takeout (Chrome, Search, Maps)\nNetflix\nSpotify\nUber / Lyft\n\n\n\nYoutube\nInstagram / Facebook / Discord\nDoordash\nVenmo\n\n\n\nLook for multiple data files and at least one JSON."
+  },
+  {
+    "objectID": "16-eda/slides.html#exploratory-data-analysis-eda",
+    "href": "16-eda/slides.html#exploratory-data-analysis-eda",
+    "title": "Reading Data and EDA",
+    "section": "Exploratory Data Analysis (EDA)",
+    "text": "Exploratory Data Analysis (EDA)\n\nconsumer: the analyst\ngoal: uncover structure for further analysis, generate new questions\nvisualization often follows templates\nprioritize quick and accurate interpretation"
+  },
+  {
+    "objectID": "16-eda/slides.html#common-exploratory-questions",
+    "href": "16-eda/slides.html#common-exploratory-questions",
+    "title": "Reading Data and EDA",
+    "section": "Common Exploratory Questions",
+    "text": "Common Exploratory Questions\n\nWhat is the unit of observation?\nWhat are the variables, their types, and levels?\nHow is missingness encoded? How prevalent is it?\nWhat is the distribution of the variables?\nWhat is the relationship between the variables?\nAre there any interesting outliers?\n\n\n\nThe Dashboard is a classic exploratory tool Use View() in Positron"
+  },
+  {
+    "objectID": "16-eda/slides.html#guess-the-metaphor",
+    "href": "16-eda/slides.html#guess-the-metaphor",
+    "title": "Reading Data and EDA",
+    "section": "Guess the Metaphor",
+    "text": "Guess the Metaphor\n\nEDA is like an archaeological dig: you never know what you might find and the more you discover, the more you dig."
+  },
+  {
+    "objectID": "16-eda/slides.html#your-turn",
+    "href": "16-eda/slides.html#your-turn",
+    "title": "Reading Data and EDA",
+    "section": "Your Turn",
+    "text": "Your Turn\nQuestions:\n\nSketch the data frame that was used to create this plot.\nDescribe the aesthetic mappings and geometry used.\nWhat is the main story?\n\n\nWrite these on the board."
+  },
+  {
+    "objectID": "16-eda/slides.html#section-6",
+    "href": "16-eda/slides.html#section-6",
+    "title": "Reading Data and EDA",
+    "section": "",
+    "text": "−\n    +\n \n 02:30\n \n\nAs you debrief can also ask an explanatory question: “what is effective about this plot? How could it be improved?””"
+  },
+  {
+    "objectID": "16-eda/slides.html#the-data",
+    "href": "16-eda/slides.html#the-data",
+    "title": "Reading Data and EDA",
+    "section": "The Data",
+    "text": "The Data\n\nlibrary(readr)\nev &lt;- read_csv(\"data/ev-registrations.csv\")"
+  },
+  {
+    "objectID": "16-eda/slides.html#q1-what-are-the-cols-and-rows",
+    "href": "16-eda/slides.html#q1-what-are-the-cols-and-rows",
+    "title": "Reading Data and EDA",
+    "section": "Q1: What are the cols and rows?",
+    "text": "Q1: What are the cols and rows?\n\n\ndim(ev)\n\n\n\n[1] 51  2\n\n\n\n\n\nsapply(ev, class)\n\n\n\n      State       Count \n\"character\"   \"numeric\""
+  },
+  {
+    "objectID": "16-eda/slides.html#q1-what-are-the-cols-and-rows-1",
+    "href": "16-eda/slides.html#q1-what-are-the-cols-and-rows-1",
+    "title": "Reading Data and EDA",
+    "section": "Q1: What are the cols and rows?",
+    "text": "Q1: What are the cols and rows?\n\nev\n\n\n\n# A tibble: 51 × 2\n   State                  Count\n   &lt;chr&gt;                  &lt;dbl&gt;\n 1 Alabama                13047\n 2 Alaska                  2697\n 3 Arizona                89798\n 4 Arkansas                7108\n 5 California           1256646\n 6 Colorado               90083\n 7 Connecticut            31557\n 8 Delaware                8435\n 9 District of Columbia    8066\n10 Florida               254878\n# ℹ 41 more rows\n\n\n\nUnit of observation: a state (or DC)\nVariables: name (character) and registration count (double)"
+  },
+  {
+    "objectID": "16-eda/slides.html#q2-is-there-any-missing-data",
+    "href": "16-eda/slides.html#q2-is-there-any-missing-data",
+    "title": "Reading Data and EDA",
+    "section": "Q2: Is there any missing data?",
+    "text": "Q2: Is there any missing data?\n\nOption 1: Total missing counts\n\nlibrary(dplyr)\nev |&gt;\n  summarize(n_missing = sum(is.na(Count)))\n\n\n\n# A tibble: 1 × 1\n  n_missing\n      &lt;int&gt;\n1         0\n\n\n\n\nOption 2: Proportion missing counts\n\nev |&gt;\n  summarize(p_missing = mean(is.na(Count)))\n\n\n\n# A tibble: 1 × 1\n  p_missing\n      &lt;dbl&gt;\n1         0"
+  },
+  {
+    "objectID": "16-eda/slides.html#q3-what-is-the-distribution-of-count",
+    "href": "16-eda/slides.html#q3-what-is-the-distribution-of-count",
+    "title": "Reading Data and EDA",
+    "section": "Q3: What is the distribution of count?",
+    "text": "Q3: What is the distribution of count?\n\n\nlibrary(ggplot2)\nev |&gt;\n  ggplot(aes(x = Count)) +\n  geom_bar()"
+  },
+  {
+    "objectID": "16-eda/slides.html#q3-what-is-the-distribution-of-count-1",
+    "href": "16-eda/slides.html#q3-what-is-the-distribution-of-count-1",
+    "title": "Reading Data and EDA",
+    "section": "Q3: What is the distribution of count?",
+    "text": "Q3: What is the distribution of count?\n\nev |&gt;\n  ggplot(aes(x = State)) +\n  geom_bar()"
+  },
+  {
+    "objectID": "16-eda/slides.html#q3-what-is-the-distribution-of-count-2",
+    "href": "16-eda/slides.html#q3-what-is-the-distribution-of-count-2",
+    "title": "Reading Data and EDA",
+    "section": "Q3: What is the distribution of count?",
+    "text": "Q3: What is the distribution of count?\n\nev |&gt;\n  ggplot(aes(y = State)) +\n  geom_bar()"
+  },
+  {
+    "objectID": "16-eda/slides.html#section-10",
+    "href": "16-eda/slides.html#section-10",
+    "title": "Reading Data and EDA",
+    "section": "",
+    "text": "geom_bar()\n\n\nCounts up the number of observations in each level of a single variable, then draws bars up to that height.\n\n\n\n\n\nlibrary(palmerpenguins)\npenguins\n\n\n\n# A tibble: 344 × 8\n   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g\n   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;\n 1 Adelie  Torgersen           39.1          18.7               181        3750\n 2 Adelie  Torgersen           39.5          17.4               186        3800\n 3 Adelie  Torgersen           40.3          18                 195        3250\n 4 Adelie  Torgersen           NA            NA                  NA          NA\n 5 Adelie  Torgersen           36.7          19.3               193        3450\n 6 Adelie  Torgersen           39.3          20.6               190        3650\n 7 Adelie  Torgersen           38.9          17.8               181        3625\n 8 Adelie  Torgersen           39.2          19.6               195        4675\n 9 Adelie  Torgersen           34.1          18.1               193        3475\n10 Adelie  Torgersen           42            20.2               190        4250\n# ℹ 334 more rows\n# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;"
+  },
+  {
+    "objectID": "16-eda/slides.html#section-11",
+    "href": "16-eda/slides.html#section-11",
+    "title": "Reading Data and EDA",
+    "section": "",
+    "text": "geom_bar()\n\n\nCounts up the number of observations in each level of a single variable, then draws bars up to that height.\n\n\n\nlibrary(palmerpenguins)\npenguins |&gt;\n  ggplot(aes(y = island)) +\n  geom_bar()"
+  },
+  {
+    "objectID": "16-eda/slides.html#summarizing-with-counts",
+    "href": "16-eda/slides.html#summarizing-with-counts",
+    "title": "Reading Data and EDA",
+    "section": "Summarizing with counts",
+    "text": "Summarizing with counts\n\n\npenguins |&gt;\n  group_by(island) |&gt;\n  summarize(count = n())\n\n\n\n# A tibble: 3 × 2\n  island    count\n  &lt;fct&gt;     &lt;int&gt;\n1 Biscoe      168\n2 Dream       124\n3 Torgersen    52"
+  },
+  {
+    "objectID": "16-eda/slides.html#summarizing-with-counts-1",
+    "href": "16-eda/slides.html#summarizing-with-counts-1",
+    "title": "Reading Data and EDA",
+    "section": "Summarizing with counts",
+    "text": "Summarizing with counts\n\npenguins |&gt;\n  count(island)\n\n\n\n# A tibble: 3 × 2\n  island        n\n  &lt;fct&gt;     &lt;int&gt;\n1 Biscoe      168\n2 Dream       124\n3 Torgersen    52"
+  },
+  {
+    "objectID": "16-eda/slides.html#section-12",
+    "href": "16-eda/slides.html#section-12",
+    "title": "Reading Data and EDA",
+    "section": "",
+    "text": "geom_col()\n\n\nTakes one column of categories and draws a bar for each up to the height of a second column of counts.\n\n\n\n\n\npenguins |&gt;\n  count(island) |&gt;\n  ggplot(aes(y = island, x = n)) +\n  geom_col()"
+  },
+  {
+    "objectID": "16-eda/slides.html#q3-what-is-the-distribution-of-count-3",
+    "href": "16-eda/slides.html#q3-what-is-the-distribution-of-count-3",
+    "title": "Reading Data and EDA",
+    "section": "Q3: What is the distribution of count?",
+    "text": "Q3: What is the distribution of count?\n\nev |&gt;\n  ggplot(aes(x = State, y = Count)) +\n  geom_col()"
+  },
+  {
+    "objectID": "16-eda/slides.html#q3-what-is-the-distribution-of-count-4",
+    "href": "16-eda/slides.html#q3-what-is-the-distribution-of-count-4",
+    "title": "Reading Data and EDA",
+    "section": "Q3: What is the distribution of count?",
+    "text": "Q3: What is the distribution of count?\n\nev |&gt;\n  ggplot(aes(x = State, y = Count)) +\n  geom_col() +\n  theme(axis.text.x = element_text(angle = 270, \n                                   hjust = 0, \n                                   vjust = 0.5))"
+  },
+  {
+    "objectID": "16-eda/slides.html#two-types-of-viz",
+    "href": "16-eda/slides.html#two-types-of-viz",
+    "title": "Reading Data and EDA",
+    "section": "Two types of Viz",
+    "text": "Two types of Viz\n\n\nExploratory Data Analysis (EDA)\n\nExplanatory Data Analysis\n\n\nAdd notes to each:\nExploratory: - consumer: the analyst - goal: uncover structure for further analysis - follow templates - prioritize quick and accurate interpretation\nExplanatory: - consumer: stakeholder - goal: tell a specific story - customized - polished aesthetic"
+  },
+  {
+    "objectID": "16-eda/slides.html#goal-1",
+    "href": "16-eda/slides.html#goal-1",
+    "title": "Reading Data and EDA",
+    "section": "Goal #1",
+    "text": "Goal #1\n\nDisplay the registration counts in a manner that makes it easy to see the counts of each individual state equally well.\n\n\n\nev |&gt;\n  ggplot(aes(x = State, y = Count)) +\n  geom_col() +\n  theme(axis.text.x = element_text(angle = 270, \n                                   hjust = 0, \n                                   vjust = 0.5))"
+  },
+  {
+    "objectID": "16-eda/slides.html#labels",
+    "href": "16-eda/slides.html#labels",
+    "title": "Reading Data and EDA",
+    "section": "Labels",
+    "text": "Labels\nThe labels on the plot can refer to many different places where text is added to describe what is plotted.\n\n\n\n\ntitle\nsubtitle\nx-axis\ny-axis\nlegends\n\n\nIn ggplot2, these are arguments to a labs() layer.\n\ntitle\nsubtitle\ncolor\nfill\nsize\nshape"
+  },
+  {
+    "objectID": "16-eda/slides.html#labels-1",
+    "href": "16-eda/slides.html#labels-1",
+    "title": "Reading Data and EDA",
+    "section": "Labels",
+    "text": "Labels\n\nev |&gt;\n  ggplot(aes(x = State, y = Count)) +\n  geom_col() +\n  theme(axis.text.x = element_text(angle = 270, \n                                   hjust = 0, \n                                   vjust = 0.5)) +\n  labs(title = \"Electric Vehicle Registrations by State\",\n       x = \"\",\n       y = \"Registration Count\")"
+  },
+  {
+    "objectID": "16-eda/slides.html#section-14",
+    "href": "16-eda/slides.html#section-14",
+    "title": "Reading Data and EDA",
+    "section": "",
+    "text": "Theme\n\n\nA set of visual design choices for the plot on things like the background, the gridlines, the axes, the tick marks, and the fonts.\n\n\n\nSome ggplot2 themes (each one can be added as layer)\n\ntheme_gray(): the default\ntheme_bw()\ntheme_minimal()"
+  },
+  {
+    "objectID": "16-eda/slides.html#themes",
+    "href": "16-eda/slides.html#themes",
+    "title": "Reading Data and EDA",
+    "section": "Themes",
+    "text": "Themes\n\nev |&gt;\n  ggplot(aes(x = State, y = Count)) +\n  geom_col() +\n  theme(axis.text.x = element_text(angle = 270, \n                                   hjust = 0, \n                                   vjust = 0.5)) +\n  labs(title = \"Electric Vehicle Registrations by State\",\n       x = \"\",\n       y = \"Registration Count\") + \n  theme_minimal()"
+  },
+  {
+    "objectID": "16-eda/slides.html#themes-output",
+    "href": "16-eda/slides.html#themes-output",
+    "title": "Reading Data and EDA",
+    "section": "Themes",
+    "text": "Themes"
+  },
+  {
+    "objectID": "16-eda/slides.html#themes-1",
+    "href": "16-eda/slides.html#themes-1",
+    "title": "Reading Data and EDA",
+    "section": "Themes",
+    "text": "Themes\n\nev |&gt;\n  ggplot(aes(x = State, y = Count)) +\n  geom_col() +\n  theme_minimal(axis.text.x = element_text(angle = 270, \n                                   hjust = 0, \n                                   vjust = 0.5)) +\n  labs(title = \"Electric Vehicle Registrations by State\",\n       x = \"\",\n       y = \"Registration Count\")"
+  },
+  {
+    "objectID": "16-eda/slides.html#themes-1-output",
+    "href": "16-eda/slides.html#themes-1-output",
+    "title": "Reading Data and EDA",
+    "section": "Themes",
+    "text": "Themes\n\nError in `theme_minimal()`:\n! unused argument (axis.text.x = element_text(angle = 270, hjust = 0, vjust = 0.5))"
+  },
+  {
+    "objectID": "16-eda/slides.html#themes-2",
+    "href": "16-eda/slides.html#themes-2",
+    "title": "Reading Data and EDA",
+    "section": "Themes",
+    "text": "Themes\n\nev |&gt;\n  ggplot(aes(x = State, y = Count)) +\n  geom_col() +\n  theme_minimal() +\n  theme(axis.text.x = element_text(angle = 270, \n                                   hjust = 0, \n                                   vjust = 0.5)) +\n  labs(title = \"Electric Vehicle Registrations by State\",\n       x = \"\",\n       y = \"Registration Count\")"
+  },
+  {
+    "objectID": "16-eda/slides.html#themes-2-output",
+    "href": "16-eda/slides.html#themes-2-output",
+    "title": "Reading Data and EDA",
+    "section": "Themes",
+    "text": "Themes"
+  },
+  {
+    "objectID": "16-eda/slides.html#section-15",
+    "href": "16-eda/slides.html#section-15",
+    "title": "Reading Data and EDA",
+    "section": "",
+    "text": "Theme\n\n\nA set of visual design choices for the plot on things like the background, the gridlines, the axes, the tick marks, and the fonts.\n\n\nSome ggplot2 themes (each one can be added as layer)\n\ntheme_gray(): the default\ntheme_bw()\ntheme_minimal()\n\n\n\ntheme() will change defaults of the exiting theme, so add it last."
+  },
+  {
+    "objectID": "16-eda/slides.html#setting-aesthetics",
+    "href": "16-eda/slides.html#setting-aesthetics",
+    "title": "Reading Data and EDA",
+    "section": "Setting Aesthetics",
+    "text": "Setting Aesthetics\n\n\nev |&gt;\n  ggplot(aes(x = State, y = Count)) +\n  geom_col(color = \"blue\") +\n  theme_minimal() +\n  theme(axis.text.x = element_text(angle = 270, \n                                   hjust = 0, \n                                   vjust = 0.5)) +\n  labs(title = \"Electric Vehicle Registrations by State\",\n       x = \"\",\n       y = \"Registration Count\")"
+  },
+  {
+    "objectID": "16-eda/slides.html#setting-aesthetics-output",
+    "href": "16-eda/slides.html#setting-aesthetics-output",
+    "title": "Reading Data and EDA",
+    "section": "Setting Aesthetics",
+    "text": "Setting Aesthetics"
+  },
+  {
+    "objectID": "16-eda/slides.html#setting-aesthetics-1",
+    "href": "16-eda/slides.html#setting-aesthetics-1",
+    "title": "Reading Data and EDA",
+    "section": "Setting Aesthetics",
+    "text": "Setting Aesthetics\n\nev |&gt;\n  ggplot(aes(x = State, y = Count)) +\n  geom_col(fill = \"steelblue\") +\n  theme_minimal() +\n  theme(axis.text.x = element_text(angle = 270, \n                                   hjust = 0, \n                                   vjust = 0.5)) +\n  labs(title = \"Electric Vehicle Registrations by State\",\n       x = \"\",\n       y = \"Registration Count\")"
+  },
+  {
+    "objectID": "16-eda/slides.html#setting-aesthetics-1-output",
+    "href": "16-eda/slides.html#setting-aesthetics-1-output",
+    "title": "Reading Data and EDA",
+    "section": "Setting Aesthetics",
+    "text": "Setting Aesthetics"
+  },
+  {
+    "objectID": "16-eda/slides.html#section-17",
+    "href": "16-eda/slides.html#section-17",
+    "title": "Reading Data and EDA",
+    "section": "",
+    "text": "Key Ideas for Today\n\nPlain text files store characters; binary files need special software.\nYAML, CSV, and JSON add structure to plain text.\nEDA uncovers structure and generates new questions.\n\n\n\nFor Next Time\n\nPS 3 due Saturday 10/03 at 11:59 pm.\nQuiz 3 is Mon/Tue (10/5-10/6). Sign up on PrairieTest.\nRequest your personal data exports for Project 3."
+  },
+  {
+    "objectID": "labs.html",
+    "href": "labs.html",
+    "title": "Labs",
+    "section": "",
+    "text": "Labs\nComing soon!"
+  },
+  {
+    "objectID": "notes.html",
+    "href": "notes.html",
+    "title": "Notes",
+    "section": "",
+    "text": "Notes\n\n\n    \n      \n      \n    \n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "projects/1-index-cards/slides.html#using-the-shell-locally",
+    "href": "projects/1-index-cards/slides.html#using-the-shell-locally",
+    "title": "First Contact with R",
+    "section": "Using the Shell Locally",
+    "text": "Using the Shell Locally\n\n  \n    −\n    +\n \n 07:00\n \n\nMac:\n\n“zshell” (aka zsh) - UNIX based. Very similar to bash (Base UNIX Shell) with some added functionality.\nTo access, use the Mac’s “Termial” application.\n\nWindows:\n\nWill need to install “Git” if you don’t have it already.\n\nhttps://git-scm.com/downloads\n\nThis will give you access to the “Git Bash” application, which will let you use UNIX Shell on your Windows system."
+  },
+  {
+    "objectID": "projects/1-index-cards/slides.html#brief-review-of-lecture",
+    "href": "projects/1-index-cards/slides.html#brief-review-of-lecture",
+    "title": "First Contact with R",
+    "section": "Brief Review of Lecture",
+    "text": "Brief Review of Lecture\nNew Shell Commands\n\n\nmkdir\n\n\nCreates a new directory.\n\n\n\n\ncp\n\n\nCopy file (arg1) to destination (arg2).\nExample: cp ~/Downloads/hw1.pdf ~/Documents/econ100b/hw/\n\n\n\n\nmv\n\n\nMove file (first argument) to destination directory (second argument).\nExample: mv ~/Downloads/hw1.pdf ~/.Trash\n\n\n\nThey have only heard mv in lecture briefly, so teach them the functionality."
+  },
+  {
+    "objectID": "projects/1-index-cards/slides.html#brief-review-of-lecture-cont.",
+    "href": "projects/1-index-cards/slides.html#brief-review-of-lecture-cont.",
+    "title": "First Contact with R",
+    "section": "Brief Review of Lecture (cont.)",
+    "text": "Brief Review of Lecture (cont.)\nR Equivallent of Shell Commands:\n\ngetwd(): like pwd in Shell.\nsetwd(): like cd in Shell.\nlist.files(): like ls in Shell.\nreadLines(): like cat in Shell."
+  },
+  {
+    "objectID": "projects/1-index-cards/slides.html#brief-review-of-lecture-cont..",
+    "href": "projects/1-index-cards/slides.html#brief-review-of-lecture-cont..",
+    "title": "First Contact with R",
+    "section": "Brief Review of Lecture (cont..)",
+    "text": "Brief Review of Lecture (cont..)\n\na:b: Creates vector of numbers from a to b by 1.\nseq: Creates vector of numbers from \"from\" argument, to \"to\" argument, by steps defined in the \"by\" argument.\nrep: Repeats vector provided \"x\" a number of times defined by \"times\" argument."
+  },
+  {
+    "objectID": "projects/1-index-cards/slides.html#vectorization",
+    "href": "projects/1-index-cards/slides.html#vectorization",
+    "title": "First Contact with R",
+    "section": "Vectorization",
+    "text": "Vectorization\n\nOperations on a single object also works on vectors.\n\n\nvec &lt;- c(72, 52, 10)\n\nvec / 2\n\n\n\n[1] 36 26  5\n\n\n\n\n\nvec * 3\n\n\n\n[1] 216 156  30\n\n\n\n\n\nvec - 6\n\n\n\n[1] 66 46  4"
+  },
+  {
+    "objectID": "projects/1-index-cards/slides.html#recycling",
+    "href": "projects/1-index-cards/slides.html#recycling",
+    "title": "First Contact with R",
+    "section": "Recycling",
+    "text": "Recycling\n\nOperations on two vectors of unequal length.\n\n\nvec1 &lt;- 1:10\nvec2 &lt;- c(1, 2)\n\nvec1 * vec2\n\n\n\n [1]  1  4  3  8  5 12  7 16  9 20\n\n\n\n\n\nvec3 &lt;- c(1, 2, 3)\n\nvec1 + vec3\n\n\n\n [1]  2  4  6  5  7  9  8 10 12 11"
+  },
+  {
+    "objectID": "projects/1-index-cards/slides.html#lab-1-assignment",
+    "href": "projects/1-index-cards/slides.html#lab-1-assignment",
+    "title": "First Contact with R",
+    "section": "Lab 1 Assignment",
+    "text": "Lab 1 Assignment\n\n  \n    −\n    +\n \n 15:00\n \n\nWill be turned in physically.\nWritten responses. Please code along on your laptop.\n\nTwo Parts:\n\nShell\nR: Atomic Vectors, Vectorization, Recycling, Matrices, if statements, for loops.\n\nWork on selected problems.\n\nGive students 15 minutes to work on problems that you find important AND are in scope of lectures so far (nothing after 7)."
+  },
+  {
+    "objectID": "projects/2-sampsons-monks/slides.html#agenda",
+    "href": "projects/2-sampsons-monks/slides.html#agenda",
+    "title": "Lab 2",
+    "section": "Agenda",
+    "text": "Agenda\n\nBrief lecture review\nReview key concepts\nTime to work in groups on lab worksheet (15 minutes)\nDiscuss Project 2 + Work through select parts\nTime for questions"
+  },
+  {
+    "objectID": "projects/2-sampsons-monks/slides.html#brief-review-of-lecture-control-flow",
+    "href": "projects/2-sampsons-monks/slides.html#brief-review-of-lecture-control-flow",
+    "title": "Lab 2",
+    "section": "Brief Review of Lecture: Control Flow",
+    "text": "Brief Review of Lecture: Control Flow\nIf / Else = Conditional Behavior\nif (x &gt; 0) {\n  print(\"positive\")\n} else {\n  print(\"not positive\")\n}\nVectorized If/Else statements are also possible:\n\nx = 0\nifelse(test = x &lt; 0, yes = \"is positive :)\", no = \"is negative :(\")\n\n\n\n[1] \"is negative :(\"\n\n\nFor loops = repeat over items\nfor (i in 1:5) {\n  print(i^2)\n}"
+  },
+  {
+    "objectID": "projects/2-sampsons-monks/slides.html#brief-review-of-lecture-functions",
+    "href": "projects/2-sampsons-monks/slides.html#brief-review-of-lecture-functions",
+    "title": "Lab 2",
+    "section": "Brief Review of Lecture: Functions",
+    "text": "Brief Review of Lecture: Functions\n\nfunction_name &lt;- function(arg1, arg2, ...) {\n  # code to execute\n  result &lt;- arg1 + arg2  # example operation\n  return(result)         # optional, returns result\n}"
+  },
+  {
+    "objectID": "projects/2-sampsons-monks/slides.html#sampsons-monks-project-background-concepts",
+    "href": "projects/2-sampsons-monks/slides.html#sampsons-monks-project-background-concepts",
+    "title": "Lab 2",
+    "section": "Sampson’s Monks Project: Background Concepts",
+    "text": "Sampson’s Monks Project: Background Concepts\n\nPackages in R\nSociomatrices\nNetwork visualizations & statistics\nRandom vs. observed networks\n\n\nMotivate for students that we will be working on the project and turning it in in 2 weeks, and it will be about the monks data. These are some of the necessary skills they will need for the project"
+  },
+  {
+    "objectID": "projects/2-sampsons-monks/slides.html#packages-libraries",
+    "href": "projects/2-sampsons-monks/slides.html#packages-libraries",
+    "title": "Lab 2",
+    "section": "Packages & Libraries",
+    "text": "Packages & Libraries\n\nBase R is powerful, but we use packages to extend its capabilities\nPackages collections of functions & datasets\n\nlibrary() is used to load a previously installed package into an R session.\n\nInstall and load:\ninstall.packages(\"igraph\") # only need to do once!\nlibrary(igraph)"
+  },
+  {
+    "objectID": "projects/2-sampsons-monks/slides.html#packages-to-use-today",
+    "href": "projects/2-sampsons-monks/slides.html#packages-to-use-today",
+    "title": "Lab 2",
+    "section": "Packages to use today:",
+    "text": "Packages to use today:\nigraph (network analysis & static plots)\n\naccepts adjacency matrices.\n\nnetworkD3 (interactive plots)\n\nexpects data frames of nodes and edges, not a network object.\nnodes are the names/points in the resulting plot\nedges are the directed lines between the points\n\nEven though the information is already in sampson, you still need to extract it into the right format for networkD3."
+  },
+  {
+    "objectID": "projects/2-sampsons-monks/slides.html#what-do-networks-look-like",
+    "href": "projects/2-sampsons-monks/slides.html#what-do-networks-look-like",
+    "title": "Lab 2",
+    "section": "What do networks look like?",
+    "text": "What do networks look like?\n\nLet’s use a familar dataset to create network plots!"
+  },
+  {
+    "objectID": "projects/2-sampsons-monks/slides.html#our-dataset-sampsons-monks",
+    "href": "projects/2-sampsons-monks/slides.html#our-dataset-sampsons-monks",
+    "title": "Lab 2",
+    "section": "Our Dataset: Sampson’s Monks",
+    "text": "Our Dataset: Sampson’s Monks\n\nData collected in a New England monastery (1960s)\nMonks reported:\n\nLiking relationships (time 1, time 2, time 3)\nDisliking relationships (time 1)\n\nClassic dataset for studying group dynamics and conflict\nStored as a list of matrices in lda package, which we will use to get the data"
+  },
+  {
+    "objectID": "projects/2-sampsons-monks/slides.html#our-dataset-sampsons-monks-continued",
+    "href": "projects/2-sampsons-monks/slides.html#our-dataset-sampsons-monks-continued",
+    "title": "Lab 2",
+    "section": "Our Dataset: Sampson’s Monks (continued)",
+    "text": "Our Dataset: Sampson’s Monks (continued)\nFrom this matrix, we can get:\n\nIn-degree (col sums) = number of ties received / how many monks said they liked them\nOut-degree (row sums) = number of ties sent / how many monks they said they liked"
+  },
+  {
+    "objectID": "projects/2-sampsons-monks/slides.html#static-vs.-interactive-plots",
+    "href": "projects/2-sampsons-monks/slides.html#static-vs.-interactive-plots",
+    "title": "Lab 2",
+    "section": "Static vs. Interactive Plots",
+    "text": "Static vs. Interactive Plots\n\nYou will create one of each in your project\nStatic plots = easy and quick to create using plot() from igraph\nInteractive plots = can zoom, hover, drag nodes using forceNetwork() from networkD3"
+  },
+  {
+    "objectID": "projects/2-sampsons-monks/slides.html#why-compare-random-vs.-observed",
+    "href": "projects/2-sampsons-monks/slides.html#why-compare-random-vs.-observed",
+    "title": "Lab 2",
+    "section": "Why Compare Random vs. Observed?",
+    "text": "Why Compare Random vs. Observed?\nIn your project, you will be asked to compare the observed sociomatrix with one that you have generated.\n\nRandom sociomatrix = ties assigned by chance\nObserved monk network = structured by social dynamics\nKey question: What features do we see in the real network that random ones lack?\n\nShows the complexity of real social systems"
+  },
+  {
+    "objectID": "projects/2-sampsons-monks/slides.html#lab-review-worksheet",
+    "href": "projects/2-sampsons-monks/slides.html#lab-review-worksheet",
+    "title": "Lab 2",
+    "section": "Lab Review Worksheet",
+    "text": "Lab Review Worksheet\n\n  \n    −\n    +\n \n 30:00\n \nGroup work to review essential material\n\nLab worksheet is meant to give students the skills they need for the project, which they will mostly be taking home and working on in their own time. Lab worksheet is fully during lab. Can go over the answers to this in lab or have them volunteer answers."
+  },
+  {
+    "objectID": "projects/2-sampsons-monks/slides.html#lab-2-project",
+    "href": "projects/2-sampsons-monks/slides.html#lab-2-project",
+    "title": "Lab 2",
+    "section": "Lab 2 Project",
+    "text": "Lab 2 Project\n\n  \n    −\n    +\n \n 15:00\n \nWorksheet:\n\nWritten responses. Please code along on your laptop. This is for your own practice / not turned in.\n\nProject:\n\nFour parts\nSubmit: project.R + README.md on GitHub Classroom\n\nWork on selected problems.\n\nGive students 15 minutes to work on problems that you find important and they may struggle with (suggest getting started with downloading packages, doing a visualization, writing the function)"
+  },
+  {
+    "objectID": "projects/3-electric-vehicles/project.html",
+    "href": "projects/3-electric-vehicles/project.html",
+    "title": "Project 2: Zero-Emissions Vehicles in California",
+    "section": "",
+    "text": "In this project, you will analyze recent data collected by the State of California on new zero-emissions vehicles. Fundamentally, your goal is to characterize the trends in zero-emissions vehicles over the last few years using summary statistics.\nBy completing this project, you will:",
     "crumbs": [
       "Projects",
-      "Sampson's Monks"
+      "Zero Emission Vehicles"
     ]
   },
   {
-    "objectID": "syllabus.html",
-    "href": "syllabus.html",
-    "title": "Syllabus",
+    "objectID": "projects/3-electric-vehicles/project.html#footnotes",
+    "href": "projects/3-electric-vehicles/project.html#footnotes",
+    "title": "Project 2: Zero-Emissions Vehicles in California",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThe dashboard carefully arranges the rows of this table. If you’d like an extra challenge, replicate this arrangement using R.↩︎\nHint: this can be most cleanly done by writing a function that takes a vector of counts and returns the index value. That function can then be applied as a summary statistic inside summarize().↩︎",
+    "crumbs": [
+      "Projects",
+      "Zero Emission Vehicles"
+    ]
+  },
+  {
+    "objectID": "projects/3-er-visits/slides.html#agenda",
+    "href": "projects/3-er-visits/slides.html#agenda",
+    "title": "Lab 3",
+    "section": "Agenda",
+    "text": "Agenda\n\nPositron Installation\nLab Review Worksheet (15 minutes)\nOverview of Project 3\nWork through select parts of Project 3\nGroup work and time for questions"
+  },
+  {
+    "objectID": "projects/3-er-visits/slides.html#positron-installation",
+    "href": "projects/3-er-visits/slides.html#positron-installation",
+    "title": "Lab 3",
+    "section": "Positron Installation",
+    "text": "Positron Installation\n\nVisit https://positron.posit.co/download.html and download the installer for your OS.\nKeep all default settings during installation."
+  },
+  {
+    "objectID": "projects/3-er-visits/slides.html#lab-review-worksheet",
+    "href": "projects/3-er-visits/slides.html#lab-review-worksheet",
+    "title": "Lab 3",
+    "section": "Lab Review Worksheet",
+    "text": "Lab Review Worksheet\n\n  \n    −\n    +\n \n 15:00\n \nGroup work to review essential material. To get started, Visit the following GitHub repository and read the README.md file.\n\n\n\n\nhttps://www.github.com/berkeley-stat133/worksheet-lab3"
+  },
+  {
+    "objectID": "projects/3-er-visits/slides.html#er-visits-project-overview",
+    "href": "projects/3-er-visits/slides.html#er-visits-project-overview",
+    "title": "Lab 3",
+    "section": "ER Visits Project Overview",
+    "text": "ER Visits Project Overview\n\nDataset: Collected by 25 Pediatric Emergency Care Applied Research Network (PECARN) emergency rooms on patients with minor head trauma.\nGoal: Practive Exploratory Data Analysis, a key step in most data science project.\nClient: Dr. Bayes, a pediatric emergency physician and researcher with PECARN."
+  },
+  {
+    "objectID": "projects/3-er-visits/slides.html#project-overview",
+    "href": "projects/3-er-visits/slides.html#project-overview",
+    "title": "Lab 3",
+    "section": "Project Overview",
+    "text": "Project Overview\nWe will work through three major steps:\n\nData Cleaning\nPrepare the dataset so it can be analyzed effectively.\nExploratory Data Analysis (EDA)\nUse visualizations and summaries to find interesting patterns.\nReporting Results\nCommunicate findings clearly to Dr. Bayes."
+  },
+  {
+    "objectID": "projects/3-er-visits/slides.html#data-cleaning",
+    "href": "projects/3-er-visits/slides.html#data-cleaning",
+    "title": "Lab 3",
+    "section": "Data Cleaning",
+    "text": "Data Cleaning\nWhy clean data?\n\nEnsure consistent formats in columns\nHandle missing (NA) or inconsistent values\nMakes dataset easier to work with\n\nKey dplyr functions:\n\nslice(), select(), arrange()\nmutate(), filter(), summarise(), group_by()"
+  },
+  {
+    "objectID": "projects/3-er-visits/slides.html#exploratory-data-analysis-eda",
+    "href": "projects/3-er-visits/slides.html#exploratory-data-analysis-eda",
+    "title": "Lab 3",
+    "section": "Exploratory Data Analysis (EDA)",
+    "text": "Exploratory Data Analysis (EDA)\n\nPurpose: uncover insights and understand the data before modeling\nTools:\n\nggplot2 for visualization.\ndplyr for summary tables and quick data manipulation.\ntidyr for reshaping.\nreadr for reading data.\nALL part of the tidyverse 🔥😮‍💨🙏💯"
+  },
+  {
+    "objectID": "projects/3-er-visits/slides.html#exploratory-data-analysis-eda-1",
+    "href": "projects/3-er-visits/slides.html#exploratory-data-analysis-eda-1",
+    "title": "Lab 3",
+    "section": "Exploratory Data Analysis (EDA)",
+    "text": "Exploratory Data Analysis (EDA)\n\nCommon plots:\n\nBar charts (categorical variables)\nHistograms (continuous variables)\nScatterplots (relationship between two variables)\nBoxplots and Violin plots (distributions across groups)\nFacets (compare subgroups)\n\nCommon summaries:\n\nMissing value analysis\nCounts and proportions\nMeans, medians, standard deviations"
+  },
+  {
+    "objectID": "projects/3-er-visits/slides.html#example-with-ggplot2",
+    "href": "projects/3-er-visits/slides.html#example-with-ggplot2",
+    "title": "Lab 3",
+    "section": "Example with ggplot2",
+    "text": "Example with ggplot2\nlibrary(ggplot2)\ndata |&gt; \n    ggplot(aes(x = age, fill = ct_scan_needed)) + \n    geom_histogram(bins=18) + \n    labs(title = \"Age Distribution by CT Scan Need\",\n         x = \"Age (years)\",\n         y = \"Count\") +\n    theme_minimal()"
+  },
+  {
+    "objectID": "projects/3-er-visits/slides.html#step-3-reporting-to-dr.-bayes",
+    "href": "projects/3-er-visits/slides.html#step-3-reporting-to-dr.-bayes",
+    "title": "Lab 3",
+    "section": "Step 3: Reporting to Dr. Bayes",
+    "text": "Step 3: Reporting to Dr. Bayes\nRemember your audience:\nDr. Bayes is a clinician, not a statistician.\nUse clear visuals and plain language.\n\nFocus on actionable insights:\n\nWhich patients are at highest risk?\nWhen might a CT be unnecessary?"
+  },
+  {
+    "objectID": "projects/3-er-visits/slides.html#project-work-time",
+    "href": "projects/3-er-visits/slides.html#project-work-time",
+    "title": "Lab 3",
+    "section": "Project Work Time",
+    "text": "Project Work Time\n\n  \n    −\n    +\n \n 25:00\n \nGet started on the project and feel free to ask questions."
+  },
+  {
+    "objectID": "quiz-slides.html#academic-integrity",
+    "href": "quiz-slides.html#academic-integrity",
+    "title": "Quiz",
+    "section": "Academic Integrity",
+    "text": "Academic Integrity\nAcademic integrity is tantamount. Your individual quiz must represent your own work absent the help of other students - either in the room or in another quiz section. All electronics must be stowed and your eyes must not wander to other students quizzes. Conveying information to other students about the content of the quiz violates principles of academic integrity. All instances of academic misconduct will be taken seriously, handled by me personally, and will be coordinated with the Office of Student Conduct.\nDuring the group quiz, you are of course encouraged to collaborate with your teammates (but only your teammates) to answer the questions.\nIf the proctor sees your eyes wandering, you’ll be reseated at the front of the class.\n\nProf. Bray"
+  },
+  {
+    "objectID": "quiz-slides.html#individual-quiz",
+    "href": "quiz-slides.html#individual-quiz",
+    "title": "Quiz",
+    "section": "Individual Quiz",
+    "text": "Individual Quiz\n\n\nBefore the quiz begins\n\n🧹 Clear your desk of everything except a pen/pencil and your cheat sheet.\n🧢 Remove hats, hoods, and sunglasses.\n📱 All electronic devices (laptop, phone, airbuds, smart watch) should be remain in your bag for the entire class period.\nSpread out as much as possible so that you are not too close to each other.\nWhen you get a quiz, cover it with your cheat sheet and do not begin.\n\n\nDuring the quiz\n\n👀 Keep your eyes on your own quiz.\nIf you need to use the bathroom, bring your quiz and phone to the front of the class.\n⌛If you finish early, please raise your hand and we will collect your quiz.\n❗You must stop writing when time is called or risk a 0.\n\nGood luck! 🍀\n\n\n  \n    −\n    +\n \n 40:00"
+  },
+  {
+    "objectID": "quiz-slides.html#group-quiz",
+    "href": "quiz-slides.html#group-quiz",
+    "title": "Quiz",
+    "section": "Group Quiz",
+    "text": "Group Quiz\n\n\nBefore the quiz begins\n\nForm groups of 2-3 people.\n🧹 Everything except a pen/pencil and your cheat sheet must remain off your desk.\n📱 All electronic devices (laptop, phone, airbuds, smart watch) should be remain in your bag for the entire class period.\nWhen you get a group quiz, write all group members names on it but do not begin.\n\n\nDuring the quiz\n\n🗣️Discuss each of the problems and decide as a group which answer is best.\n⌛If you finish early, please raise your hand and we will collect your quiz.\n❗You must stop writing when time is called or risk a 0.\n\nGood luck! 🍀\n\n\n  \n    −\n    +\n \n 25:00"
+  },
+  {
+    "objectID": "tools/datahub.html",
+    "href": "tools/datahub.html",
+    "title": "DataHub",
     "section": "",
-    "text": "An introduction to computationally intensive applied statistics. Topics will include organization storage of data, visualization and graphics, statistical learning and data mining, model validation procedures, and the presentation of results. This course uses R as its primary computing language.\n\n\nClass Format\nThis is an in-person class with three lectures each week and one two-hour lab led by a GSI. This class is designed assuming you’ll be in class. If you miss class, you’ll be able to find most materials from class - slides, snippets of code - published on the course wesite.\n\nHomework Parties\nTutors will offer Homework Party sessions several times each week. This is an opportunity to finish up any assignments that you’ve started in class or review any topics that are confusing for you. You’re welcome to attend any session that works well for your schedule. Check the Office Hours page to see the homework party schedule.\nHomework Parties are a great place to go to meet other students and collaborate on assignments with tutors on hand to help you get unstuck.\n\n\nOffice Hours\nOffice hours are an opportunity to chat one-on-one with your instructor and GSIs. Please come to office hours! Coming to office hours does not send a signal that you are behind or need extra help. On the contrary, coming to office hours early and often tends to co-occur with success in the course. We’re happy to chat about the course material, statistics in general, careers in statistics, and whatever other statistics or data science topics are on your mind! Please check the Office Hours page to see the times of the various office hour/homework party sessions.\n\n\n\nMaterials\n\nComputational tools\nEach student will need a laptop in order to engage with the computing aspects of this class. Throughout the semester you’ll be installing several different software tools, all of which are free. We will be mainly using the computing and programming environment R (via RStudio) to analyze data in this class. We will also ask you to use a command line interface to interact with your operating system. You do need your own computer to use R and do the assignments. No need to install these ahead of time; we’ll guide you through how to get set up.\nAbout half of the students in 133 have some coding experience in Python or R and about half do not. For those who come from Data 8 or some previous coding experience in python, the first labs will help you transfer that knowledge over to R. Both languages are excellent platforms for analyzing data, are widely used in data science, and have their individual strengths. R has been developed within the statistics community specifically for data analysis, while python is a general-purpose programming language but has large data analysis capabilities.\n\n\nSupplementary texts\nYour primary reference throughout the course will be the notes that you take in class but there are also several terrific books that are free and online that can expand your knowledge.\n\nAdvanced R, Hadley Wickham\nR for Data Science, Hadley Wickham, Mine Çetinkaya-Rundel, and Garrett Grolemund\nR packages, Hadley Wickham and Jenny Bryan\nR Coding Basics, Gaston Sanchez\n\n\n\n\nCourse communication\n\nbCourses\nWe don’t use bCourses for much. It is primarily used to disseminate important announcements for the entire class such as the initial welcome announcement, final exam information etc.\n\n\nDiscussion forum\nThe official discussion forum for the class will be hosted on Ed. Ed is a forum to ask and answer questions with your fellow students and course staff. It’s a useful resource for learning from your peers and seeking help from tutors and instructors.\nIf you have a question about the material or assignments (or anything related to the course), create a new post to ask your question on Ed. If it is about something personal, then mark it as “private”, and only course staff will be able to see your post. This is the best way to contact us if you have a personal concern, as it ensures the fastest response. If your question does not include personal information and can be answered by other students, make sure it is public.\nIn a course this large, the instructors have a difficult time responding to individual emails, so please use the class forum or visit office hours if you wish to contact us.\n\n\n\nAssignments, Exams, and Grading\n\nTurning-in assignments\nYou will be turning in your assignments on a platform called Pensive, the younger sibling of Gradescope. Note that regrade requests will need to be submitted by a deadline, which will usually be about a week the grades are released.\n\n\nProblem Sets\nProblem sets provide you with essential practice on the ideas and techniques discussed in class. They will be due roughly every week or two\nYou’re encouraged to work on your Problem Sets during one of the Group Tutoring sessions\n\n\nProjects\nProjects are open-ended assignments assignments designed to apply the concepts from the lecture notes in the cause of doing an analysis of real data. This will involve both writing code and communicating your thoughts and findings in English. Your Projects will be due before your corresponding Project Studio, roughly every 2-3 weeks.\nYou’re encouraged to work on your Projects during one of the Homework Party sessions.\n\n\nQuizzes\nQuizzes reinforce the most important concepts from the lecture. They cover the material from lecture, problem sets, and projects up until the time of the quiz.\nQuizzes in this course will be administered in the Computer-Based Testing Facility (CBTF). Students are responsible for reading and following all CBTF policies and procedures, including instantiating a PrairieTest account, submitting any DSP accommodations in advance, and reserving and attending exam sessions on time. During CBTF quizzes, students may use only the materials and resources expressly authorized by the course; unauthorized devices, materials, or resources are prohibited. CBTF proctors monitor all sessions and will document and report any suspected academic misconduct to the course staff. Suspected violations will be handled in accordance with the Berkeley Honor Code and the UC Berkeley Code of Student Conduct, and may result in penalties up to and including a failing grade on the quiz or in the course and referral to the Center for Student Conduct.\n\n\nFinal Exam\nThe paper-and-pencil final exam will be held in person during finals week. It is a comprehensive exam and covers the material from the lecture, problem sets, and projects.\nThe final exam is scheduled for Monday December 14th from 7-10 pm.\n\n\nGrading\nYour final grade in this class is, to the best of our ability, a measure of your understanding of the concepts of computing with data. As such, the lions share of your grade comes from measures of your individual understanding: quizzes and the final. The project studios are also very important. They give us a sense of how well you understand the work you’ve done and give you practice talking through your reasoning in front of an audience.\nThe best way to prepare for these assessments is to earnestly engage with the problem sets and projects. Their role in the course is practice and they’ll be your single most effective way to learn. We want to see that you are keeping to a sensible schedule, so the problem sets will be submitted and graded credit/no credit, where full credit is given for any submission. The projects will not be graded per se, but they will need to be completed in order to discuss them at your Project Studio.\n\nProblem Sets: 1%\nProject Studio: 20%\nQuizzes: 49%\nFinal: 30%\n\nThe grades will not be curved (&gt; 90% is some kind of A, 80-90 is some kind of B, etc.), so there is no limit to the number of As and Bs that are earned.\n\n\n\nPolicies\n\nLate Work\nRigorously completing the problem sets and projects is for your own benefit. Since they must be completed in order to take the Quizzes and participate in Project Studio, no late work is accepted.\n\n\nCollaboration policy\nOn problem sets and projects, we strongly encourage collaboration between students. One of the best ways to learn is to talk things through with someone else. At the same time, these are your best opportunity to practice and learn, so be cautious not to lean to heavily on the understanding of a peer when working through your assignments.\n\n\nAI policy\nPlease be thoughtful when using AI tools for your schoolwork. Doing so on problem sets and projects robs you of a valuable opportunity to learn and undermines your performance on exams. At the same time, they can be helpful in providing feedback on your writing.\nAt the end of the course, we’ll bring in AI tools for coding and learn how to use them. They’re very powerful, but you need firm mental models of the way code works before you’re able to use them well. For that reason, we suggest you refrain from using them until they’re introduced in class.\n\n\nAccomodations for students with disabilities\nStat 133 is a course that is designed to allow all students to succeed. If you have letters of accommodation from the Disabled Students’ Program, please share them with your instructor as soon as possible, and we will work out the necessary arrangements.\n\n\nStaying healthy\nMaintaining your health and that of the Berkeley community is of primary importance, so if you are feeling ill or have been exposed to illness, please do not come to class. You’re encouraged to reach out to fellow students to discuss the class materials or stop by the homework parties or office hours to chat with a tutor or the instructor.\n\n\n\nFrequently Asked Questions\n\nWhat should I do if I’m on the waitlist?\nAttend both lecture and lab and submit all assignments on time. Unfortunately we cannot grow the size of the class any more, so places will become available only when students drop. If you have an urgent need for the course, visit the drop in advising sessions in our department: https://statistics.berkeley.edu/academics/undergrad/advising.\nWhat should I do if I’m a Concurrent Enrollment student?\nPlease do the same as the waitlisted students. If / when the waitlist clears, contact the instructor to be added to the class.\nAre class sessions recorded?\nNo.\nIs attendance in lecture required?\nNo.\nAre time conflicts allowed?\nNo.\nWhat if I join the class late?\nIf you join the class within the first two weeks, read through all of the material on the course website that you’ve missed. Also ask a neighbor in lecture if you can borrow their notes. Finally, visit the Homework Parties to discuss any topics you’ve missed. If you’ve missed any assignments in the first two weeks, request an extension from your GSI.\nAfter two weeks into the semester, you’ll have too much material that you’ll need to make up, so you will have to wait to a subsequent semester to take the course.\n\n\n\nCampus Resources\nUC Berkeley has a vast wealth of resources to help with all aspects of student life. You can read about them at the links below.\n\nBerkeley Supportal- great place to start\nDisabled Students’ Program\nUniversity Health Services\nUCB Path to Care\nStudent Learning Center\nBerkeley International Office\nOmbuds Office for Students and Postdoctoral Appointees\nGender Equity Resource Center\nCenter for Educational Justice & Community Engagement\nUHS Counseling and Psychological Services (CAPS)\nCampus Academic Accommodations Hub\nASUC Student Advocate’s Office\nBasic Needs Center\nASUC Mental Health Resources Guide",
-    "crumbs": [
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "tools/git.html",
-    "href": "tools/git.html",
-    "title": "Git and GitHub",
-    "section": "",
-    "text": "Git is a version-control system that tracks changes to your files, and GitHub is a website for hosting Git repositories. Together they let you save snapshots of your work and share it.\nThe best way to be sure you’re set with Git and GitHub is to fill out and follow the form here.",
+    "text": "DataHub is UC Berkeley’s browser-based computing environment. It gives you a full R and RStudio/Positron setup in the cloud, so there is nothing to install on your own machine. For Stat 133 we use the Statistics department’s hub at stat.datahub.berkeley.edu.",
     "crumbs": [
       "Tools",
-      "Git"
+      "DataHub"
     ]
   },
   {
-    "objectID": "tools/git.html#installing-git",
-    "href": "tools/git.html#installing-git",
-    "title": "Git and GitHub",
-    "section": "Installing Git",
-    "text": "Installing Git\nOn DataHub, Git is already installed. To install it on your own machine:\n\nmacOSWindows\n\n\nOpen Terminal and run:\ngit --version\nIf Git is missing, macOS will offer to install the developer tools. Accept and let it finish, then run the command again to confirm.\n\n\nInstall Git for Windows, which also provides Git Bash. Open Git Bash and confirm with:\ngit --version",
+    "objectID": "tools/datahub.html#getting-started",
+    "href": "tools/datahub.html#getting-started",
+    "title": "DataHub",
+    "section": "Getting started",
+    "text": "Getting started\n\nOpen https://stat.datahub.berkeley.edu in your browser.\nSign in with your CalNet ID (the same credentials you use for bCourses).\nAuthorize the hub the first time you log in. After a short pause your personal server will spin up.",
     "crumbs": [
       "Tools",
-      "Git"
+      "DataHub"
     ]
   },
   {
-    "objectID": "tools/git.html#one-time-setup",
-    "href": "tools/git.html#one-time-setup",
-    "title": "Git and GitHub",
-    "section": "One-time setup",
-    "text": "One-time setup\nTell Git who you are:\ngit config --global user.name \"Your Name\"\ngit config --global user.email \"you@berkeley.edu\"",
+    "objectID": "tools/datahub.html#working-on-the-hub",
+    "href": "tools/datahub.html#working-on-the-hub",
+    "title": "DataHub",
+    "section": "Working on the hub",
+    "text": "Working on the hub\n\nYour files live on a persistent home directory, so your work is saved between sessions.\nLaunch a session from the DataHub launcher (RStudio, a terminal, or a notebook) to start working.\nCourse materials are typically distributed with a link that pulls the files directly into your DataHub account.",
     "crumbs": [
       "Tools",
-      "Git"
+      "DataHub"
     ]
   },
   {
-    "objectID": "tools/git.html#the-core-workflow",
-    "href": "tools/git.html#the-core-workflow",
-    "title": "Git and GitHub",
-    "section": "The core workflow",
-    "text": "The core workflow\n\n\n\nStep\nCommand\nMeaning\n\n\n\n\nClone\ngit clone &lt;url&gt;\nCopy a repository to your machine\n\n\nStage\ngit add &lt;file&gt;\nMark changes to be saved\n\n\nCommit\ngit commit -m \"message\"\nSave a snapshot with a note\n\n\nPush\ngit push\nUpload commits to GitHub\n\n\nPull\ngit pull\nDownload others’ commits\n\n\n\nCheck the state of your repository at any time with:\ngit status",
-    "crumbs": [
-      "Tools",
-      "Git"
-    ]
-  },
-  {
-    "objectID": "tools/git.html#github",
-    "href": "tools/git.html#github",
-    "title": "Git and GitHub",
-    "section": "Github",
-    "text": "Github\nGo to https://github.com/ to set up a free account. Whichever email address you use to create your account, it should agree with same as the email you used in git config --global user.email \"you@berkeley.edu\". If you expect to not use Github after leaving Berkeley, then just use your Berkeley email. If you think you might use it after graduation, use your personal email.",
-    "crumbs": [
-      "Tools",
-      "Git"
-    ]
-  },
-  {
-    "objectID": "tools/git.html#authenticating-with-a-personal-access-token",
-    "href": "tools/git.html#authenticating-with-a-personal-access-token",
-    "title": "Git and GitHub",
-    "section": "Authenticating with a personal access token",
-    "text": "Authenticating with a personal access token\nGitHub will not accept your account password from the command line. Instead you use a personal access token (PAT): a long string of characters that acts as a password for Git. You create it in the browser, then paste it into the terminal whenever Git asks for a password.\n\n1. Create the token in your browser\n\nSign in at https://github.com/ and go to https://github.com/settings/tokens?type=beta (Settings → Developer settings → Personal access tokens → Fine-grained tokens).\nClick Generate new token.\nFill in the form:\n\nToken name: something you’ll recognize, like stat133-positron.\nExpiration: pick a date after the end of the semester.\nRepository access: All repositories.\nPermissions: under Repository permissions, set Contents to Read and write. Leave everything else alone.\n\nClick Generate token, then copy the token that appears.\n\n\n\n\n\n\n\nWarning\n\n\n\nThe token is shown only once. Copy it now. If you lose it, delete it on GitHub and generate a new one — that’s normal and costs you nothing.\n\n\n\n\n2. Paste it at the prompt\nDo something that talks to GitHub, such as cloning one of your repositories or running git push from inside one. In Positron’s Terminal pane:\ngit clone https://github.com/USERNAME/REPO.git\nGit will prompt you twice:\nUsername for 'https://github.com': your-github-username\nPassword for 'https://github.com': &lt;paste your token here&gt;\nPaste the token, not your GitHub password. Nothing will appear on screen as you paste — that’s expected. Press Return.\nThat’s it. Git will ask you to paste the token again for each push or clone until the token expires — for a handful of assignments that’s a minor annoyance, not a problem.\n\n\n\n\n\n\nTipDon’t want to paste it every time?\n\n\n\nYou can ask Git to remember the token so you’re only prompted once:\n\nmacOS: git config --global credential.helper osxkeychain\nWindows: git config --global credential.helper manager\n\nRun the command once, then paste the token at the next prompt. Git stores it and won’t ask again.",
-    "crumbs": [
-      "Tools",
-      "Git"
-    ]
-  },
-  {
-    "objectID": "tools/git.html#tips",
-    "href": "tools/git.html#tips",
-    "title": "Git and GitHub",
+    "objectID": "tools/datahub.html#tips",
+    "href": "tools/datahub.html#tips",
+    "title": "DataHub",
     "section": "Tips",
-    "text": "Tips\n\nCommit early and often, with short but descriptive messages.\ngit status is your friend — run it whenever you’re unsure what’s going on.\nTreat your PAT like a password: don’t paste it into a script, a .qmd file, or a repository.",
+    "text": "Tips\n\nIf your session becomes unresponsive, use File → Log Out and log back in to restart your server (you can also try refreshing your browser).\nThe hub times out after a period of inactivity, so save your work often.\nNeed more help? See the campus DataHub documentation.",
     "crumbs": [
       "Tools",
-      "Git"
+      "DataHub"
     ]
   },
   {
-    "objectID": "tools/positron.html",
-    "href": "tools/positron.html",
-    "title": "Positron",
+    "objectID": "tools/index.html",
+    "href": "tools/index.html",
+    "title": "Tools",
     "section": "",
-    "text": "Positron is the code editor (IDE) we use to write and run R and Quarto. It is built by Posit, the same company behind RStudio, and is designed for data science.",
+    "text": "These pages are quick how-to guides for the computational tools we use in Stat 133. Each covers how to get set up and the handful of commands or steps you need to get going.\nIf you’re just getting started, DataHub is the fastest way to begin — everything is preinstalled. As the course progresses, you should install each of the tools on your own computer so that you can continue using them outside of the classroom.",
     "crumbs": [
-      "Tools",
-      "Positron"
+      "Tools"
     ]
   },
   {
-    "objectID": "tools/positron.html#installing-positron",
-    "href": "tools/positron.html#installing-positron",
-    "title": "Positron",
-    "section": "Installing Positron",
-    "text": "Installing Positron\n\nGo to https://positron.posit.co.\nDownload the installer for your operating system.\nRun the installer and open Positron.\n\nMake sure you already have R installed so Positron can find it. If your computer is too old to run Positron, don’t fret. You can log into DataHub and work with Positron there.",
-    "crumbs": [
-      "Tools",
-      "Positron"
-    ]
-  },
-  {
-    "objectID": "tools/positron.html#the-layout",
-    "href": "tools/positron.html#the-layout",
-    "title": "Positron",
-    "section": "The layout",
-    "text": "The layout\n\nEditor: where you write scripts and .qmd documents.\nConsole: a live R session for running code interactively.\nVariables / Environment: shows the objects currently in memory.\nPlots, Help, and a Terminal are available in the side panes.",
-    "crumbs": [
-      "Tools",
-      "Positron"
-    ]
-  },
-  {
-    "objectID": "tools/positron.html#opening-a-folder-from-a-github-repository",
-    "href": "tools/positron.html#opening-a-folder-from-a-github-repository",
-    "title": "Positron",
-    "section": "Opening a folder from a GitHub repository",
-    "text": "Opening a folder from a GitHub repository\nMost of the projects in this course start by copying (“cloning”) a repository from GitHub onto your computer and opening it as a Positron folder.\n\nOn GitHub, open the repository and click the green Code button. Copy the HTTPS URL, which ends in .git.\nIn Positron, click the button in the upper left corner for New &gt; New Folder from Git, then paste the URL in the top box.\nChoose a folder on your computer to put the repository in — somewhere you’ll find again, like Documents/stat133/. Positron creates a new subfolder named after the repository.\nClick OK.\n\nThe first time you clone, Git may ask for your GitHub username and a personal access token; see Git and GitHub for how to set that up.\n\nKnowing which folder you’re in\nPositron always has exactly one folder open, and everything — the console’s working directory, the file paths in your code, which repository git commands act on — is relative to that folder.\nCheck which one it is in the top-right corner of the window, next to the interpreter selector: it shows the name of the open folder alongside the running R session. You can also confirm from the console:\ngetwd()\nIf that isn’t the folder you expect, use File → Open Folder to switch. Opening a file from another project does not change the open folder.",
-    "crumbs": [
-      "Tools",
-      "Positron"
-    ]
-  },
-  {
-    "objectID": "tools/positron.html#running-code",
-    "href": "tools/positron.html#running-code",
-    "title": "Positron",
-    "section": "Running code",
-    "text": "Running code\n\nPut your cursor on a line and press ⌘ + Return (macOS) or Ctrl + Enter (Windows) to run it in the console.\nOpen a .qmd file and click Render to preview a Quarto document.",
-    "crumbs": [
-      "Tools",
-      "Positron"
-    ]
-  },
-  {
-    "objectID": "tools/positron.html#tips",
-    "href": "tools/positron.html#tips",
-    "title": "Positron",
-    "section": "Tips",
-    "text": "Tips\n\nUse the built-in Terminal pane to run shell and Git commands without leaving the editor.",
-    "crumbs": [
-      "Tools",
-      "Positron"
-    ]
-  },
-  {
-    "objectID": "tools/r-app.html",
-    "href": "tools/r-app.html",
-    "title": "The R App",
+    "objectID": "tools/quarto.html",
+    "href": "tools/quarto.html",
+    "title": "Quarto",
     "section": "",
-    "text": "When you install R, you also get a small graphical application bundled with it: R.app on macOS and Rgui on Windows. It gives you an R console plus a simple editor for writing scripts, without installing anything else. It is the quickest way to start writing R on your own machine.",
-    "crumbs": [
-      "Tools",
-      "R App"
-    ]
+    "text": "Quarto is the publishing system we use to weave together text, code, and output into reports, slides, and websites. Quarto documents have the .qmd extension."
   },
   {
-    "objectID": "tools/r-app.html#opening-the-r-app",
-    "href": "tools/r-app.html#opening-the-r-app",
-    "title": "The R App",
-    "section": "Opening the R App",
-    "text": "Opening the R App\n\nmacOSWindows\n\n\n\nOpen Finder and go to the Applications folder.\nDouble-click R (the blue R icon). This is R.app.\nYou can also press ⌘ + Space to open Spotlight, type R, and press Enter.\n\nIf you have both R.app and R64.app, either one is fine on a modern Mac.\n\n\n\nClick the Start menu and type R.\nChoose R x.y.z (the version number will match what you installed). This opens Rgui.\nYou can also find it under All Apps → R → R x.y.z.\n\nIf Windows shows both R i386 and R x64, choose R x64.\n\n\n\nWhen the app opens you will see the R console with the &gt; prompt. Type an expression and press Enter to run it:\n2 + 2",
-    "crumbs": [
-      "Tools",
-      "R App"
-    ]
+    "objectID": "tools/quarto.html#installing-quarto",
+    "href": "tools/quarto.html#installing-quarto",
+    "title": "Quarto",
+    "section": "Installing Quarto",
+    "text": "Installing Quarto\nQuarto is already available on DataHub and ships with Positron. To install it locally:\n\nGo to https://quarto.org/docs/get-started.\nDownload the installer for your operating system and run it.\nConfirm the install from a shell:\nquarto --version"
   },
   {
-    "objectID": "tools/r-app.html#writing-an-r-script",
-    "href": "tools/r-app.html#writing-an-r-script",
-    "title": "The R App",
-    "section": "Writing an R script",
-    "text": "Writing an R script\nThe console is good for one-off commands, but anything you want to keep should go in a script — a plain text file with the .R extension that holds a sequence of R commands.\nTo open a new, empty script:\n\nmacOS: File → New Document, or press ⌘ + N.\nWindows: File → New script, or press Ctrl + N.\n\nAn editor window opens. Type your code there, one command per line:\nx &lt;- c(4, 8, 15, 16, 23, 42)\nmean(x)\nNothing runs as you type. To run a line, put your cursor on it and press:\n\nmacOS: ⌘ + Enter\nWindows: Ctrl + R\n\nTo run several lines, select them first and use the same shortcut. The commands are sent to the console, where you will see the output.",
-    "crumbs": [
-      "Tools",
-      "R App"
-    ]
+    "objectID": "tools/quarto.html#anatomy-of-a-.qmd-file",
+    "href": "tools/quarto.html#anatomy-of-a-.qmd-file",
+    "title": "Quarto",
+    "section": "Anatomy of a .qmd file",
+    "text": "Anatomy of a .qmd file\nA Quarto document has two parts:\n\nA YAML header between --- lines that sets the title, output format, and options.\nThe body, which mixes Markdown text with executable code chunks.\n\n---\ntitle: \"My Analysis\"\nformat: html\n---\n\nHere is some text.\n\n\n::: {.cell}\n\n```{.r .cell-code}\n1 + 1\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n[1] 2\n```\n\n\n:::\n:::"
   },
   {
-    "objectID": "tools/r-app.html#saving-your-script",
-    "href": "tools/r-app.html#saving-your-script",
-    "title": "The R App",
-    "section": "Saving your script",
-    "text": "Saving your script\nSave early and often.\n\nmacOS: File → Save, or ⌘ + S.\nWindows: File → Save, or Ctrl + S.\n\nIn the save dialog:\n\nChoose a folder you can find again — a stat133 folder in your Documents is a good habit.\nGive the file a short, descriptive name with no spaces, ending in .R, such as vector-practice.R.\nClick Save.\n\nTo reopen it later, use File → Open Document (macOS) or File → Open script (Windows) and select the file.",
-    "crumbs": [
-      "Tools",
-      "R App"
-    ]
+    "objectID": "tools/quarto.html#rendering",
+    "href": "tools/quarto.html#rendering",
+    "title": "Quarto",
+    "section": "Rendering",
+    "text": "Rendering\nRender a document to its output format with:\nquarto render my-doc.qmd\nIn Positron you can also click Render to preview the result."
   },
   {
-    "objectID": "tools/r-app.html#tips",
-    "href": "tools/r-app.html#tips",
-    "title": "The R App",
+    "objectID": "tools/quarto.html#tips",
+    "href": "tools/quarto.html#tips",
+    "title": "Quarto",
     "section": "Tips",
-    "text": "Tips\n\nUse # to start a comment. Everything after it on that line is ignored by R.\nKeep the script as the record of what you did; treat the console as scratch paper.",
-    "crumbs": [
-      "Tools",
-      "R App"
-    ]
+    "text": "Tips\n\nCode chunks start with ```{r} and end with ```.\nUse format: html for web pages and format: revealjs for slides.\nThe Quarto documentation is thorough and searchable."
   },
   {
-    "objectID": "tools/shell.html",
-    "href": "tools/shell.html",
-    "title": "The Shell",
+    "objectID": "tools/r.html",
+    "href": "tools/r.html",
+    "title": "R",
     "section": "",
-    "text": "The shell (also called the command line or terminal) lets you talk to your computer by typing commands instead of clicking. We use it to run Git, launch R and Quarto, and move around the file system.",
+    "text": "R is the programming language we use all semester for computing with data. On DataHub, R is already installed, but you will also want to install it on your own machine.",
     "crumbs": [
       "Tools",
-      "Shell"
+      "R"
     ]
   },
   {
-    "objectID": "tools/shell.html#opening-a-shell",
-    "href": "tools/shell.html#opening-a-shell",
-    "title": "The Shell",
-    "section": "Opening a shell",
-    "text": "Opening a shell\n\nmacOSWindows\n\n\nUse Terminal, which comes preinstalled on every Mac.\n\nPress ⌘ + Space to open Spotlight.\nType Terminal and press Return.\n\n\n\nWindows has several shells, but for this course use Git Bash, which behaves like the macOS/Linux shell.\n\nInstall Git for Windows (this also gives you Git Bash).\nOpen the Start menu, type Git Bash, and press Enter.",
+    "objectID": "tools/r.html#installing-r-locally",
+    "href": "tools/r.html#installing-r-locally",
+    "title": "R",
+    "section": "Installing R locally",
+    "text": "Installing R locally\nStart at CRAN, the Comprehensive R Archive Network, then follow the steps for your operating system.\n\nmacOSWindows\n\n\n\nClick Download R for macOS.\nDownload the .pkg installer that matches your machine (Apple silicon or Intel).\nOpen the installer and accept the defaults.\n\n\n\n\nClick Download R for Windows, then base.\nDownload the installer and run it.\nAccept the defaults.",
     "crumbs": [
       "Tools",
-      "Shell"
+      "R"
     ]
   },
   {
-    "objectID": "tools/shell.html#a-few-starter-commands",
-    "href": "tools/shell.html#a-few-starter-commands",
-    "title": "The Shell",
-    "section": "A few starter commands",
-    "text": "A few starter commands\n\n\n\nCommand\nWhat it does\n\n\n\n\npwd\nPrint the current (working) directory\n\n\nls\nList files in the current directory\n\n\ncd folder\nChange into folder\n\n\ncd ..\nMove up one directory\n\n\ncat\nPrints the contents of a file",
+    "objectID": "tools/r.html#checking-your-installation",
+    "href": "tools/r.html#checking-your-installation",
+    "title": "R",
+    "section": "Checking your installation",
+    "text": "Checking your installation\nOpen R (or a shell) and run:\nR.version.string\nYou should see the version of R you installed[^Fun fact: the unusual names of R versions come from snippets of text from the comic strip Peanuts.].",
     "crumbs": [
       "Tools",
-      "Shell"
+      "R"
     ]
   },
   {
-    "objectID": "tools/shell.html#tips",
-    "href": "tools/shell.html#tips",
-    "title": "The Shell",
-    "section": "Tips",
-    "text": "Tips\n\nPress Tab to autocomplete file and folder names.\nPress the Up arrow to recall previous commands.\nPaths are case-sensitive on the shell — Data and data are different.",
+    "objectID": "tools/r.html#launching-r",
+    "href": "tools/r.html#launching-r",
+    "title": "R",
+    "section": "Launching R",
+    "text": "Launching R\nTo open R from a shell, just type the command R and press Enter. This will open R at the command line. To close R and return to the shell, run the function q() to quit.",
     "crumbs": [
       "Tools",
-      "Shell"
+      "R"
     ]
+  },
+  {
+    "objectID": "16-eda/data/127.html",
+    "href": "16-eda/data/127.html",
+    "title": "Song of Summer",
+    "section": "",
+    "text": "Song of Summer\nGolden Klaxons, card 127\n\nDistance: 3000? miles\nSource: index card"
   }
 ]
