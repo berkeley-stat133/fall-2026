@@ -103,6 +103,7 @@
   <link href="../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-drop/drop-runtime.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-magic-move/magic-move.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
@@ -225,7 +226,7 @@
 <aside class="notes">
 <h4 id="concept-acquisition">Concept Acquisition</h4>
 <ol type="1">
-<li>Every file is bytes on a disk; plain text files store characters, binary files (PDF, Excel) need specific software to decode.</li>
+<li>Plain text files store characters, binary files (PDF, Excel) need specific software to decode.</li>
 <li>Plain text formats span a spectrum of structure, from none (<code>.txt</code>) to tabular (<code>.csv</code>) to nested (<code>.yml</code>, <code>.json</code>), and the structure determines the R object you get back (character vector, data frame, list).</li>
 <li>EDA is for the analyst: its goal is to uncover structure and generate new questions, guided by a set of common exploratory questions.</li>
 <li>Exploratory and explanatory visualizations differ in audience, goal, and level of polish.</li>
@@ -878,6 +879,139 @@ Adelie,Torgersen,40.3,18,195,3250,female,2007</code></pre>
 </blockquote>
 </div>
 </section>
+<section id="writing-json-and-yaml" class="slide level2 smaller magic-move">
+<h2>Writing JSON and YAML</h2>
+<ul>
+<li><strong>A key-value pair</strong>: <code>"key": "value"</code> wrapped in <code>{ }</code> (JSON); <code>key: value</code> (YAML)</li>
+<li><strong>Multiple pairs</strong>:</li>
+<li><strong>A list</strong>:</li>
+<li><strong>A list of key-value pairs</strong>:</li>
+</ul>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:55%;">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>playlist.json</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36" data-filename="playlist.json" data-code-line-numbers="2"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb36-1"><a></a><span class="fu">{</span></span>
+<span id="cb36-2"><a></a>  <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Study Mix"</span></span>
+<span id="cb36-3"><a></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column" style="width:45%;">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>playlist.yml</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37" data-filename="playlist.yml" data-code-line-numbers="1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb37-1"><a></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Study Mix</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div></div>
+</div>
+</section>
+<section id="writing-json-and-yaml-1" class="slide level2 smaller magic-move">
+<h2>Writing JSON and YAML</h2>
+<ul>
+<li><strong>A key-value pair</strong>: <code>"key": "value"</code> wrapped in <code>{ }</code> (JSON); <code>key: value</code> (YAML)</li>
+<li><strong>Multiple pairs</strong>: separated by commas (JSON); one per line (YAML)</li>
+<li><strong>A list</strong>:</li>
+<li><strong>A list of key-value pairs</strong>:</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:55%;">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>playlist.json</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb38" data-filename="playlist.json" data-code-line-numbers="2-3"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb38-1"><a></a><span class="fu">{</span></span>
+<span id="cb38-2"><a></a>  <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Study Mix"</span><span class="fu">,</span></span>
+<span id="cb38-3"><a></a>  <span class="dt">"owner"</span><span class="fu">:</span> <span class="st">"Ana"</span></span>
+<span id="cb38-4"><a></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column" style="width:45%;">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>playlist.yml</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39" data-filename="playlist.yml" data-code-line-numbers="2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb39-1"><a></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Study Mix</span></span>
+<span id="cb39-2"><a></a><span class="fu">owner</span><span class="kw">:</span><span class="at"> Ana</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div></div>
+</section>
+<section id="writing-json-and-yaml-2" class="slide level2 smaller magic-move">
+<h2>Writing JSON and YAML</h2>
+<ul>
+<li><strong>A key-value pair</strong>: <code>"key": "value"</code> wrapped in <code>{ }</code> (JSON); <code>key: value</code> (YAML)</li>
+<li><strong>Multiple pairs</strong>: separated by commas (JSON); one per line (YAML)</li>
+<li><strong>A list</strong>: items in <code>[ ]</code>, separated by commas (JSON); indented items, each starting with <code>-</code> (YAML)</li>
+<li><strong>A list of key-value pairs</strong>:</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:55%;">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>playlist.json</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb40" data-filename="playlist.json" data-code-line-numbers="3-4"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb40-1"><a></a><span class="fu">{</span></span>
+<span id="cb40-2"><a></a>  <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Study Mix"</span><span class="fu">,</span></span>
+<span id="cb40-3"><a></a>  <span class="dt">"owner"</span><span class="fu">:</span> <span class="st">"Ana"</span><span class="fu">,</span></span>
+<span id="cb40-4"><a></a>  <span class="dt">"tags"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"lofi"</span><span class="ot">,</span> <span class="st">"focus"</span><span class="ot">]</span></span>
+<span id="cb40-5"><a></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column" style="width:45%;">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>playlist.yml</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41" data-filename="playlist.yml" data-code-line-numbers="3-5"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb41-1"><a></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Study Mix</span></span>
+<span id="cb41-2"><a></a><span class="fu">owner</span><span class="kw">:</span><span class="at"> Ana</span></span>
+<span id="cb41-3"><a></a><span class="fu">tags</span><span class="kw">:</span></span>
+<span id="cb41-4"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> lofi</span></span>
+<span id="cb41-5"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> focus</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div></div>
+</section>
+<section id="writing-json-and-yaml-3" class="slide level2 smaller magic-move">
+<h2>Writing JSON and YAML</h2>
+<ul>
+<li><strong>A key-value pair</strong>: <code>"key": "value"</code> wrapped in <code>{ }</code> (JSON); <code>key: value</code> (YAML)</li>
+<li><strong>Multiple pairs</strong>: separated by commas (JSON); one per line (YAML)</li>
+<li><strong>A list</strong>: items in <code>[ ]</code>, separated by commas (JSON); indented items, each starting with <code>-</code> (YAML)</li>
+<li><strong>A list of key-value pairs</strong>: <code>{ }</code> objects inside <code>[ ]</code> (JSON); pairs indented under each <code>-</code> (YAML)</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:55%;">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>playlist.json</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb42" data-filename="playlist.json" data-code-line-numbers="4-8"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb42-1"><a></a><span class="fu">{</span></span>
+<span id="cb42-2"><a></a>  <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Study Mix"</span><span class="fu">,</span></span>
+<span id="cb42-3"><a></a>  <span class="dt">"owner"</span><span class="fu">:</span> <span class="st">"Ana"</span><span class="fu">,</span></span>
+<span id="cb42-4"><a></a>  <span class="dt">"tags"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"lofi"</span><span class="ot">,</span> <span class="st">"focus"</span><span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb42-5"><a></a>  <span class="dt">"songs"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb42-6"><a></a>    <span class="fu">{</span><span class="dt">"title"</span><span class="fu">:</span> <span class="st">"Espresso"</span><span class="fu">,</span> <span class="dt">"artist"</span><span class="fu">:</span> <span class="st">"Sabrina Carpenter"</span><span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb42-7"><a></a>    <span class="fu">{</span><span class="dt">"title"</span><span class="fu">:</span> <span class="st">"Let It Go"</span><span class="fu">,</span> <span class="dt">"artist"</span><span class="fu">:</span> <span class="st">"Idina Menzel"</span><span class="fu">}</span></span>
+<span id="cb42-8"><a></a>  <span class="ot">]</span></span>
+<span id="cb42-9"><a></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div><div class="column" style="width:45%;">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>playlist.yml</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb43" data-filename="playlist.yml" data-code-line-numbers="6-10"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb43-1"><a></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Study Mix</span></span>
+<span id="cb43-2"><a></a><span class="fu">owner</span><span class="kw">:</span><span class="at"> Ana</span></span>
+<span id="cb43-3"><a></a><span class="fu">tags</span><span class="kw">:</span></span>
+<span id="cb43-4"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> lofi</span></span>
+<span id="cb43-5"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> focus</span></span>
+<span id="cb43-6"><a></a><span class="fu">songs</span><span class="kw">:</span></span>
+<span id="cb43-7"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Espresso</span></span>
+<span id="cb43-8"><a></a><span class="at">    </span><span class="fu">artist</span><span class="kw">:</span><span class="at"> Sabrina Carpenter</span></span>
+<span id="cb43-9"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Let It Go</span></span>
+<span id="cb43-10"><a></a><span class="at">    </span><span class="fu">artist</span><span class="kw">:</span><span class="at"> Idina Menzel</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div></div>
+</section>
 <section id="reading-and-writing-summary" class="slide level2">
 <h2>Reading and Writing: Summary</h2>
 <table class="caption-top">
@@ -1036,7 +1170,7 @@ Adelie,Torgersen,40.3,18,195,3250,female,2007</code></pre>
 </section>
 <section id="section-6" class="slide level2" data-background-image="images/ev-barchart-full.png" data-background-size="contain">
 <h2></h2>
-<div id="timer_ab24dd44d7075c2c2155700bc8166ff52c6897cf" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_c9fb5be42fce729765bfff80c2bfa45aabcdb97e" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -1074,8 +1208,8 @@ Adelie,Torgersen,40.3,18,195,3250,female,2007</code></pre>
 <section id="the-data" class="slide level2">
 <h2>The Data</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a><span class="fu">library</span>(readr)</span>
-<span id="cb36-2"><a></a>ev <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/ev-registrations.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a></a><span class="fu">library</span>(readr)</span>
+<span id="cb44-2"><a></a>ev <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/ev-registrations.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 
@@ -1085,7 +1219,7 @@ Adelie,Torgersen,40.3,18,195,3250,female,2007</code></pre>
 <h2>Q1: What are the cols and rows?</h2>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a><span class="fu">dim</span>(ev)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a><span class="fu">dim</span>(ev)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -1095,7 +1229,7 @@ Adelie,Torgersen,40.3,18,195,3250,female,2007</code></pre>
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a><span class="fu">sapply</span>(ev, class)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a><span class="fu">sapply</span>(ev, class)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -1108,7 +1242,7 @@ Adelie,Torgersen,40.3,18,195,3250,female,2007</code></pre>
 <section id="q1-what-are-the-cols-and-rows-1" class="slide level2">
 <h2>Q1: What are the cols and rows?</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a>ev</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a></a>ev</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -1138,9 +1272,9 @@ Adelie,Torgersen,40.3,18,195,3250,female,2007</code></pre>
 <div class="fragment">
 <p><strong>Option 1</strong>: Total missing counts</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb43-2"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb43-3"><a></a>  <span class="fu">summarize</span>(<span class="at">n_missing =</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(Count)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb51-2"><a></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb51-3"><a></a>  <span class="fu">summarize</span>(<span class="at">n_missing =</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(Count)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -1154,8 +1288,8 @@ Adelie,Torgersen,40.3,18,195,3250,female,2007</code></pre>
 <div class="fragment">
 <p><strong>Option 2</strong>: Proportion missing counts</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb45-2"><a></a>  <span class="fu">summarize</span>(<span class="at">p_missing =</span> <span class="fu">mean</span>(<span class="fu">is.na</span>(Count)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb53-2"><a></a>  <span class="fu">summarize</span>(<span class="at">p_missing =</span> <span class="fu">mean</span>(<span class="fu">is.na</span>(Count)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -1171,10 +1305,10 @@ Adelie,Torgersen,40.3,18,195,3250,female,2007</code></pre>
 <h2 data-id="quarto-animate-title">Q3: What is the distribution of count?</h2>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb47-1" class="hljs-ln-code"><a></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb47-2" class="hljs-ln-code"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb47-3" class="hljs-ln-code"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Count)) <span class="sc">+</span></span>
-<span id="cb47-4" class="hljs-ln-code"><a></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb55-1" class="hljs-ln-code"><a></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb55-2" class="hljs-ln-code"><a></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb55-3" class="hljs-ln-code"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Count)) <span class="sc">+</span></span>
+<span id="cb55-4" class="hljs-ln-code"><a></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output-display">
@@ -1190,9 +1324,9 @@ Adelie,Torgersen,40.3,18,195,3250,female,2007</code></pre>
 <section id="q3-what-is-the-distribution-of-count-1" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Q3: What is the distribution of count?</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb48-1" class="hljs-ln-code"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb48-2" class="hljs-ln-code"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State)) <span class="sc">+</span></span>
-<span id="cb48-3" class="hljs-ln-code"><a></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb56-1" class="hljs-ln-code"><a></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb56-2" class="hljs-ln-code"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State)) <span class="sc">+</span></span>
+<span id="cb56-3" class="hljs-ln-code"><a></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output-display">
@@ -1207,9 +1341,9 @@ Adelie,Torgersen,40.3,18,195,3250,female,2007</code></pre>
 <section id="q3-what-is-the-distribution-of-count-2" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Q3: What is the distribution of count?</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb49-1" class="hljs-ln-code"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb49-2" class="hljs-ln-code"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> State)) <span class="sc">+</span></span>
-<span id="cb49-3" class="hljs-ln-code"><a></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb57-1" class="hljs-ln-code"><a></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb57-2" class="hljs-ln-code"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> State)) <span class="sc">+</span></span>
+<span id="cb57-3" class="hljs-ln-code"><a></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output-display">
@@ -1235,8 +1369,8 @@ Adelie,Torgersen,40.3,18,195,3250,female,2007</code></pre>
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb50-1" class="hljs-ln-code"><a></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb50-2" class="hljs-ln-code"><a></a>penguins</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb58-1" class="hljs-ln-code"><a></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb58-2" class="hljs-ln-code"><a></a>penguins</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -1270,10 +1404,10 @@ Adelie,Torgersen,40.3,18,195,3250,female,2007</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb52-1" class="hljs-ln-code"><a></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb52-2" class="hljs-ln-code"><a></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb52-3" class="hljs-ln-code"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> island)) <span class="sc">+</span></span>
-<span id="cb52-4" class="hljs-ln-code"><a></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb60-1" class="hljs-ln-code"><a></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb60-2" class="hljs-ln-code"><a></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb60-3" class="hljs-ln-code"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> island)) <span class="sc">+</span></span>
+<span id="cb60-4" class="hljs-ln-code"><a></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output-display">
@@ -1289,9 +1423,9 @@ Adelie,Torgersen,40.3,18,195,3250,female,2007</code></pre>
 <h2 data-id="quarto-animate-title">Summarizing with counts</h2>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb53-1" class="hljs-ln-code"><a></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb53-2" class="hljs-ln-code"><a></a>  <span class="fu">group_by</span>(island) <span class="sc">|&gt;</span></span>
-<span id="cb53-3" class="hljs-ln-code"><a></a>  <span class="fu">summarize</span>(<span class="at">count =</span> <span class="fu">n</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb61-1" class="hljs-ln-code"><a></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb61-2" class="hljs-ln-code"><a></a>  <span class="fu">group_by</span>(island) <span class="sc">|&gt;</span></span>
+<span id="cb61-3" class="hljs-ln-code"><a></a>  <span class="fu">summarize</span>(<span class="at">count =</span> <span class="fu">n</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -1308,8 +1442,8 @@ Adelie,Torgersen,40.3,18,195,3250,female,2007</code></pre>
 <section id="summarizing-with-counts-1" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Summarizing with counts</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb55-1" class="hljs-ln-code"><a></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb55-2" class="hljs-ln-code"><a></a>  <span class="fu">count</span>(island)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb63-1" class="hljs-ln-code"><a></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb63-2" class="hljs-ln-code"><a></a>  <span class="fu">count</span>(island)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -1336,10 +1470,10 @@ Adelie,Torgersen,40.3,18,195,3250,female,2007</code></pre>
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb57-2"><a></a>  <span class="fu">count</span>(island) <span class="sc">|&gt;</span></span>
-<span id="cb57-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> island, <span class="at">x =</span> n)) <span class="sc">+</span></span>
-<span id="cb57-4"><a></a>  <span class="fu">geom_col</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb65-2"><a></a>  <span class="fu">count</span>(island) <span class="sc">|&gt;</span></span>
+<span id="cb65-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> island, <span class="at">x =</span> n)) <span class="sc">+</span></span>
+<span id="cb65-4"><a></a>  <span class="fu">geom_col</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output-display">
@@ -1355,9 +1489,9 @@ Adelie,Torgersen,40.3,18,195,3250,female,2007</code></pre>
 <section id="q3-what-is-the-distribution-of-count-3" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Q3: What is the distribution of count?</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb58-1" class="hljs-ln-code"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb58-2" class="hljs-ln-code"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
-<span id="cb58-3" class="hljs-ln-code"><a></a>  <span class="fu">geom_col</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb66-1" class="hljs-ln-code"><a></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb66-2" class="hljs-ln-code"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb66-3" class="hljs-ln-code"><a></a>  <span class="fu">geom_col</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output-display">
@@ -1375,12 +1509,12 @@ Adelie,Torgersen,40.3,18,195,3250,female,2007</code></pre>
 <section id="q3-what-is-the-distribution-of-count-4" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Q3: What is the distribution of count?</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb59-1" class="hljs-ln-code"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb59-2" class="hljs-ln-code"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
-<span id="cb59-3" class="hljs-ln-code"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb59-4" class="hljs-ln-code"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
-<span id="cb59-5" class="hljs-ln-code"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
-<span id="cb59-6" class="hljs-ln-code"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb67-1" class="hljs-ln-code"><a></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb67-2" class="hljs-ln-code"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb67-3" class="hljs-ln-code"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb67-4" class="hljs-ln-code"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
+<span id="cb67-5" class="hljs-ln-code"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
+<span id="cb67-6" class="hljs-ln-code"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output-display">
@@ -1431,12 +1565,12 @@ Adelie,Torgersen,40.3,18,195,3250,female,2007</code></pre>
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb60-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
-<span id="cb60-3"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb60-4"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
-<span id="cb60-5"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
-<span id="cb60-6"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb68-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb68-3"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb68-4"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
+<span id="cb68-5"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
+<span id="cb68-6"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output-display">
@@ -1478,15 +1612,15 @@ Adelie,Torgersen,40.3,18,195,3250,female,2007</code></pre>
 <section id="labels-1" class="slide level2">
 <h2>Labels</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61" data-code-line-numbers="7-9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb61-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
-<span id="cb61-3"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb61-4"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
-<span id="cb61-5"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
-<span id="cb61-6"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
-<span id="cb61-7"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
-<span id="cb61-8"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
-<span id="cb61-9"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb69" data-code-line-numbers="7-9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb69-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb69-3"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb69-4"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
+<span id="cb69-5"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
+<span id="cb69-6"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb69-7"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
+<span id="cb69-8"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb69-9"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output-display">
@@ -1520,16 +1654,16 @@ Adelie,Torgersen,40.3,18,195,3250,female,2007</code></pre>
 <section id="themes" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Themes</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62" data-code-line-numbers="10"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb62-1" class="hljs-ln-code"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb62-2" class="hljs-ln-code"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
-<span id="cb62-3" class="hljs-ln-code"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb62-4" class="hljs-ln-code"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
-<span id="cb62-5" class="hljs-ln-code"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
-<span id="cb62-6" class="hljs-ln-code"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
-<span id="cb62-7" class="hljs-ln-code"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
-<span id="cb62-8" class="hljs-ln-code"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
-<span id="cb62-9" class="hljs-ln-code"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>) <span class="sc">+</span> </span>
-<span id="cb62-10" class="hljs-ln-code"><a></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb70" data-code-line-numbers="10"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb70-1" class="hljs-ln-code"><a></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb70-2" class="hljs-ln-code"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb70-3" class="hljs-ln-code"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb70-4" class="hljs-ln-code"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
+<span id="cb70-5" class="hljs-ln-code"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
+<span id="cb70-6" class="hljs-ln-code"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb70-7" class="hljs-ln-code"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
+<span id="cb70-8" class="hljs-ln-code"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb70-9" class="hljs-ln-code"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>) <span class="sc">+</span> </span>
+<span id="cb70-10" class="hljs-ln-code"><a></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 </section>
@@ -1544,15 +1678,15 @@ Adelie,Torgersen,40.3,18,195,3250,female,2007</code></pre>
 </div></section><section id="themes-1" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Themes</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb63-1" class="hljs-ln-code"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb63-2" class="hljs-ln-code"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
-<span id="cb63-3" class="hljs-ln-code"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb63-4" class="hljs-ln-code"><a></a>  <span class="fu">theme_minimal</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
-<span id="cb63-5" class="hljs-ln-code"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
-<span id="cb63-6" class="hljs-ln-code"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
-<span id="cb63-7" class="hljs-ln-code"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
-<span id="cb63-8" class="hljs-ln-code"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
-<span id="cb63-9" class="hljs-ln-code"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb71" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb71-1" class="hljs-ln-code"><a></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb71-2" class="hljs-ln-code"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb71-3" class="hljs-ln-code"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb71-4" class="hljs-ln-code"><a></a>  <span class="fu">theme_minimal</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
+<span id="cb71-5" class="hljs-ln-code"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
+<span id="cb71-6" class="hljs-ln-code"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb71-7" class="hljs-ln-code"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
+<span id="cb71-8" class="hljs-ln-code"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb71-9" class="hljs-ln-code"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 </section>
@@ -1564,16 +1698,16 @@ Adelie,Torgersen,40.3,18,195,3250,female,2007</code></pre>
 </div></section><section id="themes-2" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Themes</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65" data-code-line-numbers="4-5"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb65-1" class="hljs-ln-code"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb65-2" class="hljs-ln-code"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
-<span id="cb65-3" class="hljs-ln-code"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb65-4" class="hljs-ln-code"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb65-5" class="hljs-ln-code"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
-<span id="cb65-6" class="hljs-ln-code"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
-<span id="cb65-7" class="hljs-ln-code"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
-<span id="cb65-8" class="hljs-ln-code"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
-<span id="cb65-9" class="hljs-ln-code"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
-<span id="cb65-10" class="hljs-ln-code"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb73" data-code-line-numbers="4-5"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb73-1" class="hljs-ln-code"><a></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb73-2" class="hljs-ln-code"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb73-3" class="hljs-ln-code"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb73-4" class="hljs-ln-code"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb73-5" class="hljs-ln-code"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
+<span id="cb73-6" class="hljs-ln-code"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
+<span id="cb73-7" class="hljs-ln-code"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb73-8" class="hljs-ln-code"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
+<span id="cb73-9" class="hljs-ln-code"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb73-10" class="hljs-ln-code"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 </section>
@@ -1611,16 +1745,16 @@ Adelie,Torgersen,40.3,18,195,3250,female,2007</code></pre>
 <h2 data-id="quarto-animate-title">Setting Aesthetics</h2>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb66" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb66-1" class="hljs-ln-code"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb66-2" class="hljs-ln-code"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
-<span id="cb66-3" class="hljs-ln-code"><a></a>  <span class="fu">geom_col</span>(<span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
-<span id="cb66-4" class="hljs-ln-code"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb66-5" class="hljs-ln-code"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
-<span id="cb66-6" class="hljs-ln-code"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
-<span id="cb66-7" class="hljs-ln-code"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
-<span id="cb66-8" class="hljs-ln-code"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
-<span id="cb66-9" class="hljs-ln-code"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
-<span id="cb66-10" class="hljs-ln-code"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb74" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb74-1" class="hljs-ln-code"><a></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb74-2" class="hljs-ln-code"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb74-3" class="hljs-ln-code"><a></a>  <span class="fu">geom_col</span>(<span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb74-4" class="hljs-ln-code"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb74-5" class="hljs-ln-code"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
+<span id="cb74-6" class="hljs-ln-code"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
+<span id="cb74-7" class="hljs-ln-code"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb74-8" class="hljs-ln-code"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
+<span id="cb74-9" class="hljs-ln-code"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb74-10" class="hljs-ln-code"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 </div>
@@ -1636,16 +1770,16 @@ Adelie,Torgersen,40.3,18,195,3250,female,2007</code></pre>
 </div></section><section id="setting-aesthetics-1" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Setting Aesthetics</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb67-1" class="hljs-ln-code"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb67-2" class="hljs-ln-code"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
-<span id="cb67-3" class="hljs-ln-code"><a></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
-<span id="cb67-4" class="hljs-ln-code"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb67-5" class="hljs-ln-code"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
-<span id="cb67-6" class="hljs-ln-code"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
-<span id="cb67-7" class="hljs-ln-code"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
-<span id="cb67-8" class="hljs-ln-code"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
-<span id="cb67-9" class="hljs-ln-code"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
-<span id="cb67-10" class="hljs-ln-code"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb75" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb75-1" class="hljs-ln-code"><a></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb75-2" class="hljs-ln-code"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb75-3" class="hljs-ln-code"><a></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb75-4" class="hljs-ln-code"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb75-5" class="hljs-ln-code"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
+<span id="cb75-6" class="hljs-ln-code"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
+<span id="cb75-7" class="hljs-ln-code"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb75-8" class="hljs-ln-code"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
+<span id="cb75-9" class="hljs-ln-code"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb75-10" class="hljs-ln-code"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 </section>
@@ -1710,6 +1844,7 @@ Adelie,Torgersen,40.3,18,195,3250,female,2007</code></pre>
   <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-drop/drop-runtime.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-magic-move/magic-move.js"></script>
   <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -1734,6 +1869,7 @@ Adelie,Torgersen,40.3,18,195,3250,female,2007</code></pre>
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":false},
 'chalkboard': {"buttons":false,"chalkEffect":0.2},
 'drop': {"button":false,"shortcut":"`","engine":"webr","webr":{"packages":[]},"pyodide":{"packages":[]}},
+'magicMove': {},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -1904,7 +2040,7 @@ Adelie,Torgersen,40.3,18,195,3250,female,2007</code></pre>
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, QuartoSupport,
 
           RevealMath,
           RevealNotes,

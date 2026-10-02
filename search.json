@@ -4,7 +4,7 @@
     "href": "for-next-time.html#from-fall-2026",
     "title": "STAT 133",
     "section": "From Fall 2026",
-    "text": "From Fall 2026\n\nEither deliberately include or exclude mkdir, cp, mv.\nWhoops, do factors right after atomic vectors before matrices."
+    "text": "From Fall 2026\n\nEither deliberately include or exclude mkdir, cp, mv.\nWhoops, do factors right after atomic vectors before matrices.\nExtend the Read Write Data lecture to go into a bit more depth on YAML and JSON as specs. Show how to the notion of data types is encoded for each - this leads to compute-agnostic data strutures (they work in R and Python)."
   },
   {
     "objectID": "for-next-time.html#from-fall-2025",
@@ -2212,7 +2212,7 @@
     "href": "07-control-flow/slides.html#a-random-condition-in-r",
     "title": "Control Flow",
     "section": "A random condition in R",
-    "text": "A random condition in R\n\n\nsample(x = -10:10, size = 1)\n\n\n\n[1] -1\n\n\n\n\nsample() will randomly sample 1 element from the vector x."
+    "text": "A random condition in R\n\n\nsample(x = -10:10, size = 1)\n\n\n\n[1] 5\n\n\n\n\nsample() will randomly sample 1 element from the vector x."
   },
   {
     "objectID": "07-control-flow/slides.html#section-1",
@@ -2268,35 +2268,35 @@
     "href": "07-control-flow/slides.html#what-if-x-has-multiple-elements",
     "title": "Control Flow",
     "section": "What if x has multiple elements?",
-    "text": "What if x has multiple elements?\n\n\nx &lt;- rnorm(3)\nx\n\n\n\n[1]  0.9711316 -0.9428501  0.9622538\n\n\n\n\n\n\n\n\n\n\n      if (x &gt; 0) {\n        print(\"x is positive :)\")\n      }\n\n\n\nAnnotate this if-then by wrapping it in a for loop."
+    "text": "What if x has multiple elements?\n\n\nx &lt;- rnorm(3)\nx\n\n\n\n[1] 1.1023912 0.9942461 0.8708245\n\n\n\n\n\n\n\n\n\n\n      if (x &gt; 0) {\n        print(\"x is positive :)\")\n      }\n\n\n\nAnnotate this if-then by wrapping it in a for loop."
   },
   {
     "objectID": "07-control-flow/slides.html#option-1",
     "href": "07-control-flow/slides.html#option-1",
     "title": "Control Flow",
     "section": "Option 1",
-    "text": "Option 1\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(\"x is positive :)\")\n  }\n}\n\n\n\n[1] \"x is positive :)\"\n[1] \"x is positive :)\""
+    "text": "Option 1\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(\"x is positive :)\")\n  }\n}\n\n\n\n[1] \"x is positive :)\"\n[1] \"x is positive :)\"\n[1] \"x is positive :)\""
   },
   {
     "objectID": "07-control-flow/slides.html#option-2",
     "href": "07-control-flow/slides.html#option-2",
     "title": "Control Flow",
     "section": "Option 2",
-    "text": "Option 2\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(paste(\"element\", i, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"element 1 is positive :)\"\n[1] \"element 3 is positive :)\""
+    "text": "Option 2\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(paste(\"element\", i, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"element 1 is positive :)\"\n[1] \"element 2 is positive :)\"\n[1] \"element 3 is positive :)\""
   },
   {
     "objectID": "07-control-flow/slides.html#option-3",
     "href": "07-control-flow/slides.html#option-3",
     "title": "Control Flow",
     "section": "Option 3",
-    "text": "Option 3\n\nfor (x_elem in x) {\n  if (x_elem &gt; 0) {\n    print(paste(x_elem, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"0.971131594083262 is positive :)\"\n[1] \"0.962253788833349 is positive :)\""
+    "text": "Option 3\n\nfor (x_elem in x) {\n  if (x_elem &gt; 0) {\n    print(paste(x_elem, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"1.1023912473617 is positive :)\"\n[1] \"0.99424614386419 is positive :)\"\n[1] \"0.870824475203258 is positive :)\""
   },
   {
     "objectID": "07-control-flow/slides.html#ifelse",
     "href": "07-control-flow/slides.html#ifelse",
     "title": "Control Flow",
     "section": "ifelse()",
-    "text": "ifelse()\n\n\nifelse()\n\n\nA vectorized if-else: applies a condition to every element of a vector at once, without an explicit loop.\n\n\n\n\nx &lt; 0 \n\n\n\n[1] FALSE  TRUE FALSE\n\n\n\n\n\nifelse(test = x &lt; 0, yes = \"is positive :)\", no = \"is negative :(\")\n\n\n\n[1] \"is negative :(\" \"is positive :)\" \"is negative :(\""
+    "text": "ifelse()\n\n\nifelse()\n\n\nA vectorized if-else: applies a condition to every element of a vector at once, without an explicit loop.\n\n\n\n\nx &lt; 0 \n\n\n\n[1] FALSE FALSE FALSE\n\n\n\n\n\nifelse(test = x &lt; 0, yes = \"is positive :)\", no = \"is negative :(\")\n\n\n\n[1] \"is negative :(\" \"is negative :(\" \"is negative :(\""
   },
   {
     "objectID": "07-control-flow/slides.html#guess-the-metaphor",
@@ -2954,7 +2954,7 @@
     "href": "16-eda/slides.html#section",
     "title": "Reading Data and EDA",
     "section": "",
-    "text": "Last Time\n\nData cleaning is a set of decisions to ensure the data meets expections given its context and intended use.\nClean reproducibly: raw data is read-only; changes lives in code.\nAudit a data set against a checklist before analyzing.\n\n\nKey Ideas for Today\n\nPlain text files store characters; binary files need special software.\nYAML, CSV, and JSON add structure to plain text.\nEDA uncovers structure and generates new questions.\n\n\n\nConcept Acquisition\n\nEvery file is bytes on a disk; plain text files store characters, binary files (PDF, Excel) need specific software to decode.\nPlain text formats span a spectrum of structure, from none (.txt) to tabular (.csv) to nested (.yml, .json), and the structure determines the R object you get back (character vector, data frame, list).\nEDA is for the analyst: its goal is to uncover structure and generate new questions, guided by a set of common exploratory questions.\nExploratory and explanatory visualizations differ in audience, goal, and level of polish.\n\nTool Acquisition\n\nreadLines() / writeLines() and read_lines() / write_lines() for .txt.\nread.csv() / write.csv() and read_csv() / write_csv() for .csv.\nread_yaml() / write_yaml(), fromJSON() / toJSON() / write_json(), and excel_sheets() / read_excel().\ndim(), sapply(df, class), and sum() / mean() of is.na() for a first look.\ngeom_bar(), geom_col(), and count().\nlabs(), theme_minimal() and friends, theme(axis.text.x = element_text(...)), and setting color / fill.\n\nConcept Application\n\nExplain why read.csv() reads \"13,047\" as character while read_csv() parses it as a number.\nYour Turn: sketch the data frame behind the EV bar chart, describe its mappings and geometry, and state its main story.\nWork through the common exploratory questions on the EV registrations data.\nRequest personal data exports for Project 3, looking for multiple files and at least one JSON."
+    "text": "Last Time\n\nData cleaning is a set of decisions to ensure the data meets expections given its context and intended use.\nClean reproducibly: raw data is read-only; changes lives in code.\nAudit a data set against a checklist before analyzing.\n\n\nKey Ideas for Today\n\nPlain text files store characters; binary files need special software.\nYAML, CSV, and JSON add structure to plain text.\nEDA uncovers structure and generates new questions.\n\n\n\nConcept Acquisition\n\nPlain text files store characters, binary files (PDF, Excel) need specific software to decode.\nPlain text formats span a spectrum of structure, from none (.txt) to tabular (.csv) to nested (.yml, .json), and the structure determines the R object you get back (character vector, data frame, list).\nEDA is for the analyst: its goal is to uncover structure and generate new questions, guided by a set of common exploratory questions.\nExploratory and explanatory visualizations differ in audience, goal, and level of polish.\n\nTool Acquisition\n\nreadLines() / writeLines() and read_lines() / write_lines() for .txt.\nread.csv() / write.csv() and read_csv() / write_csv() for .csv.\nread_yaml() / write_yaml(), fromJSON() / toJSON() / write_json(), and excel_sheets() / read_excel().\ndim(), sapply(df, class), and sum() / mean() of is.na() for a first look.\ngeom_bar(), geom_col(), and count().\nlabs(), theme_minimal() and friends, theme(axis.text.x = element_text(...)), and setting color / fill.\n\nConcept Application\n\nExplain why read.csv() reads \"13,047\" as character while read_csv() parses it as a number.\nYour Turn: sketch the data frame behind the EV bar chart, describe its mappings and geometry, and state its main story.\nWork through the common exploratory questions on the EV registrations data.\nRequest personal data exports for Project 3, looking for multiple files and at least one JSON."
   },
   {
     "objectID": "16-eda/slides.html#section-1",
@@ -3095,6 +3095,34 @@
     "title": "Reading Data and EDA",
     "section": "Reading and Writing JSON",
     "text": "Reading and Writing JSON\nAn array of objects that share the same keys becomes a data frame.\n\ntoJSON(cards[1, ], pretty = TRUE)\n\n\n\n[\n  {\n    \"id\": 127,\n    \"song\": \"Golden Klaxons\",\n    \"distance\": \"3000?\"\n  }\n] \n\n\n\n\nTo write to a file: write_json(cards, \"data/cards.json\")."
+  },
+  {
+    "objectID": "16-eda/slides.html#writing-json-and-yaml",
+    "href": "16-eda/slides.html#writing-json-and-yaml",
+    "title": "Reading Data and EDA",
+    "section": "Writing JSON and YAML",
+    "text": "Writing JSON and YAML\n\nA key-value pair: \"key\": \"value\" wrapped in { } (JSON); key: value (YAML)\nMultiple pairs:\nA list:\nA list of key-value pairs:\n\n\n\n\n\n\nplaylist.json\n\n{\n  \"name\": \"Study Mix\"\n}\n\n\n\n\nplaylist.yml\n\nname: Study Mix"
+  },
+  {
+    "objectID": "16-eda/slides.html#writing-json-and-yaml-1",
+    "href": "16-eda/slides.html#writing-json-and-yaml-1",
+    "title": "Reading Data and EDA",
+    "section": "Writing JSON and YAML",
+    "text": "Writing JSON and YAML\n\nA key-value pair: \"key\": \"value\" wrapped in { } (JSON); key: value (YAML)\nMultiple pairs: separated by commas (JSON); one per line (YAML)\nA list:\nA list of key-value pairs:\n\n\n\n\n\nplaylist.json\n\n{\n  \"name\": \"Study Mix\",\n  \"owner\": \"Ana\"\n}\n\n\n\n\nplaylist.yml\n\nname: Study Mix\nowner: Ana"
+  },
+  {
+    "objectID": "16-eda/slides.html#writing-json-and-yaml-2",
+    "href": "16-eda/slides.html#writing-json-and-yaml-2",
+    "title": "Reading Data and EDA",
+    "section": "Writing JSON and YAML",
+    "text": "Writing JSON and YAML\n\nA key-value pair: \"key\": \"value\" wrapped in { } (JSON); key: value (YAML)\nMultiple pairs: separated by commas (JSON); one per line (YAML)\nA list: items in [ ], separated by commas (JSON); indented items, each starting with - (YAML)\nA list of key-value pairs:\n\n\n\n\n\nplaylist.json\n\n{\n  \"name\": \"Study Mix\",\n  \"owner\": \"Ana\",\n  \"tags\": [\"lofi\", \"focus\"]\n}\n\n\n\n\nplaylist.yml\n\nname: Study Mix\nowner: Ana\ntags:\n  - lofi\n  - focus"
+  },
+  {
+    "objectID": "16-eda/slides.html#writing-json-and-yaml-3",
+    "href": "16-eda/slides.html#writing-json-and-yaml-3",
+    "title": "Reading Data and EDA",
+    "section": "Writing JSON and YAML",
+    "text": "Writing JSON and YAML\n\nA key-value pair: \"key\": \"value\" wrapped in { } (JSON); key: value (YAML)\nMultiple pairs: separated by commas (JSON); one per line (YAML)\nA list: items in [ ], separated by commas (JSON); indented items, each starting with - (YAML)\nA list of key-value pairs: { } objects inside [ ] (JSON); pairs indented under each - (YAML)\n\n\n\n\n\nplaylist.json\n\n{\n  \"name\": \"Study Mix\",\n  \"owner\": \"Ana\",\n  \"tags\": [\"lofi\", \"focus\"],\n  \"songs\": [\n    {\"title\": \"Espresso\", \"artist\": \"Sabrina Carpenter\"},\n    {\"title\": \"Let It Go\", \"artist\": \"Idina Menzel\"}\n  ]\n}\n\n\n\n\nplaylist.yml\n\nname: Study Mix\nowner: Ana\ntags:\n  - lofi\n  - focus\nsongs:\n  - title: Espresso\n    artist: Sabrina Carpenter\n  - title: Let It Go\n    artist: Idina Menzel"
   },
   {
     "objectID": "16-eda/slides.html#reading-and-writing-summary",
