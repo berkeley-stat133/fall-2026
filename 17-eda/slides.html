@@ -11,7 +11,7 @@
 <link href="../site_libs/quarto-contrib/countdown-0.5.0/countdown.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.8.27">
 
-  <title>STAT 133 – EDA</title>
+  <title>STAT 133 – Exploratory and Explanatory Data Analysis</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -96,13 +96,14 @@
     code span.vs { color: #032f62; } /* VerbatimString */
     code span.wa { color: #ff5555; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-1661f22b623b3ac3660186bd2906449d.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-63434d2e05fbe63be9c6da0a0607727f.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-drop/drop-runtime.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-magic-move/magic-move.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
@@ -197,58 +198,53 @@
     <div class="slides">
 
 <section id="title-slide" data-background-image="../site_libs/quarto-contrib/quarto-project/stat133/stat133slides/stat133_slide.png" data-background-size="contain" class="quarto-title-block center">
-  <h1 class="title">EDA</h1>
-  <p class="subtitle">Exploratory/Explanatory Data Analysis</p>
+  <h1 class="title">Exploratory and Explanatory Data Analysis</h1>
+  <p class="subtitle">Follow your Curiosity, Focus your Story</p>
 
 <div class="quarto-title-authors">
 </div>
 
 </section>
-<section id="agenda" class="slide level2">
-<h2>Agenda</h2>
-<ul>
-<li class="fragment">Tools: Quarto and Positron</li>
-<li class="fragment">Exploratory Data Analysis</li>
-<li class="fragment">Explanatory Data Analysis</li>
-</ul>
-</section>
-<section>
-<section id="quarto" class="title-slide slide level1 center">
-<h1>Quarto</h1>
-
-</section>
-<section id="section" class="slide level2" data-background-image="images/quarto.png" data-background-size="contain">
+<section id="section" class="slide level2 intro" data-background-color="var(--intro-bg)">
 <h2></h2>
-</section>
-<section id="quarto-1" class="slide level2">
-<h2>Quarto</h2>
-<p><strong>Quarto</strong> is an open-source scientific publishing system that you can run at the command line.</p>
+<div class="columns">
+<div class="column">
+<h3 id="last-time">Last Time</h3>
 <ol type="1">
-<li class="fragment"><p>Source document is <code>.qmd</code> and output document can be a pdf, a webpage, slides, a dashboard, etc.</p></li>
-<li class="fragment"><p>The source document can hold text, images, videos, and code.</p></li>
-<li class="fragment"><p><em>Rendering</em> the source document runs all the code and puts the data products into the output document.</p>
-<p><code>$ quarto render mydoc.qmd</code></p></li>
-<li class="fragment"><p>Microsoft Word + Microsoft Excel + a lot more.</p></li>
+<li class="fragment"><em>Plain text</em> files store characters; <em>binary</em> files need special software.</li>
+<li class="fragment"><em>YAML</em>, <em>CSV</em>, and <em>JSON</em> add structure to plain text.</li>
 </ol>
-</section>
-<section id="section-1" class="slide level2" data-background-image="images/quarto-sample.png" data-background-size="contain">
-<h2></h2>
-</section></section>
-<section>
-<section id="positron" class="title-slide slide level1 center">
-<h1>Positron</h1>
-
-</section>
-<section id="positron-1" class="slide level2">
-<h2>Positron</h2>
-<p><a href="https://positron.posit.co/">Positron</a> is an Integrated Development Environment (IDE) that makes it easy to pull together many different tools to do Data Science.</p>
+</div><div class="column">
+<h3 id="key-ideas-for-today">Key Ideas for Today</h3>
 <ol type="1">
-<li class="fragment">Shell, R, Editor, Viewer, git, and Quarto all in one place</li>
-<li class="fragment">Successor to RStudio</li>
-<li class="fragment">R, Python, and Julia are equal citizens</li>
+<li class="fragment"><em>EDA</em> uncovers structure and generates new questions.</li>
+<li class="fragment"><em>Explanatory</em> plots tell one story to one audience.</li>
+<li class="fragment"><em>Labels</em> and <em>scales</em> clarify and focus comparisons.</li>
+<li class="fragment"><em>Themes</em> and set aesthetics polish the look.</li>
 </ol>
+</div></div>
 <aside class="notes">
-<p>On board draw the 4 panels and label them to get them used to what they’ll see in the video.</p>
+<h4 id="concept-acquisition">Concept Acquisition</h4>
+<ol type="1">
+<li>EDA is for the analyst: its goal is to uncover structure and generate new questions, guided by a set of common exploratory questions.</li>
+<li>Exploratory and explanatory visualizations differ in audience, goal, and level of polish.</li>
+<li>Axis limits, non-linear scales, and the ordering of categories decide which comparisons a plot makes easy.</li>
+<li>A theme controls the non-data elements of a plot; <code>theme()</code> tweaks the current theme, so add it after a complete theme.</li>
+</ol>
+<h4 id="tool-acquisition">Tool Acquisition</h4>
+<ol type="1">
+<li><code>dim()</code>, <code>sapply(df, class)</code>, and <code>sum()</code> / <code>mean()</code> of <code>is.na()</code> for a first look.</li>
+<li><code>geom_bar()</code>, <code>geom_col()</code>, and <code>count()</code>.</li>
+<li><code>labs()</code> for titles, axis labels, and legends.</li>
+<li><code>lims()</code>, <code>scale_x_log10()</code>, <code>scale_y_sqrt()</code>, <code>fct_infreq()</code>, and <code>fct_reorder()</code>.</li>
+<li><code>theme_gray()</code> / <code>theme_bw()</code> / <code>theme_minimal()</code>, <code>theme(axis.text.x = element_text(...))</code>, and setting <code>color</code> / <code>fill</code>.</li>
+</ol>
+<h4 id="concept-application">Concept Application</h4>
+<ol type="1">
+<li>Your Turn: sketch the data frame behind the EV bar chart, describe its mappings and geometry, and state its main story.</li>
+<li>Work through the common exploratory questions on the EV registrations data.</li>
+<li>Build two explanatory versions of the EV plot, each for a different story.</li>
+</ol>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -261,22 +257,62 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="section-2" class="slide level2">
-<h2></h2>
-<p>
-<a href="https://positron.posit.co?wvideo=ncfm02eugr"><img src="https://embed-ssl.wistia.com/deliveries/7e137b1ccb5dc007c163149ee97fdd24273ffa4c.jpg?image_play_button_size=2x&amp;image_crop_resized=960x540&amp;image_play_button_rounded=1&amp;image_play_button_color=223d50e0" width="1600" height="900" style="width: 1600px; height: 900px;"></a>
-</p>
-<p>
-<a href="https://positron.posit.co?wvideo=ncfm02eugr"></a>
-</p>
+<section>
+<section id="eda" class="title-slide slide level1 center">
+<h1>EDA</h1>
+<aside class="notes">
+<p>Draw a diagram showing the “computational machine” fron day one with the question originating outside the box and the first phase within it being Data Cleaning.</p>
+<p>Then draw an arrow from Data Cleaning to a second phase, EDA, that can generate it’s own questions. Draw those questions outside the box but with arrows to and fro. Then draw arrow an arrow from EDA back to Data Cleaning.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="section-3" class="slide level2">
-<h2></h2>
+<section id="exploratory-data-analysis-eda" class="slide level2">
+<h2>Exploratory Data Analysis (EDA)</h2>
+<ul>
+<li class="fragment">consumer: the analyst</li>
+<li class="fragment">goal: uncover structure for further analysis, generate new questions</li>
+<li class="fragment">visualization often follows templates</li>
+<li class="fragment">prioritize quick and accurate interpretation</li>
+</ul>
+</section>
+<section id="common-exploratory-questions" class="slide level2">
+<h2>Common Exploratory Questions</h2>
+<ul>
+<li class="fragment">What is the unit of observation?</li>
+<li class="fragment">What are the variables, their types, and levels?</li>
+<li class="fragment">How is missingness encoded? How prevalent is it?</li>
+<li class="fragment">What is the distribution of the variables?</li>
+<li class="fragment">What is the relationship between the variables?</li>
+<li class="fragment">Are there any interesting outliers?</li>
+</ul>
+<div class="fragment">
+<blockquote>
+<p>The <em>Dashboard</em> is a classic exploratory tool <em>Use <code>View()</code> in Positron</em></p>
+</blockquote>
+</div>
+</section>
+<section id="guess-the-metaphor" class="slide level2 intro" data-background-color="var(--intro-bg)">
+<h2>Guess the Metaphor</h2>
+<div class="fragment">
+<p>EDA is like an <em>archaeological dig</em>: you never know what you might find and the more you discover, the more you dig.</p>
+</div>
+</section>
+<section id="your-turn" class="slide level2">
+<h2>Your Turn</h2>
 <p><strong>Questions</strong>:</p>
 <ol type="1">
 <li>Sketch the data frame that was used to create this plot.</li>
 <li>Describe the aesthetic mappings and geometry used.</li>
-<li>What is effective about this plot? How could it be improved?</li>
+<li>What is the main story?</li>
 </ol>
 <aside class="notes">
 <p>Write these on the board.</p>
@@ -292,176 +328,51 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="section-4" class="slide level2" data-background-image="images/ev-barchart-full.png" data-background-size="contain">
+<section id="section-1" class="slide level2" data-background-image="images/ev-barchart-full.png" data-background-size="contain">
 <h2></h2>
-<div id="timer_4b429bd6b2cecf80156c2902325990c50083770c" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_647b72394278c008bbf64caa21c6d70c091f5454" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
  </div>
  <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">30</span></code>
  </div>
+<aside class="notes">
+<p>As you debrief can also ask an explanatory question: “what is effective about this plot? How could it be improved?””</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section></section>
 <section>
 <section id="exploratory-data-analysis" class="title-slide slide level1 center">
 <h1>Exploratory Data Analysis</h1>
 
 </section>
-<section id="section-5" class="slide level2" data-background-image="images/ev-excel.png" data-background-size="contain">
+<section id="section-2" class="slide level2" data-background-image="images/ev-excel.png" data-background-size="contain">
 <h2></h2>
 </section>
-<section id="section-6" class="slide level2" data-background-image="images/data-sheet.png" data-background-size="contain">
+<section id="section-3" class="slide level2" data-background-image="images/data-sheet.png" data-background-size="contain">
 <h2></h2>
 </section>
-<section id="section-7" class="slide level2" data-background-image="images/save-csv.png" data-background-size="contain">
+<section id="section-4" class="slide level2" data-background-image="images/save-csv.png" data-background-size="contain">
 <h2></h2>
 </section>
-<section id="section-8" class="slide level2">
-<h2></h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" data-code-line-numbers="1|2-3|4|5-15|16-26|27-37|38-48|49-56"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a></a><span class="kw">(</span><span class="ex">miniconda3</span><span class="kw">)</span> <span class="kw">(</span><span class="ex">base</span><span class="kw">)</span> <span class="ex">andrewbray@MacBookPro</span> fall-2025-private % cd 17-eda/data   </span>
-<span id="cb1-2"><a></a><span class="kw">(</span><span class="ex">miniconda3</span><span class="kw">)</span> <span class="kw">(</span><span class="ex">base</span><span class="kw">)</span> <span class="ex">andrewbray@MacBookPro</span> data % ls</span>
-<span id="cb1-3"><a></a><span class="ex">ev-registrations.csv</span>    ev-xlsx.png</span>
-<span id="cb1-4"><a></a><span class="kw">(</span><span class="ex">miniconda3</span><span class="kw">)</span> <span class="kw">(</span><span class="ex">base</span><span class="kw">)</span> <span class="ex">andrewbray@MacBookPro</span> data % cat ev-registrations.csv</span>
-<span id="cb1-5"><a></a><span class="ex">State,Count</span></span>
-<span id="cb1-6"><a></a><span class="ex">Alabama,</span><span class="st">"13,047"</span></span>
-<span id="cb1-7"><a></a><span class="ex">Alaska,</span><span class="st">"2,697"</span></span>
-<span id="cb1-8"><a></a><span class="ex">Arizona,</span><span class="st">"89,798"</span></span>
-<span id="cb1-9"><a></a><span class="ex">Arkansas,</span><span class="st">"7,108"</span></span>
-<span id="cb1-10"><a></a><span class="ex">California,</span><span class="st">"1,256,646"</span></span>
-<span id="cb1-11"><a></a><span class="ex">Colorado,</span><span class="st">"90,083"</span></span>
-<span id="cb1-12"><a></a><span class="ex">Connecticut,</span><span class="st">"31,557"</span></span>
-<span id="cb1-13"><a></a><span class="ex">Delaware,</span><span class="st">"8,435"</span></span>
-<span id="cb1-14"><a></a><span class="ex">District</span> of Columbia,<span class="st">"8,066"</span></span>
-<span id="cb1-15"><a></a><span class="ex">Florida,</span><span class="st">"254,878"</span></span>
-<span id="cb1-16"><a></a><span class="ex">Georgia,</span><span class="st">"92,368"</span></span>
-<span id="cb1-17"><a></a><span class="ex">Hawaii,</span><span class="st">"25,565"</span></span>
-<span id="cb1-18"><a></a><span class="ex">Idaho,</span><span class="st">"8,501"</span></span>
-<span id="cb1-19"><a></a><span class="ex">Illinois,</span><span class="st">"99,573"</span></span>
-<span id="cb1-20"><a></a><span class="ex">Indiana,</span><span class="st">"26,101"</span></span>
-<span id="cb1-21"><a></a><span class="ex">Iowa,</span><span class="st">"9,031"</span></span>
-<span id="cb1-22"><a></a><span class="ex">Kansas,</span><span class="st">"11,271"</span></span>
-<span id="cb1-23"><a></a><span class="ex">Kentucky,</span><span class="st">"11,617"</span></span>
-<span id="cb1-24"><a></a><span class="ex">Louisiana,</span><span class="st">"8,150"</span></span>
-<span id="cb1-25"><a></a><span class="ex">Maine,</span><span class="st">"7,377"</span></span>
-<span id="cb1-26"><a></a><span class="ex">Maryland,</span><span class="st">"72,139"</span></span>
-<span id="cb1-27"><a></a><span class="ex">Massachusetts,</span><span class="st">"73,768"</span></span>
-<span id="cb1-28"><a></a><span class="ex">Michigan,</span><span class="st">"50,284"</span></span>
-<span id="cb1-29"><a></a><span class="ex">Minnesota,</span><span class="st">"37,050"</span></span>
-<span id="cb1-30"><a></a><span class="ex">Mississippi,</span><span class="st">"3,590"</span></span>
-<span id="cb1-31"><a></a><span class="ex">Missouri,</span><span class="st">"26,861"</span></span>
-<span id="cb1-32"><a></a><span class="ex">Montana,</span><span class="st">"4,608"</span></span>
-<span id="cb1-33"><a></a><span class="ex">Nebraska,</span><span class="st">"6,920"</span></span>
-<span id="cb1-34"><a></a><span class="ex">Nevada,</span><span class="st">"47,361"</span></span>
-<span id="cb1-35"><a></a><span class="ex">New</span> Hampshire,<span class="st">"9,861"</span></span>
-<span id="cb1-36"><a></a><span class="ex">New</span> Jersey,<span class="st">"134,753"</span></span>
-<span id="cb1-37"><a></a><span class="ex">New</span> Mexico,<span class="st">"10,276"</span></span>
-<span id="cb1-38"><a></a><span class="ex">New</span> York,<span class="st">"131,250"</span></span>
-<span id="cb1-39"><a></a><span class="ex">North</span> Carolina,<span class="st">"70,164"</span></span>
-<span id="cb1-40"><a></a><span class="ex">North</span> Dakota,959</span>
-<span id="cb1-41"><a></a><span class="ex">Ohio,</span><span class="st">"50,393"</span></span>
-<span id="cb1-42"><a></a><span class="ex">Oklahoma,</span><span class="st">"22,843"</span></span>
-<span id="cb1-43"><a></a><span class="ex">Oregon,</span><span class="st">"64,361"</span></span>
-<span id="cb1-44"><a></a><span class="ex">Pennsylvania,</span><span class="st">"70,154"</span></span>
-<span id="cb1-45"><a></a><span class="ex">Rhode</span> Island,<span class="st">"6,396"</span></span>
-<span id="cb1-46"><a></a><span class="ex">South</span> Carolina,<span class="st">"20,873"</span></span>
-<span id="cb1-47"><a></a><span class="ex">South</span> Dakota,<span class="st">"1,675"</span></span>
-<span id="cb1-48"><a></a><span class="ex">Tennessee,</span><span class="st">"33,221"</span></span>
-<span id="cb1-49"><a></a><span class="ex">Texas,</span><span class="st">"230,125"</span></span>
-<span id="cb1-50"><a></a><span class="ex">Utah,</span><span class="st">"39,998"</span></span>
-<span id="cb1-51"><a></a><span class="ex">Vermont,</span><span class="st">"7,816"</span></span>
-<span id="cb1-52"><a></a><span class="ex">Virginia,</span><span class="st">"84,936"</span></span>
-<span id="cb1-53"><a></a><span class="ex">Washington,</span><span class="st">"152,101"</span></span>
-<span id="cb1-54"><a></a><span class="ex">West</span> Virginia,<span class="st">"2,758"</span></span>
-<span id="cb1-55"><a></a><span class="ex">Wisconsin,</span><span class="st">"24,943"</span></span>
-<span id="cb1-56"><a></a><span class="ex">Wyoming,</span><span class="st">"1,139"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="the-data" class="slide level2">
+<h2>The Data</h2>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-2"><a></a>ev <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/ev-registrations.csv"</span>)</span>
+<span id="cb1-3"><a></a>ev</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="cell fragment">
-
-</div>
-</section>
-<section id="csvs" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">CSVs</h2>
-<p>A <em>comma separate value (CSV)</em> file stores tabular data with each row on a new line and each column delimited by a comma. Good for storing R data frames in a linga-franca in your file system.</p>
-<div class="fragment">
-<p><br>
-</p>
-<h4 id="reading-into-r-base-r">Reading into R (base R)</h4>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb2-1" class="hljs-ln-code"><a></a>ev <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/ev-registrations.csv"</span>)</span>
-<span id="cb2-2" class="hljs-ln-code"><a></a>ev</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output cell-output-stdout">
-<pre><code>                  State     Count
-1               Alabama    13,047
-2                Alaska     2,697
-3               Arizona    89,798
-4              Arkansas     7,108
-5            California 1,256,646
-6              Colorado    90,083
-7           Connecticut    31,557
-8              Delaware     8,435
-9  District of Columbia     8,066
-10              Florida   254,878
-11              Georgia    92,368
-12               Hawaii    25,565
-13                Idaho     8,501
-14             Illinois    99,573
-15              Indiana    26,101
-16                 Iowa     9,031
-17               Kansas    11,271
-18             Kentucky    11,617
-19            Louisiana     8,150
-20                Maine     7,377
-21             Maryland    72,139
-22        Massachusetts    73,768
-23             Michigan    50,284
-24            Minnesota    37,050
-25          Mississippi     3,590
-26             Missouri    26,861
-27              Montana     4,608
-28             Nebraska     6,920
-29               Nevada    47,361
-30        New Hampshire     9,861
-31           New Jersey   134,753
-32           New Mexico    10,276
-33             New York   131,250
-34       North Carolina    70,164
-35         North Dakota       959
-36                 Ohio    50,393
-37             Oklahoma    22,843
-38               Oregon    64,361
-39         Pennsylvania    70,154
-40         Rhode Island     6,396
-41       South Carolina    20,873
-42         South Dakota     1,675
-43            Tennessee    33,221
-44                Texas   230,125
-45                 Utah    39,998
-46              Vermont     7,816
-47             Virginia    84,936
-48           Washington   152,101
-49        West Virginia     2,758
-50            Wisconsin    24,943
-51              Wyoming     1,139</code></pre>
-</div>
-</div>
-</div>
-</section>
-<section id="csvs-1" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">CSVs</h2>
-<p>A <em>comma separate value (CSV)</em> file stores tabular data with each row on a new line and each column delimited by a comma. Good for storing R data frames in a linga-franca in your file system.</p>
-<p><br>
-</p>
-<h4 id="reading-into-r-readr">Reading into R (<code>readr</code>)</h4>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb4-1" class="hljs-ln-code"><a></a><span class="fu">library</span>(readr)</span>
-<span id="cb4-2" class="hljs-ln-code"><a></a><span class="co"># library(tidyverse) # easy alternative</span></span>
-<span id="cb4-3" class="hljs-ln-code"><a></a>ev <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/ev-registrations.csv"</span>)</span>
-<span id="cb4-4" class="hljs-ln-code"><a></a>ev</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell fragment">
+<div class="cell fragment" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 51 × 2
    State                  Count
@@ -483,20 +394,20 @@
 <section id="q1-what-are-the-cols-and-rows" class="slide level2">
 <h2>Q1: What are the cols and rows?</h2>
 <div class="fragment">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">dim</span>(ev)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">dim</span>(ev)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="cell fragment">
+<div class="cell fragment" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 51  2</code></pre>
 </div>
 </div>
 </div>
 <div class="fragment">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">sapply</span>(ev, class)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">sapply</span>(ev, class)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="cell fragment">
+<div class="cell fragment" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
 <pre><code>      State       Count 
 "character"   "numeric" </code></pre>
@@ -506,10 +417,10 @@
 </section>
 <section id="q1-what-are-the-cols-and-rows-1" class="slide level2">
 <h2>Q1: What are the cols and rows?</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>ev</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>ev</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="cell fragment">
+<div class="cell fragment" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 51 × 2
    State                  Count
@@ -531,22 +442,17 @@
 <li class="fragment">Unit of observation: a state (or DC)</li>
 <li class="fragment">Variables: name (character) and registration count (double)</li>
 </ul>
-<div class="fragment">
-<blockquote>
-<p>A description of the variables is often stored in a separate file called a <em>data dictionary</em>.</p>
-</blockquote>
-</div>
 </section>
 <section id="q2-is-there-any-missing-data" class="slide level2">
 <h2>Q2: Is there any missing data?</h2>
 <div class="fragment">
 <p><strong>Option 1</strong>: Total missing counts</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb12-2"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb12-3"><a></a>  <span class="fu">summarize</span>(<span class="at">n_missing =</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(Count)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb9-2"><a></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb9-3"><a></a>  <span class="fu">summarize</span>(<span class="at">n_missing =</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(Count)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="cell fragment">
+<div class="cell fragment" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
   n_missing
@@ -557,11 +463,11 @@
 </div>
 <div class="fragment">
 <p><strong>Option 2</strong>: Proportion missing counts</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb14-2"><a></a>  <span class="fu">summarize</span>(<span class="at">p_missing =</span> <span class="fu">mean</span>(<span class="fu">is.na</span>(Count)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb11-2"><a></a>  <span class="fu">summarize</span>(<span class="at">p_missing =</span> <span class="fu">mean</span>(<span class="fu">is.na</span>(Count)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="cell fragment">
+<div class="cell fragment" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
   p_missing
@@ -571,71 +477,78 @@
 </div>
 </div>
 </section>
-<section id="q3-what-is-the-distribution-of-count" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Q3: What is the distribution of count?</h2>
+<section id="q3-what-is-the-distribution-of-count" class="slide level2 magic-move">
+<h2>Q3: What is the distribution of count?</h2>
 <div class="fragment">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb16-1" class="hljs-ln-code"><a></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb16-2" class="hljs-ln-code"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb16-3" class="hljs-ln-code"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Count)) <span class="sc">+</span></span>
-<span id="cb16-4" class="hljs-ln-code"><a></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb13-2"><a></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb13-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Count)) <span class="sc">+</span></span>
+<span id="cb13-4"><a></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="cell fragment">
+<div class="cell fragment" data-layout-align="center">
 <div class="cell-output-display">
-<div>
+<div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-10-1.png" width="960"></p>
+<p><img data-src="slides_files/figure-revealjs/ev-bar-count-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="q3-what-is-the-distribution-of-count-1" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Q3: What is the distribution of count?</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb17-1" class="hljs-ln-code"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb17-2" class="hljs-ln-code"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State)) <span class="sc">+</span></span>
-<span id="cb17-3" class="hljs-ln-code"><a></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="q3-what-is-the-distribution-of-count-1" class="slide level2 magic-move">
+<h2>Q3: What is the distribution of count?</h2>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb14-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State)) <span class="sc">+</span></span>
+<span id="cb14-3"><a></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="cell fragment">
+<div class="cell fragment" data-layout-align="center">
 <div class="cell-output-display">
-<div>
+<div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-11-1.png" width="960"></p>
+<p><img data-src="slides_files/figure-revealjs/ev-bar-state-x-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="q3-what-is-the-distribution-of-count-2" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Q3: What is the distribution of count?</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb18-1" class="hljs-ln-code"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb18-2" class="hljs-ln-code"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> State)) <span class="sc">+</span></span>
-<span id="cb18-3" class="hljs-ln-code"><a></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="q3-what-is-the-distribution-of-count-2" class="slide level2 magic-move">
+<h2>Q3: What is the distribution of count?</h2>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb15-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> State)) <span class="sc">+</span></span>
+<span id="cb15-3"><a></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="cell fragment">
+<div class="cell fragment" data-layout-align="center">
 <div class="cell-output-display">
-<div>
+<div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-12-1.png" width="960"></p>
+<p><img data-src="slides_files/figure-revealjs/ev-bar-state-y-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="geom_bar" class="slide level2 smaller" data-auto-animate="true">
-<h2 data-id="quarto-animate-title"><code>geom_bar()</code></h2>
+<section id="section-5" class="slide level2 smaller magic-move">
+<h2></h2>
 <div class="fragment">
-<p><code>geom_bar()</code> counts up the number of observations in each level of a single variable, then draws bars up to that height.</p>
+<div class="definition">
+<div class="definition-header">
+<p><code>geom_bar()</code></p>
+</div>
+<div class="definition-content">
+<p>Counts up the number of observations in each level of a single variable, then draws bars up to that height.</p>
+</div>
+</div>
 </div>
 <div class="fragment">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb19-1" class="hljs-ln-code"><a></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb19-2" class="hljs-ln-code"><a></a>penguins</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb16-2"><a></a>penguins</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="cell fragment">
+<div class="cell fragment" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 344 × 8
    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
@@ -656,38 +569,41 @@
 </div>
 </div>
 </section>
-<section id="geom_bar-1" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title"><code>geom_bar()</code></h2>
-<div class="fragment">
-<p><code>geom_bar()</code> counts up the number of observations in each level of a single variable, then draws bars up to that height.</p>
+<section id="section-6" class="slide level2 smaller magic-move">
+<h2></h2>
+<div class="definition">
+<div class="definition-header">
+<p><code>geom_bar()</code></p>
 </div>
-<div class="fragment">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb21-1" class="hljs-ln-code"><a></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb21-2" class="hljs-ln-code"><a></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb21-3" class="hljs-ln-code"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> island)) <span class="sc">+</span></span>
-<span id="cb21-4" class="hljs-ln-code"><a></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="definition-content">
+<p>Counts up the number of observations in each level of a single variable, then draws bars up to that height.</p>
 </div>
-<div class="cell fragment">
+</div>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb18-2"><a></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb18-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> island)) <span class="sc">+</span></span>
+<span id="cb18-4"><a></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment" data-layout-align="center">
 <div class="cell-output-display">
-<div>
+<div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-14-1.png" width="960"></p>
+<p><img data-src="slides_files/figure-revealjs/penguins-bar-island-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
-</div>
 </section>
-<section id="summarizing-with-counts" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Summarizing with counts</h2>
+<section id="summarizing-with-counts" class="slide level2 magic-move">
+<h2>Summarizing with counts</h2>
 <div class="fragment">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb22-1" class="hljs-ln-code"><a></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb22-2" class="hljs-ln-code"><a></a>  <span class="fu">group_by</span>(island) <span class="sc">|&gt;</span></span>
-<span id="cb22-3" class="hljs-ln-code"><a></a>  <span class="fu">summarize</span>(<span class="at">count =</span> <span class="fu">n</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb19-2"><a></a>  <span class="fu">group_by</span>(island) <span class="sc">|&gt;</span></span>
+<span id="cb19-3"><a></a>  <span class="fu">summarize</span>(<span class="at">count =</span> <span class="fu">n</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="cell fragment">
+<div class="cell fragment" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
   island    count
@@ -699,13 +615,13 @@
 </div>
 </div>
 </section>
-<section id="summarizing-with-counts-1" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Summarizing with counts</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb24-1" class="hljs-ln-code"><a></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb24-2" class="hljs-ln-code"><a></a>  <span class="fu">count</span>(island)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="summarizing-with-counts-1" class="slide level2 magic-move">
+<h2>Summarizing with counts</h2>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb21-2"><a></a>  <span class="fu">count</span>(island)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="cell fragment">
+<div class="cell fragment" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
   island        n
@@ -716,41 +632,48 @@
 </div>
 </div>
 </section>
-<section id="geom_col" class="slide level2">
-<h2><code>geom_col()</code></h2>
+<section id="section-7" class="slide level2 smaller">
+<h2></h2>
 <div class="fragment">
-<p><code>geom_col()</code> takes one column of categories and draws a bar for each up to the height of a second column of counts.</p>
+<div class="definition">
+<div class="definition-header">
+<p><code>geom_col()</code></p>
+</div>
+<div class="definition-content">
+<p>Takes one column of categories and draws a bar for each up to the height of a second column of counts.</p>
+</div>
+</div>
 </div>
 <div class="fragment">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb26-2"><a></a>  <span class="fu">count</span>(island) <span class="sc">|&gt;</span></span>
-<span id="cb26-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> island, <span class="at">x =</span> n)) <span class="sc">+</span></span>
-<span id="cb26-4"><a></a>  <span class="fu">geom_col</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb23-2"><a></a>  <span class="fu">count</span>(island) <span class="sc">|&gt;</span></span>
+<span id="cb23-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> island, <span class="at">x =</span> n)) <span class="sc">+</span></span>
+<span id="cb23-4"><a></a>  <span class="fu">geom_col</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="cell fragment">
+<div class="cell fragment" data-layout-align="center">
 <div class="cell-output-display">
-<div>
+<div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-17-1.png" width="960"></p>
+<p><img data-src="slides_files/figure-revealjs/penguins-col-island-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="q3-what-is-the-distribution-of-count-3" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Q3: What is the distribution of count?</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb27-1" class="hljs-ln-code"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb27-2" class="hljs-ln-code"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
-<span id="cb27-3" class="hljs-ln-code"><a></a>  <span class="fu">geom_col</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="q3-what-is-the-distribution-of-count-3" class="slide level2 magic-move">
+<h2>Q3: What is the distribution of count?</h2>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb24-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb24-3"><a></a>  <span class="fu">geom_col</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="cell fragment">
+<div class="cell fragment" data-layout-align="center">
 <div class="cell-output-display">
-<div>
+<div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-18-1.png" width="960"></p>
+<p><img data-src="slides_files/figure-revealjs/ev-col-state-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -759,41 +682,105 @@
 <p><img data-src="images/gemini-gg.png" class="absolute" style="top: 100px; left: 160px; "></p>
 </div>
 </section>
-<section id="q3-what-is-the-distribution-of-count-4" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Q3: What is the distribution of count?</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb28-1" class="hljs-ln-code"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb28-2" class="hljs-ln-code"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
-<span id="cb28-3" class="hljs-ln-code"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb28-4" class="hljs-ln-code"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
-<span id="cb28-5" class="hljs-ln-code"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
-<span id="cb28-6" class="hljs-ln-code"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="q3-what-is-the-distribution-of-count-4" class="slide level2 magic-move">
+<h2>Q3: What is the distribution of count?</h2>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb25-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb25-3"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb25-4"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
+<span id="cb25-5"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
+<span id="cb25-6"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="cell fragment">
+<div class="cell fragment" data-layout-align="center">
 <div class="cell-output-display">
-<div>
+<div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-19-1.png" width="960"></p>
+<p><img data-src="slides_files/figure-revealjs/ev-col-rotated-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="section-9" class="slide level2" data-background-image="images/ev-barchart.png" data-background-size="contain">
+<section id="section-8" class="slide level2" data-background-image="images/ev-barchart.png" data-background-size="contain">
 <h2></h2>
 </section>
-<section id="two-types-of-viz" class="slide level2">
-<h2>Two types of Viz</h2>
+<section id="exploratory-data-analysis-eda-1" class="slide level2">
+<h2>Exploratory Data Analysis (EDA)</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><strong>Features</strong></p>
+<ul>
+<li class="fragment"><strong>consumer</strong>: the analyst</li>
+<li class="fragment"><strong>goal</strong>: uncover structure for further analysis</li>
+<li class="fragment">follow templates</li>
+<li class="fragment">prioritize quick and accurate interpretation</li>
+</ul>
+</div><div class="column fragment" style="width:55%;">
+<p><strong>Common Exploratory Questions</strong></p>
+<ul>
+<li class="fragment">What is the unit of observation?</li>
+<li class="fragment">What are the variables, their types, and levels?</li>
+<li class="fragment">How is missingness encoded? How prevalent is it?</li>
+<li class="fragment">What is the dist. of the variables?</li>
+<li class="fragment">What is the relationship between the variables?</li>
+<li class="fragment"><h1 id="are-there-any-interesting-outliers">Are there any interesting outliers?</h1></li>
+</ul>
+</div></div>
+</section>
+<section id="section-9" class="slide level2" data-background-image="images/data-viewer.png" data-background-size="contain">
+<h2></h2>
+</section></section>
+<section>
+<section id="explanatory-data-analysis" class="title-slide slide level1 center">
+<h1>Explanatory Data Analysis</h1>
+
+</section>
+<section id="explanatory-data-analysis-1" class="slide level2">
+<h2>Explanatory Data Analysis</h2>
 <div class="columns">
 <div class="column">
-<h3 id="exploratory-data-analysis-eda">Exploratory Data Analysis (EDA)</h3>
-</div><div class="column">
-<h3 id="explanatory-data-analysis">Explanatory Data Analysis</h3>
+<p><strong>Features</strong></p>
+<ul>
+<li class="fragment"><strong>consumer</strong>: stakeholder</li>
+<li class="fragment"><strong>goal</strong>: tell a specific story</li>
+<li class="fragment">customized</li>
+<li class="fragment">polished aesthetic</li>
+</ul>
+</div><div class="column fragment">
+<p><strong>Common Explanatory Questions</strong></p>
+<ul>
+<li class="fragment">Who is my audience?</li>
+<li class="fragment">What is the main story?</li>
+<li class="fragment">How can I facilitate comparisons?</li>
+<li class="fragment">Can my plot be clearly read?</li>
+<li class="fragment">Is it polished and customized for audience?</li>
+</ul>
 </div></div>
-<aside class="notes">
-<p>Add notes to each:</p>
-<p>Exploratory: - consumer: the analyst - goal: uncover structure for further analysis - follow templates - prioritize quick and accurate interpretation</p>
-<p>Explanatory: - consumer: stakeholder - goal: tell a specific story - customized - polished aesthetic</p>
+</section>
+<section id="gameplan" class="slide level2">
+<h2>Gameplan</h2>
+<ol type="1">
+<li class="fragment">Clarify with Labels</li>
+<li class="fragment">Facilitate Comparisons</li>
+<li class="fragment">Polish Your Look
+<ol type="1">
+<li class="fragment">Themes</li>
+<li class="fragment">Setting aesthetics</li>
+</ol></li>
+<li class="fragment">Electric Vehicles Revisited</li>
+</ol>
+</section></section>
+<section>
+<section id="clarify-with-labels" class="title-slide slide level1 center">
+<h1>Clarify with Labels</h1>
+
+</section>
+<section id="section-10" class="slide level2">
+<h2></h2>
+
+<img data-src="slides_files/figure-revealjs/penguins-scatter-annotate-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"><aside class="notes">
+<p>Annotate plot showing the following labels: x, y, color, main, subtitle.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -805,41 +792,10 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
-</section></section>
-<section>
-<section id="explanatory-data-analysis-1" class="title-slide slide level1 center">
-<h1>Explanatory Data Analysis</h1>
-
 </section>
-<section id="goal-1" class="slide level2">
-<h2>Goal #1</h2>
-<ul>
-<li class="fragment">Display the registration counts in a manner that makes it easy to see the counts of each individual state equally well.</li>
-</ul>
-<div class="fragment">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb29-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
-<span id="cb29-3"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb29-4"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
-<span id="cb29-5"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
-<span id="cb29-6"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-20-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="labels" class="slide level2">
-<h2>Labels</h2>
+<section id="labels-with-labs" class="slide level2">
+<h2>Labels with <code>labs()</code></h2>
 <p>The labels on the plot can refer to many different places where text is added to describe what is plotted.</p>
-<div class="fragment">
 <div class="columns">
 <div class="column">
 <ul>
@@ -860,34 +816,231 @@
 <li class="fragment"><code>shape</code></li>
 </ul>
 </div></div>
+</section>
+<section id="section-11" class="slide level2 smaller magic-move">
+<h2></h2>
+<div class="cell columns column-output-location" data-layout-align="center">
+<div class="column">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb26-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm,</span>
+<span id="cb26-3"><a></a>             <span class="at">y =</span> flipper_length_mm,</span>
+<span id="cb26-4"><a></a>             <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb26-5"><a></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column fragment">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="slides_files/figure-revealjs/penguins-scatter-1-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div></div>
+</section>
+<section id="section-12" class="slide level2 smaller magic-move">
+<h2></h2>
+<div class="cell columns column-output-location" data-layout-align="center">
+<div class="column">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb27-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm,</span>
+<span id="cb27-3"><a></a>             <span class="at">y =</span> flipper_length_mm,</span>
+<span id="cb27-4"><a></a>             <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb27-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb27-6"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Penguin size differs by island"</span>,</span>
+<span id="cb27-7"><a></a>       <span class="at">x =</span> <span class="st">"Bill Length (mm)"</span>,</span>
+<span id="cb27-8"><a></a>       <span class="at">y =</span> <span class="st">"Bill Depth (mm)"</span>,</span>
+<span id="cb27-9"><a></a>       <span class="at">color =</span> <span class="st">"Species"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column fragment">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="slides_files/figure-revealjs/penguins-scatter-labs-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div></div>
+</section>
+<section id="section-13" class="slide level2">
+<h2></h2>
+
+<!-- ## Labels without `labs()`
+
+An alternative method uses a separate layer for each label.
+
+. . .
+
+::: nonincremental
+- `ggtitle()`
+- `xlab()`
+- `ylab()`
+:::
+
+> . . . I recommend you just use `labs()`.
+ -->
+<img data-src="slides_files/figure-revealjs/penguins-labs-output-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section></section>
+<section>
+<section id="facilitate-comparisons" class="title-slide slide level1 center">
+<h1>Facilitate Comparisons</h1>
+
+</section>
+<section id="facilitating-comparison" class="slide level2">
+<h2>Facilitating Comparison</h2>
+<ol type="1">
+<li>How does <em>this</em> compare to <em>that</em>?</li>
+<li>How does <em>this</em> compare to what’s <em>typical</em>?</li>
+<li>How big is <em>this</em> variability relative to <em>that</em> variability?</li>
+</ol>
+</section>
+<section id="section-14" class="slide level2">
+<h2></h2>
+
+<img data-src="slides_files/figure-revealjs/p1-penguins-labs-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"><div class="fragment">
+<blockquote>
+<p>Compares one species to another species.</p>
+</blockquote>
 </div>
 </section>
-<section id="labels-1" class="slide level2">
-<h2>Labels</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30" data-code-line-numbers="7-9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb30-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
-<span id="cb30-3"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb30-4"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
-<span id="cb30-5"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
-<span id="cb30-6"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
-<span id="cb30-7"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
-<span id="cb30-8"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
-<span id="cb30-9"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="section-15" class="slide level2">
+<h2></h2>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28" data-code-line-numbers="10-11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>p2 <span class="ot">&lt;-</span> penguins <span class="sc">|&gt;</span></span>
+<span id="cb28-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm,</span>
+<span id="cb28-3"><a></a>             <span class="at">y =</span> flipper_length_mm,</span>
+<span id="cb28-4"><a></a>             <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb28-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb28-6"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Penguin size differs by island"</span>,</span>
+<span id="cb28-7"><a></a>       <span class="at">x =</span> <span class="st">"Bill Length (mm)"</span>,</span>
+<span id="cb28-8"><a></a>       <span class="at">y =</span> <span class="st">"Bill Depth (mm)"</span>,</span>
+<span id="cb28-9"><a></a>       <span class="at">color =</span> <span class="st">"Species"</span>) <span class="sc">+</span></span>
+<span id="cb28-10"><a></a>  <span class="fu">lims</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">60</span>),</span>
+<span id="cb28-11"><a></a>       <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">233</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="cell fragment">
+</section>
+<section id="section-16" class="slide level2">
+<h2></h2>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment" data-layout-align="center">
 <div class="cell-output-display">
-<div>
+<div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-21-1.png" width="960"></p>
+<p><img data-src="slides_files/figure-revealjs/p2-print-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
+<div class="fragment">
+<blockquote>
+<p>Compares each species to a baseline of zero.</p>
+</blockquote>
+</div>
 </section>
-<section id="themes" class="slide level2">
-<h2>Themes</h2>
-<p><em>Themes</em> describe a set of visual design choices made for the plot on things like the background, the gridlines, the axes, the tick marks, and the fonts.</p>
+<section id="section-17" class="slide level2">
+<h2></h2>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>p1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a><span class="co">#  scale_x_log10()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<img data-src="slides_files/figure-revealjs/p1-linear-x-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"><blockquote>
+<p>Pay attention to where the x = 40 and x = 60 lines are…</p>
+</blockquote>
+</section>
+<section id="section-18" class="slide level2">
+<h2></h2>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>p1 <span class="sc">+</span></span>
+<span id="cb32-2"><a></a>  <span class="fu">scale_x_log10</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="slides_files/figure-revealjs/p1-log-x-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<section id="limits-and-scales" class="slide level2">
+<h2>Limits and Scales</h2>
+<p>Emphasize certain comparisons (and occlude others) by altering the limits of the axes to include a relevant baseline and by using non-linear scales.</p>
+<div class="fragment">
+<ul>
+<li class="fragment"><code>lims()</code></li>
+<li class="fragment"><code>scale_x_log10()</code></li>
+<li class="fragment"><code>scale_y_log10()</code></li>
+<li class="fragment">General <code>scale_</code> family of layers</li>
+</ul>
+</div>
+</section>
+<section id="facilitating-comparison-1" class="slide level2">
+<h2>Facilitating Comparison</h2>
+<ol type="1">
+<li>How does <em>this</em> compare to <em>that</em>?</li>
+<li>How does <em>this</em> compare to what’s <em>typical</em>?</li>
+<li>How big is <em>this</em> variability relative to <em>that</em> variability?</li>
+</ol>
+</section>
+<section id="section-19" class="slide level2" data-background-image="images/covid-deaths.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="section-20" class="slide level2" data-background-image="images/heat-dome-1.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="section-21" class="slide level2" data-background-image="images/heat-dome-2.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="section-22" class="slide level2 magic-move">
+<h2></h2>
+<blockquote>
+<p>How could I make it easiest to understand the relative commonality of the three species?</p>
+</blockquote>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb33-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> species)) <span class="sc">+</span></span>
+<span id="cb33-3"><a></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="slides_files/figure-revealjs/species-bar-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<section id="forcats" class="slide level2 magic-move">
+<h2><code>forcats</code></h2>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a><span class="fu">library</span>(forcats) <span class="co"># useful functions for factors</span></span>
+<span id="cb34-2"><a></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb34-3"><a></a>  <span class="fu">mutate</span>(<span class="at">species =</span> <span class="fu">fct_infreq</span>(species)) <span class="sc">|&gt;</span></span>
+<span id="cb34-4"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> species)) <span class="sc">+</span></span>
+<span id="cb34-5"><a></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="slides_files/figure-revealjs/species-fct-infreq-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="polish-your-look" class="title-slide slide level1 center">
+<h1>Polish Your Look</h1>
+<aside class="notes">
+<p>Return to the previous slide and note the aspects of the plot that aren’t data and aren’t labels: the grid lines, the axis tick marks, the font, the font size, the background. These are all elements of the theme.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-23" class="slide level2">
+<h2></h2>
+<div class="definition">
+<div class="definition-header">
+<p>Theme</p>
+</div>
+<div class="definition-content">
+<p>A set of visual design choices for the plot on things like the background, the gridlines, the axes, the tick marks, and the fonts.</p>
+</div>
+</div>
 <div class="fragment">
 <p>Some <code>ggplot2</code> themes (each one can be added as layer)</p>
 <ul>
@@ -897,75 +1050,371 @@
 </ul>
 </div>
 </section>
-<section id="themes-1" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Themes</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31" data-code-line-numbers="10"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb31-1" class="hljs-ln-code"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb31-2" class="hljs-ln-code"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
-<span id="cb31-3" class="hljs-ln-code"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb31-4" class="hljs-ln-code"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
-<span id="cb31-5" class="hljs-ln-code"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
-<span id="cb31-6" class="hljs-ln-code"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
-<span id="cb31-7" class="hljs-ln-code"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
-<span id="cb31-8" class="hljs-ln-code"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
-<span id="cb31-9" class="hljs-ln-code"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>) <span class="sc">+</span> </span>
-<span id="cb31-10" class="hljs-ln-code"><a></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-
-</section>
-<section id="themes-1-output" class="slide level2 output-location-slide"><h2>Themes</h2><div class="cell output-location-slide">
+<section id="section-24" class="slide level2 magic-move">
+<h2></h2>
+<div class="cell columns column-output-location" data-layout-align="center">
+<div class="column">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>p1 <span class="ot">&lt;-</span> penguins <span class="sc">|&gt;</span></span>
+<span id="cb35-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm,</span>
+<span id="cb35-3"><a></a>             <span class="at">y =</span> flipper_length_mm,</span>
+<span id="cb35-4"><a></a>             <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb35-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb35-6"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Penguin size differs by island"</span>,</span>
+<span id="cb35-7"><a></a>       <span class="at">x =</span> <span class="st">"Bill Length (mm)"</span>,</span>
+<span id="cb35-8"><a></a>       <span class="at">y =</span> <span class="st">"Bill Depth (mm)"</span>,</span>
+<span id="cb35-9"><a></a>       <span class="at">color =</span> <span class="st">"Species"</span>)</span>
+<span id="cb35-10"><a></a>p1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column fragment">
 <div class="cell-output-display">
-<div>
+<div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-22-1.png" width="960"></p>
+<p><img data-src="slides_files/figure-revealjs/p1-theme-gray-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
-</div></section><section id="themes-2" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Themes</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb32-1" class="hljs-ln-code"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb32-2" class="hljs-ln-code"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
-<span id="cb32-3" class="hljs-ln-code"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb32-4" class="hljs-ln-code"><a></a>  <span class="fu">theme_minimal</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
-<span id="cb32-5" class="hljs-ln-code"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
-<span id="cb32-6" class="hljs-ln-code"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
-<span id="cb32-7" class="hljs-ln-code"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
-<span id="cb32-8" class="hljs-ln-code"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
-<span id="cb32-9" class="hljs-ln-code"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+</section>
+<section id="section-25" class="slide level2 magic-move">
+<h2></h2>
+<div class="cell columns column-output-location" data-layout-align="center">
+<div class="column">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a>p1 <span class="sc">+</span></span>
+<span id="cb36-2"><a></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column fragment">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="slides_files/figure-revealjs/p1-theme-bw-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div></div>
+</section>
+<section id="section-26" class="slide level2 magic-move">
+<h2></h2>
+<div class="cell columns column-output-location" data-layout-align="center">
+<div class="column">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a>p1 <span class="sc">+</span></span>
+<span id="cb37-2"><a></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column fragment">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="slides_files/figure-revealjs/p1-theme-minimal-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div></div>
+<!-- 
+## There are many more themes...
+
+ggplot themes can be stored inside packages.
+
+. . .
+
+
+::: {.cell layout-align="center" output-location='column-fragment'}
+
+```{.r .cell-code}
+# install.packages("ggthemes")
+library(ggthemes)
+p1 +
+  theme_wsj()
+```
+
+::: {.cell-output-display}
+![](slides_files/figure-revealjs/p1-theme-wsj-1.png){fig-align='center' width=960}
+:::
+:::
+
+
+## `ggthemes::theme_economist()`
+
+. . .
+
+
+::: {.cell layout-align="center" output-location='default'}
+::: {.cell-output-display}
+![](slides_files/figure-revealjs/p1-theme-economist-1.png){fig-align='center' width=960}
+:::
+:::
+
+
+## `ggthemes::theme_fivethirtyeight()`
+
+. . .
+
+
+::: {.cell layout-align="center" output-location='default'}
+::: {.cell-output-display}
+![](slides_files/figure-revealjs/p1-theme-fivethirtyeight-1.png){fig-align='center' width=960}
+:::
+:::
+
+
+## `ggthemes::theme_solarized()`
+
+. . .
+
+
+::: {.cell layout-align="center" output-location='default'}
+::: {.cell-output-display}
+![](slides_files/figure-revealjs/p1-theme-solarized-1.png){fig-align='center' width=960}
+:::
+:::
+
+
+
+## `ggthemes::theme_excel()`
+
+. . .
+
+
+::: {.cell layout-align="center" output-location='default'}
+::: {.cell-output-display}
+![](slides_files/figure-revealjs/p1-theme-excel-1.png){fig-align='center' width=960}
+:::
+:::
+
+
+##
+
+![](images/ggthemes-docs.png){fig-align="center"} -->
+<!-- # Facilitate Comparisons
+
+## Your Turn
+
+Write the ggplot2 code that has generated the following plot. -->
+</section></section>
+<section>
+<section id="ev-explanatory-plot-a" class="title-slide slide level1 center">
+<h1>EV: Explanatory Plot A</h1>
+
+</section>
+<section id="the-plan" class="slide level2">
+<h2>The Plan</h2>
+<div class="fragment">
+<p><strong>Audience:</strong> <span class="fragment">Residents and decisions makers in all fifty states.</span></p>
+<p><strong>My story:</strong> <span class="fragment">There is considerable variability from state to state in EV registrations.</span></p>
+<p><strong>My strategy:</strong> <span class="fragment">Display the registration counts in a manner that makes it easy to see the counts of each individual state equally well.</span></p>
+<p><img data-src="images/ev-barchart.png" class="fragment absolute" style="top: 200px; left: 0px; "></p>
+</div>
+</section>
+<section id="where-we-left-off" class="slide level2">
+<h2>Where we left off</h2>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a>ev <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/ev-registrations.csv"</span>)</span>
+<span id="cb38-2"><a></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb38-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb38-4"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb38-5"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
+<span id="cb38-6"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
+<span id="cb38-7"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="where-we-left-off-1" class="slide level2">
+<h2>Where we left off</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="slides_files/figure-revealjs/ev-left-off-output-1.png" class="quarto-figure quarto-figure-center" width="1344"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><img data-src="images/ev-barchart.png" class="fragment absolute" style="top: 200px; left: 0px; "></p>
+</section>
+<section id="labels" class="slide level2">
+<h2>Labels</h2>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39" data-code-line-numbers="7-9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb39-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb39-3"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb39-4"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
+<span id="cb39-5"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
+<span id="cb39-6"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb39-7"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
+<span id="cb39-8"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb39-9"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 </section>
-<section id="themes-2-output" class="slide level2 output-location-slide"><h2>Themes</h2><div class="cell output-location-slide">
+<section id="labels-output" class="slide level2 output-location-slide"><h2>Labels</h2><div class="cell output-location-slide" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="slides_files/figure-revealjs/ev-a-labs-1.png" class="quarto-figure quarto-figure-center" width="1344"></p>
+</figure>
+</div>
+</div>
+</div></section><section id="labels-1" class="slide level2">
+<h2>Labels</h2>
+<p><img data-src="images/ev-barchart.png" class="absolute" style="top: 200px; left: 0px; "></p>
+</section>
+<section id="section-27" class="slide level2" data-background-image="images/gemini-title-1.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="section-28" class="slide level2" data-background-image="images/gemini-title-2.png" data-background-size="contain">
+<h2></h2>
+</section>
+<section id="labels-2" class="slide level2">
+<h2>Labels</h2>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40" data-code-line-numbers="7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb40-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb40-3"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb40-4"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
+<span id="cb40-5"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
+<span id="cb40-6"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb40-7"><a></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb40-8"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
+<span id="cb40-9"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb40-10"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+
+</section>
+<section id="labels-2-output" class="slide level2 output-location-slide"><h2>Labels</h2><div class="cell output-location-slide" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="slides_files/figure-revealjs/ev-a-center-title-1.png" class="quarto-figure quarto-figure-center" width="1344"></p>
+</figure>
+</div>
+</div>
+</div></section><section id="what-next" class="slide level2">
+<h2>What next?</h2>
+<p><img data-src="images/ev-barchart.png" class="absolute" style="top: 200px; left: 0px; "></p>
+</section>
+<section id="facilitating-comparisons" class="slide level2">
+<h2>Facilitating Comparisons</h2>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41" data-code-line-numbers="|11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb41-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb41-3"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb41-4"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
+<span id="cb41-5"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
+<span id="cb41-6"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb41-7"><a></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb41-8"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
+<span id="cb41-9"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb41-10"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>) <span class="sc">+</span></span>
+<span id="cb41-11"><a></a>  <span class="fu">scale_y_sqrt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+
+</section>
+<section id="facilitating-comparisons-output" class="slide level2 output-location-slide"><h2>Facilitating Comparisons</h2><div class="cell output-location-slide" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="slides_files/figure-revealjs/ev-a-sqrt-1.png" class="quarto-figure quarto-figure-center" width="1344"></p>
+</figure>
+</div>
+</div>
+</div></section><section id="facilitating-comparisons-1" class="slide level2">
+<h2>Facilitating Comparisons</h2>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42" data-code-line-numbers="|11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb42-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb42-3"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb42-4"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
+<span id="cb42-5"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
+<span id="cb42-6"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb42-7"><a></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb42-8"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
+<span id="cb42-9"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb42-10"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>) <span class="sc">+</span></span>
+<span id="cb42-11"><a></a>  <span class="fu">scale_y_sqrt</span>(<span class="at">labels =</span> scales<span class="sc">::</span>comma)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+
+</section>
+<section id="facilitating-comparisons-1-output" class="slide level2 output-location-slide"><h2>Facilitating Comparisons</h2><div class="cell output-location-slide" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="slides_files/figure-revealjs/ev-a-sqrt-comma-1.png" class="quarto-figure quarto-figure-center" width="1344"></p>
+</figure>
+</div>
+</div>
+</div></section><section id="what-next-1" class="slide level2">
+<h2>What next?</h2>
+<p><img data-src="images/ev-barchart.png" class="absolute" style="top: 200px; left: 0px; "></p>
+</section>
+<section id="themes" class="slide level2 magic-move">
+<h2>Themes</h2>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43" data-code-line-numbers="12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb43-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb43-3"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb43-4"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
+<span id="cb43-5"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
+<span id="cb43-6"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb43-7"><a></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb43-8"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
+<span id="cb43-9"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb43-10"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>) <span class="sc">+</span> </span>
+<span id="cb43-11"><a></a>  <span class="fu">scale_y_sqrt</span>(<span class="at">labels =</span> scales<span class="sc">::</span>comma) <span class="sc">+</span></span>
+<span id="cb43-12"><a></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+
+</section>
+<section id="themes-output" class="slide level2 magic-move output-location-slide"><h2>Themes</h2><div class="cell output-location-slide" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="slides_files/figure-revealjs/ev-a-theme-minimal-last-1.png" class="quarto-figure quarto-figure-center" width="1344"></p>
+</figure>
+</div>
+</div>
+</div></section><section id="themes-1" class="slide level2 magic-move">
+<h2>Themes</h2>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb44-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb44-3"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb44-4"><a></a>  <span class="fu">theme_minimal</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
+<span id="cb44-5"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
+<span id="cb44-6"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb44-7"><a></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb44-8"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
+<span id="cb44-9"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb44-10"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>) <span class="sc">+</span></span>
+<span id="cb44-11"><a></a>  <span class="fu">scale_y_sqrt</span>(<span class="at">labels =</span> scales<span class="sc">::</span>comma)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment" data-layout-align="center">
 <div class="cell-output cell-output-error">
 <pre><code>Error in `theme_minimal()`:
-! unused argument (axis.text.x = element_text(angle = 270, hjust = 0, vjust = 0.5))</code></pre>
+! unused arguments (axis.text.x = element_text(angle = 270, hjust = 0, vjust = 0.5), plot.title = element_text(hjust = 0.5))</code></pre>
 </div>
-</div></section><section id="themes-3" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Themes</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34" data-code-line-numbers="4-5"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb34-1" class="hljs-ln-code"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb34-2" class="hljs-ln-code"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
-<span id="cb34-3" class="hljs-ln-code"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb34-4" class="hljs-ln-code"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb34-5" class="hljs-ln-code"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
-<span id="cb34-6" class="hljs-ln-code"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
-<span id="cb34-7" class="hljs-ln-code"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
-<span id="cb34-8" class="hljs-ln-code"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
-<span id="cb34-9" class="hljs-ln-code"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
-<span id="cb34-10" class="hljs-ln-code"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="themes-2" class="slide level2 magic-move">
+<h2>Themes</h2>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46" data-code-line-numbers="4-5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb46-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb46-3"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb46-4"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb46-5"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
+<span id="cb46-6"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
+<span id="cb46-7"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb46-8"><a></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb46-9"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
+<span id="cb46-10"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb46-11"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>) <span class="sc">+</span></span>
+<span id="cb46-12"><a></a>  <span class="fu">scale_y_sqrt</span>(<span class="at">labels =</span> scales<span class="sc">::</span>comma)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 </section>
-<section id="themes-3-output" class="slide level2 output-location-slide"><h2>Themes</h2><div class="cell output-location-slide">
+<section id="themes-2-output" class="slide level2 magic-move output-location-slide"><h2>Themes</h2><div class="cell output-location-slide" data-layout-align="center">
 <div class="cell-output-display">
-<div>
+<div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-24-1.png" width="960"></p>
+<p><img data-src="slides_files/figure-revealjs/ev-a-theme-then-tweak-1.png" class="quarto-figure quarto-figure-center" width="1344"></p>
 </figure>
 </div>
 </div>
-</div></section><section id="themes-4" class="slide level2">
+</div></section><section id="themes-3" class="slide level2">
 <h2>Themes</h2>
 <p><em>Themes</em> describe a set of visual design choices made for the plot on things like the background, the gridlines, the axes, the tick marks, and the fonts.</p>
 <p>Some <code>ggplot2</code> themes (each one can be added as layer)</p>
@@ -980,74 +1429,214 @@
 </blockquote>
 </div>
 </section>
-<section id="setting-aesthetics" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Setting Aesthetics</h2>
+<section id="what-next-2" class="slide level2">
+<h2>What next?</h2>
+<p><img data-src="images/ev-barchart.png" class="absolute" style="top: 200px; left: 0px; "></p>
+</section>
+<section id="setting-aesthetics" class="slide level2 magic-move">
+<h2>Setting Aesthetics</h2>
 <div class="fragment">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb35-1" class="hljs-ln-code"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb35-2" class="hljs-ln-code"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
-<span id="cb35-3" class="hljs-ln-code"><a></a>  <span class="fu">geom_col</span>(<span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
-<span id="cb35-4" class="hljs-ln-code"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb35-5" class="hljs-ln-code"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
-<span id="cb35-6" class="hljs-ln-code"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
-<span id="cb35-7" class="hljs-ln-code"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
-<span id="cb35-8" class="hljs-ln-code"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
-<span id="cb35-9" class="hljs-ln-code"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
-<span id="cb35-10" class="hljs-ln-code"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb47-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb47-3"><a></a>  <span class="fu">geom_col</span>(<span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb47-4"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb47-5"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
+<span id="cb47-6"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
+<span id="cb47-7"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb47-8"><a></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb47-9"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
+<span id="cb47-10"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb47-11"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>) <span class="sc">+</span></span>
+<span id="cb47-12"><a></a>  <span class="fu">scale_y_sqrt</span>(<span class="at">labels =</span> scales<span class="sc">::</span>comma)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 </div>
 </section>
-<section id="setting-aesthetics-output" class="slide level2 output-location-slide"><h2>Setting Aesthetics</h2><div class="cell output-location-slide">
+<section id="setting-aesthetics-output" class="slide level2 magic-move output-location-slide"><h2>Setting Aesthetics</h2><div class="cell output-location-slide" data-layout-align="center">
 <div class="cell-output-display">
-<div>
+<div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-25-1.png" width="960"></p>
+<p><img data-src="slides_files/figure-revealjs/ev-a-col-color-1.png" class="quarto-figure quarto-figure-center" width="1344"></p>
 </figure>
 </div>
 </div>
-</div></section><section id="setting-aesthetics-1" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Setting Aesthetics</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb36-1" class="hljs-ln-code"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb36-2" class="hljs-ln-code"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
-<span id="cb36-3" class="hljs-ln-code"><a></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
-<span id="cb36-4" class="hljs-ln-code"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb36-5" class="hljs-ln-code"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
-<span id="cb36-6" class="hljs-ln-code"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
-<span id="cb36-7" class="hljs-ln-code"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
-<span id="cb36-8" class="hljs-ln-code"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
-<span id="cb36-9" class="hljs-ln-code"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
-<span id="cb36-10" class="hljs-ln-code"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></section><section id="setting-aesthetics-1" class="slide level2 magic-move">
+<h2>Setting Aesthetics</h2>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb48-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb48-3"><a></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb48-4"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb48-5"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
+<span id="cb48-6"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
+<span id="cb48-7"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb48-8"><a></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb48-9"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
+<span id="cb48-10"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb48-11"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>) <span class="sc">+</span></span>
+<span id="cb48-12"><a></a>  <span class="fu">scale_y_sqrt</span>(<span class="at">labels =</span> scales<span class="sc">::</span>comma)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 </section>
-<section id="setting-aesthetics-1-output" class="slide level2 output-location-slide"><h2>Setting Aesthetics</h2><div class="cell output-location-slide">
+<section id="setting-aesthetics-1-output" class="slide level2 magic-move output-location-slide"><h2>Setting Aesthetics</h2><div class="cell output-location-slide" data-layout-align="center">
 <div class="cell-output-display">
-<div>
+<div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-26-1.png" width="960"></p>
+<p><img data-src="slides_files/figure-revealjs/ev-a-col-fill-blue-1.png" class="quarto-figure quarto-figure-center" width="1344"></p>
 </figure>
 </div>
 </div>
-</div></section><section id="section-10" class="slide level2">
+</div></section><section id="section-29" class="slide level2">
 <h2></h2>
-<div class="cell">
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb49-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb49-3"><a></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb49-4"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb49-5"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
+<span id="cb49-6"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
+<span id="cb49-7"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb49-8"><a></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb49-9"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
+<span id="cb49-10"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb49-11"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>) <span class="sc">+</span></span>
+<span id="cb49-12"><a></a>  <span class="fu">scale_y_sqrt</span>(<span class="at">labels =</span> scales<span class="sc">::</span>comma)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+
+</section>
+<section id="section-29-output" class="slide level2 output-location-slide"><h2></h2><div class="cell output-location-slide" data-layout-align="center">
 <div class="cell-output-display">
-<div>
+<div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-27-1.png" width="960"></p>
+<p><img data-src="slides_files/figure-revealjs/ev-a-col-fill-steelblue-1.png" class="quarto-figure quarto-figure-center" width="1344"></p>
+</figure>
+</div>
+</div>
+</div></section><section id="section-30" class="slide level2">
+<h2></h2>
+
+<img data-src="images/ev-barchart.png" class="r-stretch"></section></section>
+<section>
+<section id="ev-explanatory-plot-b" class="title-slide slide level1 center">
+<h1>EV: Explanatory Plot B</h1>
+
+</section>
+<section id="the-plan-1" class="slide level2">
+<h2>The Plan</h2>
+<div class="fragment">
+<p><strong>Audience:</strong> <span class="fragment">Residents and decisions makers in all fifty states.</span></p>
+<p><strong>My story:</strong> <span class="fragment">Just a few states account for most of the electrical vehicle registrations</span></p>
+<p><strong>My strategy:</strong> <span class="fragment">Display the registration counts in a manner that draws attention to the discrepancy between the highets and lowest states.</span></p>
+</div>
+</section>
+<section id="section-31" class="slide level2 magic-move">
+<h2></h2>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb50-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb50-3"><a></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb50-4"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb50-5"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
+<span id="cb50-6"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
+<span id="cb50-7"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb50-8"><a></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb50-9"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
+<span id="cb50-10"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb50-11"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>) <span class="sc">+</span></span>
+<span id="cb50-12"><a></a>  <span class="fu">scale_y_sqrt</span>(<span class="at">labels =</span> scales<span class="sc">::</span>comma)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="section-32" class="slide level2 magic-move">
+<h2></h2>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb51-2"><a></a>  <span class="fu">mutate</span>(<span class="at">State =</span> <span class="fu">fct_reorder</span>(State, Count, <span class="at">.desc =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb51-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb51-4"><a></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb51-5"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb51-6"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
+<span id="cb51-7"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
+<span id="cb51-8"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb51-9"><a></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb51-10"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
+<span id="cb51-11"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb51-12"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>) <span class="sc">+</span></span>
+<span id="cb51-13"><a></a>  <span class="fu">scale_y_sqrt</span>(<span class="at">labels =</span> scales<span class="sc">::</span>comma)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="section-33" class="slide level2 magic-move">
+<h2></h2>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52" data-code-line-numbers="12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb52-2"><a></a>  <span class="fu">mutate</span>(<span class="at">State =</span> <span class="fu">fct_reorder</span>(State, Count, <span class="at">.desc =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb52-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb52-4"><a></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb52-5"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb52-6"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
+<span id="cb52-7"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
+<span id="cb52-8"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb52-9"><a></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb52-10"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
+<span id="cb52-11"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb52-12"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+
+</section>
+<section id="section-33-output" class="slide level2 magic-move output-location-slide"><h2></h2><div class="cell output-location-slide" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="slides_files/figure-revealjs/ev-b-drop-sqrt-1.png" class="quarto-figure quarto-figure-center" width="1344"></p>
+</figure>
+</div>
+</div>
+</div></section><section id="section-34" class="slide level2">
+<h2></h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="slides_files/figure-revealjs/ev-a-b-compare-1.png" class="quarto-figure quarto-figure-center" width="1344"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="slides_files/figure-revealjs/ev-a-b-compare-2.png" class="quarto-figure quarto-figure-center" width="1344"></p>
 </figure>
 </div>
 </div>
 </div>
-<p><img data-src="images/ev-barchart.png"></p>
+</section>
+<section id="section-35" class="slide level2 intro" data-background-color="var(--intro-bg)">
+<h2></h2>
+<div class="columns">
+<div class="column">
+<section id="key-ideas-for-today-1" class="nonincremental">
+<h3>Key Ideas for Today</h3>
+<ol type="1">
+<li class="fragment"><em>EDA</em> uncovers structure and generates new questions.</li>
+<li class="fragment"><em>Explanatory</em> plots tell one story to one audience.</li>
+<li class="fragment"><em>Labels</em> and <em>scales</em> clarify and focus comparisons.</li>
+<li class="fragment"><em>Themes</em> and set aesthetics polish the look.</li>
+</ol>
+</section>
+</div><div class="column">
+<h3 id="for-next-time">For Next Time</h3>
+<ol type="1">
+<li class="fragment">Quiz 3 is Mon/Tue (10/5-10/6) on PrairieTest.</li>
+<li class="fragment">Start PS 4, due Saturday 10/17 at 11:59 pm.</li>
+<li class="fragment">Keep collecting your personal data exports for Project 3.</li>
+</ol>
+</div></div>
 
 
 </section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
-<p><img src="../site_libs/quarto-contrib/quarto-project/stat133/stat133slides/stat133-logo-vsmall.png" class="slide-logo"></p>
+<p><img src="../assets/stat133-logo-vsmall.png" class="slide-logo"></p>
 <div class="footer footer-default">
 
 </div>
@@ -1062,6 +1651,7 @@
   <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-drop/drop-runtime.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-magic-move/magic-move.js"></script>
   <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -1086,6 +1676,7 @@
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":false},
 'chalkboard': {"buttons":false,"chalkEffect":0.2},
 'drop': {"button":false,"shortcut":"`","engine":"webr","webr":{"packages":[]},"pyodide":{"packages":[]}},
+'magicMove': {},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -1256,7 +1847,7 @@
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, QuartoSupport,
 
           RevealMath,
           RevealNotes,
