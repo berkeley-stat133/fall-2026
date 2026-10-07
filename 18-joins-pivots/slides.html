@@ -96,13 +96,14 @@
     code span.vs { color: #032f62; } /* VerbatimString */
     code span.wa { color: #ff5555; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-1661f22b623b3ac3660186bd2906449d.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-63434d2e05fbe63be9c6da0a0607727f.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-drop/drop-runtime.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-magic-move/magic-move.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
@@ -204,6 +205,60 @@
 </div>
 
 </section>
+<section id="section" class="slide level2 intro" data-background-color="var(--intro-bg)">
+<h2></h2>
+<div class="columns">
+<div class="column">
+<h3 id="last-time">Last Time</h3>
+<ol type="1">
+<li class="fragment"><em>EDA</em> uncovers structure and generates new questions.</li>
+<li class="fragment"><em>Explanatory</em> plots tell one story to one audience.</li>
+<li class="fragment"><em>Labels</em> and <em>scales</em> clarify and focus comparisons.</li>
+<li class="fragment"><em>Themes</em> and set aesthetics polish the look.</li>
+</ol>
+</div><div class="column">
+<h3 id="key-ideas-for-today">Key Ideas for Today</h3>
+<ol type="1">
+<li class="fragment">A <em>join</em> matches the rows of two data frames on a <em>key</em>.</li>
+<li class="fragment"><em>Mutating joins</em> add columns from a second table.</li>
+<li class="fragment"><em>Filtering joins</em> keep or drop rows, adding no columns.</li>
+<li class="fragment"><em>Pivots</em> reshape data longer or wider, toward <em>tidy data</em>.</li>
+</ol>
+</div></div>
+<aside class="notes">
+<h4 id="concept-acquisition">Concept Acquisition</h4>
+<ol type="1">
+<li>A join links the rows of two data frames through a key column; the key can have different names in each (<code>join_by(name == Name)</code>).</li>
+<li>The four mutating joins (left, right, full, inner) add the columns of <code>y</code> to <code>x</code> and differ only in which unmatched rows they keep.</li>
+<li>The two filtering joins (semi, anti) keep or drop rows of <code>x</code> based on whether they match <code>y</code>, and add no columns.</li>
+<li>When a key value appears more than once in <code>y</code>, a left join returns every combination of matches, so it can add rows.</li>
+<li>Tidy data puts each variable in a column, each observation in a row, and each value in a cell; the same data can be stored in tidy and untidy shapes.</li>
+</ol>
+<h4 id="tool-acquisition">Tool Acquisition</h4>
+<ol type="1">
+<li><code>left_join()</code>, <code>right_join()</code>, <code>full_join()</code>, <code>inner_join()</code>, <code>semi_join()</code>, and <code>anti_join()</code>, with <code>by = join_by()</code>.</li>
+<li><code>pivot_longer(data, cols, names_to, values_to)</code> and <code>pivot_wider(data, names_from, values_from)</code> from <code>tidyr</code>.</li>
+<li><code>unite()</code> to combine columns into one.</li>
+</ol>
+<h4 id="concept-application">Concept Application</h4>
+<ol type="1">
+<li>Sketch the data frame that combines <code>sw1</code> and <code>sw2</code>, then predict the dimensions of each join before running it.</li>
+<li>Predict the dimensions of <code>left_join(sw1, sw3)</code> versus <code>left_join(sw3, sw1)</code>.</li>
+<li>Replace <code>filter()</code> with a semi join and <code>mutate()</code> + <code>case_when()</code> with a left join on the penguins data.</li>
+<li>Move between <code>table1</code>, <code>table2</code>, <code>table3</code>, and <code>table4a</code> with pivots and <code>unite()</code>.</li>
+</ol>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="while-youre-waiting" class="slide level2">
 <h2>While you’re waiting…</h2>
 <div class="cell" data-layout-align="center">
@@ -229,7 +284,7 @@
 <li class="fragment">What command will return a data frame with an additional column for island size called <code>area_sqkm</code> with values of .13 for Torgersen, .42 for Dream, and 478 for Biscoe?</li>
 </ol>
 </section>
-<section id="section" class="slide level2">
+<section id="section-1" class="slide level2">
 <h2></h2>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">library</span>(tidyverse)</span>
@@ -289,7 +344,7 @@
 </div>
 </div></div>
 <p><strong>Task</strong>: Sketch a data frame that combines the data from these two tables.</p>
-<div id="timer_da77870d84e9ae80220692c19b67d1a9abebb5fd" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_f2a6dce66d71a1ed525d96e56c4e107b5d7f34b8" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -311,9 +366,16 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="joins" class="slide level2">
-<h2>Joins</h2>
-<p>A <strong>join</strong> is an operation that combines two data frames by linking the rows by their unique identifier called a <em>key</em>.</p>
+<section id="section-2" class="slide level2 smaller">
+<h2></h2>
+<div class="definition">
+<div class="definition-header">
+<p>Join</p>
+</div>
+<div class="definition-content">
+<p>An operation that combines two data frames by linking the rows by their unique identifier, called a <em>key</em>.</p>
+</div>
+</div>
 <div class="fragment">
 <p>This can be done in six ways.</p>
 <div class="columns">
@@ -430,7 +492,7 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="section-1" class="slide level2">
+<section id="section-3" class="slide level2">
 <h2></h2>
 <div class="tenor-gif-embed" data-postid="13110048" data-share-method="host" data-aspect-ratio="1.79137" data-width="100%">
 <a href="https://tenor.com/view/haha-cant-breathe-funny-hug-gif-13110048">Haha Cant Breathe GIF</a>from <a href="https://tenor.com/search/haha-gifs">Haha GIFs</a>
@@ -738,7 +800,7 @@
 <span id="cb35-2"><a></a>df_B <span class="ot">&lt;-</span> <span class="fu">left_join</span>(sw3, sw1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><strong>Question</strong>: What are the dimensions of <code>df_A</code> and <code>df_B</code>?</p>
-<div id="timer_da77870d84e9ae80220692c19b67d1a9abebb5fd" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_f2a6dce66d71a1ed525d96e56c4e107b5d7f34b8" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -1013,8 +1075,8 @@
 </div>
 </section></section>
 <section>
-<section id="classes-of-joins" class="title-slide slide level1 center">
-<h1>Classes of Joins</h1>
+<section id="mutating-vs-filtering-joins" class="title-slide slide level1 center">
+<h1>Mutating vs Filtering Joins</h1>
 
 </section>
 <section id="while-youre-waiting-1" class="slide level2" data-auto-animate="true">
@@ -1042,7 +1104,7 @@
 <li class="fragment">What command will return a data frame with an additional column for island size called <code>area_sqkm</code> will values of .13 for Torgersen, .42 for Dream, and 478 for Biscoe?</li>
 </ol>
 </section>
-<section id="section-2" class="slide level2" data-auto-animate="true">
+<section id="section-4" class="slide level2 smaller" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <ol type="1">
 <li>What command will return a data frame with only the Adelie penguins from Torgersen?</li>
@@ -1073,7 +1135,7 @@
 </div>
 </div>
 </section>
-<section id="section-3" class="slide level2" data-auto-animate="true">
+<section id="section-5" class="slide level2 smaller" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <ol type="1">
 <li>What command will return a data frame with only the Adelie penguins from Torgersen?</li>
@@ -1115,7 +1177,7 @@
 </div></div>
 </div>
 </section>
-<section id="section-4" class="slide level2" data-auto-animate="true">
+<section id="section-6" class="slide level2 smaller" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <ol type="1">
 <li>What command will return a data frame with only the Adelie penguins from Torgersen?</li>
@@ -1142,7 +1204,7 @@
 </div>
 </div>
 </section>
-<section id="section-5" class="slide level2" data-auto-animate="true">
+<section id="section-7" class="slide level2 smaller" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <ol start="2" type="1">
 <li>What command will return a data frame with an additional column for island size called <code>area_sqkm</code> will values of .13 for Torgersen, .42 for Dream, and 478 for Biscoe?</li>
@@ -1174,7 +1236,7 @@
 </div>
 </div>
 </section>
-<section id="section-6" class="slide level2" data-auto-animate="true">
+<section id="section-8" class="slide level2 smaller" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <ol start="2" type="1">
 <li>What command will return a data frame with an additional column for island size called <code>area_sqkm</code> will values of .13 for Torgersen, .42 for Dream, and 478 for Biscoe?</li>
@@ -1218,7 +1280,7 @@
 </div></div>
 </div>
 </section>
-<section id="section-7" class="slide level2" data-auto-animate="true">
+<section id="section-9" class="slide level2 smaller" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <ol start="2" type="1">
 <li>What command will return a data frame with an additional column for island size called <code>area_sqkm</code> will values of .13 for Torgersen, .42 for Dream, and 478 for Biscoe?</li>
@@ -1245,7 +1307,7 @@
 </div>
 </div>
 </section>
-<section id="joins-1" class="slide level2">
+<section id="joins" class="slide level2">
 <h2>Joins</h2>
 <p>A <strong>join</strong> is an operation that combines two data frames by linking the rows by their unique identifier called a <em>key</em>.</p>
 <p>This can be done in six ways.</p>
@@ -1275,6 +1337,15 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section>
+<section id="guess-the-metaphor" class="slide level2 intro" data-background-color="var(--intro-bg)">
+<h2>Guess the Metaphor</h2>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:100%;">
+<p>A join is like a <em>bridge town</em>: two settlements (data frames) linked at a single crossing (the key). Who gets across, and what they bring with them, depends on the kind of join.</p>
+</div></div>
+</div>
 </section></section>
 <section>
 <section id="pivots" class="title-slide slide level1 center">
@@ -1363,13 +1434,20 @@
 </div>
 </div>
 </section>
-<section id="tidy-data" class="slide level2">
-<h2>Tidy Data</h2>
+<section id="section-10" class="slide level2">
+<h2></h2>
+<div class="definition">
+<div class="definition-header">
+<p>Tidy Data</p>
+</div>
+<div class="definition-content">
 <ol type="1">
 <li class="fragment">Each variable is a column with a name.</li>
 <li class="fragment">Each observation is a row.</li>
 <li class="fragment">Each value is a cell.</li>
 </ol>
+</div>
+</div>
 <div class="fragment">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1453,7 +1531,7 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="section-8" class="slide level2 smaller">
+<section id="section-11" class="slide level2 smaller">
 <h2></h2>
 <div class="columns">
 <div class="column">
@@ -1501,9 +1579,16 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="pivots-1" class="slide level2">
-<h2>Pivots <img data-src="images/tidyr-hex.png" style="height:1.2em;"></h2>
-<p>Pivoting is a method to reshape a data frame to become either wider or longer. Requires that you specify the names and values involved in any transformation. Implemented in <code>tidyr</code>.</p>
+<section id="section-12" class="slide level2">
+<h2></h2>
+<div class="definition">
+<div class="definition-header">
+<p>Pivot <img data-src="images/tidyr-hex.png" style="height:1.2em;"></p>
+</div>
+<div class="definition-content">
+<p>A method to reshape a data frame to become either wider or longer. Requires that you specify the names and values involved in any transformation. Implemented in <code>tidyr</code>.</p>
+</div>
+</div>
 <div class="fragment">
 <p><br>
 </p>
@@ -1520,7 +1605,7 @@
 </div>
 </div>
 </section>
-<section id="section-9" class="slide level2 smaller" data-auto-animate="true">
+<section id="section-13" class="slide level2 smaller" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column">
@@ -1575,7 +1660,7 @@
 </div></div>
 </div>
 </section>
-<section id="section-10" class="slide level2 smaller" data-auto-animate="true">
+<section id="section-14" class="slide level2 smaller" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column">
@@ -1628,7 +1713,7 @@
 </div></div>
 </div>
 </section>
-<section id="section-11" class="slide level2 smaller" data-auto-animate="true">
+<section id="section-15" class="slide level2 smaller" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column">
@@ -1671,7 +1756,7 @@
 <blockquote>
 <p>How do you get from <code>table1</code> to <code>table2</code>?</p>
 </blockquote>
-<div id="timer_da77870d84e9ae80220692c19b67d1a9abebb5fd" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_f2a6dce66d71a1ed525d96e56c4e107b5d7f34b8" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -1706,7 +1791,7 @@
 </div></div>
 </div>
 </section>
-<section id="section-12" class="slide level2 smaller" data-auto-animate="true">
+<section id="section-16" class="slide level2 smaller" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column">
@@ -1746,7 +1831,7 @@
 <p><img data-src="images/unite.png" class="fragment absolute" style="top: 100px; left: 100px; "></p>
 <p><img data-src="images/unite-2.png" class="fragment absolute" style="top: 115px; left: 115px; "></p>
 </section>
-<section id="section-13" class="slide level2 smaller" data-auto-animate="true">
+<section id="section-17" class="slide level2 smaller" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column">
@@ -1807,12 +1892,32 @@
 <ul>
 <li class="fragment">Animations courtesy of the tidyexplain project: <a href="https://github.com/gadenbuie/tidyexplain" class="uri">https://github.com/gadenbuie/tidyexplain</a></li>
 </ul>
+</section>
+<section id="section-18" class="slide level2 intro" data-background-color="var(--intro-bg)">
+<h2></h2>
+<div class="columns">
+<div class="column">
+<h3 id="key-ideas-for-today-1">Key Ideas for Today</h3>
+<ol type="1">
+<li>A <em>join</em> matches the rows of two data frames on a <em>key</em>.</li>
+<li><em>Mutating joins</em> add columns from a second table.</li>
+<li><em>Filtering joins</em> keep or drop rows, adding no columns.</li>
+<li><em>Pivots</em> reshape data longer or wider, toward <em>tidy data</em>.</li>
+</ol>
+</div><div class="column">
+<h3 id="for-next-time">For Next Time</h3>
+<ol type="1">
+<li class="fragment">Sign up for Quiz 4 (10/19-10/20) on PrairieTest.</li>
+<li class="fragment">Work on PS 4, due Saturday 10/17 at 11:59 pm.</li>
+<li class="fragment">Keep collecting your personal data exports for Project 3.</li>
+</ol>
+</div></div>
 
 
 </section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
-<p><img src="../site_libs/quarto-contrib/quarto-project/stat133/stat133slides/stat133-logo-vsmall.png" class="slide-logo"></p>
+<p><img src="../assets/stat133-logo-vsmall.png" class="slide-logo"></p>
 <div class="footer footer-default">
 
 </div>
@@ -1827,6 +1932,7 @@
   <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-drop/drop-runtime.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-magic-move/magic-move.js"></script>
   <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -1851,6 +1957,7 @@
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":false},
 'chalkboard': {"buttons":false,"chalkEffect":0.2},
 'drop': {"button":false,"shortcut":"`","engine":"webr","webr":{"packages":[]},"pyodide":{"packages":[]}},
+'magicMove': {},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -2021,7 +2128,7 @@
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, QuartoSupport,
 
           RevealMath,
           RevealNotes,
