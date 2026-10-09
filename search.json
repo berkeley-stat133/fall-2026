@@ -1831,7 +1831,7 @@
     "href": "07-control-flow/slides.html#a-random-condition-in-r",
     "title": "Control Flow",
     "section": "A random condition in R",
-    "text": "A random condition in R\n\n\nsample(x = -10:10, size = 1)\n\n\n\n[1] 0\n\n\n\n\nsample() will randomly sample 1 element from the vector x."
+    "text": "A random condition in R\n\n\nsample(x = -10:10, size = 1)\n\n\n\n[1] 5\n\n\n\n\nsample() will randomly sample 1 element from the vector x."
   },
   {
     "objectID": "07-control-flow/slides.html#section-1",
@@ -1887,7 +1887,7 @@
     "href": "07-control-flow/slides.html#what-if-x-has-multiple-elements",
     "title": "Control Flow",
     "section": "What if x has multiple elements?",
-    "text": "What if x has multiple elements?\n\n\nx &lt;- rnorm(3)\nx\n\n\n\n[1]  0.5239418 -0.8702968  0.4360937\n\n\n\n\n\n\n\n\n\n\n      if (x &gt; 0) {\n        print(\"x is positive :)\")\n      }\n\n\n\nAnnotate this if-then by wrapping it in a for loop."
+    "text": "What if x has multiple elements?\n\n\nx &lt;- rnorm(3)\nx\n\n\n\n[1]  0.8136199 -1.8866820  0.2486204\n\n\n\n\n\n\n\n\n\n\n      if (x &gt; 0) {\n        print(\"x is positive :)\")\n      }\n\n\n\nAnnotate this if-then by wrapping it in a for loop."
   },
   {
     "objectID": "07-control-flow/slides.html#option-1",
@@ -1908,7 +1908,7 @@
     "href": "07-control-flow/slides.html#option-3",
     "title": "Control Flow",
     "section": "Option 3",
-    "text": "Option 3\n\nfor (x_elem in x) {\n  if (x_elem &gt; 0) {\n    print(paste(x_elem, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"0.52394175030322 is positive :)\"\n[1] \"0.436093738954134 is positive :)\""
+    "text": "Option 3\n\nfor (x_elem in x) {\n  if (x_elem &gt; 0) {\n    print(paste(x_elem, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"0.813619890087598 is positive :)\"\n[1] \"0.2486204242294 is positive :)\""
   },
   {
     "objectID": "07-control-flow/slides.html#ifelse",
@@ -4316,7 +4316,7 @@
     "href": "19-strings-1/slides.html#section-7",
     "title": "Strings I",
     "section": "",
-    "text": "What is the lengthiest major?\n\n\nsurvey |&gt;\n  mutate(nchar = nchar(major)) |&gt;\n  arrange(desc(nchar))\n\n\n\n# A tibble: 202 × 3\n   major                                                         excited   nchar\n   &lt;chr&gt;                                                         &lt;chr&gt;     &lt;int&gt;\n 1 Neuroscience, Molecular and Cell Biology, Minor: Data Science I'm exci…    61\n 2 Cognitive science and legal studies, data science minor       To learn…    55\n 3 Statistics & Environmental Economics and Policy               I am exc…    47\n 4 Cognitive Science/Media Studies + Data Minor                  &lt;NA&gt;         44\n 5 Applied Mathematics & Integrative Biology                     I want t…    41\n 6 Cognitive Science with Data Science minor                     Gaining …    41\n 7 Statistics, Economics, Political Economy                      Labs         40\n 8 Statistics and Business Administration                        Learning…    38\n 9 Integrative Biology and Public Health                         As a PH …    37\n10 Legal Studies (Minor: Public Health)                          I am exc…    36\n# ℹ 192 more rows"
+    "text": "What is the lengthiest major?\n\n\n\nsurvey |&gt;\n  mutate(nchar = nchar(major)) |&gt;\n  arrange(desc(nchar))\n\n\n\n# A tibble: 202 × 3\n   major                                                         excited   nchar\n   &lt;chr&gt;                                                         &lt;chr&gt;     &lt;int&gt;\n 1 Neuroscience, Molecular and Cell Biology, Minor: Data Science I'm exci…    61\n 2 Cognitive science and legal studies, data science minor       To learn…    55\n 3 Statistics & Environmental Economics and Policy               I am exc…    47\n 4 Cognitive Science/Media Studies + Data Minor                  &lt;NA&gt;         44\n 5 Applied Mathematics & Integrative Biology                     I want t…    41\n 6 Cognitive Science with Data Science minor                     Gaining …    41\n 7 Statistics, Economics, Political Economy                      Labs         40\n 8 Statistics and Business Administration                        Learning…    38\n 9 Integrative Biology and Public Health                         As a PH …    37\n10 Legal Studies (Minor: Public Health)                          I am exc…    36\n# ℹ 192 more rows"
   },
   {
     "objectID": "19-strings-1/slides.html#creating-strings",
@@ -4344,7 +4344,7 @@
     "href": "19-strings-1/slides.html#creating-strings-3",
     "title": "Strings I",
     "section": "Creating Strings",
-    "text": "Creating Strings\n\nWrap the characters either in \" or '.\nCombine strings with paste()\nCollapse a vector into one string with collapse\n\n\npaste(fruit, collapse = \" and \")\n\n\n\n[1] \"apple and banana\""
+    "text": "Creating Strings\n\nWrap the characters either in \" or '.\nCombine strings with paste()\nCollapse a vector into one string with collapse\n\n\npaste(fruit, sep = \" and \")\n\n\n\n[1] \"apple\"  \"banana\"\n\npaste(fruit, collapse = \" and \")\n\n[1] \"apple and banana\""
   },
   {
     "objectID": "19-strings-1/slides.html#changing-case",
