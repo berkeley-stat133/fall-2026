@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.27">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Project 3: Your Life in Data – STAT 133</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-854d6955a8347e4ed4dab0858cdf34c6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-8a0808be5b7c0f3678666e7f6e600685.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-854d6955a8347e4ed4dab0858cdf34c6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-629fec508f6b4c21ef691a5c5a84264a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-629fec508f6b4c21ef691a5c5a84264a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-629fec508f6b4c21ef691a5c5a84264a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="assets/scroll-branding.js"></script>
+
+
+<link rel="stylesheet" href="../../assets/neural.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">STAT 133</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../projects/1-sampsons-monks/project.html">Projects</a></li><li class="breadcrumb-item"><a href="../../projects/3-your-life-in-data/project.html">Your Life in Data</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../office-hours.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Office Hours</span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tools/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tools</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tools/datahub.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">DataHub</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tools/shell.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Shell</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tools/r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tools/r-app.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R App</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tools/git.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Git</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tools/positron.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Positron</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Projects</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../projects/1-sampsons-monks/project.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sampson’s Monks</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../projects/2-zero-emission-vehicles/project.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Zero Emission Vehicles</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../projects/3-your-life-in-data/project.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Your Life in Data</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Problem Sets</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../problem-sets/ps1.pdf" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PS 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../problem-sets/ps2.pdf" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PS 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../problem-sets/ps3.pdf" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PS 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../problem-sets/ps4.pdf" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PS 4</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../projects/1-sampsons-monks/project.html">Projects</a></li><li class="breadcrumb-item"><a href="../../projects/3-your-life-in-data/project.html">Your Life in Data</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Project 3: Your Life in Data</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/data-cloud.jpeg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="500"></p>
+</figure>
+</div>
+<p>From the moment you wake to the moment you fall asleep, you are generating data. Each text you send, every video you watch, every scroll you scroll is being stored as data in a database somewhere. Even outside your phone - when you swipe into the gym, when you tap your card to pay for lunch, when you enter a room and the motion sensor triggers the light - these actions all generate data. This data is the focus of this project.</p>
+<p>By completing this project, you will:</p>
+<ul>
+<li>Check what an event log records against a known series of actions</li>
+<li>Export your data from an app you use regularly and read it into R</li>
+<li>Clean and extract text with <code>stringr</code> and regular expressions</li>
+<li>Parse date-times, fix their time zone, and summarize events over time</li>
+<li>Join your event log to a table of your own</li>
+<li>Ask and answer a question of your own about your behavior</li>
+</ul>
+<p>As always, you will be invited by email to a template repo corresponding to this project. Complete the project in that repository and commit and push all of your work before your project studio.</p>
+<p>This time, <code>project.qmd</code> is set to <code>format: revealjs</code>, the slide format used in lecture, because you will present your work. Each part below opens with a title slide, and each lettered subpart gets two slides in the template, titled to match. The first shows your results only, as an explanatory display (a plot, a table, or a few sentences), and the second shows the code that produced them. The comment at the top of the template’s <code>project.qmd</code> shows how to set this up.</p>
+<p>In the assignment below, the only thing that should show up in your <code>project.qmd</code> is what is asked for in “On Your Slide”. The questions are there to prompt you to fully explore this phase of the analysis to be ready to answer questions about it during the Project Studio.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Assignment</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">What We Did</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Do not commit your data
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Your data exports contain personal information about you and also about people that you correspond with. To prevent sharing this data, create a subdirectory of your template repo called <code>data/</code> and unzip your personal data there. The template contains a small text file called <code>.gitignore</code> that lists this directory as one that git should ignore. The <code>data-staff</code> folder used in Part 1 holds staff data, not yours, and is already in the template.</p>
+<p>Other relevant files, namely <code>project.qmd</code>, the corresponding <code>project.html</code> (that is your slide deck) and associated files should be committed and pushed.</p>
+</div>
+</div>
+<section id="part-1-staff-youtube-data" class="level3">
+<h3 class="anchored" data-anchor-id="part-1-staff-youtube-data">Part 1: Staff YouTube Data</h3>
+<p>Before you analyze data you’ve generated over years, you’ll look at a small data set that we deliberately generated. A member of course staff took a short, scripted series of actions on YouTube and then downloaded what Google recorded using <a href="https://takeout.google.com">Google Takeout</a>. The <strong>What We Did</strong> tab above lists every action. Because you know exactly what happened, you can check whether the data tells the same story.</p>
+<p>The template’s <code>data-staff/YouTube and YouTube Music/</code> folder holds that export, cut down to the files and records from those 33 minutes. Everything else in it is exactly as Google wrote it.</p>
+<section id="a.-predict" class="level4">
+<h4 class="anchored" data-anchor-id="a.-predict">A. Predict</h4>
+<p>Before you open any of the files, use the <strong>What We Did</strong> tab to write down what you expect to find.</p>
+<p><strong>On your slide:</strong> your predictions, as a short list or table. This slide has no code, so it needs no code slide.</p>
+<ol type="1">
+<li>How many records should the watch history hold, and for which videos?</li>
+<li>How many records should the search history hold?</li>
+<li>Which videos should be in the <code>stat133</code> playlist, and which channels in the subscriptions?</li>
+</ol>
+</section>
+<section id="b.-import" class="level4">
+<h4 class="anchored" data-anchor-id="b.-import">B. Import</h4>
+<p><strong>On your slide:</strong> the files in the export, and the first few rows of <code>watches</code>.</p>
+<ol type="1">
+<li>List the files in <code>data-staff/YouTube and YouTube Music/</code> with <code>list.files(..., recursive = TRUE)</code>.</li>
+<li>Read <code>watch-history.json</code> and <code>search-history.json</code> into data frames called <code>watches</code> and <code>searches</code>. Read the three CSV files with <code>read_csv()</code> into <code>playlists</code>, <code>stat133</code>, and <code>subscriptions</code>.</li>
+<li>What does one row of each data frame represent?</li>
+<li>Some columns of <code>watches</code> are lists rather than simple vectors. Which ones? Which of them holds the channel, and what does each of its elements hold?</li>
+<li>Why do you think <code>watch-history.json</code> is stored as a JSON instead of a CSV?</li>
+</ol>
+</section>
+<section id="c.-clean" class="level4">
+<h4 class="anchored" data-anchor-id="c.-clean">C. Clean</h4>
+<p><strong>On your slide:</strong> <code>watches</code> with the columns <code>title</code>, <code>channel</code>, <code>video_id</code>, <code>artist</code>, and <code>song</code>, and <code>searches</code> with the columns <code>title</code> and <code>terms</code>.</p>
+<ol type="1">
+<li><code>unnest()</code> from <code>tidyr</code> turns a list column of data frames into ordinary columns, one for each column inside: <code>watches &lt;- unnest(watches, subtitles, keep_empty = TRUE)</code>. (<code>keep_empty = TRUE</code> keeps any row whose element is empty, filling it with <code>NA</code>, rather than dropping it.) What do the new columns hold? Rename the one with the channel name to <code>channel</code>.</li>
+<li>Use <code>stringr</code> functions and regular expressions to remove <code>"Watched "</code> from the start of each title in <code>watches</code>.</li>
+<li>Extract each video’s ID from <code>titleUrl</code> into a column <code>video_id</code> (it’s the part after <code>v=</code>).</li>
+<li>Extract the search terms from each <code>titleUrl</code> in <code>searches</code> into a column <code>terms</code>. Compare them to the titles. In what two ways are the search terms written differently in the URL? Why do you think a URL can’t simply contain them as typed?</li>
+<li>Split each watched title into an <code>artist</code> and a <code>song</code> at <code>" - "</code>. For which title does this go wrong, and why?</li>
+</ol>
+</section>
+<section id="d.-check-the-times" class="level4">
+<h4 class="anchored" data-anchor-id="d.-check-the-times">D. Check the Times</h4>
+<p><strong>On your slide:</strong> a table with one row per watch: the title, the recorded time in Pacific time, and the time in the <strong>What We Did</strong> tab that it matches.</p>
+<ol type="1">
+<li>Convert <code>time</code> in <code>watches</code> to a date-time. In what time zone is it recorded?</li>
+<li>Convert it to Pacific time and line each watch up with the <strong>What We Did</strong> tab.</li>
+<li>Which moment does YouTube record: when the page was opened and the ads began, when the video itself started, or when it ended? Use the one recorded watch that had an ad to tell these apart.</li>
+</ol>
+</section>
+<section id="e.-join" class="level4">
+<h4 class="anchored" data-anchor-id="e.-join">E. Join</h4>
+<p><strong>On your slide:</strong> the video that was saved but never watched, the video that was watched but never saved, and the result of joining <code>subscriptions</code> to <code>watches</code>.</p>
+<ol type="1">
+<li>Join <code>stat133</code> to <code>watches</code> by video ID. Use <code>anti_join()</code> to find the video that was saved but never watched, and the video that was watched but never saved.</li>
+<li>Staff subscribed to the Khruangbin channel and then watched a Khruangbin video. Join <code>subscriptions</code> to <code>watches</code> by channel name. Does the join find that video? Look back at the <strong>What We Did</strong> tab and explain what happened.</li>
+<li>Neither subscription matched in question 2. Using the <strong>What We Did</strong> tab as well as the data, which subscribed channel was truly never watched?</li>
+</ol>
+</section>
+<section id="f.-compare-to-the-record" class="level4">
+<h4 class="anchored" data-anchor-id="f.-compare-to-the-record">F. Compare to the Record</h4>
+<p><strong>On your slide:</strong> every action in the <strong>What We Did</strong> tab that left no trace in these files, as a list or table. This slide has no code, so it needs no code slide.</p>
+<ol type="1">
+<li>Compare your findings to your predictions in A. Which action’s missing trace surprised you most?</li>
+<li>In a few sentences, describe what YouTube’s “watch history” actually records.</li>
+<li>What does that mean for counting events in your own data in Part 2?</li>
+</ol>
+</section>
+</section>
+<section id="part-2-your-app-your-data" class="level3">
+<h3 class="anchored" data-anchor-id="part-2-your-app-your-data">Part 2: Your App, Your Data</h3>
+<p>In Part 1, everyone looked at the same data generated by the same behavior. Now you’ll have a look at data that captures your life in data. Pick an app or service you use regularly and whose data export has arrived (see the <a href="../../16-reading-writing/slides.html#/potential-apps">list of apps</a> from the Reading and Writing Data lecture). Make multiple data requests because some take several days to arrive (note that Instagram generally arrives within minutes). Also keep an eye on your email: after the data request, you’ll usually get an email where you must confirm the request before they begin to process it.</p>
+<p>This is not an exhaustive list of apps; if you are very active on an app not listed, if you’re able to secure the data in time, if the data contains multiple files including at least one JSON, and if it can be used to answer the following questions: it’s fair game. If you can’t figure out how to download your data from a given app, ask google or Gemini for help or post on Ed.</p>
+<p>The questions below are written to work for almost any app, because almost every export contains at least one <strong>event log</strong>: a table/JSON with one row per thing you did (a song played, a video watched, a ride taken, a post liked) and a column recording <em>when</em> you did it.</p>
+<section id="a.-take-inventory" class="level4">
+<h4 class="anchored" data-anchor-id="a.-take-inventory">A. Take Inventory</h4>
+<p>Before analyzing a data set, find out what’s in it. Unzip your export into <code>data/</code> and list every file in it with <code>list.files(..., recursive = TRUE)</code>.</p>
+<p><strong>On your slide:</strong> a table counting the files in your export by format, and the first few rows of <code>events</code>.</p>
+<ol type="1">
+<li><p>Which app did you choose? How many files are in your export, and how many of them are JSON, CSV, or some other format? Use <code>str_detect()</code> with a regular expression to count them, rather than counting by hand.</p></li>
+<li><p>Skim the file names (and open a few in a text editor). Which file holds the event log you’ll analyze in the rest of this part? Which files look like they might contain something you didn’t expect the company to keep?</p></li>
+<li><p>Read the event log into R as a data frame called <code>events</code>. If it’s a JSON file, <code>fromJSON()</code> will usually return a data frame directly. If some of its columns are themselves data frames or lists (nested JSON), try <code>fromJSON(path, flatten = TRUE)</code>, which spreads nested fields into their own columns. Fields that hold a list of values (like YouTube’s <code>subtitles</code> in Part 1) stay list columns; use <code>unnest(events, column,    keep_empty = TRUE)</code> as you did there. Compare <code>nrow(events)</code> before and after: if it grew, some elements held more than one row, and each event now appears more than once. If your event log is split across several files (e.g. <code>StreamingHistory_music_0.json</code>, <code>StreamingHistory_music_1.json</code>), you can read and stack them like this:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>paths <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="st">"data"</span>, <span class="at">pattern =</span> <span class="st">"StreamingHistory_music_</span><span class="sc">\\</span><span class="st">d+</span><span class="sc">\\</span><span class="st">.json"</span>,</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">recursive =</span> <span class="cn">TRUE</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>events <span class="ot">&lt;-</span> <span class="fu">lapply</span>(paths, fromJSON) <span class="sc">|&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></li>
+<li><p>Describe <code>events</code>: how many rows and columns it has, what one row represents (the unit of observation), and a one-sentence description of each column you plan to use.</p></li>
+</ol>
+</section>
+<section id="b.-when-did-it-happen" class="level4">
+<h4 class="anchored" data-anchor-id="b.-when-did-it-happen">B. When Did It Happen?</h4>
+<p>Companies store times in many ways: as text in many formats, or as Unix time (seconds or milliseconds since 1970). Most also store them in UTC rather than your local time.</p>
+<p><strong>On your slide:</strong> a heatmap of your events by day of week and hour of day, in your local time, with the start, end, and span of your log in its title or subtitle.</p>
+<ol type="1">
+<li><p>Create a column <code>time</code> in <code>events</code> that holds each event’s date-time as a <code>POSIXct</code> vector. Use the <code>lubridate</code> function that matches your timestamps (<code>ymd_hms()</code>, <code>ymd_hm()</code>, <code>mdy_hm()</code>, …). If your timestamps are numbers, they are Unix time: <code>as_datetime(x)</code> converts seconds, and <code>as_datetime(x / 1000)</code> converts milliseconds.</p></li>
+<li><p>Think of one event whose time you remember well (a song you played as you walked into an exam, a ride you took to the airport). Find it in <code>events</code>. Is the recorded time in UTC or in your local time? Use <code>with_tz()</code> or <code>force_tz()</code> so that <code>time</code> is in <code>"America/Los_Angeles"</code> (or whichever time zone you were in), and explain which function you chose and why.</p></li>
+<li><p>When does your event log start and end, and how long a span of time does it cover? Express the span as a duration.</p></li>
+<li><p>Use <code>wday()</code> and <code>hour()</code> to count your events by day of week and hour of day, then display those counts as a heatmap with <code>geom_tile()</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>events <span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(<span class="at">day =</span> <span class="fu">wday</span>(time, <span class="at">label =</span> <span class="cn">TRUE</span>), <span class="at">hour =</span> <span class="fu">hour</span>(time)) <span class="sc">|&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> hour, <span class="at">y =</span> day, <span class="at">fill =</span> n)) <span class="sc">+</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></li>
+<li><p>What does this heatmap reveal about your routine? Would it look different if you hadn’t fixed the time zone in question 2?</p></li>
+</ol>
+</section>
+<section id="c.-what-did-you-do" class="level4">
+<h4 class="anchored" data-anchor-id="c.-what-did-you-do">C. What Did You Do?</h4>
+<p>Event logs also record <em>what</em> you did, usually as text: song and artist names, video titles, search terms, URLs, addresses. Text from apps is messy. The same thing can be written several ways.</p>
+<p><strong>On your slide:</strong> a bar chart of your top 10 most frequent values after cleaning, ordered by frequency.</p>
+<ol type="1">
+<li>Choose a text column in <code>events</code> that identifies <em>what</em> each event was about. What are your top 10 most frequent values?</li>
+<li>Look closely at the values in that column. Find at least one way the same thing is recorded in different forms (capitalization, extra words like “Watched” or ” - Remastered”, trailing spaces, URL parameters, …). Use <code>stringr</code> functions and a regular expression to clean the column into a new one.</li>
+<li>Redo your top 10 with the cleaned column and show it in a bar chart. Did it change?</li>
+</ol>
+</section>
+<section id="d.-was-i-in-class" class="level4">
+<h4 class="anchored" data-anchor-id="d.-was-i-in-class">D. Was I in Class?</h4>
+<p>To learn something new from a data set, you can often join it to another one. Here you’ll join your event log to a table only you can write: your class schedule this semester.</p>
+<p><strong>On your slide:</strong> a table of the number of distinct events that happened during each of your courses this semester.</p>
+<ol type="1">
+<li>Create a data frame called <code>schedule</code> with one row per class meeting time: a <code>day</code> column (matching the labels from <code>wday(time, label = TRUE)</code>, e.g.&nbsp;<code>"Mon"</code>), a <code>course</code> column, and <code>start</code> and <code>end</code> columns giving the time in hours (e.g.&nbsp;2:00 pm is <code>14</code>, 3:30 pm is <code>15.5</code>). Include Stat 133.</li>
+<li>Add two columns to <code>events</code>: <code>day</code>, the weekday label of <code>time</code>, and <code>clock</code>, the time of day in hours (<code>hour(time) + minute(time) / 60</code>; <code>minute()</code> works just like <code>hour()</code>). Then add an <code>event_id</code> column numbering the rows. Left join <code>schedule</code> to <code>events</code> by <code>day</code>. How many rows does the result have? Why is it more than <code>events</code> had?</li>
+<li>Filter the joined data frame to events that happened during a class (<code>clock</code> between <code>start</code> and <code>end</code>), restricted to dates during this semester. How many distinct events happened during class? Which course gets the most?</li>
+<li>Is this a fair way to judge whether you were using the app <em>in</em> class? Name at least two reasons the join could overcount or undercount.</li>
+</ol>
+</section>
+<section id="e.-your-question" class="level4">
+<h4 class="anchored" data-anchor-id="e.-your-question">E. Your Question</h4>
+<p>You now know your event log well. Ask one question about your own behavior that the work above doesn’t already answer and that you are genuinely curious about. If you’re stuck, two kinds of question work for almost any app:</p>
+<ul>
+<li><strong>How has a share of your events changed over time?</strong> Use <code>str_detect()</code> to pick out a subset of events that matters to you (lectures or tutorials, songs by one artist, rides to or from campus), then plot the fraction of your events in that subset each month.</li>
+<li><strong>When are you most active, and has that shifted?</strong> Use <code>case_when()</code> to label each event as <code>"morning"</code> (5 am to noon), <code>"afternoon"</code> (noon to 5 pm), <code>"evening"</code> (5 pm to 10 pm), or <code>"night"</code> (10 pm to 5 am), then compare the periods across months. Which month was your most nocturnal?</li>
+</ul>
+<p><strong>On your slide:</strong> your question and one explanatory plot that answers it.</p>
+<ol type="1">
+<li>State your question in one sentence.</li>
+<li>Answer it with one explanatory plot: a clear title, labeled axes with units, and a scale and theme chosen to make the comparison you care about easy to see.</li>
+<li>Give your answer and the evidence for it, along with one limitation of what this data can tell you.</li>
+</ol>
+</section>
+<section id="f.-what-do-they-know" class="level4">
+<h4 class="anchored" data-anchor-id="f.-what-do-they-know">F. What Do They Know?</h4>
+<p><strong>On your slide:</strong> the main points of your answer to question 1. This slide has no code, so it needs no code slide.</p>
+<ol type="1">
+<li>Based on everything you found, what could the company infer about you (your schedule, location, interests, habits) from this export alone? Which inference would be easiest to get wrong, and why?</li>
+<li>Look back at the files in A.2 that you didn’t expect. Is there anything in your export you would ask the company to delete? Explain.</li>
+</ol>
+</section>
+</section>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>Course staff did the following on YouTube on Saturday, October 10, 2026, in a web browser on a laptop, signed in to a staff Google account. All times are Pacific Daylight Time. <strong>Autoplay</strong> was turned off, so YouTube never started a video on its own after another ended.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Time</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>12:43:14</td>
+<td>Opened the <a href="https://www.youtube.com/@3blue1brown/videos">3Blue1Brown</a> channel page and clicked <strong>Subscribe</strong>. Played nothing.</td>
+</tr>
+<tr class="even">
+<td>12:43:20</td>
+<td>Searched for <code>hans rosling 200 countries</code>.</td>
+</tr>
+<tr class="odd">
+<td>12:43</td>
+<td>Clicked the result <a href="https://www.youtube.com/watch?v=jbkSRLYSojo"><em>Hans Rosling’s 200 Countries, 200 Years, 4 Minutes - The Joy of Stats - BBC</em></a>. The page stalled, and the video never started.</td>
+</tr>
+<tr class="even">
+<td>12:44:06</td>
+<td>Clicked <strong>Save</strong>, then <strong>New playlist</strong>. Made a private playlist named <code>stat133</code> with the Rosling video in it.</td>
+</tr>
+<tr class="odd">
+<td>12:50:17</td>
+<td>Reloaded the Rosling video. It started right away (no ad) and played to the end at 12:55:05.</td>
+</tr>
+<tr class="even">
+<td>12:55:27</td>
+<td>Opened <a href="https://www.youtube.com/watch?v=Whe7MURlKLw"><em>Khruangbin &amp; Leon Bridges - Texas Sun (Official Video)</em></a>. Two 15-second ads played first (Fancy Feast, then Marriott Bonvoy).</td>
+</tr>
+<tr class="odd">
+<td>12:55:54</td>
+<td>Saved <em>Texas Sun</em> to <code>stat133</code>.</td>
+</tr>
+<tr class="even">
+<td>12:56:05</td>
+<td>Clicked <strong>Subscribe</strong>. This video belongs to three channels (Dead Oceans, Khruangbin, and Leon Bridges), so YouTube asked which one; subscribed to <strong>Khruangbin</strong>.</td>
+</tr>
+<tr class="odd">
+<td>12:56:12</td>
+<td><em>Texas Sun</em> itself started. It played to the end at 13:00:55, followed by two 30-second ads (Arizona State University, then Ticketmaster).</td>
+</tr>
+<tr class="even">
+<td>13:02:34</td>
+<td>Opened <a href="https://www.youtube.com/watch?v=ABLT6hdgEek"><em>Natalia Lafourcade - Tú sí sabes quererme (en manos de Los Macorinos)</em></a>. It started right away (no ad).</td>
+</tr>
+<tr class="odd">
+<td>13:02:42</td>
+<td>Clicked the thumbs-up (<strong>Like</strong>).</td>
+</tr>
+<tr class="even">
+<td>13:02:55</td>
+<td>Saved it to <code>stat133</code>. It played to the end at 13:08:49, followed by an ad (St.&nbsp;Jude), skipped after about 20 seconds.</td>
+</tr>
+<tr class="odd">
+<td>13:09:25</td>
+<td>Opened <a href="https://www.youtube.com/watch?v=4IACZdwwJI4"><em>Nina Simone - Sinnerman (Audio)</em></a>. It started right away (no ad).</td>
+</tr>
+<tr class="even">
+<td>13:09:38</td>
+<td>Paused <em>Sinnerman</em> at 0:13. Didn’t save it.</td>
+</tr>
+<tr class="odd">
+<td>13:09:51</td>
+<td>Searched for <code>3blue1brown central limit theorem</code>. The top result, <a href="https://www.youtube.com/watch?v=zeJD6dqJ5lo"><em>But what is the Central Limit Theorem?</em></a>, began a silent preview in the search results on its own.</td>
+</tr>
+<tr class="even">
+<td>13:10:12</td>
+<td>Without opening it, saved the Central Limit Theorem video to <code>stat133</code> from the <strong>⋮</strong> menu next to its title.</td>
+</tr>
+<tr class="odd">
+<td>13:14:29</td>
+<td>Searched for <code>galton board</code>. Clicked nothing.</td>
+</tr>
+<tr class="even">
+<td>13:14:48</td>
+<td>Searched for <code>hasta la raíz</code>. Clicked nothing.</td>
+</tr>
+<tr class="odd">
+<td>13:15:08</td>
+<td>Opened <code>stat133</code> and clicked <em>Texas Sun</em>. A 15-second ad played first (Home Depot).</td>
+</tr>
+<tr class="even">
+<td>13:15:31</td>
+<td><em>Texas Sun</em> started.</td>
+</tr>
+<tr class="odd">
+<td>13:16:35</td>
+<td>Paused <em>Texas Sun</em> at 1:04.</td>
+</tr>
+</tbody>
+</table>
+<p>At 13:16:35, <code>stat133</code> held four videos, in this order: the Rosling video, <em>Texas Sun</em>, <em>Tú sí sabes quererme</em>, and the Central Limit Theorem video.</p>
+<p>Staff then requested the data at <a href="https://takeout.google.com">takeout.google.com</a>, selecting only <strong>YouTube and YouTube Music</strong> and choosing <strong>JSON</strong> (instead of the default HTML) for the history files. The export arrived within an hour.</p>
+</div>
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../license.html">
+<p>License</p>
+</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

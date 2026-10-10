@@ -175,218 +175,155 @@
     "text": "Group Quiz\n\n\nBefore the quiz begins\n\nForm groups of 2-3 people.\n🧹 Everything except a pen/pencil and your cheat sheet must remain off your desk.\n📱 All electronic devices (laptop, phone, airbuds, smart watch) should be remain in your bag for the entire class period.\nWhen you get a group quiz, write all group members names on it but do not begin.\n\n\nDuring the quiz\n\n🗣️Discuss each of the problems and decide as a group which answer is best.\n⌛If you finish early, please raise your hand and we will collect your quiz.\n❗You must stop writing when time is called or risk a 0.\n\nGood luck! 🍀\n\n\n  \n    −\n    +\n \n 25:00"
   },
   {
-    "objectID": "projects/4-ev-power/slides.html#agenda",
-    "href": "projects/4-ev-power/slides.html#agenda",
-    "title": "EV Power Project",
-    "section": "Agenda",
-    "text": "Agenda\n\nOverview of Project\nLab Review Worksheet\nWork through select parts of Project 4\nGroup work and time for questions"
+    "objectID": "projects/templates/your-life-in-data/project.html#a.-predict",
+    "href": "projects/templates/your-life-in-data/project.html#a.-predict",
+    "title": "Your Life in Data",
+    "section": "A. Predict",
+    "text": "A. Predict\n[Your predictions here.]"
   },
   {
-    "objectID": "projects/4-ev-power/slides.html#ev-power-project-overview",
-    "href": "projects/4-ev-power/slides.html#ev-power-project-overview",
-    "title": "EV Power Project",
-    "section": "EV Power Project Overview",
-    "text": "EV Power Project Overview\n\nElectric vehicles reduce direct emissions, but does the electricity used to charge them actually come from clean sources? How clean is the power that charges America’s EVs, and how does this vary across states?"
+    "objectID": "projects/templates/your-life-in-data/project.html#b.-import",
+    "href": "projects/templates/your-life-in-data/project.html#b.-import",
+    "title": "Your Life in Data",
+    "section": "B. Import",
+    "text": "B. Import"
   },
   {
-    "objectID": "projects/4-ev-power/slides.html#previous-work",
-    "href": "projects/4-ev-power/slides.html#previous-work",
-    "title": "EV Power Project",
-    "section": "Previous Work",
-    "text": "Previous Work\nLet’s take a look at some work that’s been done in this field already. What are some improvements we could make in our own analysis?"
+    "objectID": "projects/templates/your-life-in-data/project.html#b.-import-code",
+    "href": "projects/templates/your-life-in-data/project.html#b.-import-code",
+    "title": "Your Life in Data",
+    "section": "B. Import: Code",
+    "text": "B. Import: Code\n\n# Your code here."
   },
   {
-    "objectID": "projects/4-ev-power/slides.html#graph-1",
-    "href": "projects/4-ev-power/slides.html#graph-1",
-    "title": "EV Power Project",
-    "section": "Graph 1",
-    "text": "Graph 1\n\n\nSome problems with this one: outdated data, terrible/unclear color scheme, using data 2007-2017 but unclear of the metric (cumulative? average per year? etc), too many categories to be clear"
+    "objectID": "projects/templates/your-life-in-data/project.html#c.-clean",
+    "href": "projects/templates/your-life-in-data/project.html#c.-clean",
+    "title": "Your Life in Data",
+    "section": "C. Clean",
+    "text": "C. Clean"
   },
   {
-    "objectID": "projects/4-ev-power/slides.html#graph-2",
-    "href": "projects/4-ev-power/slides.html#graph-2",
-    "title": "EV Power Project",
-    "section": "Graph 2",
-    "text": "Graph 2\n\n\nLooks nicer but: Still problems with this one: outdated data, unreliable data source, strange bins of percentages"
+    "objectID": "projects/templates/your-life-in-data/project.html#c.-clean-code",
+    "href": "projects/templates/your-life-in-data/project.html#c.-clean-code",
+    "title": "Your Life in Data",
+    "section": "C. Clean: Code",
+    "text": "C. Clean: Code\n\n# Your code here."
   },
   {
-    "objectID": "projects/4-ev-power/slides.html#lets-try-it-ourseleves",
-    "href": "projects/4-ev-power/slides.html#lets-try-it-ourseleves",
-    "title": "EV Power Project",
-    "section": "Let’s Try it Ourseleves:",
-    "text": "Let’s Try it Ourseleves:\n\nDataset: Multiple tables covering U.S. electricity generation by source and average energy costs (2021–2023) from the US Energy Information Administration (EIA) and US Department of Energy\nGoal: Analyze the relationship between EV adoption and the cleanliness of each state’s energy mix to understand how “green” electric driving really is across the US using maps\nClient: The everyday consumer wanting to make informed, sustainable choices"
+    "objectID": "projects/templates/your-life-in-data/project.html#d.-check-the-times",
+    "href": "projects/templates/your-life-in-data/project.html#d.-check-the-times",
+    "title": "Your Life in Data",
+    "section": "D. Check the Times",
+    "text": "D. Check the Times"
   },
   {
-    "objectID": "projects/4-ev-power/slides.html#defining-key-terms",
-    "href": "projects/4-ev-power/slides.html#defining-key-terms",
-    "title": "EV Power Project",
-    "section": "Defining Key Terms",
-    "text": "Defining Key Terms\nDirect emissions:\n\nGreenhouse gases released directly from a vehicle’s operation (exhaust from fuel combustion)\n\nClean energy:\n\nProduces little to no greenhouse gases (includes nuclear, hydro, wind, solar)\n\nRenewable energy:\n\nComes from naturally replenished sources like solar, wind, hydro, geothermal, biomass"
+    "objectID": "projects/templates/your-life-in-data/project.html#d.-check-the-times-code",
+    "href": "projects/templates/your-life-in-data/project.html#d.-check-the-times-code",
+    "title": "Your Life in Data",
+    "section": "D. Check the Times: Code",
+    "text": "D. Check the Times: Code\n\n# Your code here."
   },
   {
-    "objectID": "projects/4-ev-power/slides.html#data-sources",
-    "href": "projects/4-ev-power/slides.html#data-sources",
-    "title": "EV Power Project",
-    "section": "Data Sources",
-    "text": "Data Sources\n\n\nU.S. renewable energy use by state by year\n\nrenew_use_2021.csv\nrenew_use_2022.csv\nrenew_use_2023.csv\n\nAverage energy price by state by year\n\nav_energy_price_2021-2023.csv\n\n\nU.S. total energy use by state by year\n\ntotal_energy_use_2021.csv\ntotal_energy_use_2022.csv\ntotal_energy_use_2023.csv\n\nEV Registrations by state in 2023\n\nev-registrations-by_state_2023.csv"
+    "objectID": "projects/templates/your-life-in-data/project.html#e.-join",
+    "href": "projects/templates/your-life-in-data/project.html#e.-join",
+    "title": "Your Life in Data",
+    "section": "E. Join",
+    "text": "E. Join"
   },
   {
-    "objectID": "projects/4-ev-power/slides.html#skill-for-this-project-string-manipulation",
-    "href": "projects/4-ev-power/slides.html#skill-for-this-project-string-manipulation",
-    "title": "EV Power Project",
-    "section": "Skill for this project: String Manipulation",
-    "text": "Skill for this project: String Manipulation\nPurpose: Clean and extract text patterns (like energy source names or units)\nCommon Regex Tools in R (using library {stringr}):\nstr_detect(string, pattern) → checks if a pattern exists\nstr_extract(string, pattern) → extracts the matching part\nstr_replace(string, pattern, replacement) → replaces text"
+    "objectID": "projects/templates/your-life-in-data/project.html#e.-join-code",
+    "href": "projects/templates/your-life-in-data/project.html#e.-join-code",
+    "title": "Your Life in Data",
+    "section": "E. Join: Code",
+    "text": "E. Join: Code\n\n# Your code here."
   },
   {
-    "objectID": "projects/4-ev-power/slides.html#skill-for-this-project-joining-tables",
-    "href": "projects/4-ev-power/slides.html#skill-for-this-project-joining-tables",
-    "title": "EV Power Project",
-    "section": "Skill for this project: Joining Tables",
-    "text": "Skill for this project: Joining Tables\nGoal: Combine datasets (for example: energy source + electricity cost + EV registration data)\nGiven left (X) table and right (Y) table\n\n\n\n\n\n\n\n\nJoin Type\nDescription\nResult\n\n\n\n\nleft_join()\nKeep all rows from the X table\nAll X + matching Y\n\n\nright_join()\nKeep all rows from the Y table\nAll Y + matching X\n\n\ninner_join()\nKeep only matching rows from both\nMatching only\n\n\nfull_join()\nKeep all rows from both tables\nAll data combined\n\n\nsemi_join()\nKeep rows from X that have matches in Y\nX (filtered)\n\n\nanti_join()\nKeep rows from X without matches in Y\nX (non-matching)"
+    "objectID": "projects/templates/your-life-in-data/project.html#f.-compare-to-the-record",
+    "href": "projects/templates/your-life-in-data/project.html#f.-compare-to-the-record",
+    "title": "Your Life in Data",
+    "section": "F. Compare to the Record",
+    "text": "F. Compare to the Record\n[Your list of actions that left no trace here.]"
   },
   {
-    "objectID": "projects/4-ev-power/slides.html#skill-for-this-project-pivots",
-    "href": "projects/4-ev-power/slides.html#skill-for-this-project-pivots",
-    "title": "EV Power Project",
-    "section": "Skill for this project: Pivots",
-    "text": "Skill for this project: Pivots\nIncluded in tidyr package\n\npivot_longer(data, cols, names_to, values_to)\npivot_wider(data, names_from, values_from)\n\nRefer to Tidyverse Documentation of Pivot for more information"
+    "objectID": "projects/templates/your-life-in-data/project.html#a.-take-inventory",
+    "href": "projects/templates/your-life-in-data/project.html#a.-take-inventory",
+    "title": "Your Life in Data",
+    "section": "A. Take Inventory",
+    "text": "A. Take Inventory"
   },
   {
-    "objectID": "projects/4-ev-power/slides.html#skill-for-this-project-basic-mapping",
-    "href": "projects/4-ev-power/slides.html#skill-for-this-project-basic-mapping",
-    "title": "EV Power Project",
-    "section": "Skill for this project: Basic Mapping",
-    "text": "Skill for this project: Basic Mapping\nGoal: Visualize state-level metrics (like renewable share or EV ratio)\nLibraries: {maps}, {sf}, {ggplot2}\nChoropleth Maps\nMap where areas (like states) are colored based on a number.\n\nDarker or brighter colors usually mean higher numbers.\nLighter colors usually mean lower numbers.\nExample uses: population by state, election results, or renewable energy share."
+    "objectID": "projects/templates/your-life-in-data/project.html#a.-take-inventory-code",
+    "href": "projects/templates/your-life-in-data/project.html#a.-take-inventory-code",
+    "title": "Your Life in Data",
+    "section": "A. Take Inventory: Code",
+    "text": "A. Take Inventory: Code\n\n# Your code here."
   },
   {
-    "objectID": "projects/4-ev-power/slides.html#basic-example-of-syntax",
-    "href": "projects/4-ev-power/slides.html#basic-example-of-syntax",
-    "title": "EV Power Project",
-    "section": "Basic example of syntax:",
-    "text": "Basic example of syntax:\n\nlibrary(sf)\nlibrary(rnaturalearth)\nlibrary(dplyr)\nlibrary(ggplot2)\n\n# Get U.S. states as sf object\nus_states &lt;- ne_states(country = \"united states of america\", returnclass = \"sf\")"
+    "objectID": "projects/templates/your-life-in-data/project.html#b.-when-did-it-happen",
+    "href": "projects/templates/your-life-in-data/project.html#b.-when-did-it-happen",
+    "title": "Your Life in Data",
+    "section": "B. When Did It Happen?",
+    "text": "B. When Did It Happen?"
   },
   {
-    "objectID": "projects/4-ev-power/slides.html#section",
-    "href": "projects/4-ev-power/slides.html#section",
-    "title": "EV Power Project",
-    "section": "",
-    "text": "# loading example data\npop_data &lt;- data.frame(\n  name = c(\"California\", \"Texas\", \"New York\", \"Florida\"),\n  population_millions = c(39, 30, 20, 22)\n)\n# Join the data by state name\nus_joined &lt;- us_states |&gt;\n  left_join(pop_data, by = \"name\")\n# Plot and color by population\nggplot(us_joined) +\n  geom_sf(aes(fill = population_millions), color = \"white\") +\n  scale_fill_continuous(name = \"Population (millions)\", na.value = \"grey90\") +\n  labs(title = \"Example: Coloring U.S. States by Population\") +\n  coord_sf(xlim = c(-125, -66), ylim = c(24, 50), expand = FALSE) +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\nWe add data with geom_sf() to color states by metric."
+    "objectID": "projects/templates/your-life-in-data/project.html#b.-when-did-it-happen-code",
+    "href": "projects/templates/your-life-in-data/project.html#b.-when-did-it-happen-code",
+    "title": "Your Life in Data",
+    "section": "B. When Did It Happen?: Code",
+    "text": "B. When Did It Happen?: Code\n\n# Your code here."
   },
   {
-    "objectID": "projects/4-ev-power/slides.html#interactive-maps---leaflet",
-    "href": "projects/4-ev-power/slides.html#interactive-maps---leaflet",
-    "title": "EV Power Project",
-    "section": "Interactive Maps - leaflet",
-    "text": "Interactive Maps - leaflet\nR package for creating interactive maps\n\n\nAdd base maps (e.g., OpenStreetMap, CartoDB)\n\nOverlay markers, polygons, and popups\n\nUse color palettes to represent data values\n\nFully interactive and embeddable in Shiny apps or Quarto documents"
+    "objectID": "projects/templates/your-life-in-data/project.html#c.-what-did-you-do",
+    "href": "projects/templates/your-life-in-data/project.html#c.-what-did-you-do",
+    "title": "Your Life in Data",
+    "section": "C. What Did You Do?",
+    "text": "C. What Did You Do?"
   },
   {
-    "objectID": "projects/4-ev-power/slides.html#section-1",
-    "href": "projects/4-ev-power/slides.html#section-1",
-    "title": "EV Power Project",
-    "section": "",
-    "text": "library(leaflet)\n\nleaflet() |&gt;\n  addTiles() |&gt;\n  addMarkers(lng = -122.259, lat = 37.872, popup = \"UC Berkeley\")"
+    "objectID": "projects/templates/your-life-in-data/project.html#c.-what-did-you-do-code",
+    "href": "projects/templates/your-life-in-data/project.html#c.-what-did-you-do-code",
+    "title": "Your Life in Data",
+    "section": "C. What Did You Do?: Code",
+    "text": "C. What Did You Do?: Code\n\n# Your code here."
   },
   {
-    "objectID": "projects/4-ev-power/slides.html#putting-everything-together",
-    "href": "projects/4-ev-power/slides.html#putting-everything-together",
-    "title": "EV Power Project",
-    "section": "Putting everything together:",
-    "text": "Putting everything together:\nWorkflow :\n\nClean and extract relevant info with regex\n\nMerge datasets using appropriate table methods\n\nVisualize patterns geographically with maps\n\nPresent findings in a report PDF (or, optionally, a Quarto dashboard)\n\nDeliverable :\nA clear report PDF answering:\n\n“How renewable is the electricity powering EVs across the U.S.?”"
+    "objectID": "projects/templates/your-life-in-data/project.html#d.-was-i-in-class",
+    "href": "projects/templates/your-life-in-data/project.html#d.-was-i-in-class",
+    "title": "Your Life in Data",
+    "section": "D. Was I in Class?",
+    "text": "D. Was I in Class?"
   },
   {
-    "objectID": "projects/4-ev-power/slides.html#lab-review-worksheet",
-    "href": "projects/4-ev-power/slides.html#lab-review-worksheet",
-    "title": "EV Power Project",
-    "section": "Lab Review Worksheet",
-    "text": "Lab Review Worksheet\n\n  \n    −\n    +\n \n 30:00\n \nGroup work to review essential material. To get started, visit the ed post with the links to EV Power Project repositories. Accept your assignment, clone the repository, and find worksheet.qmd."
+    "objectID": "projects/templates/your-life-in-data/project.html#d.-was-i-in-class-code",
+    "href": "projects/templates/your-life-in-data/project.html#d.-was-i-in-class-code",
+    "title": "Your Life in Data",
+    "section": "D. Was I in Class?: Code",
+    "text": "D. Was I in Class?: Code\n\n# Your code here."
   },
   {
-    "objectID": "projects/4-ev-power/slides.html#project-work-time",
-    "href": "projects/4-ev-power/slides.html#project-work-time",
-    "title": "EV Power Project",
-    "section": "Project Work Time",
-    "text": "Project Work Time\n\n  \n    −\n    +\n \n 30:00\n \nGet started on the project and feel free to ask questions."
+    "objectID": "projects/templates/your-life-in-data/project.html#e.-your-question",
+    "href": "projects/templates/your-life-in-data/project.html#e.-your-question",
+    "title": "Your Life in Data",
+    "section": "E. Your Question",
+    "text": "E. Your Question"
   },
   {
-    "objectID": "projects/3-er-visits/slides.html#agenda",
-    "href": "projects/3-er-visits/slides.html#agenda",
-    "title": "Lab 3",
-    "section": "Agenda",
-    "text": "Agenda\n\nPositron Installation\nLab Review Worksheet (15 minutes)\nOverview of Project 3\nWork through select parts of Project 3\nGroup work and time for questions"
+    "objectID": "projects/templates/your-life-in-data/project.html#e.-your-question-code",
+    "href": "projects/templates/your-life-in-data/project.html#e.-your-question-code",
+    "title": "Your Life in Data",
+    "section": "E. Your Question: Code",
+    "text": "E. Your Question: Code\n\n# Your code here."
   },
   {
-    "objectID": "projects/3-er-visits/slides.html#positron-installation",
-    "href": "projects/3-er-visits/slides.html#positron-installation",
-    "title": "Lab 3",
-    "section": "Positron Installation",
-    "text": "Positron Installation\n\nVisit https://positron.posit.co/download.html and download the installer for your OS.\nKeep all default settings during installation."
+    "objectID": "projects/templates/your-life-in-data/project.html#f.-what-do-they-know",
+    "href": "projects/templates/your-life-in-data/project.html#f.-what-do-they-know",
+    "title": "Your Life in Data",
+    "section": "F. What Do They Know?",
+    "text": "F. What Do They Know?\n[Your answer here.]"
   },
   {
-    "objectID": "projects/3-er-visits/slides.html#lab-review-worksheet",
-    "href": "projects/3-er-visits/slides.html#lab-review-worksheet",
-    "title": "Lab 3",
-    "section": "Lab Review Worksheet",
-    "text": "Lab Review Worksheet\n\n  \n    −\n    +\n \n 15:00\n \nGroup work to review essential material. To get started, Visit the following GitHub repository and read the README.md file.\n\n\n\n\nhttps://www.github.com/berkeley-stat133/worksheet-lab3"
-  },
-  {
-    "objectID": "projects/3-er-visits/slides.html#er-visits-project-overview",
-    "href": "projects/3-er-visits/slides.html#er-visits-project-overview",
-    "title": "Lab 3",
-    "section": "ER Visits Project Overview",
-    "text": "ER Visits Project Overview\n\nDataset: Collected by 25 Pediatric Emergency Care Applied Research Network (PECARN) emergency rooms on patients with minor head trauma.\nGoal: Practive Exploratory Data Analysis, a key step in most data science project.\nClient: Dr. Bayes, a pediatric emergency physician and researcher with PECARN."
-  },
-  {
-    "objectID": "projects/3-er-visits/slides.html#project-overview",
-    "href": "projects/3-er-visits/slides.html#project-overview",
-    "title": "Lab 3",
-    "section": "Project Overview",
-    "text": "Project Overview\nWe will work through three major steps:\n\nData Cleaning\nPrepare the dataset so it can be analyzed effectively.\nExploratory Data Analysis (EDA)\nUse visualizations and summaries to find interesting patterns.\nReporting Results\nCommunicate findings clearly to Dr. Bayes."
-  },
-  {
-    "objectID": "projects/3-er-visits/slides.html#data-cleaning",
-    "href": "projects/3-er-visits/slides.html#data-cleaning",
-    "title": "Lab 3",
-    "section": "Data Cleaning",
-    "text": "Data Cleaning\nWhy clean data?\n\nEnsure consistent formats in columns\nHandle missing (NA) or inconsistent values\nMakes dataset easier to work with\n\nKey dplyr functions:\n\nslice(), select(), arrange()\nmutate(), filter(), summarise(), group_by()"
-  },
-  {
-    "objectID": "projects/3-er-visits/slides.html#exploratory-data-analysis-eda",
-    "href": "projects/3-er-visits/slides.html#exploratory-data-analysis-eda",
-    "title": "Lab 3",
-    "section": "Exploratory Data Analysis (EDA)",
-    "text": "Exploratory Data Analysis (EDA)\n\nPurpose: uncover insights and understand the data before modeling\nTools:\n\nggplot2 for visualization.\ndplyr for summary tables and quick data manipulation.\ntidyr for reshaping.\nreadr for reading data.\nALL part of the tidyverse 🔥😮‍💨🙏💯"
-  },
-  {
-    "objectID": "projects/3-er-visits/slides.html#exploratory-data-analysis-eda-1",
-    "href": "projects/3-er-visits/slides.html#exploratory-data-analysis-eda-1",
-    "title": "Lab 3",
-    "section": "Exploratory Data Analysis (EDA)",
-    "text": "Exploratory Data Analysis (EDA)\n\nCommon plots:\n\nBar charts (categorical variables)\nHistograms (continuous variables)\nScatterplots (relationship between two variables)\nBoxplots and Violin plots (distributions across groups)\nFacets (compare subgroups)\n\nCommon summaries:\n\nMissing value analysis\nCounts and proportions\nMeans, medians, standard deviations"
-  },
-  {
-    "objectID": "projects/3-er-visits/slides.html#example-with-ggplot2",
-    "href": "projects/3-er-visits/slides.html#example-with-ggplot2",
-    "title": "Lab 3",
-    "section": "Example with ggplot2",
-    "text": "Example with ggplot2\nlibrary(ggplot2)\ndata |&gt; \n    ggplot(aes(x = age, fill = ct_scan_needed)) + \n    geom_histogram(bins=18) + \n    labs(title = \"Age Distribution by CT Scan Need\",\n         x = \"Age (years)\",\n         y = \"Count\") +\n    theme_minimal()"
-  },
-  {
-    "objectID": "projects/3-er-visits/slides.html#step-3-reporting-to-dr.-bayes",
-    "href": "projects/3-er-visits/slides.html#step-3-reporting-to-dr.-bayes",
-    "title": "Lab 3",
-    "section": "Step 3: Reporting to Dr. Bayes",
-    "text": "Step 3: Reporting to Dr. Bayes\nRemember your audience:\nDr. Bayes is a clinician, not a statistician.\nUse clear visuals and plain language.\n\nFocus on actionable insights:\n\nWhich patients are at highest risk?\nWhen might a CT be unnecessary?"
-  },
-  {
-    "objectID": "projects/3-er-visits/slides.html#project-work-time",
-    "href": "projects/3-er-visits/slides.html#project-work-time",
-    "title": "Lab 3",
-    "section": "Project Work Time",
-    "text": "Project Work Time\n\n  \n    −\n    +\n \n 25:00\n \nGet started on the project and feel free to ask questions."
-  },
-  {
-    "objectID": "projects/3-electric-vehicles/project.html",
-    "href": "projects/3-electric-vehicles/project.html",
+    "objectID": "projects/2-zero-emission-vehicles/project.html",
+    "href": "projects/2-zero-emission-vehicles/project.html",
     "title": "Project 2: Zero-Emissions Vehicles in California",
     "section": "",
     "text": "In this project, you will analyze recent data collected by the State of California on new zero-emissions vehicles. Fundamentally, your goal is to characterize the trends in zero-emissions vehicles over the last few years using summary statistics.\nBy completing this project, you will:",
@@ -396,8 +333,8 @@
     ]
   },
   {
-    "objectID": "projects/3-electric-vehicles/project.html#footnotes",
-    "href": "projects/3-electric-vehicles/project.html#footnotes",
+    "objectID": "projects/2-zero-emission-vehicles/project.html#footnotes",
+    "href": "projects/2-zero-emission-vehicles/project.html#footnotes",
     "title": "Project 2: Zero-Emissions Vehicles in California",
     "section": "Footnotes",
     "text": "Footnotes\n\n\nThe dashboard carefully arranges the rows of this table. If you’d like an extra challenge, replicate this arrangement using R.↩︎\nHint: this can be most cleanly done by writing a function that takes a vector of counts and returns the index value. That function can then be applied as a summary statistic inside summarize().↩︎",
@@ -407,144 +344,95 @@
     ]
   },
   {
-    "objectID": "projects/2-sampsons-monks/slides.html#agenda",
-    "href": "projects/2-sampsons-monks/slides.html#agenda",
+    "objectID": "projects/1-sampsons-monks/slides.html#agenda",
+    "href": "projects/1-sampsons-monks/slides.html#agenda",
     "title": "Lab 2",
     "section": "Agenda",
     "text": "Agenda\n\nBrief lecture review\nReview key concepts\nTime to work in groups on lab worksheet (15 minutes)\nDiscuss Project 2 + Work through select parts\nTime for questions"
   },
   {
-    "objectID": "projects/2-sampsons-monks/slides.html#brief-review-of-lecture-control-flow",
-    "href": "projects/2-sampsons-monks/slides.html#brief-review-of-lecture-control-flow",
+    "objectID": "projects/1-sampsons-monks/slides.html#brief-review-of-lecture-control-flow",
+    "href": "projects/1-sampsons-monks/slides.html#brief-review-of-lecture-control-flow",
     "title": "Lab 2",
     "section": "Brief Review of Lecture: Control Flow",
     "text": "Brief Review of Lecture: Control Flow\nIf / Else = Conditional Behavior\nif (x &gt; 0) {\n  print(\"positive\")\n} else {\n  print(\"not positive\")\n}\nVectorized If/Else statements are also possible:\n\nx = 0\nifelse(test = x &lt; 0, yes = \"is positive :)\", no = \"is negative :(\")\n\n\n\n[1] \"is negative :(\"\n\n\nFor loops = repeat over items\nfor (i in 1:5) {\n  print(i^2)\n}"
   },
   {
-    "objectID": "projects/2-sampsons-monks/slides.html#brief-review-of-lecture-functions",
-    "href": "projects/2-sampsons-monks/slides.html#brief-review-of-lecture-functions",
+    "objectID": "projects/1-sampsons-monks/slides.html#brief-review-of-lecture-functions",
+    "href": "projects/1-sampsons-monks/slides.html#brief-review-of-lecture-functions",
     "title": "Lab 2",
     "section": "Brief Review of Lecture: Functions",
     "text": "Brief Review of Lecture: Functions\n\nfunction_name &lt;- function(arg1, arg2, ...) {\n  # code to execute\n  result &lt;- arg1 + arg2  # example operation\n  return(result)         # optional, returns result\n}"
   },
   {
-    "objectID": "projects/2-sampsons-monks/slides.html#sampsons-monks-project-background-concepts",
-    "href": "projects/2-sampsons-monks/slides.html#sampsons-monks-project-background-concepts",
+    "objectID": "projects/1-sampsons-monks/slides.html#sampsons-monks-project-background-concepts",
+    "href": "projects/1-sampsons-monks/slides.html#sampsons-monks-project-background-concepts",
     "title": "Lab 2",
     "section": "Sampson’s Monks Project: Background Concepts",
     "text": "Sampson’s Monks Project: Background Concepts\n\nPackages in R\nSociomatrices\nNetwork visualizations & statistics\nRandom vs. observed networks\n\n\nMotivate for students that we will be working on the project and turning it in in 2 weeks, and it will be about the monks data. These are some of the necessary skills they will need for the project"
   },
   {
-    "objectID": "projects/2-sampsons-monks/slides.html#packages-libraries",
-    "href": "projects/2-sampsons-monks/slides.html#packages-libraries",
+    "objectID": "projects/1-sampsons-monks/slides.html#packages-libraries",
+    "href": "projects/1-sampsons-monks/slides.html#packages-libraries",
     "title": "Lab 2",
     "section": "Packages & Libraries",
     "text": "Packages & Libraries\n\nBase R is powerful, but we use packages to extend its capabilities\nPackages collections of functions & datasets\n\nlibrary() is used to load a previously installed package into an R session.\n\nInstall and load:\ninstall.packages(\"igraph\") # only need to do once!\nlibrary(igraph)"
   },
   {
-    "objectID": "projects/2-sampsons-monks/slides.html#packages-to-use-today",
-    "href": "projects/2-sampsons-monks/slides.html#packages-to-use-today",
+    "objectID": "projects/1-sampsons-monks/slides.html#packages-to-use-today",
+    "href": "projects/1-sampsons-monks/slides.html#packages-to-use-today",
     "title": "Lab 2",
     "section": "Packages to use today:",
     "text": "Packages to use today:\nigraph (network analysis & static plots)\n\naccepts adjacency matrices.\n\nnetworkD3 (interactive plots)\n\nexpects data frames of nodes and edges, not a network object.\nnodes are the names/points in the resulting plot\nedges are the directed lines between the points\n\nEven though the information is already in sampson, you still need to extract it into the right format for networkD3."
   },
   {
-    "objectID": "projects/2-sampsons-monks/slides.html#what-do-networks-look-like",
-    "href": "projects/2-sampsons-monks/slides.html#what-do-networks-look-like",
+    "objectID": "projects/1-sampsons-monks/slides.html#what-do-networks-look-like",
+    "href": "projects/1-sampsons-monks/slides.html#what-do-networks-look-like",
     "title": "Lab 2",
     "section": "What do networks look like?",
     "text": "What do networks look like?\n\nLet’s use a familar dataset to create network plots!"
   },
   {
-    "objectID": "projects/2-sampsons-monks/slides.html#our-dataset-sampsons-monks",
-    "href": "projects/2-sampsons-monks/slides.html#our-dataset-sampsons-monks",
+    "objectID": "projects/1-sampsons-monks/slides.html#our-dataset-sampsons-monks",
+    "href": "projects/1-sampsons-monks/slides.html#our-dataset-sampsons-monks",
     "title": "Lab 2",
     "section": "Our Dataset: Sampson’s Monks",
     "text": "Our Dataset: Sampson’s Monks\n\nData collected in a New England monastery (1960s)\nMonks reported:\n\nLiking relationships (time 1, time 2, time 3)\nDisliking relationships (time 1)\n\nClassic dataset for studying group dynamics and conflict\nStored as a list of matrices in lda package, which we will use to get the data"
   },
   {
-    "objectID": "projects/2-sampsons-monks/slides.html#our-dataset-sampsons-monks-continued",
-    "href": "projects/2-sampsons-monks/slides.html#our-dataset-sampsons-monks-continued",
+    "objectID": "projects/1-sampsons-monks/slides.html#our-dataset-sampsons-monks-continued",
+    "href": "projects/1-sampsons-monks/slides.html#our-dataset-sampsons-monks-continued",
     "title": "Lab 2",
     "section": "Our Dataset: Sampson’s Monks (continued)",
     "text": "Our Dataset: Sampson’s Monks (continued)\nFrom this matrix, we can get:\n\nIn-degree (col sums) = number of ties received / how many monks said they liked them\nOut-degree (row sums) = number of ties sent / how many monks they said they liked"
   },
   {
-    "objectID": "projects/2-sampsons-monks/slides.html#static-vs.-interactive-plots",
-    "href": "projects/2-sampsons-monks/slides.html#static-vs.-interactive-plots",
+    "objectID": "projects/1-sampsons-monks/slides.html#static-vs.-interactive-plots",
+    "href": "projects/1-sampsons-monks/slides.html#static-vs.-interactive-plots",
     "title": "Lab 2",
     "section": "Static vs. Interactive Plots",
     "text": "Static vs. Interactive Plots\n\nYou will create one of each in your project\nStatic plots = easy and quick to create using plot() from igraph\nInteractive plots = can zoom, hover, drag nodes using forceNetwork() from networkD3"
   },
   {
-    "objectID": "projects/2-sampsons-monks/slides.html#why-compare-random-vs.-observed",
-    "href": "projects/2-sampsons-monks/slides.html#why-compare-random-vs.-observed",
+    "objectID": "projects/1-sampsons-monks/slides.html#why-compare-random-vs.-observed",
+    "href": "projects/1-sampsons-monks/slides.html#why-compare-random-vs.-observed",
     "title": "Lab 2",
     "section": "Why Compare Random vs. Observed?",
     "text": "Why Compare Random vs. Observed?\nIn your project, you will be asked to compare the observed sociomatrix with one that you have generated.\n\nRandom sociomatrix = ties assigned by chance\nObserved monk network = structured by social dynamics\nKey question: What features do we see in the real network that random ones lack?\n\nShows the complexity of real social systems"
   },
   {
-    "objectID": "projects/2-sampsons-monks/slides.html#lab-review-worksheet",
-    "href": "projects/2-sampsons-monks/slides.html#lab-review-worksheet",
+    "objectID": "projects/1-sampsons-monks/slides.html#lab-review-worksheet",
+    "href": "projects/1-sampsons-monks/slides.html#lab-review-worksheet",
     "title": "Lab 2",
     "section": "Lab Review Worksheet",
     "text": "Lab Review Worksheet\n\n  \n    −\n    +\n \n 30:00\n \nGroup work to review essential material\n\nLab worksheet is meant to give students the skills they need for the project, which they will mostly be taking home and working on in their own time. Lab worksheet is fully during lab. Can go over the answers to this in lab or have them volunteer answers."
   },
   {
-    "objectID": "projects/2-sampsons-monks/slides.html#lab-2-project",
-    "href": "projects/2-sampsons-monks/slides.html#lab-2-project",
+    "objectID": "projects/1-sampsons-monks/slides.html#lab-2-project",
+    "href": "projects/1-sampsons-monks/slides.html#lab-2-project",
     "title": "Lab 2",
     "section": "Lab 2 Project",
     "text": "Lab 2 Project\n\n  \n    −\n    +\n \n 15:00\n \nWorksheet:\n\nWritten responses. Please code along on your laptop. This is for your own practice / not turned in.\n\nProject:\n\nFour parts\nSubmit: project.R + README.md on GitHub Classroom\n\nWork on selected problems.\n\nGive students 15 minutes to work on problems that you find important and they may struggle with (suggest getting started with downloading packages, doing a visualization, writing the function)"
-  },
-  {
-    "objectID": "projects/1-index-cards/slides.html#using-the-shell-locally",
-    "href": "projects/1-index-cards/slides.html#using-the-shell-locally",
-    "title": "First Contact with R",
-    "section": "Using the Shell Locally",
-    "text": "Using the Shell Locally\n\n  \n    −\n    +\n \n 07:00\n \n\nMac:\n\n“zshell” (aka zsh) - UNIX based. Very similar to bash (Base UNIX Shell) with some added functionality.\nTo access, use the Mac’s “Termial” application.\n\nWindows:\n\nWill need to install “Git” if you don’t have it already.\n\nhttps://git-scm.com/downloads\n\nThis will give you access to the “Git Bash” application, which will let you use UNIX Shell on your Windows system."
-  },
-  {
-    "objectID": "projects/1-index-cards/slides.html#brief-review-of-lecture",
-    "href": "projects/1-index-cards/slides.html#brief-review-of-lecture",
-    "title": "First Contact with R",
-    "section": "Brief Review of Lecture",
-    "text": "Brief Review of Lecture\nNew Shell Commands\n\n\nmkdir\n\n\nCreates a new directory.\n\n\n\n\ncp\n\n\nCopy file (arg1) to destination (arg2).\nExample: cp ~/Downloads/hw1.pdf ~/Documents/econ100b/hw/\n\n\n\n\nmv\n\n\nMove file (first argument) to destination directory (second argument).\nExample: mv ~/Downloads/hw1.pdf ~/.Trash\n\n\n\nThey have only heard mv in lecture briefly, so teach them the functionality."
-  },
-  {
-    "objectID": "projects/1-index-cards/slides.html#brief-review-of-lecture-cont.",
-    "href": "projects/1-index-cards/slides.html#brief-review-of-lecture-cont.",
-    "title": "First Contact with R",
-    "section": "Brief Review of Lecture (cont.)",
-    "text": "Brief Review of Lecture (cont.)\nR Equivallent of Shell Commands:\n\ngetwd(): like pwd in Shell.\nsetwd(): like cd in Shell.\nlist.files(): like ls in Shell.\nreadLines(): like cat in Shell."
-  },
-  {
-    "objectID": "projects/1-index-cards/slides.html#brief-review-of-lecture-cont..",
-    "href": "projects/1-index-cards/slides.html#brief-review-of-lecture-cont..",
-    "title": "First Contact with R",
-    "section": "Brief Review of Lecture (cont..)",
-    "text": "Brief Review of Lecture (cont..)\n\na:b: Creates vector of numbers from a to b by 1.\nseq: Creates vector of numbers from \"from\" argument, to \"to\" argument, by steps defined in the \"by\" argument.\nrep: Repeats vector provided \"x\" a number of times defined by \"times\" argument."
-  },
-  {
-    "objectID": "projects/1-index-cards/slides.html#vectorization",
-    "href": "projects/1-index-cards/slides.html#vectorization",
-    "title": "First Contact with R",
-    "section": "Vectorization",
-    "text": "Vectorization\n\nOperations on a single object also works on vectors.\n\n\nvec &lt;- c(72, 52, 10)\n\nvec / 2\n\n\n\n[1] 36 26  5\n\n\n\n\n\nvec * 3\n\n\n\n[1] 216 156  30\n\n\n\n\n\nvec - 6\n\n\n\n[1] 66 46  4"
-  },
-  {
-    "objectID": "projects/1-index-cards/slides.html#recycling",
-    "href": "projects/1-index-cards/slides.html#recycling",
-    "title": "First Contact with R",
-    "section": "Recycling",
-    "text": "Recycling\n\nOperations on two vectors of unequal length.\n\n\nvec1 &lt;- 1:10\nvec2 &lt;- c(1, 2)\n\nvec1 * vec2\n\n\n\n [1]  1  4  3  8  5 12  7 16  9 20\n\n\n\n\n\nvec3 &lt;- c(1, 2, 3)\n\nvec1 + vec3\n\n\n\n [1]  2  4  6  5  7  9  8 10 12 11"
-  },
-  {
-    "objectID": "projects/1-index-cards/slides.html#lab-1-assignment",
-    "href": "projects/1-index-cards/slides.html#lab-1-assignment",
-    "title": "First Contact with R",
-    "section": "Lab 1 Assignment",
-    "text": "Lab 1 Assignment\n\n  \n    −\n    +\n \n 15:00\n \n\nWill be turned in physically.\nWritten responses. Please code along on your laptop.\n\nTwo Parts:\n\nShell\nR: Atomic Vectors, Vectorization, Recycling, Matrices, if statements, for loops.\n\nWork on selected problems.\n\nGive students 15 minutes to work on problems that you find important AND are in scope of lectures so far (nothing after 7)."
   },
   {
     "objectID": "office-hours.html",
@@ -582,7 +470,7 @@
     "href": "index.html",
     "title": "STAT 133",
     "section": "",
-    "text": "Concepts in Computing with Data\nStat 133 UC Berkeley\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n  \n  \n  \n    \n    \n    \n    Oct 5\n    \n  \n  \n  Exploratory and Explanatory DA\n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n    Slides\n    \n  \n  \n  \n    Quiz 3: 10/5-10/6\n  \n  \n  \n  \n\n  \n  \n  \n  \n    \n    \n    \n    Oct 7\n    \n  \n  \n  Joins and Pivots\n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n    Slides\n    \n  \n  \n  \n  \n  \n  \n\n  \n  \n  \n  \n    \n    \n    \n    Oct 9\n    \n  \n  \n  Strings I\n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n    Slides\n    \n  \n  \n  \n  \n  \n  \n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Aug 24\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 26\n      \n    \n    \n    Welcome\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 28\n      \n    \n    \n    Data in Trees\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 31\n      \n    \n    \n    Intro to R\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 2\n      \n    \n    \n    Atomic Vectors\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 4\n      \n    \n    \n    Extending Vectors\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n      Sign up for Quiz 1\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Sep 7\n    \n    \n    No Class: Labor Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 9\n      \n    \n    \n    Lists\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 1: 9/10-9/11\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 11\n      \n    \n    \n    Control Flow\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 14\n      \n    \n    \n    Functions\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 2\n    \n      Project Studio 1 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 16\n      \n    \n    \n    Factors and Data Frames\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 18\n      \n    \n    \n    Data Wrangling I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 2 due 9/19 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 21\n      \n    \n    \n    Git & GitHub\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n      Quiz 2: 9/21-9/22\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 23\n      \n    \n    \n    Data Wrangling II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 25\n      \n    \n    \n    Quarto\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 28\n      \n    \n    \n    Grammar of Graphics\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 3\n    \n      Project Studio 2 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 30\n      \n    \n    \n    Data Cleaning\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 2\n      \n    \n    \n    Reading and Writing Data\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 3 due 10/03 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 5\n      \n    \n    \n    Exploratory and Explanatory DA\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 3: 10/5-10/6\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 7\n      \n    \n    \n    Joins and Pivots\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 9\n      \n    \n    \n    Strings I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Oct 12\n    \n    \n    Strings II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 4\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 14\n    \n    \n    Dates and Times I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 16\n    \n    \n    Dates and Times II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 4 due 10/17 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Oct 19\n    \n    \n    Spatial Data I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 4: 10/19-10/20\n    \n      Project Studio 3 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 21\n    \n    \n    Gerrymandering\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 23\n    \n    \n    Spatial Data II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Oct 26\n    \n    \n    Dashboards\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 5\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 28\n    \n    \n    Election Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 30\n    \n    \n    R Packages I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 5 due 10/31 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 2\n    \n    \n    R Packages II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 5: 11/2-11/3\n    \n      Project Studio 4 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 4\n    \n    \n    Prediction I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 6\n    \n    \n    Prediction II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 9\n    \n    \n    Classification\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 6\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 11\n    \n    \n    No Class: Veterans Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 13\n    \n    \n    APIs I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 6 due 11/14 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 16\n    \n    \n    APIs II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 6: 11/16-11/17\n    \n      Project Studio 5 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 18\n    \n    \n    LLMs\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 20\n    \n    \n    LLMs in IDEs\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 23\n    \n    \n    Abstraction\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 7\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 25\n    \n    \n    No Class: Non-Instructional Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 27\n    \n    \n    No Class: Thanksgiving\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 30\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n      PS 7 due today at 6:00 pm\n    \n      Quiz 7: 12/1-12/4\n    \n      Project Studio 6 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 2\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 4\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Dec 7\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 9\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 11\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Dec 14\n    \n    \n    Final Exam 7-10 pm\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 16\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 18\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n\n\nNo matching items",
+    "text": "Concepts in Computing with Data\nStat 133 UC Berkeley\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n  \n  \n  \n    \n    \n    \n    Oct 5\n    \n  \n  \n  Exploratory and Explanatory DA\n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n    Slides\n    \n  \n  \n  \n    Quiz 3: 10/5-10/6\n  \n  \n  \n  \n\n  \n  \n  \n  \n    \n    \n    \n    Oct 7\n    \n  \n  \n  Joins and Pivots\n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n    Slides\n    \n  \n  \n  \n  \n  \n  \n\n  \n  \n  \n  \n    \n    \n    \n    Oct 9\n    \n  \n  \n  Strings I\n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n    SlidesProject\n    \n  \n  \n  \n  \n  \n  \n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Aug 24\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 26\n      \n    \n    \n    Welcome\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 28\n      \n    \n    \n    Data in Trees\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 31\n      \n    \n    \n    Intro to R\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 2\n      \n    \n    \n    Atomic Vectors\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 4\n      \n    \n    \n    Extending Vectors\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n      Sign up for Quiz 1\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Sep 7\n    \n    \n    No Class: Labor Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 9\n      \n    \n    \n    Lists\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 1: 9/10-9/11\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 11\n      \n    \n    \n    Control Flow\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 14\n      \n    \n    \n    Functions\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 2\n    \n      Project Studio 1 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 16\n      \n    \n    \n    Factors and Data Frames\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 18\n      \n    \n    \n    Data Wrangling I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 2 due 9/19 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 21\n      \n    \n    \n    Git & GitHub\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n      Quiz 2: 9/21-9/22\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 23\n      \n    \n    \n    Data Wrangling II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 25\n      \n    \n    \n    Quarto\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 28\n      \n    \n    \n    Grammar of Graphics\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 3\n    \n      Project Studio 2 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 30\n      \n    \n    \n    Data Cleaning\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 2\n      \n    \n    \n    Reading and Writing Data\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 3 due 10/03 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 5\n      \n    \n    \n    Exploratory and Explanatory DA\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 3: 10/5-10/6\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 7\n      \n    \n    \n    Joins and Pivots\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 9\n      \n    \n    \n    Strings I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Oct 12\n    \n    \n    Strings II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 4\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 14\n    \n    \n    Dates and Times I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 16\n    \n    \n    Dates and Times II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 4 due 10/17 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Oct 19\n    \n    \n    Spatial Data I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 4: 10/19-10/20\n    \n      Project Studio 3 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 21\n    \n    \n    Gerrymandering\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 23\n    \n    \n    Spatial Data II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Oct 26\n    \n    \n    Dashboards\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 5\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 28\n    \n    \n    Election Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Oct 30\n    \n    \n    R Packages I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 5 due 10/31 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 2\n    \n    \n    R Packages II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 5: 11/2-11/3\n    \n      Project Studio 4 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 4\n    \n    \n    Prediction I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 6\n    \n    \n    Prediction II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 9\n    \n    \n    Classification\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 6\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 11\n    \n    \n    No Class: Veterans Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 13\n    \n    \n    APIs I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 6 due 11/14 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 16\n    \n    \n    APIs II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 6: 11/16-11/17\n    \n      Project Studio 5 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 18\n    \n    \n    LLMs\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 20\n    \n    \n    LLMs in IDEs\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 23\n    \n    \n    Abstraction\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 7\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 25\n    \n    \n    No Class: Non-Instructional Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 27\n    \n    \n    No Class: Thanksgiving\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 30\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n      PS 7 due today at 6:00 pm\n    \n      Quiz 7: 12/1-12/4\n    \n      Project Studio 6 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 2\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 4\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Dec 7\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 9\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 11\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Dec 14\n    \n    \n    Final Exam 7-10 pm\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 16\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 18\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n\n\nNo matching items",
     "crumbs": [
       "Home"
     ]
@@ -1831,7 +1719,7 @@
     "href": "07-control-flow/slides.html#a-random-condition-in-r",
     "title": "Control Flow",
     "section": "A random condition in R",
-    "text": "A random condition in R\n\n\nsample(x = -10:10, size = 1)\n\n\n\n[1] 5\n\n\n\n\nsample() will randomly sample 1 element from the vector x."
+    "text": "A random condition in R\n\n\nsample(x = -10:10, size = 1)\n\n\n\n[1] 0\n\n\n\n\nsample() will randomly sample 1 element from the vector x."
   },
   {
     "objectID": "07-control-flow/slides.html#section-1",
@@ -1887,35 +1775,35 @@
     "href": "07-control-flow/slides.html#what-if-x-has-multiple-elements",
     "title": "Control Flow",
     "section": "What if x has multiple elements?",
-    "text": "What if x has multiple elements?\n\n\nx &lt;- rnorm(3)\nx\n\n\n\n[1]  0.8136199 -1.8866820  0.2486204\n\n\n\n\n\n\n\n\n\n\n      if (x &gt; 0) {\n        print(\"x is positive :)\")\n      }\n\n\n\nAnnotate this if-then by wrapping it in a for loop."
+    "text": "What if x has multiple elements?\n\n\nx &lt;- rnorm(3)\nx\n\n\n\n[1] -2.094722 -1.398217  1.042546\n\n\n\n\n\n\n\n\n\n\n      if (x &gt; 0) {\n        print(\"x is positive :)\")\n      }\n\n\n\nAnnotate this if-then by wrapping it in a for loop."
   },
   {
     "objectID": "07-control-flow/slides.html#option-1",
     "href": "07-control-flow/slides.html#option-1",
     "title": "Control Flow",
     "section": "Option 1",
-    "text": "Option 1\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(\"x is positive :)\")\n  }\n}\n\n\n\n[1] \"x is positive :)\"\n[1] \"x is positive :)\""
+    "text": "Option 1\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(\"x is positive :)\")\n  }\n}\n\n\n\n[1] \"x is positive :)\""
   },
   {
     "objectID": "07-control-flow/slides.html#option-2",
     "href": "07-control-flow/slides.html#option-2",
     "title": "Control Flow",
     "section": "Option 2",
-    "text": "Option 2\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(paste(\"element\", i, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"element 1 is positive :)\"\n[1] \"element 3 is positive :)\""
+    "text": "Option 2\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(paste(\"element\", i, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"element 3 is positive :)\""
   },
   {
     "objectID": "07-control-flow/slides.html#option-3",
     "href": "07-control-flow/slides.html#option-3",
     "title": "Control Flow",
     "section": "Option 3",
-    "text": "Option 3\n\nfor (x_elem in x) {\n  if (x_elem &gt; 0) {\n    print(paste(x_elem, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"0.813619890087598 is positive :)\"\n[1] \"0.2486204242294 is positive :)\""
+    "text": "Option 3\n\nfor (x_elem in x) {\n  if (x_elem &gt; 0) {\n    print(paste(x_elem, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"1.0425462408432 is positive :)\""
   },
   {
     "objectID": "07-control-flow/slides.html#ifelse",
     "href": "07-control-flow/slides.html#ifelse",
     "title": "Control Flow",
     "section": "ifelse()",
-    "text": "ifelse()\n\n\nifelse()\n\n\nA vectorized if-else: applies a condition to every element of a vector at once, without an explicit loop.\n\n\n\n\nx &lt; 0 \n\n\n\n[1] FALSE  TRUE FALSE\n\n\n\n\n\nifelse(test = x &lt; 0, yes = \"is positive :)\", no = \"is negative :(\")\n\n\n\n[1] \"is negative :(\" \"is positive :)\" \"is negative :(\""
+    "text": "ifelse()\n\n\nifelse()\n\n\nA vectorized if-else: applies a condition to every element of a vector at once, without an explicit loop.\n\n\n\n\nx &lt; 0 \n\n\n\n[1]  TRUE  TRUE FALSE\n\n\n\n\n\nifelse(test = x &lt; 0, yes = \"is positive :)\", no = \"is negative :(\")\n\n\n\n[1] \"is positive :)\" \"is positive :)\" \"is negative :(\""
   },
   {
     "objectID": "07-control-flow/slides.html#guess-the-metaphor",
@@ -4606,8 +4494,8 @@
     "text": "Notes\n\n\n    \n      \n      \n    \n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "projects/2-sampsons-monks/project.html",
-    "href": "projects/2-sampsons-monks/project.html",
+    "objectID": "projects/1-sampsons-monks/project.html",
+    "href": "projects/1-sampsons-monks/project.html",
     "title": "Project 1: Sampson’s Monks",
     "section": "",
     "text": "In this project, you will analyze and model Sampson’s Monks dataset, a classic dataset in social network analysis.\nBy completing this project, you will:\n\nWork with matrices and lists in applied settings\nPractice row/column operations for network statistics\nUse functions, control flow, and libraries\nUnderstand the contrast between random vs. real-world networks\n\nThere are two components: the worksheet and the project. The worksheet will help you familiarize yourself with the computational tools you’ll need. This should be done first. The project is the main event: your analysis of the data set.\nYou will submit:\n\nA worksheet .R file with your well-commented code\nA project .R file with your well-commented code.\n\nBoth files should be submitted to their respective Pensive assignments before your scheduled Project Studio.\n\n\n\nWorksheetProject\n\n\n\nMatrices\n\nSection 1: Matrices + Operations\nThree students take a class together and study for a project, midterm, and final together.\n\nStudent A scores: 12, 23, 34\n\nStudent B scores: 45, 56, 67\n\nStudent C scores: 78, 89, 64\n\nQ1: Create a matrix containing their scores.\nUse matrix() to create the 3x3 matrix:\nQ2: Name the rows and columns\nUse colnames() and rownames() to label rows and columns.\nQ3: Compute each student’s average score\nWhich student has the highest average?\n\n\n\nPlots\nQ4: How can we make simple graphs in Base R?\nRead the documention for plot(), boxplot(), and hist() and run at least one example of each.\nQ5: Create a histogram using the matrix scores\nHint: Convert the matrix to a normal vector first using as.vector().\nQ6: Use the built-in airquality dataset\nThis dataset contains daily New York air quality measurements from May–September 1973 spread across several vectors.\n\nairquality$Ozone: Ozone concentration (ppb)\n\nairquality$Solar.R: Solar radiation (langley)\n\nairquality$Wind: Wind speed (mph)\n\nairquality$Temp: Temperature (°F)\n\nairquality$Month: Month (5 = May, …, 9 = September)\n\nairquality$Day: Day of the month\n\na) Construct a histogram of Ozone\nb) Construct a scatterplot of Ozone vs Temperature\nc) Construct a boxplot of Temperature by Month\n\n\nIntro to Packages\nQ7: Install and load the packages\nInstall and load the igraph and networkD3 packages by running the following code:\ninstall.packages(\"igraph\")    # you only need to run this line once\ninstall.packages(\"networkD3\") # you only need to run this line once\nlibrary(\"igraph\")\nlibrary(\"networkD3\")\nQ8: What are igraph and networkD3?\nHow are these libraries useful for network analysis and visualization? Browse their documentation here: https://r.igraph.org/, http://christophergandrud.github.io/networkD3/.\nQ9: Explore usage\nRun these examples and describe what they do.\na) igraph example\ng &lt;- graph(edges = c(1,2, 2,3, 3,1), n = 3, directed = FALSE)\nplot(g)\nb) networkD3 example\nsimpleNetwork(data.frame(source = c(\"A\", \"B\", \"C\"), \n                         target = c(\"B\", \"C\", \"A\")))\n\n\n\n\nPart 0: Setting Up\nOpen your R app and install and load the necessary packages for this project: lda, igraph, and networkD3. lda contains the monks data.\n\n# Run this lines once to install packages on your machine\n# install.packages(\"lda\")\n# install.packages(\"igraph\")\n# install.packages(\"networkD3\")\n\n# Run these lines once per session to load packages\nlibrary(lda)\nlibrary(igraph)\nlibrary(networkD3)\n\ndata(sampson)              # load the monks data from lda\nsamplk1 &lt;- sampson$SAMPLK1 # extract one of the matrices\n\nsampson contains 10 different matrices, each one a sociomatrix that describes the network of a different type of relationship. All 10 matrices describe the same 18 monks, in the same row and column order.\n\n\n\nName\nRelation\n\n\n\n\nSAMPLK1, SAMPLK2, SAMPLK3\nLiking, at three successive time points\n\n\nSAMPDLK\nDisliking\n\n\nSAMPES\nEsteem\n\n\nSAMPDES\nDisesteem\n\n\nSAMPIN\nPositive influence\n\n\nSAMPNIN\nNegative influence\n\n\nSAMPPR\nPraise\n\n\nSAMNPR\nBlame (negative praise)\n\n\n\nIn each network, each node represents a single monk and each edge represents a relationship pointing from one monk to another. Every monk was asked to name only his top three choices on each relationship. Paradoxically, a monk’s first choice gets a 3 (3 points) while his third choice gets a 1 (1 point); a 0 means “not nominated”.\n\n\nPart 1: Visualizing the Network\nCreate two network visualizations select one of Sampson’s matrices (not SAMPLK1) that describe monk relationships and form two plots:\n\nA static plot using igraph::plot.igraph()\nAn interactive plot using networkD3::forceNetwork()\n\nBefore plotting, check what data structure your plotting function accepts and create it accordingly. networkD3 requires dataframes of nodes and edges, not a sociomatrix. You can use the following code to convert one of Sampson’s matrices (called monk_mat here) into the structures that networkD3 expects.\n\nnodes &lt;- data.frame(name = rownames(monk_mat), group = 1)\nedges &lt;- which(monk_mat &gt; 0, arr.ind = TRUE)\n\nlinks &lt;- data.frame(\n  source = edges[, \"row\"] - 1,\n  target = edges[, \"col\"] - 1,\n  value  = monk_mat[edges] \n)\n\nTry visualizing a few different matrices before deciding on one that you find most interesting. Read the documentation on each of the plotting functions to understand the arguments they make available, then tune the plots to your liking.\n\n\nPart 2: Summary Statistics on a Sociomatrix\nA picture of a network is suggestive but hard to reason about precisely. Summary statistics let us describe the same structure numerically. A few terms first.\n\nNode: one monk. There are 18, one per row and one per column.\nEdge: a nomination from one monk to another. Edges here are directed: monk \\(i\\) nominating monk \\(j\\) (row \\(i\\), column \\(j\\)) is not the same as monk \\(j\\) nominating monk \\(i\\).\nEdge weight: the number in the cell, 3, 2, or 1, recording whether the nomination was that monk’s first, second, or third choice. A 0 means there is no edge.\nOut-degree of a node: the number of edges originating at it, i.e. how many other monks that monk nominated.\nIn-degree of a node: the number of edges pointing to it, i.e. how many other monks nominated that monk.\nOut-strength and in-strength: the sum of the edge weights leaving or arriving at a node. These credit a first-choice nomination more heavily than a third-choice one.\n\nSolutions below use SAMPDLK (disliking) as the chosen matrix; student answers will differ depending on their choice.\n\nReport which matrix you chose, and describe in one sentence what a large value means for that relation (e.g. for SAMPDLK, a high in-degree means a monk was frequently named as disliked).\nCompute the out-degree and in-degree of each monk. rowSums() and colSums() will do this in one line each, once you have turned the weights into TRUE/FALSE values with a comparison such as monk_mat &gt; 0.\nCompute the out-strength and in-strength of each monk.\nMake a histogram of in-degree and a histogram of in-strength. Compare their shapes to a histogram of out-degree. Why is the out-degree distribution so much narrower? (Look back at how the monks were surveyed.)\nMake a scatterplot of in-degree against in-strength, one point per monk. What would it mean for a monk to fall well above or well below the general trend?\nWhich monk received the most nominations on your chosen relation, and which received the fewest? Do you get the same answer using in-degree as you do using in-strength? If not, explain the disagreement.\n\n\n\nPart 3: A simple model of a social network\nOne way to learn more about the social dynamics underlying the monk’s network is to compare it to a network generated using a simple but well-understood mechanism; that is to say: a model.\nGenerate a network according to the rule that each monk assigns their likes (or dislikes) completely at random. The following observations will help you form your code:\n\nYou can represent a monk’s choices as a single vector. You can create that vector randomly using the sample() function.\nYou can use a for loop to change-in-place each vector of a blank matrix. See example from lecture on the Fibonacci Sequence for a vector analog\n\nFeel free to add additional complexity into your model (for example, assigning the likes randomly but with unequal probabilities).\n\n\nPart 4: Model vs Observations\nApply the same techniques you used in parts 1 and 2 (visualization and summary statistics) to describe the structure of the network that was simulated by your model. In 3-5 sentences, compare these networks: In what ways is the observed network monk_mat similar to your generated network? In what ways is it different? What patterns appear in the observed network that are missing from your generated one?",
@@ -4615,6 +4503,157 @@
       "Projects",
       "Sampson's Monks"
     ]
+  },
+  {
+    "objectID": "projects/3-your-life-in-data/project.html",
+    "href": "projects/3-your-life-in-data/project.html",
+    "title": "Project 3: Your Life in Data",
+    "section": "",
+    "text": "From the moment you wake to the moment you fall asleep, you are generating data. Each text you send, every video you watch, every scroll you scroll is being stored as data in a database somewhere. Even outside your phone - when you swipe into the gym, when you tap your card to pay for lunch, when you enter a room and the motion sensor triggers the light - these actions all generate data. This data is the focus of this project.\nBy completing this project, you will:\n\nCheck what an event log records against a known series of actions\nExport your data from an app you use regularly and read it into R\nClean and extract text with stringr and regular expressions\nParse date-times, fix their time zone, and summarize events over time\nJoin your event log to a table of your own\nAsk and answer a question of your own about your behavior\n\nAs always, you will be invited by email to a template repo corresponding to this project. Complete the project in that repository and commit and push all of your work before your project studio.\nThis time, project.qmd is set to format: revealjs, the slide format used in lecture, because you will present your work. Each part below opens with a title slide, and each lettered subpart gets two slides in the template, titled to match. The first shows your results only, as an explanatory display (a plot, a table, or a few sentences), and the second shows the code that produced them. The comment at the top of the template’s project.qmd shows how to set this up.\nIn the assignment below, the only thing that should show up in your project.qmd is what is asked for in “On Your Slide”. The questions are there to prompt you to fully explore this phase of the analysis to be ready to answer questions about it during the Project Studio.\n\nAssignmentWhat We Did\n\n\n\n\n\n\n\n\nImportantDo not commit your data\n\n\n\nYour data exports contain personal information about you and also about people that you correspond with. To prevent sharing this data, create a subdirectory of your template repo called data/ and unzip your personal data there. The template contains a small text file called .gitignore that lists this directory as one that git should ignore. The data-staff folder used in Part 1 holds staff data, not yours, and is already in the template.\nOther relevant files, namely project.qmd, the corresponding project.html (that is your slide deck) and associated files should be committed and pushed.\n\n\n\nPart 1: Staff YouTube Data\nBefore you analyze data you’ve generated over years, you’ll look at a small data set that we deliberately generated. A member of course staff took a short, scripted series of actions on YouTube and then downloaded what Google recorded using Google Takeout. The What We Did tab above lists every action. Because you know exactly what happened, you can check whether the data tells the same story.\nThe template’s data-staff/YouTube and YouTube Music/ folder holds that export, cut down to the files and records from those 33 minutes. Everything else in it is exactly as Google wrote it.\n\nA. Predict\nBefore you open any of the files, use the What We Did tab to write down what you expect to find.\nOn your slide: your predictions, as a short list or table. This slide has no code, so it needs no code slide.\n\nHow many records should the watch history hold, and for which videos?\nHow many records should the search history hold?\nWhich videos should be in the stat133 playlist, and which channels in the subscriptions?\n\n\n\nB. Import\nOn your slide: the files in the export, and the first few rows of watches.\n\nList the files in data-staff/YouTube and YouTube Music/ with list.files(..., recursive = TRUE).\nRead watch-history.json and search-history.json into data frames called watches and searches. Read the three CSV files with read_csv() into playlists, stat133, and subscriptions.\nWhat does one row of each data frame represent?\nSome columns of watches are lists rather than simple vectors. Which ones? Which of them holds the channel, and what does each of its elements hold?\nWhy do you think watch-history.json is stored as a JSON instead of a CSV?\n\n\n\nC. Clean\nOn your slide: watches with the columns title, channel, video_id, artist, and song, and searches with the columns title and terms.\n\nunnest() from tidyr turns a list column of data frames into ordinary columns, one for each column inside: watches &lt;- unnest(watches, subtitles, keep_empty = TRUE). (keep_empty = TRUE keeps any row whose element is empty, filling it with NA, rather than dropping it.) What do the new columns hold? Rename the one with the channel name to channel.\nUse stringr functions and regular expressions to remove \"Watched \" from the start of each title in watches.\nExtract each video’s ID from titleUrl into a column video_id (it’s the part after v=).\nExtract the search terms from each titleUrl in searches into a column terms. Compare them to the titles. In what two ways are the search terms written differently in the URL? Why do you think a URL can’t simply contain them as typed?\nSplit each watched title into an artist and a song at \" - \". For which title does this go wrong, and why?\n\n\n\nD. Check the Times\nOn your slide: a table with one row per watch: the title, the recorded time in Pacific time, and the time in the What We Did tab that it matches.\n\nConvert time in watches to a date-time. In what time zone is it recorded?\nConvert it to Pacific time and line each watch up with the What We Did tab.\nWhich moment does YouTube record: when the page was opened and the ads began, when the video itself started, or when it ended? Use the one recorded watch that had an ad to tell these apart.\n\n\n\nE. Join\nOn your slide: the video that was saved but never watched, the video that was watched but never saved, and the result of joining subscriptions to watches.\n\nJoin stat133 to watches by video ID. Use anti_join() to find the video that was saved but never watched, and the video that was watched but never saved.\nStaff subscribed to the Khruangbin channel and then watched a Khruangbin video. Join subscriptions to watches by channel name. Does the join find that video? Look back at the What We Did tab and explain what happened.\nNeither subscription matched in question 2. Using the What We Did tab as well as the data, which subscribed channel was truly never watched?\n\n\n\nF. Compare to the Record\nOn your slide: every action in the What We Did tab that left no trace in these files, as a list or table. This slide has no code, so it needs no code slide.\n\nCompare your findings to your predictions in A. Which action’s missing trace surprised you most?\nIn a few sentences, describe what YouTube’s “watch history” actually records.\nWhat does that mean for counting events in your own data in Part 2?\n\n\n\n\nPart 2: Your App, Your Data\nIn Part 1, everyone looked at the same data generated by the same behavior. Now you’ll have a look at data that captures your life in data. Pick an app or service you use regularly and whose data export has arrived (see the list of apps from the Reading and Writing Data lecture). Make multiple data requests because some take several days to arrive (note that Instagram generally arrives within minutes). Also keep an eye on your email: after the data request, you’ll usually get an email where you must confirm the request before they begin to process it.\nThis is not an exhaustive list of apps; if you are very active on an app not listed, if you’re able to secure the data in time, if the data contains multiple files including at least one JSON, and if it can be used to answer the following questions: it’s fair game. If you can’t figure out how to download your data from a given app, ask google or Gemini for help or post on Ed.\nThe questions below are written to work for almost any app, because almost every export contains at least one event log: a table/JSON with one row per thing you did (a song played, a video watched, a ride taken, a post liked) and a column recording when you did it.\n\nA. Take Inventory\nBefore analyzing a data set, find out what’s in it. Unzip your export into data/ and list every file in it with list.files(..., recursive = TRUE).\nOn your slide: a table counting the files in your export by format, and the first few rows of events.\n\nWhich app did you choose? How many files are in your export, and how many of them are JSON, CSV, or some other format? Use str_detect() with a regular expression to count them, rather than counting by hand.\nSkim the file names (and open a few in a text editor). Which file holds the event log you’ll analyze in the rest of this part? Which files look like they might contain something you didn’t expect the company to keep?\nRead the event log into R as a data frame called events. If it’s a JSON file, fromJSON() will usually return a data frame directly. If some of its columns are themselves data frames or lists (nested JSON), try fromJSON(path, flatten = TRUE), which spreads nested fields into their own columns. Fields that hold a list of values (like YouTube’s subtitles in Part 1) stay list columns; use unnest(events, column,    keep_empty = TRUE) as you did there. Compare nrow(events) before and after: if it grew, some elements held more than one row, and each event now appears more than once. If your event log is split across several files (e.g. StreamingHistory_music_0.json, StreamingHistory_music_1.json), you can read and stack them like this:\n\npaths &lt;- list.files(\"data\", pattern = \"StreamingHistory_music_\\\\d+\\\\.json\",\n                    recursive = TRUE, full.names = TRUE)\nevents &lt;- lapply(paths, fromJSON) |&gt;\n  bind_rows()\n\nDescribe events: how many rows and columns it has, what one row represents (the unit of observation), and a one-sentence description of each column you plan to use.\n\n\n\nB. When Did It Happen?\nCompanies store times in many ways: as text in many formats, or as Unix time (seconds or milliseconds since 1970). Most also store them in UTC rather than your local time.\nOn your slide: a heatmap of your events by day of week and hour of day, in your local time, with the start, end, and span of your log in its title or subtitle.\n\nCreate a column time in events that holds each event’s date-time as a POSIXct vector. Use the lubridate function that matches your timestamps (ymd_hms(), ymd_hm(), mdy_hm(), …). If your timestamps are numbers, they are Unix time: as_datetime(x) converts seconds, and as_datetime(x / 1000) converts milliseconds.\nThink of one event whose time you remember well (a song you played as you walked into an exam, a ride you took to the airport). Find it in events. Is the recorded time in UTC or in your local time? Use with_tz() or force_tz() so that time is in \"America/Los_Angeles\" (or whichever time zone you were in), and explain which function you chose and why.\nWhen does your event log start and end, and how long a span of time does it cover? Express the span as a duration.\nUse wday() and hour() to count your events by day of week and hour of day, then display those counts as a heatmap with geom_tile():\n\nevents |&gt;\n  count(day = wday(time, label = TRUE), hour = hour(time)) |&gt;\n  ggplot(aes(x = hour, y = day, fill = n)) +\n  geom_tile()\n\nWhat does this heatmap reveal about your routine? Would it look different if you hadn’t fixed the time zone in question 2?\n\n\n\nC. What Did You Do?\nEvent logs also record what you did, usually as text: song and artist names, video titles, search terms, URLs, addresses. Text from apps is messy. The same thing can be written several ways.\nOn your slide: a bar chart of your top 10 most frequent values after cleaning, ordered by frequency.\n\nChoose a text column in events that identifies what each event was about. What are your top 10 most frequent values?\nLook closely at the values in that column. Find at least one way the same thing is recorded in different forms (capitalization, extra words like “Watched” or ” - Remastered”, trailing spaces, URL parameters, …). Use stringr functions and a regular expression to clean the column into a new one.\nRedo your top 10 with the cleaned column and show it in a bar chart. Did it change?\n\n\n\nD. Was I in Class?\nTo learn something new from a data set, you can often join it to another one. Here you’ll join your event log to a table only you can write: your class schedule this semester.\nOn your slide: a table of the number of distinct events that happened during each of your courses this semester.\n\nCreate a data frame called schedule with one row per class meeting time: a day column (matching the labels from wday(time, label = TRUE), e.g. \"Mon\"), a course column, and start and end columns giving the time in hours (e.g. 2:00 pm is 14, 3:30 pm is 15.5). Include Stat 133.\nAdd two columns to events: day, the weekday label of time, and clock, the time of day in hours (hour(time) + minute(time) / 60; minute() works just like hour()). Then add an event_id column numbering the rows. Left join schedule to events by day. How many rows does the result have? Why is it more than events had?\nFilter the joined data frame to events that happened during a class (clock between start and end), restricted to dates during this semester. How many distinct events happened during class? Which course gets the most?\nIs this a fair way to judge whether you were using the app in class? Name at least two reasons the join could overcount or undercount.\n\n\n\nE. Your Question\nYou now know your event log well. Ask one question about your own behavior that the work above doesn’t already answer and that you are genuinely curious about. If you’re stuck, two kinds of question work for almost any app:\n\nHow has a share of your events changed over time? Use str_detect() to pick out a subset of events that matters to you (lectures or tutorials, songs by one artist, rides to or from campus), then plot the fraction of your events in that subset each month.\nWhen are you most active, and has that shifted? Use case_when() to label each event as \"morning\" (5 am to noon), \"afternoon\" (noon to 5 pm), \"evening\" (5 pm to 10 pm), or \"night\" (10 pm to 5 am), then compare the periods across months. Which month was your most nocturnal?\n\nOn your slide: your question and one explanatory plot that answers it.\n\nState your question in one sentence.\nAnswer it with one explanatory plot: a clear title, labeled axes with units, and a scale and theme chosen to make the comparison you care about easy to see.\nGive your answer and the evidence for it, along with one limitation of what this data can tell you.\n\n\n\nF. What Do They Know?\nOn your slide: the main points of your answer to question 1. This slide has no code, so it needs no code slide.\n\nBased on everything you found, what could the company infer about you (your schedule, location, interests, habits) from this export alone? Which inference would be easiest to get wrong, and why?\nLook back at the files in A.2 that you didn’t expect. Is there anything in your export you would ask the company to delete? Explain.\n\n\n\n\n\nCourse staff did the following on YouTube on Saturday, October 10, 2026, in a web browser on a laptop, signed in to a staff Google account. All times are Pacific Daylight Time. Autoplay was turned off, so YouTube never started a video on its own after another ended.\n\n\n\nTime\nAction\n\n\n\n\n12:43:14\nOpened the 3Blue1Brown channel page and clicked Subscribe. Played nothing.\n\n\n12:43:20\nSearched for hans rosling 200 countries.\n\n\n12:43\nClicked the result Hans Rosling’s 200 Countries, 200 Years, 4 Minutes - The Joy of Stats - BBC. The page stalled, and the video never started.\n\n\n12:44:06\nClicked Save, then New playlist. Made a private playlist named stat133 with the Rosling video in it.\n\n\n12:50:17\nReloaded the Rosling video. It started right away (no ad) and played to the end at 12:55:05.\n\n\n12:55:27\nOpened Khruangbin & Leon Bridges - Texas Sun (Official Video). Two 15-second ads played first (Fancy Feast, then Marriott Bonvoy).\n\n\n12:55:54\nSaved Texas Sun to stat133.\n\n\n12:56:05\nClicked Subscribe. This video belongs to three channels (Dead Oceans, Khruangbin, and Leon Bridges), so YouTube asked which one; subscribed to Khruangbin.\n\n\n12:56:12\nTexas Sun itself started. It played to the end at 13:00:55, followed by two 30-second ads (Arizona State University, then Ticketmaster).\n\n\n13:02:34\nOpened Natalia Lafourcade - Tú sí sabes quererme (en manos de Los Macorinos). It started right away (no ad).\n\n\n13:02:42\nClicked the thumbs-up (Like).\n\n\n13:02:55\nSaved it to stat133. It played to the end at 13:08:49, followed by an ad (St. Jude), skipped after about 20 seconds.\n\n\n13:09:25\nOpened Nina Simone - Sinnerman (Audio). It started right away (no ad).\n\n\n13:09:38\nPaused Sinnerman at 0:13. Didn’t save it.\n\n\n13:09:51\nSearched for 3blue1brown central limit theorem. The top result, But what is the Central Limit Theorem?, began a silent preview in the search results on its own.\n\n\n13:10:12\nWithout opening it, saved the Central Limit Theorem video to stat133 from the ⋮ menu next to its title.\n\n\n13:14:29\nSearched for galton board. Clicked nothing.\n\n\n13:14:48\nSearched for hasta la raíz. Clicked nothing.\n\n\n13:15:08\nOpened stat133 and clicked Texas Sun. A 15-second ad played first (Home Depot).\n\n\n13:15:31\nTexas Sun started.\n\n\n13:16:35\nPaused Texas Sun at 1:04.\n\n\n\nAt 13:16:35, stat133 held four videos, in this order: the Rosling video, Texas Sun, Tú sí sabes quererme, and the Central Limit Theorem video.\nStaff then requested the data at takeout.google.com, selecting only YouTube and YouTube Music and choosing JSON (instead of the default HTML) for the history files. The export arrived within an hour.",
+    "crumbs": [
+      "Projects",
+      "Your Life in Data"
+    ]
+  },
+  {
+    "objectID": "projects/5-gerrymandering/slides.html#agenda",
+    "href": "projects/5-gerrymandering/slides.html#agenda",
+    "title": "Project: Gerrymandering",
+    "section": "Agenda",
+    "text": "Agenda\n\nIcebreaker\nProject Overview\nWorksheet\nProject Data\nProject Worktime"
+  },
+  {
+    "objectID": "projects/5-gerrymandering/slides.html#california-votes",
+    "href": "projects/5-gerrymandering/slides.html#california-votes",
+    "title": "Project: Gerrymandering",
+    "section": "California Votes!",
+    "text": "California Votes!\n\nSpecial Election Nov 4th, 2025\nOnly statewide item: Proposition 50"
+  },
+  {
+    "objectID": "projects/5-gerrymandering/slides.html#current-map",
+    "href": "projects/5-gerrymandering/slides.html#current-map",
+    "title": "Project: Gerrymandering",
+    "section": "Current Map",
+    "text": "Current Map"
+  },
+  {
+    "objectID": "projects/5-gerrymandering/slides.html#proposed-map",
+    "href": "projects/5-gerrymandering/slides.html#proposed-map",
+    "title": "Project: Gerrymandering",
+    "section": "Proposed Map",
+    "text": "Proposed Map"
+  },
+  {
+    "objectID": "projects/5-gerrymandering/slides.html#measures-of-partisan-redistricting",
+    "href": "projects/5-gerrymandering/slides.html#measures-of-partisan-redistricting",
+    "title": "Project: Gerrymandering",
+    "section": "Measures of Partisan Redistricting",
+    "text": "Measures of Partisan Redistricting\nMean-Median Score Suppose we observe an election where the vote share for Republicans in each of \\(n\\) districts is \\(v_1, \\ldots, v_N\\).\nThe mean-median score is:\n\\[\nM = \\textrm{mean}(v_i) - \\textrm{median}(v_i)\n\\]"
+  },
+  {
+    "objectID": "projects/5-gerrymandering/slides.html#measures-of-partisan-redistricting-1",
+    "href": "projects/5-gerrymandering/slides.html#measures-of-partisan-redistricting-1",
+    "title": "Project: Gerrymandering",
+    "section": "Measures of Partisan Redistricting",
+    "text": "Measures of Partisan Redistricting\nSuppose two parties, A and B. The efficiency gap (EG) favoring party A for a given pattern of votes, is defined as the difference in wasted votes divided by the total number of votes:\n\\[\nEG = \\frac{W_B - W_A}{T}\n\\]\nWhere \\(W_B\\) is the number of wasted votes by Party B, \\(W_A\\) is the number of wasted votes by Party A, and \\(T\\) is the total votes cast."
+  },
+  {
+    "objectID": "projects/5-gerrymandering/slides.html#research-question",
+    "href": "projects/5-gerrymandering/slides.html#research-question",
+    "title": "Project: Gerrymandering",
+    "section": "Research Question",
+    "text": "Research Question\nWill adoption of a new district map lead to an increase in partisan advantage relative to 2024?\nIf so, by how much?"
+  },
+  {
+    "objectID": "projects/5-gerrymandering/slides.html#words-of-wisdom",
+    "href": "projects/5-gerrymandering/slides.html#words-of-wisdom",
+    "title": "Project: Gerrymandering",
+    "section": "Words of Wisdom",
+    "text": "Words of Wisdom\nMoon Duchin, from Political Geometry:\nThings I Don’t Believe In\n\nPresenting any single number as a metric of fairness\nEspecially any single number with a prescribed ideal\nRedistricting as optimization\n\n\nThings I Do Believe In\n\nUsing quantitative information to tell a qualitative story\n\n\n\n\nSelect items from “Political Geometry”, p. 25"
+  },
+  {
+    "objectID": "projects/5-gerrymandering/slides.html#project-data-1",
+    "href": "projects/5-gerrymandering/slides.html#project-data-1",
+    "title": "Project: Gerrymandering",
+    "section": "Project Data",
+    "text": "Project Data\nTo measure potential partisan gerrymandering in 2024…\n\n\nWhat we need\n\nVote results by district\n\n\nWhat we have\n\nVote results by precinct"
+  },
+  {
+    "objectID": "projects/5-gerrymandering/slides.html#source-of-2024-election-data",
+    "href": "projects/5-gerrymandering/slides.html#source-of-2024-election-data",
+    "title": "Project: Gerrymandering",
+    "section": "Source of 2024 Election Data",
+    "text": "Source of 2024 Election Data"
+  },
+  {
+    "objectID": "projects/5-gerrymandering/slides.html#statement-of-vote-sov",
+    "href": "projects/5-gerrymandering/slides.html#statement-of-vote-sov",
+    "title": "Project: Gerrymandering",
+    "section": "2024 Statement of Vote (SOV)",
+    "text": "2024 Statement of Vote (SOV)\nStatewide by voting precincts (SVPREC)."
+  },
+  {
+    "objectID": "projects/5-gerrymandering/slides.html#different-areas",
+    "href": "projects/5-gerrymandering/slides.html#different-areas",
+    "title": "Project: Gerrymandering",
+    "section": "Different areas",
+    "text": "Different areas\nData in California exists at several different geographic areas:\nIn decreasing size…\n\nState\nCounty (also identified by FIPS code)\nCongressional District (CDDIST)\nVoting Precinct (SVPREC)\nCensus Block (has demographic data)\n\n\nVotes are recorded at the precinct level. Precincts are administered by the counties."
+  },
+  {
+    "objectID": "projects/6-ct-predict/slides.html#agenda",
+    "href": "projects/6-ct-predict/slides.html#agenda",
+    "title": "Lab 6: R Packages & Metrics for Classification Models",
+    "section": "Agenda",
+    "text": "Agenda\n\nIce Breaker\nReview R Packages\nProject 6 Part 1\nClassification Model Metrics for Project 6\nWorksheet\nTime for work on Project 5."
+  },
+  {
+    "objectID": "projects/6-ct-predict/slides.html#r-packages",
+    "href": "projects/6-ct-predict/slides.html#r-packages",
+    "title": "Lab 6: R Packages & Metrics for Classification Models",
+    "section": "R Packages",
+    "text": "R Packages\n\n\ndevtools Functions:\n\nload_all(): loads all functions and data.\ndocument(): remakes documentation.\ncheck(): checks whether package meets CRAN’s guidelines.\ntest(): runs unit tests (not required for project).\n\n\nusethis Functions:\n\nuse_r(): creates R script for function.\nuse_data(): saves data in data/ folder."
+  },
+  {
+    "objectID": "projects/6-ct-predict/slides.html#roxygen2-documentation",
+    "href": "projects/6-ct-predict/slides.html#roxygen2-documentation",
+    "title": "Lab 6: R Packages & Metrics for Classification Models",
+    "section": "Roxygen2 Documentation",
+    "text": "Roxygen2 Documentation\n\n\n\nAdded using special comments that start with #'.\nPlaced directly above function definition.\nFills Rd files in man/ folder when devtools::document() is run.\n\nThese files are used to create help pages.\n\n\n\n#' Add together two numbers\n#' \n#' @param x A number.\n#' @param y A number.\n#' @returns A numeric vector.\n#' @examples\n#' add(1, 1)\n#' add(10, 1)\nadd &lt;- function(x, y) {\n  x + y\n}"
+  },
+  {
+    "objectID": "projects/6-ct-predict/slides.html#project-6-part-1",
+    "href": "projects/6-ct-predict/slides.html#project-6-part-1",
+    "title": "Lab 6: R Packages & Metrics for Classification Models",
+    "section": "Project 6 Part 1",
+    "text": "Project 6 Part 1\nWork time for Project 6 Part 1!\n\n  \n    −\n    +\n \n 15:00"
+  },
+  {
+    "objectID": "projects/6-ct-predict/slides.html#tp-tn-fp-fn",
+    "href": "projects/6-ct-predict/slides.html#tp-tn-fp-fn",
+    "title": "Lab 6: R Packages & Metrics for Classification Models",
+    "section": "TP, TN, FP, FN",
+    "text": "TP, TN, FP, FN\nExample: Classifying tumors.\nPostive class: “malignant” (cancerous)\nNegative class: “benign” (not cancerous)\n\nTrue Positives (TP): Model predicts malignant, reality is malignant.\nTrue Negatives (TN): Model predicts benign, reality is benign.\nFalse Positives (FP): Model predicts malignant, reality is benign.\nFalse Negatives (FN): Model predicts benign, reality is malignant.\n\n\nWhich of these is the most important to minimize (in this context)?"
+  },
+  {
+    "objectID": "projects/6-ct-predict/slides.html#accuracy-precision-and-recall",
+    "href": "projects/6-ct-predict/slides.html#accuracy-precision-and-recall",
+    "title": "Lab 6: R Packages & Metrics for Classification Models",
+    "section": "Accuracy, Precision, and Recall",
+    "text": "Accuracy, Precision, and Recall\n\\[\n\\begin{align*}\n\\text{Accuracy} \\quad &= \\quad \\frac{TP + TN}{TP + TN + FP + FN} &&= \\quad \\mathbb{P}[\\text{correct prediction}], \\\\\n\\text{Precision} \\quad &= \\quad \\frac{TP}{TP + FP} &&= \\quad \\mathbb{P}[(+ \\text{ in reality}) \\text{ given } (\\text{test } +)] \\\\\n\\text{Recall} \\quad &= \\quad \\frac{TP}{TP + FN} &&= \\quad \\mathbb{P}[(\\text{test } +) \\text{ given } (+ \\text{ in reality})]\n\\end{align*}\n\\]"
+  },
+  {
+    "objectID": "projects/6-ct-predict/slides.html#worksheet",
+    "href": "projects/6-ct-predict/slides.html#worksheet",
+    "title": "Lab 6: R Packages & Metrics for Classification Models",
+    "section": "Worksheet",
+    "text": "Worksheet\nWork on the worksheet for Project 6!\n\n  \n    −\n    +\n \n 15:00"
+  },
+  {
+    "objectID": "projects/6-ct-predict/slides.html#project-5",
+    "href": "projects/6-ct-predict/slides.html#project-5",
+    "title": "Lab 6: R Packages & Metrics for Classification Models",
+    "section": "Project 5",
+    "text": "Project 5\nWork time for Project 5.\n\n  \n    −\n    +\n \n 30:00"
   },
   {
     "objectID": "syllabus.html",
