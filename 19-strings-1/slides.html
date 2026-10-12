@@ -237,7 +237,7 @@
 <ol type="1">
 <li><code>nchar()</code>, <code>paste()</code>, <code>toupper()</code>, and <code>tolower()</code> from base R.</li>
 <li><code>str_view()</code>, <code>str_sub()</code>, and <code>str_detect()</code> from <code>stringr</code>.</li>
-<li>Regex metacharacters: the wildcard <code>.</code>, the quantifiers <code>?</code>, <code>+</code>, <code>*</code>, and <code>{n}</code>, and character sets <code>[]</code>.</li>
+<li>Regex metacharacters: the wildcard <code>.</code>, the quantifiers <code>?</code>, <code>+</code>, <code>*</code>, and <code>{n}</code>, and character classes <code>[]</code>.</li>
 </ol>
 <h4 id="concept-application">Concept Application</h4>
 <ol type="1">
@@ -270,7 +270,7 @@
 <li class="fragment">Wildcards</li>
 <li class="fragment">Quantifiers</li>
 </ul></li>
-<li class="fragment">Character Sets</li>
+<li class="fragment">Character Classes</li>
 </ul></li>
 </ul>
 </section>
@@ -835,7 +835,7 @@
 <ol type="1">
 <li class="fragment">Literal characters</li>
 <li class="fragment">Metacharacters</li>
-<li class="fragment">Character sets</li>
+<li class="fragment">Character classes</li>
 </ol>
 </section>
 <section id="literal-characters" class="slide level2" data-auto-animate="true">
@@ -1094,7 +1094,7 @@
 <section id="your-turn" class="slide level2">
 <h2>Your Turn</h2>
 <p><strong>Question</strong>: For <code>c("a", "ab", "abb")</code>, what does each of <code>"ab?"</code>, <code>"ab+"</code>, and <code>"ab*"</code> match?</p>
-<div id="timer_d095bfe12678e40e49337b3efd509109001f38fa" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_d4df5420af172fde2ce223d7d8dba5d3b98bba61" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -1168,9 +1168,16 @@
 </div>
 </div>
 </section>
-<section id="character-sets" class="slide level2">
-<h2>Character Sets</h2>
-<p>You can demarcate a set of characters with <code>[]</code>.</p>
+<section id="section-24" class="slide level2">
+<h2></h2>
+<div class="definition">
+<div class="definition-header">
+<p>Character Class</p>
+</div>
+<div class="definition-content">
+<p>A set of characters demarcated with <code>[]</code>. The pattern matches any one character in the set.</p>
+</div>
+</div>
 <div class="fragment">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a></a><span class="fu">str_view</span>(fruit, <span class="at">pattern =</span> <span class="st">"[ab]"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1203,7 +1210,7 @@
 
 </div>
 <p><strong>Question</strong>: Write down 5 different regular expressions to match <code>&lt;Naaaah&gt;</code>.</p>
-<div id="timer_d095bfe12678e40e49337b3efd509109001f38fa" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_d4df5420af172fde2ce223d7d8dba5d3b98bba61" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -1233,7 +1240,7 @@
 </div>
 <p><strong>Question</strong>: Write down 5 different regular expressions to match <code>&lt;Naaaah&gt;</code>.</p>
 </section>
-<section id="section-24" class="slide level2">
+<section id="section-25" class="slide level2">
 <h2></h2>
 <p>How do we (succinctly) specify that we want to detect “Statistics”, “Stat”, “statistics”, and “stat”?</p>
 <blockquote>
@@ -1245,7 +1252,7 @@
 </blockquote>
 </div>
 </section>
-<section id="section-25" class="slide level2 smaller" data-auto-animate="true">
+<section id="section-26" class="slide level2 smaller" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <p>What is the distribution of majors in this course?</p>
 <div class="fragment">
@@ -1277,7 +1284,7 @@
 </div>
 </div>
 </section>
-<section id="section-26" class="slide level2 smaller" data-auto-animate="true">
+<section id="section-27" class="slide level2 smaller" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <p>What is the distribution of majors in this course?</p>
 <p>What proportion of students major in Stats?</p>
@@ -1306,7 +1313,7 @@
 </div>
 </div>
 </section>
-<section id="section-27" class="slide level2 smaller" data-auto-animate="true">
+<section id="section-28" class="slide level2 smaller" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <p>What is the distribution of majors in this course?</p>
 <p>What proportion of students major in Stats?</p>
@@ -1335,7 +1342,7 @@
 </div></div>
 </div>
 </section>
-<section id="section-28" class="slide level2 intro" data-background-color="var(--intro-bg)">
+<section id="section-29" class="slide level2 intro" data-background-color="var(--intro-bg)">
 <h2></h2>
 <div class="columns">
 <div class="column">
