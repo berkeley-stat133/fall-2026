@@ -2176,7 +2176,7 @@
     "href": "07-control-flow/slides.html#a-random-condition-in-r",
     "title": "Control Flow",
     "section": "A random condition in R",
-    "text": "A random condition in R\n\n\nsample(x = -10:10, size = 1)\n\n\n\n[1] -2\n\n\n\n\nsample() will randomly sample 1 element from the vector x."
+    "text": "A random condition in R\n\n\nsample(x = -10:10, size = 1)\n\n\n\n[1] 8\n\n\n\n\nsample() will randomly sample 1 element from the vector x."
   },
   {
     "objectID": "07-control-flow/slides.html#section-1",
@@ -2232,35 +2232,35 @@
     "href": "07-control-flow/slides.html#what-if-x-has-multiple-elements",
     "title": "Control Flow",
     "section": "What if x has multiple elements?",
-    "text": "What if x has multiple elements?\n\n\nx &lt;- rnorm(3)\nx\n\n\n\n[1] -0.03775948  0.92175951 -0.13592990\n\n\n\n\n\n\n\n\n\n\n      if (x &gt; 0) {\n        print(\"x is positive :)\")\n      }\n\n\n\nAnnotate this if-then by wrapping it in a for loop."
+    "text": "What if x has multiple elements?\n\n\nx &lt;- rnorm(3)\nx\n\n\n\n[1] -1.04226267  1.07519509  0.05989272\n\n\n\n\n\n\n\n\n\n\n      if (x &gt; 0) {\n        print(\"x is positive :)\")\n      }\n\n\n\nAnnotate this if-then by wrapping it in a for loop."
   },
   {
     "objectID": "07-control-flow/slides.html#option-1",
     "href": "07-control-flow/slides.html#option-1",
     "title": "Control Flow",
     "section": "Option 1",
-    "text": "Option 1\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(\"x is positive :)\")\n  }\n}\n\n\n\n[1] \"x is positive :)\""
+    "text": "Option 1\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(\"x is positive :)\")\n  }\n}\n\n\n\n[1] \"x is positive :)\"\n[1] \"x is positive :)\""
   },
   {
     "objectID": "07-control-flow/slides.html#option-2",
     "href": "07-control-flow/slides.html#option-2",
     "title": "Control Flow",
     "section": "Option 2",
-    "text": "Option 2\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(paste(\"element\", i, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"element 2 is positive :)\""
+    "text": "Option 2\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(paste(\"element\", i, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"element 2 is positive :)\"\n[1] \"element 3 is positive :)\""
   },
   {
     "objectID": "07-control-flow/slides.html#option-3",
     "href": "07-control-flow/slides.html#option-3",
     "title": "Control Flow",
     "section": "Option 3",
-    "text": "Option 3\n\nfor (x_elem in x) {\n  if (x_elem &gt; 0) {\n    print(paste(x_elem, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"0.92175950650273 is positive :)\""
+    "text": "Option 3\n\nfor (x_elem in x) {\n  if (x_elem &gt; 0) {\n    print(paste(x_elem, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"1.07519508922744 is positive :)\"\n[1] \"0.0598927216077172 is positive :)\""
   },
   {
     "objectID": "07-control-flow/slides.html#ifelse",
     "href": "07-control-flow/slides.html#ifelse",
     "title": "Control Flow",
     "section": "ifelse()",
-    "text": "ifelse()\n\n\nifelse()\n\n\nA vectorized if-else: applies a condition to every element of a vector at once, without an explicit loop.\n\n\n\n\nx &lt; 0 \n\n\n\n[1]  TRUE FALSE  TRUE\n\n\n\n\n\nifelse(test = x &lt; 0, yes = \"is positive :)\", no = \"is negative :(\")\n\n\n\n[1] \"is positive :)\" \"is negative :(\" \"is positive :)\""
+    "text": "ifelse()\n\n\nifelse()\n\n\nA vectorized if-else: applies a condition to every element of a vector at once, without an explicit loop.\n\n\n\n\nx &lt; 0 \n\n\n\n[1]  TRUE FALSE FALSE\n\n\n\n\n\nifelse(test = x &lt; 0, yes = \"is positive :)\", no = \"is negative :(\")\n\n\n\n[1] \"is positive :)\" \"is negative :(\" \"is negative :(\""
   },
   {
     "objectID": "07-control-flow/slides.html#guess-the-metaphor",
@@ -5004,14 +5004,14 @@
     "href": "21-date-time-1/slides.html#section-8",
     "title": "Dates and Times I",
     "section": "",
-    "text": "POSIXct\n\n\nPOSIXct (Portable Operating System Interface Calendar Time) is an atomic vector to store date-times that is built on top of a double vector.\n\n\n\n\nnow &lt;- Sys.time()\nnow\n\n\n\n[1] \"2026-10-19 15:36:36 UTC\"\n\n\n\n\n\nclass(now)\n\n\n\n[1] \"POSIXct\" \"POSIXt\" \n\n\n\nStart off with reminder about factors: a integer vector with the factor class that allows it to store the levels look up table."
+    "text": "POSIXct\n\n\nPOSIXct (Portable Operating System Interface Calendar Time) is an atomic vector to store date-times that is built on top of a double vector.\n\n\n\n\nnow &lt;- Sys.time()\nnow\n\n\n\n[1] \"2026-10-19 15:46:26 UTC\"\n\n\n\n\n\nclass(now)\n\n\n\n[1] \"POSIXct\" \"POSIXt\" \n\n\n\nStart off with reminder about factors: a integer vector with the factor class that allows it to store the levels look up table."
   },
   {
     "objectID": "21-date-time-1/slides.html#why-not-just-use-a-double-vector",
     "href": "21-date-time-1/slides.html#why-not-just-use-a-double-vector",
     "title": "Dates and Times I",
     "section": "Why not just use a double vector?",
-    "text": "Why not just use a double vector?\n\n\n# it prints as a legible string\nnow\n\n\n\n[1] \"2026-10-19 15:36:36 UTC\"\n\n\n\n\n\n# while respecting artithmetic\nnow + 1\n\n\n\n[1] \"2026-10-19 15:36:37 UTC\"\n\n\n\n\n\n# and other sensible operations\nround(now, units = \"hours\")\n\n\n\n[1] \"2026-10-19 16:00:00 UTC\"\n\n\n\n\n\n# and makes it easy to use other formats\nformat(now, \"%m/%d/%y\")\n\n\n\n[1] \"10/19/26\""
+    "text": "Why not just use a double vector?\n\n\n# it prints as a legible string\nnow\n\n\n\n[1] \"2026-10-19 15:46:26 UTC\"\n\n\n\n\n\n# while respecting artithmetic\nnow + 1\n\n\n\n[1] \"2026-10-19 15:46:27 UTC\"\n\n\n\n\n\n# and other sensible operations\nround(now, units = \"hours\")\n\n\n\n[1] \"2026-10-19 16:00:00 UTC\"\n\n\n\n\n\n# and makes it easy to use other formats\nformat(now, \"%m/%d/%y\")\n\n\n\n[1] \"10/19/26\""
   },
   {
     "objectID": "21-date-time-1/slides.html#section-9",
@@ -5081,7 +5081,7 @@
     "href": "21-date-time-1/slides.html#setting",
     "title": "Dates and Times I",
     "section": "Setting",
-    "text": "Setting\nYou can set those same components in an existing date-time object using change-in-place notation.\n\n\nyear(now) &lt;- 2027\nnow\n\n\n\n[1] \"2027-10-19 15:36:36 UTC\"\n\n\n\n\n\nwday(now, label = TRUE, abbr = FALSE)\n\n\n\n[1] Tuesday\n7 Levels: Sunday &lt; Monday &lt; Tuesday &lt; Wednesday &lt; Thursday &lt; ... &lt; Saturday"
+    "text": "Setting\nYou can set those same components in an existing date-time object using change-in-place notation.\n\n\nyear(now) &lt;- 2027\nnow\n\n\n\n[1] \"2027-10-19 15:46:26 UTC\"\n\n\n\n\n\nwday(now, label = TRUE, abbr = FALSE)\n\n\n\n[1] Tuesday\n7 Levels: Sunday &lt; Monday &lt; Tuesday &lt; Wednesday &lt; Thursday &lt; ... &lt; Saturday"
   },
   {
     "objectID": "21-date-time-1/slides.html#your-turn-1",
