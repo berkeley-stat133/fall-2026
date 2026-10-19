@@ -6,8 +6,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-8b4baf804e461d9b72633f0de59a0cac.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.27">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <title>STAT 133 – Git &amp; GitHub</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -16,10 +16,16 @@
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -94,7 +100,7 @@
     code span.vs { color: #032f62; } /* VerbatimString */
     code span.wa { color: #ff5555; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-9047f5fc854fa021fe424807bb166be6.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-178a6b2344b3ca73242594dd9e92b758.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -381,12 +387,12 @@
 <li><code>push</code>: share the photos online</li>
 </ul>
 </div><div class="column" style="width:60%;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode bash hljs"><span id="cb1-1" class="hljs-ln-code"><a></a><span class="fu">mkdir</span> wedding</span>
-<span id="cb1-2" class="hljs-ln-code"><a></a><span class="bu">cd</span> wedding</span>
-<span id="cb1-3" class="hljs-ln-code"><a></a><span class="fu">git</span> init</span>
-<span id="cb1-4" class="hljs-ln-code"><a></a><span class="fu">git</span> add bride groom</span>
-<span id="cb1-5" class="hljs-ln-code"><a></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"cutting the cake"</span></span>
-<span id="cb1-6" class="hljs-ln-code"><a></a><span class="fu">git</span> push</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode bash hljs"><span id="cb1-1" class="hljs-ln-code"><a aria-label="1"></a><span class="fu">mkdir</span> wedding</span>
+<span id="cb1-2" class="hljs-ln-code"><a aria-label="2"></a><span class="bu">cd</span> wedding</span>
+<span id="cb1-3" class="hljs-ln-code"><a aria-label="3"></a><span class="fu">git</span> init</span>
+<span id="cb1-4" class="hljs-ln-code"><a aria-label="4"></a><span class="fu">git</span> add bride groom</span>
+<span id="cb1-5" class="hljs-ln-code"><a aria-label="5"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"cutting the cake"</span></span>
+<span id="cb1-6" class="hljs-ln-code"><a aria-label="6"></a><span class="fu">git</span> push</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></div>
 </section></section>
 <section>
@@ -398,7 +404,7 @@
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode bash hljs"><span id="cb2-1" class="hljs-ln-code"><a></a><span class="fu">mkdir</span> demo-project</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode bash hljs"><span id="cb2-1" class="hljs-ln-code"><a aria-label="1"></a><span class="fu">mkdir</span> demo-project</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="font-size:0.8em">
 <ol type="1">
 <li>Create new directory for my project.</li>
@@ -422,8 +428,8 @@
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode bash hljs"><span id="cb3-1" class="hljs-ln-code"><a></a><span class="fu">mkdir</span> demo-project</span>
-<span id="cb3-2" class="hljs-ln-code"><a></a><span class="bu">cd</span> demo-project</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource bash number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode bash hljs"><span id="cb3-1" class="hljs-ln-code"><a aria-label="1"></a><span class="fu">mkdir</span> demo-project</span>
+<span id="cb3-2" class="hljs-ln-code"><a aria-label="2"></a><span class="bu">cd</span> demo-project</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="font-size:0.8em">
 <ol type="1">
 <li>Create new directory for my project.</li>
@@ -435,9 +441,9 @@
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode bash hljs"><span id="cb4-1" class="hljs-ln-code"><a></a><span class="fu">mkdir</span> demo-project</span>
-<span id="cb4-2" class="hljs-ln-code"><a></a><span class="bu">cd</span> demo-project</span>
-<span id="cb4-3" class="hljs-ln-code"><a></a><span class="fu">git</span> init</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource bash number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode bash hljs"><span id="cb4-1" class="hljs-ln-code"><a aria-label="1"></a><span class="fu">mkdir</span> demo-project</span>
+<span id="cb4-2" class="hljs-ln-code"><a aria-label="2"></a><span class="bu">cd</span> demo-project</span>
+<span id="cb4-3" class="hljs-ln-code"><a aria-label="3"></a><span class="fu">git</span> init</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="font-size:0.8em">
 <ol type="1">
 <li>Create new directory for my project.</li>
@@ -450,10 +456,10 @@
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode bash hljs"><span id="cb5-1" class="hljs-ln-code"><a></a><span class="fu">mkdir</span> demo-project</span>
-<span id="cb5-2" class="hljs-ln-code"><a></a><span class="bu">cd</span> demo-project</span>
-<span id="cb5-3" class="hljs-ln-code"><a></a><span class="fu">git</span> init</span>
-<span id="cb5-4" class="hljs-ln-code"><a></a><span class="bu">echo</span> <span class="st">"# My First Project"</span> <span class="op">&gt;</span> README.md</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode bash hljs"><span id="cb5-1" class="hljs-ln-code"><a aria-label="1"></a><span class="fu">mkdir</span> demo-project</span>
+<span id="cb5-2" class="hljs-ln-code"><a aria-label="2"></a><span class="bu">cd</span> demo-project</span>
+<span id="cb5-3" class="hljs-ln-code"><a aria-label="3"></a><span class="fu">git</span> init</span>
+<span id="cb5-4" class="hljs-ln-code"><a aria-label="4"></a><span class="bu">echo</span> <span class="st">"# My First Project"</span> <span class="op">&gt;</span> README.md</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="font-size:0.8em">
 <ol type="1">
 <li>Create new directory for my project.</li>
@@ -467,11 +473,11 @@
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode bash hljs"><span id="cb6-1" class="hljs-ln-code"><a></a><span class="fu">mkdir</span> demo-project</span>
-<span id="cb6-2" class="hljs-ln-code"><a></a><span class="bu">cd</span> demo-project</span>
-<span id="cb6-3" class="hljs-ln-code"><a></a><span class="fu">git</span> init</span>
-<span id="cb6-4" class="hljs-ln-code"><a></a><span class="bu">echo</span> <span class="st">"# My First Project"</span> <span class="op">&gt;</span> README.md</span>
-<span id="cb6-5" class="hljs-ln-code"><a></a><span class="fu">git</span> add README.md</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode bash hljs"><span id="cb6-1" class="hljs-ln-code"><a aria-label="1"></a><span class="fu">mkdir</span> demo-project</span>
+<span id="cb6-2" class="hljs-ln-code"><a aria-label="2"></a><span class="bu">cd</span> demo-project</span>
+<span id="cb6-3" class="hljs-ln-code"><a aria-label="3"></a><span class="fu">git</span> init</span>
+<span id="cb6-4" class="hljs-ln-code"><a aria-label="4"></a><span class="bu">echo</span> <span class="st">"# My First Project"</span> <span class="op">&gt;</span> README.md</span>
+<span id="cb6-5" class="hljs-ln-code"><a aria-label="5"></a><span class="fu">git</span> add README.md</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="font-size:0.8em">
 <ol type="1">
 <li>Create new directory for my project.</li>
@@ -486,12 +492,12 @@
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode bash hljs"><span id="cb7-1" class="hljs-ln-code"><a></a><span class="fu">mkdir</span> demo-project</span>
-<span id="cb7-2" class="hljs-ln-code"><a></a><span class="bu">cd</span> demo-project</span>
-<span id="cb7-3" class="hljs-ln-code"><a></a><span class="fu">git</span> init</span>
-<span id="cb7-4" class="hljs-ln-code"><a></a><span class="bu">echo</span> <span class="st">"# My First Project"</span> <span class="op">&gt;</span> README.md</span>
-<span id="cb7-5" class="hljs-ln-code"><a></a><span class="fu">git</span> add README.md</span>
-<span id="cb7-6" class="hljs-ln-code"><a></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"initial commit"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode bash hljs"><span id="cb7-1" class="hljs-ln-code"><a aria-label="1"></a><span class="fu">mkdir</span> demo-project</span>
+<span id="cb7-2" class="hljs-ln-code"><a aria-label="2"></a><span class="bu">cd</span> demo-project</span>
+<span id="cb7-3" class="hljs-ln-code"><a aria-label="3"></a><span class="fu">git</span> init</span>
+<span id="cb7-4" class="hljs-ln-code"><a aria-label="4"></a><span class="bu">echo</span> <span class="st">"# My First Project"</span> <span class="op">&gt;</span> README.md</span>
+<span id="cb7-5" class="hljs-ln-code"><a aria-label="5"></a><span class="fu">git</span> add README.md</span>
+<span id="cb7-6" class="hljs-ln-code"><a aria-label="6"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"initial commit"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="font-size:0.8em">
 <ol type="1">
 <li>Create new directory for my project.</li>
@@ -507,13 +513,13 @@
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode bash hljs"><span id="cb8-1" class="hljs-ln-code"><a></a><span class="fu">mkdir</span> demo-project</span>
-<span id="cb8-2" class="hljs-ln-code"><a></a><span class="bu">cd</span> demo-project</span>
-<span id="cb8-3" class="hljs-ln-code"><a></a><span class="fu">git</span> init</span>
-<span id="cb8-4" class="hljs-ln-code"><a></a><span class="bu">echo</span> <span class="st">"# My First Project"</span> <span class="op">&gt;</span> README.md</span>
-<span id="cb8-5" class="hljs-ln-code"><a></a><span class="fu">git</span> add README.md</span>
-<span id="cb8-6" class="hljs-ln-code"><a></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"initial commit"</span></span>
-<span id="cb8-7" class="hljs-ln-code"><a></a><span class="co"># edit file</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode bash hljs"><span id="cb8-1" class="hljs-ln-code"><a aria-label="1"></a><span class="fu">mkdir</span> demo-project</span>
+<span id="cb8-2" class="hljs-ln-code"><a aria-label="2"></a><span class="bu">cd</span> demo-project</span>
+<span id="cb8-3" class="hljs-ln-code"><a aria-label="3"></a><span class="fu">git</span> init</span>
+<span id="cb8-4" class="hljs-ln-code"><a aria-label="4"></a><span class="bu">echo</span> <span class="st">"# My First Project"</span> <span class="op">&gt;</span> README.md</span>
+<span id="cb8-5" class="hljs-ln-code"><a aria-label="5"></a><span class="fu">git</span> add README.md</span>
+<span id="cb8-6" class="hljs-ln-code"><a aria-label="6"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"initial commit"</span></span>
+<span id="cb8-7" class="hljs-ln-code"><a aria-label="7"></a><span class="co"># edit file</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="font-size:0.8em">
 <ol type="1">
 <li>Create new directory for my project.</li>
@@ -530,15 +536,15 @@
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode bash hljs"><span id="cb9-1" class="hljs-ln-code"><a></a><span class="fu">mkdir</span> demo-project</span>
-<span id="cb9-2" class="hljs-ln-code"><a></a><span class="bu">cd</span> demo-project</span>
-<span id="cb9-3" class="hljs-ln-code"><a></a><span class="fu">git</span> init</span>
-<span id="cb9-4" class="hljs-ln-code"><a></a><span class="bu">echo</span> <span class="st">"# My First Project"</span> <span class="op">&gt;</span> README.md</span>
-<span id="cb9-5" class="hljs-ln-code"><a></a><span class="fu">git</span> add README.md</span>
-<span id="cb9-6" class="hljs-ln-code"><a></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"initial commit"</span></span>
-<span id="cb9-7" class="hljs-ln-code"><a></a><span class="co"># edit file</span></span>
-<span id="cb9-8" class="hljs-ln-code"><a></a><span class="fu">git</span> add README.md</span>
-<span id="cb9-9" class="hljs-ln-code"><a></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Add project description"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode bash hljs"><span id="cb9-1" class="hljs-ln-code"><a aria-label="1"></a><span class="fu">mkdir</span> demo-project</span>
+<span id="cb9-2" class="hljs-ln-code"><a aria-label="2"></a><span class="bu">cd</span> demo-project</span>
+<span id="cb9-3" class="hljs-ln-code"><a aria-label="3"></a><span class="fu">git</span> init</span>
+<span id="cb9-4" class="hljs-ln-code"><a aria-label="4"></a><span class="bu">echo</span> <span class="st">"# My First Project"</span> <span class="op">&gt;</span> README.md</span>
+<span id="cb9-5" class="hljs-ln-code"><a aria-label="5"></a><span class="fu">git</span> add README.md</span>
+<span id="cb9-6" class="hljs-ln-code"><a aria-label="6"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"initial commit"</span></span>
+<span id="cb9-7" class="hljs-ln-code"><a aria-label="7"></a><span class="co"># edit file</span></span>
+<span id="cb9-8" class="hljs-ln-code"><a aria-label="8"></a><span class="fu">git</span> add README.md</span>
+<span id="cb9-9" class="hljs-ln-code"><a aria-label="9"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Add project description"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="font-size:0.8em">
 <ol type="1">
 <li>Create new directory for my project.</li>
@@ -557,16 +563,16 @@
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode bash hljs"><span id="cb10-1" class="hljs-ln-code"><a></a><span class="fu">mkdir</span> demo-project</span>
-<span id="cb10-2" class="hljs-ln-code"><a></a><span class="bu">cd</span> demo-project</span>
-<span id="cb10-3" class="hljs-ln-code"><a></a><span class="fu">git</span> init</span>
-<span id="cb10-4" class="hljs-ln-code"><a></a><span class="bu">echo</span> <span class="st">"# My First Project"</span> <span class="op">&gt;</span> README.md</span>
-<span id="cb10-5" class="hljs-ln-code"><a></a><span class="fu">git</span> add README.md</span>
-<span id="cb10-6" class="hljs-ln-code"><a></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"initial commit"</span></span>
-<span id="cb10-7" class="hljs-ln-code"><a></a><span class="co"># edit file</span></span>
-<span id="cb10-8" class="hljs-ln-code"><a></a><span class="fu">git</span> add README.md</span>
-<span id="cb10-9" class="hljs-ln-code"><a></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Add project description"</span></span>
-<span id="cb10-10" class="hljs-ln-code"><a></a><span class="fu">git</span> log <span class="at">--oneline</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource bash number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode bash hljs"><span id="cb10-1" class="hljs-ln-code"><a aria-label="1"></a><span class="fu">mkdir</span> demo-project</span>
+<span id="cb10-2" class="hljs-ln-code"><a aria-label="2"></a><span class="bu">cd</span> demo-project</span>
+<span id="cb10-3" class="hljs-ln-code"><a aria-label="3"></a><span class="fu">git</span> init</span>
+<span id="cb10-4" class="hljs-ln-code"><a aria-label="4"></a><span class="bu">echo</span> <span class="st">"# My First Project"</span> <span class="op">&gt;</span> README.md</span>
+<span id="cb10-5" class="hljs-ln-code"><a aria-label="5"></a><span class="fu">git</span> add README.md</span>
+<span id="cb10-6" class="hljs-ln-code"><a aria-label="6"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"initial commit"</span></span>
+<span id="cb10-7" class="hljs-ln-code"><a aria-label="7"></a><span class="co"># edit file</span></span>
+<span id="cb10-8" class="hljs-ln-code"><a aria-label="8"></a><span class="fu">git</span> add README.md</span>
+<span id="cb10-9" class="hljs-ln-code"><a aria-label="9"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Add project description"</span></span>
+<span id="cb10-10" class="hljs-ln-code"><a aria-label="10"></a><span class="fu">git</span> log <span class="at">--oneline</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="font-size:0.8em">
 <ol type="1">
 <li>Create new directory for my project.</li>
@@ -662,15 +668,15 @@
 <li><code>push</code>: sync photos with online album</li>
 </ul>
 </div><div class="column" style="width:60%;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a></a><span class="fu">git</span> remote add wedding-pics wedding-pics.com</span>
-<span id="cb11-2"><a></a><span class="fu">git</span> push <span class="at">-u</span> wedding-pics main</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a aria-label="1"></a><span class="fu">git</span> remote add wedding-pics wedding-pics.com</span>
+<span id="cb11-2"><a aria-label="2"></a><span class="fu">git</span> push <span class="at">-u</span> wedding-pics main</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div></div>
 </section>
 <section id="section-17" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode bash hljs"><span id="cb12-1" class="hljs-ln-code"><a></a><span class="fu">git</span> remote add origin https://github.com/andrewpbray/demo-project.git</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource bash number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode bash hljs"><span id="cb12-1" class="hljs-ln-code"><a aria-label="1"></a><span class="fu">git</span> remote add origin https://github.com/andrewpbray/demo-project.git</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="font-size:0.8em">
 <ol type="1">
 <li>Add new remote repo called <code>origin</code>.</li>
@@ -681,8 +687,8 @@
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode bash hljs"><span id="cb13-1" class="hljs-ln-code"><a></a><span class="fu">git</span> remote add origin https://github.com/andrewpbray/demo-project.git</span>
-<span id="cb13-2" class="hljs-ln-code"><a></a><span class="fu">git</span> push <span class="at">-u</span> origin main</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource bash number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode bash hljs"><span id="cb13-1" class="hljs-ln-code"><a aria-label="1"></a><span class="fu">git</span> remote add origin https://github.com/andrewpbray/demo-project.git</span>
+<span id="cb13-2" class="hljs-ln-code"><a aria-label="2"></a><span class="fu">git</span> push <span class="at">-u</span> origin main</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column" style="font-size:0.8em">
 <ol type="1">
 <li>Add new remote repo called <code>origin</code>.</li>

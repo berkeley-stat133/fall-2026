@@ -6,8 +6,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-8b4baf804e461d9b72633f0de59a0cac.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.27">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <title>STAT 133 – Reading and Writing Data</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -16,10 +16,16 @@
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -94,7 +100,7 @@
     code span.vs { color: #032f62; } /* VerbatimString */
     code span.wa { color: #ff5555; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-9047f5fc854fa021fe424807bb166be6.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-178a6b2344b3ca73242594dd9e92b758.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -301,7 +307,7 @@
 </div></div>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">readLines</span>(<span class="st">"data/New_ZEV_Sales_Last_updated_07-17-2026_ada.xlsx"</span>, <span class="at">n =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="fu">readLines</span>(<span class="st">"data/New_ZEV_Sales_Last_updated_07-17-2026_ada.xlsx"</span>, <span class="at">n =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 
@@ -318,11 +324,11 @@
 <h2>Reading Excel Files</h2>
 <p>Recall the ZEV data from the Data Cleaning lecture.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">library</span>(readxl)</span>
-<span id="cb3-2"><a></a><span class="fu">excel_sheets</span>(<span class="st">"data/New_ZEV_Sales_Last_updated_07-17-2026_ada.xlsx"</span>)</span>
-<span id="cb3-3"><a></a>zev <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/New_ZEV_Sales_Last_updated_07-17-2026_ada.xlsx"</span>,</span>
-<span id="cb3-4"><a></a>                  <span class="at">sheet =</span> <span class="st">"County"</span>)</span>
-<span id="cb3-5"><a></a>zev</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb3-2"><a aria-label="2"></a><span class="fu">excel_sheets</span>(<span class="st">"data/New_ZEV_Sales_Last_updated_07-17-2026_ada.xlsx"</span>)</span>
+<span id="cb3-3"><a aria-label="3"></a>zev <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/New_ZEV_Sales_Last_updated_07-17-2026_ada.xlsx"</span>,</span>
+<span id="cb3-4"><a aria-label="4"></a>                  <span class="at">sheet =</span> <span class="st">"County"</span>)</span>
+<span id="cb3-5"><a aria-label="5"></a>zev</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 
@@ -426,7 +432,7 @@
 </div><div class="column fragment" style="width:60%;">
 <p><strong>Base R</strong></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">readLines</span>(<span class="st">"data/127.txt"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a><span class="fu">readLines</span>(<span class="st">"data/127.txt"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -435,8 +441,8 @@
 </div>
 <p><strong><code>readr</code></strong></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">library</span>(readr)</span>
-<span id="cb9-2"><a></a><span class="fu">read_lines</span>(<span class="st">"data/127.txt"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb9-2"><a aria-label="2"></a><span class="fu">read_lines</span>(<span class="st">"data/127.txt"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -449,13 +455,13 @@
 <h2>Writing <code>.txt</code></h2>
 <p>Each element of a character vector becomes one line.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>card <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Golden Klaxons"</span>, <span class="st">"3000"</span>)</span>
-<span id="cb11-2"><a></a></span>
-<span id="cb11-3"><a></a><span class="co"># base R</span></span>
-<span id="cb11-4"><a></a><span class="fu">writeLines</span>(card, <span class="st">"data/127-clean.txt"</span>)</span>
-<span id="cb11-5"><a></a></span>
-<span id="cb11-6"><a></a><span class="co"># readr</span></span>
-<span id="cb11-7"><a></a><span class="fu">write_lines</span>(card, <span class="st">"data/127-clean.txt"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a>card <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Golden Klaxons"</span>, <span class="st">"3000"</span>)</span>
+<span id="cb11-2"><a aria-label="2"></a></span>
+<span id="cb11-3"><a aria-label="3"></a><span class="co"># base R</span></span>
+<span id="cb11-4"><a aria-label="4"></a><span class="fu">writeLines</span>(card, <span class="st">"data/127-clean.txt"</span>)</span>
+<span id="cb11-5"><a aria-label="5"></a></span>
+<span id="cb11-6"><a aria-label="6"></a><span class="co"># readr</span></span>
+<span id="cb11-7"><a aria-label="7"></a><span class="fu">write_lines</span>(card, <span class="st">"data/127-clean.txt"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 
@@ -496,7 +502,7 @@
 </div></div>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">readLines</span>(<span class="st">"data/127.md"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-label="1"></a><span class="fu">readLines</span>(<span class="st">"data/127.md"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -529,25 +535,25 @@
 <div class="code-with-filename-file">
 <pre><strong>hello-penguins.qmd</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17" data-filename="hello-penguins.qmd" data-code-line-numbers="1-4|6-8|10-15"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a></a><span class="co">---</span></span>
-<span id="cb17-2"><a></a><span class="an">title:</span><span class="co"> "Hello, Penguins!"</span></span>
-<span id="cb17-3"><a></a><span class="an">format:</span><span class="co"> html</span></span>
-<span id="cb17-4"><a></a><span class="co">---</span></span>
-<span id="cb17-5"><a></a></span>
-<span id="cb17-6"><a></a><span class="fu">## Data</span></span>
-<span id="cb17-7"><a></a></span>
-<span id="cb17-8"><a></a>For this analysis we'll use the penguins dataset from the palmerpenguins package.</span>
-<span id="cb17-9"><a></a></span>
-<span id="cb17-10"><a></a></span>
-<span id="cb17-11"><a></a>::: {.cell}</span>
-<span id="cb17-12"><a></a></span>
-<span id="cb17-13"><a></a><span class="in">```{.r .cell-code}</span></span>
-<span id="cb17-14"><a></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb17-15"><a></a><span class="fu">library</span>(ggthemes)</span>
-<span id="cb17-16"><a></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb17-17"><a></a><span class="fu">library</span>(gt)</span>
-<span id="cb17-18"><a></a><span class="in">```</span></span>
-<span id="cb17-19"><a></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17" data-filename="hello-penguins.qmd" data-code-line-numbers="1-4|6-8|10-15"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a aria-label="1"></a><span class="co">---</span></span>
+<span id="cb17-2"><a aria-label="2"></a><span class="an">title:</span><span class="co"> "Hello, Penguins!"</span></span>
+<span id="cb17-3"><a aria-label="3"></a><span class="an">format:</span><span class="co"> html</span></span>
+<span id="cb17-4"><a aria-label="4"></a><span class="co">---</span></span>
+<span id="cb17-5"><a aria-label="5"></a></span>
+<span id="cb17-6"><a aria-label="6"></a><span class="fu">## Data</span></span>
+<span id="cb17-7"><a aria-label="7"></a></span>
+<span id="cb17-8"><a aria-label="8"></a>For this analysis we'll use the penguins dataset from the palmerpenguins package.</span>
+<span id="cb17-9"><a aria-label="9"></a></span>
+<span id="cb17-10"><a aria-label="10"></a></span>
+<span id="cb17-11"><a aria-label="11"></a>::: {.cell}</span>
+<span id="cb17-12"><a aria-label="12"></a></span>
+<span id="cb17-13"><a aria-label="13"></a><span class="in">```{.r .cell-code}</span></span>
+<span id="cb17-14"><a aria-label="14"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb17-15"><a aria-label="15"></a><span class="fu">library</span>(ggthemes)</span>
+<span id="cb17-16"><a aria-label="16"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb17-17"><a aria-label="17"></a><span class="fu">library</span>(gt)</span>
+<span id="cb17-18"><a aria-label="18"></a><span class="in">```</span></span>
+<span id="cb17-19"><a aria-label="19"></a>:::</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="fragment">
 <p>YAML metadata, Markdown prose, and R code cells, all in one plain text file that Quarto knows how to split apart.</p>
@@ -569,24 +575,24 @@
 <div class="code-with-filename-file">
 <pre><strong>_schedule.yml (excerpt)</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18" data-filename="_schedule.yml (excerpt)" data-code-line-numbers="1-4|5|6-9"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb18-1"><a></a><span class="fu">topic</span><span class="kw">:</span><span class="at"> </span><span class="st">"Data in Trees"</span></span>
-<span id="cb18-2"><a></a><span class="fu">display-date</span><span class="kw">:</span><span class="at"> Aug 28</span></span>
-<span id="cb18-3"><a></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">"2026-08-28"</span></span>
-<span id="cb18-4"><a></a><span class="fu">image</span><span class="kw">:</span><span class="at"> 02-data-in-trees/images/tree-banner.webp</span></span>
-<span id="cb18-5"><a></a><span class="fu">docs</span><span class="kw">:</span></span>
-<span id="cb18-6"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">type</span><span class="kw">:</span><span class="at"> Slides</span></span>
-<span id="cb18-7"><a></a><span class="at">    </span><span class="fu">href</span><span class="kw">:</span><span class="at"> 02-data-in-trees/slides.qmd</span></span>
-<span id="cb18-8"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">type</span><span class="kw">:</span><span class="at"> Project</span></span>
-<span id="cb18-9"><a></a><span class="at">    </span><span class="fu">href</span><span class="kw">:</span><span class="at"> projects/1-index-cards/project.qmd</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18" data-filename="_schedule.yml (excerpt)" data-code-line-numbers="1-4|5|6-9"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb18-1"><a aria-label="1"></a><span class="fu">topic</span><span class="kw">:</span><span class="at"> </span><span class="st">"Data in Trees"</span></span>
+<span id="cb18-2"><a aria-label="2"></a><span class="fu">display-date</span><span class="kw">:</span><span class="at"> Aug 28</span></span>
+<span id="cb18-3"><a aria-label="3"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">"2026-08-28"</span></span>
+<span id="cb18-4"><a aria-label="4"></a><span class="fu">image</span><span class="kw">:</span><span class="at"> 02-data-in-trees/images/tree-banner.webp</span></span>
+<span id="cb18-5"><a aria-label="5"></a><span class="fu">docs</span><span class="kw">:</span></span>
+<span id="cb18-6"><a aria-label="6"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">type</span><span class="kw">:</span><span class="at"> Slides</span></span>
+<span id="cb18-7"><a aria-label="7"></a><span class="at">    </span><span class="fu">href</span><span class="kw">:</span><span class="at"> 02-data-in-trees/slides.qmd</span></span>
+<span id="cb18-8"><a aria-label="8"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">type</span><span class="kw">:</span><span class="at"> Project</span></span>
+<span id="cb18-9"><a aria-label="9"></a><span class="at">    </span><span class="fu">href</span><span class="kw">:</span><span class="at"> projects/1-index-cards/project.qmd</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
 <section id="reading-yaml-into-an-r-list" class="slide level2">
 <h2>Reading YAML into an R list</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">library</span>(yaml)</span>
-<span id="cb19-2"><a></a>day <span class="ot">&lt;-</span> <span class="fu">read_yaml</span>(<span class="st">"data/data-in-trees-day.yml"</span>)</span>
-<span id="cb19-3"><a></a><span class="fu">str</span>(day)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a aria-label="1"></a><span class="fu">library</span>(yaml)</span>
+<span id="cb19-2"><a aria-label="2"></a>day <span class="ot">&lt;-</span> <span class="fu">read_yaml</span>(<span class="st">"data/data-in-trees-day.yml"</span>)</span>
+<span id="cb19-3"><a aria-label="3"></a><span class="fu">str</span>(day)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -606,7 +612,7 @@
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>day<span class="sc">$</span>docs[[<span class="dv">2</span>]]<span class="sc">$</span>href</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a aria-label="1"></a>day<span class="sc">$</span>docs[[<span class="dv">2</span>]]<span class="sc">$</span>href</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -633,11 +639,11 @@
 <div class="fragment">
 <p>What does a data frame look like as plain text?</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb23-2"><a></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb23-3"><a></a>  <span class="fu">head</span>(<span class="dv">3</span>) <span class="sc">|&gt;</span></span>
-<span id="cb23-4"><a></a>  <span class="fu">format_csv</span>() <span class="sc">|&gt;</span></span>
-<span id="cb23-5"><a></a>  <span class="fu">cat</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a aria-label="1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb23-2"><a aria-label="2"></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb23-3"><a aria-label="3"></a>  <span class="fu">head</span>(<span class="dv">3</span>) <span class="sc">|&gt;</span></span>
+<span id="cb23-4"><a aria-label="4"></a>  <span class="fu">format_csv</span>() <span class="sc">|&gt;</span></span>
+<span id="cb23-5"><a aria-label="5"></a>  <span class="fu">cat</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -661,62 +667,62 @@ Adelie,Torgersen,40.3,18,195,3250,female,2007</code></pre>
 <h2>A CSV in the Wild</h2>
 <p>Electric vehicle registrations by state, which we’ll explore next time.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25" data-code-line-numbers="1|2-3|4|5-15|16-26|27-37|38-48|49-56"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a></a><span class="kw">(</span><span class="ex">base</span><span class="kw">)</span> <span class="ex">andrewbray@MacBookPro</span> fall-2026-private % cd 16-reading-writing/data</span>
-<span id="cb25-2"><a></a><span class="kw">(</span><span class="ex">base</span><span class="kw">)</span> <span class="ex">andrewbray@MacBookPro</span> data % ls</span>
-<span id="cb25-3"><a></a><span class="ex">ev-registrations.csv</span>    ev-xlsx.png</span>
-<span id="cb25-4"><a></a><span class="kw">(</span><span class="ex">base</span><span class="kw">)</span> <span class="ex">andrewbray@MacBookPro</span> data % cat ev-registrations.csv</span>
-<span id="cb25-5"><a></a><span class="ex">State,Count</span></span>
-<span id="cb25-6"><a></a><span class="ex">Alabama,</span><span class="st">"13,047"</span></span>
-<span id="cb25-7"><a></a><span class="ex">Alaska,</span><span class="st">"2,697"</span></span>
-<span id="cb25-8"><a></a><span class="ex">Arizona,</span><span class="st">"89,798"</span></span>
-<span id="cb25-9"><a></a><span class="ex">Arkansas,</span><span class="st">"7,108"</span></span>
-<span id="cb25-10"><a></a><span class="ex">California,</span><span class="st">"1,256,646"</span></span>
-<span id="cb25-11"><a></a><span class="ex">Colorado,</span><span class="st">"90,083"</span></span>
-<span id="cb25-12"><a></a><span class="ex">Connecticut,</span><span class="st">"31,557"</span></span>
-<span id="cb25-13"><a></a><span class="ex">Delaware,</span><span class="st">"8,435"</span></span>
-<span id="cb25-14"><a></a><span class="ex">District</span> of Columbia,<span class="st">"8,066"</span></span>
-<span id="cb25-15"><a></a><span class="ex">Florida,</span><span class="st">"254,878"</span></span>
-<span id="cb25-16"><a></a><span class="ex">Georgia,</span><span class="st">"92,368"</span></span>
-<span id="cb25-17"><a></a><span class="ex">Hawaii,</span><span class="st">"25,565"</span></span>
-<span id="cb25-18"><a></a><span class="ex">Idaho,</span><span class="st">"8,501"</span></span>
-<span id="cb25-19"><a></a><span class="ex">Illinois,</span><span class="st">"99,573"</span></span>
-<span id="cb25-20"><a></a><span class="ex">Indiana,</span><span class="st">"26,101"</span></span>
-<span id="cb25-21"><a></a><span class="ex">Iowa,</span><span class="st">"9,031"</span></span>
-<span id="cb25-22"><a></a><span class="ex">Kansas,</span><span class="st">"11,271"</span></span>
-<span id="cb25-23"><a></a><span class="ex">Kentucky,</span><span class="st">"11,617"</span></span>
-<span id="cb25-24"><a></a><span class="ex">Louisiana,</span><span class="st">"8,150"</span></span>
-<span id="cb25-25"><a></a><span class="ex">Maine,</span><span class="st">"7,377"</span></span>
-<span id="cb25-26"><a></a><span class="ex">Maryland,</span><span class="st">"72,139"</span></span>
-<span id="cb25-27"><a></a><span class="ex">Massachusetts,</span><span class="st">"73,768"</span></span>
-<span id="cb25-28"><a></a><span class="ex">Michigan,</span><span class="st">"50,284"</span></span>
-<span id="cb25-29"><a></a><span class="ex">Minnesota,</span><span class="st">"37,050"</span></span>
-<span id="cb25-30"><a></a><span class="ex">Mississippi,</span><span class="st">"3,590"</span></span>
-<span id="cb25-31"><a></a><span class="ex">Missouri,</span><span class="st">"26,861"</span></span>
-<span id="cb25-32"><a></a><span class="ex">Montana,</span><span class="st">"4,608"</span></span>
-<span id="cb25-33"><a></a><span class="ex">Nebraska,</span><span class="st">"6,920"</span></span>
-<span id="cb25-34"><a></a><span class="ex">Nevada,</span><span class="st">"47,361"</span></span>
-<span id="cb25-35"><a></a><span class="ex">New</span> Hampshire,<span class="st">"9,861"</span></span>
-<span id="cb25-36"><a></a><span class="ex">New</span> Jersey,<span class="st">"134,753"</span></span>
-<span id="cb25-37"><a></a><span class="ex">New</span> Mexico,<span class="st">"10,276"</span></span>
-<span id="cb25-38"><a></a><span class="ex">New</span> York,<span class="st">"131,250"</span></span>
-<span id="cb25-39"><a></a><span class="ex">North</span> Carolina,<span class="st">"70,164"</span></span>
-<span id="cb25-40"><a></a><span class="ex">North</span> Dakota,959</span>
-<span id="cb25-41"><a></a><span class="ex">Ohio,</span><span class="st">"50,393"</span></span>
-<span id="cb25-42"><a></a><span class="ex">Oklahoma,</span><span class="st">"22,843"</span></span>
-<span id="cb25-43"><a></a><span class="ex">Oregon,</span><span class="st">"64,361"</span></span>
-<span id="cb25-44"><a></a><span class="ex">Pennsylvania,</span><span class="st">"70,154"</span></span>
-<span id="cb25-45"><a></a><span class="ex">Rhode</span> Island,<span class="st">"6,396"</span></span>
-<span id="cb25-46"><a></a><span class="ex">South</span> Carolina,<span class="st">"20,873"</span></span>
-<span id="cb25-47"><a></a><span class="ex">South</span> Dakota,<span class="st">"1,675"</span></span>
-<span id="cb25-48"><a></a><span class="ex">Tennessee,</span><span class="st">"33,221"</span></span>
-<span id="cb25-49"><a></a><span class="ex">Texas,</span><span class="st">"230,125"</span></span>
-<span id="cb25-50"><a></a><span class="ex">Utah,</span><span class="st">"39,998"</span></span>
-<span id="cb25-51"><a></a><span class="ex">Vermont,</span><span class="st">"7,816"</span></span>
-<span id="cb25-52"><a></a><span class="ex">Virginia,</span><span class="st">"84,936"</span></span>
-<span id="cb25-53"><a></a><span class="ex">Washington,</span><span class="st">"152,101"</span></span>
-<span id="cb25-54"><a></a><span class="ex">West</span> Virginia,<span class="st">"2,758"</span></span>
-<span id="cb25-55"><a></a><span class="ex">Wisconsin,</span><span class="st">"24,943"</span></span>
-<span id="cb25-56"><a></a><span class="ex">Wyoming,</span><span class="st">"1,139"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25" data-code-line-numbers="1|2-3|4|5-15|16-26|27-37|38-48|49-56"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb25-1"><a aria-label="1"></a><span class="kw">(</span><span class="ex">base</span><span class="kw">)</span> <span class="ex">andrewbray@MacBookPro</span> fall-2026-private % cd 16-reading-writing/data</span>
+<span id="cb25-2"><a aria-label="2"></a><span class="kw">(</span><span class="ex">base</span><span class="kw">)</span> <span class="ex">andrewbray@MacBookPro</span> data % ls</span>
+<span id="cb25-3"><a aria-label="3"></a><span class="ex">ev-registrations.csv</span>    ev-xlsx.png</span>
+<span id="cb25-4"><a aria-label="4"></a><span class="kw">(</span><span class="ex">base</span><span class="kw">)</span> <span class="ex">andrewbray@MacBookPro</span> data % cat ev-registrations.csv</span>
+<span id="cb25-5"><a aria-label="5"></a><span class="ex">State,Count</span></span>
+<span id="cb25-6"><a aria-label="6"></a><span class="ex">Alabama,</span><span class="st">"13,047"</span></span>
+<span id="cb25-7"><a aria-label="7"></a><span class="ex">Alaska,</span><span class="st">"2,697"</span></span>
+<span id="cb25-8"><a aria-label="8"></a><span class="ex">Arizona,</span><span class="st">"89,798"</span></span>
+<span id="cb25-9"><a aria-label="9"></a><span class="ex">Arkansas,</span><span class="st">"7,108"</span></span>
+<span id="cb25-10"><a aria-label="10"></a><span class="ex">California,</span><span class="st">"1,256,646"</span></span>
+<span id="cb25-11"><a aria-label="11"></a><span class="ex">Colorado,</span><span class="st">"90,083"</span></span>
+<span id="cb25-12"><a aria-label="12"></a><span class="ex">Connecticut,</span><span class="st">"31,557"</span></span>
+<span id="cb25-13"><a aria-label="13"></a><span class="ex">Delaware,</span><span class="st">"8,435"</span></span>
+<span id="cb25-14"><a aria-label="14"></a><span class="ex">District</span> of Columbia,<span class="st">"8,066"</span></span>
+<span id="cb25-15"><a aria-label="15"></a><span class="ex">Florida,</span><span class="st">"254,878"</span></span>
+<span id="cb25-16"><a aria-label="16"></a><span class="ex">Georgia,</span><span class="st">"92,368"</span></span>
+<span id="cb25-17"><a aria-label="17"></a><span class="ex">Hawaii,</span><span class="st">"25,565"</span></span>
+<span id="cb25-18"><a aria-label="18"></a><span class="ex">Idaho,</span><span class="st">"8,501"</span></span>
+<span id="cb25-19"><a aria-label="19"></a><span class="ex">Illinois,</span><span class="st">"99,573"</span></span>
+<span id="cb25-20"><a aria-label="20"></a><span class="ex">Indiana,</span><span class="st">"26,101"</span></span>
+<span id="cb25-21"><a aria-label="21"></a><span class="ex">Iowa,</span><span class="st">"9,031"</span></span>
+<span id="cb25-22"><a aria-label="22"></a><span class="ex">Kansas,</span><span class="st">"11,271"</span></span>
+<span id="cb25-23"><a aria-label="23"></a><span class="ex">Kentucky,</span><span class="st">"11,617"</span></span>
+<span id="cb25-24"><a aria-label="24"></a><span class="ex">Louisiana,</span><span class="st">"8,150"</span></span>
+<span id="cb25-25"><a aria-label="25"></a><span class="ex">Maine,</span><span class="st">"7,377"</span></span>
+<span id="cb25-26"><a aria-label="26"></a><span class="ex">Maryland,</span><span class="st">"72,139"</span></span>
+<span id="cb25-27"><a aria-label="27"></a><span class="ex">Massachusetts,</span><span class="st">"73,768"</span></span>
+<span id="cb25-28"><a aria-label="28"></a><span class="ex">Michigan,</span><span class="st">"50,284"</span></span>
+<span id="cb25-29"><a aria-label="29"></a><span class="ex">Minnesota,</span><span class="st">"37,050"</span></span>
+<span id="cb25-30"><a aria-label="30"></a><span class="ex">Mississippi,</span><span class="st">"3,590"</span></span>
+<span id="cb25-31"><a aria-label="31"></a><span class="ex">Missouri,</span><span class="st">"26,861"</span></span>
+<span id="cb25-32"><a aria-label="32"></a><span class="ex">Montana,</span><span class="st">"4,608"</span></span>
+<span id="cb25-33"><a aria-label="33"></a><span class="ex">Nebraska,</span><span class="st">"6,920"</span></span>
+<span id="cb25-34"><a aria-label="34"></a><span class="ex">Nevada,</span><span class="st">"47,361"</span></span>
+<span id="cb25-35"><a aria-label="35"></a><span class="ex">New</span> Hampshire,<span class="st">"9,861"</span></span>
+<span id="cb25-36"><a aria-label="36"></a><span class="ex">New</span> Jersey,<span class="st">"134,753"</span></span>
+<span id="cb25-37"><a aria-label="37"></a><span class="ex">New</span> Mexico,<span class="st">"10,276"</span></span>
+<span id="cb25-38"><a aria-label="38"></a><span class="ex">New</span> York,<span class="st">"131,250"</span></span>
+<span id="cb25-39"><a aria-label="39"></a><span class="ex">North</span> Carolina,<span class="st">"70,164"</span></span>
+<span id="cb25-40"><a aria-label="40"></a><span class="ex">North</span> Dakota,959</span>
+<span id="cb25-41"><a aria-label="41"></a><span class="ex">Ohio,</span><span class="st">"50,393"</span></span>
+<span id="cb25-42"><a aria-label="42"></a><span class="ex">Oklahoma,</span><span class="st">"22,843"</span></span>
+<span id="cb25-43"><a aria-label="43"></a><span class="ex">Oregon,</span><span class="st">"64,361"</span></span>
+<span id="cb25-44"><a aria-label="44"></a><span class="ex">Pennsylvania,</span><span class="st">"70,154"</span></span>
+<span id="cb25-45"><a aria-label="45"></a><span class="ex">Rhode</span> Island,<span class="st">"6,396"</span></span>
+<span id="cb25-46"><a aria-label="46"></a><span class="ex">South</span> Carolina,<span class="st">"20,873"</span></span>
+<span id="cb25-47"><a aria-label="47"></a><span class="ex">South</span> Dakota,<span class="st">"1,675"</span></span>
+<span id="cb25-48"><a aria-label="48"></a><span class="ex">Tennessee,</span><span class="st">"33,221"</span></span>
+<span id="cb25-49"><a aria-label="49"></a><span class="ex">Texas,</span><span class="st">"230,125"</span></span>
+<span id="cb25-50"><a aria-label="50"></a><span class="ex">Utah,</span><span class="st">"39,998"</span></span>
+<span id="cb25-51"><a aria-label="51"></a><span class="ex">Vermont,</span><span class="st">"7,816"</span></span>
+<span id="cb25-52"><a aria-label="52"></a><span class="ex">Virginia,</span><span class="st">"84,936"</span></span>
+<span id="cb25-53"><a aria-label="53"></a><span class="ex">Washington,</span><span class="st">"152,101"</span></span>
+<span id="cb25-54"><a aria-label="54"></a><span class="ex">West</span> Virginia,<span class="st">"2,758"</span></span>
+<span id="cb25-55"><a aria-label="55"></a><span class="ex">Wisconsin,</span><span class="st">"24,943"</span></span>
+<span id="cb25-56"><a aria-label="56"></a><span class="ex">Wyoming,</span><span class="st">"1,139"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 
@@ -738,8 +744,8 @@ Adelie,Torgersen,40.3,18,195,3250,female,2007</code></pre>
 <section id="reading-csvs" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Reading CSVs</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb26-1" class="hljs-ln-code"><a></a>ev <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/ev-registrations.csv"</span>)</span>
-<span id="cb26-2" class="hljs-ln-code"><a></a><span class="fu">str</span>(ev)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb26-1" class="hljs-ln-code"><a aria-label="1"></a>ev <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/ev-registrations.csv"</span>)</span>
+<span id="cb26-2" class="hljs-ln-code"><a aria-label="2"></a><span class="fu">str</span>(ev)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -758,10 +764,10 @@ Adelie,Torgersen,40.3,18,195,3250,female,2007</code></pre>
 <h2 data-id="quarto-animate-title">Reading CSVs</h2>
 <h4 id="readr"><code>readr</code></h4>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb28-1" class="hljs-ln-code"><a></a><span class="fu">library</span>(readr)</span>
-<span id="cb28-2" class="hljs-ln-code"><a></a><span class="co"># library(tidyverse) # easy alternative</span></span>
-<span id="cb28-3" class="hljs-ln-code"><a></a>ev <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/ev-registrations.csv"</span>)</span>
-<span id="cb28-4" class="hljs-ln-code"><a></a>ev</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb28-1" class="hljs-ln-code"><a aria-label="1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb28-2" class="hljs-ln-code"><a aria-label="2"></a><span class="co"># library(tidyverse) # easy alternative</span></span>
+<span id="cb28-3" class="hljs-ln-code"><a aria-label="3"></a>ev <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/ev-registrations.csv"</span>)</span>
+<span id="cb28-4" class="hljs-ln-code"><a aria-label="4"></a>ev</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -781,19 +787,20 @@ Adelie,Torgersen,40.3,18,195,3250,female,2007</code></pre>
 # ℹ 41 more rows</code></pre>
 </div>
 </div>
-<p>. . .</p>
+<div class="fragment">
 <blockquote>
 <p><code>read_csv()</code> reports the column types it guessed and recognizes <code>"13,047"</code> as the number 13047.</p>
 </blockquote>
+</div>
 </section>
 <section id="writing-csvs" class="slide level2">
 <h2>Writing CSVs</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a><span class="co"># base R</span></span>
-<span id="cb30-2"><a></a><span class="fu">write.csv</span>(penguins, <span class="st">"data/penguins.csv"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb30-3"><a></a></span>
-<span id="cb30-4"><a></a><span class="co"># readr</span></span>
-<span id="cb30-5"><a></a><span class="fu">write_csv</span>(penguins, <span class="st">"data/penguins.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a aria-label="1"></a><span class="co"># base R</span></span>
+<span id="cb30-2"><a aria-label="2"></a><span class="fu">write.csv</span>(penguins, <span class="st">"data/penguins.csv"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb30-3"><a aria-label="3"></a></span>
+<span id="cb30-4"><a aria-label="4"></a><span class="co"># readr</span></span>
+<span id="cb30-5"><a aria-label="5"></a><span class="fu">write_csv</span>(penguins, <span class="st">"data/penguins.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 
@@ -833,9 +840,9 @@ Adelie,Torgersen,40.3,18,195,3250,female,2007</code></pre>
 <h2 data-id="quarto-animate-title">Reading and Writing JSON</h2>
 <p>An array of objects that share the same keys becomes a data frame.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb32-1" class="hljs-ln-code"><a></a><span class="fu">library</span>(jsonlite)</span>
-<span id="cb32-2" class="hljs-ln-code"><a></a>cards <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(<span class="st">"data/cards.json"</span>)</span>
-<span id="cb32-3" class="hljs-ln-code"><a></a>cards</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb32-1" class="hljs-ln-code"><a aria-label="1"></a><span class="fu">library</span>(jsonlite)</span>
+<span id="cb32-2" class="hljs-ln-code"><a aria-label="2"></a>cards <span class="ot">&lt;-</span> <span class="fu">fromJSON</span>(<span class="st">"data/cards.json"</span>)</span>
+<span id="cb32-3" class="hljs-ln-code"><a aria-label="3"></a>cards</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -850,7 +857,7 @@ Adelie,Torgersen,40.3,18,195,3250,female,2007</code></pre>
 <h2 data-id="quarto-animate-title">Reading and Writing JSON</h2>
 <p>An array of objects that share the same keys becomes a data frame.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb34-1" class="hljs-ln-code"><a></a><span class="fu">toJSON</span>(cards[<span class="dv">1</span>, ], <span class="at">pretty =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb34-1" class="hljs-ln-code"><a aria-label="1"></a><span class="fu">toJSON</span>(cards[<span class="dv">1</span>, ], <span class="at">pretty =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -884,16 +891,16 @@ Adelie,Torgersen,40.3,18,195,3250,female,2007</code></pre>
 <div class="code-with-filename-file">
 <pre><strong>playlist.json</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36" data-filename="playlist.json" data-code-line-numbers="2"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb36-1"><a></a><span class="fu">{</span></span>
-<span id="cb36-2"><a></a>  <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Study Mix"</span></span>
-<span id="cb36-3"><a></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36" data-filename="playlist.json" data-code-line-numbers="2"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb36-1"><a aria-label="1"></a><span class="fu">{</span></span>
+<span id="cb36-2"><a aria-label="2"></a>  <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Study Mix"</span></span>
+<span id="cb36-3"><a aria-label="3"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:45%;">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>playlist.yml</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37" data-filename="playlist.yml" data-code-line-numbers="1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb37-1"><a></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Study Mix</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37" data-filename="playlist.yml" data-code-line-numbers="1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb37-1"><a aria-label="1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Study Mix</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
 </div>
@@ -912,18 +919,18 @@ Adelie,Torgersen,40.3,18,195,3250,female,2007</code></pre>
 <div class="code-with-filename-file">
 <pre><strong>playlist.json</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb38" data-filename="playlist.json" data-code-line-numbers="2-3"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb38-1"><a></a><span class="fu">{</span></span>
-<span id="cb38-2"><a></a>  <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Study Mix"</span><span class="fu">,</span></span>
-<span id="cb38-3"><a></a>  <span class="dt">"owner"</span><span class="fu">:</span> <span class="st">"Ana"</span></span>
-<span id="cb38-4"><a></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb38" data-filename="playlist.json" data-code-line-numbers="2-3"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb38-1"><a aria-label="1"></a><span class="fu">{</span></span>
+<span id="cb38-2"><a aria-label="2"></a>  <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Study Mix"</span><span class="fu">,</span></span>
+<span id="cb38-3"><a aria-label="3"></a>  <span class="dt">"owner"</span><span class="fu">:</span> <span class="st">"Ana"</span></span>
+<span id="cb38-4"><a aria-label="4"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:45%;">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>playlist.yml</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39" data-filename="playlist.yml" data-code-line-numbers="2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb39-1"><a></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Study Mix</span></span>
-<span id="cb39-2"><a></a><span class="fu">owner</span><span class="kw">:</span><span class="at"> Ana</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39" data-filename="playlist.yml" data-code-line-numbers="2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb39-1"><a aria-label="1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Study Mix</span></span>
+<span id="cb39-2"><a aria-label="2"></a><span class="fu">owner</span><span class="kw">:</span><span class="at"> Ana</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
 </section>
@@ -941,22 +948,22 @@ Adelie,Torgersen,40.3,18,195,3250,female,2007</code></pre>
 <div class="code-with-filename-file">
 <pre><strong>playlist.json</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb40" data-filename="playlist.json" data-code-line-numbers="3-4"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb40-1"><a></a><span class="fu">{</span></span>
-<span id="cb40-2"><a></a>  <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Study Mix"</span><span class="fu">,</span></span>
-<span id="cb40-3"><a></a>  <span class="dt">"owner"</span><span class="fu">:</span> <span class="st">"Ana"</span><span class="fu">,</span></span>
-<span id="cb40-4"><a></a>  <span class="dt">"tags"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"lofi"</span><span class="ot">,</span> <span class="st">"focus"</span><span class="ot">]</span></span>
-<span id="cb40-5"><a></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb40" data-filename="playlist.json" data-code-line-numbers="3-4"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb40-1"><a aria-label="1"></a><span class="fu">{</span></span>
+<span id="cb40-2"><a aria-label="2"></a>  <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Study Mix"</span><span class="fu">,</span></span>
+<span id="cb40-3"><a aria-label="3"></a>  <span class="dt">"owner"</span><span class="fu">:</span> <span class="st">"Ana"</span><span class="fu">,</span></span>
+<span id="cb40-4"><a aria-label="4"></a>  <span class="dt">"tags"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"lofi"</span><span class="ot">,</span> <span class="st">"focus"</span><span class="ot">]</span></span>
+<span id="cb40-5"><a aria-label="5"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:45%;">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>playlist.yml</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41" data-filename="playlist.yml" data-code-line-numbers="3-5"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb41-1"><a></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Study Mix</span></span>
-<span id="cb41-2"><a></a><span class="fu">owner</span><span class="kw">:</span><span class="at"> Ana</span></span>
-<span id="cb41-3"><a></a><span class="fu">tags</span><span class="kw">:</span></span>
-<span id="cb41-4"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> lofi</span></span>
-<span id="cb41-5"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> focus</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb41" data-filename="playlist.yml" data-code-line-numbers="3-5"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb41-1"><a aria-label="1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Study Mix</span></span>
+<span id="cb41-2"><a aria-label="2"></a><span class="fu">owner</span><span class="kw">:</span><span class="at"> Ana</span></span>
+<span id="cb41-3"><a aria-label="3"></a><span class="fu">tags</span><span class="kw">:</span></span>
+<span id="cb41-4"><a aria-label="4"></a><span class="at">  </span><span class="kw">-</span><span class="at"> lofi</span></span>
+<span id="cb41-5"><a aria-label="5"></a><span class="at">  </span><span class="kw">-</span><span class="at"> focus</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
 </section>
@@ -974,31 +981,31 @@ Adelie,Torgersen,40.3,18,195,3250,female,2007</code></pre>
 <div class="code-with-filename-file">
 <pre><strong>playlist.json</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb42" data-filename="playlist.json" data-code-line-numbers="4-8"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb42-1"><a></a><span class="fu">{</span></span>
-<span id="cb42-2"><a></a>  <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Study Mix"</span><span class="fu">,</span></span>
-<span id="cb42-3"><a></a>  <span class="dt">"owner"</span><span class="fu">:</span> <span class="st">"Ana"</span><span class="fu">,</span></span>
-<span id="cb42-4"><a></a>  <span class="dt">"tags"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"lofi"</span><span class="ot">,</span> <span class="st">"focus"</span><span class="ot">]</span><span class="fu">,</span></span>
-<span id="cb42-5"><a></a>  <span class="dt">"songs"</span><span class="fu">:</span> <span class="ot">[</span></span>
-<span id="cb42-6"><a></a>    <span class="fu">{</span><span class="dt">"title"</span><span class="fu">:</span> <span class="st">"Espresso"</span><span class="fu">,</span> <span class="dt">"artist"</span><span class="fu">:</span> <span class="st">"Sabrina Carpenter"</span><span class="fu">}</span><span class="ot">,</span></span>
-<span id="cb42-7"><a></a>    <span class="fu">{</span><span class="dt">"title"</span><span class="fu">:</span> <span class="st">"Let It Go"</span><span class="fu">,</span> <span class="dt">"artist"</span><span class="fu">:</span> <span class="st">"Idina Menzel"</span><span class="fu">}</span></span>
-<span id="cb42-8"><a></a>  <span class="ot">]</span></span>
-<span id="cb42-9"><a></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb42" data-filename="playlist.json" data-code-line-numbers="4-8"><pre class="sourceCode numberSource json number-lines code-with-copy"><code class="sourceCode json"><span id="cb42-1"><a aria-label="1"></a><span class="fu">{</span></span>
+<span id="cb42-2"><a aria-label="2"></a>  <span class="dt">"name"</span><span class="fu">:</span> <span class="st">"Study Mix"</span><span class="fu">,</span></span>
+<span id="cb42-3"><a aria-label="3"></a>  <span class="dt">"owner"</span><span class="fu">:</span> <span class="st">"Ana"</span><span class="fu">,</span></span>
+<span id="cb42-4"><a aria-label="4"></a>  <span class="dt">"tags"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"lofi"</span><span class="ot">,</span> <span class="st">"focus"</span><span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb42-5"><a aria-label="5"></a>  <span class="dt">"songs"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb42-6"><a aria-label="6"></a>    <span class="fu">{</span><span class="dt">"title"</span><span class="fu">:</span> <span class="st">"Espresso"</span><span class="fu">,</span> <span class="dt">"artist"</span><span class="fu">:</span> <span class="st">"Sabrina Carpenter"</span><span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb42-7"><a aria-label="7"></a>    <span class="fu">{</span><span class="dt">"title"</span><span class="fu">:</span> <span class="st">"Let It Go"</span><span class="fu">,</span> <span class="dt">"artist"</span><span class="fu">:</span> <span class="st">"Idina Menzel"</span><span class="fu">}</span></span>
+<span id="cb42-8"><a aria-label="8"></a>  <span class="ot">]</span></span>
+<span id="cb42-9"><a aria-label="9"></a><span class="fu">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column" style="width:45%;">
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>playlist.yml</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb43" data-filename="playlist.yml" data-code-line-numbers="6-10"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb43-1"><a></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Study Mix</span></span>
-<span id="cb43-2"><a></a><span class="fu">owner</span><span class="kw">:</span><span class="at"> Ana</span></span>
-<span id="cb43-3"><a></a><span class="fu">tags</span><span class="kw">:</span></span>
-<span id="cb43-4"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> lofi</span></span>
-<span id="cb43-5"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> focus</span></span>
-<span id="cb43-6"><a></a><span class="fu">songs</span><span class="kw">:</span></span>
-<span id="cb43-7"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Espresso</span></span>
-<span id="cb43-8"><a></a><span class="at">    </span><span class="fu">artist</span><span class="kw">:</span><span class="at"> Sabrina Carpenter</span></span>
-<span id="cb43-9"><a></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Let It Go</span></span>
-<span id="cb43-10"><a></a><span class="at">    </span><span class="fu">artist</span><span class="kw">:</span><span class="at"> Idina Menzel</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb43" data-filename="playlist.yml" data-code-line-numbers="6-10"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb43-1"><a aria-label="1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Study Mix</span></span>
+<span id="cb43-2"><a aria-label="2"></a><span class="fu">owner</span><span class="kw">:</span><span class="at"> Ana</span></span>
+<span id="cb43-3"><a aria-label="3"></a><span class="fu">tags</span><span class="kw">:</span></span>
+<span id="cb43-4"><a aria-label="4"></a><span class="at">  </span><span class="kw">-</span><span class="at"> lofi</span></span>
+<span id="cb43-5"><a aria-label="5"></a><span class="at">  </span><span class="kw">-</span><span class="at"> focus</span></span>
+<span id="cb43-6"><a aria-label="6"></a><span class="fu">songs</span><span class="kw">:</span></span>
+<span id="cb43-7"><a aria-label="7"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Espresso</span></span>
+<span id="cb43-8"><a aria-label="8"></a><span class="at">    </span><span class="fu">artist</span><span class="kw">:</span><span class="at"> Sabrina Carpenter</span></span>
+<span id="cb43-9"><a aria-label="9"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="fu">title</span><span class="kw">:</span><span class="at"> Let It Go</span></span>
+<span id="cb43-10"><a aria-label="10"></a><span class="at">    </span><span class="fu">artist</span><span class="kw">:</span><span class="at"> Idina Menzel</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div></div>
 </section>

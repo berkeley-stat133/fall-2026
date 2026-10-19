@@ -6,10 +6,10 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-8b4baf804e461d9b72633f0de59a0cac.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/quarto-contrib/countdown-0.5.0/countdown.js"></script>
 <link href="../site_libs/quarto-contrib/countdown-0.5.0/countdown.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.27">
+  <meta name="generator" content="quarto-1.10.18">
 
   <title>STAT 133 – Exploratory and Explanatory Data Analysis</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -18,10 +18,16 @@
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -96,7 +102,7 @@
     code span.vs { color: #032f62; } /* VerbatimString */
     code span.wa { color: #ff5555; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-9047f5fc854fa021fe424807bb166be6.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-178a6b2344b3ca73242594dd9e92b758.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -330,7 +336,7 @@
 </section>
 <section id="section-1" class="slide level2" data-background-image="images/ev-barchart-full.png" data-background-size="contain">
 <h2></h2>
-<div id="timer_9ea4d49ed9f2daa6b50c5682a8196e31013abb6f" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_79673675a95a7102ca16d8a86a6b9de3c12d68f7" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -368,9 +374,9 @@
 <section id="the-data" class="slide level2">
 <h2>The Data</h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(readr)</span>
-<span id="cb1-2"><a></a>ev <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/ev-registrations.csv"</span>)</span>
-<span id="cb1-3"><a></a>ev</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-2"><a aria-label="2"></a>ev <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/ev-registrations.csv"</span>)</span>
+<span id="cb1-3"><a aria-label="3"></a>ev</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
@@ -395,7 +401,7 @@
 <h2>Q1: What are the cols and rows?</h2>
 <div class="fragment">
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">dim</span>(ev)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="fu">dim</span>(ev)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
@@ -405,7 +411,7 @@
 </div>
 <div class="fragment">
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">sapply</span>(ev, class)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="fu">sapply</span>(ev, class)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
@@ -418,7 +424,7 @@
 <section id="q1-what-are-the-cols-and-rows-1" class="slide level2">
 <h2>Q1: What are the cols and rows?</h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>ev</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a>ev</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
@@ -448,9 +454,9 @@
 <div class="fragment">
 <p><strong>Option 1</strong>: Total missing counts</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb9-2"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb9-3"><a></a>  <span class="fu">summarize</span>(<span class="at">n_missing =</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(Count)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb9-2"><a aria-label="2"></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb9-3"><a aria-label="3"></a>  <span class="fu">summarize</span>(<span class="at">n_missing =</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(Count)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
@@ -464,8 +470,8 @@
 <div class="fragment">
 <p><strong>Option 2</strong>: Proportion missing counts</p>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb11-2"><a></a>  <span class="fu">summarize</span>(<span class="at">p_missing =</span> <span class="fu">mean</span>(<span class="fu">is.na</span>(Count)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb11-2"><a aria-label="2"></a>  <span class="fu">summarize</span>(<span class="at">p_missing =</span> <span class="fu">mean</span>(<span class="fu">is.na</span>(Count)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
@@ -481,10 +487,10 @@
 <h2>Q3: What is the distribution of count?</h2>
 <div class="fragment">
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb13-2"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb13-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Count)) <span class="sc">+</span></span>
-<span id="cb13-4"><a></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-label="1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb13-2"><a aria-label="2"></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb13-3"><a aria-label="3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Count)) <span class="sc">+</span></span>
+<span id="cb13-4"><a aria-label="4"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment" data-layout-align="center">
 <div class="cell-output-display">
@@ -500,9 +506,9 @@
 <section id="q3-what-is-the-distribution-of-count-1" class="slide level2 magic-move">
 <h2>Q3: What is the distribution of count?</h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb14-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State)) <span class="sc">+</span></span>
-<span id="cb14-3"><a></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-label="1"></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb14-2"><a aria-label="2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State)) <span class="sc">+</span></span>
+<span id="cb14-3"><a aria-label="3"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment" data-layout-align="center">
 <div class="cell-output-display">
@@ -517,9 +523,9 @@
 <section id="q3-what-is-the-distribution-of-count-2" class="slide level2 magic-move">
 <h2>Q3: What is the distribution of count?</h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb15-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> State)) <span class="sc">+</span></span>
-<span id="cb15-3"><a></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a aria-label="1"></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb15-2"><a aria-label="2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> State)) <span class="sc">+</span></span>
+<span id="cb15-3"><a aria-label="3"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment" data-layout-align="center">
 <div class="cell-output-display">
@@ -545,8 +551,8 @@
 </div>
 <div class="fragment">
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb16-2"><a></a>penguins</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-label="1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb16-2"><a aria-label="2"></a>penguins</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
@@ -580,10 +586,10 @@
 </div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">library</span>(palmerpenguins)</span>
-<span id="cb18-2"><a></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb18-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> island)) <span class="sc">+</span></span>
-<span id="cb18-4"><a></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a aria-label="1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb18-2"><a aria-label="2"></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb18-3"><a aria-label="3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> island)) <span class="sc">+</span></span>
+<span id="cb18-4"><a aria-label="4"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment" data-layout-align="center">
 <div class="cell-output-display">
@@ -599,9 +605,9 @@
 <h2>Summarizing with counts</h2>
 <div class="fragment">
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb19-2"><a></a>  <span class="fu">group_by</span>(island) <span class="sc">|&gt;</span></span>
-<span id="cb19-3"><a></a>  <span class="fu">summarize</span>(<span class="at">count =</span> <span class="fu">n</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a aria-label="1"></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb19-2"><a aria-label="2"></a>  <span class="fu">group_by</span>(island) <span class="sc">|&gt;</span></span>
+<span id="cb19-3"><a aria-label="3"></a>  <span class="fu">summarize</span>(<span class="at">count =</span> <span class="fu">n</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
@@ -618,8 +624,8 @@
 <section id="summarizing-with-counts-1" class="slide level2 magic-move">
 <h2>Summarizing with counts</h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb21-2"><a></a>  <span class="fu">count</span>(island)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a aria-label="1"></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb21-2"><a aria-label="2"></a>  <span class="fu">count</span>(island)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
@@ -646,10 +652,10 @@
 </div>
 <div class="fragment">
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb23-2"><a></a>  <span class="fu">count</span>(island) <span class="sc">|&gt;</span></span>
-<span id="cb23-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> island, <span class="at">x =</span> n)) <span class="sc">+</span></span>
-<span id="cb23-4"><a></a>  <span class="fu">geom_col</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a aria-label="1"></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb23-2"><a aria-label="2"></a>  <span class="fu">count</span>(island) <span class="sc">|&gt;</span></span>
+<span id="cb23-3"><a aria-label="3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> island, <span class="at">x =</span> n)) <span class="sc">+</span></span>
+<span id="cb23-4"><a aria-label="4"></a>  <span class="fu">geom_col</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment" data-layout-align="center">
 <div class="cell-output-display">
@@ -665,9 +671,9 @@
 <section id="q3-what-is-the-distribution-of-count-3" class="slide level2 magic-move">
 <h2>Q3: What is the distribution of count?</h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb24-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
-<span id="cb24-3"><a></a>  <span class="fu">geom_col</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a aria-label="1"></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb24-2"><a aria-label="2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb24-3"><a aria-label="3"></a>  <span class="fu">geom_col</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment" data-layout-align="center">
 <div class="cell-output-display">
@@ -685,12 +691,12 @@
 <section id="q3-what-is-the-distribution-of-count-4" class="slide level2 magic-move">
 <h2>Q3: What is the distribution of count?</h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb25-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
-<span id="cb25-3"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb25-4"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
-<span id="cb25-5"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
-<span id="cb25-6"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a aria-label="1"></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb25-2"><a aria-label="2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb25-3"><a aria-label="3"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb25-4"><a aria-label="4"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
+<span id="cb25-5"><a aria-label="5"></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
+<span id="cb25-6"><a aria-label="6"></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment" data-layout-align="center">
 <div class="cell-output-display">
@@ -821,11 +827,11 @@
 <h2></h2>
 <div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb26-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm,</span>
-<span id="cb26-3"><a></a>             <span class="at">y =</span> flipper_length_mm,</span>
-<span id="cb26-4"><a></a>             <span class="at">color =</span> species)) <span class="sc">+</span></span>
-<span id="cb26-5"><a></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a aria-label="1"></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb26-2"><a aria-label="2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm,</span>
+<span id="cb26-3"><a aria-label="3"></a>             <span class="at">y =</span> flipper_length_mm,</span>
+<span id="cb26-4"><a aria-label="4"></a>             <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb26-5"><a aria-label="5"></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column fragment">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -840,15 +846,15 @@
 <h2></h2>
 <div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb27-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm,</span>
-<span id="cb27-3"><a></a>             <span class="at">y =</span> flipper_length_mm,</span>
-<span id="cb27-4"><a></a>             <span class="at">color =</span> species)) <span class="sc">+</span></span>
-<span id="cb27-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb27-6"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Penguin size differs by island"</span>,</span>
-<span id="cb27-7"><a></a>       <span class="at">x =</span> <span class="st">"Bill Length (mm)"</span>,</span>
-<span id="cb27-8"><a></a>       <span class="at">y =</span> <span class="st">"Bill Depth (mm)"</span>,</span>
-<span id="cb27-9"><a></a>       <span class="at">color =</span> <span class="st">"Species"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a aria-label="1"></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb27-2"><a aria-label="2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm,</span>
+<span id="cb27-3"><a aria-label="3"></a>             <span class="at">y =</span> flipper_length_mm,</span>
+<span id="cb27-4"><a aria-label="4"></a>             <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb27-5"><a aria-label="5"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb27-6"><a aria-label="6"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Penguin size differs by island"</span>,</span>
+<span id="cb27-7"><a aria-label="7"></a>       <span class="at">x =</span> <span class="st">"Bill Length (mm)"</span>,</span>
+<span id="cb27-8"><a aria-label="8"></a>       <span class="at">y =</span> <span class="st">"Bill Depth (mm)"</span>,</span>
+<span id="cb27-9"><a aria-label="9"></a>       <span class="at">color =</span> <span class="st">"Species"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column fragment">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -902,23 +908,23 @@ An alternative method uses a separate layer for each label.
 <section id="section-15" class="slide level2">
 <h2></h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28" data-code-line-numbers="10-11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>p2 <span class="ot">&lt;-</span> penguins <span class="sc">|&gt;</span></span>
-<span id="cb28-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm,</span>
-<span id="cb28-3"><a></a>             <span class="at">y =</span> flipper_length_mm,</span>
-<span id="cb28-4"><a></a>             <span class="at">color =</span> species)) <span class="sc">+</span></span>
-<span id="cb28-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb28-6"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Penguin size differs by island"</span>,</span>
-<span id="cb28-7"><a></a>       <span class="at">x =</span> <span class="st">"Bill Length (mm)"</span>,</span>
-<span id="cb28-8"><a></a>       <span class="at">y =</span> <span class="st">"Bill Depth (mm)"</span>,</span>
-<span id="cb28-9"><a></a>       <span class="at">color =</span> <span class="st">"Species"</span>) <span class="sc">+</span></span>
-<span id="cb28-10"><a></a>  <span class="fu">lims</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">60</span>),</span>
-<span id="cb28-11"><a></a>       <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">233</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28" data-code-line-numbers="10-11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a aria-label="1"></a>p2 <span class="ot">&lt;-</span> penguins <span class="sc">|&gt;</span></span>
+<span id="cb28-2"><a aria-label="2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm,</span>
+<span id="cb28-3"><a aria-label="3"></a>             <span class="at">y =</span> flipper_length_mm,</span>
+<span id="cb28-4"><a aria-label="4"></a>             <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb28-5"><a aria-label="5"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb28-6"><a aria-label="6"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Penguin size differs by island"</span>,</span>
+<span id="cb28-7"><a aria-label="7"></a>       <span class="at">x =</span> <span class="st">"Bill Length (mm)"</span>,</span>
+<span id="cb28-8"><a aria-label="8"></a>       <span class="at">y =</span> <span class="st">"Bill Depth (mm)"</span>,</span>
+<span id="cb28-9"><a aria-label="9"></a>       <span class="at">color =</span> <span class="st">"Species"</span>) <span class="sc">+</span></span>
+<span id="cb28-10"><a aria-label="10"></a>  <span class="fu">lims</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">60</span>),</span>
+<span id="cb28-11"><a aria-label="11"></a>       <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">233</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="section-16" class="slide level2">
 <h2></h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a aria-label="1"></a>p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment" data-layout-align="center">
 <div class="cell-output-display">
@@ -938,9 +944,9 @@ An alternative method uses a separate layer for each label.
 <section id="section-17" class="slide level2">
 <h2></h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>p1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a aria-label="1"></a>p1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a><span class="co">#  scale_x_log10()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a aria-label="1"></a><span class="co">#  scale_x_log10()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <img data-src="slides_files/figure-revealjs/p1-linear-x-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"><blockquote>
 <p>Pay attention to where the x = 40 and x = 60 lines are…</p>
@@ -949,8 +955,8 @@ An alternative method uses a separate layer for each label.
 <section id="section-18" class="slide level2">
 <h2></h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>p1 <span class="sc">+</span></span>
-<span id="cb32-2"><a></a>  <span class="fu">scale_x_log10</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a aria-label="1"></a>p1 <span class="sc">+</span></span>
+<span id="cb32-2"><a aria-label="2"></a>  <span class="fu">scale_x_log10</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="slides_files/figure-revealjs/p1-log-x-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
@@ -989,20 +995,20 @@ An alternative method uses a separate layer for each label.
 <p>How could I make it easiest to understand the relative commonality of the three species?</p>
 </blockquote>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>penguins <span class="sc">|&gt;</span></span>
-<span id="cb33-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> species)) <span class="sc">+</span></span>
-<span id="cb33-3"><a></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a aria-label="1"></a>penguins <span class="sc">|&gt;</span></span>
+<span id="cb33-2"><a aria-label="2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> species)) <span class="sc">+</span></span>
+<span id="cb33-3"><a aria-label="3"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="slides_files/figure-revealjs/species-bar-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="forcats" class="slide level2 magic-move">
 <h2><code>forcats</code></h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a><span class="fu">library</span>(forcats) <span class="co"># useful functions for factors</span></span>
-<span id="cb34-2"><a></a>penguins <span class="sc">|&gt;</span> </span>
-<span id="cb34-3"><a></a>  <span class="fu">mutate</span>(<span class="at">species =</span> <span class="fu">fct_infreq</span>(species)) <span class="sc">|&gt;</span></span>
-<span id="cb34-4"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> species)) <span class="sc">+</span></span>
-<span id="cb34-5"><a></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a aria-label="1"></a><span class="fu">library</span>(forcats) <span class="co"># useful functions for factors</span></span>
+<span id="cb34-2"><a aria-label="2"></a>penguins <span class="sc">|&gt;</span> </span>
+<span id="cb34-3"><a aria-label="3"></a>  <span class="fu">mutate</span>(<span class="at">species =</span> <span class="fu">fct_infreq</span>(species)) <span class="sc">|&gt;</span></span>
+<span id="cb34-4"><a aria-label="4"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> species)) <span class="sc">+</span></span>
+<span id="cb34-5"><a aria-label="5"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment" data-layout-align="center">
 <div class="cell-output-display">
@@ -1054,16 +1060,16 @@ An alternative method uses a separate layer for each label.
 <h2></h2>
 <div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>p1 <span class="ot">&lt;-</span> penguins <span class="sc">|&gt;</span></span>
-<span id="cb35-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm,</span>
-<span id="cb35-3"><a></a>             <span class="at">y =</span> flipper_length_mm,</span>
-<span id="cb35-4"><a></a>             <span class="at">color =</span> species)) <span class="sc">+</span></span>
-<span id="cb35-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb35-6"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Penguin size differs by island"</span>,</span>
-<span id="cb35-7"><a></a>       <span class="at">x =</span> <span class="st">"Bill Length (mm)"</span>,</span>
-<span id="cb35-8"><a></a>       <span class="at">y =</span> <span class="st">"Bill Depth (mm)"</span>,</span>
-<span id="cb35-9"><a></a>       <span class="at">color =</span> <span class="st">"Species"</span>)</span>
-<span id="cb35-10"><a></a>p1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a aria-label="1"></a>p1 <span class="ot">&lt;-</span> penguins <span class="sc">|&gt;</span></span>
+<span id="cb35-2"><a aria-label="2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> bill_length_mm,</span>
+<span id="cb35-3"><a aria-label="3"></a>             <span class="at">y =</span> flipper_length_mm,</span>
+<span id="cb35-4"><a aria-label="4"></a>             <span class="at">color =</span> species)) <span class="sc">+</span></span>
+<span id="cb35-5"><a aria-label="5"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb35-6"><a aria-label="6"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Penguin size differs by island"</span>,</span>
+<span id="cb35-7"><a aria-label="7"></a>       <span class="at">x =</span> <span class="st">"Bill Length (mm)"</span>,</span>
+<span id="cb35-8"><a aria-label="8"></a>       <span class="at">y =</span> <span class="st">"Bill Depth (mm)"</span>,</span>
+<span id="cb35-9"><a aria-label="9"></a>       <span class="at">color =</span> <span class="st">"Species"</span>)</span>
+<span id="cb35-10"><a aria-label="10"></a>p1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column fragment">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -1078,8 +1084,8 @@ An alternative method uses a separate layer for each label.
 <h2></h2>
 <div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a>p1 <span class="sc">+</span></span>
-<span id="cb36-2"><a></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a aria-label="1"></a>p1 <span class="sc">+</span></span>
+<span id="cb36-2"><a aria-label="2"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column fragment">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -1094,8 +1100,8 @@ An alternative method uses a separate layer for each label.
 <h2></h2>
 <div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a>p1 <span class="sc">+</span></span>
-<span id="cb37-2"><a></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a aria-label="1"></a>p1 <span class="sc">+</span></span>
+<span id="cb37-2"><a aria-label="2"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column fragment">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -1203,13 +1209,13 @@ Write the ggplot2 code that has generated the following plot. -->
 <section id="where-we-left-off" class="slide level2">
 <h2>Where we left off</h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a>ev <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/ev-registrations.csv"</span>)</span>
-<span id="cb38-2"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb38-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
-<span id="cb38-4"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb38-5"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
-<span id="cb38-6"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
-<span id="cb38-7"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a aria-label="1"></a>ev <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/ev-registrations.csv"</span>)</span>
+<span id="cb38-2"><a aria-label="2"></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb38-3"><a aria-label="3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb38-4"><a aria-label="4"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb38-5"><a aria-label="5"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
+<span id="cb38-6"><a aria-label="6"></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
+<span id="cb38-7"><a aria-label="7"></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="where-we-left-off-1" class="slide level2">
@@ -1228,15 +1234,15 @@ Write the ggplot2 code that has generated the following plot. -->
 <section id="labels" class="slide level2">
 <h2>Labels</h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39" data-code-line-numbers="7-9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb39-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
-<span id="cb39-3"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb39-4"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
-<span id="cb39-5"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
-<span id="cb39-6"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
-<span id="cb39-7"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
-<span id="cb39-8"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
-<span id="cb39-9"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39" data-code-line-numbers="7-9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a aria-label="1"></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb39-2"><a aria-label="2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb39-3"><a aria-label="3"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb39-4"><a aria-label="4"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
+<span id="cb39-5"><a aria-label="5"></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
+<span id="cb39-6"><a aria-label="6"></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb39-7"><a aria-label="7"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
+<span id="cb39-8"><a aria-label="8"></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb39-9"><a aria-label="9"></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 </section>
@@ -1261,16 +1267,16 @@ Write the ggplot2 code that has generated the following plot. -->
 <section id="labels-2" class="slide level2">
 <h2>Labels</h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40" data-code-line-numbers="7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb40-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
-<span id="cb40-3"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb40-4"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
-<span id="cb40-5"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
-<span id="cb40-6"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
-<span id="cb40-7"><a></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
-<span id="cb40-8"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
-<span id="cb40-9"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
-<span id="cb40-10"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40" data-code-line-numbers="7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a aria-label="1"></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb40-2"><a aria-label="2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb40-3"><a aria-label="3"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb40-4"><a aria-label="4"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
+<span id="cb40-5"><a aria-label="5"></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
+<span id="cb40-6"><a aria-label="6"></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb40-7"><a aria-label="7"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb40-8"><a aria-label="8"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
+<span id="cb40-9"><a aria-label="9"></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb40-10"><a aria-label="10"></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 </section>
@@ -1289,17 +1295,17 @@ Write the ggplot2 code that has generated the following plot. -->
 <section id="facilitating-comparisons" class="slide level2">
 <h2>Facilitating Comparisons</h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41" data-code-line-numbers="|11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb41-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
-<span id="cb41-3"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb41-4"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
-<span id="cb41-5"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
-<span id="cb41-6"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
-<span id="cb41-7"><a></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
-<span id="cb41-8"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
-<span id="cb41-9"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
-<span id="cb41-10"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>) <span class="sc">+</span></span>
-<span id="cb41-11"><a></a>  <span class="fu">scale_y_sqrt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41" data-code-line-numbers="|11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a aria-label="1"></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb41-2"><a aria-label="2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb41-3"><a aria-label="3"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb41-4"><a aria-label="4"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
+<span id="cb41-5"><a aria-label="5"></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
+<span id="cb41-6"><a aria-label="6"></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb41-7"><a aria-label="7"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb41-8"><a aria-label="8"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
+<span id="cb41-9"><a aria-label="9"></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb41-10"><a aria-label="10"></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>) <span class="sc">+</span></span>
+<span id="cb41-11"><a aria-label="11"></a>  <span class="fu">scale_y_sqrt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 </section>
@@ -1314,17 +1320,17 @@ Write the ggplot2 code that has generated the following plot. -->
 </div></section><section id="facilitating-comparisons-1" class="slide level2">
 <h2>Facilitating Comparisons</h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42" data-code-line-numbers="|11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb42-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
-<span id="cb42-3"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb42-4"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
-<span id="cb42-5"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
-<span id="cb42-6"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
-<span id="cb42-7"><a></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
-<span id="cb42-8"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
-<span id="cb42-9"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
-<span id="cb42-10"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>) <span class="sc">+</span></span>
-<span id="cb42-11"><a></a>  <span class="fu">scale_y_sqrt</span>(<span class="at">labels =</span> scales<span class="sc">::</span>comma)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42" data-code-line-numbers="|11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a aria-label="1"></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb42-2"><a aria-label="2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb42-3"><a aria-label="3"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb42-4"><a aria-label="4"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
+<span id="cb42-5"><a aria-label="5"></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
+<span id="cb42-6"><a aria-label="6"></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb42-7"><a aria-label="7"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb42-8"><a aria-label="8"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
+<span id="cb42-9"><a aria-label="9"></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb42-10"><a aria-label="10"></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>) <span class="sc">+</span></span>
+<span id="cb42-11"><a aria-label="11"></a>  <span class="fu">scale_y_sqrt</span>(<span class="at">labels =</span> scales<span class="sc">::</span>comma)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 </section>
@@ -1343,18 +1349,18 @@ Write the ggplot2 code that has generated the following plot. -->
 <section id="themes" class="slide level2 magic-move">
 <h2>Themes</h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43" data-code-line-numbers="12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb43-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
-<span id="cb43-3"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb43-4"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
-<span id="cb43-5"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
-<span id="cb43-6"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
-<span id="cb43-7"><a></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
-<span id="cb43-8"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
-<span id="cb43-9"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
-<span id="cb43-10"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>) <span class="sc">+</span> </span>
-<span id="cb43-11"><a></a>  <span class="fu">scale_y_sqrt</span>(<span class="at">labels =</span> scales<span class="sc">::</span>comma) <span class="sc">+</span></span>
-<span id="cb43-12"><a></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43" data-code-line-numbers="12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a aria-label="1"></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb43-2"><a aria-label="2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb43-3"><a aria-label="3"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb43-4"><a aria-label="4"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
+<span id="cb43-5"><a aria-label="5"></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
+<span id="cb43-6"><a aria-label="6"></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb43-7"><a aria-label="7"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb43-8"><a aria-label="8"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
+<span id="cb43-9"><a aria-label="9"></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb43-10"><a aria-label="10"></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>) <span class="sc">+</span> </span>
+<span id="cb43-11"><a aria-label="11"></a>  <span class="fu">scale_y_sqrt</span>(<span class="at">labels =</span> scales<span class="sc">::</span>comma) <span class="sc">+</span></span>
+<span id="cb43-12"><a aria-label="12"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 </section>
@@ -1369,17 +1375,17 @@ Write the ggplot2 code that has generated the following plot. -->
 </div></section><section id="themes-1" class="slide level2 magic-move">
 <h2>Themes</h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb44-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
-<span id="cb44-3"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb44-4"><a></a>  <span class="fu">theme_minimal</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
-<span id="cb44-5"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
-<span id="cb44-6"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
-<span id="cb44-7"><a></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
-<span id="cb44-8"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
-<span id="cb44-9"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
-<span id="cb44-10"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>) <span class="sc">+</span></span>
-<span id="cb44-11"><a></a>  <span class="fu">scale_y_sqrt</span>(<span class="at">labels =</span> scales<span class="sc">::</span>comma)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a aria-label="1"></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb44-2"><a aria-label="2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb44-3"><a aria-label="3"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb44-4"><a aria-label="4"></a>  <span class="fu">theme_minimal</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
+<span id="cb44-5"><a aria-label="5"></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
+<span id="cb44-6"><a aria-label="6"></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb44-7"><a aria-label="7"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb44-8"><a aria-label="8"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
+<span id="cb44-9"><a aria-label="9"></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb44-10"><a aria-label="10"></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>) <span class="sc">+</span></span>
+<span id="cb44-11"><a aria-label="11"></a>  <span class="fu">scale_y_sqrt</span>(<span class="at">labels =</span> scales<span class="sc">::</span>comma)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment" data-layout-align="center">
 <div class="cell-output cell-output-error">
@@ -1391,18 +1397,18 @@ Write the ggplot2 code that has generated the following plot. -->
 <section id="themes-2" class="slide level2 magic-move">
 <h2>Themes</h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46" data-code-line-numbers="4-5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb46-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
-<span id="cb46-3"><a></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
-<span id="cb46-4"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb46-5"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
-<span id="cb46-6"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
-<span id="cb46-7"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
-<span id="cb46-8"><a></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
-<span id="cb46-9"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
-<span id="cb46-10"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
-<span id="cb46-11"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>) <span class="sc">+</span></span>
-<span id="cb46-12"><a></a>  <span class="fu">scale_y_sqrt</span>(<span class="at">labels =</span> scales<span class="sc">::</span>comma)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46" data-code-line-numbers="4-5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a aria-label="1"></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb46-2"><a aria-label="2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb46-3"><a aria-label="3"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb46-4"><a aria-label="4"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb46-5"><a aria-label="5"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
+<span id="cb46-6"><a aria-label="6"></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
+<span id="cb46-7"><a aria-label="7"></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb46-8"><a aria-label="8"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb46-9"><a aria-label="9"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
+<span id="cb46-10"><a aria-label="10"></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb46-11"><a aria-label="11"></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>) <span class="sc">+</span></span>
+<span id="cb46-12"><a aria-label="12"></a>  <span class="fu">scale_y_sqrt</span>(<span class="at">labels =</span> scales<span class="sc">::</span>comma)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 </section>
@@ -1437,18 +1443,18 @@ Write the ggplot2 code that has generated the following plot. -->
 <h2>Setting Aesthetics</h2>
 <div class="fragment">
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb47-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
-<span id="cb47-3"><a></a>  <span class="fu">geom_col</span>(<span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
-<span id="cb47-4"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb47-5"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
-<span id="cb47-6"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
-<span id="cb47-7"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
-<span id="cb47-8"><a></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
-<span id="cb47-9"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
-<span id="cb47-10"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
-<span id="cb47-11"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>) <span class="sc">+</span></span>
-<span id="cb47-12"><a></a>  <span class="fu">scale_y_sqrt</span>(<span class="at">labels =</span> scales<span class="sc">::</span>comma)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a aria-label="1"></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb47-2"><a aria-label="2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb47-3"><a aria-label="3"></a>  <span class="fu">geom_col</span>(<span class="at">color =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb47-4"><a aria-label="4"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb47-5"><a aria-label="5"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
+<span id="cb47-6"><a aria-label="6"></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
+<span id="cb47-7"><a aria-label="7"></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb47-8"><a aria-label="8"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb47-9"><a aria-label="9"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
+<span id="cb47-10"><a aria-label="10"></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb47-11"><a aria-label="11"></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>) <span class="sc">+</span></span>
+<span id="cb47-12"><a aria-label="12"></a>  <span class="fu">scale_y_sqrt</span>(<span class="at">labels =</span> scales<span class="sc">::</span>comma)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 </div>
@@ -1464,18 +1470,18 @@ Write the ggplot2 code that has generated the following plot. -->
 </div></section><section id="setting-aesthetics-1" class="slide level2 magic-move">
 <h2>Setting Aesthetics</h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb48-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
-<span id="cb48-3"><a></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
-<span id="cb48-4"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb48-5"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
-<span id="cb48-6"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
-<span id="cb48-7"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
-<span id="cb48-8"><a></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
-<span id="cb48-9"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
-<span id="cb48-10"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
-<span id="cb48-11"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>) <span class="sc">+</span></span>
-<span id="cb48-12"><a></a>  <span class="fu">scale_y_sqrt</span>(<span class="at">labels =</span> scales<span class="sc">::</span>comma)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a aria-label="1"></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb48-2"><a aria-label="2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb48-3"><a aria-label="3"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb48-4"><a aria-label="4"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb48-5"><a aria-label="5"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
+<span id="cb48-6"><a aria-label="6"></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
+<span id="cb48-7"><a aria-label="7"></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb48-8"><a aria-label="8"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb48-9"><a aria-label="9"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
+<span id="cb48-10"><a aria-label="10"></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb48-11"><a aria-label="11"></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>) <span class="sc">+</span></span>
+<span id="cb48-12"><a aria-label="12"></a>  <span class="fu">scale_y_sqrt</span>(<span class="at">labels =</span> scales<span class="sc">::</span>comma)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 </section>
@@ -1490,18 +1496,18 @@ Write the ggplot2 code that has generated the following plot. -->
 </div></section><section id="section-29" class="slide level2">
 <h2></h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb49-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
-<span id="cb49-3"><a></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
-<span id="cb49-4"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb49-5"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
-<span id="cb49-6"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
-<span id="cb49-7"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
-<span id="cb49-8"><a></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
-<span id="cb49-9"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
-<span id="cb49-10"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
-<span id="cb49-11"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>) <span class="sc">+</span></span>
-<span id="cb49-12"><a></a>  <span class="fu">scale_y_sqrt</span>(<span class="at">labels =</span> scales<span class="sc">::</span>comma)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a aria-label="1"></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb49-2"><a aria-label="2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb49-3"><a aria-label="3"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb49-4"><a aria-label="4"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb49-5"><a aria-label="5"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
+<span id="cb49-6"><a aria-label="6"></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
+<span id="cb49-7"><a aria-label="7"></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb49-8"><a aria-label="8"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb49-9"><a aria-label="9"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
+<span id="cb49-10"><a aria-label="10"></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb49-11"><a aria-label="11"></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>) <span class="sc">+</span></span>
+<span id="cb49-12"><a aria-label="12"></a>  <span class="fu">scale_y_sqrt</span>(<span class="at">labels =</span> scales<span class="sc">::</span>comma)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 </section>
@@ -1533,53 +1539,53 @@ Write the ggplot2 code that has generated the following plot. -->
 <section id="section-31" class="slide level2 magic-move">
 <h2></h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb50-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
-<span id="cb50-3"><a></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
-<span id="cb50-4"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb50-5"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
-<span id="cb50-6"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
-<span id="cb50-7"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
-<span id="cb50-8"><a></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
-<span id="cb50-9"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
-<span id="cb50-10"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
-<span id="cb50-11"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>) <span class="sc">+</span></span>
-<span id="cb50-12"><a></a>  <span class="fu">scale_y_sqrt</span>(<span class="at">labels =</span> scales<span class="sc">::</span>comma)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a aria-label="1"></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb50-2"><a aria-label="2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb50-3"><a aria-label="3"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb50-4"><a aria-label="4"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb50-5"><a aria-label="5"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
+<span id="cb50-6"><a aria-label="6"></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
+<span id="cb50-7"><a aria-label="7"></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb50-8"><a aria-label="8"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb50-9"><a aria-label="9"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
+<span id="cb50-10"><a aria-label="10"></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb50-11"><a aria-label="11"></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>) <span class="sc">+</span></span>
+<span id="cb50-12"><a aria-label="12"></a>  <span class="fu">scale_y_sqrt</span>(<span class="at">labels =</span> scales<span class="sc">::</span>comma)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="section-32" class="slide level2 magic-move">
 <h2></h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb51-2"><a></a>  <span class="fu">mutate</span>(<span class="at">State =</span> <span class="fu">fct_reorder</span>(State, Count, <span class="at">.desc =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb51-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
-<span id="cb51-4"><a></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
-<span id="cb51-5"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb51-6"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
-<span id="cb51-7"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
-<span id="cb51-8"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
-<span id="cb51-9"><a></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
-<span id="cb51-10"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
-<span id="cb51-11"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
-<span id="cb51-12"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>) <span class="sc">+</span></span>
-<span id="cb51-13"><a></a>  <span class="fu">scale_y_sqrt</span>(<span class="at">labels =</span> scales<span class="sc">::</span>comma)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a aria-label="1"></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb51-2"><a aria-label="2"></a>  <span class="fu">mutate</span>(<span class="at">State =</span> <span class="fu">fct_reorder</span>(State, Count, <span class="at">.desc =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb51-3"><a aria-label="3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb51-4"><a aria-label="4"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb51-5"><a aria-label="5"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb51-6"><a aria-label="6"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
+<span id="cb51-7"><a aria-label="7"></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
+<span id="cb51-8"><a aria-label="8"></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb51-9"><a aria-label="9"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb51-10"><a aria-label="10"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
+<span id="cb51-11"><a aria-label="11"></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb51-12"><a aria-label="12"></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>) <span class="sc">+</span></span>
+<span id="cb51-13"><a aria-label="13"></a>  <span class="fu">scale_y_sqrt</span>(<span class="at">labels =</span> scales<span class="sc">::</span>comma)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="section-33" class="slide level2 magic-move">
 <h2></h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52" data-code-line-numbers="12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a></a>ev <span class="sc">|&gt;</span></span>
-<span id="cb52-2"><a></a>  <span class="fu">mutate</span>(<span class="at">State =</span> <span class="fu">fct_reorder</span>(State, Count, <span class="at">.desc =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb52-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
-<span id="cb52-4"><a></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
-<span id="cb52-5"><a></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb52-6"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
-<span id="cb52-7"><a></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
-<span id="cb52-8"><a></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
-<span id="cb52-9"><a></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
-<span id="cb52-10"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
-<span id="cb52-11"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
-<span id="cb52-12"><a></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52" data-code-line-numbers="12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a aria-label="1"></a>ev <span class="sc">|&gt;</span></span>
+<span id="cb52-2"><a aria-label="2"></a>  <span class="fu">mutate</span>(<span class="at">State =</span> <span class="fu">fct_reorder</span>(State, Count, <span class="at">.desc =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb52-3"><a aria-label="3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> State, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb52-4"><a aria-label="4"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb52-5"><a aria-label="5"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb52-6"><a aria-label="6"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">270</span>, </span>
+<span id="cb52-7"><a aria-label="7"></a>                                   <span class="at">hjust =</span> <span class="dv">0</span>, </span>
+<span id="cb52-8"><a aria-label="8"></a>                                   <span class="at">vjust =</span> <span class="fl">0.5</span>),</span>
+<span id="cb52-9"><a aria-label="9"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="sc">+</span></span>
+<span id="cb52-10"><a aria-label="10"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Electric Vehicle Registrations by State"</span>,</span>
+<span id="cb52-11"><a aria-label="11"></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb52-12"><a aria-label="12"></a>       <span class="at">y =</span> <span class="st">"Registration Count"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 </section>

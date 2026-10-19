@@ -2,17 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Project 3: Your Life in Data – STAT 133</title>
 <style>
-code{white-space: pre-wrap;}
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -66,19 +72,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-854d6955a8347e4ed4dab0858cdf34c6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-8a0808be5b7c0f3678666e7f6e600685.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-854d6955a8347e4ed4dab0858cdf34c6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-0f05cba98e93abd5bfacabf37e46c573.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-36489fe9f95e83378e31b3375ef0b6a4.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-0f05cba98e93abd5bfacabf37e46c573.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-629fec508f6b4c21ef691a5c5a84264a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-629fec508f6b4c21ef691a5c5a84264a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-629fec508f6b4c21ef691a5c5a84264a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-1e8e319d07c4519c69b90775f7235ba2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-1e8e319d07c4519c69b90775f7235ba2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-1e8e319d07c4519c69b90775f7235ba2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -253,26 +258,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../problem-sets/ps1.pdf" class="sidebar-item-text sidebar-link">
+  <a href="../../problem-sets/ps1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PS 1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../problem-sets/ps2.pdf" class="sidebar-item-text sidebar-link">
+  <a href="../../problem-sets/ps2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PS 2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../problem-sets/ps3.pdf" class="sidebar-item-text sidebar-link">
+  <a href="../../problem-sets/ps3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PS 3</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../problem-sets/ps4.pdf" class="sidebar-item-text sidebar-link">
+  <a href="../../problem-sets/ps4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">PS 4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../problem-sets/ps5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PS 5</span></a>
   </div>
 </li>
       </ul>
@@ -417,7 +428,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol type="1">
 <li><p>Which app did you choose? How many files are in your export, and how many of them are JSON, CSV, or some other format? Use <code>str_detect()</code> with a regular expression to count them, rather than counting by hand.</p></li>
 <li><p>Skim the file names (and open a few in a text editor). Which file holds the event log you’ll analyze in the rest of this part? Which files look like they might contain something you didn’t expect the company to keep?</p></li>
-<li><p>Read the event log into R as a data frame called <code>events</code>. If it’s a JSON file, <code>fromJSON()</code> will usually return a data frame directly. If some of its columns are themselves data frames or lists (nested JSON), try <code>fromJSON(path, flatten = TRUE)</code>, which spreads nested fields into their own columns. Fields that hold a list of values (like YouTube’s <code>subtitles</code> in Part 1) stay list columns; use <code>unnest(events, column,    keep_empty = TRUE)</code> as you did there. Compare <code>nrow(events)</code> before and after: if it grew, some elements held more than one row, and each event now appears more than once. If your event log is split across several files (e.g. <code>StreamingHistory_music_0.json</code>, <code>StreamingHistory_music_1.json</code>), you can read and stack them like this:</p>
+<li><p>Read the event log into R as a data frame called <code>events</code>. If it’s a JSON file, <code>fromJSON()</code> will usually return a data frame directly. If some of its columns are themselves data frames or lists (nested JSON), try <code>fromJSON(path, flatten = TRUE)</code>, which spreads nested fields into their own columns. Fields that hold a list of values (like YouTube’s <code>subtitles</code> in Part 1) stay list columns; use <code>unnest(events, column, keep_empty = TRUE)</code> as you did there. Compare <code>nrow(events)</code> before and after: if it grew, some elements held more than one row, and each event now appears more than once. If your event log is split across several files (e.g. <code>StreamingHistory_music_0.json</code>, <code>StreamingHistory_music_1.json</code>), you can read and stack them like this:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>paths <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="st">"data"</span>, <span class="at">pattern =</span> <span class="st">"StreamingHistory_music_</span><span class="sc">\\</span><span class="st">d+</span><span class="sc">\\</span><span class="st">.json"</span>,</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">recursive =</span> <span class="cn">TRUE</span>, <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>

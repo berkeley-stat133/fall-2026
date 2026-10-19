@@ -1,0 +1,50 @@
+---
+title: "PS 5"
+format: html
+---
+
+### Spatial data 1
+
+There are multiple R packages that can be used to load geographic data stored in the *simple features* format. `rnaturalearth` stores data at the global scale: countries and, at finer resolution, their states and provinces. `tigris` stores data from the US Census at a much finer grain of detail: counties, census blocks, zip codes, etc. It is updated yearly.
+
+@. Using the `rnaturalearth` package, download map data for a country of your choosing (not the US or Mexico) in `sf` format. How many simple features are in the data set? What datum was used to record it (see "Geodetic CRS")?
+
+@. Using the `sf` and `ggplot2` packages, make a map of your country[^ne-scale].
+
+[^ne-scale]: If you are unsatisfied with the resolution of your map, you can tinker with the `scale` argument of the `ne_countries()` function.
+
+@. Using the `tigris` package, download a map of California that shows county outlines as of 2024. How many simple features are in the data set? What datum was used to record it?
+
+```{r}
+#| eval: false
+library(tigris)
+ca_counties <- counties(state = "CA", cb = TRUE, year = 2024)
+```
+
+@. Make a map of the counties of California two ways: unprojected, in the longitude and latitude the data were recorded in, and projected with the [Albers Equal Area](https://en.wikipedia.org/wiki/Albers_projection) projection[^albers]. How do the two maps compare?
+
+[^albers]: Each projection has a numeric code (its EPSG code). The Albers Equal Area projection for California is 3310. Pass that code to the `crs` argument of the `st_transform()` function in `sf`.
+
+@. UC Berkeley is host to the Northern California Earthquake Data Center (<https://ncedc.org>). Its records of the earthquakes of magnitude 3 or more in California and nearby, from September 1 to October 16, 2025, are in a csv file. [Download `ca-quakes.csv`](/23-spatial-1/data/ca-quakes.csv) and read it in with the following.
+
+```{r}
+#| eval: false
+quakes <- read_csv("ca-quakes.csv")
+```
+
+Add the locations of these earthquakes to both of your CA maps using `geom_point()`.
+
+@. As you will have noticed, on the Albers map all of the earthquakes land on a single dot in central California. `geom_sf()` drew the counties in Albers coordinates, which are meters east and north of a point near 120° W, 38° N. `geom_point()` took the earthquakes' longitudes and latitudes to be meters too, so it placed every earthquake within about 130 meters of that point. Remake your Albers map after converting the earthquake data frame to an sf object in WGS84 and then transforming it to the Albers projection (EPSG 3310)[^quakes-sf].
+
+[^quakes-sf]: Hint: since `quakes_albers` is an sf object instead of a tibble, `geom_point()` will no longer work. You can add it in a second `geom_sf()` layer (the first will be for the basemap).
+
+```{r}
+#| eval: false
+quakes_wgs84 <- st_as_sf(
+  quakes,
+  coords = c("Longitude", "Latitude"),
+  crs = 4326,
+  remove = FALSE
+)
+quakes_albers <- st_transform(quakes_wgs84, crs = 3310)
+```

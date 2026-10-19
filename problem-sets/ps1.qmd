@@ -1,0 +1,279 @@
+---
+title: "PS 1"
+format: html
+---
+
+### Data in Trees
+
+@. Have you completed the Stat 133 Welcome Survey linked on Ed?
+
+Consider the file system below where the root is `/`. The shapes following the names aren't part of the file system; they're pointers used in the questions below.
+
+```bash
+/ △
+└── fall
+    ├── math53 ○
+    │   ├── syllabus.pdf
+    │   ├── midterm.pdf
+    │   └── final.pdf
+    ├── stat20
+    │   ├── syllabus.docx ●
+    │   └── labs ▽
+    │       ├── lab1.qmd
+    │       ├── lab2.qmd
+    │       └── lab3.qmd ▲
+    ├── history7B □
+        ├── syllabus.pdf
+        ├── essay1.docx ■
+        ├── essay2.docx
+        └── essay3.docx
+```
+
+@. What is the absolute path to ■?
+
+@. What is the absolute path to ▽?
+
+@. What is the relative path from □ to ■?
+
+@. What is the relative path from ○ to ■?
+
+@. What is the relative path from ▽ to ●?
+
+@. What is the relative path from □ to ▲?
+
+@. What is the relative path from ▽ to △?
+
+Fill in the blank `_______` with the full command the will generate the output that follows. Let `$` be the character that indicates where you can type at the command line. The working directory at the start of each question is `/`, the root.
+
+@. Fill in the blank.
+
+    ```bash
+    $ _______
+    syllabus.pdf essay1.docx essay2.docx essay3.docx
+    ```
+
+@. Fill in the blank.
+
+    ```bash
+    $ cd fall
+    $ _______
+    fall
+    ```
+
+@. In the space below, sketch the file system containing files with the following absolute paths:
+
+```bash
+/yosemite/receipts/gas.jpg
+/yosemite/5400.jpg
+/yosemite/reservations.pdf
+/hawaii/3296.jpg
+/yosemite/receipts/lunch.jpg
+/hawaii/3295.jpg
+/hawaii/3298.jpg
+/yosemite/5399.jpg
+/hawaii/3297.jpg
+/yosemite/receipts/dinner.jpg
+```
+
+@. Every directory and file name that you've seen so far in this class has refrained from using special characters. Which characters should you avoid using when naming directories and files?^[You can research the answer to this question online.]
+
+### Intro to R
+
+@. Have you installed R on your computer? Do you have access to the command line via a shell? This will likely be Terminal on a Mac (which is built-in) or git bash on Windows. See the Tools section of the course website for guidance.
+
+You're encouraged to work on these at your R console to try things out. The next three questions continue with the same R objects. What output will each code block produce?
+
+@. What will the following code produce?
+
+```r
+a <- 3 + 5
+b <- 4 / 2
+a + b
+```
+
+@. What will the following code produce?
+
+```r
+a <- b - (a / a)
+```
+
+@. What will the following code produce?
+
+```r
+a
+```
+
+@. What will the following code produce?
+
+```r
+log(a)
+```
+
+For the following questions, consult the functions help file by using `?` (e.g. `?round`).
+
+@. What modified version of this function would return the value 3.14 instead of 3?
+   
+```{r}
+round(3.141592)
+```
+
+@. What will the following code produce?
+
+```r
+ceiling(3.14) + floor(3.14)
+```
+
+### R on the File System
+
+Assume you start a new R session with your working directory at `~`. Which R functions would you call to do each of the following?
+
+```bash
+~
+├── Project-1
+│   ├── raw-data-1.txt
+│   ├── processed-data-1.csv
+│   └── data-processing-1.r
+├── Project-2
+│   ├── raw-data-2.txt
+│   ├── processed-data-2.csv
+│   └── data-processing-2.r
+```
+
+@. Change your working directory to be `Project-1`?
+
+@. Read the data in `raw-data-1.txt` and save it to the R object named `raw_data_1`.
+
+@. Without changing your working directory, read the data in `raw-data-2.txt` and save it to the R object named `raw_data_2`.
+
+@. You may have noticed that when creating R objects, I avoid certain types of names. What characters are permissable when naming new objects?^[You can research the answer to this question online.]
+
+### Atomic Vectors
+
+If you recorded data on peoples' answers to the following questions and read each one into R as a vector, what data type could be used to store them?
+
+@. How much do you spend on average per week, in dollars and cents, on caffeinated beverages?
+
+@. Did you vote in the last US Election?
+
+@. How many US states have you visited?
+
+While each of the following vectors *could* be created by simply using `c()`, instead write a command that can generate each one more efficiently using the functions from class. Read more about them by pulling up their help files with `?`.
+
+@. `_________________________`
+
+```{r}
+#| echo: false
+seq(2, 48, 2)
+```
+
+@. `_________________________`
+
+```{r}
+#| echo: false
+rep(seq(0, 15, 5), each = 3)
+```
+
+@. What single command can be run on each of these vectors
+
+```{r}
+x <- c("A", "B", "C")
+x <- seq(1, 5, 1)
+x <- c(TRUE, FALSE)
+```
+
+and produce this output?
+
+```{r}
+#| echo: false
+x <- c("A", "B", "C")
+rep(x, 1:length(x))
+x <- seq(1, 5, 1)
+rep(x, 1:length(x))
+x <- c(TRUE, FALSE)
+rep(x, 1:length(x))
+```
+
+@. Predict the output of the following code.
+
+```{r}
+#| eval: false
+
+1:3 + 1:2 + 1:1
+```
+
+@. Predict the output of the following code.
+
+```{r}
+#| eval: false
+
+1:1 + 1:2 + 1:3
+```
+
+@. Which vector results from running the following code? Does it throw a message, warning, or error and why?
+
+```{r}
+#| eval: false
+
+c(5, 5, 5) * c(2, 1, NULL)
+```
+
+@. Which vector results from running the following code? Does it throw a message, warning, or error and why?
+
+```{r}
+#| eval: false
+
+c(5, 5, 5) * c(2, 1, NA)
+```
+
+@. Predict the output and type of the following three vectors.
+
+```{r}
+#| eval: false
+
+c(1, FALSE)
+c("a", 1)
+c(TRUE, 1L)
+```
+
+@. Use square bracket subsetting to create the following vector from `z <- c(apple = 2, banana = 4, cherry = 8)`.
+
+```{r}
+#| echo: false
+
+z <- c(apple = 2, banana = 4, cherry = 8)
+z[c(3, 2, 1)]
+```
+
+@. Write down *three* subsetting methods (index, name, and logical) to generate the following vector from `z`. If you're not able to do it in one subsetting operation, say why not.
+
+```{r}
+#| echo: false
+z[c(3, 3)]
+```
+
+@. What happens when you subset a vector with a negative number?
+
+### Extending Vectors
+
+@. Provide the code that will create a matrix object of type double with 3 rows and 4 columns. The entries should be the integers between 1 and 12 arrayed *rowwise*. Name the object `mat_twelve`.
+
+@. Subset the matrix to isolate the element with the value `5`.
+
+@. Provide the code that will break the `mat_twelve` into two separate matrices: `mat_left` with the 6 leftmost entries, and `mat_right` with the remaining six.
+
+@. What does `mat_left + mat_right` evaluate to?
+
+You can load the "like" matrix into R using the following code.
+
+```r
+install.packages("lda") # install lda package
+library(lda)            # load lda package
+data(sampson)           # load data
+samplik <- sampson[["SAMPLK1"]] # extract the samplik matrix
+```
+
+@. Provide the code to extract the vector of the ranks that Basil gave other monks from 0 (unranked) to 3 (most liked).
+
+@. Provide the code to extract the vector of the ranks that other monks gave Basil from 0 (unranked) to 3 (most liked).
+
+@. Matrices make it easy and fast to apply the same function across all rows or columns. Use `rowSums()` or `colSum()` and the sort function to return the three most like monks and the three least liked / ranked monks.

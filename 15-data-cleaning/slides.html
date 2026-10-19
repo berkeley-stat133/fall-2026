@@ -6,8 +6,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-8b4baf804e461d9b72633f0de59a0cac.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.27">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <title>STAT 133 – Data Cleaning</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -16,10 +16,16 @@
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -94,7 +100,7 @@
     code span.vs { color: #032f62; } /* VerbatimString */
     code span.wa { color: #ff5555; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-9047f5fc854fa021fe424807bb166be6.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-178a6b2344b3ca73242594dd9e92b758.css">
   <link rel="stylesheet" href="phases.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -268,8 +274,9 @@
 <div class="columns">
 <div class="column">
 <p><strong>2010:</strong> Reinhart and Rogoff report that countries with government debt above 90% of GDP had average growth of <strong>-0.1%</strong>.</p>
-<p>. . .</p>
+<div class="fragment">
 <p>Widely cited in arguments for austerity policy.</p>
+</div>
 </div><div class="column fragment">
 <p><strong>2013:</strong> A grad student, Thomas Herndon, tries to replicate it from their spreadsheet and finds:</p>
 <ol type="1">
@@ -277,8 +284,9 @@
 <li class="fragment">Years of available data excluded</li>
 <li class="fragment">An unusual weighting of countries</li>
 </ol>
-<p>. . .</p>
+<div class="fragment">
 <p>Corrected average growth: <strong>+2.2%</strong>.</p>
+</div>
 </div></div>
 <div class="fragment">
 <blockquote>
@@ -421,10 +429,10 @@
 <h2 data-id="quarto-animate-title">Step 1: Know the source</h2>
 <p>From Project 2: new zero-emission vehicle registrations in California.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb2-2"><a></a><span class="fu">library</span>(readxl)</span>
-<span id="cb2-3"><a></a>zev <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/New_ZEV_Sales_Last_updated_07-17-2026_ada.xlsx"</span>,</span>
-<span id="cb2-4"><a></a>                  <span class="at">sheet =</span> <span class="st">"County"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-2"><a aria-label="2"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb2-3"><a aria-label="3"></a>zev <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/New_ZEV_Sales_Last_updated_07-17-2026_ada.xlsx"</span>,</span>
+<span id="cb2-4"><a aria-label="4"></a>                  <span class="at">sheet =</span> <span class="st">"County"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 
@@ -434,7 +442,7 @@
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>zev</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>zev</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -460,10 +468,10 @@
 <h2 data-id="quarto-animate-title">Step 1: Know the source</h2>
 <p>From Project 2: new zero-emission vehicle registrations in California.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb5-1" class="hljs-ln-code"><a></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb5-2" class="hljs-ln-code"><a></a><span class="fu">library</span>(readxl)</span>
-<span id="cb5-3" class="hljs-ln-code"><a></a>zev <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/New_ZEV_Sales_Last_updated_07-17-2026_ada.xlsx"</span>,</span>
-<span id="cb5-4" class="hljs-ln-code"><a></a>                  <span class="at">sheet =</span> <span class="st">"County"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb5-1" class="hljs-ln-code"><a aria-label="1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb5-2" class="hljs-ln-code"><a aria-label="2"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb5-3" class="hljs-ln-code"><a aria-label="3"></a>zev <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/New_ZEV_Sales_Last_updated_07-17-2026_ada.xlsx"</span>,</span>
+<span id="cb5-4" class="hljs-ln-code"><a aria-label="4"></a>                  <span class="at">sheet =</span> <span class="st">"County"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 
@@ -485,8 +493,8 @@
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>zev <span class="sc">|&gt;</span></span>
-<span id="cb6-2"><a></a>  <span class="fu">filter</span>(Data Year <span class="sc">==</span> <span class="dv">2026</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>zev <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a aria-label="2"></a>  <span class="fu">filter</span>(Data Year <span class="sc">==</span> <span class="dv">2026</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-error">
@@ -499,8 +507,8 @@
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>zev <span class="sc">|&gt;</span></span>
-<span id="cb8-2"><a></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">Data Year</span><span class="st">`</span> <span class="sc">==</span> <span class="dv">2026</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a>zev <span class="sc">|&gt;</span></span>
+<span id="cb8-2"><a aria-label="2"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">Data Year</span><span class="st">`</span> <span class="sc">==</span> <span class="dv">2026</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -530,7 +538,7 @@
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb10-1" class="hljs-ln-code"><a></a><span class="fu">names</span>(zev)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb10-1" class="hljs-ln-code"><a aria-label="1"></a><span class="fu">names</span>(zev)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -552,11 +560,11 @@
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb12-1" class="hljs-ln-code"><a></a>zev <span class="sc">|&gt;</span></span>
-<span id="cb12-2" class="hljs-ln-code"><a></a>  <span class="fu">rename</span>(<span class="at">year =</span> <span class="st">`</span><span class="at">Data Year</span><span class="st">`</span>, <span class="at">quarter =</span> Quarter, <span class="at">county =</span> COUNTY,</span>
-<span id="cb12-3" class="hljs-ln-code"><a></a>         <span class="at">fuel_type =</span> FUEL_TYPE, <span class="at">make =</span> MAKE, <span class="at">model =</span> MODEL,</span>
-<span id="cb12-4" class="hljs-ln-code"><a></a>         <span class="at">n_vehicles =</span> <span class="st">`</span><span class="at">Number of Vehicles</span><span class="st">`</span>) <span class="sc">|&gt;</span></span>
-<span id="cb12-5" class="hljs-ln-code"><a></a>  <span class="fu">names</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb12-1" class="hljs-ln-code"><a aria-label="1"></a>zev <span class="sc">|&gt;</span></span>
+<span id="cb12-2" class="hljs-ln-code"><a aria-label="2"></a>  <span class="fu">rename</span>(<span class="at">year =</span> <span class="st">`</span><span class="at">Data Year</span><span class="st">`</span>, <span class="at">quarter =</span> Quarter, <span class="at">county =</span> COUNTY,</span>
+<span id="cb12-3" class="hljs-ln-code"><a aria-label="3"></a>         <span class="at">fuel_type =</span> FUEL_TYPE, <span class="at">make =</span> MAKE, <span class="at">model =</span> MODEL,</span>
+<span id="cb12-4" class="hljs-ln-code"><a aria-label="4"></a>         <span class="at">n_vehicles =</span> <span class="st">`</span><span class="at">Number of Vehicles</span><span class="st">`</span>) <span class="sc">|&gt;</span></span>
+<span id="cb12-5" class="hljs-ln-code"><a aria-label="5"></a>  <span class="fu">names</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -578,7 +586,7 @@
 <h2>Step 3: Types</h2>
 <p>Does each column’s type match its meaning?</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">sapply</span>(zev, class) <span class="co"># sapply loops over all columns and runs class</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-label="1"></a><span class="fu">sapply</span>(zev, class) <span class="co"># sapply loops over all columns and runs class</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -657,7 +665,7 @@
 <h2>Step 4: Missing values</h2>
 <p>The quick check across every column at once:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(zev))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-label="1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(zev))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -674,7 +682,7 @@
 <section id="missing-without-na" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Missing without <code>NA</code></h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">min</span>(zev<span class="sc">$</span>n_vehicles)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a aria-label="1"></a><span class="fu">min</span>(zev<span class="sc">$</span>n_vehicles)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -683,9 +691,9 @@
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>zev <span class="sc">|&gt;</span></span>
-<span id="cb20-2"><a></a>  <span class="fu">filter</span>(county <span class="sc">==</span> <span class="st">"Alpine"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb20-3"><a></a>  <span class="fu">count</span>(year)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a aria-label="1"></a>zev <span class="sc">|&gt;</span></span>
+<span id="cb20-2"><a aria-label="2"></a>  <span class="fu">filter</span>(county <span class="sc">==</span> <span class="st">"Alpine"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb20-3"><a aria-label="3"></a>  <span class="fu">count</span>(year)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -742,8 +750,8 @@
 <section id="disguised-missing-values" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Disguised missing values</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb22-1" class="hljs-ln-code"><a></a>age <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">19</span>, <span class="dv">21</span>, <span class="sc">-</span><span class="dv">99</span>, <span class="dv">20</span>, <span class="dv">22</span>)</span>
-<span id="cb22-2" class="hljs-ln-code"><a></a><span class="fu">mean</span>(age)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb22-1" class="hljs-ln-code"><a aria-label="1"></a>age <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">19</span>, <span class="dv">21</span>, <span class="sc">-</span><span class="dv">99</span>, <span class="dv">20</span>, <span class="dv">22</span>)</span>
+<span id="cb22-2" class="hljs-ln-code"><a aria-label="2"></a><span class="fu">mean</span>(age)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -754,8 +762,8 @@
 <section id="disguised-missing-values-1" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Disguised missing values</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>age <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">19</span>, <span class="dv">21</span>, <span class="sc">-</span><span class="dv">99</span>, <span class="dv">20</span>, <span class="dv">22</span>)</span>
-<span id="cb24-2"><a></a><span class="fu">mean</span>(age)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a aria-label="1"></a>age <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">19</span>, <span class="dv">21</span>, <span class="sc">-</span><span class="dv">99</span>, <span class="dv">20</span>, <span class="dv">22</span>)</span>
+<span id="cb24-2"><a aria-label="2"></a><span class="fu">mean</span>(age)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -772,8 +780,8 @@
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>age <span class="ot">&lt;-</span> <span class="fu">na_if</span>(age, <span class="sc">-</span><span class="dv">99</span>)</span>
-<span id="cb26-2"><a></a>age</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a aria-label="1"></a>age <span class="ot">&lt;-</span> <span class="fu">na_if</span>(age, <span class="sc">-</span><span class="dv">99</span>)</span>
+<span id="cb26-2"><a aria-label="2"></a>age</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -783,7 +791,7 @@
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a><span class="fu">mean</span>(age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a aria-label="1"></a><span class="fu">mean</span>(age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -814,23 +822,24 @@
 <div class="columns">
 <div class="column" style="width:45%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a><span class="fu">n_distinct</span>(zev<span class="sc">$</span>county)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a aria-label="1"></a><span class="fu">n_distinct</span>(zev<span class="sc">$</span>county)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 59</code></pre>
 </div>
 </div>
-<p>. . .</p>
+<div class="fragment">
 <blockquote>
 <p>California has 58 counties.</p>
 </blockquote>
+</div>
 </div><div class="column fragment" style="width:55%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>zev <span class="sc">|&gt;</span></span>
-<span id="cb32-2"><a></a>  <span class="fu">count</span>(county) <span class="sc">|&gt;</span></span>
-<span id="cb32-3"><a></a>  <span class="fu">arrange</span>(county) <span class="sc">|&gt;</span></span>
-<span id="cb32-4"><a></a>  <span class="fu">slice</span>(<span class="dv">29</span><span class="sc">:</span><span class="dv">33</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a aria-label="1"></a>zev <span class="sc">|&gt;</span></span>
+<span id="cb32-2"><a aria-label="2"></a>  <span class="fu">count</span>(county) <span class="sc">|&gt;</span></span>
+<span id="cb32-3"><a aria-label="3"></a>  <span class="fu">arrange</span>(county) <span class="sc">|&gt;</span></span>
+<span id="cb32-4"><a aria-label="4"></a>  <span class="fu">slice</span>(<span class="dv">29</span><span class="sc">:</span><span class="dv">33</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -850,9 +859,9 @@
 <h2 data-id="quarto-animate-title">Decision: <code>"Out Of State"</code></h2>
 <p>Vehicles are assigned to a county by the owner’s <em>mailing address</em>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb34-1" class="hljs-ln-code"><a></a>zev <span class="sc">|&gt;</span></span>
-<span id="cb34-2" class="hljs-ln-code"><a></a>  <span class="fu">filter</span>(county <span class="sc">==</span> <span class="st">"Out Of State"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb34-3" class="hljs-ln-code"><a></a>  <span class="fu">summarize</span>(<span class="at">rows =</span> <span class="fu">n</span>(), <span class="at">vehicles =</span> <span class="fu">sum</span>(n_vehicles))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb34-1" class="hljs-ln-code"><a aria-label="1"></a>zev <span class="sc">|&gt;</span></span>
+<span id="cb34-2" class="hljs-ln-code"><a aria-label="2"></a>  <span class="fu">filter</span>(county <span class="sc">==</span> <span class="st">"Out Of State"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb34-3" class="hljs-ln-code"><a aria-label="3"></a>  <span class="fu">summarize</span>(<span class="at">rows =</span> <span class="fu">n</span>(), <span class="at">vehicles =</span> <span class="fu">sum</span>(n_vehicles))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -875,8 +884,8 @@ C. Keep them, but add a column that flags them</p>
 <p>It depends on the question. For a statewide total they count; for a map of counties they don’t. Flagging keeps both options open.</p>
 </blockquote>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb36-1" class="hljs-ln-code"><a></a>zev <span class="ot">&lt;-</span> zev <span class="sc">|&gt;</span></span>
-<span id="cb36-2" class="hljs-ln-code"><a></a>  <span class="fu">mutate</span>(<span class="at">in_state =</span> county <span class="sc">!=</span> <span class="st">"Out Of State"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb36-1" class="hljs-ln-code"><a aria-label="1"></a>zev <span class="ot">&lt;-</span> zev <span class="sc">|&gt;</span></span>
+<span id="cb36-2" class="hljs-ln-code"><a aria-label="2"></a>  <span class="fu">mutate</span>(<span class="at">in_state =</span> county <span class="sc">!=</span> <span class="st">"Out Of State"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 
@@ -885,13 +894,13 @@ C. Keep them, but add a column that flags them</p>
 <section id="distinct-values-make" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Distinct values: <code>make</code></h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a><span class="fu">n_distinct</span>(zev<span class="sc">$</span>make)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a aria-label="1"></a><span class="fu">n_distinct</span>(zev<span class="sc">$</span>make)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 52</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a><span class="fu">n_distinct</span>(<span class="fu">tolower</span>(zev<span class="sc">$</span>make))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a aria-label="1"></a><span class="fu">n_distinct</span>(<span class="fu">tolower</span>(zev<span class="sc">$</span>make))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 52</code></pre>
 </div>
@@ -905,9 +914,9 @@ C. Keep them, but add a column that flags them</p>
 <section id="distinct-values-make-1" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Distinct values: <code>make</code></h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb41-1" class="hljs-ln-code"><a></a>zev <span class="sc">|&gt;</span></span>
-<span id="cb41-2" class="hljs-ln-code"><a></a>  <span class="fu">filter</span>(make <span class="sc">==</span> <span class="st">"Toyota/Subaru"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb41-3" class="hljs-ln-code"><a></a>  <span class="fu">count</span>(model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb41-1" class="hljs-ln-code"><a aria-label="1"></a>zev <span class="sc">|&gt;</span></span>
+<span id="cb41-2" class="hljs-ln-code"><a aria-label="2"></a>  <span class="fu">filter</span>(make <span class="sc">==</span> <span class="st">"Toyota/Subaru"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb41-3" class="hljs-ln-code"><a aria-label="3"></a>  <span class="fu">count</span>(model)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -936,8 +945,8 @@ C. Keep them, but add a column that flags them</p>
 <h2 data-id="quarto-animate-title">Recoding messy labels</h2>
 <p><code>zev</code> is tidy on this front. Most data isn’t.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb43-1" class="hljs-ln-code"><a></a>campus <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Berkeley"</span>, <span class="st">"berkeley"</span>, <span class="st">"Berkeley "</span>, <span class="st">"UCB"</span>, <span class="st">"Laney"</span>)</span>
-<span id="cb43-2" class="hljs-ln-code"><a></a><span class="fu">table</span>(campus)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb43-1" class="hljs-ln-code"><a aria-label="1"></a>campus <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Berkeley"</span>, <span class="st">"berkeley"</span>, <span class="st">"Berkeley "</span>, <span class="st">"UCB"</span>, <span class="st">"Laney"</span>)</span>
+<span id="cb43-2" class="hljs-ln-code"><a aria-label="2"></a><span class="fu">table</span>(campus)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -951,9 +960,9 @@ C. Keep them, but add a column that flags them</p>
 <h2 data-id="quarto-animate-title">Recoding messy labels</h2>
 <p><code>zev</code> is tidy on this front. Most data isn’t.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb45-1" class="hljs-ln-code"><a></a>campus <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Berkeley"</span>, <span class="st">"berkeley"</span>, <span class="st">"Berkeley "</span>, <span class="st">"UCB"</span>, <span class="st">"Laney"</span>)</span>
-<span id="cb45-2" class="hljs-ln-code"><a></a>campus <span class="ot">&lt;-</span> <span class="fu">trimws</span>(<span class="fu">tolower</span>(campus))</span>
-<span id="cb45-3" class="hljs-ln-code"><a></a><span class="fu">table</span>(campus)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb45-1" class="hljs-ln-code"><a aria-label="1"></a>campus <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Berkeley"</span>, <span class="st">"berkeley"</span>, <span class="st">"Berkeley "</span>, <span class="st">"UCB"</span>, <span class="st">"Laney"</span>)</span>
+<span id="cb45-2" class="hljs-ln-code"><a aria-label="2"></a>campus <span class="ot">&lt;-</span> <span class="fu">trimws</span>(<span class="fu">tolower</span>(campus))</span>
+<span id="cb45-3" class="hljs-ln-code"><a aria-label="3"></a><span class="fu">table</span>(campus)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -979,10 +988,10 @@ berkeley    laney      ucb
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb47-1" class="hljs-ln-code"><a></a>campus <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"berkeley"</span>, <span class="st">"berkeley"</span>, <span class="st">"berkeley"</span>, <span class="st">"ucb"</span>, <span class="st">"laney"</span>)</span>
-<span id="cb47-2" class="hljs-ln-code"><a></a><span class="fu">case_when</span>(</span>
-<span id="cb47-3" class="hljs-ln-code"><a></a>  campus <span class="sc">==</span> <span class="st">"ucb"</span> <span class="sc">~</span> <span class="st">"berkeley"</span>,</span>
-<span id="cb47-4" class="hljs-ln-code"><a></a>  <span class="at">.default =</span> campus)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb47-1" class="hljs-ln-code"><a aria-label="1"></a>campus <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"berkeley"</span>, <span class="st">"berkeley"</span>, <span class="st">"berkeley"</span>, <span class="st">"ucb"</span>, <span class="st">"laney"</span>)</span>
+<span id="cb47-2" class="hljs-ln-code"><a aria-label="2"></a><span class="fu">case_when</span>(</span>
+<span id="cb47-3" class="hljs-ln-code"><a aria-label="3"></a>  campus <span class="sc">==</span> <span class="st">"ucb"</span> <span class="sc">~</span> <span class="st">"berkeley"</span>,</span>
+<span id="cb47-4" class="hljs-ln-code"><a aria-label="4"></a>  <span class="at">.default =</span> campus)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -998,7 +1007,7 @@ berkeley    laney      ucb
 <section id="step-6-ranges-and-outliers" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Step 6: Ranges and outliers</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a></a><span class="fu">summary</span>(zev<span class="sc">$</span>n_vehicles)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a aria-label="1"></a><span class="fu">summary</span>(zev<span class="sc">$</span>n_vehicles)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -1008,8 +1017,8 @@ berkeley    laney      ucb
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a></a><span class="fu">ggplot</span>(zev, <span class="fu">aes</span>(<span class="at">x =</span> n_vehicles)) <span class="sc">+</span></span>
-<span id="cb51-2"><a></a>  <span class="fu">geom_histogram</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a aria-label="1"></a><span class="fu">ggplot</span>(zev, <span class="fu">aes</span>(<span class="at">x =</span> n_vehicles)) <span class="sc">+</span></span>
+<span id="cb51-2"><a aria-label="2"></a>  <span class="fu">geom_histogram</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output-display">
@@ -1025,7 +1034,7 @@ berkeley    laney      ucb
 <section id="step-6-ranges-and-outliers-1" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Step 6: Ranges and outliers</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a></a><span class="fu">summary</span>(zev<span class="sc">$</span>n_vehicles)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a aria-label="1"></a><span class="fu">summary</span>(zev<span class="sc">$</span>n_vehicles)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -1035,9 +1044,9 @@ berkeley    laney      ucb
 </div>
 <p>Who is the 10,015?</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a></a>zev <span class="sc">|&gt;</span></span>
-<span id="cb54-2"><a></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n_vehicles)) <span class="sc">|&gt;</span></span>
-<span id="cb54-3"><a></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a aria-label="1"></a>zev <span class="sc">|&gt;</span></span>
+<span id="cb54-2"><a aria-label="2"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n_vehicles)) <span class="sc">|&gt;</span></span>
+<span id="cb54-3"><a aria-label="3"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -1103,11 +1112,11 @@ berkeley    laney      ucb
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a></a><span class="fu">stopifnot</span>(</span>
-<span id="cb56-2"><a></a>  <span class="fu">all</span>(zev<span class="sc">$</span>quarter <span class="sc">%in%</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>),</span>
-<span id="cb56-3"><a></a>  <span class="fu">all</span>(zev<span class="sc">$</span>n_vehicles <span class="sc">&gt;=</span> <span class="dv">1</span>),</span>
-<span id="cb56-4"><a></a>  <span class="fu">all</span>(zev<span class="sc">$</span>year <span class="sc">&lt;=</span> <span class="dv">2026</span>)</span>
-<span id="cb56-5"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a aria-label="1"></a><span class="fu">stopifnot</span>(</span>
+<span id="cb56-2"><a aria-label="2"></a>  <span class="fu">all</span>(zev<span class="sc">$</span>quarter <span class="sc">%in%</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>),</span>
+<span id="cb56-3"><a aria-label="3"></a>  <span class="fu">all</span>(zev<span class="sc">$</span>n_vehicles <span class="sc">&gt;=</span> <span class="dv">1</span>),</span>
+<span id="cb56-4"><a aria-label="4"></a>  <span class="fu">all</span>(zev<span class="sc">$</span>year <span class="sc">&lt;=</span> <span class="dv">2026</span>)</span>
+<span id="cb56-5"><a aria-label="5"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 
@@ -1115,7 +1124,7 @@ berkeley    laney      ucb
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a></a><span class="fu">stopifnot</span>(<span class="fu">all</span>(zev<span class="sc">$</span>year <span class="sc">&gt;=</span> <span class="dv">2010</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a aria-label="1"></a><span class="fu">stopifnot</span>(<span class="fu">all</span>(zev<span class="sc">$</span>year <span class="sc">&gt;=</span> <span class="dv">2010</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-error">
@@ -1137,9 +1146,9 @@ berkeley    laney      ucb
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a></a>zev <span class="sc">|&gt;</span></span>
-<span id="cb59-2"><a></a>  <span class="fu">count</span>(year, quarter, county, fuel_type, make, model) <span class="sc">|&gt;</span></span>
-<span id="cb59-3"><a></a>  <span class="fu">filter</span>(n <span class="sc">&gt;</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a aria-label="1"></a>zev <span class="sc">|&gt;</span></span>
+<span id="cb59-2"><a aria-label="2"></a>  <span class="fu">count</span>(year, quarter, county, fuel_type, make, model) <span class="sc">|&gt;</span></span>
+<span id="cb59-3"><a aria-label="3"></a>  <span class="fu">filter</span>(n <span class="sc">&gt;</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -1232,27 +1241,27 @@ berkeley    laney      ucb
 <section id="decide-record-re-check" class="slide level2 smaller">
 <h2>Decide, Record, Re-check</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a></a>zev_raw <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/raw/New_ZEV_Sales_Last_updated_07-17-2026_ada.xlsx"</span>,</span>
-<span id="cb61-2"><a></a>                      <span class="at">sheet =</span> <span class="st">"County"</span>)</span>
-<span id="cb61-3"><a></a></span>
-<span id="cb61-4"><a></a>zev <span class="ot">&lt;-</span> zev_raw <span class="sc">|&gt;</span></span>
-<span id="cb61-5"><a></a>  <span class="co"># Snake-case names so no backticks are needed</span></span>
-<span id="cb61-6"><a></a>  <span class="fu">rename</span>(<span class="at">year =</span> <span class="st">`</span><span class="at">Data Year</span><span class="st">`</span>, <span class="at">quarter =</span> Quarter, <span class="at">county =</span> COUNTY,</span>
-<span id="cb61-7"><a></a>         <span class="at">fuel_type =</span> FUEL_TYPE, <span class="at">make =</span> MAKE, <span class="at">model =</span> MODEL,</span>
-<span id="cb61-8"><a></a>         <span class="at">n_vehicles =</span> <span class="st">`</span><span class="at">Number of Vehicles</span><span class="st">`</span>) <span class="sc">|&gt;</span></span>
-<span id="cb61-9"><a></a>  <span class="co"># Keep out-of-state registrations but flag them: needed for statewide</span></span>
-<span id="cb61-10"><a></a>  <span class="co"># totals, excluded from county-level comparisons</span></span>
-<span id="cb61-11"><a></a>  <span class="fu">mutate</span>(<span class="at">in_state =</span> county <span class="sc">!=</span> <span class="st">"Out Of State"</span>)</span>
-<span id="cb61-12"><a></a>  <span class="co"># Note: zero counts are implicit (no row), not NA</span></span>
-<span id="cb61-13"><a></a></span>
-<span id="cb61-14"><a></a><span class="co"># Nothing dropped; expectations still hold</span></span>
-<span id="cb61-15"><a></a><span class="fu">stopifnot</span>(</span>
-<span id="cb61-16"><a></a>  <span class="fu">nrow</span>(zev) <span class="sc">==</span> <span class="fu">nrow</span>(zev_raw),</span>
-<span id="cb61-17"><a></a>  <span class="fu">all</span>(zev<span class="sc">$</span>quarter <span class="sc">%in%</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>),</span>
-<span id="cb61-18"><a></a>  <span class="fu">all</span>(zev<span class="sc">$</span>n_vehicles <span class="sc">&gt;=</span> <span class="dv">1</span>)</span>
-<span id="cb61-19"><a></a>)</span>
-<span id="cb61-20"><a></a></span>
-<span id="cb61-21"><a></a>readr<span class="sc">::</span><span class="fu">write_csv</span>(zev, <span class="st">"data/clean/zev.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a aria-label="1"></a>zev_raw <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/raw/New_ZEV_Sales_Last_updated_07-17-2026_ada.xlsx"</span>,</span>
+<span id="cb61-2"><a aria-label="2"></a>                      <span class="at">sheet =</span> <span class="st">"County"</span>)</span>
+<span id="cb61-3"><a aria-label="3"></a></span>
+<span id="cb61-4"><a aria-label="4"></a>zev <span class="ot">&lt;-</span> zev_raw <span class="sc">|&gt;</span></span>
+<span id="cb61-5"><a aria-label="5"></a>  <span class="co"># Snake-case names so no backticks are needed</span></span>
+<span id="cb61-6"><a aria-label="6"></a>  <span class="fu">rename</span>(<span class="at">year =</span> <span class="st">`</span><span class="at">Data Year</span><span class="st">`</span>, <span class="at">quarter =</span> Quarter, <span class="at">county =</span> COUNTY,</span>
+<span id="cb61-7"><a aria-label="7"></a>         <span class="at">fuel_type =</span> FUEL_TYPE, <span class="at">make =</span> MAKE, <span class="at">model =</span> MODEL,</span>
+<span id="cb61-8"><a aria-label="8"></a>         <span class="at">n_vehicles =</span> <span class="st">`</span><span class="at">Number of Vehicles</span><span class="st">`</span>) <span class="sc">|&gt;</span></span>
+<span id="cb61-9"><a aria-label="9"></a>  <span class="co"># Keep out-of-state registrations but flag them: needed for statewide</span></span>
+<span id="cb61-10"><a aria-label="10"></a>  <span class="co"># totals, excluded from county-level comparisons</span></span>
+<span id="cb61-11"><a aria-label="11"></a>  <span class="fu">mutate</span>(<span class="at">in_state =</span> county <span class="sc">!=</span> <span class="st">"Out Of State"</span>)</span>
+<span id="cb61-12"><a aria-label="12"></a>  <span class="co"># Note: zero counts are implicit (no row), not NA</span></span>
+<span id="cb61-13"><a aria-label="13"></a></span>
+<span id="cb61-14"><a aria-label="14"></a><span class="co"># Nothing dropped; expectations still hold</span></span>
+<span id="cb61-15"><a aria-label="15"></a><span class="fu">stopifnot</span>(</span>
+<span id="cb61-16"><a aria-label="16"></a>  <span class="fu">nrow</span>(zev) <span class="sc">==</span> <span class="fu">nrow</span>(zev_raw),</span>
+<span id="cb61-17"><a aria-label="17"></a>  <span class="fu">all</span>(zev<span class="sc">$</span>quarter <span class="sc">%in%</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>),</span>
+<span id="cb61-18"><a aria-label="18"></a>  <span class="fu">all</span>(zev<span class="sc">$</span>n_vehicles <span class="sc">&gt;=</span> <span class="dv">1</span>)</span>
+<span id="cb61-19"><a aria-label="19"></a>)</span>
+<span id="cb61-20"><a aria-label="20"></a></span>
+<span id="cb61-21"><a aria-label="21"></a>readr<span class="sc">::</span><span class="fu">write_csv</span>(zev, <span class="st">"data/clean/zev.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 

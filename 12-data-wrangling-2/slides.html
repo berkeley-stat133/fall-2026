@@ -6,10 +6,10 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-8b4baf804e461d9b72633f0de59a0cac.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bb62276ab45c84d9efd712f51ff97b5a.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/quarto-contrib/countdown-0.5.0/countdown.js"></script>
 <link href="../site_libs/quarto-contrib/countdown-0.5.0/countdown.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.27">
+  <meta name="generator" content="quarto-1.10.18">
 
   <title>STAT 133 – Data Wrangling II</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -18,10 +18,16 @@
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -96,7 +102,7 @@
     code span.vs { color: #032f62; } /* VerbatimString */
     code span.wa { color: #ff5555; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-9047f5fc854fa021fe424807bb166be6.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-178a6b2344b3ca73242594dd9e92b758.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -279,13 +285,13 @@
 <section id="section-1" class="slide level2">
 <h2></h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-2"><a></a>star_wars <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb1-3"><a></a>    <span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Anakin"</span>, <span class="st">"Padme"</span>, <span class="st">"Luke"</span>, <span class="st">"JarJar"</span>),</span>
-<span id="cb1-4"><a></a>    <span class="at">homeworld =</span> <span class="fu">c</span>(<span class="st">"Tatooine"</span>, <span class="st">"Naboo"</span>, <span class="st">"Tatooine"</span>, <span class="st">"Naboo"</span>),</span>
-<span id="cb1-5"><a></a>    <span class="at">height =</span> <span class="fu">c</span>(<span class="fl">1.8</span>, <span class="fl">1.6</span>, <span class="fl">1.7</span>, <span class="fl">1.9</span>),</span>
-<span id="cb1-6"><a></a>    <span class="at">weight =</span> <span class="fu">c</span>(<span class="dv">84</span>, <span class="dv">45</span>, <span class="dv">77</span>, <span class="dv">90</span>)</span>
-<span id="cb1-7"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-2"><a aria-label="2"></a>star_wars <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb1-3"><a aria-label="3"></a>    <span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Anakin"</span>, <span class="st">"Padme"</span>, <span class="st">"Luke"</span>, <span class="st">"JarJar"</span>),</span>
+<span id="cb1-4"><a aria-label="4"></a>    <span class="at">homeworld =</span> <span class="fu">c</span>(<span class="st">"Tatooine"</span>, <span class="st">"Naboo"</span>, <span class="st">"Tatooine"</span>, <span class="st">"Naboo"</span>),</span>
+<span id="cb1-5"><a aria-label="5"></a>    <span class="at">height =</span> <span class="fu">c</span>(<span class="fl">1.8</span>, <span class="fl">1.6</span>, <span class="fl">1.7</span>, <span class="fl">1.9</span>),</span>
+<span id="cb1-6"><a aria-label="6"></a>    <span class="at">weight =</span> <span class="fu">c</span>(<span class="dv">84</span>, <span class="dv">45</span>, <span class="dv">77</span>, <span class="dv">90</span>)</span>
+<span id="cb1-7"><a aria-label="7"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Two questions we can’t yet answer with <code>slice()</code>, <code>select()</code>, <code>filter()</code>, <code>mutate()</code>, <code>arrange()</code>, and <code>summarize()</code>:</p>
 <ol type="1">
@@ -307,7 +313,7 @@
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>star_wars</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>star_wars</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    name homeworld height weight
 1 Anakin  Tatooine    1.8     84
@@ -318,7 +324,7 @@
 </div>
 </div><div class="column fragment" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">distinct</span>(star_wars, homeworld)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a><span class="fu">distinct</span>(star_wars, homeworld)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -343,7 +349,7 @@
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>star_wars</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>star_wars</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    name homeworld height weight
 1 Anakin  Tatooine    1.8     84
@@ -354,8 +360,8 @@
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">distinct</span>(star_wars, homeworld,</span>
-<span id="cb8-2"><a></a>         <span class="at">heavy =</span> weight <span class="sc">&gt;</span> <span class="dv">50</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a><span class="fu">distinct</span>(star_wars, homeworld,</span>
+<span id="cb8-2"><a aria-label="2"></a>         <span class="at">heavy =</span> weight <span class="sc">&gt;</span> <span class="dv">50</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -385,7 +391,7 @@
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>star_wars</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a>star_wars</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    name homeworld height weight
 1 Anakin  Tatooine    1.8     84
@@ -396,7 +402,7 @@
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">distinct</span>(star_wars)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a><span class="fu">distinct</span>(star_wars)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -428,7 +434,7 @@
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>star_wars</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-label="1"></a>star_wars</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    name homeworld height weight
 1 Anakin  Tatooine    1.8     84
@@ -439,7 +445,7 @@
 </div>
 </div><div class="column fragment" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">count</span>(star_wars, homeworld)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-label="1"></a><span class="fu">count</span>(star_wars, homeworld)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -469,7 +475,7 @@
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>star_wars</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a aria-label="1"></a>star_wars</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    name homeworld height weight
 1 Anakin  Tatooine    1.8     84
@@ -480,8 +486,8 @@
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">count</span>(star_wars, homeworld,</span>
-<span id="cb20-2"><a></a>      <span class="at">heavy =</span> weight <span class="sc">&gt;</span> <span class="dv">50</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a aria-label="1"></a><span class="fu">count</span>(star_wars, homeworld,</span>
+<span id="cb20-2"><a aria-label="2"></a>      <span class="at">heavy =</span> weight <span class="sc">&gt;</span> <span class="dv">50</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -506,13 +512,13 @@
 <section id="section-7" class="slide level2">
 <h2></h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb22-2"><a></a>star_wars <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb22-3"><a></a>    <span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Anakin"</span>, <span class="st">"Padme"</span>, <span class="st">"Luke"</span>, <span class="st">"JarJar"</span>),</span>
-<span id="cb22-4"><a></a>    <span class="at">homeworld =</span> <span class="fu">c</span>(<span class="st">"Tatooine"</span>, <span class="st">"Naboo"</span>, <span class="st">"Tatooine"</span>, <span class="st">"Naboo"</span>),</span>
-<span id="cb22-5"><a></a>    <span class="at">height =</span> <span class="fu">c</span>(<span class="fl">1.8</span>, <span class="fl">1.6</span>, <span class="fl">1.7</span>, <span class="fl">1.9</span>),</span>
-<span id="cb22-6"><a></a>    <span class="at">weight =</span> <span class="fu">c</span>(<span class="dv">84</span>, <span class="dv">45</span>, <span class="dv">77</span>, <span class="dv">90</span>)</span>
-<span id="cb22-7"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a aria-label="1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb22-2"><a aria-label="2"></a>star_wars <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb22-3"><a aria-label="3"></a>    <span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Anakin"</span>, <span class="st">"Padme"</span>, <span class="st">"Luke"</span>, <span class="st">"JarJar"</span>),</span>
+<span id="cb22-4"><a aria-label="4"></a>    <span class="at">homeworld =</span> <span class="fu">c</span>(<span class="st">"Tatooine"</span>, <span class="st">"Naboo"</span>, <span class="st">"Tatooine"</span>, <span class="st">"Naboo"</span>),</span>
+<span id="cb22-5"><a aria-label="5"></a>    <span class="at">height =</span> <span class="fu">c</span>(<span class="fl">1.8</span>, <span class="fl">1.6</span>, <span class="fl">1.7</span>, <span class="fl">1.9</span>),</span>
+<span id="cb22-6"><a aria-label="6"></a>    <span class="at">weight =</span> <span class="fu">c</span>(<span class="dv">84</span>, <span class="dv">45</span>, <span class="dv">77</span>, <span class="dv">90</span>)</span>
+<span id="cb22-7"><a aria-label="7"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Using base R data frame subsetting, create from <code>star_wars</code>…</p>
 <ol start="4" type="1">
@@ -527,7 +533,7 @@
 <section id="nesting" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Nesting</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb23-1" class="hljs-ln-code"><a></a><span class="fu">summarize</span>(<span class="fu">filter</span>(star_wars, homeworld <span class="sc">==</span> <span class="st">"Tatooine"</span>), <span class="fu">mean</span>(height))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb23-1" class="hljs-ln-code"><a aria-label="1"></a><span class="fu">summarize</span>(<span class="fu">filter</span>(star_wars, homeworld <span class="sc">==</span> <span class="st">"Tatooine"</span>), <span class="fu">mean</span>(height))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -553,8 +559,8 @@
 <section id="step-by-step" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Step-by-step</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb25-1" class="hljs-ln-code"><a></a>star_wars2 <span class="ot">&lt;-</span> <span class="fu">filter</span>(star_wars, homeworld <span class="sc">==</span> <span class="st">"Tatooine"</span>)</span>
-<span id="cb25-2" class="hljs-ln-code"><a></a><span class="fu">summarize</span>(star_wars2, <span class="fu">mean</span>(height))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb25-1" class="hljs-ln-code"><a aria-label="1"></a>star_wars2 <span class="ot">&lt;-</span> <span class="fu">filter</span>(star_wars, homeworld <span class="sc">==</span> <span class="st">"Tatooine"</span>)</span>
+<span id="cb25-2" class="hljs-ln-code"><a aria-label="2"></a><span class="fu">summarize</span>(star_wars2, <span class="fu">mean</span>(height))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -597,22 +603,22 @@
 <section id="using-the-pipe-operator" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Using the Pipe Operator</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb27-1" class="hljs-ln-code"><a></a>star_wars <span class="sc">|&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb27-1" class="hljs-ln-code"><a aria-label="1"></a>star_wars <span class="sc">|&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="using-the-pipe-operator-1" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Using the Pipe Operator</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb28-1" class="hljs-ln-code"><a></a>star_wars <span class="sc">|&gt;</span></span>
-<span id="cb28-2" class="hljs-ln-code"><a></a>    <span class="fu">filter</span>(homeworld <span class="sc">==</span> <span class="st">"Tatooine"</span>) <span class="sc">|&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb28-1" class="hljs-ln-code"><a aria-label="1"></a>star_wars <span class="sc">|&gt;</span></span>
+<span id="cb28-2" class="hljs-ln-code"><a aria-label="2"></a>    <span class="fu">filter</span>(homeworld <span class="sc">==</span> <span class="st">"Tatooine"</span>) <span class="sc">|&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="using-the-pipe-operator-2" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Using the Pipe Operator</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb29-1" class="hljs-ln-code"><a></a>star_wars <span class="sc">|&gt;</span></span>
-<span id="cb29-2" class="hljs-ln-code"><a></a>    <span class="fu">filter</span>(homeworld <span class="sc">==</span> <span class="st">"Tatooine"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb29-3" class="hljs-ln-code"><a></a>    <span class="fu">summarize</span>(<span class="fu">mean</span>(height))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb29-1" class="hljs-ln-code"><a aria-label="1"></a>star_wars <span class="sc">|&gt;</span></span>
+<span id="cb29-2" class="hljs-ln-code"><a aria-label="2"></a>    <span class="fu">filter</span>(homeworld <span class="sc">==</span> <span class="st">"Tatooine"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb29-3" class="hljs-ln-code"><a aria-label="3"></a>    <span class="fu">summarize</span>(<span class="fu">mean</span>(height))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -642,9 +648,9 @@
 <div class="columns">
 <div class="column">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>star_wars <span class="sc">|&gt;</span></span>
-<span id="cb31-2"><a></a>    <span class="fu">select</span>(homeworld) <span class="sc">|&gt;</span></span>
-<span id="cb31-3"><a></a>    <span class="fu">filter</span>(<span class="fu">mean</span>(height))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a aria-label="1"></a>star_wars <span class="sc">|&gt;</span></span>
+<span id="cb31-2"><a aria-label="2"></a>    <span class="fu">select</span>(homeworld) <span class="sc">|&gt;</span></span>
+<span id="cb31-3"><a aria-label="3"></a>    <span class="fu">filter</span>(<span class="fu">mean</span>(height))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-error">
@@ -656,8 +662,8 @@ Caused by error:
 </div>
 </div><div class="column fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>star_wars <span class="sc">|&gt;</span></span>
-<span id="cb33-2"><a></a>    <span class="fu">select</span>(homeworld)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a aria-label="1"></a>star_wars <span class="sc">|&gt;</span></span>
+<span id="cb33-2"><a aria-label="2"></a>    <span class="fu">select</span>(homeworld)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -674,18 +680,18 @@ Caused by error:
 <section id="section-9" class="slide level2">
 <h2></h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>star_wars <span class="sc">|&gt;</span> <span class="co"># A #&lt;&lt;</span></span>
-<span id="cb35-2"><a></a>    <span class="fu">filter</span>(homeworld <span class="sc">==</span> <span class="st">"Naboo"</span>,</span>
-<span id="cb35-3"><a></a>           name <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Padme"</span>, <span class="st">"JarJar"</span>)) <span class="sc">|&gt;</span> <span class="co"># B #&lt;&lt;</span></span>
-<span id="cb35-4"><a></a>    <span class="fu">select</span>(height, weight) <span class="sc">|&gt;</span> <span class="co"># C #&lt;&lt;</span></span>
-<span id="cb35-5"><a></a>    <span class="fu">summarize</span>(<span class="fu">mean</span>(height), <span class="fu">sd</span>(height),</span>
-<span id="cb35-6"><a></a>              <span class="fu">mean</span>(weight), <span class="fu">sd</span>(weight)) <span class="co"># D #&lt;&lt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a aria-label="1"></a>star_wars <span class="sc">|&gt;</span> <span class="co"># A #&lt;&lt;</span></span>
+<span id="cb35-2"><a aria-label="2"></a>    <span class="fu">filter</span>(homeworld <span class="sc">==</span> <span class="st">"Naboo"</span>,</span>
+<span id="cb35-3"><a aria-label="3"></a>           name <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Padme"</span>, <span class="st">"JarJar"</span>)) <span class="sc">|&gt;</span> <span class="co"># B #&lt;&lt;</span></span>
+<span id="cb35-4"><a aria-label="4"></a>    <span class="fu">select</span>(height, weight) <span class="sc">|&gt;</span> <span class="co"># C #&lt;&lt;</span></span>
+<span id="cb35-5"><a aria-label="5"></a>    <span class="fu">summarize</span>(<span class="fu">mean</span>(height), <span class="fu">sd</span>(height),</span>
+<span id="cb35-6"><a aria-label="6"></a>              <span class="fu">mean</span>(weight), <span class="fu">sd</span>(weight)) <span class="co"># D #&lt;&lt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 
 </div>
 <p><strong>Question:</strong> What are the dimensions of the data frame at each stage of the pipe: A, B, C, and D?</p>
-<div id="timer_323e7f6c46efa0fc59c7e1de7c5289a79f1afca8" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_4dddce7807be8de386a4805075281a2e69169767" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -713,7 +719,7 @@ Caused by error:
 </blockquote>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a><span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"cat"</span>, <span class="st">"cat"</span>, <span class="st">"dog"</span>)) <span class="sc">|&gt;</span> <span class="fu">summary</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a aria-label="1"></a><span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"cat"</span>, <span class="st">"cat"</span>, <span class="st">"dog"</span>)) <span class="sc">|&gt;</span> <span class="fu">summary</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -734,13 +740,13 @@ Caused by error:
 <section id="section-11" class="slide level2">
 <h2></h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb38-2"><a></a>star_wars <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb38-3"><a></a>    <span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Anakin"</span>, <span class="st">"Padme"</span>, <span class="st">"Luke"</span>, <span class="st">"JarJar"</span>),</span>
-<span id="cb38-4"><a></a>    <span class="at">homeworld =</span> <span class="fu">c</span>(<span class="st">"Tatooine"</span>, <span class="st">"Naboo"</span>, <span class="st">"Tatooine"</span>, <span class="st">"Naboo"</span>),</span>
-<span id="cb38-5"><a></a>    <span class="at">height =</span> <span class="fu">c</span>(<span class="fl">1.8</span>, <span class="fl">1.6</span>, <span class="fl">1.7</span>, <span class="fl">1.9</span>),</span>
-<span id="cb38-6"><a></a>    <span class="at">weight =</span> <span class="fu">c</span>(<span class="dv">84</span>, <span class="dv">45</span>, <span class="dv">77</span>, <span class="dv">90</span>)</span>
-<span id="cb38-7"><a></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a aria-label="1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb38-2"><a aria-label="2"></a>star_wars <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb38-3"><a aria-label="3"></a>    <span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Anakin"</span>, <span class="st">"Padme"</span>, <span class="st">"Luke"</span>, <span class="st">"JarJar"</span>),</span>
+<span id="cb38-4"><a aria-label="4"></a>    <span class="at">homeworld =</span> <span class="fu">c</span>(<span class="st">"Tatooine"</span>, <span class="st">"Naboo"</span>, <span class="st">"Tatooine"</span>, <span class="st">"Naboo"</span>),</span>
+<span id="cb38-5"><a aria-label="5"></a>    <span class="at">height =</span> <span class="fu">c</span>(<span class="fl">1.8</span>, <span class="fl">1.6</span>, <span class="fl">1.7</span>, <span class="fl">1.9</span>),</span>
+<span id="cb38-6"><a aria-label="6"></a>    <span class="at">weight =</span> <span class="fu">c</span>(<span class="dv">84</span>, <span class="dv">45</span>, <span class="dv">77</span>, <span class="dv">90</span>)</span>
+<span id="cb38-7"><a aria-label="7"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Using base R data frame subsetting, create from <code>star_wars</code>…</p>
 <ol start="4" type="1">
@@ -764,8 +770,8 @@ Caused by error:
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb39-1" class="hljs-ln-code"><a></a>star_wars <span class="sc">|&gt;</span></span>
-<span id="cb39-2" class="hljs-ln-code"><a></a>    <span class="fu">group_by</span>(homeworld)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb39-1" class="hljs-ln-code"><a aria-label="1"></a>star_wars <span class="sc">|&gt;</span></span>
+<span id="cb39-2" class="hljs-ln-code"><a aria-label="2"></a>    <span class="fu">group_by</span>(homeworld)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -792,9 +798,9 @@ Caused by error:
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb41-1" class="hljs-ln-code"><a></a>star_wars <span class="sc">|&gt;</span></span>
-<span id="cb41-2" class="hljs-ln-code"><a></a>    <span class="fu">group_by</span>(homeworld) <span class="sc">|&gt;</span></span>
-<span id="cb41-3" class="hljs-ln-code"><a></a>    <span class="fu">summarize</span>(<span class="fu">mean</span>(height))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb41-1" class="hljs-ln-code"><a aria-label="1"></a>star_wars <span class="sc">|&gt;</span></span>
+<span id="cb41-2" class="hljs-ln-code"><a aria-label="2"></a>    <span class="fu">group_by</span>(homeworld) <span class="sc">|&gt;</span></span>
+<span id="cb41-3" class="hljs-ln-code"><a aria-label="3"></a>    <span class="fu">summarize</span>(<span class="fu">mean</span>(height))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -814,8 +820,8 @@ Caused by error:
 <h2 data-id="quarto-animate-title"><code>group_by()</code> with <code>summarize()</code></h2>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb43-1" class="hljs-ln-code"><a></a>star_wars <span class="sc">|&gt;</span></span>
-<span id="cb43-2" class="hljs-ln-code"><a></a>    <span class="fu">summarize</span>(<span class="fu">mean</span>(height))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb43-1" class="hljs-ln-code"><a aria-label="1"></a>star_wars <span class="sc">|&gt;</span></span>
+<span id="cb43-2" class="hljs-ln-code"><a aria-label="2"></a>    <span class="fu">summarize</span>(<span class="fu">mean</span>(height))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -828,9 +834,9 @@ Caused by error:
 <section id="group_by-with-summarize-1" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"><code>group_by()</code> with <code>summarize()</code></h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb45-1" class="hljs-ln-code"><a></a>star_wars <span class="sc">|&gt;</span></span>
-<span id="cb45-2" class="hljs-ln-code"><a></a>    <span class="fu">group_by</span>(homeworld) <span class="sc">|&gt;</span></span>
-<span id="cb45-3" class="hljs-ln-code"><a></a>    <span class="fu">summarize</span>(<span class="fu">mean</span>(height))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb45-1" class="hljs-ln-code"><a aria-label="1"></a>star_wars <span class="sc">|&gt;</span></span>
+<span id="cb45-2" class="hljs-ln-code"><a aria-label="2"></a>    <span class="fu">group_by</span>(homeworld) <span class="sc">|&gt;</span></span>
+<span id="cb45-3" class="hljs-ln-code"><a aria-label="3"></a>    <span class="fu">summarize</span>(<span class="fu">mean</span>(height))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -850,9 +856,9 @@ Caused by error:
 <section id="group_by-summarize-n" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"><code>group_by()</code> + <code>summarize()</code> + <code>n()</code></h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb47-1" class="hljs-ln-code"><a></a>star_wars <span class="sc">|&gt;</span></span>
-<span id="cb47-2" class="hljs-ln-code"><a></a>    <span class="fu">group_by</span>(homeworld) <span class="sc">|&gt;</span></span>
-<span id="cb47-3" class="hljs-ln-code"><a></a>    <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">n</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb47-1" class="hljs-ln-code"><a aria-label="1"></a>star_wars <span class="sc">|&gt;</span></span>
+<span id="cb47-2" class="hljs-ln-code"><a aria-label="2"></a>    <span class="fu">group_by</span>(homeworld) <span class="sc">|&gt;</span></span>
+<span id="cb47-3" class="hljs-ln-code"><a aria-label="3"></a>    <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">n</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -872,9 +878,9 @@ Caused by error:
 <section id="group_by-with-two-variables" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"><code>group_by()</code> with two variables</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb49-1" class="hljs-ln-code"><a></a>star_wars <span class="sc">|&gt;</span></span>
-<span id="cb49-2" class="hljs-ln-code"><a></a>    <span class="fu">group_by</span>(homeworld, <span class="at">heavy =</span> weight <span class="sc">&gt;</span> <span class="dv">50</span>) <span class="sc">|&gt;</span></span>
-<span id="cb49-3" class="hljs-ln-code"><a></a>    <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">n</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb49-1" class="hljs-ln-code"><a aria-label="1"></a>star_wars <span class="sc">|&gt;</span></span>
+<span id="cb49-2" class="hljs-ln-code"><a aria-label="2"></a>    <span class="fu">group_by</span>(homeworld, <span class="at">heavy =</span> weight <span class="sc">&gt;</span> <span class="dv">50</span>) <span class="sc">|&gt;</span></span>
+<span id="cb49-3" class="hljs-ln-code"><a aria-label="3"></a>    <span class="fu">summarize</span>(<span class="at">n =</span> <span class="fu">n</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -897,8 +903,8 @@ Caused by error:
 <h2 data-id="quarto-animate-title"><code>group_by()</code> with <code>filter()</code></h2>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb51-1" class="hljs-ln-code"><a></a>star_wars <span class="sc">|&gt;</span></span>
-<span id="cb51-2" class="hljs-ln-code"><a></a>    <span class="fu">filter</span>(height <span class="sc">==</span> <span class="fu">max</span>(height))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb51-1" class="hljs-ln-code"><a aria-label="1"></a>star_wars <span class="sc">|&gt;</span></span>
+<span id="cb51-2" class="hljs-ln-code"><a aria-label="2"></a>    <span class="fu">filter</span>(height <span class="sc">==</span> <span class="fu">max</span>(height))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -911,9 +917,9 @@ Caused by error:
 <section id="group_by-with-filter-1" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"><code>group_by()</code> with <code>filter()</code></h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb53-1" class="hljs-ln-code"><a></a>star_wars <span class="sc">|&gt;</span></span>
-<span id="cb53-2" class="hljs-ln-code"><a></a>    <span class="fu">group_by</span>(homeworld) <span class="sc">|&gt;</span></span>
-<span id="cb53-3" class="hljs-ln-code"><a></a>    <span class="fu">filter</span>(height <span class="sc">==</span> <span class="fu">max</span>(height))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb53-1" class="hljs-ln-code"><a aria-label="1"></a>star_wars <span class="sc">|&gt;</span></span>
+<span id="cb53-2" class="hljs-ln-code"><a aria-label="2"></a>    <span class="fu">group_by</span>(homeworld) <span class="sc">|&gt;</span></span>
+<span id="cb53-3" class="hljs-ln-code"><a aria-label="3"></a>    <span class="fu">filter</span>(height <span class="sc">==</span> <span class="fu">max</span>(height))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -948,8 +954,8 @@ Caused by error:
 <h2 data-id="quarto-animate-title"><code>group_by()</code> with <code>arrange()</code></h2>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb55-1" class="hljs-ln-code"><a></a>star_wars <span class="sc">|&gt;</span></span>
-<span id="cb55-2" class="hljs-ln-code"><a></a>    <span class="fu">arrange</span>(<span class="fu">desc</span>(height))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb55-1" class="hljs-ln-code"><a aria-label="1"></a>star_wars <span class="sc">|&gt;</span></span>
+<span id="cb55-2" class="hljs-ln-code"><a aria-label="2"></a>    <span class="fu">arrange</span>(<span class="fu">desc</span>(height))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -965,9 +971,9 @@ Caused by error:
 <section id="group_by-with-arrange-1" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"><code>group_by()</code> with <code>arrange()</code></h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb57-1" class="hljs-ln-code"><a></a>star_wars <span class="sc">|&gt;</span></span>
-<span id="cb57-2" class="hljs-ln-code"><a></a>    <span class="fu">group_by</span>(homeworld) <span class="sc">|&gt;</span></span>
-<span id="cb57-3" class="hljs-ln-code"><a></a>    <span class="fu">arrange</span>(<span class="fu">desc</span>(height))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb57-1" class="hljs-ln-code"><a aria-label="1"></a>star_wars <span class="sc">|&gt;</span></span>
+<span id="cb57-2" class="hljs-ln-code"><a aria-label="2"></a>    <span class="fu">group_by</span>(homeworld) <span class="sc">|&gt;</span></span>
+<span id="cb57-3" class="hljs-ln-code"><a aria-label="3"></a>    <span class="fu">arrange</span>(<span class="fu">desc</span>(height))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -991,8 +997,8 @@ Caused by error:
 <section id="section-15" class="slide level2">
 <h2></h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a></a>star_wars <span class="sc">|&gt;</span></span>
-<span id="cb59-2"><a></a>    <span class="fu">arrange</span>(homeworld, height)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a aria-label="1"></a>star_wars <span class="sc">|&gt;</span></span>
+<span id="cb59-2"><a aria-label="2"></a>    <span class="fu">arrange</span>(homeworld, height)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -1008,8 +1014,8 @@ Caused by error:
 <h2 data-id="quarto-animate-title"><code>group_by()</code> with <code>mutate()</code></h2>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb61-1" class="hljs-ln-code"><a></a>star_wars <span class="sc">|&gt;</span></span>
-<span id="cb61-2" class="hljs-ln-code"><a></a>    <span class="fu">mutate</span>(<span class="at">height_z =</span> (height <span class="sc">-</span> <span class="fu">mean</span>(height)) <span class="sc">/</span> <span class="fu">sd</span>(height))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb61-1" class="hljs-ln-code"><a aria-label="1"></a>star_wars <span class="sc">|&gt;</span></span>
+<span id="cb61-2" class="hljs-ln-code"><a aria-label="2"></a>    <span class="fu">mutate</span>(<span class="at">height_z =</span> (height <span class="sc">-</span> <span class="fu">mean</span>(height)) <span class="sc">/</span> <span class="fu">sd</span>(height))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -1025,9 +1031,9 @@ Caused by error:
 <section id="group_by-with-mutate-1" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"><code>group_by()</code> with <code>mutate()</code></h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb63-1" class="hljs-ln-code"><a></a>star_wars <span class="sc">|&gt;</span></span>
-<span id="cb63-2" class="hljs-ln-code"><a></a>    <span class="fu">group_by</span>(homeworld) <span class="sc">|&gt;</span></span>
-<span id="cb63-3" class="hljs-ln-code"><a></a>    <span class="fu">mutate</span>(<span class="at">height_z =</span> (height <span class="sc">-</span> <span class="fu">mean</span>(height)) <span class="sc">/</span> <span class="fu">sd</span>(height))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb63-1" class="hljs-ln-code"><a aria-label="1"></a>star_wars <span class="sc">|&gt;</span></span>
+<span id="cb63-2" class="hljs-ln-code"><a aria-label="2"></a>    <span class="fu">group_by</span>(homeworld) <span class="sc">|&gt;</span></span>
+<span id="cb63-3" class="hljs-ln-code"><a aria-label="3"></a>    <span class="fu">mutate</span>(<span class="at">height_z =</span> (height <span class="sc">-</span> <span class="fu">mean</span>(height)) <span class="sc">/</span> <span class="fu">sd</span>(height))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -1052,10 +1058,10 @@ Caused by error:
 <p>What will this produce?</p>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a></a>star_wars <span class="sc">|&gt;</span></span>
-<span id="cb65-2"><a></a>    <span class="fu">group_by</span>(homeworld) <span class="sc">|&gt;</span></span>
-<span id="cb65-3"><a></a>    <span class="fu">mutate</span>(<span class="at">height_z =</span> (height <span class="sc">-</span> <span class="fu">mean</span>(height)) <span class="sc">/</span> <span class="fu">sd</span>(height)) <span class="sc">|&gt;</span></span>
-<span id="cb65-4"><a></a>    <span class="fu">summarize</span>(<span class="fu">mean</span>(height_z))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a aria-label="1"></a>star_wars <span class="sc">|&gt;</span></span>
+<span id="cb65-2"><a aria-label="2"></a>    <span class="fu">group_by</span>(homeworld) <span class="sc">|&gt;</span></span>
+<span id="cb65-3"><a aria-label="3"></a>    <span class="fu">mutate</span>(<span class="at">height_z =</span> (height <span class="sc">-</span> <span class="fu">mean</span>(height)) <span class="sc">/</span> <span class="fu">sd</span>(height)) <span class="sc">|&gt;</span></span>
+<span id="cb65-4"><a aria-label="4"></a>    <span class="fu">summarize</span>(<span class="fu">mean</span>(height_z))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -1090,11 +1096,11 @@ Caused by error:
 <h2>Statefulness</h2>
 <p>What will this produce?</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a></a>star_wars <span class="sc">|&gt;</span></span>
-<span id="cb67-2"><a></a>    <span class="fu">group_by</span>(homeworld) <span class="sc">|&gt;</span></span>
-<span id="cb67-3"><a></a>    <span class="fu">mutate</span>(<span class="at">height_z =</span> (height <span class="sc">-</span> <span class="fu">mean</span>(height)) <span class="sc">/</span> <span class="fu">sd</span>(height)) <span class="sc">|&gt;</span></span>
-<span id="cb67-4"><a></a>    <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
-<span id="cb67-5"><a></a>    <span class="fu">summarize</span>(<span class="fu">mean</span>(height_z))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a aria-label="1"></a>star_wars <span class="sc">|&gt;</span></span>
+<span id="cb67-2"><a aria-label="2"></a>    <span class="fu">group_by</span>(homeworld) <span class="sc">|&gt;</span></span>
+<span id="cb67-3"><a aria-label="3"></a>    <span class="fu">mutate</span>(<span class="at">height_z =</span> (height <span class="sc">-</span> <span class="fu">mean</span>(height)) <span class="sc">/</span> <span class="fu">sd</span>(height)) <span class="sc">|&gt;</span></span>
+<span id="cb67-4"><a aria-label="4"></a>    <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
+<span id="cb67-5"><a aria-label="5"></a>    <span class="fu">summarize</span>(<span class="fu">mean</span>(height_z))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -1121,8 +1127,8 @@ Caused by error:
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a></a>star_wars <span class="sc">|&gt;</span></span>
-<span id="cb69-2"><a></a>    <span class="fu">summarize</span>(<span class="fu">mean</span>(height), <span class="at">.by =</span> homeworld)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a aria-label="1"></a>star_wars <span class="sc">|&gt;</span></span>
+<span id="cb69-2"><a aria-label="2"></a>    <span class="fu">summarize</span>(<span class="fu">mean</span>(height), <span class="at">.by =</span> homeworld)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -1138,20 +1144,20 @@ Caused by error:
 <p>Group-by are like <em>tents</em>: they put soldiers into groups so that you can do operations tent-by-tent instead of across all soldiers.</p>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a></a>soldiers <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb71-2"><a></a>    <span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Ali"</span>, <span class="st">"Boone"</span>, <span class="st">"Cruz"</span>, <span class="st">"Diaz"</span>, <span class="st">"Eze"</span>, <span class="st">"Fox"</span>),</span>
-<span id="cb71-3"><a></a>    <span class="at">tent =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>),</span>
-<span id="cb71-4"><a></a>    <span class="at">rations =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">2</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a aria-label="1"></a>soldiers <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb71-2"><a aria-label="2"></a>    <span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Ali"</span>, <span class="st">"Boone"</span>, <span class="st">"Cruz"</span>, <span class="st">"Diaz"</span>, <span class="st">"Eze"</span>, <span class="st">"Fox"</span>),</span>
+<span id="cb71-3"><a aria-label="3"></a>    <span class="at">tent =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"C"</span>),</span>
+<span id="cb71-4"><a aria-label="4"></a>    <span class="at">rations =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">2</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <div class="fragment">
 <div class="columns">
 <div class="column">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a></a>soldiers <span class="sc">|&gt;</span></span>
-<span id="cb72-2"><a></a>    <span class="fu">group_by</span>(tent) <span class="sc">|&gt;</span></span>
-<span id="cb72-3"><a></a>    <span class="fu">summarize</span>(<span class="at">soldiers =</span> <span class="fu">n</span>(), </span>
-<span id="cb72-4"><a></a>    <span class="at">rations =</span> <span class="fu">sum</span>(rations))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a aria-label="1"></a>soldiers <span class="sc">|&gt;</span></span>
+<span id="cb72-2"><a aria-label="2"></a>    <span class="fu">group_by</span>(tent) <span class="sc">|&gt;</span></span>
+<span id="cb72-3"><a aria-label="3"></a>    <span class="fu">summarize</span>(<span class="at">soldiers =</span> <span class="fu">n</span>(), </span>
+<span id="cb72-4"><a aria-label="4"></a>    <span class="at">rations =</span> <span class="fu">sum</span>(rations))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div><div class="column fragment">
 <div class="cell">
