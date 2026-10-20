@@ -208,7 +208,7 @@
 
 <section id="title-slide" data-background-image="../site_libs/quarto-contrib/quarto-project/stat133/stat133slides/stat133_slide.png" data-background-size="contain" class="quarto-title-block center">
   <h1 class="title">Spatial Data I</h1>
-  <p class="subtitle">Coordinates, projections, and scale</p>
+  <p class="subtitle">Coordinates, datums, and projections</p>
 
 <div class="quarto-title-authors">
 </div>
@@ -241,19 +241,24 @@
 <li>A location is defined relative to an origin, in Cartesian or polar coordinates; longitude and latitude are polar coordinates on the earth.</li>
 <li>A datum is a model of the earth’s shape plus reference points; WGS 84 is the most common, and mapping data recorded in one datum onto another can put locations hundreds of meters off.</li>
 <li>A projection transforms ellipsoidal coordinates into projected coordinates and must distort at least one of area, shape, distance, or angles.</li>
+<li>A coordinate reference system (CRS) is a datum, a coordinate system, and optionally a projection; each has an EPSG code.</li>
 <li>A simple feature is an object with a geometry (point, point set, polygon, …) and non-spatial attributes.</li>
+<li>An sf object records its CRS; a data frame of longitude and latitude does not, and ggplot2 assumes it matches the map. Every layer needs a declared CRS before the layers can be brought into one.</li>
 </ol>
 <h4 id="tool-acquisition">Tool Acquisition</h4>
 <ol type="1">
-<li><code>geom_path()</code> with <code>group =</code> and <code>arrow()</code> to draw tracks from longitude and latitude columns.</li>
-<li><code>ne_countries()</code> and <code>ne_states()</code> from <code>rnaturalearth</code>, with <code>returnclass = "sf"</code>.</li>
+<li><code>geom_path()</code> with <code>group =</code> to draw tracks from longitude and latitude columns.</li>
+<li><code>ne_countries()</code> from <code>rnaturalearth</code>, with <code>returnclass = "sf"</code>.</li>
 <li><code>st_crs()</code> from <code>sf</code> to see an object’s coordinate reference system.</li>
-<li><code>geom_sf()</code> to draw an sf object, and <code>coord_sf()</code> to crop the map.</li>
+<li><code>geom_sf()</code> to draw an sf object.</li>
+<li><code>st_as_sf()</code> with <code>coords =</code> and <code>crs =</code> to turn a data frame of longitude and latitude into an sf object with a declared CRS.</li>
+<li><code>st_transform()</code> to change an sf object’s CRS.</li>
 </ol>
 <h4 id="concept-application">Concept Application</h4>
 <ol type="1">
 <li>Decide how to calculate the distance between the first two rows of <code>storms</code>.</li>
-<li>Layer the 1975 storm tracks on a map of North America with <code>geom_point()</code> and <code>geom_path()</code> over <code>geom_sf()</code>.</li>
+<li>Layer the 1975 storms on a map of North America with <code>geom_point()</code> over <code>geom_sf()</code>.</li>
+<li>See the storms vanish on an Albers map, then fix it with <code>st_as_sf()</code> and <code>st_transform()</code>.</li>
 <li>PS 5: map a country of your choice, report its datum, and compare California counties under the default datum and the Albers projection.</li>
 </ol>
 <style type="text/css">
@@ -309,6 +314,7 @@
 <h2>Agenda</h2>
 <ol type="1">
 <li class="fragment">Coordinate systems</li>
+<li class="fragment">Datums</li>
 <li class="fragment">Projections</li>
 <li class="fragment">Case Study: Mapping Storms</li>
 <li class="fragment">R packages: <code>sf</code>, <code>rnaturalearth</code></li>
@@ -384,7 +390,7 @@
 <section id="your-turn" class="slide level2">
 <h2>Your Turn</h2>
 <p><strong>Question</strong>: Storm Amy moved from (−79, 27.5) to (−79, 28.5). The earth’s radius is about 6,371 km. How far did it travel?</p>
-<div id="timer_35d9e58c5154cbaf42d3e656f4a9eee91e98ed1f" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_06738d9e86aca1e625bba0d2f67bfefeedca0459" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -506,7 +512,7 @@
 <p><img data-src="images/projections.jpg" class="quarto-figure quarto-figure-center" height="520"></p>
 </figure>
 </div>
-<div id="timer_35d9e58c5154cbaf42d3e656f4a9eee91e98ed1f" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_06738d9e86aca1e625bba0d2f67bfefeedca0459" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -526,11 +532,73 @@
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section>
+<section id="section-4" class="slide level2 smaller">
+<h2></h2>
+<div class="definition">
+<div class="definition-header">
+<p>Coordinate Reference System (CRS)</p>
+</div>
+<div class="definition-content">
+<p>Everything needed to say where on Earth a pair of coordinates is.</p>
+</div>
+</div>
+<ol type="1">
+<li class="fragment"><strong>Datum</strong>: the model of the earth (WGS 84, NAD83).</li>
+<li class="fragment"><strong>Coordinate system</strong>: the axes, their order, and units (degrees, meters).</li>
+<li class="fragment"><strong>Projection</strong> (optional): how the globe is flattened (Albers).</li>
+</ol>
+<div class="fragment">
+<p>Each CRS has an <strong>EPSG code</strong>:</p>
+<ul>
+<li class="fragment"><code>4326</code>: WGS 84, (long, lat) in degrees</li>
+<li class="fragment"><code>5070</code>: NAD83 + Albers for the US, in meters</li>
+<li class="fragment"><code>3310</code>: NAD83 + Albers for California, in meters</li>
+</ul>
+<aside class="notes">
+<p>This ties the last two sections together: a datum alone doesn’t say what (−79, 27.5) means. You also need the coordinate system (degrees, lon first) and, for a flat map, a projection. 4326 has no projection; 5070 and 3310 are NAD83 plus an Albers projection, in meters. The storms case study uses 4326 and 5070; PS 5 uses 3310. Students will see all three parts when we run <code>st_crs()</code> later today.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
 </section></section>
 <section>
 <section id="case-study-mapping-storms" class="title-slide slide level1 center">
 <h1>Case Study: Mapping Storms</h1>
 
+</section>
+<section id="mapping-storms" class="slide level2">
+<h2>Mapping Storms</h2>
+<p><strong>Goal</strong>: Draw the 1975 storm tracks on a map of North America.</p>
+<div class="fragment">
+<p>For each layer of the plot:</p>
+<ol type="1">
+<li class="fragment">What is its <strong>coordinate system</strong>? (angles or distances, and in what units?)</li>
+<li class="fragment">What is its <strong>datum</strong>?</li>
+<li class="fragment">What is its <strong>projection</strong>?</li>
+</ol>
+<aside class="notes board">
+<p>Start a table on the board with one row per layer and columns for coordinate system, datum, and projection. Fill in a row each time a new layer appears: <code>storms</code> (long/lat degrees, not recorded, none), <code>map_north_america</code> (long/lat degrees, WGS 84, equirectangular when plotted), and <code>na_albers</code> at the end (meters, NAD83, Albers).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
 </section>
 <section id="data-1" class="slide level2 smaller">
 <h2>Data</h2>
@@ -558,7 +626,7 @@
 </div>
 </div>
 </section>
-<section id="section-4" class="slide level2" data-auto-animate="true">
+<section id="section-5" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb5-1" class="hljs-ln-code"><a aria-label="1"></a>storms <span class="sc">|&gt;</span></span>
@@ -570,7 +638,7 @@
 </div>
 
 </section>
-<section id="section-4-output" class="slide level2 output-location-slide"><h2></h2><div class="cell output-location-slide" data-layout-align="center">
+<section id="section-5-output" class="slide level2 output-location-slide"><h2></h2><div class="cell output-location-slide" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -578,7 +646,7 @@
 </figure>
 </div>
 </div>
-</div></section><section id="section-5" class="slide level2" data-auto-animate="true">
+</div></section><section id="section-6" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb6-1" class="hljs-ln-code"><a aria-label="1"></a>storms <span class="sc">|&gt;</span></span>
@@ -589,7 +657,7 @@
 <span id="cb6-6" class="hljs-ln-code"><a aria-label="6"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"North Atlantic Storms (1975)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="section-6" class="slide level2" data-auto-animate="true">
+<section id="section-7" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb7-1" class="hljs-ln-code"><a aria-label="1"></a>storms <span class="sc">|&gt;</span></span>
@@ -603,7 +671,7 @@
 </div>
 
 </section>
-<section id="section-6-output" class="slide level2 output-location-slide"><h2></h2><div class="cell output-location-slide" data-layout-align="center">
+<section id="section-7-output" class="slide level2 output-location-slide"><h2></h2><div class="cell output-location-slide" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -611,7 +679,7 @@
 </figure>
 </div>
 </div>
-</div></section><section id="section-7" class="slide level2" data-auto-animate="true">
+</div></section><section id="section-8" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb8-1" class="hljs-ln-code"><a aria-label="1"></a>storms <span class="sc">|&gt;</span></span>
@@ -624,7 +692,7 @@
 <span id="cb8-8" class="hljs-ln-code"><a aria-label="8"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"North Atlantic Storms (1975)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="section-8" class="slide level2" data-auto-animate="true">
+<section id="section-9" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb9-1" class="hljs-ln-code"><a aria-label="1"></a>storms <span class="sc">|&gt;</span></span>
@@ -639,7 +707,7 @@
 </div>
 
 </section>
-<section id="section-8-output" class="slide level2 output-location-slide"><h2></h2><div class="cell output-location-slide" data-layout-align="center">
+<section id="section-9-output" class="slide level2 output-location-slide"><h2></h2><div class="cell output-location-slide" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -647,7 +715,7 @@
 </figure>
 </div>
 </div>
-</div></section><section id="section-9" class="slide level2" data-auto-animate="true">
+</div></section><section id="section-10" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb10-1" class="hljs-ln-code"><a aria-label="1"></a>storms <span class="sc">|&gt;</span></span>
@@ -661,7 +729,7 @@
 <span id="cb10-9" class="hljs-ln-code"><a aria-label="9"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"North Atlantic Storms (1975)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="section-10" class="slide level2" data-auto-animate="true">
+<section id="section-11" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb11-1" class="hljs-ln-code"><a aria-label="1"></a>storms <span class="sc">|&gt;</span></span>
@@ -670,51 +738,15 @@
 <span id="cb11-4" class="hljs-ln-code"><a aria-label="4"></a>             <span class="at">y =</span> lat, </span>
 <span id="cb11-5" class="hljs-ln-code"><a aria-label="5"></a>             <span class="at">group =</span> name, </span>
 <span id="cb11-6" class="hljs-ln-code"><a aria-label="6"></a>             <span class="at">color =</span> name)) <span class="sc">+</span></span>
-<span id="cb11-7" class="hljs-ln-code"><a aria-label="7"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb11-8" class="hljs-ln-code"><a aria-label="8"></a>  <span class="fu">geom_path</span>(<span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.25</span>, <span class="st">"inches"</span>))) <span class="sc">+</span> </span>
-<span id="cb11-9" class="hljs-ln-code"><a aria-label="9"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"North Atlantic Storms (1975)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb11-7" class="hljs-ln-code"><a aria-label="7"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">0.5</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb11-8" class="hljs-ln-code"><a aria-label="8"></a>  <span class="fu">geom_path</span>() <span class="sc">+</span> </span>
+<span id="cb11-9" class="hljs-ln-code"><a aria-label="9"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> <span class="fu">month</span>(month, <span class="at">label =</span> <span class="cn">TRUE</span>)) <span class="sc">+</span></span>
+<span id="cb11-10" class="hljs-ln-code"><a aria-label="10"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"North Atlantic Storms (1975)"</span>) <span class="sc">+</span></span>
+<span id="cb11-11" class="hljs-ln-code"><a aria-label="11"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">24</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 </section>
-<section id="section-10-output" class="slide level2 output-location-slide"><h2></h2><div class="cell output-location-slide" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="slides_files/figure-revealjs/storms-arrows-1.png" class="quarto-figure quarto-figure-center" width="1344"></p>
-</figure>
-</div>
-</div>
-</div></section><section id="section-11" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title"></h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb12-1" class="hljs-ln-code"><a aria-label="1"></a>storms <span class="sc">|&gt;</span></span>
-<span id="cb12-2" class="hljs-ln-code"><a aria-label="2"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1975</span>) <span class="sc">|&gt;</span></span>
-<span id="cb12-3" class="hljs-ln-code"><a aria-label="3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> long, </span>
-<span id="cb12-4" class="hljs-ln-code"><a aria-label="4"></a>             <span class="at">y =</span> lat, </span>
-<span id="cb12-5" class="hljs-ln-code"><a aria-label="5"></a>             <span class="at">group =</span> name, </span>
-<span id="cb12-6" class="hljs-ln-code"><a aria-label="6"></a>             <span class="at">color =</span> name)) <span class="sc">+</span></span>
-<span id="cb12-7" class="hljs-ln-code"><a aria-label="7"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb12-8" class="hljs-ln-code"><a aria-label="8"></a>  <span class="fu">geom_path</span>(<span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.25</span>, <span class="st">"inches"</span>))) <span class="sc">+</span> </span>
-<span id="cb12-9" class="hljs-ln-code"><a aria-label="9"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"North Atlantic Storms (1975)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="section-12" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title"></h2>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb13-1" class="hljs-ln-code"><a aria-label="1"></a>storms <span class="sc">|&gt;</span></span>
-<span id="cb13-2" class="hljs-ln-code"><a aria-label="2"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1975</span>) <span class="sc">|&gt;</span></span>
-<span id="cb13-3" class="hljs-ln-code"><a aria-label="3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> long, </span>
-<span id="cb13-4" class="hljs-ln-code"><a aria-label="4"></a>             <span class="at">y =</span> lat, </span>
-<span id="cb13-5" class="hljs-ln-code"><a aria-label="5"></a>             <span class="at">group =</span> name, </span>
-<span id="cb13-6" class="hljs-ln-code"><a aria-label="6"></a>             <span class="at">color =</span> name)) <span class="sc">+</span></span>
-<span id="cb13-7" class="hljs-ln-code"><a aria-label="7"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">0.5</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb13-8" class="hljs-ln-code"><a aria-label="8"></a>  <span class="fu">geom_path</span>(<span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.25</span>, <span class="st">"inches"</span>))) <span class="sc">+</span> </span>
-<span id="cb13-9" class="hljs-ln-code"><a aria-label="9"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> <span class="fu">month</span>(month, <span class="at">label =</span> <span class="cn">TRUE</span>)) <span class="sc">+</span></span>
-<span id="cb13-10" class="hljs-ln-code"><a aria-label="10"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"North Atlantic Storms (1975)"</span>) <span class="sc">+</span></span>
-<span id="cb13-11" class="hljs-ln-code"><a aria-label="11"></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">24</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-
-</section><section id="section-12-output" class="slide level2 output-location-slide"><h2></h2><div class="cell output-location-slide" data-layout-align="center">
+<section id="section-11-output" class="slide level2 output-location-slide"><h2></h2><div class="cell output-location-slide" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -722,17 +754,52 @@
 </figure>
 </div>
 </div>
-</div></section></section>
+</div></section><section id="is-this-a-map" class="slide level2">
+<h2>Is this a map?</h2>
+<p><strong>Question</strong>: What is the CRS of the plots we just made?</p>
+<div class="fragment">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb12-2"><a aria-label="2"></a><span class="fu">st_crs</span>(storms)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>Coordinate Reference System: NA</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li class="fragment"><code>storms</code> is a data frame: two columns of numbers, no CRS.</li>
+<li class="fragment">Its datum is in the documentation (<code>?storms</code>: NOAA’s HURDAT), not the data.</li>
+<li class="fragment"><code>ggplot()</code> drew <code>long</code> as x and <code>lat</code> as y, stretched to fit the figure.</li>
+</ul>
+<aside class="notes">
+<p>Fill in the <code>storms</code> row on the board: long/lat in degrees, datum not recorded, no projection. The aspect ratio of these plots came from the 14 × 9 figure, not from the earth.</p>
+<p>Why the datum barely matters here: every <code>lat</code> and <code>long</code> in <code>storms</code> is rounded to 0.1°, about 11 km, while switching datums moves points by hundreds of meters. The projection matters a lot more for storms. A datum matters when the data are finer than the shift: GPS tracks, surveying, property lines (the datum gif earlier).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section></section>
 <section>
 <section id="simple-features" class="title-slide slide level1 center">
 <h1>Simple Features</h1>
 
 </section>
-<section id="section-13" class="slide level2" data-auto-animate="true">
+<section id="section-12" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 
 <img data-src="images/tidyverse-hex.svg" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="section-14" class="slide level2" data-auto-animate="true">
+<section id="section-13" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -741,7 +808,7 @@
 <p><img data-src="images/sf-hex.gif"></p>
 </div></div>
 </section>
-<section id="section-15" class="slide level2">
+<section id="section-14" class="slide level2">
 <h2></h2>
 <div class="definition">
 <div class="definition-header">
@@ -1118,8 +1185,21 @@ First 10 features:
 36      &lt;NA&gt;      &lt;NA&gt; MULTIPOLYGON (((-83.65561 1...</code></pre>
 </div>
 </div>
+<aside class="notes annotate">
+<p>Circle <code>Geodetic CRS: WGS 84</code> in the header. Unlike <code>storms</code>, this object records its own CRS. PS 5 asks students to read the datum off this line.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="section-16" class="slide level2">
+<section id="section-15" class="slide level2">
 <h2></h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-label="1"></a><span class="fu">library</span>(sf)</span>
@@ -1146,17 +1226,44 @@ GEOGCRS["WGS 84",
     ID["EPSG",4326]]</code></pre>
 </div>
 </div>
+<aside class="notes annotate">
+<p>Label the three parts of a CRS in the output. Datum: <code>ENSEMBLE</code> and <code>ELLIPSOID</code> (WGS 84). Coordinate system: <code>CS[ellipsoidal,2]</code> and its <code>AXIS</code> lines, in degrees; officially latitude comes first, though sf uses longitude first. Projection: there is no <code>CONVERSION</code>, so these coordinates are not projected. Fill in the <code>map_north_america</code> row on the board.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="section-17" class="slide level2">
+<section id="section-16" class="slide level2">
 <h2></h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a aria-label="1"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a aria-label="1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb18-2"><a aria-label="2"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> map_north_america) <span class="sc">+</span></span>
 <span id="cb18-3"><a aria-label="3"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_blank</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
+<p><code>geom_sf()</code> still has to flatten (long, lat): it plots long as x and lat as y, the <strong>equirectangular</strong> projection.</p>
+<aside class="notes">
+<p>Compare with the storms-only plots: there the aspect ratio came from the figure; here <code>geom_sf()</code> sets it so that a degree of longitude is as wide as it really is at the map’s middle latitude.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="section-17-output" class="slide level2 output-location-slide"><h2></h2><div class="cell output-location-slide" data-layout-align="center">
+<section id="section-16-output" class="slide level2 output-location-slide"><h2></h2><div class="cell output-location-slide" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1164,7 +1271,7 @@ GEOGCRS["WGS 84",
 </figure>
 </div>
 </div>
-</div></section><section id="section-18" class="slide level2">
+</div></section><section id="section-17" class="slide level2">
 <h2></h2>
 <div class="cell" data-layout-align="center">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a aria-label="1"></a>map_mexico1 <span class="ot">&lt;-</span> <span class="fu">ne_countries</span>(<span class="at">country =</span> <span class="st">"mexico"</span>, <span class="at">returnclass =</span> <span class="st">"sf"</span>)</span>
@@ -1175,7 +1282,7 @@ GEOGCRS["WGS 84",
 </div>
 
 </section>
-<section id="section-18-output" class="slide level2 output-location-slide"><h2></h2><div class="cell output-location-slide" data-layout-align="center">
+<section id="section-17-output" class="slide level2 output-location-slide"><h2></h2><div class="cell output-location-slide" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -1183,106 +1290,378 @@ GEOGCRS["WGS 84",
 </figure>
 </div>
 </div>
-</div></section><section id="section-19" class="slide level2">
-<h2></h2>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a aria-label="1"></a><span class="co"># (requires pkg "rnaturalearthhires")</span></span>
-<span id="cb20-2"><a aria-label="2"></a><span class="co"># remotes::install_github("ropensci/rnaturalearthhires")</span></span>
-<span id="cb20-3"><a aria-label="3"></a>map_mexico2 <span class="ot">&lt;-</span> <span class="fu">ne_states</span>(<span class="at">country =</span> <span class="st">"mexico"</span>, <span class="at">returnclass =</span> <span class="st">"sf"</span>)</span>
-<span id="cb20-4"><a aria-label="4"></a></span>
-<span id="cb20-5"><a aria-label="5"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb20-6"><a aria-label="6"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> map_mexico2) <span class="sc">+</span></span>
-<span id="cb20-7"><a aria-label="7"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_blank</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell fragment" data-layout-align="center">
-
-</div>
-</section>
-<section id="adding-data-to-a-map" class="slide level2">
+</div></section><section id="adding-data-to-a-map" class="slide level2">
 <h2>Adding data to a map</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a aria-label="1"></a><span class="co"># (abstract code)</span></span>
-<span id="cb21-2"><a aria-label="2"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb21-3"><a aria-label="3"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> map_object) <span class="sc">+</span></span>
-<span id="cb21-4"><a aria-label="4"></a>  <span class="fu">geom_...</span>(<span class="at">data =</span> data_table, <span class="fu">aes</span>(...))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a aria-label="1"></a><span class="co"># (abstract code)</span></span>
+<span id="cb20-2"><a aria-label="2"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
+<span id="cb20-3"><a aria-label="3"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> map_object) <span class="sc">+</span></span>
+<span id="cb20-4"><a aria-label="4"></a>  <span class="fu">geom_...</span>(<span class="at">data =</span> data_table, <span class="fu">aes</span>(...))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Layer</th>
+<th>Data</th>
+<th>CRS</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>geom_sf()</code></td>
+<td><code>map_north_america</code> (sf)</td>
+<td>WGS 84, recorded</td>
+</tr>
+<tr class="even">
+<td><code>geom_point()</code></td>
+<td><code>storms75</code> (data frame)</td>
+<td>none: ggplot2 <strong>assumes</strong> it matches the map</td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+<p>The overlay on the next slide works only because both layers happen to be long/lat in degrees, in (about) the same datum. Keep this table in mind for the end of the case study.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </div>
 </section>
-<section id="section-20" class="slide level2">
+<section id="section-18" class="slide level2">
 <h2></h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22" data-code-line-numbers="|5-6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a aria-label="1"></a>storms75 <span class="ot">&lt;-</span> storms <span class="sc">|&gt;</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1975</span>)</span>
-<span id="cb22-2"><a aria-label="2"></a></span>
-<span id="cb22-3"><a aria-label="3"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb22-4"><a aria-label="4"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> map_north_america) <span class="sc">+</span></span>
-<span id="cb22-5"><a aria-label="5"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> storms75, </span>
-<span id="cb22-6"><a aria-label="6"></a>             <span class="fu">aes</span>(<span class="at">x =</span> long, <span class="at">y =</span> lat, <span class="at">group =</span> name, <span class="at">color =</span> name)) <span class="sc">+</span></span>
-<span id="cb22-7"><a aria-label="7"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
-<span id="cb22-8"><a aria-label="8"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"North Atlantic Storms (1975)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21" data-code-line-numbers="|1|2-3|4-5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a aria-label="1"></a>storms75 <span class="ot">&lt;-</span> storms <span class="sc">|&gt;</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1975</span>)</span>
+<span id="cb21-2"><a aria-label="2"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb21-3"><a aria-label="3"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> map_north_america) <span class="sc">+</span></span>
+<span id="cb21-4"><a aria-label="4"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> storms75, <span class="at">size =</span> <span class="dv">1</span>,</span>
+<span id="cb21-5"><a aria-label="5"></a>             <span class="fu">aes</span>(<span class="at">x =</span> long, <span class="at">y =</span> lat, <span class="at">color =</span> name)) <span class="sc">+</span></span>
+<span id="cb21-6"><a aria-label="6"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
+<span id="cb21-7"><a aria-label="7"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"North Atlantic Storms (1975)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
+<aside class="notes annotate">
+<p>Step through one layer per highlight. Line 1: the data, still a plain data frame. Lines 2-3: the map layer, an sf object in WGS 84, so <code>geom_sf()</code> knows its CRS. Lines 4-5: the storms layer, the same points as the storms-only plots, now with <code>data =</code> in the layer because the two layers use different data. We drop the paths from here on, so the only thing that changes between this map and the Albers one is the CRS. The storms layer has no CRS: ggplot2 assumes their <code>long</code> and <code>lat</code> match the map’s. Point to the layer table from the last slide before showing the map.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="section-20-output" class="slide level2 output-location-slide"><h2></h2><div class="cell output-location-slide" data-layout-align="center">
+<section id="section-18-output" class="slide level2 output-location-slide"><h2></h2><div class="cell output-location-slide" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="slides_files/figure-revealjs/storms-on-map-points-1.png" class="quarto-figure quarto-figure-center" width="1344"></p>
+<p><img data-src="slides_files/figure-revealjs/storms-on-map-1.png" class="quarto-figure quarto-figure-center" width="1344"></p>
 </figure>
 </div>
 </div>
-</div></section><section id="section-21" class="slide level2">
+</div></section><section id="why-did-that-work" class="slide level2 smaller">
+<h2>Why did that work?</h2>
+<div class="columns">
+<div class="column">
+<h3 id="map-layer">Map layer</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a aria-label="1"></a><span class="fu">st_crs</span>(map_north_america)<span class="sc">$</span>units_gdal</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "degree"</code></pre>
+</div>
+</div>
+<ul>
+<li class="fragment"><strong>Coordinate system</strong>: (long, lat) in <strong>degrees</strong></li>
+<li class="fragment"><strong>Datum</strong>: WGS 84</li>
+<li class="fragment"><strong>Projection</strong>: none (drawn equirectangular)</li>
+</ul>
+</div><div class="column">
+<h3 id="storms-layer">Storms layer</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a aria-label="1"></a><span class="fu">st_crs</span>(storms75)<span class="sc">$</span>units_gdal</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+</div>
+<ul>
+<li class="fragment"><strong>Coordinate system</strong>: (long, lat) in <strong>degrees</strong> (according to docs)</li>
+<li class="fragment"><strong>Datum</strong>: not recorded</li>
+<li class="fragment"><strong>Projection</strong>: none</li>
+</ul>
+</div></div>
+<div class="fragment">
+<p>We got lucky: both layers happen to be in degrees.</p>
+<blockquote>
+<p>What happens if we want a new map projection?</p>
+</blockquote>
+<aside class="notes">
+<p><code>$units_gdal</code> pulls one piece out of a CRS, a shortcut for reading the long <code>st_crs()</code> printout. The storms’ numbers are degrees only because NOAA recorded them that way: <code>storms75</code> is a data frame, so its CRS is <code>NA</code> and so are its units. ggplot2 drew those numbers in whatever units the map uses. Here that’s degrees; at the end of the case study it won’t be.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section>
+<section id="section-19" class="slide level2">
 <h2></h2>
 <div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23" data-code-line-numbers="|5-8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a aria-label="1"></a>storms75 <span class="ot">&lt;-</span> storms <span class="sc">|&gt;</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1975</span>)</span>
-<span id="cb23-2"><a aria-label="2"></a></span>
-<span id="cb23-3"><a aria-label="3"></a><span class="fu">ggplot</span>() <span class="sc">+</span> </span>
-<span id="cb23-4"><a aria-label="4"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> map_north_america) <span class="sc">+</span></span>
-<span id="cb23-5"><a aria-label="5"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> storms75, <span class="at">size =</span> <span class="fl">0.5</span>,</span>
-<span id="cb23-6"><a aria-label="6"></a>             <span class="fu">aes</span>(<span class="at">x =</span> long, <span class="at">y =</span> lat, <span class="at">group =</span> name, <span class="at">color =</span> name)) <span class="sc">+</span></span>
-<span id="cb23-7"><a aria-label="7"></a>  <span class="fu">geom_path</span>(<span class="at">data =</span> storms75, </span>
-<span id="cb23-8"><a aria-label="8"></a>             <span class="fu">aes</span>(<span class="at">x =</span> long, <span class="at">y =</span> lat, <span class="at">group =</span> name, <span class="at">color =</span> name)) <span class="sc">+</span></span>
-<span id="cb23-9"><a aria-label="9"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
-<span id="cb23-10"><a aria-label="10"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"North Atlantic Storms (1975)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a aria-label="1"></a>na_albers <span class="ot">&lt;-</span> <span class="fu">st_transform</span>(map_north_america, <span class="at">crs =</span> <span class="dv">5070</span>)</span>
+<span id="cb26-2"><a aria-label="2"></a></span>
+<span id="cb26-3"><a aria-label="3"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb26-4"><a aria-label="4"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> na_albers) <span class="sc">+</span></span>
+<span id="cb26-5"><a aria-label="5"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_blank</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
+<aside class="notes">
+<p>EPSG 5070 is NAD83 plus an Albers projection for the US and its neighbors. <code>st_transform()</code> changes both the datum (WGS 84 to NAD83) and the projection. The axes are still labeled in degrees, but the coordinates are now meters.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="section-19-output" class="slide level2 output-location-slide"><h2></h2><div class="cell output-location-slide" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="slides_files/figure-revealjs/na-albers-1.png" class="quarto-figure quarto-figure-center" width="1344"></p>
+</figure>
+</div>
+</div>
+</div></section><section id="section-20" class="slide level2 smaller scrollable">
+<h2></h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a aria-label="1"></a><span class="fu">st_crs</span>(na_albers)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>Coordinate Reference System:
+  User input: EPSG:5070 
+  wkt:
+PROJCRS["NAD83 / Conus Albers",
+    BASEGEOGCRS["NAD83",
+        DATUM["North American Datum 1983",
+            ELLIPSOID["GRS 1980",6378137,298.257222101,
+                LENGTHUNIT["metre",1]]],
+        PRIMEM["Greenwich",0,
+            ANGLEUNIT["degree",0.0174532925199433]],
+        ID["EPSG",4269]],
+    CONVERSION["Conus Albers",
+        METHOD["Albers Equal Area",
+            ID["EPSG",9822]],
+        PARAMETER["Latitude of false origin",23,
+            ANGLEUNIT["degree",0.0174532925199433],
+            ID["EPSG",8821]],
+        PARAMETER["Longitude of false origin",-96,
+            ANGLEUNIT["degree",0.0174532925199433],
+            ID["EPSG",8822]],
+        PARAMETER["Latitude of 1st standard parallel",29.5,
+            ANGLEUNIT["degree",0.0174532925199433],
+            ID["EPSG",8823]],
+        PARAMETER["Latitude of 2nd standard parallel",45.5,
+            ANGLEUNIT["degree",0.0174532925199433],
+            ID["EPSG",8824]],
+        PARAMETER["Easting at false origin",0,
+            LENGTHUNIT["metre",1],
+            ID["EPSG",8826]],
+        PARAMETER["Northing at false origin",0,
+            LENGTHUNIT["metre",1],
+            ID["EPSG",8827]]],
+    CS[Cartesian,2],
+        AXIS["easting (X)",east,
+            ORDER[1],
+            LENGTHUNIT["metre",1]],
+        AXIS["northing (Y)",north,
+            ORDER[2],
+            LENGTHUNIT["metre",1]],
+    USAGE[
+        SCOPE["Data analysis and small scale data presentation for contiguous lower 48 states."],
+        AREA["United States (USA) - CONUS onshore - Alabama; Arizona; Arkansas; California; Colorado; Connecticut; Delaware; Florida; Georgia; Idaho; Illinois; Indiana; Iowa; Kansas; Kentucky; Louisiana; Maine; Maryland; Massachusetts; Michigan; Minnesota; Mississippi; Missouri; Montana; Nebraska; Nevada; New Hampshire; New Jersey; New Mexico; New York; North Carolina; North Dakota; Ohio; Oklahoma; Oregon; Pennsylvania; Rhode Island; South Carolina; South Dakota; Tennessee; Texas; Utah; Vermont; Virginia; Washington; West Virginia; Wisconsin; Wyoming."],
+        BBOX[24.41,-124.79,49.38,-66.91]],
+    ID["EPSG",5070]]</code></pre>
+</div>
+</div>
+<aside class="notes annotate">
+<p>Circle the new parts: <code>BASEGEOGCRS["NAD83"...]</code> (the datum), <code>CONVERSION</code> with <code>METHOD["Albers Equal Area"]</code> (the projection), and <code>CS[Cartesian,2]</code> with <code>LENGTHUNIT["metre",1]</code> (meters, not degrees). Fill in the <code>na_albers</code> row on the board.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="where-did-the-storms-go" class="slide level2">
+<h2>Where did the storms go?</h2>
+
+<img data-src="slides_files/figure-revealjs/storms-albers-broken-1.png" class="quarto-figure quarto-figure-center r-stretch" width="1344"><aside class="notes annotate">
+<p>The legend lists all eight storms, but no storms show. ggplot2 took the storms’ degrees to be meters in the map’s CRS, so every storm lies within about 100 m of the Albers origin at 96° W, 23° N: circle that spot in the Gulf of Mexico. Point back to the layer table: the storms layer has no CRS, so ggplot2 assumed it matched the map.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="why-didnt-that-work" class="slide level2 smaller">
+<h2>Why didn’t that work?</h2>
+<div class="columns">
+<div class="column">
+<h3 id="map-layer-1">Map layer</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a aria-label="1"></a><span class="fu">st_crs</span>(na_albers)<span class="sc">$</span>units_gdal</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "metre"</code></pre>
+</div>
+</div>
+<ul>
+<li class="fragment"><strong>Coordinate system</strong>: (x, y) in <strong>meters</strong> east and north of 96° W, 23° N</li>
+<li class="fragment"><strong>Datum</strong>: NAD83</li>
+<li class="fragment"><strong>Projection</strong>: Albers (EPSG 5070)</li>
+</ul>
+</div><div class="column">
+<h3 id="storms-layer-1">Storms layer</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a aria-label="1"></a><span class="fu">st_crs</span>(storms75)<span class="sc">$</span>units_gdal</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+</div>
+<ul>
+<li class="fragment"><strong>Coordinate system</strong>: (long, lat) in <strong>degrees</strong> (according to docs)</li>
+<li class="fragment"><strong>Datum</strong>: not recorded</li>
+<li class="fragment"><strong>Projection</strong>: none</li>
+</ul>
+</div></div>
+<div class="fragment">
+<p>ggplot2 drew the storms’ degrees as meters: (−79, 27.5) became 79 m west and 27.5 m north of the origin.</p>
+<aside class="notes">
+<p>Same two layers as the “Why did that work?” slide, but now the map is in meters. The storms layer didn’t change; only the map did, and ggplot2 still drew the storms in the map’s units. Fill in the <code>na_albers</code> row on the board if it isn’t there yet.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
+</section>
+<section id="section-21" class="slide level2">
+<h2></h2>
+<ul>
+<li class="fragment"><code>st_as_sf()</code> <strong>declares</strong> the CRS the storms’ numbers are in.</li>
+<li class="fragment"><code>st_transform()</code> <strong>transforms</strong> them into the map’s CRS.</li>
+</ul>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33" data-code-line-numbers="|1-3|2|3|5-8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a aria-label="1"></a>storms_albers <span class="ot">&lt;-</span> storms75 <span class="sc">|&gt;</span></span>
+<span id="cb33-2"><a aria-label="2"></a>  <span class="fu">st_as_sf</span>(<span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"long"</span>, <span class="st">"lat"</span>), <span class="at">crs =</span> <span class="dv">4326</span>) <span class="sc">|&gt;</span></span>
+<span id="cb33-3"><a aria-label="3"></a>  <span class="fu">st_transform</span>(<span class="at">crs =</span> <span class="dv">5070</span>)</span>
+<span id="cb33-4"><a aria-label="4"></a></span>
+<span id="cb33-5"><a aria-label="5"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb33-6"><a aria-label="6"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> na_albers) <span class="sc">+</span></span>
+<span id="cb33-7"><a aria-label="7"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> storms_albers, <span class="fu">aes</span>(<span class="at">color =</span> name), <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb33-8"><a aria-label="8"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_blank</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+
+<aside class="notes">
+<p>Line 2 turns each row into a POINT and records that its numbers are WGS 84 degrees; line 3 converts them to Albers meters, the same function that made <code>na_albers</code>. Now both layers are sf objects in 5070, so <code>geom_sf()</code> draws both. PS 5 does exactly this with earthquakes in California.</p>
+<p>Two asides if asked. <code>geom_sf()</code> will quietly reproject any sf layer into the first layer’s CRS, so the map still looks right if you skip line 3; line 2 is the step you can’t skip. And the storms are points now, not tracks: joining them back into lines takes <code>summarize()</code> on an sf object, which comes in Spatial II.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div>
 </section>
 <section id="section-21-output" class="slide level2 output-location-slide"><h2></h2><div class="cell output-location-slide" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="slides_files/figure-revealjs/storms-on-map-paths-1.png" class="quarto-figure quarto-figure-center" width="1344"></p>
+<p><img data-src="slides_files/figure-revealjs/storms-albers-fixed-1.png" class="quarto-figure quarto-figure-center" width="1344"></p>
 </figure>
 </div>
 </div>
-</div></section><section id="section-22" class="slide level2">
-<h2></h2>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24" data-code-line-numbers="|2,7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a aria-label="1"></a><span class="co"># (scale = "medium" requires pkg "rnaturalearthdata")</span></span>
-<span id="cb24-2"><a aria-label="2"></a>world_countries <span class="ot">&lt;-</span> <span class="fu">ne_countries</span>(<span class="at">scale =</span> <span class="st">"medium"</span>, <span class="at">returnclass =</span> <span class="st">"sf"</span>)</span>
-<span id="cb24-3"><a aria-label="3"></a>storms75 <span class="ot">&lt;-</span> storms <span class="sc">|&gt;</span> <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1975</span>)</span>
-<span id="cb24-4"><a aria-label="4"></a></span>
-<span id="cb24-5"><a aria-label="5"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb24-6"><a aria-label="6"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> world_countries) <span class="sc">+</span></span>
-<span id="cb24-7"><a aria-label="7"></a>  <span class="fu">coord_sf</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">110</span>, <span class="dv">0</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">65</span>)) <span class="sc">+</span></span>
-<span id="cb24-8"><a aria-label="8"></a>  <span class="fu">geom_path</span>(<span class="at">data =</span> storms75, </span>
-<span id="cb24-9"><a aria-label="9"></a>          <span class="fu">aes</span>(<span class="at">x =</span> long, <span class="at">y =</span> lat, <span class="at">group =</span> name, <span class="at">color =</span> name)) <span class="sc">+</span></span>
-<span id="cb24-10"><a aria-label="10"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb24-11"><a aria-label="11"></a>        <span class="at">axis.ticks =</span> <span class="fu">element_blank</span>(), <span class="co"># hide tick marks</span></span>
-<span id="cb24-12"><a aria-label="12"></a>        <span class="at">axis.text =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span> <span class="co"># hide degree values of lat &amp; lon</span></span>
-<span id="cb24-13"><a aria-label="13"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"North Atlantic Storms (1975)"</span>,</span>
-<span id="cb24-14"><a aria-label="14"></a>       <span class="at">x =</span> <span class="st">""</span>, </span>
-<span id="cb24-15"><a aria-label="15"></a>       <span class="at">y =</span> <span class="st">""</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></section><section id="the-rule" class="slide level2 smaller">
+<h2>The rule</h2>
+<p>Every layer needs a <strong>declared</strong> CRS.</p>
+<ul>
+<li class="fragment">An sf object carries its own: check it with <code>st_crs()</code>.</li>
+<li class="fragment">A data frame doesn’t: declare it with <code>st_as_sf(coords = , crs = )</code>.</li>
+</ul>
+<div class="fragment">
+<p>If the layers have differing CRS, <strong>transform</strong> them with <code>st_transform()</code>.</p>
+<aside class="notes">
+<p>This answers “how do you move data from one datum to another?”: declare the CRS the data are actually in, then <code>st_transform()</code> to the one you want. Setting a new CRS on old numbers is how points end up hundreds of meters off, as in the datum gif.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </div>
-
 </section>
-<section id="section-22-output" class="slide level2 output-location-slide"><h2></h2><div class="cell output-location-slide" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="slides_files/figure-revealjs/storms-world-zoom-1.png" class="quarto-figure quarto-figure-center" width="1344"></p>
-</figure>
-</div>
-</div>
-</div></section><section id="section-23" class="slide level2 intro" data-background-color="var(--intro-bg)">
+<section id="section-22" class="slide level2 intro" data-background-color="var(--intro-bg)">
 <h2></h2>
 <div class="columns">
 <div class="column">

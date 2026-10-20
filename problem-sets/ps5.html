@@ -349,17 +349,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Add the locations of these earthquakes to both of your CA maps using <code>geom_point()</code>.</p>
 <ol start="6" class="example" type="1">
-<li>As you will have noticed, on the Albers map all of the earthquakes land on a single dot in central California. <code>geom_sf()</code> drew the counties in Albers coordinates, which are meters east and north of a point near 120° W, 38° N. <code>geom_point()</code> took the earthquakes’ longitudes and latitudes to be meters too, so it placed every earthquake within about 130 meters of that point. Remake your Albers map after converting the earthquake data frame to an sf object in WGS84 and then transforming it to the Albers projection (EPSG 3310)<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</li>
+<li>As you will have noticed, on the Albers map all of the earthquakes land on a single dot in central California. <code>geom_sf()</code> drew the counties in Albers coordinates, which are meters east and north of a point near 120° W, 38° N. <code>geom_point()</code> took the earthquakes’ longitudes and latitudes to be meters too, so it placed every earthquake within about 130 meters of that point. Remake your Albers map the way we fixed the storms in lecture: convert the earthquake data frame to an sf object in WGS 84 (EPSG 4326) with <code>st_as_sf()</code>, then transform it to the Albers projection (EPSG 3310) with <code>st_transform()</code><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</li>
 </ol>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>quakes_wgs84 <span class="ot">&lt;-</span> <span class="fu">st_as_sf</span>(</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  quakes,</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"Longitude"</span>, <span class="st">"Latitude"</span>),</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">crs =</span> <span class="dv">4326</span>,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">remove =</span> <span class="cn">FALSE</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>quakes_albers <span class="ot">&lt;-</span> <span class="fu">st_transform</span>(quakes_wgs84, <span class="at">crs =</span> <span class="dv">3310</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
 
 
 </section>

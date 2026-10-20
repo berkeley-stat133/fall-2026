@@ -34,17 +34,6 @@ quakes <- read_csv("ca-quakes.csv")
 
 Add the locations of these earthquakes to both of your CA maps using `geom_point()`.
 
-@. As you will have noticed, on the Albers map all of the earthquakes land on a single dot in central California. `geom_sf()` drew the counties in Albers coordinates, which are meters east and north of a point near 120° W, 38° N. `geom_point()` took the earthquakes' longitudes and latitudes to be meters too, so it placed every earthquake within about 130 meters of that point. Remake your Albers map after converting the earthquake data frame to an sf object in WGS84 and then transforming it to the Albers projection (EPSG 3310)[^quakes-sf].
+@. As you will have noticed, on the Albers map all of the earthquakes land on a single dot in central California. `geom_sf()` drew the counties in Albers coordinates, which are meters east and north of a point near 120° W, 38° N. `geom_point()` took the earthquakes' longitudes and latitudes to be meters too, so it placed every earthquake within about 130 meters of that point. Remake your Albers map the way we fixed the storms in lecture: convert the earthquake data frame to an sf object in WGS 84 (EPSG 4326) with `st_as_sf()`, then transform it to the Albers projection (EPSG 3310) with `st_transform()`[^quakes-sf].
 
 [^quakes-sf]: Hint: since `quakes_albers` is an sf object instead of a tibble, `geom_point()` will no longer work. You can add it in a second `geom_sf()` layer (the first will be for the basemap).
-
-```{r}
-#| eval: false
-quakes_wgs84 <- st_as_sf(
-  quakes,
-  coords = c("Longitude", "Latitude"),
-  crs = 4326,
-  remove = FALSE
-)
-quakes_albers <- st_transform(quakes_wgs84, crs = 3310)
-```
