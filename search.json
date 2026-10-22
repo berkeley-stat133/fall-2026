@@ -860,14 +860,14 @@
     "href": "21-date-time-1/slides.html#section-8",
     "title": "Dates and Times I",
     "section": "",
-    "text": "POSIXct\n\n\nPOSIXct (Portable Operating System Interface Calendar Time) is an atomic vector to store date-times that is built on top of a double vector.\n\n\n\n\nnow &lt;- Sys.time()\nnow\n\n\n\n[1] \"2026-10-21 15:42:48 UTC\"\n\n\n\n\n\nclass(now)\n\n\n\n[1] \"POSIXct\" \"POSIXt\" \n\n\n\nStart off with reminder about factors: a integer vector with the factor class that allows it to store the levels look up table."
+    "text": "POSIXct\n\n\nPOSIXct (Portable Operating System Interface Calendar Time) is an atomic vector to store date-times that is built on top of a double vector.\n\n\n\n\nnow &lt;- Sys.time()\nnow\n\n\n\n[1] \"2026-10-22 17:50:23 UTC\"\n\n\n\n\n\nclass(now)\n\n\n\n[1] \"POSIXct\" \"POSIXt\" \n\n\n\nStart off with reminder about factors: a integer vector with the factor class that allows it to store the levels look up table."
   },
   {
     "objectID": "21-date-time-1/slides.html#why-not-just-use-a-double-vector",
     "href": "21-date-time-1/slides.html#why-not-just-use-a-double-vector",
     "title": "Dates and Times I",
     "section": "Why not just use a double vector?",
-    "text": "Why not just use a double vector?\n\n\n# it prints as a legible string\nnow\n\n\n\n[1] \"2026-10-21 15:42:48 UTC\"\n\n\n\n\n\n# while respecting artithmetic\nnow + 1\n\n\n\n[1] \"2026-10-21 15:42:49 UTC\"\n\n\n\n\n\n# and other sensible operations\nround(now, units = \"hours\")\n\n\n\n[1] \"2026-10-21 16:00:00 UTC\"\n\n\n\n\n\n# and makes it easy to use other formats\nformat(now, \"%m/%d/%y\")\n\n\n\n[1] \"10/21/26\""
+    "text": "Why not just use a double vector?\n\n\n# it prints as a legible string\nnow\n\n\n\n[1] \"2026-10-22 17:50:23 UTC\"\n\n\n\n\n\n# while respecting artithmetic\nnow + 1\n\n\n\n[1] \"2026-10-22 17:50:24 UTC\"\n\n\n\n\n\n# and other sensible operations\nround(now, units = \"hours\")\n\n\n\n[1] \"2026-10-22 18:00:00 UTC\"\n\n\n\n\n\n# and makes it easy to use other formats\nformat(now, \"%m/%d/%y\")\n\n\n\n[1] \"10/22/26\""
   },
   {
     "objectID": "21-date-time-1/slides.html#section-9",
@@ -916,28 +916,28 @@
     "href": "21-date-time-1/slides.html#getting",
     "title": "Dates and Times I",
     "section": "Getting",
-    "text": "Getting\nYou can extract components of the date-time object using year(), month(), week(), day(), wday(), hour(), etc.\n\n\nyear(now)\n\n\n\n[1] 2026\n\n\n\n\n\nday(now)\n\n\n\n[1] 21\n\n\n\n\n\nwday(now)\n\n\n\n[1] 4"
+    "text": "Getting\nYou can extract components of the date-time object using year(), month(), week(), day(), wday(), hour(), etc.\n\n\nyear(now)\n\n\n\n[1] 2026\n\n\n\n\n\nday(now)\n\n\n\n[1] 22\n\n\n\n\n\nwday(now)\n\n\n\n[1] 5"
   },
   {
     "objectID": "21-date-time-1/slides.html#getting-1",
     "href": "21-date-time-1/slides.html#getting-1",
     "title": "Dates and Times I",
     "section": "Getting",
-    "text": "Getting\nYou can extract components of the date-time object using year(), month(), week(), day(), wday(), hour(), etc.\n\nyear(now)\n\n[1] 2026\n\n\n\nday(now)\n\n[1] 21\n\n\n\nwday(now, label = TRUE)\n\n\n\n[1] Wed\nLevels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat"
+    "text": "Getting\nYou can extract components of the date-time object using year(), month(), week(), day(), wday(), hour(), etc.\n\nyear(now)\n\n[1] 2026\n\n\n\nday(now)\n\n[1] 22\n\n\n\nwday(now, label = TRUE)\n\n\n\n[1] Thu\nLevels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat"
   },
   {
     "objectID": "21-date-time-1/slides.html#getting-2",
     "href": "21-date-time-1/slides.html#getting-2",
     "title": "Dates and Times I",
     "section": "Getting",
-    "text": "Getting\nYou can extract components of the date-time object using year(), month(), week(), day(), wday(), hour(), etc.\n\nyear(now)\n\n[1] 2026\n\n\n\nday(now)\n\n[1] 21\n\n\n\nwday(now, label = TRUE, abbr = FALSE)\n\n\n\n[1] Wednesday\n7 Levels: Sunday &lt; Monday &lt; Tuesday &lt; Wednesday &lt; Thursday &lt; ... &lt; Saturday"
+    "text": "Getting\nYou can extract components of the date-time object using year(), month(), week(), day(), wday(), hour(), etc.\n\nyear(now)\n\n[1] 2026\n\n\n\nday(now)\n\n[1] 22\n\n\n\nwday(now, label = TRUE, abbr = FALSE)\n\n\n\n[1] Thursday\n7 Levels: Sunday &lt; Monday &lt; Tuesday &lt; Wednesday &lt; Thursday &lt; ... &lt; Saturday"
   },
   {
     "objectID": "21-date-time-1/slides.html#setting",
     "href": "21-date-time-1/slides.html#setting",
     "title": "Dates and Times I",
     "section": "Setting",
-    "text": "Setting\nYou can set those same components in an existing date-time object using change-in-place notation.\n\n\nyear(now) &lt;- 2027\nnow\n\n\n\n[1] \"2027-10-21 15:42:48 UTC\"\n\n\n\n\n\nwday(now, label = TRUE, abbr = FALSE)\n\n\n\n[1] Thursday\n7 Levels: Sunday &lt; Monday &lt; Tuesday &lt; Wednesday &lt; Thursday &lt; ... &lt; Saturday"
+    "text": "Setting\nYou can set those same components in an existing date-time object using change-in-place notation.\n\n\nyear(now) &lt;- 2027\nnow\n\n\n\n[1] \"2027-10-22 17:50:23 UTC\"\n\n\n\n\n\nwday(now, label = TRUE, abbr = FALSE)\n\n\n\n[1] Friday\n7 Levels: Sunday &lt; Monday &lt; Tuesday &lt; Wednesday &lt; Thursday &lt; ... &lt; Saturday"
   },
   {
     "objectID": "21-date-time-1/slides.html#your-turn-1",
@@ -3765,35 +3765,35 @@
     "href": "07-control-flow/slides.html#what-if-x-has-multiple-elements",
     "title": "Control Flow",
     "section": "What if x has multiple elements?",
-    "text": "What if x has multiple elements?\n\n\nx &lt;- rnorm(3)\nx\n\n\n\n[1] -2.0591262  0.4439758 -0.6757020\n\n\n\n\n\n\n\n\n\n\n      if (x &gt; 0) {\n        print(\"x is positive :)\")\n      }\n\n\n\nAnnotate this if-then by wrapping it in a for loop."
+    "text": "What if x has multiple elements?\n\n\nx &lt;- rnorm(3)\nx\n\n\n\n[1] -1.2401553 -1.2354784 -0.3015098\n\n\n\n\n\n\n\n\n\n\n      if (x &gt; 0) {\n        print(\"x is positive :)\")\n      }\n\n\n\nAnnotate this if-then by wrapping it in a for loop."
   },
   {
     "objectID": "07-control-flow/slides.html#option-1",
     "href": "07-control-flow/slides.html#option-1",
     "title": "Control Flow",
     "section": "Option 1",
-    "text": "Option 1\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(\"x is positive :)\")\n  }\n}\n\n\n\n[1] \"x is positive :)\""
+    "text": "Option 1\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(\"x is positive :)\")\n  }\n}"
   },
   {
     "objectID": "07-control-flow/slides.html#option-2",
     "href": "07-control-flow/slides.html#option-2",
     "title": "Control Flow",
     "section": "Option 2",
-    "text": "Option 2\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(paste(\"element\", i, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"element 2 is positive :)\""
+    "text": "Option 2\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(paste(\"element\", i, \"is positive :)\"))\n  }\n}"
   },
   {
     "objectID": "07-control-flow/slides.html#option-3",
     "href": "07-control-flow/slides.html#option-3",
     "title": "Control Flow",
     "section": "Option 3",
-    "text": "Option 3\n\nfor (x_elem in x) {\n  if (x_elem &gt; 0) {\n    print(paste(x_elem, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"0.443975810755625 is positive :)\""
+    "text": "Option 3\n\nfor (x_elem in x) {\n  if (x_elem &gt; 0) {\n    print(paste(x_elem, \"is positive :)\"))\n  }\n}"
   },
   {
     "objectID": "07-control-flow/slides.html#ifelse",
     "href": "07-control-flow/slides.html#ifelse",
     "title": "Control Flow",
     "section": "ifelse()",
-    "text": "ifelse()\n\n\nifelse()\n\n\nA vectorized if-else: applies a condition to every element of a vector at once, without an explicit loop.\n\n\n\n\nx &lt; 0 \n\n\n\n[1]  TRUE FALSE  TRUE\n\n\n\n\n\nifelse(test = x &lt; 0, yes = \"is positive :)\", no = \"is negative :(\")\n\n\n\n[1] \"is positive :)\" \"is negative :(\" \"is positive :)\""
+    "text": "ifelse()\n\n\nifelse()\n\n\nA vectorized if-else: applies a condition to every element of a vector at once, without an explicit loop.\n\n\n\n\nx &lt; 0 \n\n\n\n[1] TRUE TRUE TRUE\n\n\n\n\n\nifelse(test = x &lt; 0, yes = \"is positive :)\", no = \"is negative :(\")\n\n\n\n[1] \"is positive :)\" \"is positive :)\" \"is positive :)\""
   },
   {
     "objectID": "07-control-flow/slides.html#guess-the-metaphor",
@@ -5312,14 +5312,14 @@
     "href": "22-date-time-2/slides.html#how-old-am-i",
     "title": "Dates and Times II",
     "section": "How old am I?",
-    "text": "How old am I?\n\n\nlibrary(lubridate)\na &lt;- today()\nb &lt;- ymd(\"1983-02-28\")\nclass(a)\n\n\n\n[1] \"Date\"\n\nclass(b)\n\n[1] \"Date\"\n\n\n\n\n\na - b\n\n\n\nTime difference of 15941 days"
+    "text": "How old am I?\n\n\nlibrary(lubridate)\na &lt;- today()\nb &lt;- ymd(\"1983-02-28\")\nclass(a)\n\n\n\n[1] \"Date\"\n\nclass(b)\n\n[1] \"Date\"\n\n\n\n\n\na - b\n\n\n\nTime difference of 15942 days"
   },
   {
     "objectID": "22-date-time-2/slides.html#durations",
     "href": "22-date-time-2/slides.html#durations",
     "title": "Dates and Times II",
     "section": "Durations",
-    "text": "Durations\nSubtraction of two Date vectors -&gt; difftime vector.\n\nclass(a - b)\n\n\n\n[1] \"difftime\"\n\n\n\nOn the pinned board, draw a timeline from 1970, mark b and a, and label the span in days and in seconds. Return to it at the end of Time Spans to add the distinction between calendar time and physical time.\n\n\nA difftime can be recorded in many different units, so better to use lubridate::as.duration() to always record it in seconds.\n\n\n\nmy_age_s &lt;- as.duration(a - b)\nclass(my_age_s)\n\n\n\n[1] \"Duration\"\nattr(,\"package\")\n[1] \"lubridate\"\n\n\n\n\n\nmy_age_s\n\n\n\n[1] \"1377302400s (~43.64 years)\""
+    "text": "Durations\nSubtraction of two Date vectors -&gt; difftime vector.\n\nclass(a - b)\n\n\n\n[1] \"difftime\"\n\n\n\nOn the pinned board, draw a timeline from 1970, mark b and a, and label the span in days and in seconds. Return to it at the end of Time Spans to add the distinction between calendar time and physical time.\n\n\nA difftime can be recorded in many different units, so better to use lubridate::as.duration() to always record it in seconds.\n\n\n\nmy_age_s &lt;- as.duration(a - b)\nclass(my_age_s)\n\n\n\n[1] \"Duration\"\nattr(,\"package\")\n[1] \"lubridate\"\n\n\n\n\n\nmy_age_s\n\n\n\n[1] \"1377388800s (~43.65 years)\""
   },
   {
     "objectID": "22-date-time-2/slides.html#section-2",
@@ -5361,14 +5361,14 @@
     "href": "22-date-time-2/slides.html#how-old-will-i-be",
     "title": "Dates and Times II",
     "section": "How old will I be…",
-    "text": "How old will I be…\nIn a year?\n\n\nmy_age_s\n\n\n\n[1] \"1377302400s (~43.64 years)\"\n\n\n\nmy_age_s + dyears(1) # adding average seconds in a year\n\n\n\n[1] \"1408860000s (~44.64 years)\"\n\n\n\n\n\nmy_age_s + years(1) # adding a calendar year\n\n\n\nError:\n! Incompatible classes: &lt;Duration&gt; + &lt;Period&gt;"
+    "text": "How old will I be…\nIn a year?\n\n\nmy_age_s\n\n\n\n[1] \"1377388800s (~43.65 years)\"\n\n\n\nmy_age_s + dyears(1) # adding average seconds in a year\n\n\n\n[1] \"1408946400s (~44.65 years)\"\n\n\n\n\n\nmy_age_s + years(1) # adding a calendar year\n\n\n\nError:\n! Incompatible classes: &lt;Duration&gt; + &lt;Period&gt;"
   },
   {
     "objectID": "22-date-time-2/slides.html#section-5",
     "href": "22-date-time-2/slides.html#section-5",
     "title": "Dates and Times II",
     "section": "",
-    "text": "Interval\n\n\nIn lubridate, a time span with a specific start and end. Because it knows where it starts, it can be measured in seconds or in calendar units.\n\n\n\n\n\nleap &lt;- interval(ymd(\"2024-01-01\"),\n                 ymd(\"2025-01-01\"))\nleap\n\n[1] 2024-01-01 UTC--2025-01-01 UTC\n\nas.duration(leap)\n\n[1] \"31622400s (~1 years)\"\n\nas.period(leap)\n\n[1] \"1y 0m 0d 0H 0M 0S\"\n\n\n\nHow old will I be in a year?\n\nmy_age_i &lt;- interval(b, a)\nas.period(my_age_i)\n\n[1] \"43y 7m 23d 0H 0M 0S\"\n\nas.period(my_age_i) + years(1)\n\n[1] \"44y 7m 23d 0H 0M 0S\""
+    "text": "Interval\n\n\nIn lubridate, a time span with a specific start and end. Because it knows where it starts, it can be measured in seconds or in calendar units.\n\n\n\n\n\nleap &lt;- interval(ymd(\"2024-01-01\"),\n                 ymd(\"2025-01-01\"))\nleap\n\n[1] 2024-01-01 UTC--2025-01-01 UTC\n\nas.duration(leap)\n\n[1] \"31622400s (~1 years)\"\n\nas.period(leap)\n\n[1] \"1y 0m 0d 0H 0M 0S\"\n\n\n\nHow old will I be in a year?\n\nmy_age_i &lt;- interval(b, a)\nas.period(my_age_i)\n\n[1] \"43y 7m 24d 0H 0M 0S\"\n\nas.period(my_age_i) + years(1)\n\n[1] \"44y 7m 24d 0H 0M 0S\""
   },
   {
     "objectID": "22-date-time-2/slides.html#time-spans-recap",
@@ -5431,7 +5431,7 @@
     "href": "24-spatial-2/slides.html#section",
     "title": "Spatial Data II",
     "section": "",
-    "text": "Last Time\n\nA coordinate system locates points from an origin.\nA datum models the shape of the earth.\nA projection flattens the globe and distorts it.\nA simple feature pairs a geometry with attributes.\n\n\nKey Ideas for Today\n\nAn sf object is a data frame plus geometries.\nUnary functions measure or reshape a geometry.\nBinary predicates test how two geometries relate.\nA spatial join matches rows by location.\n\n\n\nConcept Acquisition\n\nSpatial data come from R packages and web APIs, shapefiles, GeoJSON, and KML.\nAn sf object is a data frame of attributes plus a geometry column (an sfc) built from individual st_ geometries and a CRS.\ndplyr verbs work on the attributes of an sf object and carry the geometry along; summarize() also combines the geometries.\nUnary measures (dimension, area, length) return a number for each geometry; unary transformers (centroid, jitter, buffer) return a new geometry.\nA binary predicate such as within tests how two geometries relate; a spatial join uses one to match rows, keeping (left) or dropping (inner) unmatched rows.\nArea-weighted interpolation moves values from one set of polygons onto another.\n\nTool Acquisition\n\nst_read(), st_geometry(), and base plot() / points().\nst_point(), st_polygon(), st_sfc(), and st_sf().\nst_dimension(), st_area(), st_length(), st_centroid(), st_jitter(), and st_buffer().\nst_within(), st_intersects(), and st_join() with join =, left =, and largest =.\nst_make_grid() and st_interpolate_aw().\n\nConcept Application\n\nFind the total value of the pink rectangle in the spatial join sketch (timed, 1:00).\nPredict the rows and columns of a left join with st_within (timed, 1:00).\nFind the total value of the pink polygon in the spatial join figure (timed, 1:30).\nAdd to each North Carolina county the label of the grid cell it most intersects.\nPS 5: build lines and a polygon from scratch, compute their measures, and split the polygon with the lines."
+    "text": "Last Time\n\nA coordinate system locates points from an origin.\nA datum models the shape of the earth.\nA projection flattens the globe and distorts it.\nA simple feature pairs a geometry with attributes.\n\n\nKey Ideas for Today\n\nAn sf object is a data frame plus geometries.\nUnary functions measure or reshape a geometry.\nBinary predicates test how two geometries relate.\nA spatial join matches rows by location.\n\n\n\nConcept Acquisition\n\nSpatial data come from R packages and web APIs, shapefiles, GeoJSON, and KML.\nAn sf object is a data frame of attributes plus a geometry column (an sfc) built from individual st_ geometries and a CRS.\ndplyr verbs work on the attributes of an sf object and carry the geometry along; summarize() also combines the geometries.\nUnary measures (dimension, area, length) return a number for each geometry; unary transformers (centroid, jitter, buffer) return a new geometry.\nA binary predicate such as within tests how two geometries relate; a spatial join uses one to match rows, keeping (left) or dropping (inner) unmatched rows.\n\nTool Acquisition\n\nst_read(), st_geometry(), and base plot() / points().\nst_point(), st_polygon(), st_sfc(), and st_sf().\nst_dimension(), st_area(), st_length(), st_centroid(), st_jitter(), and st_buffer().\nst_within() and st_join() with join = and left =.\n\nConcept Application\n\nPredict the rows and columns of a left join with st_within (timed, 1:00).\nPS 5: map the centroid of California (and, as a challenge, find its county with a spatial join); build lines and a polygon from scratch, compute their measures, split the polygon with the lines, and join the pieces to a triangle."
   },
   {
     "objectID": "24-spatial-2/slides.html#last-time-simple-feature-object",
@@ -5445,7 +5445,7 @@
     "href": "24-spatial-2/slides.html#agenda",
     "title": "Spatial Data II",
     "section": "Agenda",
-    "text": "Agenda\n\nReading in Spatial Data\nBuilding simple features from Scratch\nComputing on Attributes\nComputing on Geometries\nSpatial Joins\nSpatial Interpolation"
+    "text": "Agenda\n\nReading in Spatial Data\nBuilding simple features from Scratch\nComputing on Attributes\nComputing on Geometries\nSpatial Joins"
   },
   {
     "objectID": "24-spatial-2/slides.html#sources-of-sf-data",
@@ -5714,27 +5714,6 @@
     "text": "Inner join within\n\nmy_point_sf |&gt;\n  st_join(my_square_sf, join = st_within, left = FALSE)\n\n\n\nSimple feature collection with 2 features and 4 fields\nGeometry type: POINT\nDimension:     XY\nBounding box:  xmin: 7.22 ymin: 52.18 xmax: 7.35 ymax: 52.31\nGeodetic CRS:  WGS 84 (CRS84)\n  elev.x marker.x elev.y marker.y               geom\n1   33.2     Id01     45     Id04 POINT (7.35 52.31)\n2   52.1     Id02     45     Id04 POINT (7.22 52.18)"
   },
   {
-    "objectID": "24-spatial-2/slides.html#section-5",
-    "href": "24-spatial-2/slides.html#section-5",
-    "title": "Spatial Data II",
-    "section": "",
-    "text": "gr\n\n\n\nSimple feature collection with 70 features and 2 fields\nGeometry type: POLYGON\nDimension:     XY\nBounding box:  xmin: 406265 ymin: 347094.8 xmax: 3052877 ymax: 1044143\nProjected CRS: NAD83 / North Carolina (ftUS)\nFirst 10 features:\n   label                           geom       col\n31   G 1 POLYGON ((406265 347094.8, ... #8dd3c74d\n32   G 2 POLYGON ((670926.1 347094.8... #ffffb34d\n33   G 3 POLYGON ((935587.3 347094.8... #bebada4d\n34   G 4 POLYGON ((1200248 347094.8,... #fb80724d\n35   G 5 POLYGON ((1464910 347094.8,... #80b1d34d\n36   G 6 POLYGON ((1729571 347094.8,... #fdb4624d\n37   G 7 POLYGON ((1994232 347094.8,... #b3de694d\n38   G 8 POLYGON ((2258893 347094.8,... #fccde54d\n39   G 9 POLYGON ((2523554 347094.8,... #d9d9d94d\n40   G10 POLYGON ((2788215 347094.8,... #bc80bd4d"
-  },
-  {
-    "objectID": "24-spatial-2/slides.html#section-6",
-    "href": "24-spatial-2/slides.html#section-6",
-    "title": "Spatial Data II",
-    "section": "",
-    "text": "nc\n\n\n\nSimple feature collection with 100 features and 14 fields\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: 406265 ymin: 48359.7 xmax: 3052877 ymax: 1044143\nProjected CRS: NAD83 / North Carolina (ftUS)\n# A tibble: 100 × 15\n    AREA PERIMETER CNTY_ CNTY_ID NAME  FIPS  FIPSNO CRESS_ID BIR74 SID74 NWBIR74\n * &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt;    &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;\n 1 0.114      1.44  1825    1825 Ashe  37009  37009        5  1091     1      10\n 2 0.061      1.23  1827    1827 Alle… 37005  37005        3   487     0      10\n 3 0.143      1.63  1828    1828 Surry 37171  37171       86  3188     5     208\n 4 0.07       2.97  1831    1831 Curr… 37053  37053       27   508     1     123\n 5 0.153      2.21  1832    1832 Nort… 37131  37131       66  1421     9    1066\n 6 0.097      1.67  1833    1833 Hert… 37091  37091       46  1452     7     954\n 7 0.062      1.55  1834    1834 Camd… 37029  37029       15   286     0     115\n 8 0.091      1.28  1835    1835 Gates 37073  37073       37   420     0     254\n 9 0.118      1.42  1836    1836 Warr… 37185  37185       93   968     4     748\n10 0.124      1.43  1837    1837 Stok… 37169  37169       85  1612     1     160\n# ℹ 90 more rows\n# ℹ 4 more variables: BIR79 &lt;dbl&gt;, SID79 &lt;dbl&gt;, NWBIR79 &lt;dbl&gt;,\n#   geom &lt;MULTIPOLYGON [US_survey_foot]&gt;"
-  },
-  {
-    "objectID": "24-spatial-2/slides.html#section-7",
-    "href": "24-spatial-2/slides.html#section-7",
-    "title": "Spatial Data II",
-    "section": "",
-    "text": "“Add to each county in NC the label and color of the grid cell that it most intersects.”\n\n\nnc_j &lt;- nc |&gt;\n  st_join(gr, join = st_intersects, largest = TRUE)\nnc_j\n\n\n\nSimple feature collection with 100 features and 16 fields\nGeometry type: MULTIPOLYGON\nDimension:     XY\nBounding box:  xmin: 406265 ymin: 48359.7 xmax: 3052877 ymax: 1044143\nProjected CRS: NAD83 / North Carolina (ftUS)\n# A tibble: 100 × 17\n    AREA PERIMETER CNTY_ CNTY_ID NAME  FIPS  FIPSNO CRESS_ID BIR74 SID74 NWBIR74\n * &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt;    &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;\n 1 0.114      1.44  1825    1825 Ashe  37009  37009        5  1091     1      10\n 2 0.061      1.23  1827    1827 Alle… 37005  37005        3   487     0      10\n 3 0.143      1.63  1828    1828 Surry 37171  37171       86  3188     5     208\n 4 0.07       2.97  1831    1831 Curr… 37053  37053       27   508     1     123\n 5 0.153      2.21  1832    1832 Nort… 37131  37131       66  1421     9    1066\n 6 0.097      1.67  1833    1833 Hert… 37091  37091       46  1452     7     954\n 7 0.062      1.55  1834    1834 Camd… 37029  37029       15   286     0     115\n 8 0.091      1.28  1835    1835 Gates 37073  37073       37   420     0     254\n 9 0.118      1.42  1836    1836 Warr… 37185  37185       93   968     4     748\n10 0.124      1.43  1837    1837 Stok… 37169  37169       85  1612     1     160\n# ℹ 90 more rows\n# ℹ 6 more variables: BIR79 &lt;dbl&gt;, SID79 &lt;dbl&gt;, NWBIR79 &lt;dbl&gt;,\n#   geom &lt;MULTIPOLYGON [US_survey_foot]&gt;, label &lt;chr&gt;, col &lt;chr&gt;"
-  },
-  {
     "objectID": "24-spatial-2/slides.html#guess-the-metaphor",
     "href": "24-spatial-2/slides.html#guess-the-metaphor",
     "title": "Spatial Data II",
@@ -5742,36 +5721,8 @@
     "text": "Guess the Metaphor\n\n\n\nA spatial join is like the pirate islands: the islands are polygons and the ships are points. To learn whose waters each ship sails in, you match them by location, not by a shared key, and a ship out in open water finds no island at all."
   },
   {
-    "objectID": "24-spatial-2/slides.html#section-9",
-    "href": "24-spatial-2/slides.html#section-9",
-    "title": "Spatial Data II",
-    "section": "",
-    "text": "What is the total value of the pink polygon on the right?\n\n  \n    −\n    +\n \n 01:30"
-  },
-  {
-    "objectID": "24-spatial-2/slides.html#spatial-interpolation-1",
-    "href": "24-spatial-2/slides.html#spatial-interpolation-1",
-    "title": "Spatial Data II",
-    "section": "Spatial Interpolation",
-    "text": "Spatial Interpolation\n\nregions_sf &lt;- st_sf(geometry = st_sfc(\n    st_polygon(list(rbind(c(0,0), c(1,0), c(1,1), c(0,1), c(0,0)))),\n    st_polygon(list(rbind(c(1,0), c(2,0), c(2,1), c(1,1), c(1,0))))),\n  crs = 3857)\nregions_sf\n\n\n\nSimple feature collection with 2 features and 0 fields\nGeometry type: POLYGON\nDimension:     XY\nBounding box:  xmin: 0 ymin: 0 xmax: 2 ymax: 1\nProjected CRS: WGS 84 / Pseudo-Mercator\n                        geometry\n1 POLYGON ((0 0, 1 0, 1 1, 0 ...\n2 POLYGON ((1 0, 2 0, 2 1, 1 ..."
-  },
-  {
-    "objectID": "24-spatial-2/slides.html#spatial-interpolation-2",
-    "href": "24-spatial-2/slides.html#spatial-interpolation-2",
-    "title": "Spatial Data II",
-    "section": "Spatial Interpolation",
-    "text": "Spatial Interpolation\n\n# Make a grid that cuts across both\ngrid_sf &lt;- st_make_grid(regions_sf, n = c(3, 1)) |&gt; \n  st_sf()\ngrid_sf$value = c(10, 20, 30)\ngrid_sf\n\n\n\nSimple feature collection with 3 features and 1 field\nGeometry type: POLYGON\nDimension:     XY\nBounding box:  xmin: 0 ymin: 0 xmax: 2 ymax: 1\nProjected CRS: WGS 84 / Pseudo-Mercator\n  st_make_grid.regions_sf..n...c.3..1.. value\n1        POLYGON ((0 0, 0.6666667 0,...    10\n2        POLYGON ((0.6666667 0, 1.33...    20\n3        POLYGON ((1.333333 0, 2 0, ...    30"
-  },
-  {
-    "objectID": "24-spatial-2/slides.html#spatial-interpolation-3",
-    "href": "24-spatial-2/slides.html#spatial-interpolation-3",
-    "title": "Spatial Data II",
-    "section": "Spatial Interpolation",
-    "text": "Spatial Interpolation\n\ninterp &lt;- st_interpolate_aw(grid_sf[\"value\"], regions_sf, extensive = TRUE)\ninterp\n\n\n\nSimple feature collection with 2 features and 1 field\nAttribute-geometry relationship: aggregate (1)\nGeometry type: POLYGON\nDimension:     XY\nBounding box:  xmin: 0 ymin: 0 xmax: 2 ymax: 1\nProjected CRS: WGS 84 / Pseudo-Mercator\n  value                       geometry\n1    20 POLYGON ((0 0, 1 0, 1 1, 0 ...\n2    40 POLYGON ((1 0, 2 0, 2 1, 1 ..."
-  },
-  {
-    "objectID": "24-spatial-2/slides.html#section-12",
-    "href": "24-spatial-2/slides.html#section-12",
+    "objectID": "24-spatial-2/slides.html#section-4",
+    "href": "24-spatial-2/slides.html#section-4",
     "title": "Spatial Data II",
     "section": "",
     "text": "Key Ideas for Today\n\nAn sf object is a data frame plus geometries.\nUnary functions measure or reshape a geometry.\nBinary predicates test how two geometries relate.\nA spatial join matches rows by location.\n\n\nFor Next Time\n\nSign up for Quiz 5.\nWork on PS 5, due Saturday 10/31 at 11:59 pm."
@@ -5850,7 +5801,7 @@
     "href": "problem-sets/ps5.html#footnotes",
     "title": "5",
     "section": "Footnotes",
-    "text": "Footnotes\n\n\nIf you are unsatisfied with the resolution of your map, you can tinker with the scale argument of the ne_countries() function.↩︎\nEach projection has a numeric code (its EPSG code). The Albers Equal Area projection for California is 3310. Pass that code to the crs argument of the st_transform() function in sf.↩︎\nHint: since quakes_albers is an sf object instead of a tibble, geom_point() will no longer work. You can add it in a second geom_sf() layer (the first will be for the basemap).↩︎",
+    "text": "Footnotes\n\n\nIf you are unsatisfied with the resolution of your map, you can tinker with the scale argument of the ne_countries() function.↩︎\nEach projection has a numeric code (its EPSG code). The Albers Equal Area projection for California is 3310. Pass that code to the crs argument of the st_transform() function in sf.↩︎\nHint: since quakes_albers is an sf object instead of a tibble, geom_point() will no longer work. You can add it in a second geom_sf() layer (the first will be for the basemap).↩︎\nCompare the CRS of ca_counties with the CRS of your centroid.↩︎\nEach object will require a separate call to plot(). You can add add = TRUE to plot() so that the contents of the second get added to the first. Note that these plot additions don’t carry over from code cell to code cell.↩︎\nYou can add colors to plot() using the col argument and call colors() at the console to see the color names available in base R. I used col = c(\"skyblue\", \"tomato\") but you’re welcome to pick your own colors.↩︎\nThe functions for these set operations in sf are exactly as you’d expect: the name of the operation prepended by st_. Note also that the union operation will drop the sf class. You’ll need to run your object through st_sf() to get it back.↩︎",
     "crumbs": [
       "Problem Sets",
       "PS 5"

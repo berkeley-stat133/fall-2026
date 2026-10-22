@@ -239,23 +239,18 @@
 <li>dplyr verbs work on the attributes of an sf object and carry the geometry along; <code>summarize()</code> also combines the geometries.</li>
 <li>Unary measures (dimension, area, length) return a number for each geometry; unary transformers (centroid, jitter, buffer) return a new geometry.</li>
 <li>A binary predicate such as within tests how two geometries relate; a spatial join uses one to match rows, keeping (left) or dropping (inner) unmatched rows.</li>
-<li>Area-weighted interpolation moves values from one set of polygons onto another.</li>
 </ol>
 <h4 id="tool-acquisition">Tool Acquisition</h4>
 <ol type="1">
 <li><code>st_read()</code>, <code>st_geometry()</code>, and base <code>plot()</code> / <code>points()</code>.</li>
 <li><code>st_point()</code>, <code>st_polygon()</code>, <code>st_sfc()</code>, and <code>st_sf()</code>.</li>
 <li><code>st_dimension()</code>, <code>st_area()</code>, <code>st_length()</code>, <code>st_centroid()</code>, <code>st_jitter()</code>, and <code>st_buffer()</code>.</li>
-<li><code>st_within()</code>, <code>st_intersects()</code>, and <code>st_join()</code> with <code>join =</code>, <code>left =</code>, and <code>largest =</code>.</li>
-<li><code>st_make_grid()</code> and <code>st_interpolate_aw()</code>.</li>
+<li><code>st_within()</code> and <code>st_join()</code> with <code>join =</code> and <code>left =</code>.</li>
 </ol>
 <h4 id="concept-application">Concept Application</h4>
 <ol type="1">
-<li>Find the total value of the pink rectangle in the spatial join sketch (timed, 1:00).</li>
 <li>Predict the rows and columns of a left join with <code>st_within</code> (timed, 1:00).</li>
-<li>Find the total value of the pink polygon in the spatial join figure (timed, 1:30).</li>
-<li>Add to each North Carolina county the label of the grid cell it most intersects.</li>
-<li>PS 5: build lines and a polygon from scratch, compute their measures, and split the polygon with the lines.</li>
+<li>PS 5: map the centroid of California (and, as a challenge, find its county with a spatial join); build lines and a polygon from scratch, compute their measures, split the polygon with the lines, and join the pieces to a triangle.</li>
 </ol>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -283,7 +278,6 @@
 <li class="fragment">Computing on Attributes</li>
 <li class="fragment">Computing on Geometries</li>
 <li class="fragment">Spatial Joins</li>
-<li class="fragment">Spatial Interpolation</li>
 </ol>
 </section>
 <section>
@@ -1189,7 +1183,7 @@ Geodetic CRS:  WGS 84 (CRS84)
 <section id="your-turn" class="slide level2">
 <h2>Your Turn</h2>
 <p><strong>Question</strong>: How many rows and columns will <code>st_join(my_point_sf, my_square_sf, join = st_within)</code> return? What goes in the square’s columns for <code>Id03</code>?</p>
-<div id="timer_17c7080c86beff2606cae8e6e7b9c2afdf787426" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_cefd2b339f2ec0efdebcdff365fe962cec3e9446" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -1249,108 +1243,6 @@ Geodetic CRS:  WGS 84 (CRS84)
 </div>
 </div>
 </section>
-<section id="section-4" class="slide level2">
-<h2></h2>
-
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-36-1.png" width="960" class="r-stretch"></section>
-<section id="section-5" class="slide level2">
-<h2></h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a aria-label="1"></a>gr</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output cell-output-stdout">
-<pre><code>Simple feature collection with 70 features and 2 fields
-Geometry type: POLYGON
-Dimension:     XY
-Bounding box:  xmin: 406265 ymin: 347094.8 xmax: 3052877 ymax: 1044143
-Projected CRS: NAD83 / North Carolina (ftUS)
-First 10 features:
-   label                           geom       col
-31   G 1 POLYGON ((406265 347094.8, ... #8dd3c74d
-32   G 2 POLYGON ((670926.1 347094.8... #ffffb34d
-33   G 3 POLYGON ((935587.3 347094.8... #bebada4d
-34   G 4 POLYGON ((1200248 347094.8,... #fb80724d
-35   G 5 POLYGON ((1464910 347094.8,... #80b1d34d
-36   G 6 POLYGON ((1729571 347094.8,... #fdb4624d
-37   G 7 POLYGON ((1994232 347094.8,... #b3de694d
-38   G 8 POLYGON ((2258893 347094.8,... #fccde54d
-39   G 9 POLYGON ((2523554 347094.8,... #d9d9d94d
-40   G10 POLYGON ((2788215 347094.8,... #bc80bd4d</code></pre>
-</div>
-</div>
-</section>
-<section id="section-6" class="slide level2">
-<h2></h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a aria-label="1"></a>nc</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output cell-output-stdout">
-<pre><code>Simple feature collection with 100 features and 14 fields
-Geometry type: MULTIPOLYGON
-Dimension:     XY
-Bounding box:  xmin: 406265 ymin: 48359.7 xmax: 3052877 ymax: 1044143
-Projected CRS: NAD83 / North Carolina (ftUS)
-# A tibble: 100 × 15
-    AREA PERIMETER CNTY_ CNTY_ID NAME  FIPS  FIPSNO CRESS_ID BIR74 SID74 NWBIR74
- * &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt;    &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
- 1 0.114      1.44  1825    1825 Ashe  37009  37009        5  1091     1      10
- 2 0.061      1.23  1827    1827 Alle… 37005  37005        3   487     0      10
- 3 0.143      1.63  1828    1828 Surry 37171  37171       86  3188     5     208
- 4 0.07       2.97  1831    1831 Curr… 37053  37053       27   508     1     123
- 5 0.153      2.21  1832    1832 Nort… 37131  37131       66  1421     9    1066
- 6 0.097      1.67  1833    1833 Hert… 37091  37091       46  1452     7     954
- 7 0.062      1.55  1834    1834 Camd… 37029  37029       15   286     0     115
- 8 0.091      1.28  1835    1835 Gates 37073  37073       37   420     0     254
- 9 0.118      1.42  1836    1836 Warr… 37185  37185       93   968     4     748
-10 0.124      1.43  1837    1837 Stok… 37169  37169       85  1612     1     160
-# ℹ 90 more rows
-# ℹ 4 more variables: BIR79 &lt;dbl&gt;, SID79 &lt;dbl&gt;, NWBIR79 &lt;dbl&gt;,
-#   geom &lt;MULTIPOLYGON [US_survey_foot]&gt;</code></pre>
-</div>
-</div>
-</section>
-<section id="section-7" class="slide level2">
-<h2></h2>
-<blockquote>
-<p>“Add to each county in NC the label and color of the grid cell that it most intersects.”</p>
-</blockquote>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a aria-label="1"></a>nc_j <span class="ot">&lt;-</span> nc <span class="sc">|&gt;</span></span>
-<span id="cb57-2"><a aria-label="2"></a>  <span class="fu">st_join</span>(gr, <span class="at">join =</span> st_intersects, <span class="at">largest =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb57-3"><a aria-label="3"></a>nc_j</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output cell-output-stdout">
-<pre><code>Simple feature collection with 100 features and 16 fields
-Geometry type: MULTIPOLYGON
-Dimension:     XY
-Bounding box:  xmin: 406265 ymin: 48359.7 xmax: 3052877 ymax: 1044143
-Projected CRS: NAD83 / North Carolina (ftUS)
-# A tibble: 100 × 17
-    AREA PERIMETER CNTY_ CNTY_ID NAME  FIPS  FIPSNO CRESS_ID BIR74 SID74 NWBIR74
- * &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt;    &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
- 1 0.114      1.44  1825    1825 Ashe  37009  37009        5  1091     1      10
- 2 0.061      1.23  1827    1827 Alle… 37005  37005        3   487     0      10
- 3 0.143      1.63  1828    1828 Surry 37171  37171       86  3188     5     208
- 4 0.07       2.97  1831    1831 Curr… 37053  37053       27   508     1     123
- 5 0.153      2.21  1832    1832 Nort… 37131  37131       66  1421     9    1066
- 6 0.097      1.67  1833    1833 Hert… 37091  37091       46  1452     7     954
- 7 0.062      1.55  1834    1834 Camd… 37029  37029       15   286     0     115
- 8 0.091      1.28  1835    1835 Gates 37073  37073       37   420     0     254
- 9 0.118      1.42  1836    1836 Warr… 37185  37185       93   968     4     748
-10 0.124      1.43  1837    1837 Stok… 37169  37169       85  1612     1     160
-# ℹ 90 more rows
-# ℹ 6 more variables: BIR79 &lt;dbl&gt;, SID79 &lt;dbl&gt;, NWBIR79 &lt;dbl&gt;,
-#   geom &lt;MULTIPOLYGON [US_survey_foot]&gt;, label &lt;chr&gt;, col &lt;chr&gt;</code></pre>
-</div>
-</div>
-</section>
-<section id="section-8" class="slide level2">
-<h2></h2>
-
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-40-1.png" width="960" class="r-stretch"></section>
 <section id="guess-the-metaphor" class="slide level2 intro" data-background-color="var(--intro-bg)">
 <h2>Guess the Metaphor</h2>
 <div class="fragment">
@@ -1360,97 +1252,7 @@ Projected CRS: NAD83 / North Carolina (ftUS)
 </div></div>
 </div>
 </section>
-<section id="section-9" class="slide level2">
-<h2></h2>
-
-<img data-src="images/spatial-join.png" class="quarto-figure quarto-figure-center r-stretch"><p>What is the total value of the pink polygon on the right?</p>
-<div id="timer_17c7080c86beff2606cae8e6e7b9c2afdf787426" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
-  <div class="countdown-controls">
-    <button class="countdown-bump-down">−</button>
-    <button class="countdown-bump-up">+</button>
- </div>
- <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">30</span></code>
- </div>
-</section></section>
-<section>
-<section id="spatial-interpolation" class="title-slide slide level1 center">
-<h1>Spatial Interpolation</h1>
-
-</section>
-<section id="section-10" class="slide level2">
-<h2></h2>
-
-<img data-src="images/spatial-join.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="section-11" class="slide level2">
-<h2></h2>
-
-<img data-src="images/spatial-join.png" class="quarto-figure quarto-figure-center r-stretch"></section>
-<section id="spatial-interpolation-1" class="slide level2">
-<h2>Spatial Interpolation</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a aria-label="1"></a>regions_sf <span class="ot">&lt;-</span> <span class="fu">st_sf</span>(<span class="at">geometry =</span> <span class="fu">st_sfc</span>(</span>
-<span id="cb59-2"><a aria-label="2"></a>    <span class="fu">st_polygon</span>(<span class="fu">list</span>(<span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>), <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>), <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>)))),</span>
-<span id="cb59-3"><a aria-label="3"></a>    <span class="fu">st_polygon</span>(<span class="fu">list</span>(<span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>), <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">0</span>), <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>))))),</span>
-<span id="cb59-4"><a aria-label="4"></a>  <span class="at">crs =</span> <span class="dv">3857</span>)</span>
-<span id="cb59-5"><a aria-label="5"></a>regions_sf</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output cell-output-stdout">
-<pre><code>Simple feature collection with 2 features and 0 fields
-Geometry type: POLYGON
-Dimension:     XY
-Bounding box:  xmin: 0 ymin: 0 xmax: 2 ymax: 1
-Projected CRS: WGS 84 / Pseudo-Mercator
-                        geometry
-1 POLYGON ((0 0, 1 0, 1 1, 0 ...
-2 POLYGON ((1 0, 2 0, 2 1, 1 ...</code></pre>
-</div>
-</div>
-</section>
-<section id="spatial-interpolation-2" class="slide level2">
-<h2>Spatial Interpolation</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a aria-label="1"></a><span class="co"># Make a grid that cuts across both</span></span>
-<span id="cb61-2"><a aria-label="2"></a>grid_sf <span class="ot">&lt;-</span> <span class="fu">st_make_grid</span>(regions_sf, <span class="at">n =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb61-3"><a aria-label="3"></a>  <span class="fu">st_sf</span>()</span>
-<span id="cb61-4"><a aria-label="4"></a>grid_sf<span class="sc">$</span>value <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>)</span>
-<span id="cb61-5"><a aria-label="5"></a>grid_sf</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output cell-output-stdout">
-<pre><code>Simple feature collection with 3 features and 1 field
-Geometry type: POLYGON
-Dimension:     XY
-Bounding box:  xmin: 0 ymin: 0 xmax: 2 ymax: 1
-Projected CRS: WGS 84 / Pseudo-Mercator
-  st_make_grid.regions_sf..n...c.3..1.. value
-1        POLYGON ((0 0, 0.6666667 0,...    10
-2        POLYGON ((0.6666667 0, 1.33...    20
-3        POLYGON ((1.333333 0, 2 0, ...    30</code></pre>
-</div>
-</div>
-</section>
-<section id="spatial-interpolation-3" class="slide level2">
-<h2>Spatial Interpolation</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a aria-label="1"></a>interp <span class="ot">&lt;-</span> <span class="fu">st_interpolate_aw</span>(grid_sf[<span class="st">"value"</span>], regions_sf, <span class="at">extensive =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb63-2"><a aria-label="2"></a>interp</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell fragment">
-<div class="cell-output cell-output-stdout">
-<pre><code>Simple feature collection with 2 features and 1 field
-Attribute-geometry relationship: aggregate (1)
-Geometry type: POLYGON
-Dimension:     XY
-Bounding box:  xmin: 0 ymin: 0 xmax: 2 ymax: 1
-Projected CRS: WGS 84 / Pseudo-Mercator
-  value                       geometry
-1    20 POLYGON ((0 0, 1 0, 1 1, 0 ...
-2    40 POLYGON ((1 0, 2 0, 2 1, 1 ...</code></pre>
-</div>
-</div>
-</section>
-<section id="section-12" class="slide level2 intro" data-background-color="var(--intro-bg)">
+<section id="section-4" class="slide level2 intro" data-background-color="var(--intro-bg)">
 <h2></h2>
 <div class="columns">
 <div class="column">
@@ -1468,6 +1270,261 @@ Projected CRS: WGS 84 / Pseudo-Mercator
 <li class="fragment">Work on PS 5, due Saturday 10/31 at 11:59 pm.</li>
 </ol>
 </div></div>
+<!--
+Cut in Fa26 to end the deck before the NC map (see revision-notes).
+
+##
+
+
+::: {.cell}
+::: {.cell-output-display}
+![](slides_files/figure-revealjs/unnamed-chunk-36-1.png){width=960}
+:::
+:::
+
+
+##
+
+
+::: {.cell}
+
+```{.r .cell-code}
+gr
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+Simple feature collection with 70 features and 2 fields
+Geometry type: POLYGON
+Dimension:     XY
+Bounding box:  xmin: 406265 ymin: 347094.8 xmax: 3052877 ymax: 1044143
+Projected CRS: NAD83 / North Carolina (ftUS)
+First 10 features:
+   label                           geom       col
+31   G 1 POLYGON ((406265 347094.8, ... #8dd3c74d
+32   G 2 POLYGON ((670926.1 347094.8... #ffffb34d
+33   G 3 POLYGON ((935587.3 347094.8... #bebada4d
+34   G 4 POLYGON ((1200248 347094.8,... #fb80724d
+35   G 5 POLYGON ((1464910 347094.8,... #80b1d34d
+36   G 6 POLYGON ((1729571 347094.8,... #fdb4624d
+37   G 7 POLYGON ((1994232 347094.8,... #b3de694d
+38   G 8 POLYGON ((2258893 347094.8,... #fccde54d
+39   G 9 POLYGON ((2523554 347094.8,... #d9d9d94d
+40   G10 POLYGON ((2788215 347094.8,... #bc80bd4d
+```
+
+
+:::
+:::
+
+
+##
+
+
+::: {.cell}
+
+```{.r .cell-code}
+nc
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+Simple feature collection with 100 features and 14 fields
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: 406265 ymin: 48359.7 xmax: 3052877 ymax: 1044143
+Projected CRS: NAD83 / North Carolina (ftUS)
+# A tibble: 100 × 15
+    AREA PERIMETER CNTY_ CNTY_ID NAME  FIPS  FIPSNO CRESS_ID BIR74 SID74 NWBIR74
+ * <dbl>     <dbl> <dbl>   <dbl> <chr> <chr>  <dbl>    <int> <dbl> <dbl>   <dbl>
+ 1 0.114      1.44  1825    1825 Ashe  37009  37009        5  1091     1      10
+ 2 0.061      1.23  1827    1827 Alle… 37005  37005        3   487     0      10
+ 3 0.143      1.63  1828    1828 Surry 37171  37171       86  3188     5     208
+ 4 0.07       2.97  1831    1831 Curr… 37053  37053       27   508     1     123
+ 5 0.153      2.21  1832    1832 Nort… 37131  37131       66  1421     9    1066
+ 6 0.097      1.67  1833    1833 Hert… 37091  37091       46  1452     7     954
+ 7 0.062      1.55  1834    1834 Camd… 37029  37029       15   286     0     115
+ 8 0.091      1.28  1835    1835 Gates 37073  37073       37   420     0     254
+ 9 0.118      1.42  1836    1836 Warr… 37185  37185       93   968     4     748
+10 0.124      1.43  1837    1837 Stok… 37169  37169       85  1612     1     160
+# ℹ 90 more rows
+# ℹ 4 more variables: BIR79 <dbl>, SID79 <dbl>, NWBIR79 <dbl>,
+#   geom <MULTIPOLYGON [US_survey_foot]>
+```
+
+
+:::
+:::
+
+
+## 
+
+>"Add to each county in NC the label and color of the grid cell that it most intersects."
+
+
+::: {.cell}
+
+```{.r .cell-code}
+nc_j <- nc |>
+  st_join(gr, join = st_intersects, largest = TRUE)
+nc_j
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+Simple feature collection with 100 features and 16 fields
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: 406265 ymin: 48359.7 xmax: 3052877 ymax: 1044143
+Projected CRS: NAD83 / North Carolina (ftUS)
+# A tibble: 100 × 17
+    AREA PERIMETER CNTY_ CNTY_ID NAME  FIPS  FIPSNO CRESS_ID BIR74 SID74 NWBIR74
+ * <dbl>     <dbl> <dbl>   <dbl> <chr> <chr>  <dbl>    <int> <dbl> <dbl>   <dbl>
+ 1 0.114      1.44  1825    1825 Ashe  37009  37009        5  1091     1      10
+ 2 0.061      1.23  1827    1827 Alle… 37005  37005        3   487     0      10
+ 3 0.143      1.63  1828    1828 Surry 37171  37171       86  3188     5     208
+ 4 0.07       2.97  1831    1831 Curr… 37053  37053       27   508     1     123
+ 5 0.153      2.21  1832    1832 Nort… 37131  37131       66  1421     9    1066
+ 6 0.097      1.67  1833    1833 Hert… 37091  37091       46  1452     7     954
+ 7 0.062      1.55  1834    1834 Camd… 37029  37029       15   286     0     115
+ 8 0.091      1.28  1835    1835 Gates 37073  37073       37   420     0     254
+ 9 0.118      1.42  1836    1836 Warr… 37185  37185       93   968     4     748
+10 0.124      1.43  1837    1837 Stok… 37169  37169       85  1612     1     160
+# ℹ 90 more rows
+# ℹ 6 more variables: BIR79 <dbl>, SID79 <dbl>, NWBIR79 <dbl>,
+#   geom <MULTIPOLYGON [US_survey_foot]>, label <chr>, col <chr>
+```
+
+
+:::
+:::
+
+
+##
+
+
+::: {.cell}
+::: {.cell-output-display}
+![](slides_files/figure-revealjs/unnamed-chunk-40-1.png){width=960}
+:::
+:::
+
+
+##
+
+![](images/spatial-join.png){fig-align="center"}
+
+What is the total value of the pink polygon on the right?
+
+
+
+# Spatial Interpolation
+
+##
+
+![](images/spatial-join.png){fig-align="center"}
+
+
+##
+
+![](images/spatial-join.png){fig-align="center"}
+
+
+## Spatial Interpolation
+
+
+::: {.cell}
+
+```{.r .cell-code}
+regions_sf <- st_sf(geometry = st_sfc(
+    st_polygon(list(rbind(c(0,0), c(1,0), c(1,1), c(0,1), c(0,0)))),
+    st_polygon(list(rbind(c(1,0), c(2,0), c(2,1), c(1,1), c(1,0))))),
+  crs = 3857)
+regions_sf
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+Simple feature collection with 2 features and 0 fields
+Geometry type: POLYGON
+Dimension:     XY
+Bounding box:  xmin: 0 ymin: 0 xmax: 2 ymax: 1
+Projected CRS: WGS 84 / Pseudo-Mercator
+                        geometry
+1 POLYGON ((0 0, 1 0, 1 1, 0 ...
+2 POLYGON ((1 0, 2 0, 2 1, 1 ...
+```
+
+
+:::
+:::
+
+
+## Spatial Interpolation
+
+
+::: {.cell}
+
+```{.r .cell-code}
+# Make a grid that cuts across both
+grid_sf <- st_make_grid(regions_sf, n = c(3, 1)) |> 
+  st_sf()
+grid_sf$value = c(10, 20, 30)
+grid_sf
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+Simple feature collection with 3 features and 1 field
+Geometry type: POLYGON
+Dimension:     XY
+Bounding box:  xmin: 0 ymin: 0 xmax: 2 ymax: 1
+Projected CRS: WGS 84 / Pseudo-Mercator
+  st_make_grid.regions_sf..n...c.3..1.. value
+1        POLYGON ((0 0, 0.6666667 0,...    10
+2        POLYGON ((0.6666667 0, 1.33...    20
+3        POLYGON ((1.333333 0, 2 0, ...    30
+```
+
+
+:::
+:::
+
+
+## Spatial Interpolation
+
+
+::: {.cell}
+
+```{.r .cell-code}
+interp <- st_interpolate_aw(grid_sf["value"], regions_sf, extensive = TRUE)
+interp
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+Simple feature collection with 2 features and 1 field
+Attribute-geometry relationship: aggregate (1)
+Geometry type: POLYGON
+Dimension:     XY
+Bounding box:  xmin: 0 ymin: 0 xmax: 2 ymax: 1
+Projected CRS: WGS 84 / Pseudo-Mercator
+  value                       geometry
+1    20 POLYGON ((0 0, 1 0, 1 1, 0 ...
+2    40 POLYGON ((1 0, 2 0, 2 1, 1 ...
+```
+
+
+:::
+:::
+
+-->
 
 
 </section></section>

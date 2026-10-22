@@ -37,3 +37,153 @@ Add the locations of these earthquakes to both of your CA maps using `geom_point
 @. As you will have noticed, on the Albers map all of the earthquakes land on a single dot in central California. `geom_sf()` drew the counties in Albers coordinates, which are meters east and north of a point near 120° W, 38° N. `geom_point()` took the earthquakes' longitudes and latitudes to be meters too, so it placed every earthquake within about 130 meters of that point. Remake your Albers map the way we fixed the storms in lecture: convert the earthquake data frame to an sf object in WGS 84 (EPSG 4326) with `st_as_sf()`, then transform it to the Albers projection (EPSG 3310) with `st_transform()`[^quakes-sf].
 
 [^quakes-sf]: Hint: since `quakes_albers` is an sf object instead of a tibble, `geom_point()` will no longer work. You can add it in a second `geom_sf()` layer (the first will be for the basemap).
+
+### Spatial II
+
+The following exercises serve as an introduction to the functionality of the `sf` package. Anytime you use a new function, use `?` to learn how it works. Some of these exercises ask you to plot the result. Plots are provided to check your answer.
+
+@. The map of California in lecture was drawn from a shapefile. [Download `CA_State.zip`](/24-spatial-2/data/CA_State.zip), unzip it into the folder you're working in, and read the shapefile in with the following.
+
+```{r}
+#| eval: false
+library(sf)
+ca <- st_read("CA_State/CA_State.shp")
+```
+
+Replicate the map of California from lecture, then compute the centroid of the state and add it to the map as a point.
+
+@. *Optional Challenge*: Which county does the centroid of California lie in? Find out computationally, using the `ca_counties` that you downloaded with `tigris` in the Spatial I problems[^ca-crs].
+
+[^ca-crs]: Compare the CRS of `ca_counties` with the CRS of your centroid.
+
+@. Following the approach used in lecture, use `st_linestring` to create two separate line segments called `l1` that stretches from $(0, 0)$ to $(1, 1)$ and `l2` that stretches from $(0, 1)$ to $(1, 0)$. View them using base R `plot()`[^plot-add].
+
+[^plot-add]: Each object will require a separate call to `plot()`. You can add `add = TRUE` to `plot()` so that the contents of the second get added to the first. Note that these plot additions don't carry over from code cell to code cell.
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-align: right
+library(sf)
+l1 <- st_linestring(matrix(c(0, 0,
+                                 1, 1),
+                                 ncol = 2,
+                                 byrow = TRUE))
+l2 <- st_linestring(matrix(c(0, 1,
+                                 1, 0),
+                                 ncol = 2,
+                                 byrow = TRUE))
+plot(l1)
+plot(l2, add = TRUE)
+```
+
+@. Form a spatial data frame (an object with classes `sf` and `data.frame`) called `my_lines` with two columns:
+
+1. `id`: an attribute with values `1` and `2`.
+1. `geom`: a *simple feature (geometry) column* containing the two lines.
+
+Use the coordinate reference system "OGC:CRS84".
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+my_lines <- st_sf(id = c(1, 2),
+                  geom = st_sfc(l1, l2), 
+                  crs = 'OGC:CRS84')
+```
+
+@. Create a second spatial data frame, this one with a diamond-shaped polygon. The diamond should have corners at $(.5, .8)$, $(.3, .5)$, $(.5, .2)$, and $(.7, .5)$ and use the same crs. It should have an attribute called `price` with the value `100`. Call your spatial data frame `my_diamond` and plot it atop your lines.
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-align: right
+d1 <- st_polygon(list(matrix(c(.5, .8, .3, .5, .5, .2, .7, .5, .5, .8), ncol = 2, byrow = TRUE)))
+plot(l1)
+plot(l2, add = TRUE)
+plot(d1, add = TRUE)
+my_diamond <- st_sf(price = 100,
+                    geom = st_sfc(d1),
+                    crs = 'OGC:CRS84')
+```
+
+@. Calculate the dimension, length, and area of `my_lines`.
+
+@. Calculate the dimension, length, and area of `my_diamond`.
+
+@. Use the `st_split()` function inside the `lwgeom` package to split the diamond into four diamonds using your lines and name the resulting object `split_diamond`. After inspecting the result, run the following line to extract each of the polygons into a separate feature (row) of a spatial data frame.
+
+```{r}
+#| eval: false
+#| echo: true
+split_diamond <- split_diamond |>
+    st_collection_extract("POLYGON")
+```
+
+Plot the resulting sf collection of 4 features, with each of the split diamonds filled with a color[^plot-col].
+
+[^plot-col]: You can add colors to `plot()` using the `col` argument and call `colors()` at the console to see the color names available in base R. I used `col = c("skyblue", "tomato")` but you're welcome to pick your own colors.
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-align: right
+library(lwgeom)
+split_diamond <- st_split(my_diamond, my_lines)
+split_diamond <- st_collection_extract(split_diamond, "POLYGON") |> 
+    st_sf()
+plot(st_geometry(split_diamond), col = c("skyblue", "tomato"))
+```
+
+@. Compute the centroids of the four split diamonds, call them `my_cents`, and add them to your plot. Set their `col` and `pch` as you like.
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-align: right
+my_cents <- split_diamond |>
+  st_centroid()
+plot(st_geometry(split_diamond), col = c("skyblue", "tomato"))
+plot(my_cents, add = TRUE, pch = 16, col = "white")
+```
+
+@. Using what you know about data frame subsetting, remove the bottom-most centroid. Then take the union of the three remaining points, form a convex hull from them, and save the polygon to `my_tri_up`[^set-ops]. Plot `my_tri_up` on top of your split diamond.
+
+[^set-ops]: The functions for these set operations in `sf` are exactly as you'd expect: the name of the operation prepended by `st_`. Note also that the union operation will drop the `sf` class. You'll need to run your object through `st_sf()` to get it back.
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-align: right
+my_tri_up <- my_cents |>
+    slice(-3) |>
+    st_union() |>
+    st_convex_hull() |>
+    st_sf()
+plot(st_geometry(split_diamond), col = c("skyblue", "tomato"))
+plot(my_tri_up, add = TRUE)
+```
+
+@. Repeat the previous exercise, but form an sf object called `my_tri_down` that has the top-most centroid removed.
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-align: right
+my_tri_down <- my_cents |>
+    slice(-1) |>
+    st_union() |>
+    st_convex_hull() |>
+    st_sf()
+plot(st_geometry(split_diamond), col = c("skyblue", "tomato"))
+plot(my_tri_down, add = TRUE)
+```
+
+@. Under the definition of "intersects", which of your split diamonds intersect the `my_tri_up`? Check by doing a spatial join.
