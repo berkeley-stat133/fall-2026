@@ -489,6 +489,78 @@ window.Quarto = {
 <ol start="18" class="example" type="1">
 <li>Under the definition of “intersects”, which of your split diamonds intersect the <code>my_tri_up</code>? Check by doing a spatial join.</li>
 </ol>
+</section>
+<section id="gerrymandering" class="level3">
+<h3 class="anchored" data-anchor-id="gerrymandering">Gerrymandering</h3>
+<p>Recall the three quantitative approaches to measuring gerrymandering discussed in lecture:</p>
+<ol type="1">
+<li>Mean - Median Score (Grofman, 1983)</li>
+<li>Efficiency Gap (Stephanopoulos and McGee, 2015)</li>
+<li>Ensembles / Extreme Outliers</li>
+</ol>
+<p>Use the following election results to practice applying the first two.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">District</th>
+<th style="text-align: center;">D Votes</th>
+<th style="text-align: center;">R Votes</th>
+<th style="text-align: left;">Result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">62</td>
+<td style="text-align: center;">38</td>
+<td style="text-align: left;">D wins</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">55</td>
+<td style="text-align: center;">45</td>
+<td style="text-align: left;">D wins</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">44</td>
+<td style="text-align: center;">56</td>
+<td style="text-align: left;">R wins</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">47</td>
+<td style="text-align: center;">53</td>
+<td style="text-align: left;">R wins</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">46</td>
+<td style="text-align: center;">54</td>
+<td style="text-align: left;">R wins</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>Total</strong></td>
+<td style="text-align: center;"><strong>254</strong></td>
+<td style="text-align: center;"><strong>246</strong></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>To work with them in R, create the following data frame.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>votes <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">District =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">d_votes =</span> <span class="fu">c</span>(<span class="dv">62</span>, <span class="dv">55</span>, <span class="dv">44</span>, <span class="dv">47</span>, <span class="dv">46</span>),</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">r_votes =</span> <span class="fu">c</span>(<span class="dv">38</span>, <span class="dv">45</span>, <span class="dv">56</span>, <span class="dv">53</span>, <span class="dv">54</span>),</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">result =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"D wins"</span>, <span class="dv">2</span>), <span class="fu">rep</span>(<span class="st">"R wins"</span>, <span class="dv">3</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol start="19" class="example" type="1">
+<li>Calculate the mean-median score associated with this particular district breakdown of votes.</li>
+</ol>
+<ol start="20" class="example" type="1">
+<li>Calculate the efficiency gap (EG) associated with this particular district breakdown of votes<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a>.</li>
+</ol>
 
 
 </section>
@@ -504,6 +576,7 @@ window.Quarto = {
 <li id="fn5"><p>Each object will require a separate call to <code>plot()</code>. You can add <code>add = TRUE</code> to <code>plot()</code> so that the contents of the second get added to the first. Note that these plot additions don’t carry over from code cell to code cell.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn6"><p>You can add colors to <code>plot()</code> using the <code>col</code> argument and call <code>colors()</code> at the console to see the color names available in base R. I used <code>col = c("skyblue", "tomato")</code> but you’re welcome to pick your own colors.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn7"><p>The functions for these set operations in <code>sf</code> are exactly as you’d expect: the name of the operation prepended by <code>st_</code>. Note also that the union operation will drop the <code>sf</code> class. You’ll need to run your object through <code>st_sf()</code> to get it back.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>It may be helpful to write a function that takes a vector of votes across districts for party A and a vector of votes for party B and returns a vector of the number of votes wasted by party A across districts.<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

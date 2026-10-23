@@ -187,3 +187,40 @@ plot(my_tri_down, add = TRUE)
 ```
 
 @. Under the definition of "intersects", which of your split diamonds intersect the `my_tri_up`? Check by doing a spatial join.
+
+### Gerrymandering
+
+Recall the three quantitative approaches to measuring gerrymandering discussed in lecture:
+
+1. Mean - Median Score (Grofman, 1983)
+2. Efficiency Gap (Stephanopoulos and McGee, 2015)
+3. Ensembles / Extreme Outliers
+
+Use the following election results to practice applying the first two.
+
+| District | D Votes | R Votes | Result  |
+|:---------:|:-------:|:-------:|:--------|
+| 1 | 62 | 38 | D wins |
+| 2 | 55 | 45 | D wins |
+| 3 | 44 | 56 | R wins |
+| 4 | 47 | 53 | R wins |
+| 5 | 46 | 54 | R wins |
+| **Total** | **254** | **246** |          |
+
+To work with them in R, create the following data frame.
+
+```{r}
+#| label: gerry-votes
+#| message: false
+library(tidyverse)
+votes <- tibble(District = 1:5,
+                d_votes = c(62, 55, 44, 47, 46),
+                r_votes = c(38, 45, 56, 53, 54),
+                result = c(rep("D wins", 2), rep("R wins", 3)))
+```
+
+@. Calculate the mean-median score associated with this particular district breakdown of votes.
+
+@. Calculate the efficiency gap (EG) associated with this particular district breakdown of votes[^wasted-fn].
+
+[^wasted-fn]: It may be helpful to write a function that takes a vector of votes across districts for party A and a vector of votes for party B and returns a vector of the number of votes wasted by party A across districts.
