@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Project: Gerrymandering – STAT 133</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-0f05cba98e93abd5bfacabf37e46c573.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-36489fe9f95e83378e31b3375ef0b6a4.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-0f05cba98e93abd5bfacabf37e46c573.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-1e8e319d07c4519c69b90775f7235ba2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-1e8e319d07c4519c69b90775f7235ba2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-1e8e319d07c4519c69b90775f7235ba2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="assets/scroll-branding.js"></script>
+
+
+<link rel="stylesheet" href="../../assets/neural.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">STAT 133</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../projects/1-sampsons-monks/project.html">Projects</a></li><li class="breadcrumb-item"><a href="../../projects/4-gerrymandering/project.html">Gerrymandering</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../office-hours.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Office Hours</span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tools/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tools</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tools/datahub.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">DataHub</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tools/shell.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Shell</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tools/r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tools/r-app.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R App</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tools/git.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Git</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tools/positron.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Positron</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Projects</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../projects/1-sampsons-monks/project.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sampson’s Monks</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../projects/2-zero-emission-vehicles/project.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Zero Emission Vehicles</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../projects/3-your-life-in-data/project.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Your Life in Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../projects/4-gerrymandering/project.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Gerrymandering</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Problem Sets</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../problem-sets/ps1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PS 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../problem-sets/ps2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PS 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../problem-sets/ps3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PS 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../problem-sets/ps4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PS 4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../problem-sets/ps5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PS 5</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../projects/1-sampsons-monks/project.html">Projects</a></li><li class="breadcrumb-item"><a href="../../projects/4-gerrymandering/project.html">Gerrymandering</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Project: Gerrymandering</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/gerry-mander.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="The Gerry-mander cartoon from the Salem Gazette, 1813: Massachusetts's Essex South district drawn as a winged monster, labeled with its towns." width="500"></p>
+</figure>
+</div>
+<p>Very soon Californians will go to the polls to vote for their representative to the United States Congress. This election will determine whether the Republicans retain control of the House of Representatives. This is the first election held using district maps that are explicitly partisan. One year ago, Californians passed Proposition 50, which adopted a congressional district map drawn by the state legislature (bill AB 604). The purpose of this bill was to increase the partisan advantage of Democrats as a counterweight to a similar district map that was passed by the state of Texas to advantage the Republicans.</p>
+<p>Your general research question for this project is:</p>
+<p><em>Will the adoption of the new district map lead to an increase in partisan advantage relative to 2024? If so, by how much?</em></p>
+<p>As always, you will be invited by email to a template repo corresponding to this project. This time, <code>project.qmd</code> is set to <code>format: dashboard</code>, the format from the Dashboards lecture. Each part below is a page of your dashboard. How you lay out each page is up to you, but each should show your results as explanatory displays (plots, tables, value boxes, or a few sentences) along with the code that produced them. The comment at the top of the template’s <code>project.qmd</code> has some tips on how to set this up.</p>
+<p>Your dashboard opens on its Results page (Part 6), because that is where a reader starts, but you’ll build that page last: work through the parts in order.</p>
+<p>In the assignment below, “On this page” describes what each page of your dashboard should show. The questions are there to prompt you to fully explore each phase of the analysis to be ready to answer questions about it during the Project Studio.</p>
+<section id="context" class="level4">
+<h4 class="anchored" data-anchor-id="context">Context</h4>
+<ul>
+<li>California Statewide Special Election (<a href="https://www.sos.ca.gov/elections/prior-elections/statewide-election-results/statewide-special-nov-4-2025" class="uri">https://www.sos.ca.gov/elections/prior-elections/statewide-election-results/statewide-special-nov-4-2025</a>): official website for the election from the CA Secretary of State.</li>
+<li>Statewide Database Precinct Data (<a href="https://statewidedatabase.org/d20/g24.html" class="uri">https://statewidedatabase.org/d20/g24.html</a>): source of precinct-level data from the 2024 General Election.</li>
+<li>2024 Election Geographic Data (<a href="https://statewidedatabase.org/d20/g24_geo_conv.html" class="uri">https://statewidedatabase.org/d20/g24_geo_conv.html</a>): source of shapefiles for precinct maps from 2024 General Election.</li>
+<li>Proposed Congressional Map (<a href="https://aelc.assembly.ca.gov/proposed-congressional-map" class="uri">https://aelc.assembly.ca.gov/proposed-congressional-map</a>): source of shapefiles for district map proposed in AB 604.</li>
+</ul>
+</section>
+<section id="data" class="level4">
+<h4 class="anchored" data-anchor-id="data">Data</h4>
+<p>The template’s <code>data/</code> folder holds:</p>
+<ol type="1">
+<li><code>state_g24_sov_data_by_g24_srprec.csv</code>: Voting results (Statement of Vote) for the 2024 general election by registration precinct (SR precinct), from the Statewide Database (source: <a href="https://statewidedatabase.org/d20/g24.html" class="uri">https://statewidedatabase.org/d20/g24.html</a>). Its columns are described in the Statewide Database’s codebooks (<a href="https://statewidedatabase.org/info/codebooks.html" class="uri">https://statewidedatabase.org/info/codebooks.html</a>).</li>
+<li><code>g24-results-by-district.xlsx</code>: Voting results at the district level, broken down by county.</li>
+<li><code>g24-candidates-by-district.csv</code>: Names of candidates running in each district race.</li>
+</ol>
+<p>In Parts 5 and 6 you’ll download more files and add them to <code>data/</code> yourself, unzipping any shapefiles into a subdirectory called <code>data/shapefiles</code>. Many of these files are too large for GitHub, so the template’s <code>.gitignore</code> keeps git from committing anything in <code>data/</code> beyond the three files above. Keep every download inside <code>data/</code>: a file saved anywhere else would be committed. If you save a cleaned version of a data set, which is good practice, write it to <code>data/clean/</code>; that folder is committed.</p>
+</section>
+<section id="part-1-about-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="part-1-about-the-data">Part 1: About the Data</h3>
+<p>Visit the website of the California Secretary of State for their information on last year’s special election and Proposition 50 and learn about the process, the documents that they make available, and the data that they make available.</p>
+<p>Next visit the website of the Statewide Database and learn about what data products are available from the 2024 General Election and any extra information they provide about how to interpret them. Also learn about who runs the database, where it is housed, and how it operates.</p>
+<p><strong>On this page:</strong> provide an introduction to the election and the data for a reader who is new to both: what Proposition 50 changed and why, who publishes the data you use and how it comes to be, the units of geography it is recorded in and how they relate to one another, and a table of the data files you use, each with its source and what one row represents. Add to the table as you go, including the files you download in Parts 5 and 6. This page needs no code.</p>
+<p>Some questions to consider:</p>
+<ol type="1">
+<li>What did Proposition 50 do, and how long does the AB 604 map stay in effect?</li>
+<li>Who drew the AB 604 map, and how is that different from how California’s congressional maps were drawn before?</li>
+<li>What documents and data does the Secretary of State publish about the election?</li>
+<li>Who runs the Statewide Database, where is it housed, and what is it for?</li>
+<li>What data products does it publish for the 2024 General Election?</li>
+<li>What do its notes say about the limits of the data?</li>
+<li>How do census blocks, SV precincts, SR precincts, congressional districts, and counties relate to one another? Which nest inside which?</li>
+<li>Why is an SR precinct always a geographic area, while an SV precinct may not be?</li>
+<li>Votes are counted and reported by SV precinct. How does the Statewide Database produce the SR precinct counts you’ll use, and what does that mean for how you should read them?</li>
+</ol>
+</section>
+<section id="part-2-data-cleaning" class="level3">
+<h3 class="anchored" data-anchor-id="part-2-data-cleaning">Part 2: Data Cleaning</h3>
+<p>Read in the vote count data from the 2024 General Election at the SR precinct level (<code>state_g24_sov_data_by_g24_srprec.csv</code>). You’ll use this same data set for the rest of the project, including re-running the election on the new map in Part 5. Clean the data frame using the audit checklist from the data cleaning lecture to ensure values are recorded correctly for the rest of the analysis.</p>
+<p><strong>On this page:</strong> the decisions you made in cleaning the data. For each problem you found, show the evidence for it (a table, a plot, or a count), what you did about it, and how many rows it affected, along with the code for each step. Close with the size of your clean data set.</p>
+<p><em>Tips</em></p>
+<ul>
+<li>Read the website of the statewide database carefully for disclaimers about the state of the data.</li>
+<li>Inspect columns to ensure they’re the correct type. If they’re not, investigate why not and correct it.</li>
+<li>Inspect the values in each column to ensure they have the values that you would expect.</li>
+<li>Check that columns that you expect to have unique values indeed don’t have replicates.</li>
+</ul>
+</section>
+<section id="part-3-exploratory-data-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="part-3-exploratory-data-analysis">Part 3: Exploratory Data Analysis</h3>
+<p>Now that you have a clean data set for precinct-level vote totals from the 2024 election, now is your opportunity to scratch your curious itch and ask a few questions that can be answered with summary statistics or visualizations.</p>
+<p><strong>On this page:</strong> a check of your clean data against the official district totals, followed by at least three questions of your own. For each question, show the question, an explanatory display that answers it, and your answer in a sentence or two.</p>
+<p>Some examples to get you thinking:</p>
+<ol type="1">
+<li>When you add up your precincts by district, do your totals agree with those in <code>g24-results-by-district.xlsx</code>? Where they don’t, why not?</li>
+<li>How many precincts/counties/districts featured two candidates from the same party?</li>
+<li>Which precinct/county/district had the closest race?</li>
+<li>What is the range of total sizes of the precincts?</li>
+<li>Which races were the closest?</li>
+<li>Which races were the biggest blowouts?</li>
+<li>What proportion of incumbents were re-elected?</li>
+<li>Be creative here!</li>
+</ol>
+</section>
+<section id="part-4-measuring-partisan-advantage" class="level3">
+<h3 class="anchored" data-anchor-id="part-4-measuring-partisan-advantage">Part 4: Measuring Partisan Advantage</h3>
+<p>For the 2024 general election, calculate the mean-median score and efficiency gap associated with the 2024 map of congressional districts. You should have everything you need in your cleaned precinct-level data frame.</p>
+<p><strong>On this page:</strong> the partisan advantage under the 2024 map: the seats and the share of the two-party vote that each party won, the mean-median score, and the efficiency gap. Show each statistic alongside a display that shows where it comes from, such as the distribution of vote shares across districts or the votes each party wasted.</p>
+<p><em>Tip:</em> it may be helpful to write a function that takes a vector of votes across districts for party A and a vector of votes for party B, and returns a vector of the number of votes wasted by party A in each district.</p>
+</section>
+<section id="part-5-re-running-the-2024-election" class="level3">
+<h3 class="anchored" data-anchor-id="part-5-re-running-the-2024-election">Part 5: Re-running the 2024 Election</h3>
+<p>Calculate what the election results would have been had the 2024 election been run using the district map proposed in AB 604. There are two approaches that can be taken. Both start from the SR precinct data you cleaned in Part 2: SR precincts are always geographical, so their votes can be placed on a map.</p>
+<p>The data files listed below are not in the template repo; you’ll be downloading them directly. Put csv files in <code>data/</code> and unzip any shapefiles into <code>data/shapefiles/</code>, not anywhere else in your repo: inside <code>data/</code>, git ignores them, and some are far too large for GitHub (the SR precinct shapefile is over 300 MB). The AB 604 zip unpacks into an <code>AB604/</code> folder, so its shapefile is <code>data/shapefiles/AB604/AB604.shp</code>, alongside a <code>__MACOSX/</code> folder you can delete. Its districts are in a Web Mercator projection, so transform them with <code>st_transform(crs = 3310)</code> before combining them with other layers. Some of this code is slow to run, so the template marks this part’s code cell with <code>cache: true</code>: it reruns only when you change it or the Part 2 cleaning it builds on.</p>
+<p>Of these two approaches, Approach A is slightly more direct but induces a bit more error than Approach B. You can choose one to pursue. If you end up doing both, I’d be very interested in an analysis that compares the results. Please email me directly if you do this to share your work.</p>
+<p><strong>Approach A: Area-weighted Interpolation</strong></p>
+<p>Premise: if we assume the voters are spread evenly across their precincts, we can allocate a precinct’s votes to a congressional district in proportion to the percentage of the area of that precinct that is in the district. Along with your clean SR precinct data, you will need two files:</p>
+<ol type="1">
+<li><a href="https://statewidedatabase.org/pub/data/G24/state/srprec_state_g24_v01_shp.zip">SR Precinct Shapefiles</a>: Shapefiles for the SR precincts (source: <a href="https://statewidedatabase.org/d20/g24_geo_conv.html" class="uri">https://statewidedatabase.org/d20/g24_geo_conv.html</a>).</li>
+<li><a href="https://aelc.assembly.ca.gov/media/2608">Proposed Congressional Map</a>: source of shapefiles for district map proposed in AB 604 (source: <a href="https://aelc.assembly.ca.gov/proposed-congressional-map" class="uri">https://aelc.assembly.ca.gov/proposed-congressional-map</a>).</li>
+</ol>
+<p>General approach:</p>
+<ol type="1">
+<li>Join the geometries from the shapefile to your clean SR precinct data.</li>
+<li>Load geometries of the proposed congressional map.</li>
+<li>Ensure both geometries are valid and use the same projection (I recommend <code>st_transform(crs = 3310)</code>).</li>
+<li>Use area-weighted interpolation to populate the vote counts of each district in the proposed map.</li>
+</ol>
+<p>Note: the people at the Statewide Database are working to correct some errors in the geometries of the SR precincts. <code>sf</code> can do a quick job of it using the following:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>sr_shp <span class="ot">&lt;-</span> sr_shp <span class="sc">|&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_transform</span>(<span class="dv">3310</span>) <span class="sc">|&gt;</span>          <span class="co"># switch to equal area projection first</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_set_precision</span>(<span class="dv">1</span>) <span class="sc">|&gt;</span>         <span class="co"># snap points to 1 m grid</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_make_valid</span>() <span class="sc">|&gt;</span>             <span class="co"># fix self-intersections/bow-ties</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_collection_extract</span>(<span class="st">"POLYGON"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><strong>Approach B: Proportional Allocation</strong></p>
+<p>Premise: we can improve on the uniform distribution assumption by working with a smaller geographic unit, census blocks. While we don’t know the number of votes for each candidate at the census block level, we do know the proportion of registered voters at each census block. We can allocate the votes from the SR precincts across the blocks relative to the proportion of registered voters that live on that block.</p>
+<p>Along with your clean SR precinct data, you will need two files:</p>
+<ol type="1">
+<li><a href="https://statewidedatabase.org/pub/data/G24/state/state_g24_sr_blk_map.csv">SR Precinct to Block Correspondence</a>: Number of registered voters by (partial) block (source: <a href="https://statewidedatabase.org/d20/g24_geo_conv.html" class="uri">https://statewidedatabase.org/d20/g24_geo_conv.html</a>).</li>
+<li><a href="https://aelc.assembly.ca.gov/media/2609">Block membership in AB 604 districts</a>: A list of the census block keys and their new congressional district as of AB 604 (source: <a href="https://aelc.assembly.ca.gov/proposed-congressional-map" class="uri">https://aelc.assembly.ca.gov/proposed-congressional-map</a>).</li>
+</ol>
+<p>General approach:</p>
+<ol type="1">
+<li>Working from the census block data, add SR voting data to each (fractional) block in proportion to the percentage of registered voters in the precinct that live on that block.</li>
+<li>Identify which new district each block is in.</li>
+<li>Tally up the votes for each new district.</li>
+</ol>
+<p>Note: there are some census blocks that are split between multiple SR precincts. Accordingly, each row of the SR Precinct - Block correspondence file is actually a potential fractional block: most rows represent an entire block, but some represent the portion of a block that is in a particular precinct. <code>BLKTOTREG</code> is the total number of registered voters in the full block; <code>SRTOTREG</code> is the total number of registered voters in the SR precinct. <code>PCTSRPREC</code> is the percent of the total SR registrants that live on the fractional block. <code>BLKREG</code> is the number of registered voters on the fractional block.</p>
+<p><strong>On this page:</strong> how you estimated the 2024 votes in each of the new districts: the approach you chose and the assumption it rests on, the estimated votes for each party in each new district, and a check of whether your allocation kept every vote.</p>
+</section>
+<section id="part-6-results" class="level3">
+<h3 class="anchored" data-anchor-id="part-6-results">Part 6: Results</h3>
+<p>This is the first page of your dashboard, so take care to present your results in a manner that is clear and makes the most important comparison easy: the 2024 congressional results against a hypothetical re-run of the 2024 election using the new district map. If there is another visualization or statistic that you find insightful and effective, you’re welcome to add it.</p>
+<p>To draw the maps, download the 2024 district shapefiles, and the AB 604 shapefiles if you don’t have them yet from Part 5. As in Part 5, unzip them into <code>data/shapefiles/</code> so that git ignores them:</p>
+<ol type="1">
+<li><a href="https://www.census.gov/cgi-bin/geo/shapefiles/index.php?year=2024&amp;layergroup=Congressional+Districts+%28119%29">2024 Congressional Districts</a>: shapefiles for the congressional districts in effect for the 2024 election (choose California).</li>
+<li><a href="https://aelc.assembly.ca.gov/media/2608">Proposed Congressional Map</a>: shapefiles for the district map in AB 604.</li>
+</ol>
+<p><strong>On this page:</strong> the headline comparison between the 2024 results and your re-run of the 2024 election on the AB 604 map. Show maps of both sets of districts, each district colored by the party that won it (for the AB 604 map, in your re-run), and for both maps, the number of seats won by Democrats, the mean-median score, and the efficiency gap. Close with your answer to the research question and its caveats.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../license.html">
+<p>License</p>
+</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
