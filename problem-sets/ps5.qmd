@@ -224,3 +224,29 @@ votes <- tibble(District = 1:5,
 @. Calculate the efficiency gap (EG) associated with this particular district breakdown of votes[^wasted-fn].
 
 [^wasted-fn]: It may be helpful to write a function that takes a vector of votes across districts for party A and a vector of votes for party B and returns a vector of the number of votes wasted by party A across districts.
+
+### Dashboards
+
+Starting from the contents of `demo-dashboard.qmd` found in the corresponding repo (<https://github.com/berkeley-stat133/demo-dashboard>) create a data dashboard the provides information on the most recent earthquakes to strike New Zealand. The dashboard should include:
+
+1. Your name added as the author.
+1. A theme of your choosing[^th].
+1. A layout in two columns.
+1. The map of New Zealand taking up the full right column.
+1. The left of column should two rows, the top of which has value boxes for the number of hours since the last earthquake and the number of earthquakes in the last 24 hours. Select a suitable icon for each[^dash].
+1. The bottom row should hold the table of the top n earthquakes.
+1. All of the above should be on a page called "Dashboard". Add a second page called "About the data" that displays the following:
+
+> The original author of this dashboard is Charlotte Wickham.
+> 
+> The data on earthquakes is drawn from the GeoNet API:
+> 
+> <https://api.geonet.org.nz/>
+> 
+> All earthquakes below MMI 3.0 have been filtered out.
+
+Since it is quite lengthy, there is no need to copy the code used in your dashboard into this problem set. 
+
+[^th]: Dashboards collect the colors and fonts into themes similar to ggplot2. You can find the list of themes here: <https://quarto.org/docs/dashboards/theming.html>.
+
+[^dash]: Quarto dashboards can use any of the icons in a large collection called Bootstrap. Search for an icon and then use the corresponding name as a string: <https://icons.getbootstrap.com/>.
