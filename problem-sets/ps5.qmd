@@ -250,3 +250,34 @@ Since it is quite lengthy, there is no need to copy the code used in your dashbo
 [^th]: Dashboards collect the colors and fonts into themes similar to ggplot2. You can find the list of themes here: <https://quarto.org/docs/dashboards/theming.html>.
 
 [^dash]: Quarto dashboards can use any of the icons in a large collection called Bootstrap. Search for an icon and then use the corresponding name as a string: <https://icons.getbootstrap.com/>.
+
+### R Packages
+
+Select one of the following packages to investigate the structure of. Each one is an example of a small package that does one thing well.
+
+1. `reprex` (<https://github.com/tidyverse/reprex>): makes reproducible examples of code to post to forums for help.
+1. `glue` (<https://github.com/tidyverse/glue>): glues strings together.
+1. `fs` (<https://github.com/r-lib/fs>): tools for working with your file system.
+1. `janitor`(<https://github.com/sfirke/janitor>): simple data cleaning helpers.
+
+@. Who is the first author of the package? Where did you find this information?
+
+@. What is the official one sentence description of the package?
+
+@. How many functions does the package export to the user? Where did you find this information?
+
+@. What is the path to the r script that holds the source of the first exported function?
+
+@. Try running the first examples that show up in the README. Where could you have used the package on any of your previous projects?
+
+* * *
+
+@. Write a function called `hello()` that takes just one argument, a string `x`, and prints "Hello x!" (but with the value of `x` swapped in). Provide the function below and also run it at your console so that it exists in your environment.
+
+@. Using `package.skeleton()`, create a package called `greetr` that holds just one item: the function `hello()`. Sketch the file tree of the package below.
+
+@. Fill in `DESCRIPTION` with information suitable to this simple package (you can pick your own version number and I recommend the MIT license). Write your description file below.
+
+@. What command will build your new package into the tarball file that can be shared with others?
+
+@. *Optional*: Publish the package to your personal account on GitHub using the steps in lecture.
