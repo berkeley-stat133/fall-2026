@@ -245,8 +245,6 @@ Starting from the contents of `demo-dashboard.qmd` found in the corresponding re
 > 
 > All earthquakes below MMI 3.0 have been filtered out.
 
-Since it is quite lengthy, there is no need to copy the code used in your dashboard into this problem set. 
-
 [^th]: Dashboards collect the colors and fonts into themes similar to ggplot2. You can find the list of themes here: <https://quarto.org/docs/dashboards/theming.html>.
 
 [^dash]: Quarto dashboards can use any of the icons in a large collection called Bootstrap. Search for an icon and then use the corresponding name as a string: <https://icons.getbootstrap.com/>.

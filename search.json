@@ -390,101 +390,233 @@
     "text": "Lab 2 Project\n\n  \n    −\n    +\n \n 15:00\n \nWorksheet:\n\nWritten responses. Please code along on your laptop. This is for your own practice / not turned in.\n\nProject:\n\nFour parts\nSubmit: project.R + README.md on GitHub Classroom\n\nWork on selected problems.\n\nGive students 15 minutes to work on problems that you find important and they may struggle with (suggest getting started with downloading packages, doing a visualization, writing the function)"
   },
   {
-    "objectID": "problem-sets/ps5.html",
-    "href": "problem-sets/ps5.html",
-    "title": "5",
+    "objectID": "problem-sets/ps6.html",
+    "href": "problem-sets/ps6.html",
+    "title": "6",
+    "section": "",
+    "text": "Download\n PDF\n Quarto (.qmd)"
+  },
+  {
+    "objectID": "problem-sets/ps6.html#footnotes",
+    "href": "problem-sets/ps6.html#footnotes",
+    "title": "6",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThe authors of recipes went all in on the baking metaphor.↩︎\nIn R’s formula interface, you add additional predictors adding them to the right side: .e.g y ~ x1 + x2.↩︎"
+  },
+  {
+    "objectID": "problem-sets/ps4.html",
+    "href": "problem-sets/ps4.html",
+    "title": "4",
     "section": "",
     "text": "Download\n PDF\n Quarto (.qmd)",
     "crumbs": [
       "Problem Sets",
-      "PS 5"
+      "PS 4"
     ]
   },
   {
-    "objectID": "problem-sets/ps5.html#footnotes",
-    "href": "problem-sets/ps5.html#footnotes",
-    "title": "5",
+    "objectID": "problem-sets/ps4.html#footnotes",
+    "href": "problem-sets/ps4.html#footnotes",
+    "title": "4",
     "section": "Footnotes",
-    "text": "Footnotes\n\n\nIf you are unsatisfied with the resolution of your map, you can tinker with the scale argument of the ne_countries() function.↩︎\nEach projection has a numeric code (its EPSG code). The Albers Equal Area projection for California is 3310. Pass that code to the crs argument of the st_transform() function in sf.↩︎\nHint: since quakes_albers is an sf object instead of a tibble, geom_point() will no longer work. You can add it in a second geom_sf() layer (the first will be for the basemap).↩︎\nCompare the CRS of ca_counties with the CRS of your centroid.↩︎\nEach object will require a separate call to plot(). You can add add = TRUE to plot() so that the contents of the second get added to the first. Note that these plot additions don’t carry over from code cell to code cell.↩︎\nYou can add colors to plot() using the col argument and call colors() at the console to see the color names available in base R. I used col = c(\"skyblue\", \"tomato\") but you’re welcome to pick your own colors.↩︎\nThe functions for these set operations in sf are exactly as you’d expect: the name of the operation prepended by st_. Note also that the union operation will drop the sf class. You’ll need to run your object through st_sf() to get it back.↩︎\nIt may be helpful to write a function that takes a vector of votes across districts for party A and a vector of votes for party B and returns a vector of the number of votes wasted by party A across districts.↩︎\nDashboards collect the colors and fonts into themes similar to ggplot2. You can find the list of themes here: https://quarto.org/docs/dashboards/theming.html.↩︎\nQuarto dashboards can use any of the icons in a large collection called Bootstrap. Search for an icon and then use the corresponding name as a string: https://icons.getbootstrap.com/.↩︎",
+    "text": "Footnotes\n\n\nHint: there is a handy shortcut that saves you from typing all of the column names: starts_with() inside the tidyselect package↩︎\nNote that geom_line() permits the use of a group aesthetic mapping to make one line for each group.↩︎\nEach emoji is defined by an 8 digit code called Unicode. See https://r4ds.hadley.nz/strings.html#other-special-characters.↩︎\nWrite a pattern that matches only names with at least two \"o\"s, using the wildcard and a quantifier. Then extend it to three, four, and so on until nothing matches.↩︎\nYou can parse these clock times using what you know about string manipulation or by using handy math operators %/% and %%. Another hint: see the Circular Data example from the slides.↩︎",
     "crumbs": [
       "Problem Sets",
-      "PS 5"
+      "PS 4"
     ]
   },
   {
-    "objectID": "problem-sets/ps3.html",
-    "href": "problem-sets/ps3.html",
-    "title": "3",
+    "objectID": "problem-sets/ps2.html",
+    "href": "problem-sets/ps2.html",
+    "title": "2",
     "section": "",
     "text": "Download\n PDF\n Quarto (.qmd)",
     "crumbs": [
       "Problem Sets",
-      "PS 3"
+      "PS 2"
     ]
   },
   {
-    "objectID": "problem-sets/ps3.html#footnotes",
-    "href": "problem-sets/ps3.html#footnotes",
-    "title": "3",
+    "objectID": "problem-sets/ps2.html#footnotes",
+    "href": "problem-sets/ps2.html#footnotes",
+    "title": "2",
     "section": "Footnotes",
-    "text": "Footnotes\n\n\nThere are several other ways to do this. Feel free to check online for different methods.↩︎\nHint 1: n() is a function that returns the row count when used inside summarize(). Hint 2: You can group by more than one variable.↩︎\nHint: If you group by multiple variables, a call to summarize() will peel off the outermost grouping (the last argument in group_by()) and keep the others↩︎\nThere are several ways to reduce the data frame to contain only one row for each named storm. The simplest is probably to group the data frame, then slice it and take the first record↩︎\nIf you’d like to a slightly more sophisticated version of this plot, read about geom_path(). Instead of lines, this can plot paths with an arrowhead indicating the progression of that storm.↩︎\nTo convert text like \"8,200\" into a number, use parse_number() from the readr package. You can call it without loading the package by writing readr::parse_number().↩︎\nSee the slides for a side-by-side comparison of YAML and JSON syntax.↩︎",
+    "text": "Footnotes\n\n\nAlternatively, you’re welcome to look into how to return the hot face emoji (and its analog for freezing).↩︎\nThere is a clever way to do this that avoids having to type the names of the columns that are factors. See the help file for select(), particularly about predicate functions.↩︎",
     "crumbs": [
       "Problem Sets",
-      "PS 3"
+      "PS 2"
     ]
   },
   {
-    "objectID": "problem-sets/ps1.html",
-    "href": "problem-sets/ps1.html",
-    "title": "1",
+    "objectID": "office-hours.html",
+    "href": "office-hours.html",
+    "title": "Office Hours",
     "section": "",
-    "text": "Download\n PDF\n Quarto (.qmd)",
+    "text": "Office Hours\nPlease stop by during office hours to chat in a small group setting course staff.",
     "crumbs": [
-      "Problem Sets",
-      "PS 1"
+      "Office Hours"
     ]
   },
   {
-    "objectID": "problem-sets/ps1.html#footnotes",
-    "href": "problem-sets/ps1.html#footnotes",
-    "title": "1",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nYou can research the answer to this question online.↩︎\nYou can research the answer to this question online.↩︎",
-    "crumbs": [
-      "Problem Sets",
-      "PS 1"
-    ]
-  },
-  {
-    "objectID": "license.html",
-    "href": "license.html",
-    "title": "License",
+    "objectID": "labs.html",
+    "href": "labs.html",
+    "title": "Labs",
     "section": "",
-    "text": "Unless otherwise noted, all curricular content on this site — lecture slides, notes, problem sets, projects, and accompanying code — is licensed under a Creative Commons Attribution 4.0 International License (CC BY 4.0).\nYou are free to share and adapt this material for any purpose, including commercially, provided you give appropriate credit, link to the license, and indicate if changes were made.\nSuggested attribution:\n\nMaterials from Stat 133: Concepts in Computing with Data, Department of Statistics, UC Berkeley, used under CC BY 4.0."
+    "text": "Labs\nComing soon!"
   },
   {
-    "objectID": "license.html#curricular-content",
-    "href": "license.html#curricular-content",
-    "title": "License",
+    "objectID": "29-r-packages-2/slides.html#section",
+    "href": "29-r-packages-2/slides.html#section",
+    "title": "R Packages II",
     "section": "",
-    "text": "Unless otherwise noted, all curricular content on this site — lecture slides, notes, problem sets, projects, and accompanying code — is licensed under a Creative Commons Attribution 4.0 International License (CC BY 4.0).\nYou are free to share and adapt this material for any purpose, including commercially, provided you give appropriate credit, link to the license, and indicate if changes were made.\nSuggested attribution:\n\nMaterials from Stat 133: Concepts in Computing with Data, Department of Statistics, UC Berkeley, used under CC BY 4.0."
+    "text": "Last Time\n\nA package can bundle functions and data.\nIt holds metadata, code, and a namespace.\nBuild, install, then share.\n\n\nKey Ideas for Today\n\nHelpers automate package chores.\nPackages can store data.\nRoxygen comments make help pages.\nLoad, document, check.\n\n\n\nConcept Acquisition\n\nusethis and devtools automate the repetitive steps of setting up and developing a package.\nPackages store data to demonstrate their functions and to make data easy to access; with LazyData: true, a data set is loaded only when it is used.\nR’s help pages are .Rd files in man/; Roxygen lets you write that documentation as #' comments beside the code it documents, and generates the .Rd files from them.\nFunctions and data sets are both documented: title, description, and details, plus tags such as @param, @returns, @examples, @format, and @source.\n\nTool Acquisition\n\nusethis::use_r() and usethis::use_data().\ndata(package = ) to list a package’s data sets.\nRoxygen comments (#') and tags; ? to preview help.\ndevtools::load_all(), document(), and check().\n\nConcept Application\n\nAdd a data set to mypkg with use_data() and document it with @format and @source.\nAdd Roxygen documentation to strsplit1(), run document(), and preview it with ?strsplit1."
   },
   {
-    "objectID": "license.html#artwork",
-    "href": "license.html#artwork",
-    "title": "License",
-    "section": "Artwork",
-    "text": "Artwork\nThe fantasy scenes appearing on the course calendar and elsewhere on this site are Scenes by Czepeku and are used under Czepeku’s Commercial Use Licence. They are reproduced here in watermarked form, as that license requires.\nThese images are not covered by the CC BY 4.0 license above and are not offered for download, redistribution, or resale as standalone items. All rights in them remain with Czepeku. If you wish to use them, see czepeku.com."
+    "objectID": "29-r-packages-2/slides.html#agenda",
+    "href": "29-r-packages-2/slides.html#agenda",
+    "title": "R Packages II",
+    "section": "Agenda",
+    "text": "Agenda\n\n\n\nPrequel: Setting up your own repo\nWhy package?\nStructure of a package\nMy first package\nSharing packages\n\n\n\nDocumentation: base R\nHelpers\nStoring data\nDocumentation: Roxygen\nDevelopment cycle"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "STAT 133",
+    "objectID": "29-r-packages-2/slides.html#section-2",
+    "href": "29-r-packages-2/slides.html#section-2",
+    "title": "R Packages II",
     "section": "",
-    "text": "Concepts in Computing with Data\nStat 133 UC Berkeley\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n  \n  \n  \n    \n    \n    \n    Oct 26\n    \n  \n  \n  Spatial Interpolation\n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n    Slides\n    \n  \n  \n  \n    Sign up for Quiz 5\n  \n  \n  \n  \n\n  \n  \n  \n  \n    \n    \n    \n    Oct 28\n    \n  \n  \n  Dashboards\n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n    Slides\n    \n  \n  \n  \n  \n  \n  \n\n  \n  \n  \n  \n    \n    \n    \n    Oct 30\n    \n  \n  \n  R Packages I\n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n    Slides\n    \n  \n  \n  \n    PS 5 due 10/31 at 11:59 pm\n  \n  \n  \n  \n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Aug 24\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 26\n      \n    \n    \n    Welcome\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 28\n      \n    \n    \n    Data in Trees\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 31\n      \n    \n    \n    Intro to R\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 2\n      \n    \n    \n    Atomic Vectors\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 4\n      \n    \n    \n    Extending Vectors\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n      Sign up for Quiz 1\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Sep 7\n    \n    \n    No Class: Labor Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 9\n      \n    \n    \n    Lists\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 1: 9/10-9/11\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 11\n      \n    \n    \n    Control Flow\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 14\n      \n    \n    \n    Functions\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 2\n    \n      Project Studio 1 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 16\n      \n    \n    \n    Factors and Data Frames\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 18\n      \n    \n    \n    Data Wrangling I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 2 due 9/19 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 21\n      \n    \n    \n    Git & GitHub\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n      Quiz 2: 9/21-9/22\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 23\n      \n    \n    \n    Data Wrangling II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 25\n      \n    \n    \n    Quarto\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 28\n      \n    \n    \n    Grammar of Graphics\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 3\n    \n      Project Studio 2 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 30\n      \n    \n    \n    Data Cleaning\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 2\n      \n    \n    \n    Reading and Writing Data\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 3 due 10/03 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 5\n      \n    \n    \n    Exploratory and Explanatory DA\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 3: 10/5-10/6\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 7\n      \n    \n    \n    Joins and Pivots\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 9\n      \n    \n    \n    Strings I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 12\n      \n    \n    \n    Strings II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 4\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 14\n      \n    \n    \n    Dates and Times I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 16\n      \n    \n    \n    Dates and Times II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 4 due 10/17 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 19\n      \n    \n    \n    Spatial Data I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 4: 10/19-10/20\n    \n      Project Studio 3 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 21\n      \n    \n    \n    Spatial Data II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 23\n      \n    \n    \n    Gerrymandering\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 26\n      \n    \n    \n    Spatial Interpolation\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 5\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 28\n      \n    \n    \n    Dashboards\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 30\n      \n    \n    \n    R Packages I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 5 due 10/31 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 2\n    \n    \n    R Packages II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 5: 11/2-11/3\n    \n      Project Studio 4 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 4\n    \n    \n    Prediction I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 6\n    \n    \n    Prediction II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 9\n    \n    \n    Classification\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 6\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 11\n    \n    \n    No Class: Veterans Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 13\n    \n    \n    APIs I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 6 due 11/14 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 16\n    \n    \n    APIs II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 6: 11/16-11/17\n    \n      Project Studio 5 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 18\n    \n    \n    LLMs\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 20\n    \n    \n    LLMs in IDEs\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 23\n    \n    \n    Abstraction\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 7\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 25\n    \n    \n    No Class: Non-Instructional Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 27\n    \n    \n    No Class: Thanksgiving\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 30\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n      PS 7 due today at 6:00 pm\n    \n      Quiz 7: 12/1-12/4\n    \n      Project Studio 6 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 2\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 4\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Dec 7\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 9\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 11\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Dec 14\n    \n    \n    Final Exam 7-10 pm\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 16\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 18\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n\n\nNo matching items",
-    "crumbs": [
-      "Home"
-    ]
+    "text": "?strsplit1"
+  },
+  {
+    "objectID": "29-r-packages-2/slides.html#documenting-with-base-r",
+    "href": "29-r-packages-2/slides.html#documenting-with-base-r",
+    "title": "R Packages II",
+    "section": "Documenting with base R",
+    "text": "Documenting with base R\n\nEdit man/strsplit1.Rd by hand, in Rd markup (\\title{}, \\arguments{}, \\value{}, \\examples{}).\nRebuild and reinstall at the terminal:\nR CMD build mypkg\nR CMD INSTALL mypkg_0.1.0.tar.gz\nRestart R, then library(mypkg) and ?strsplit1.\n\n\nLive-code in last lecture’s mypkg (the base R version): fill in the title, arguments, and value in man/strsplit1.Rd, rebuild, reinstall, and show the new help page."
+  },
+  {
+    "objectID": "29-r-packages-2/slides.html#section-6",
+    "href": "29-r-packages-2/slides.html#section-6",
+    "title": "R Packages II",
+    "section": "",
+    "text": "usethis\n\n\nAutomates repetitive tasks that arise during package setup and development.\n\n\nExamples:\n\nuse_r(\"strsplit1\"): Creates (or opens) R/strsplit1.R for the function’s code\nuse_data(\"bell\"): Saves an object from your environment to data/\n\n\nLive-code: burn down the base R mypkg you just documented by hand (built with package.skeleton() and R CMD build) and rebuild it with usethis. Delete everything but .git, then usethis::create_package(“.”) and use_r(“strsplit1”) and paste the function back in. Roxygen won’t overwrite the NAMESPACE and man/ files that package.skeleton() wrote, so starting over is what lets document() work later. Point out what create_package() sets up: a NAMESPACE marked “Generated by roxygen2”, Encoding: UTF-8, and no man/ yet."
+  },
+  {
+    "objectID": "29-r-packages-2/slides.html#put-strsplit1-back",
+    "href": "29-r-packages-2/slides.html#put-strsplit1-back",
+    "title": "R Packages II",
+    "section": "Put strsplit1() back",
+    "text": "Put strsplit1() back\nAfter use_r(\"strsplit1\"), paste the function into the new file:\n\n\nR/strsplit1.R\n\nstrsplit1 &lt;- function(x, split) {\n  strsplit(x, split = split)[[1]]\n}"
+  },
+  {
+    "objectID": "29-r-packages-2/slides.html#section-7",
+    "href": "29-r-packages-2/slides.html#section-7",
+    "title": "R Packages II",
+    "section": "",
+    "text": "devtools\n\n\nMakes package development easier by providing R functions that simplify and expedite common tasks.\n\n\nExamples:\n\ncreate(): Like package.skeleton but with more\ndocument(): Creates man files"
+  },
+  {
+    "objectID": "29-r-packages-2/slides.html#storing-data-1",
+    "href": "29-r-packages-2/slides.html#storing-data-1",
+    "title": "R Packages II",
+    "section": "Storing Data",
+    "text": "Storing Data\nWhy put data into a package?\n\n\nDemonstrate functionality\n\nlibrary(dplyr)\nstorms\n\n\n\n# A tibble: 20,778 × 13\n   name   year month   day  hour   lat  long status      category  wind pressure\n   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;fct&gt;          &lt;dbl&gt; &lt;int&gt;    &lt;int&gt;\n 1 Amy    1975     6    27     0  27.5 -79   tropical d…       NA    25     1013\n 2 Amy    1975     6    27     6  28.5 -79   tropical d…       NA    25     1013\n 3 Amy    1975     6    27    12  29.5 -79   tropical d…       NA    25     1013\n 4 Amy    1975     6    27    18  30.5 -79   tropical d…       NA    25     1013\n 5 Amy    1975     6    28     0  31.5 -78.8 tropical d…       NA    25     1012\n 6 Amy    1975     6    28     6  32.4 -78.7 tropical d…       NA    25     1012\n 7 Amy    1975     6    28    12  33.3 -78   tropical d…       NA    25     1011\n 8 Amy    1975     6    28    18  34   -77   tropical d…       NA    30     1006\n 9 Amy    1975     6    29     0  34.4 -75.8 tropical s…       NA    35     1004\n10 Amy    1975     6    29     6  34   -74.8 tropical s…       NA    40     1002\n# ℹ 20,768 more rows\n# ℹ 2 more variables: tropicalstorm_force_diameter &lt;int&gt;,\n#   hurricane_force_diameter &lt;int&gt;\n\n\n\nStore for easy access\n\nlibrary(babynames)\nbabynames\n\n\n\n# A tibble: 1,924,665 × 5\n    year sex   name          n   prop\n   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;     &lt;int&gt;  &lt;dbl&gt;\n 1  1880 F     Mary       7065 0.0724\n 2  1880 F     Anna       2604 0.0267\n 3  1880 F     Emma       2003 0.0205\n 4  1880 F     Elizabeth  1939 0.0199\n 5  1880 F     Minnie     1746 0.0179\n 6  1880 F     Margaret   1578 0.0162\n 7  1880 F     Ida        1472 0.0151\n 8  1880 F     Alice      1414 0.0145\n 9  1880 F     Bertha     1320 0.0135\n10  1880 F     Sarah      1288 0.0132\n# ℹ 1,924,655 more rows"
+  },
+  {
+    "objectID": "29-r-packages-2/slides.html#section-8",
+    "href": "29-r-packages-2/slides.html#section-8",
+    "title": "R Packages II",
+    "section": "",
+    "text": "use_data()\n\n\nTakes any R object and saves it as an .rda (R Data) file in data/.\n\n\n\n\nmypkg_data &lt;- sample(1000)\nusethis::use_data(mypkg_data)\n\n\n\nDefaults to using LazyData: true: data is only loaded when accessed."
+  },
+  {
+    "objectID": "29-r-packages-2/slides.html#data-set-inventory",
+    "href": "29-r-packages-2/slides.html#data-set-inventory",
+    "title": "R Packages II",
+    "section": "Data set inventory",
+    "text": "Data set inventory\ndata() can be used to check which data sets are available in packages for lazy loading.\n\n\ndata(package = \"dplyr\")"
+  },
+  {
+    "objectID": "29-r-packages-2/slides.html#rs-documentation-system",
+    "href": "29-r-packages-2/slides.html#rs-documentation-system",
+    "title": "R Packages II",
+    "section": "R’s Documentation System",
+    "text": "R’s Documentation System\n\nShow diagram of a .Rd file rendering to html or pdf. show .r file separately and illustrate the user goes back and forth between editing one and editing the other.\nThen change colors and show Roxygen puts the documentation inside the .r file."
+  },
+  {
+    "objectID": "29-r-packages-2/slides.html#roxygen-documentation-workflow",
+    "href": "29-r-packages-2/slides.html#roxygen-documentation-workflow",
+    "title": "R Packages II",
+    "section": "Roxygen documentation workflow",
+    "text": "Roxygen documentation workflow\n\nAdd Roxygen comments, #', before your function definitions in R/.\n\n\n#' Add together two numbers\n#' \n#' @param x A number.\n#' @param y A number.\n#' @returns A numeric vector.\n#' @examples\n#' add(1, 1)\n#' add(10, 1)\n#' @export\nadd &lt;-function(x, y) {\n  x + y\n}\n\n\n\nRun devtools::document().\nPreview documentation with ?."
+  },
+  {
+    "objectID": "29-r-packages-2/slides.html#roxygen-formatting",
+    "href": "29-r-packages-2/slides.html#roxygen-formatting",
+    "title": "R Packages II",
+    "section": "Roxygen formatting",
+    "text": "Roxygen formatting\ntitle: taken from the first sentence. It should be written in sentence case, not end in a full stop, and be followed by a blank line.\n\ndescription: taken from the next paragraph. It’s shown at the top of documentation and should briefly describe the most important features of the function.\n\n\ndetails are anything after the description. Details are optional, but can be any length so are useful if you want to dig deep into some important aspect of the function.\n\nAt this point go in to mypkg and add these three to strgsplit1."
+  },
+  {
+    "objectID": "29-r-packages-2/slides.html#roxygen-tags",
+    "href": "29-r-packages-2/slides.html#roxygen-tags",
+    "title": "R Packages II",
+    "section": "Roxygen tags",
+    "text": "Roxygen tags\n\n@param: arguments\n@returns: return value\n@examples: runnable R code that demonstrates usage\n@export: make the function available to users (writes export() into NAMESPACE)\n\n\nBriefly open ?dplyr::arrange and point to where each tag shows up. Students write them for strsplit1() next."
+  },
+  {
+    "objectID": "29-r-packages-2/slides.html#your-turn",
+    "href": "29-r-packages-2/slides.html#your-turn",
+    "title": "R Packages II",
+    "section": "Your Turn",
+    "text": "Your Turn\nTask: Write the Roxygen block for strsplit1(x, split): a title, both @params, @returns, one @examples, and @export.\n\n  \n    −\n    +\n \n 03:00\n \n\nDebrief by pasting one student’s block into R/strsplit1.R, then document() and ?strsplit1."
+  },
+  {
+    "objectID": "29-r-packages-2/slides.html#documenting-data",
+    "href": "29-r-packages-2/slides.html#documenting-data",
+    "title": "R Packages II",
+    "section": "Documenting Data",
+    "text": "Documenting Data\n\n\n\nlibrary(dplyr)\n?storms"
+  },
+  {
+    "objectID": "29-r-packages-2/slides.html#roxygen-tags-for-data",
+    "href": "29-r-packages-2/slides.html#roxygen-tags-for-data",
+    "title": "R Packages II",
+    "section": "Roxygen tags for data",
+    "text": "Roxygen tags for data\n\n@format gives an overview of the dataset. For data frames, should include a definition list that describes each variable along with units.\n@source provides details of where you got the data, often a URL.\n\n\nGo to mypkg and add documentation to dataset."
+  },
+  {
+    "objectID": "29-r-packages-2/slides.html#why-make-a-package",
+    "href": "29-r-packages-2/slides.html#why-make-a-package",
+    "title": "R Packages II",
+    "section": "Why Make a Package?",
+    "text": "Why Make a Package?\n\nHave an impact.\nSoftware is the new publication.\nHelp your future self."
+  },
+  {
+    "objectID": "29-r-packages-2/slides.html#devtools-commands",
+    "href": "29-r-packages-2/slides.html#devtools-commands",
+    "title": "R Packages II",
+    "section": "devtools commands",
+    "text": "devtools commands\n\nload_all(): loads all functions and data.\ndocument(): remakes documentation.\ncheck(): checks whether package meets CRAN’s guidelines.\n\n\nDraw https://r-pkgs.org/whole-game.html#fig-package-dev-workflow on board."
+  },
+  {
+    "objectID": "29-r-packages-2/slides.html#your-turn-1",
+    "href": "29-r-packages-2/slides.html#your-turn-1",
+    "title": "R Packages II",
+    "section": "Your Turn",
+    "text": "Your Turn\nQuestion: This block runs through document(), but the result has three problems. Find them.\n#' Add together two numbers.\n#'\n#' @param a A number.\n#' @param y A number.\n#' @returns A numeric vector.\nadd &lt;- function(x, y) {\n  x + y\n}\n\n  \n    −\n    +\n \n 01:30\n \n\nAnswers: the title ends in a full stop; @param a doesn’t match the argument x; there’s no @export, so users can’t call add() after installing. Ask which devtools command would have flagged the param mismatch (check())."
+  },
+  {
+    "objectID": "29-r-packages-2/slides.html#guess-the-metaphor",
+    "href": "29-r-packages-2/slides.html#guess-the-metaphor",
+    "title": "R Packages II",
+    "section": "Guess the Metaphor",
+    "text": "Guess the Metaphor\n\n\n\nDeveloping a package is like running a wainwright’s shop: the tools on the bench (usethis, devtools) do the routine work, spare parts wait on the shelves (data), and every wheel goes round the same loop, fitted, labelled, and inspected, before it rolls out the door (load, document, check)."
+  },
+  {
+    "objectID": "29-r-packages-2/slides.html#section-11",
+    "href": "29-r-packages-2/slides.html#section-11",
+    "title": "R Packages II",
+    "section": "",
+    "text": "Key Ideas for Today\n\nHelpers automate package chores.\nPackages can store data.\nRoxygen comments make help pages.\nLoad, document, check.\n\n\nFor Next Time\n\nTake Quiz 5 (11/2-11/3).\nCome to Project Studio 4 this week.\nStart the R Packages II problems in PS 6, due 11/14."
   },
   {
     "objectID": "27-dashboards/slides.html#section",
@@ -1177,14 +1309,14 @@
     "href": "21-date-time-1/slides.html#section-8",
     "title": "Dates and Times I",
     "section": "",
-    "text": "POSIXct\n\n\nPOSIXct (Portable Operating System Interface Calendar Time) is an atomic vector to store date-times that is built on top of a double vector.\n\n\n\n\nnow &lt;- Sys.time()\nnow\n\n\n\n[1] \"2026-10-30 15:41:23 UTC\"\n\n\n\n\n\nclass(now)\n\n\n\n[1] \"POSIXct\" \"POSIXt\" \n\n\n\nStart off with reminder about factors: a integer vector with the factor class that allows it to store the levels look up table."
+    "text": "POSIXct\n\n\nPOSIXct (Portable Operating System Interface Calendar Time) is an atomic vector to store date-times that is built on top of a double vector.\n\n\n\n\nnow &lt;- Sys.time()\nnow\n\n\n\n[1] \"2026-11-02 16:39:44 UTC\"\n\n\n\n\n\nclass(now)\n\n\n\n[1] \"POSIXct\" \"POSIXt\" \n\n\n\nStart off with reminder about factors: a integer vector with the factor class that allows it to store the levels look up table."
   },
   {
     "objectID": "21-date-time-1/slides.html#why-not-just-use-a-double-vector",
     "href": "21-date-time-1/slides.html#why-not-just-use-a-double-vector",
     "title": "Dates and Times I",
     "section": "Why not just use a double vector?",
-    "text": "Why not just use a double vector?\n\n\n# it prints as a legible string\nnow\n\n\n\n[1] \"2026-10-30 15:41:23 UTC\"\n\n\n\n\n\n# while respecting artithmetic\nnow + 1\n\n\n\n[1] \"2026-10-30 15:41:24 UTC\"\n\n\n\n\n\n# and other sensible operations\nround(now, units = \"hours\")\n\n\n\n[1] \"2026-10-30 16:00:00 UTC\"\n\n\n\n\n\n# and makes it easy to use other formats\nformat(now, \"%m/%d/%y\")\n\n\n\n[1] \"10/30/26\""
+    "text": "Why not just use a double vector?\n\n\n# it prints as a legible string\nnow\n\n\n\n[1] \"2026-11-02 16:39:44 UTC\"\n\n\n\n\n\n# while respecting artithmetic\nnow + 1\n\n\n\n[1] \"2026-11-02 16:39:45 UTC\"\n\n\n\n\n\n# and other sensible operations\nround(now, units = \"hours\")\n\n\n\n[1] \"2026-11-02 17:00:00 UTC\"\n\n\n\n\n\n# and makes it easy to use other formats\nformat(now, \"%m/%d/%y\")\n\n\n\n[1] \"11/02/26\""
   },
   {
     "objectID": "21-date-time-1/slides.html#section-9",
@@ -1233,28 +1365,28 @@
     "href": "21-date-time-1/slides.html#getting",
     "title": "Dates and Times I",
     "section": "Getting",
-    "text": "Getting\nYou can extract components of the date-time object using year(), month(), week(), day(), wday(), hour(), etc.\n\n\nyear(now)\n\n\n\n[1] 2026\n\n\n\n\n\nday(now)\n\n\n\n[1] 30\n\n\n\n\n\nwday(now)\n\n\n\n[1] 6"
+    "text": "Getting\nYou can extract components of the date-time object using year(), month(), week(), day(), wday(), hour(), etc.\n\n\nyear(now)\n\n\n\n[1] 2026\n\n\n\n\n\nday(now)\n\n\n\n[1] 2\n\n\n\n\n\nwday(now)\n\n\n\n[1] 2"
   },
   {
     "objectID": "21-date-time-1/slides.html#getting-1",
     "href": "21-date-time-1/slides.html#getting-1",
     "title": "Dates and Times I",
     "section": "Getting",
-    "text": "Getting\nYou can extract components of the date-time object using year(), month(), week(), day(), wday(), hour(), etc.\n\nyear(now)\n\n[1] 2026\n\n\n\nday(now)\n\n[1] 30\n\n\n\nwday(now, label = TRUE)\n\n\n\n[1] Fri\nLevels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat"
+    "text": "Getting\nYou can extract components of the date-time object using year(), month(), week(), day(), wday(), hour(), etc.\n\nyear(now)\n\n[1] 2026\n\n\n\nday(now)\n\n[1] 2\n\n\n\nwday(now, label = TRUE)\n\n\n\n[1] Mon\nLevels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat"
   },
   {
     "objectID": "21-date-time-1/slides.html#getting-2",
     "href": "21-date-time-1/slides.html#getting-2",
     "title": "Dates and Times I",
     "section": "Getting",
-    "text": "Getting\nYou can extract components of the date-time object using year(), month(), week(), day(), wday(), hour(), etc.\n\nyear(now)\n\n[1] 2026\n\n\n\nday(now)\n\n[1] 30\n\n\n\nwday(now, label = TRUE, abbr = FALSE)\n\n\n\n[1] Friday\n7 Levels: Sunday &lt; Monday &lt; Tuesday &lt; Wednesday &lt; Thursday &lt; ... &lt; Saturday"
+    "text": "Getting\nYou can extract components of the date-time object using year(), month(), week(), day(), wday(), hour(), etc.\n\nyear(now)\n\n[1] 2026\n\n\n\nday(now)\n\n[1] 2\n\n\n\nwday(now, label = TRUE, abbr = FALSE)\n\n\n\n[1] Monday\n7 Levels: Sunday &lt; Monday &lt; Tuesday &lt; Wednesday &lt; Thursday &lt; ... &lt; Saturday"
   },
   {
     "objectID": "21-date-time-1/slides.html#setting",
     "href": "21-date-time-1/slides.html#setting",
     "title": "Dates and Times I",
     "section": "Setting",
-    "text": "Setting\nYou can set those same components in an existing date-time object using change-in-place notation.\n\n\nyear(now) &lt;- 2027\nnow\n\n\n\n[1] \"2027-10-30 15:41:23 UTC\"\n\n\n\n\n\nwday(now, label = TRUE, abbr = FALSE)\n\n\n\n[1] Saturday\n7 Levels: Sunday &lt; Monday &lt; Tuesday &lt; Wednesday &lt; Thursday &lt; ... &lt; Saturday"
+    "text": "Setting\nYou can set those same components in an existing date-time object using change-in-place notation.\n\n\nyear(now) &lt;- 2027\nnow\n\n\n\n[1] \"2027-11-02 16:39:44 UTC\"\n\n\n\n\n\nwday(now, label = TRUE, abbr = FALSE)\n\n\n\n[1] Tuesday\n7 Levels: Sunday &lt; Monday &lt; Tuesday &lt; Wednesday &lt; Thursday &lt; ... &lt; Saturday"
   },
   {
     "objectID": "21-date-time-1/slides.html#your-turn-1",
@@ -4026,7 +4158,7 @@
     "href": "07-control-flow/slides.html#a-random-condition-in-r",
     "title": "Control Flow",
     "section": "A random condition in R",
-    "text": "A random condition in R\n\n\nsample(x = -10:10, size = 1)\n\n\n\n[1] 4\n\n\n\n\nsample() will randomly sample 1 element from the vector x."
+    "text": "A random condition in R\n\n\nsample(x = -10:10, size = 1)\n\n\n\n[1] -10\n\n\n\n\nsample() will randomly sample 1 element from the vector x."
   },
   {
     "objectID": "07-control-flow/slides.html#section-1",
@@ -4082,7 +4214,7 @@
     "href": "07-control-flow/slides.html#what-if-x-has-multiple-elements",
     "title": "Control Flow",
     "section": "What if x has multiple elements?",
-    "text": "What if x has multiple elements?\n\n\nx &lt;- rnorm(3)\nx\n\n\n\n[1] -1.106418 -0.457259 -1.612174\n\n\n\n\n\n\n\n\n\n\n      if (x &gt; 0) {\n        print(\"x is positive :)\")\n      }\n\n\n\nAnnotate this if-then by wrapping it in a for loop."
+    "text": "What if x has multiple elements?\n\n\nx &lt;- rnorm(3)\nx\n\n\n\n[1] -0.3347212 -0.1693083 -0.3516988\n\n\n\n\n\n\n\n\n\n\n      if (x &gt; 0) {\n        print(\"x is positive :)\")\n      }\n\n\n\nAnnotate this if-then by wrapping it in a for loop."
   },
   {
     "objectID": "07-control-flow/slides.html#option-1",
@@ -5629,14 +5761,14 @@
     "href": "22-date-time-2/slides.html#how-old-am-i",
     "title": "Dates and Times II",
     "section": "How old am I?",
-    "text": "How old am I?\n\n\nlibrary(lubridate)\na &lt;- today()\nb &lt;- ymd(\"1983-02-28\")\nclass(a)\n\n\n\n[1] \"Date\"\n\nclass(b)\n\n[1] \"Date\"\n\n\n\n\n\na - b\n\n\n\nTime difference of 15950 days"
+    "text": "How old am I?\n\n\nlibrary(lubridate)\na &lt;- today()\nb &lt;- ymd(\"1983-02-28\")\nclass(a)\n\n\n\n[1] \"Date\"\n\nclass(b)\n\n[1] \"Date\"\n\n\n\n\n\na - b\n\n\n\nTime difference of 15953 days"
   },
   {
     "objectID": "22-date-time-2/slides.html#durations",
     "href": "22-date-time-2/slides.html#durations",
     "title": "Dates and Times II",
     "section": "Durations",
-    "text": "Durations\nSubtraction of two Date vectors -&gt; difftime vector.\n\nclass(a - b)\n\n\n\n[1] \"difftime\"\n\n\n\nOn the pinned board, draw a timeline from 1970, mark b and a, and label the span in days and in seconds. Return to it at the end of Time Spans to add the distinction between calendar time and physical time.\n\n\nA difftime can be recorded in many different units, so better to use lubridate::as.duration() to always record it in seconds.\n\n\n\nmy_age_s &lt;- as.duration(a - b)\nclass(my_age_s)\n\n\n\n[1] \"Duration\"\nattr(,\"package\")\n[1] \"lubridate\"\n\n\n\n\n\nmy_age_s\n\n\n\n[1] \"1378080000s (~43.67 years)\""
+    "text": "Durations\nSubtraction of two Date vectors -&gt; difftime vector.\n\nclass(a - b)\n\n\n\n[1] \"difftime\"\n\n\n\nOn the pinned board, draw a timeline from 1970, mark b and a, and label the span in days and in seconds. Return to it at the end of Time Spans to add the distinction between calendar time and physical time.\n\n\nA difftime can be recorded in many different units, so better to use lubridate::as.duration() to always record it in seconds.\n\n\n\nmy_age_s &lt;- as.duration(a - b)\nclass(my_age_s)\n\n\n\n[1] \"Duration\"\nattr(,\"package\")\n[1] \"lubridate\"\n\n\n\n\n\nmy_age_s\n\n\n\n[1] \"1378339200s (~43.68 years)\""
   },
   {
     "objectID": "22-date-time-2/slides.html#section-2",
@@ -5678,14 +5810,14 @@
     "href": "22-date-time-2/slides.html#how-old-will-i-be",
     "title": "Dates and Times II",
     "section": "How old will I be…",
-    "text": "How old will I be…\nIn a year?\n\n\nmy_age_s\n\n\n\n[1] \"1378080000s (~43.67 years)\"\n\n\n\nmy_age_s + dyears(1) # adding average seconds in a year\n\n\n\n[1] \"1409637600s (~44.67 years)\"\n\n\n\n\n\nmy_age_s + years(1) # adding a calendar year\n\n\n\nError:\n! Incompatible classes: &lt;Duration&gt; + &lt;Period&gt;"
+    "text": "How old will I be…\nIn a year?\n\n\nmy_age_s\n\n\n\n[1] \"1378339200s (~43.68 years)\"\n\n\n\nmy_age_s + dyears(1) # adding average seconds in a year\n\n\n\n[1] \"1409896800s (~44.68 years)\"\n\n\n\n\n\nmy_age_s + years(1) # adding a calendar year\n\n\n\nError:\n! Incompatible classes: &lt;Duration&gt; + &lt;Period&gt;"
   },
   {
     "objectID": "22-date-time-2/slides.html#section-5",
     "href": "22-date-time-2/slides.html#section-5",
     "title": "Dates and Times II",
     "section": "",
-    "text": "Interval\n\n\nIn lubridate, a time span with a specific start and end. Because it knows where it starts, it can be measured in seconds or in calendar units.\n\n\n\n\n\nleap &lt;- interval(ymd(\"2024-01-01\"),\n                 ymd(\"2025-01-01\"))\nleap\n\n[1] 2024-01-01 UTC--2025-01-01 UTC\n\nas.duration(leap)\n\n[1] \"31622400s (~1 years)\"\n\nas.period(leap)\n\n[1] \"1y 0m 0d 0H 0M 0S\"\n\n\n\nHow old will I be in a year?\n\nmy_age_i &lt;- interval(b, a)\nas.period(my_age_i)\n\n[1] \"43y 8m 2d 0H 0M 0S\"\n\nas.period(my_age_i) + years(1)\n\n[1] \"44y 8m 2d 0H 0M 0S\""
+    "text": "Interval\n\n\nIn lubridate, a time span with a specific start and end. Because it knows where it starts, it can be measured in seconds or in calendar units.\n\n\n\n\n\nleap &lt;- interval(ymd(\"2024-01-01\"),\n                 ymd(\"2025-01-01\"))\nleap\n\n[1] 2024-01-01 UTC--2025-01-01 UTC\n\nas.duration(leap)\n\n[1] \"31622400s (~1 years)\"\n\nas.period(leap)\n\n[1] \"1y 0m 0d 0H 0M 0S\"\n\n\n\nHow old will I be in a year?\n\nmy_age_i &lt;- interval(b, a)\nas.period(my_age_i)\n\n[1] \"43y 8m 5d 0H 0M 0S\"\n\nas.period(my_age_i) + years(1)\n\n[1] \"44y 8m 5d 0H 0M 0S\""
   },
   {
     "objectID": "22-date-time-2/slides.html#time-spans-recap",
@@ -6409,64 +6541,100 @@
     "text": "Key Ideas for Today\n\nA package can bundle functions and data.\nIt holds metadata, code, and a namespace.\nBuild, install, then share.\n\n\nFor Next Time\n\nFinish PS 5, due 10/31.\nSign up for Quiz 5 (11/2-11/3).\nProject Studio 4 is the week of 11/2.\n\n\n\nPress Q for the pinned board and read the four rows back: these ideas outlive R."
   },
   {
-    "objectID": "labs.html",
-    "href": "labs.html",
-    "title": "Labs",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "STAT 133",
     "section": "",
-    "text": "Labs\nComing soon!"
-  },
-  {
-    "objectID": "office-hours.html",
-    "href": "office-hours.html",
-    "title": "Office Hours",
-    "section": "",
-    "text": "Office Hours\nPlease stop by during office hours to chat in a small group setting course staff.",
+    "text": "Concepts in Computing with Data\nStat 133 UC Berkeley\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n  \n  \n  \n    \n    \n    \n    Nov 2\n    \n  \n  \n  R Packages II\n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n    Slides\n    \n  \n  \n  \n    Quiz 5: 11/2-11/3\n  \n    Project Studio 4 this week\n  \n  \n  \n  \n\n  \n  \n  \n  \n    Nov 4\n  \n  \n  R Packages III\n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n    Slides\n    \n  \n  \n  \n  \n  \n  \n\n  \n  \n  \n  \n    Nov 6\n  \n  \n  Prediction I\n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n    Slides\n    \n  \n  \n  \n  \n  \n  \n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Aug 24\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 26\n      \n    \n    \n    Welcome\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 28\n      \n    \n    \n    Data in Trees\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 31\n      \n    \n    \n    Intro to R\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 2\n      \n    \n    \n    Atomic Vectors\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 4\n      \n    \n    \n    Extending Vectors\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n      Sign up for Quiz 1\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Sep 7\n    \n    \n    No Class: Labor Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 9\n      \n    \n    \n    Lists\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 1: 9/10-9/11\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 11\n      \n    \n    \n    Control Flow\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 14\n      \n    \n    \n    Functions\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 2\n    \n      Project Studio 1 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 16\n      \n    \n    \n    Factors and Data Frames\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 18\n      \n    \n    \n    Data Wrangling I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 2 due 9/19 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 21\n      \n    \n    \n    Git & GitHub\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n      Quiz 2: 9/21-9/22\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 23\n      \n    \n    \n    Data Wrangling II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 25\n      \n    \n    \n    Quarto\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 28\n      \n    \n    \n    Grammar of Graphics\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 3\n    \n      Project Studio 2 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 30\n      \n    \n    \n    Data Cleaning\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 2\n      \n    \n    \n    Reading and Writing Data\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 3 due 10/03 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 5\n      \n    \n    \n    Exploratory and Explanatory DA\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 3: 10/5-10/6\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 7\n      \n    \n    \n    Joins and Pivots\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 9\n      \n    \n    \n    Strings I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 12\n      \n    \n    \n    Strings II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 4\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 14\n      \n    \n    \n    Dates and Times I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 16\n      \n    \n    \n    Dates and Times II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 4 due 10/17 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 19\n      \n    \n    \n    Spatial Data I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 4: 10/19-10/20\n    \n      Project Studio 3 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 21\n      \n    \n    \n    Spatial Data II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 23\n      \n    \n    \n    Gerrymandering\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 26\n      \n    \n    \n    Spatial Interpolation\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 5\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 28\n      \n    \n    \n    Dashboards\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 30\n      \n    \n    \n    R Packages I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 5 due 10/31 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Nov 2\n      \n    \n    \n    R Packages II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 5: 11/2-11/3\n    \n      Project Studio 4 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 4\n    \n    \n    R Packages III\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 6\n    \n    \n    Prediction I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 9\n    \n    \n    Prediction II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 6\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 11\n    \n    \n    No Class: Veterans Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 13\n    \n    \n    Classification\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 6 due 11/14 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 16\n    \n    \n    APIs I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 6: 11/16-11/17\n    \n      Project Studio 5 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 18\n    \n    \n    APIs II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 20\n    \n    \n    LLMs\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 23\n    \n    \n    LLMs in IDEs\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 7\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 25\n    \n    \n    No Class: Non-Instructional Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 27\n    \n    \n    No Class: Thanksgiving\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 30\n    \n    \n    Abstraction\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 7 due today at 6:00 pm\n    \n      Quiz 7: 12/1-12/4\n    \n      Project Studio 6 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 2\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 4\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Dec 7\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 9\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 11\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Dec 14\n    \n    \n    Final Exam 7-10 pm\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 16\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 18\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n\n\nNo matching items",
     "crumbs": [
-      "Office Hours"
+      "Home"
     ]
   },
   {
-    "objectID": "problem-sets/ps2.html",
-    "href": "problem-sets/ps2.html",
-    "title": "2",
+    "objectID": "license.html",
+    "href": "license.html",
+    "title": "License",
     "section": "",
-    "text": "Download\n PDF\n Quarto (.qmd)",
-    "crumbs": [
-      "Problem Sets",
-      "PS 2"
-    ]
+    "text": "Unless otherwise noted, all curricular content on this site — lecture slides, notes, problem sets, projects, and accompanying code — is licensed under a Creative Commons Attribution 4.0 International License (CC BY 4.0).\nYou are free to share and adapt this material for any purpose, including commercially, provided you give appropriate credit, link to the license, and indicate if changes were made.\nSuggested attribution:\n\nMaterials from Stat 133: Concepts in Computing with Data, Department of Statistics, UC Berkeley, used under CC BY 4.0."
   },
   {
-    "objectID": "problem-sets/ps2.html#footnotes",
-    "href": "problem-sets/ps2.html#footnotes",
-    "title": "2",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nAlternatively, you’re welcome to look into how to return the hot face emoji (and its analog for freezing).↩︎\nThere is a clever way to do this that avoids having to type the names of the columns that are factors. See the help file for select(), particularly about predicate functions.↩︎",
-    "crumbs": [
-      "Problem Sets",
-      "PS 2"
-    ]
+    "objectID": "license.html#curricular-content",
+    "href": "license.html#curricular-content",
+    "title": "License",
+    "section": "",
+    "text": "Unless otherwise noted, all curricular content on this site — lecture slides, notes, problem sets, projects, and accompanying code — is licensed under a Creative Commons Attribution 4.0 International License (CC BY 4.0).\nYou are free to share and adapt this material for any purpose, including commercially, provided you give appropriate credit, link to the license, and indicate if changes were made.\nSuggested attribution:\n\nMaterials from Stat 133: Concepts in Computing with Data, Department of Statistics, UC Berkeley, used under CC BY 4.0."
   },
   {
-    "objectID": "problem-sets/ps4.html",
-    "href": "problem-sets/ps4.html",
-    "title": "4",
+    "objectID": "license.html#artwork",
+    "href": "license.html#artwork",
+    "title": "License",
+    "section": "Artwork",
+    "text": "Artwork\nThe fantasy scenes appearing on the course calendar and elsewhere on this site are Scenes by Czepeku and are used under Czepeku’s Commercial Use Licence. They are reproduced here in watermarked form, as that license requires.\nThese images are not covered by the CC BY 4.0 license above and are not offered for download, redistribution, or resale as standalone items. All rights in them remain with Czepeku. If you wish to use them, see czepeku.com."
+  },
+  {
+    "objectID": "problem-sets/ps1.html",
+    "href": "problem-sets/ps1.html",
+    "title": "1",
     "section": "",
     "text": "Download\n PDF\n Quarto (.qmd)",
     "crumbs": [
       "Problem Sets",
-      "PS 4"
+      "PS 1"
     ]
   },
   {
-    "objectID": "problem-sets/ps4.html#footnotes",
-    "href": "problem-sets/ps4.html#footnotes",
-    "title": "4",
+    "objectID": "problem-sets/ps1.html#footnotes",
+    "href": "problem-sets/ps1.html#footnotes",
+    "title": "1",
     "section": "Footnotes",
-    "text": "Footnotes\n\n\nHint: there is a handy shortcut that saves you from typing all of the column names: starts_with() inside the tidyselect package↩︎\nNote that geom_line() permits the use of a group aesthetic mapping to make one line for each group.↩︎\nEach emoji is defined by an 8 digit code called Unicode. See https://r4ds.hadley.nz/strings.html#other-special-characters.↩︎\nWrite a pattern that matches only names with at least two \"o\"s, using the wildcard and a quantifier. Then extend it to three, four, and so on until nothing matches.↩︎\nYou can parse these clock times using what you know about string manipulation or by using handy math operators %/% and %%. Another hint: see the Circular Data example from the slides.↩︎",
+    "text": "Footnotes\n\n\nYou can research the answer to this question online.↩︎\nYou can research the answer to this question online.↩︎",
     "crumbs": [
       "Problem Sets",
-      "PS 4"
+      "PS 1"
+    ]
+  },
+  {
+    "objectID": "problem-sets/ps3.html",
+    "href": "problem-sets/ps3.html",
+    "title": "3",
+    "section": "",
+    "text": "Download\n PDF\n Quarto (.qmd)",
+    "crumbs": [
+      "Problem Sets",
+      "PS 3"
+    ]
+  },
+  {
+    "objectID": "problem-sets/ps3.html#footnotes",
+    "href": "problem-sets/ps3.html#footnotes",
+    "title": "3",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThere are several other ways to do this. Feel free to check online for different methods.↩︎\nHint 1: n() is a function that returns the row count when used inside summarize(). Hint 2: You can group by more than one variable.↩︎\nHint: If you group by multiple variables, a call to summarize() will peel off the outermost grouping (the last argument in group_by()) and keep the others↩︎\nThere are several ways to reduce the data frame to contain only one row for each named storm. The simplest is probably to group the data frame, then slice it and take the first record↩︎\nIf you’d like to a slightly more sophisticated version of this plot, read about geom_path(). Instead of lines, this can plot paths with an arrowhead indicating the progression of that storm.↩︎\nTo convert text like \"8,200\" into a number, use parse_number() from the readr package. You can call it without loading the package by writing readr::parse_number().↩︎\nSee the slides for a side-by-side comparison of YAML and JSON syntax.↩︎",
+    "crumbs": [
+      "Problem Sets",
+      "PS 3"
+    ]
+  },
+  {
+    "objectID": "problem-sets/ps5.html",
+    "href": "problem-sets/ps5.html",
+    "title": "5",
+    "section": "",
+    "text": "Download\n PDF\n Quarto (.qmd)",
+    "crumbs": [
+      "Problem Sets",
+      "PS 5"
+    ]
+  },
+  {
+    "objectID": "problem-sets/ps5.html#footnotes",
+    "href": "problem-sets/ps5.html#footnotes",
+    "title": "5",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nIf you are unsatisfied with the resolution of your map, you can tinker with the scale argument of the ne_countries() function.↩︎\nEach projection has a numeric code (its EPSG code). The Albers Equal Area projection for California is 3310. Pass that code to the crs argument of the st_transform() function in sf.↩︎\nHint: since quakes_albers is an sf object instead of a tibble, geom_point() will no longer work. You can add it in a second geom_sf() layer (the first will be for the basemap).↩︎\nCompare the CRS of ca_counties with the CRS of your centroid.↩︎\nEach object will require a separate call to plot(). You can add add = TRUE to plot() so that the contents of the second get added to the first. Note that these plot additions don’t carry over from code cell to code cell.↩︎\nYou can add colors to plot() using the col argument and call colors() at the console to see the color names available in base R. I used col = c(\"skyblue\", \"tomato\") but you’re welcome to pick your own colors.↩︎\nThe functions for these set operations in sf are exactly as you’d expect: the name of the operation prepended by st_. Note also that the union operation will drop the sf class. You’ll need to run your object through st_sf() to get it back.↩︎\nIt may be helpful to write a function that takes a vector of votes across districts for party A and a vector of votes for party B and returns a vector of the number of votes wasted by party A across districts.↩︎\nDashboards collect the colors and fonts into themes similar to ggplot2. You can find the list of themes here: https://quarto.org/docs/dashboards/theming.html.↩︎\nQuarto dashboards can use any of the icons in a large collection called Bootstrap. Search for an icon and then use the corresponding name as a string: https://icons.getbootstrap.com/.↩︎",
+    "crumbs": [
+      "Problem Sets",
+      "PS 5"
     ]
   },
   {
