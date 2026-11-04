@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 720" font-family="Inter, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6b7280"/>
+    </marker>
+  </defs>
+
+  <!-- prompt -->
+  <rect x="20" y="230" width="380" height="260" rx="18" fill="#f3f4f6" stroke="#9ca3af" stroke-width="3"/>
+  <text x="44" y="286" font-size="36" font-weight="700" fill="#374151">Prompt</text>
+  <text x="44" y="342" font-size="36" fill="#111827">How many ZEVs</text>
+  <text x="44" y="392" font-size="36" fill="#111827">were sold in</text>
+  <text x="44" y="442" font-size="36" fill="#111827">Alameda in 2025?</text>
+
+  <line x1="400" y1="360" x2="490" y2="360" stroke="#6b7280" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="445" y="340" font-size="32" fill="#6b7280" text-anchor="middle">× 5</text>
+
+  <!-- model -->
+  <rect x="500" y="290" width="170" height="140" rx="70" fill="#e0e7ff" stroke="#6366f1" stroke-width="3"/>
+  <text x="585" y="373" font-size="46" font-weight="700" fill="#3730a3" text-anchor="middle">LLM</text>
+
+  <!-- fan out -->
+  <g stroke="#6b7280" stroke-width="3" fill="none" marker-end="url(#arrow)">
+    <path d="M670,360 C720,360 720,95 770,95"/>
+    <path d="M670,360 C720,360 720,225 770,225"/>
+    <path d="M670,360 L770,360"/>
+    <path d="M670,360 C720,360 720,495 770,495"/>
+    <path d="M670,360 C720,360 720,625 770,625"/>
+  </g>
+
+  <!-- answers -->
+  <g font-size="36" fill="#111827">
+    <rect x="780" y="55" width="560" height="80" rx="14" fill="#ffffff" stroke="#d1d5db" stroke-width="3"/>
+    <text x="804" y="110">"12,431"</text>
+    <rect x="780" y="185" width="560" height="80" rx="14" fill="#ffffff" stroke="#d1d5db" stroke-width="3"/>
+    <text x="804" y="240">"About 12,400 vehicles."</text>
+    <rect x="780" y="320" width="560" height="80" rx="14" fill="#ffffff" stroke="#d1d5db" stroke-width="3"/>
+    <text x="804" y="375">"13,902"</text>
+    <rect x="780" y="455" width="560" height="80" rx="14" fill="#ffffff" stroke="#d1d5db" stroke-width="3"/>
+    <text x="804" y="510">"12,431 ZEVs, per the DMV."</text>
+    <rect x="780" y="585" width="560" height="80" rx="14" fill="#ffffff" stroke="#d1d5db" stroke-width="3"/>
+    <text x="804" y="640">"Alameda led the Bay Area."</text>
+  </g>
+
+  <!-- checks -->
+  <g font-size="56" font-weight="700" text-anchor="middle">
+    <text x="1395" y="115" fill="#16a34a">✓</text>
+    <text x="1395" y="245" fill="#16a34a">✓</text>
+    <text x="1395" y="380" fill="#dc2626">✗</text>
+    <text x="1395" y="515" fill="#16a34a">✓</text>
+    <text x="1395" y="645" fill="#dc2626">✗</text>
+  </g>
+
+  <!-- pass rate -->
+  <rect x="1450" y="300" width="135" height="120" rx="16" fill="#fef3c7" stroke="#d97706" stroke-width="3"/>
+  <text x="1517" y="360" font-size="48" font-weight="700" fill="#92400e" text-anchor="middle">3/5</text>
+  <text x="1517" y="398" font-size="28" fill="#92400e" text-anchor="middle">pass</text>
+</svg>
