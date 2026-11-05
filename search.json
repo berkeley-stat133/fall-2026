@@ -394,14 +394,11 @@
     "href": "problem-sets/ps6.html",
     "title": "6",
     "section": "",
-    "text": "Download\n PDF\n Quarto (.qmd)"
-  },
-  {
-    "objectID": "problem-sets/ps6.html#footnotes",
-    "href": "problem-sets/ps6.html#footnotes",
-    "title": "6",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nThe authors of recipes went all in on the baking metaphor.↩︎\nIn R’s formula interface, you add additional predictors adding them to the right side: .e.g y ~ x1 + x2.↩︎"
+    "text": "Download\n PDF\n Quarto (.qmd)\n\n\nR Packages II\nThe first two questions refer to the kknn package (https://github.com/KlausVigo/kknn), which implements a popular predictive modeling algorithm called \\(k\\)-nearest neighbors. Install it with install.packages(\"kknn\") and load it with library(kknn) before you start.\n\nUse data() to list the data sets stored in kknn. Then try typing the name of one of them, glass, at the console: unlike most packages you’ve used, it isn’t there until you run data(glass). What is this property of a package called, and which field of DESCRIPTION turns it on? Is that field in kknn’s DESCRIPTION?\n\n\nWhat is the name of the file in the package that is edited to create the help files for these data sets?\n\n\nThe rest of the questions use greetr, the package you made in PS 5, rebuilt with usethis the way we rebuilt mypkg in lecture. Download greetr.zip, unzip it, and open the greetr folder in Positron (or RStudio). hello() is in R/hello.R, and DESCRIPTION is filled in.\n\nAdd the following tibble to your package as a data set called greetings. Write the command you used, and say which file it created.\n\n\nlibrary(tibble)\ngreetings &lt;- tibble(\n  greeting = c(\"Hello\", \"你好\", \"Hola\", \"Hei\", \"السلام علیکم\"),\n  language = c(\"English\", \"Chinese\", \"Spanish\", \"Norwegian\", \"Urdu\")\n)\n\n\nDocument this data set using roxygen2 so that when a user types ?greetings at the console they see a description of the data set, its format (the columns and their values), and its source (you can cite STAT 133). Please transcribe your documentation below.\n\n\nPaste this Roxygen block into R/hello.R, directly above hello(), and fill in the three blanks: the argument, the return value, and an example. Run devtools::document() and preview the result with ?hello. Write your three completed lines below.\n\n#' Say hello\n#'\n#' Prints a greeting to whoever is named in `x`.\n#'\n#' @param ___\n#' @returns ___\n#' @examples\n#' ___\n#' @export\n\nRun devtools::check(). How many errors, warnings, and notes does it report, and what does the note say needs fixing? Fix it: change the License field in DESCRIPTION to MIT + file LICENSE, and add a plain-text file called LICENSE at the top of the package with two lines, YEAR: 2026 and COPYRIGHT HOLDER: followed by your name. Run check() again. What does it report now?\n\n\n\nTesting\nYou’ll need the testthat package for these problems: install it with install.packages(\"testthat\") if you haven’t already. To run tests at the console, outside a package, load it with library(testthat).\n\nHere is a function and three tests for it. Without running the code, predict the ? values in the report that is returned by test(): [ FAIL ? | WARN 0 | SKIP 0 | PASS ? ]. For any test that fails, is the function wrong or the test?\n\ncelsius &lt;- function(f) {\n  (f - 32) * 5 / 9\n}\n\ntest_that(\"celsius() converts the boiling point\", {\n  expect_equal(celsius(212), 100)\n})\n\ntest_that(\"celsius() converts the freezing point\", {\n  expect_equal(celsius(0), 32)\n})\n\ntest_that(\"celsius() converts a vector of temperatures\", {\n  temps &lt;- celsius(c(32, 212))\n  expect_length(temps, 2)\n  expect_equal(temps, c(0, 100))\n})\n\nA classmate wrote this test for celsius() from the last problem, ran it, and it passed. Why did it pass? Change the test so it would catch the mistake.\n\ntest_that(\"celsius() rejects text\", {\n  expect_error(celsuis(\"hot\"))\n})\n\nHere is part of a package with the strsplit1() from lecture and a new function that counts the words in a sentence, followed by the report from test().\n\n\n\nR/n_words.R\n\nn_words &lt;- function(x) {\n  length(strsplit1(x, split = \" \"))\n}\n\nFailure ('test-n_words.R:6:3'): n_words() counts words with extra spaces\nExpected `n_words(\"two  spaces\")` to equal 2.\n`actual`:   3\n`expected`: 2\n[ FAIL 1 | WARN 0 | SKIP 0 | PASS 4 ]\n\nWhich file and line holds the expectation that failed, and what is the test’s description?\nHow many expectations passed?\nWhy does n_words() return 3? (Hint: look closely at the input, and run strsplit1() on it.)\nIs this input a typical input, an edge case, or an error case?\n\n\nThe next four problems use your greetr package from the R Packages II problems. Open it in Positron (or RStudio), and run library(devtools) at the console.\n\nSet greetr up for testing, with a test file for hello(). Write the two commands you used. What files did they create, and what changed in DESCRIPTION?\n\n\nReplace the placeholder in test-hello.R with two tests: one that hello(\"Oski\") returns \"Hello Oski!\", and one that hello() given two names returns a character vector of length 2. Run test(). What does its last line say?\n\n\nhello() prints its greeting as well as returning it, which clutters the output of test(). Refactor hello(): remove the print() so it just returns the string. Run test() again. Do the tests still pass, and what does that tell you? Does hello(\"Oski\") still show its greeting when you run it at the console?\n\n\nA user files a bug report: “hello(NA) says Hello NA!.” Fix it with test-driven development:\n\n\nRed: add a test to test-hello.R that hello(NA) throws an error whose message mentions \"missing\". Run test() and confirm that it fails.\nGreen: change hello() so it throws that error, using stop(), whenever any element of x is NA. Run test() until it passes.\n\n\nTesting isn’t only for packages. Suppose you’re about to analyze storms (from dplyr) and are relying on two facts about it:\n\n\nno row appears twice;\nevery row with hurricane-force winds (wind of 64 knots or more) has a category.\n\nWrite each as its own stopifnot() call. Both fail. For each, look at the rows that break it and decide whether the data or the expectation is wrong.\n\nOptional Challenge: Write the grade calculator from lecture, test first.\n\n\nCreate a test file for a function letter_grade() that holds every promise from the lecture’s activity:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nScore\n95\n85\n42\n98\n91\n100\n58\n62\nNA\n0.85\n0.91\n86.5\n89.5\n0.865\n\n\n\n\nGrade\nA\nB\nF\nA+\nA-\nA+\nF\nD-\nF\nB\nA-\nB+\nA-\nB+\n\n\n\nAdd a test for a score of 1, deciding what it should get.\n\nWrite letter_grade() so that every test passes, for a vector of scores. Two tools you haven’t seen will help: x %% 10 is the last digit of a whole number x, and floor(x + 0.5) rounds halves up (round() rounds halves to the even number, so round(86.5) is 86).",
+    "crumbs": [
+      "Problem Sets",
+      "PS 6"
+    ]
   },
   {
     "objectID": "problem-sets/ps4.html",
@@ -1351,14 +1348,14 @@
     "href": "22-date-time-2/slides.html#how-old-am-i",
     "title": "Dates and Times II",
     "section": "How old am I?",
-    "text": "How old am I?\n\n\nlibrary(lubridate)\na &lt;- today()\nb &lt;- ymd(\"1983-02-28\")\nclass(a)\n\n\n\n[1] \"Date\"\n\nclass(b)\n\n[1] \"Date\"\n\n\n\n\n\na - b\n\n\n\nTime difference of 15955 days"
+    "text": "How old am I?\n\n\nlibrary(lubridate)\na &lt;- today()\nb &lt;- ymd(\"1983-02-28\")\nclass(a)\n\n\n\n[1] \"Date\"\n\nclass(b)\n\n[1] \"Date\"\n\n\n\n\n\na - b\n\n\n\nTime difference of 15956 days"
   },
   {
     "objectID": "22-date-time-2/slides.html#durations",
     "href": "22-date-time-2/slides.html#durations",
     "title": "Dates and Times II",
     "section": "Durations",
-    "text": "Durations\nSubtraction of two Date vectors -&gt; difftime vector.\n\nclass(a - b)\n\n\n\n[1] \"difftime\"\n\n\n\nOn the pinned board, draw a timeline from 1970, mark b and a, and label the span in days and in seconds. Return to it at the end of Time Spans to add the distinction between calendar time and physical time.\n\n\nA difftime can be recorded in many different units, so better to use lubridate::as.duration() to always record it in seconds.\n\n\n\nmy_age_s &lt;- as.duration(a - b)\nclass(my_age_s)\n\n\n\n[1] \"Duration\"\nattr(,\"package\")\n[1] \"lubridate\"\n\n\n\n\n\nmy_age_s\n\n\n\n[1] \"1378512000s (~43.68 years)\""
+    "text": "Durations\nSubtraction of two Date vectors -&gt; difftime vector.\n\nclass(a - b)\n\n\n\n[1] \"difftime\"\n\n\n\nOn the pinned board, draw a timeline from 1970, mark b and a, and label the span in days and in seconds. Return to it at the end of Time Spans to add the distinction between calendar time and physical time.\n\n\nA difftime can be recorded in many different units, so better to use lubridate::as.duration() to always record it in seconds.\n\n\n\nmy_age_s &lt;- as.duration(a - b)\nclass(my_age_s)\n\n\n\n[1] \"Duration\"\nattr(,\"package\")\n[1] \"lubridate\"\n\n\n\n\n\nmy_age_s\n\n\n\n[1] \"1378598400s (~43.69 years)\""
   },
   {
     "objectID": "22-date-time-2/slides.html#section-2",
@@ -1400,14 +1397,14 @@
     "href": "22-date-time-2/slides.html#how-old-will-i-be",
     "title": "Dates and Times II",
     "section": "How old will I be…",
-    "text": "How old will I be…\nIn a year?\n\n\nmy_age_s\n\n\n\n[1] \"1378512000s (~43.68 years)\"\n\n\n\nmy_age_s + dyears(1) # adding average seconds in a year\n\n\n\n[1] \"1410069600s (~44.68 years)\"\n\n\n\n\n\nmy_age_s + years(1) # adding a calendar year\n\n\n\nError:\n! Incompatible classes: &lt;Duration&gt; + &lt;Period&gt;"
+    "text": "How old will I be…\nIn a year?\n\n\nmy_age_s\n\n\n\n[1] \"1378598400s (~43.69 years)\"\n\n\n\nmy_age_s + dyears(1) # adding average seconds in a year\n\n\n\n[1] \"1410156000s (~44.69 years)\"\n\n\n\n\n\nmy_age_s + years(1) # adding a calendar year\n\n\n\nError:\n! Incompatible classes: &lt;Duration&gt; + &lt;Period&gt;"
   },
   {
     "objectID": "22-date-time-2/slides.html#section-5",
     "href": "22-date-time-2/slides.html#section-5",
     "title": "Dates and Times II",
     "section": "",
-    "text": "Interval\n\n\nIn lubridate, a time span with a specific start and end. Because it knows where it starts, it can be measured in seconds or in calendar units.\n\n\n\n\n\nleap &lt;- interval(ymd(\"2024-01-01\"),\n                 ymd(\"2025-01-01\"))\nleap\n\n[1] 2024-01-01 UTC--2025-01-01 UTC\n\nas.duration(leap)\n\n[1] \"31622400s (~1 years)\"\n\nas.period(leap)\n\n[1] \"1y 0m 0d 0H 0M 0S\"\n\n\n\nHow old will I be in a year?\n\nmy_age_i &lt;- interval(b, a)\nas.period(my_age_i)\n\n[1] \"43y 8m 7d 0H 0M 0S\"\n\nas.period(my_age_i) + years(1)\n\n[1] \"44y 8m 7d 0H 0M 0S\""
+    "text": "Interval\n\n\nIn lubridate, a time span with a specific start and end. Because it knows where it starts, it can be measured in seconds or in calendar units.\n\n\n\n\n\nleap &lt;- interval(ymd(\"2024-01-01\"),\n                 ymd(\"2025-01-01\"))\nleap\n\n[1] 2024-01-01 UTC--2025-01-01 UTC\n\nas.duration(leap)\n\n[1] \"31622400s (~1 years)\"\n\nas.period(leap)\n\n[1] \"1y 0m 0d 0H 0M 0S\"\n\n\n\nHow old will I be in a year?\n\nmy_age_i &lt;- interval(b, a)\nas.period(my_age_i)\n\n[1] \"43y 8m 8d 0H 0M 0S\"\n\nas.period(my_age_i) + years(1)\n\n[1] \"44y 8m 8d 0H 0M 0S\""
   },
   {
     "objectID": "22-date-time-2/slides.html#time-spans-recap",
@@ -2989,7 +2986,7 @@
     "href": "07-control-flow/slides.html#a-random-condition-in-r",
     "title": "Control Flow",
     "section": "A random condition in R",
-    "text": "A random condition in R\n\n\nsample(x = -10:10, size = 1)\n\n\n\n[1] -3\n\n\n\n\nsample() will randomly sample 1 element from the vector x."
+    "text": "A random condition in R\n\n\nsample(x = -10:10, size = 1)\n\n\n\n[1] -6\n\n\n\n\nsample() will randomly sample 1 element from the vector x."
   },
   {
     "objectID": "07-control-flow/slides.html#section-1",
@@ -3045,35 +3042,35 @@
     "href": "07-control-flow/slides.html#what-if-x-has-multiple-elements",
     "title": "Control Flow",
     "section": "What if x has multiple elements?",
-    "text": "What if x has multiple elements?\n\n\nx &lt;- rnorm(3)\nx\n\n\n\n[1]  0.06250152 -0.41347101  1.03554340\n\n\n\n\n\n\n\n\n\n\n      if (x &gt; 0) {\n        print(\"x is positive :)\")\n      }\n\n\n\nAnnotate this if-then by wrapping it in a for loop."
+    "text": "What if x has multiple elements?\n\n\nx &lt;- rnorm(3)\nx\n\n\n\n[1] -0.776793692  0.348618713 -0.005949337\n\n\n\n\n\n\n\n\n\n\n      if (x &gt; 0) {\n        print(\"x is positive :)\")\n      }\n\n\n\nAnnotate this if-then by wrapping it in a for loop."
   },
   {
     "objectID": "07-control-flow/slides.html#option-1",
     "href": "07-control-flow/slides.html#option-1",
     "title": "Control Flow",
     "section": "Option 1",
-    "text": "Option 1\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(\"x is positive :)\")\n  }\n}\n\n\n\n[1] \"x is positive :)\"\n[1] \"x is positive :)\""
+    "text": "Option 1\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(\"x is positive :)\")\n  }\n}\n\n\n\n[1] \"x is positive :)\""
   },
   {
     "objectID": "07-control-flow/slides.html#option-2",
     "href": "07-control-flow/slides.html#option-2",
     "title": "Control Flow",
     "section": "Option 2",
-    "text": "Option 2\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(paste(\"element\", i, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"element 1 is positive :)\"\n[1] \"element 3 is positive :)\""
+    "text": "Option 2\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(paste(\"element\", i, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"element 2 is positive :)\""
   },
   {
     "objectID": "07-control-flow/slides.html#option-3",
     "href": "07-control-flow/slides.html#option-3",
     "title": "Control Flow",
     "section": "Option 3",
-    "text": "Option 3\n\nfor (x_elem in x) {\n  if (x_elem &gt; 0) {\n    print(paste(x_elem, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"0.0625015218010982 is positive :)\"\n[1] \"1.03554340390393 is positive :)\""
+    "text": "Option 3\n\nfor (x_elem in x) {\n  if (x_elem &gt; 0) {\n    print(paste(x_elem, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"0.348618713490045 is positive :)\""
   },
   {
     "objectID": "07-control-flow/slides.html#ifelse",
     "href": "07-control-flow/slides.html#ifelse",
     "title": "Control Flow",
     "section": "ifelse()",
-    "text": "ifelse()\n\n\nifelse()\n\n\nA vectorized if-else: applies a condition to every element of a vector at once, without an explicit loop.\n\n\n\n\nx &lt; 0 \n\n\n\n[1] FALSE  TRUE FALSE\n\n\n\n\n\nifelse(test = x &lt; 0, yes = \"is positive :)\", no = \"is negative :(\")\n\n\n\n[1] \"is negative :(\" \"is positive :)\" \"is negative :(\""
+    "text": "ifelse()\n\n\nifelse()\n\n\nA vectorized if-else: applies a condition to every element of a vector at once, without an explicit loop.\n\n\n\n\nx &lt; 0 \n\n\n\n[1]  TRUE FALSE  TRUE\n\n\n\n\n\nifelse(test = x &lt; 0, yes = \"is positive :)\", no = \"is negative :(\")\n\n\n\n[1] \"is positive :)\" \"is negative :(\" \"is positive :)\""
   },
   {
     "objectID": "07-control-flow/slides.html#guess-the-metaphor",
@@ -5817,14 +5814,14 @@
     "href": "21-date-time-1/slides.html#section-8",
     "title": "Dates and Times I",
     "section": "",
-    "text": "POSIXct\n\n\nPOSIXct (Portable Operating System Interface Calendar Time) is an atomic vector to store date-times that is built on top of a double vector.\n\n\n\n\nnow &lt;- Sys.time()\nnow\n\n\n\n[1] \"2026-11-04 16:38:23 UTC\"\n\n\n\n\n\nclass(now)\n\n\n\n[1] \"POSIXct\" \"POSIXt\" \n\n\n\nStart off with reminder about factors: a integer vector with the factor class that allows it to store the levels look up table."
+    "text": "POSIXct\n\n\nPOSIXct (Portable Operating System Interface Calendar Time) is an atomic vector to store date-times that is built on top of a double vector.\n\n\n\n\nnow &lt;- Sys.time()\nnow\n\n\n\n[1] \"2026-11-05 18:57:26 UTC\"\n\n\n\n\n\nclass(now)\n\n\n\n[1] \"POSIXct\" \"POSIXt\" \n\n\n\nStart off with reminder about factors: a integer vector with the factor class that allows it to store the levels look up table."
   },
   {
     "objectID": "21-date-time-1/slides.html#why-not-just-use-a-double-vector",
     "href": "21-date-time-1/slides.html#why-not-just-use-a-double-vector",
     "title": "Dates and Times I",
     "section": "Why not just use a double vector?",
-    "text": "Why not just use a double vector?\n\n\n# it prints as a legible string\nnow\n\n\n\n[1] \"2026-11-04 16:38:23 UTC\"\n\n\n\n\n\n# while respecting artithmetic\nnow + 1\n\n\n\n[1] \"2026-11-04 16:38:24 UTC\"\n\n\n\n\n\n# and other sensible operations\nround(now, units = \"hours\")\n\n\n\n[1] \"2026-11-04 17:00:00 UTC\"\n\n\n\n\n\n# and makes it easy to use other formats\nformat(now, \"%m/%d/%y\")\n\n\n\n[1] \"11/04/26\""
+    "text": "Why not just use a double vector?\n\n\n# it prints as a legible string\nnow\n\n\n\n[1] \"2026-11-05 18:57:26 UTC\"\n\n\n\n\n\n# while respecting artithmetic\nnow + 1\n\n\n\n[1] \"2026-11-05 18:57:27 UTC\"\n\n\n\n\n\n# and other sensible operations\nround(now, units = \"hours\")\n\n\n\n[1] \"2026-11-05 19:00:00 UTC\"\n\n\n\n\n\n# and makes it easy to use other formats\nformat(now, \"%m/%d/%y\")\n\n\n\n[1] \"11/05/26\""
   },
   {
     "objectID": "21-date-time-1/slides.html#section-9",
@@ -5873,28 +5870,28 @@
     "href": "21-date-time-1/slides.html#getting",
     "title": "Dates and Times I",
     "section": "Getting",
-    "text": "Getting\nYou can extract components of the date-time object using year(), month(), week(), day(), wday(), hour(), etc.\n\n\nyear(now)\n\n\n\n[1] 2026\n\n\n\n\n\nday(now)\n\n\n\n[1] 4\n\n\n\n\n\nwday(now)\n\n\n\n[1] 4"
+    "text": "Getting\nYou can extract components of the date-time object using year(), month(), week(), day(), wday(), hour(), etc.\n\n\nyear(now)\n\n\n\n[1] 2026\n\n\n\n\n\nday(now)\n\n\n\n[1] 5\n\n\n\n\n\nwday(now)\n\n\n\n[1] 5"
   },
   {
     "objectID": "21-date-time-1/slides.html#getting-1",
     "href": "21-date-time-1/slides.html#getting-1",
     "title": "Dates and Times I",
     "section": "Getting",
-    "text": "Getting\nYou can extract components of the date-time object using year(), month(), week(), day(), wday(), hour(), etc.\n\nyear(now)\n\n[1] 2026\n\n\n\nday(now)\n\n[1] 4\n\n\n\nwday(now, label = TRUE)\n\n\n\n[1] Wed\nLevels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat"
+    "text": "Getting\nYou can extract components of the date-time object using year(), month(), week(), day(), wday(), hour(), etc.\n\nyear(now)\n\n[1] 2026\n\n\n\nday(now)\n\n[1] 5\n\n\n\nwday(now, label = TRUE)\n\n\n\n[1] Thu\nLevels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat"
   },
   {
     "objectID": "21-date-time-1/slides.html#getting-2",
     "href": "21-date-time-1/slides.html#getting-2",
     "title": "Dates and Times I",
     "section": "Getting",
-    "text": "Getting\nYou can extract components of the date-time object using year(), month(), week(), day(), wday(), hour(), etc.\n\nyear(now)\n\n[1] 2026\n\n\n\nday(now)\n\n[1] 4\n\n\n\nwday(now, label = TRUE, abbr = FALSE)\n\n\n\n[1] Wednesday\n7 Levels: Sunday &lt; Monday &lt; Tuesday &lt; Wednesday &lt; Thursday &lt; ... &lt; Saturday"
+    "text": "Getting\nYou can extract components of the date-time object using year(), month(), week(), day(), wday(), hour(), etc.\n\nyear(now)\n\n[1] 2026\n\n\n\nday(now)\n\n[1] 5\n\n\n\nwday(now, label = TRUE, abbr = FALSE)\n\n\n\n[1] Thursday\n7 Levels: Sunday &lt; Monday &lt; Tuesday &lt; Wednesday &lt; Thursday &lt; ... &lt; Saturday"
   },
   {
     "objectID": "21-date-time-1/slides.html#setting",
     "href": "21-date-time-1/slides.html#setting",
     "title": "Dates and Times I",
     "section": "Setting",
-    "text": "Setting\nYou can set those same components in an existing date-time object using change-in-place notation.\n\n\nyear(now) &lt;- 2027\nnow\n\n\n\n[1] \"2027-11-04 16:38:23 UTC\"\n\n\n\n\n\nwday(now, label = TRUE, abbr = FALSE)\n\n\n\n[1] Thursday\n7 Levels: Sunday &lt; Monday &lt; Tuesday &lt; Wednesday &lt; Thursday &lt; ... &lt; Saturday"
+    "text": "Setting\nYou can set those same components in an existing date-time object using change-in-place notation.\n\n\nyear(now) &lt;- 2027\nnow\n\n\n\n[1] \"2027-11-05 18:57:26 UTC\"\n\n\n\n\n\nwday(now, label = TRUE, abbr = FALSE)\n\n\n\n[1] Friday\n7 Levels: Sunday &lt; Monday &lt; Tuesday &lt; Wednesday &lt; Thursday &lt; ... &lt; Saturday"
   },
   {
     "objectID": "21-date-time-1/slides.html#your-turn-1",

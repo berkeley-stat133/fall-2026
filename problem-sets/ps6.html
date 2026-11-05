@@ -81,9 +81,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-0f05cba98e93abd5bfacabf37e46c573.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-86d520a51f5302a18a6c84daf91b95a3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-86d520a51f5302a18a6c84daf91b95a3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-86d520a51f5302a18a6c84daf91b95a3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-da7db8378078b9acee2daab36e777593.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-da7db8378078b9acee2daab36e777593.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-da7db8378078b9acee2daab36e777593.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/stat133ps-0.1.0/stat133ps.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
@@ -114,6 +114,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 <script src="assets/scroll-branding.js"></script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../assets/neural.css">
 </head>
@@ -139,7 +168,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">6</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../problem-sets/ps1.html">Problem Sets</a></li><li class="breadcrumb-item"><a href="../problem-sets/ps6.html">PS 6</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -293,6 +322,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">PS 5</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../problem-sets/ps6.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">PS 6</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -304,7 +339,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../problem-sets/ps1.html">Problem Sets</a></li><li class="breadcrumb-item"><a href="../problem-sets/ps6.html">PS 6</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">6</h1>
 </div>
@@ -330,23 +365,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="r-packages-ii" class="level3">
 <h3 class="anchored" data-anchor-id="r-packages-ii">R Packages II</h3>
-<p>Each of the following questions refer to the <code>kknn</code> package (<a href="https://github.com/KlausVigo/kknn" class="uri">https://github.com/KlausVigo/kknn</a>) that we’ll be using for predictive modeling.</p>
+<p>The first two questions refer to the <code>kknn</code> package (<a href="https://github.com/KlausVigo/kknn" class="uri">https://github.com/KlausVigo/kknn</a>), which implements a popular predictive modeling algorithm called <span class="math inline">\(k\)</span>-nearest neighbors. Install it with <code>install.packages("kknn")</code> and load it with <code>library(kknn)</code> before you start.</p>
 <ol class="example" type="1">
-<li>What is the author’s one sentence description of this package?</li>
+<li>Use <code>data()</code> to list the data sets stored in <code>kknn</code>. Then try typing the name of one of them, <code>glass</code>, at the console: unlike most packages you’ve used, it isn’t there until you run <code>data(glass)</code>. What is this property of a package called, and which field of <code>DESCRIPTION</code> turns it on? Is that field in <code>kknn</code>’s <code>DESCRIPTION</code>?</li>
 </ol>
 <ol start="2" class="example" type="1">
-<li>Which data sets are stored in this package?</li>
-</ol>
-<ol start="3" class="example" type="1">
-<li>Unlike most packages, you’ve used, you can’t just type the name of a data set to see it (try it with <code>glass</code>). Instead you first have to use <code>data(glass)</code> to specifically load that data set. What is the name this property of a package? Does it exist in the DESCRIPTION file?</li>
-</ol>
-<ol start="4" class="example" type="1">
-<li>What is the name of the file in the package that is edited to created the help files for these data sets?</li>
+<li>What is the name of the file in the package that is edited to create the help files for these data sets?</li>
 </ol>
 <hr>
-<p>Return to the tiny package that you made called <code>greetr</code>.</p>
-<ol start="5" class="example" type="1">
-<li>Add the following tibble to the your package as a data set called <code>greetings</code>.</li>
+<p>The rest of the questions use <code>greetr</code>, the package you made in PS 5, rebuilt with <code>usethis</code> the way we rebuilt <code>mypkg</code> in lecture. <a href="../29-r-packages-2/greetr.zip">Download <code>greetr.zip</code></a>, unzip it, and open the <code>greetr</code> folder in Positron (or RStudio). <code>hello()</code> is in <code>R/hello.R</code>, and <code>DESCRIPTION</code> is filled in.</p>
+<ol start="3" class="example" type="1">
+<li>Add the following tibble to your package as a data set called <code>greetings</code>. Write the command you used, and say which file it created.</li>
 </ol>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
@@ -355,134 +384,174 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">language =</span> <span class="fu">c</span>(<span class="st">"English"</span>, <span class="st">"Chinese"</span>, <span class="st">"Spanish"</span>, <span class="st">"Norwegian"</span>, <span class="st">"Urdu"</span>)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<ol start="6" class="example" type="1">
+<ol start="4" class="example" type="1">
 <li>Document this data set using <code>roxygen2</code> so that when a user types <code>?greetings</code> at the console they see a description of the data set, its format (the columns and their values), and its source (you can cite STAT 133). Please transcribe your documentation below.</li>
 </ol>
-<ol start="7" class="example" type="1">
-<li>Add documentation for your previous function called <code>hello()</code>. Be sure to include a description, the arguments, the output, and an example of its use. Please transcribe your documentation below.</li>
+<ol start="5" class="example" type="1">
+<li>Paste this Roxygen block into <code>R/hello.R</code>, directly above <code>hello()</code>, and fill in the three blanks: the argument, the return value, and an example. Run <code>devtools::document()</code> and preview the result with <code>?hello</code>. Write your three completed lines below.</li>
 </ol>
-<ol start="8" class="example" type="1">
-<li>One last item: bump your version number up by a small increment (say from 0.1.0 to 0.1.1) in the <code>DESCRIPTION</code> file. Write that single new line from your DESCRIPTION file below.</li>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#' Say hello</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#' Prints a greeting to whoever is named in `x`.</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#'</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#' @param ___</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#' @returns ___</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#' @examples</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#' ___</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#' @export</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol start="6" class="example" type="1">
+<li>Run <code>devtools::check()</code>. How many errors, warnings, and notes does it report, and what does the note say needs fixing? Fix it: change the <code>License</code> field in <code>DESCRIPTION</code> to <code>MIT + file LICENSE</code>, and add a plain-text file called <code>LICENSE</code> at the top of the package with two lines, <code>YEAR: 2026</code> and <code>COPYRIGHT HOLDER:</code> followed by your name. Run <code>check()</code> again. What does it report now?</li>
 </ol>
 </section>
-<section id="prediction-ii" class="level3">
-<h3 class="anchored" data-anchor-id="prediction-ii">Prediction II</h3>
-<p>Start by piecing together the code cells from the slides that use <code>tidymodels</code> to predict the <code>price</code> of diamonds using the value of <code>carat</code>. Put them into an .r script or Quarto document.</p>
-<p>The following exercises have you investigate the different components of the code and make variations.</p>
-<ol start="9" class="example" type="1">
-<li>Run all of the code and inspect the final data frame. As measured by RMSE (Root Mean Squared Error), which of the two models has better performance on the test set?</li>
+<section id="testing" class="level3">
+<h3 class="anchored" data-anchor-id="testing">Testing</h3>
+<p>You’ll need the <code>testthat</code> package for these problems: install it with <code>install.packages("testthat")</code> if you haven’t already. To run tests at the console, outside a package, load it with <code>library(testthat)</code>.</p>
+<ol start="7" class="example" type="1">
+<li>Here is a function and three tests for it. Without running the code, predict the <code>?</code> values in the report that is returned by <code>test()</code>: <code>[ FAIL ? | WARN 0 | SKIP 0 | PASS ? ]</code>. For any test that fails, is the function wrong or the test?</li>
 </ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>celsius <span class="ot">&lt;-</span> <span class="cf">function</span>(f) {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  (f <span class="sc">-</span> <span class="dv">32</span>) <span class="sc">*</span> <span class="dv">5</span> <span class="sc">/</span> <span class="dv">9</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">test_that</span>(<span class="st">"celsius() converts the boiling point"</span>, {</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect_equal</span>(<span class="fu">celsius</span>(<span class="dv">212</span>), <span class="dv">100</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">test_that</span>(<span class="st">"celsius() converts the freezing point"</span>, {</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect_equal</span>(<span class="fu">celsius</span>(<span class="dv">0</span>), <span class="dv">32</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu">test_that</span>(<span class="st">"celsius() converts a vector of temperatures"</span>, {</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  temps <span class="ot">&lt;-</span> <span class="fu">celsius</span>(<span class="fu">c</span>(<span class="dv">32</span>, <span class="dv">212</span>))</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect_length</span>(temps, <span class="dv">2</span>)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect_equal</span>(temps, <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">100</span>))</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol start="8" class="example" type="1">
+<li>A classmate wrote this test for <code>celsius()</code> from the last problem, ran it, and it passed. Why did it pass? Change the test so it would catch the mistake.</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">test_that</span>(<span class="st">"celsius() rejects text"</span>, {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect_error</span>(<span class="fu">celsuis</span>(<span class="st">"hot"</span>))</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol start="9" class="example" type="1">
+<li>Here is part of a package with the <code>strsplit1()</code> from lecture and a new function that counts the words in a sentence, followed by the report from <code>test()</code>.</li>
+</ol>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>R/n_words.R</strong></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" data-filename="R/n_words.R"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>n_words <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">length</span>(<span class="fu">strsplit1</span>(x, <span class="at">split =</span> <span class="st">" "</span>))</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<pre><code>Failure ('test-n_words.R:6:3'): n_words() counts words with extra spaces
+Expected `n_words("two  spaces")` to equal 2.
+`actual`:   3
+`expected`: 2
+[ FAIL 1 | WARN 0 | SKIP 0 | PASS 4 ]</code></pre>
+<ol type="a">
+<li><p>Which file and line holds the expectation that failed, and what is the test’s description?</p></li>
+<li><p>How many expectations passed?</p></li>
+<li><p>Why does <code>n_words()</code> return 3? (Hint: look closely at the input, and run <code>strsplit1()</code> on it.)</p></li>
+<li><p>Is this input a typical input, an edge case, or an error case?</p></li>
+</ol>
+<hr>
+<p>The next four problems use your <code>greetr</code> package from the R Packages II problems. Open it in Positron (or RStudio), and run <code>library(devtools)</code> at the console.</p>
 <ol start="10" class="example" type="1">
-<li>Modify the code to add a third model to the mix: a KNN model with 50 instead of 15 neighbors. As measured by RSME, how does its predictive performance on the test set compare to the original two models?</li>
+<li>Set <code>greetr</code> up for testing, with a test file for <code>hello()</code>. Write the two commands you used. What files did they create, and what changed in <code>DESCRIPTION</code>?</li>
 </ol>
 <ol start="11" class="example" type="1">
-<li>What is the purpose of the <code>initial_split()</code> function? What is the type of the R object that it creates? What is the first element in that object and what does it represent?</li>
+<li>Replace the placeholder in <code>test-hello.R</code> with two tests: one that <code>hello("Oski")</code> returns <code>"Hello Oski!"</code>, and one that <code>hello()</code> given two names returns a character vector of length 2. Run <code>test()</code>. What does its last line say?</li>
 </ol>
 <ol start="12" class="example" type="1">
-<li>What does the <code>training</code> function do? What is the type of the R object that it creates?</li>
+<li><code>hello()</code> prints its greeting as well as returning it, which clutters the output of <code>test()</code>. Refactor <code>hello()</code>: remove the <code>print()</code> so it just returns the string. Run <code>test()</code> again. Do the tests still pass, and what does that tell you? Does <code>hello("Oski")</code> still show its greeting when you run it at the console?</li>
 </ol>
 <ol start="13" class="example" type="1">
-<li><p>To understand the effect of the different steps of the data preparation recipe, make a duplicate of that pipeline and change the name of the result to <code>transformed</code>. Add two more functions to the pipeline: <code>prep()</code> and <code>bake()</code><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Each beyond the piped recipe object, each one takes a data frame as an argument: use the training data.</p>
-<p>Compare <code>transformed_train</code> to <code>diamonds_train</code>. What changes have been made to the data as a result of this recipe?</p></li>
+<li>A user files a bug report: “<code>hello(NA)</code> says <code>Hello NA!</code>.” Fix it with test-driven development:</li>
+</ol>
+<ol type="a">
+<li><p><strong>Red</strong>: add a test to <code>test-hello.R</code> that <code>hello(NA)</code> throws an error whose message mentions <code>"missing"</code>. Run <code>test()</code> and confirm that it fails.</p></li>
+<li><p><strong>Green</strong>: change <code>hello()</code> so it throws that error, using <code>stop()</code>, whenever any element of <code>x</code> is <code>NA</code>. Run <code>test()</code> until it passes.</p></li>
 </ol>
 <ol start="14" class="example" type="1">
-<li>Add two additional predictors to the recipe: <code>depth</code> and <code>table</code><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. What do these variables represent about diamonds?</li>
+<li>Testing isn’t only for packages. Suppose you’re about to analyze <code>storms</code> (from <code>dplyr</code>) and are relying on two facts about it:</li>
 </ol>
+<ul>
+<li>no row appears twice;</li>
+<li>every row with hurricane-force winds (<code>wind</code> of 64 knots or more) has a <code>category</code>.</li>
+</ul>
+<p>Write each as its own <code>stopifnot()</code> call. Both fail. For each, look at the rows that break it and decide whether the data or the expectation is wrong.</p>
 <ol start="15" class="example" type="1">
-<li>Rerun your original three models with this modified recipe. How does the predictive performance of each model on the test set compare?</li>
+<li><em>Optional Challenge</em>: Write the grade calculator from lecture, test first.</li>
 </ol>
-</section>
-<section id="classification" class="level3">
-<h3 class="anchored" data-anchor-id="classification">Classification</h3>
-<p>Start by piecing together the code cells from the slides that use <code>tidymodels</code> to predict the <code>species</code> (Gentoo or Adelie) of penguins using the value of <code>body_mass_g</code>. Put them into an .r script or Quarto document.</p>
-<p>The following exercises have you investigate the different components of the code and make variations.</p>
-<ol start="16" class="example" type="1">
-<li>To build an understanding of the four metrics used to evaluate model performance, write four <code>dplyr</code> (<code>filter()</code>, <code>summarize()</code>, <code>mutate()</code>, etc.) pipelines to calculate each metric manually from <code>ad_gen_preds</code>. Alongside each of the pipelines, write the English interpretation of each (e.g.&nbsp;“the proportion of ___ penguins that the model predicted to be ____”). Check your results against the values in <code>all_metrics</code>.</li>
+<ol type="a">
+<li>Create a test file for a function <code>letter_grade()</code> that holds every promise from the lecture’s activity:</li>
 </ol>
-<ol start="17" class="example" type="1">
-<li>Using the model that performed the <em>worst</em>, build a plot to understand where it made the errors. This should be a scatterplot with the predictor along the x-axis, the species along the y-axis, and points colored by whether it is a true positive, true negative, false positive, or false negative.</li>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Score</th>
+<th><code>95</code></th>
+<th><code>85</code></th>
+<th><code>42</code></th>
+<th><code>98</code></th>
+<th><code>91</code></th>
+<th><code>100</code></th>
+<th><code>58</code></th>
+<th><code>62</code></th>
+<th><code>NA</code></th>
+<th><code>0.85</code></th>
+<th><code>0.91</code></th>
+<th><code>86.5</code></th>
+<th><code>89.5</code></th>
+<th><code>0.865</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Grade</td>
+<td>A</td>
+<td>B</td>
+<td>F</td>
+<td>A+</td>
+<td>A-</td>
+<td>A+</td>
+<td>F</td>
+<td>D-</td>
+<td>F</td>
+<td>B</td>
+<td>A-</td>
+<td>B+</td>
+<td>A-</td>
+<td>B+</td>
+</tr>
+</tbody>
+</table>
+<p>Add a test for a score of <code>1</code>, deciding what it should get.</p>
+<ol start="2" type="a">
+<li>Write <code>letter_grade()</code> so that every test passes, for a vector of scores. Two tools you haven’t seen will help: <code>x %% 10</code> is the last digit of a whole number <code>x</code>, and <code>floor(x + 0.5)</code> rounds halves up (<code>round()</code> rounds halves to the even number, so <code>round(86.5)</code> is 86).</li>
 </ol>
-<ol start="18" class="example" type="1">
-<li>Add two additional predictors to the recipe: <code>island</code> and <code>bill_length_mm</code>. Also add a third step: <code>step_dummy(all_nominal_predictors())</code>. What are the different values that <code>island</code> can take?</li>
-</ol>
-<ol start="19" class="example" type="1">
-<li>Repeat the prep and bake phases as in the last problem set to get a glimpse of what the training data would look like when all of the steps are applied. What happened to the <code>island</code> column?</li>
-</ol>
-<ol start="20" class="example" type="1">
-<li>Rerun your original three models with this modified recipe. How does the predictive performance of each model on the test set compare?</li>
-</ol>
-<hr>
-<ol start="21" class="example" type="1">
-<li>Install the <code>kernlab</code> package and read the help file for <code>data(spam)</code>. What is the natural response variable in this dataset? What do each of the predictors represent?</li>
-</ol>
-<ol start="22" class="example" type="1">
-<li>Using the <code>spam</code> dataset, create a classification model to predict whether an email is spam or not spam. You may use whichever predictors you like and any model class (with any parameters). Use a 70/30 train/test split and evaluate the model using the same four metrics as in the penguin example. What is the highest you were able to get your test accuracy?</li>
-</ol>
-</section>
-<section id="apis-i" class="level3">
-<h3 class="anchored" data-anchor-id="apis-i">APIs I</h3>
-<p>Revisit the homepage for the BART Legacy API discussed in Lecture.</p>
-<p><a href="https://www.bart.gov/schedules/developers/api" class="uri">https://www.bart.gov/schedules/developers/api</a></p>
-<ol start="23" class="example" type="1">
-<li>What is the public key that can be used to access data through the legacy API?</li>
-</ol>
-<hr>
-<p>Next visit the documention site: <a href="https://api.bart.gov/docs/overview/index.aspx" class="uri">https://api.bart.gov/docs/overview/index.aspx</a>. Note that each category of data has its own endpoint / base URL, and all takes a similar format (e.g.&nbsp;for estimated departure data use <a href="https://api.bart.gov/api/etd.aspx" class="uri">https://api.bart.gov/api/etd.aspx</a>.)</p>
-<ol start="24" class="example" type="1">
-<li>Provide the URL that will query the API for a list of all BART stations in JSON format.</li>
-</ol>
-<ol start="25" class="example" type="1">
-<li>Provide the corresponding shell/terminal command.</li>
-</ol>
-<ol start="26" class="example" type="1">
-<li>Provide the corresponding R code that will perform the query and parse the JSON response into an R list object.</li>
-</ol>
-<ol start="27" class="example" type="1">
-<li>Subset the list to to return a data frame that contains the station abbreviation, name, latitude, longitude, address, city, county, state, and zipcode for each station. Which county has the greatest number of stations?</li>
-</ol>
-<hr>
-<ol start="28" class="example" type="1">
-<li>Provide the URL that will query the API for estimated departure times (ETDs) from the Downtown Berkeley Station in JSON format.</li>
-</ol>
-<ol start="29" class="example" type="1">
-<li>Provide the corresponding R code that will perform the query and parse the JSON response into an R list object.</li>
-</ol>
-<ol start="30" class="example" type="1">
-<li>Extract the elemented called <code>root</code> and then the <code>station</code> element within it. View the object using the data viewer. What type of object is it an what are it’s dimensions?</li>
-</ol>
-<ol start="31" class="example" type="1">
-<li>Use the <code>unnest()</code> function from the <code>tidyr</code> package to expand the <code>etd</code> list-column. What are the dimensions of the resulting data frame?</li>
-</ol>
-<ol start="32" class="example" type="1">
-<li>Use <code>unnest()</code> again to expand the <code>estimate</code> list-column. What are the dimensions of the resulting data frame?</li>
-</ol>
-<ol start="33" class="example" type="1">
-<li>How long (in minutes) is the shortest estimated wait time for a train departing from Downtown Berkeley Station? Which destination does this train go to? For reference, what time is it now?</li>
-</ol>
-<hr>
-<ol start="34" class="example" type="1">
-<li>Query the BSA (BART System Advisories) endpoint to retrieve the latest system advisory information. You’re welcome to use any method: web browser, command line, or R. What are the different bits of information that they provide through this endpoint?</li>
-</ol>
-<ol start="35" class="example" type="1">
-<li><em>Optional Challenge</em>: Use the data provided by the BART API to construct a map of the BART system showing the locations of all stations. You could make it interactive with leaflet or static like the one below.</li>
-</ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../34-apis-1/images/bart-map.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
-</figure>
-</div>
 
 
 </section>
 
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>The authors of <code>recipes</code> went all in on the baking metaphor.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>In R’s formula interface, you add additional predictors adding them to the right side: .e.g <code>y ~ x1 + x2</code>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

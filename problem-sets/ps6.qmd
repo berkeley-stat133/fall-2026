@@ -5,21 +5,17 @@ format: html
 
 ### R Packages II
 
-Each of the following questions refer to the `kknn` package (<https://github.com/KlausVigo/kknn>) that we'll be using for predictive modeling.
+The first two questions refer to the `kknn` package (<https://github.com/KlausVigo/kknn>), which implements a popular predictive modeling algorithm called $k$-nearest neighbors. Install it with `install.packages("kknn")` and load it with `library(kknn)` before you start.
 
-@. What is the author's one sentence description of this package?
+@. Use `data()` to list the data sets stored in `kknn`. Then try typing the name of one of them, `glass`, at the console: unlike most packages you've used, it isn't there until you run `data(glass)`. What is this property of a package called, and which field of `DESCRIPTION` turns it on? Is that field in `kknn`'s `DESCRIPTION`?
 
-@. Which data sets are stored in this package?
-
-@. Unlike most packages, you've used, you can't just type the name of a data set to see it (try it with `glass`). Instead you first have to use `data(glass)` to specifically load that data set. What is the name this property of a package? Does it exist in the DESCRIPTION file?
-
-@. What is the name of the file in the package that is edited to created the help files for these data sets?
+@. What is the name of the file in the package that is edited to create the help files for these data sets?
 
 * * *
 
-Return to the tiny package that you made called `greetr`.
+The rest of the questions use `greetr`, the package you made in PS 5, rebuilt with `usethis` the way we rebuilt `mypkg` in lecture. [Download `greetr.zip`](/29-r-packages-2/greetr.zip), unzip it, and open the `greetr` folder in Positron (or RStudio). `hello()` is in `R/hello.R`, and `DESCRIPTION` is filled in.
 
-@. Add the following tibble to the your package as a data set called `greetings`.
+@. Add the following tibble to your package as a data set called `greetings`. Write the command you used, and say which file it created.
 
 ```{r}
 library(tibble)
@@ -31,96 +27,111 @@ greetings <- tibble(
 
 @. Document this data set using `roxygen2` so that when a user types `?greetings` at the console they see a description of the data set, its format (the columns and their values), and its source (you can cite STAT 133). Please transcribe your documentation below.
 
-@. Add documentation for your previous function called `hello()`. Be sure to include a description, the arguments, the output, and an example of its use. Please transcribe your documentation below.
+@. Paste this Roxygen block into `R/hello.R`, directly above `hello()`, and fill in the three blanks: the argument, the return value, and an example. Run `devtools::document()` and preview the result with `?hello`. Write your three completed lines below.
 
-@. One last item: bump your version number up by a small increment (say from 0.1.0 to 0.1.1) in the `DESCRIPTION` file. Write that single new line from your DESCRIPTION file below.
+```r
+#' Say hello
+#'
+#' Prints a greeting to whoever is named in `x`.
+#'
+#' @param ___
+#' @returns ___
+#' @examples
+#' ___
+#' @export
+```
 
-### Prediction II
+@. Run `devtools::check()`. How many errors, warnings, and notes does it report, and what does the note say needs fixing? Fix it: change the `License` field in `DESCRIPTION` to `MIT + file LICENSE`, and add a plain-text file called `LICENSE` at the top of the package with two lines, `YEAR: 2026` and `COPYRIGHT HOLDER: ` followed by your name. Run `check()` again. What does it report now?
 
-Start by piecing together the code cells from the slides that use `tidymodels` to predict the `price` of diamonds using the value of `carat`. Put them into an .r script or Quarto document.
+### Testing
 
-The following exercises have you investigate the different components of the code and make variations.
+You'll need the `testthat` package for these problems: install it with `install.packages("testthat")` if you haven't already. To run tests at the console, outside a package, load it with `library(testthat)`.
 
-@. Run all of the code and inspect the final data frame. As measured by RMSE (Root Mean Squared Error), which of the two models has better performance on the test set?
+@. Here is a function and three tests for it. Without running the code, predict the `?` values in the report that is returned by `test()`: `[ FAIL ? | WARN 0 | SKIP 0 | PASS ? ]`. For any test that fails, is the function wrong or the test?
 
-@. Modify the code to add a third model to the mix: a KNN model with 50 instead of 15 neighbors. As measured by RSME, how does its predictive performance on the test set compare to the original two models?
+```r
+celsius <- function(f) {
+  (f - 32) * 5 / 9
+}
 
-@. What is the purpose of the `initial_split()` function? What is the type of the R object that it creates? What is the first element in that object and what does it represent?
+test_that("celsius() converts the boiling point", {
+  expect_equal(celsius(212), 100)
+})
 
-@. What does the `training` function do? What is the type of the R object that it creates?
+test_that("celsius() converts the freezing point", {
+  expect_equal(celsius(0), 32)
+})
 
-@. To understand the effect of the different steps of the data preparation recipe, make a duplicate of that pipeline and change the name of the result to `transformed`. Add two more functions to the pipeline: `prep()` and `bake()`[^bake]. Each beyond the piped recipe object, each one takes a data frame as an argument: use the training data.
+test_that("celsius() converts a vector of temperatures", {
+  temps <- celsius(c(32, 212))
+  expect_length(temps, 2)
+  expect_equal(temps, c(0, 100))
+})
+```
 
-    Compare `transformed_train` to `diamonds_train`. What changes have been made to the data as a result of this recipe?
+@. A classmate wrote this test for `celsius()` from the last problem, ran it, and it passed. Why did it pass? Change the test so it would catch the mistake.
 
-[^bake]: The authors of `recipes` went all in on the baking metaphor.
+```r
+test_that("celsius() rejects text", {
+  expect_error(celsuis("hot"))
+})
+```
 
-@. Add two additional predictors to the recipe: `depth` and `table`[^form]. What do these variables represent about diamonds?
+@. Here is part of a package with the `strsplit1()` from lecture and a new function that counts the words in a sentence, followed by the report from `test()`.
 
-[^form]: In R's formula interface, you add additional predictors adding them to the right side: .e.g `y ~ x1 + x2`.
+```{.r filename="R/n_words.R"}
+n_words <- function(x) {
+  length(strsplit1(x, split = " "))
+}
+```
 
-@. Rerun your original three models with this modified recipe. How does the predictive performance of each model on the test set compare?
+```
+Failure ('test-n_words.R:6:3'): n_words() counts words with extra spaces
+Expected `n_words("two  spaces")` to equal 2.
+`actual`:   3
+`expected`: 2
+[ FAIL 1 | WARN 0 | SKIP 0 | PASS 4 ]
+```
 
-### Classification
+a. Which file and line holds the expectation that failed, and what is the test's description?
 
-Start by piecing together the code cells from the slides that use `tidymodels` to predict the `species` (Gentoo or Adelie) of penguins using the value of `body_mass_g`. Put them into an .r script or Quarto document.
+b. How many expectations passed?
 
-The following exercises have you investigate the different components of the code and make variations.
+c. Why does `n_words()` return 3? (Hint: look closely at the input, and run `strsplit1()` on it.)
 
-@. To build an understanding of the four metrics used to evaluate model performance, write four `dplyr` (`filter()`, `summarize()`, `mutate()`, etc.) pipelines to calculate each metric manually from `ad_gen_preds`. Alongside each of the pipelines, write the English interpretation of each (e.g. "the proportion of ___ penguins that the model predicted to be ____"). Check your results against the values in `all_metrics`.
-
-@. Using the model that performed the *worst*, build a plot to understand where it made the errors. This should be a scatterplot with the predictor along the x-axis, the species along the y-axis, and points colored by whether it is a true positive, true negative, false positive, or false negative.
-
-@. Add two additional predictors to the recipe: `island` and `bill_length_mm`. Also add a third step: `step_dummy(all_nominal_predictors())`. What are the different values that `island` can take?
-
-@. Repeat the prep and bake phases as in the last problem set to get a glimpse of what the training data would look like when all of the steps are applied. What happened to the `island` column?
-
-@. Rerun your original three models with this modified recipe. How does the predictive performance of each model on the test set compare?
-
-* * *
-
-@. Install the `kernlab` package and read the help file for `data(spam)`. What is the natural response variable in this dataset? What do each of the predictors represent?
-
-@. Using the `spam` dataset, create a classification model to predict whether an email is spam or not spam. You may use whichever predictors you like and any model class (with any parameters). Use a 70/30 train/test split and evaluate the model using the same four metrics as in the penguin example. What is the highest you were able to get your test accuracy?
-
-### APIs I
-
-Revisit the homepage for the BART Legacy API discussed in Lecture.
-
-<https://www.bart.gov/schedules/developers/api>
-
-@. What is the public key that can be used to access data through the legacy API?
-
-* * *
-
-Next visit the documention site: <https://api.bart.gov/docs/overview/index.aspx>. Note that each category of data has its own endpoint / base URL, and all takes a similar format (e.g. for estimated departure data use <https://api.bart.gov/api/etd.aspx>.)
-
-@. Provide the URL that will query the API for a list of all BART stations in JSON format.
-
-@. Provide the corresponding shell/terminal command.
-
-@. Provide the corresponding R code that will perform the query and parse the JSON response into an R list object.
-
-@. Subset the list to to return a data frame that contains the station abbreviation, name, latitude, longitude, address, city, county, state, and zipcode for each station. Which county has the greatest number of stations?
-
-* * *
-
-@. Provide the URL that will query the API for estimated departure times (ETDs) from the Downtown Berkeley Station in JSON format.
-
-@. Provide the corresponding R code that will perform the query and parse the JSON response into an R list object.
-
-@. Extract the elemented called `root` and then the `station` element within it. View the object using the data viewer. What type of object is it an what are it's dimensions?
-
-@. Use the `unnest()` function from the `tidyr` package to expand the `etd` list-column. What are the dimensions of the resulting data frame?
-
-@. Use `unnest()` again to expand the `estimate` list-column. What are the dimensions of the resulting data frame?
-
-@. How long (in minutes) is the shortest estimated wait time for a train departing from Downtown Berkeley Station? Which destination does this train go to? For reference, what time is it now?
+d. Is this input a typical input, an edge case, or an error case?
 
 * * *
 
-@. Query the BSA (BART System Advisories) endpoint to retrieve the latest system advisory information. You're welcome to use any method: web browser, command line, or R. What are the different bits of information that they provide through this endpoint?
+The next four problems use your `greetr` package from the R Packages II problems. Open it in Positron (or RStudio), and run `library(devtools)` at the console.
 
-@. *Optional Challenge*: Use the data provided by the BART API to construct a map of the BART system showing the locations of all stations. You could make it interactive with leaflet or static like the one below.
+@. Set `greetr` up for testing, with a test file for `hello()`. Write the two commands you used. What files did they create, and what changed in `DESCRIPTION`?
 
-![](/34-apis-1/images/bart-map.png){fig-align="center" width="400px"}
+@. Replace the placeholder in `test-hello.R` with two tests: one that `hello("Oski")` returns `"Hello Oski!"`, and one that `hello()` given two names returns a character vector of length 2. Run `test()`. What does its last line say?
+
+@. `hello()` prints its greeting as well as returning it, which clutters the output of `test()`. Refactor `hello()`: remove the `print()` so it just returns the string. Run `test()` again. Do the tests still pass, and what does that tell you? Does `hello("Oski")` still show its greeting when you run it at the console?
+
+@. A user files a bug report: "`hello(NA)` says `Hello NA!`." Fix it with test-driven development:
+
+a. **Red**: add a test to `test-hello.R` that `hello(NA)` throws an error whose message mentions `"missing"`. Run `test()` and confirm that it fails.
+
+b. **Green**: change `hello()` so it throws that error, using `stop()`, whenever any element of `x` is `NA`. Run `test()` until it passes.
+
+@. Testing isn't only for packages. Suppose you're about to analyze `storms` (from `dplyr`) and are relying on two facts about it:
+
+- no row appears twice;
+- every row with hurricane-force winds (`wind` of 64 knots or more) has a `category`.
+
+Write each as its own `stopifnot()` call. Both fail. For each, look at the rows that break it and decide whether the data or the expectation is wrong.
+
+@. *Optional Challenge*: Write the grade calculator from lecture, test first.
+
+a. Create a test file for a function `letter_grade()` that holds every promise from the lecture's activity:
+
+| Score | `95` | `85` | `42` | `98` | `91` | `100` | `58` | `62` | `NA` | `0.85` | `0.91` | `86.5` | `89.5` | `0.865` |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Grade | A | B | F | A+ | A- | A+ | F | D- | F | B | A- | B+ | A- | B+ |
+
+Add a test for a score of `1`, deciding what it should get.
+
+b. Write `letter_grade()` so that every test passes, for a vector of scores. Two tools you haven't seen will help: `x %% 10` is the last digit of a whole number `x`, and `floor(x + 0.5)` rounds halves up (`round()` rounds halves to the even number, so `round(86.5)` is 86).
