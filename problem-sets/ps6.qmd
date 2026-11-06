@@ -138,7 +138,7 @@ b. Write `letter_grade()` so that every test passes, for a vector of scores. Two
 
 ### APIs I
 
-The BART API serves live data, so some answers in this section (how many trains are about to depart, how long the wait is) depend on when you run your code. For those there is no single right answer: the solutions show the output from when they were run, and yours will differ.
+The BART API serves live data, so some answers in this section (how many trains are about to depart, how long the wait is) depend on when you run your code. For those there is no single right answer.
 
 Revisit the homepage for the BART Legacy API discussed in Lecture.
 

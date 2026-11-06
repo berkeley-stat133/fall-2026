@@ -321,8 +321,8 @@
 <span id="cb3-11"><a aria-label="11"></a>  <span class="fu">}</span></span>
 <span id="cb3-12"><a aria-label="12"></a><span class="ot">]</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="section-3" class="slide level2">
-<h2></h2>
+<section id="making-jsons-in-r" class="slide level2">
+<h2>Making JSONs in R</h2>
 <div class="columns">
 <div class="column fragment">
 <div class="cell">
@@ -332,9 +332,6 @@
 <span id="cb4-4"><a aria-label="4"></a>  <span class="at">director =</span> <span class="st">"The Wachowskis"</span>,</span>
 <span id="cb4-5"><a aria-label="5"></a>  <span class="at">genres =</span> <span class="fu">c</span>(<span class="st">"Action"</span>, <span class="st">"Sci-Fi"</span>)</span>
 <span id="cb4-6"><a aria-label="6"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="cell fragment">
-
 </div>
 </div><div class="column fragment">
 <div class="cell">
@@ -381,9 +378,11 @@
 <li class="fragment">Upload these files to website.</li>
 <li class="fragment">Users download files to local machines for analysis.</li>
 </ol>
+<div class="fragment">
 <blockquote>
 <p>How can this be improved?</p>
 </blockquote>
+</div>
 </div></div>
 <aside class="notes annotate">
 <p>Annotate with: what if the analyst is a machine? how can they programatiically download the data?</p>
@@ -400,7 +399,7 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="section-4" class="slide level2 smaller">
+<section id="section-3" class="slide level2 smaller">
 <h2></h2>
 <div class="definition">
 <div class="definition-header">
@@ -439,7 +438,7 @@
 <h2>BART</h2>
 
 <img data-src="images/bart-1.jpg" style="width:50.0%" class="r-stretch"><p><strong>Question:</strong> Brainstorm <em>5 different data sets</em> that BART might maintain. Identify whether each one is best represented by a 1D array (e.g.&nbsp;a text string), a 2D array (e.g.&nbsp;a data frame), or a multi-dimensional array (e.g.&nbsp;a nested list).</p>
-<div id="timer_2855cd2f74be79f42088d194d79a226760ed2d0d" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_20b8e5b5717eca421b00f12a4f416963bdb686cc" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -447,19 +446,19 @@
  <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">30</span></code>
  </div>
 </section>
-<section id="section-5" class="slide level2" data-background-image="images/bart-2.png" data-background-size="contain">
+<section id="section-4" class="slide level2" data-background-image="images/bart-2.png" data-background-size="contain">
 <h2></h2>
 </section>
-<section id="section-6" class="slide level2" data-background-image="images/bapi.png" data-background-size="contain">
+<section id="section-5" class="slide level2" data-background-image="images/bapi.png" data-background-size="contain">
 <h2></h2>
 </section>
-<section id="section-7" class="slide level2" data-background-image="images/station-1.png" data-background-size="contain">
+<section id="section-6" class="slide level2" data-background-image="images/station-1.png" data-background-size="contain">
 <h2></h2>
 </section>
-<section id="section-8" class="slide level2" data-background-image="images/station-2.png" data-background-size="contain">
+<section id="section-7" class="slide level2" data-background-image="images/station-2.png" data-background-size="contain">
 <h2></h2>
 </section>
-<section id="section-9" class="slide level2" data-background-image="images/station-3.png" data-background-size="contain">
+<section id="section-8" class="slide level2" data-background-image="images/station-3.png" data-background-size="contain">
 <h2></h2>
 </section>
 <section id="interacting-with-an-api" class="slide level2">
@@ -770,16 +769,16 @@ $route[[2]]
 <h1>Departures</h1>
 
 </section>
-<section id="section-10" class="slide level2" data-background-image="images/bapi.png" data-background-size="contain">
+<section id="section-9" class="slide level2" data-background-image="images/bapi.png" data-background-size="contain">
 <h2></h2>
 </section>
-<section id="section-11" class="slide level2" data-background-image="images/etd1.png" data-background-size="contain">
+<section id="section-10" class="slide level2" data-background-image="images/etd1.png" data-background-size="contain">
 <h2></h2>
 </section>
-<section id="section-12" class="slide level2" data-background-image="images/etd2.png" data-background-size="contain">
+<section id="section-11" class="slide level2" data-background-image="images/etd2.png" data-background-size="contain">
 <h2></h2>
 </section>
-<section id="section-13" class="slide level2 smaller">
+<section id="section-12" class="slide level2 smaller">
 <h2></h2>
 <div class="columns">
 <div class="column" style="width:45%;">
@@ -803,7 +802,7 @@ $route[[2]]
 </div>
 <p><strong>Question</strong>: How would you modify this request to get estimated departure times (ETDs) for trains leaving from the Downtown Berkeley station (DBRK)?</p>
 </div></div>
-<div id="timer_2855cd2f74be79f42088d194d79a226760ed2d0d" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_20b8e5b5717eca421b00f12a4f416963bdb686cc" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -865,11 +864,11 @@ Body: In memory (1810 bytes)</code></pre>
 GET https://api.bart.gov/api/etd.aspx?cmd=etd&amp;orig=DBRK&amp;key=MW9S-E7SL-26DU-VV8V&amp;json=y
 Status: 200 OK
 Content-Type: application/json
-Body: In memory (1976 bytes)</code></pre>
+Body: In memory (1975 bytes)</code></pre>
 </div>
 </div>
 </section>
-<section id="section-14" class="slide level2">
+<section id="section-13" class="slide level2">
 <h2></h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a aria-label="1"></a>data <span class="ot">&lt;-</span> <span class="fu">resp_body_json</span>(res, <span class="at">simplifyVector =</span> <span class="cn">FALSE</span>)</span>
@@ -898,7 +897,7 @@ $root$date
 [1] "11/06/2026"
 
 $root$time
-[1] "08:20:47 AM PST"
+[1] "10:54:17 AM PST"
 
 $root$station
 $root$station[[1]]
@@ -922,7 +921,7 @@ $root$station[[1]]$etd[[1]]$limited
 $root$station[[1]]$etd[[1]]$estimate
 $root$station[[1]]$etd[[1]]$estimate[[1]]
 $root$station[[1]]$etd[[1]]$estimate[[1]]$minutes
-[1] "17"
+[1] "5"
 
 $root$station[[1]]$etd[[1]]$estimate[[1]]$platform
 [1] "2"
@@ -931,7 +930,7 @@ $root$station[[1]]$etd[[1]]$estimate[[1]]$direction
 [1] "South"
 
 $root$station[[1]]$etd[[1]]$estimate[[1]]$length
-[1] "5"
+[1] "6"
 
 $root$station[[1]]$etd[[1]]$estimate[[1]]$color
 [1] "ORANGE"
@@ -943,7 +942,7 @@ $root$station[[1]]$etd[[1]]$estimate[[1]]$bikeflag
 [1] "1"
 
 $root$station[[1]]$etd[[1]]$estimate[[1]]$delay
-[1] "0"
+[1] "88"
 
 $root$station[[1]]$etd[[1]]$estimate[[1]]$cancelflag
 [1] "0"
@@ -954,7 +953,7 @@ $root$station[[1]]$etd[[1]]$estimate[[1]]$dynamicflag
 
 $root$station[[1]]$etd[[1]]$estimate[[2]]
 $root$station[[1]]$etd[[1]]$estimate[[2]]$minutes
-[1] "37"
+[1] "24"
 
 $root$station[[1]]$etd[[1]]$estimate[[2]]$platform
 [1] "2"
@@ -963,7 +962,7 @@ $root$station[[1]]$etd[[1]]$estimate[[2]]$direction
 [1] "South"
 
 $root$station[[1]]$etd[[1]]$estimate[[2]]$length
-[1] "5"
+[1] "6"
 
 $root$station[[1]]$etd[[1]]$estimate[[2]]$color
 [1] "ORANGE"
@@ -986,7 +985,7 @@ $root$station[[1]]$etd[[1]]$estimate[[2]]$dynamicflag
 
 $root$station[[1]]$etd[[1]]$estimate[[3]]
 $root$station[[1]]$etd[[1]]$estimate[[3]]$minutes
-[1] "57"
+[1] "44"
 
 $root$station[[1]]$etd[[1]]$estimate[[3]]$platform
 [1] "2"
@@ -1031,7 +1030,7 @@ $root$station[[1]]$etd[[2]]$limited
 $root$station[[1]]$etd[[2]]$estimate
 $root$station[[1]]$etd[[2]]$estimate[[1]]
 $root$station[[1]]$etd[[2]]$estimate[[1]]$minutes
-[1] "5"
+[1] "11"
 
 $root$station[[1]]$etd[[2]]$estimate[[1]]$platform
 [1] "2"
@@ -1040,7 +1039,7 @@ $root$station[[1]]$etd[[2]]$estimate[[1]]$direction
 [1] "South"
 
 $root$station[[1]]$etd[[2]]$estimate[[1]]$length
-[1] "10"
+[1] "5"
 
 $root$station[[1]]$etd[[2]]$estimate[[1]]$color
 [1] "RED"
@@ -1063,7 +1062,7 @@ $root$station[[1]]$etd[[2]]$estimate[[1]]$dynamicflag
 
 $root$station[[1]]$etd[[2]]$estimate[[2]]
 $root$station[[1]]$etd[[2]]$estimate[[2]]$minutes
-[1] "25"
+[1] "31"
 
 $root$station[[1]]$etd[[2]]$estimate[[2]]$platform
 [1] "2"
@@ -1072,7 +1071,7 @@ $root$station[[1]]$etd[[2]]$estimate[[2]]$direction
 [1] "South"
 
 $root$station[[1]]$etd[[2]]$estimate[[2]]$length
-[1] "10"
+[1] "5"
 
 $root$station[[1]]$etd[[2]]$estimate[[2]]$color
 [1] "RED"
@@ -1095,7 +1094,7 @@ $root$station[[1]]$etd[[2]]$estimate[[2]]$dynamicflag
 
 $root$station[[1]]$etd[[2]]$estimate[[3]]
 $root$station[[1]]$etd[[2]]$estimate[[3]]$minutes
-[1] "45"
+[1] "51"
 
 $root$station[[1]]$etd[[2]]$estimate[[3]]$platform
 [1] "2"
@@ -1104,7 +1103,7 @@ $root$station[[1]]$etd[[2]]$estimate[[3]]$direction
 [1] "South"
 
 $root$station[[1]]$etd[[2]]$estimate[[3]]$length
-[1] "10"
+[1] "5"
 
 $root$station[[1]]$etd[[2]]$estimate[[3]]$color
 [1] "RED"
@@ -1140,7 +1139,7 @@ $root$station[[1]]$etd[[3]]$limited
 $root$station[[1]]$etd[[3]]$estimate
 $root$station[[1]]$etd[[3]]$estimate[[1]]
 $root$station[[1]]$etd[[3]]$estimate[[1]]$minutes
-[1] "4"
+[1] "3"
 
 $root$station[[1]]$etd[[3]]$estimate[[1]]$platform
 [1] "1"
@@ -1149,19 +1148,19 @@ $root$station[[1]]$etd[[3]]$estimate[[1]]$direction
 [1] "North"
 
 $root$station[[1]]$etd[[3]]$estimate[[1]]$length
-[1] "5"
+[1] "10"
 
 $root$station[[1]]$etd[[3]]$estimate[[1]]$color
-[1] "ORANGE"
+[1] "RED"
 
 $root$station[[1]]$etd[[3]]$estimate[[1]]$hexcolor
-[1] "#ff9933"
+[1] "#ff0000"
 
 $root$station[[1]]$etd[[3]]$estimate[[1]]$bikeflag
 [1] "1"
 
 $root$station[[1]]$etd[[3]]$estimate[[1]]$delay
-[1] "0"
+[1] "297"
 
 $root$station[[1]]$etd[[3]]$estimate[[1]]$cancelflag
 [1] "0"
@@ -1172,7 +1171,7 @@ $root$station[[1]]$etd[[3]]$estimate[[1]]$dynamicflag
 
 $root$station[[1]]$etd[[3]]$estimate[[2]]
 $root$station[[1]]$etd[[3]]$estimate[[2]]$minutes
-[1] "15"
+[1] "11"
 
 $root$station[[1]]$etd[[3]]$estimate[[2]]$platform
 [1] "1"
@@ -1181,19 +1180,19 @@ $root$station[[1]]$etd[[3]]$estimate[[2]]$direction
 [1] "North"
 
 $root$station[[1]]$etd[[3]]$estimate[[2]]$length
-[1] "10"
+[1] "5"
 
 $root$station[[1]]$etd[[3]]$estimate[[2]]$color
-[1] "RED"
+[1] "ORANGE"
 
 $root$station[[1]]$etd[[3]]$estimate[[2]]$hexcolor
-[1] "#ff0000"
+[1] "#ff9933"
 
 $root$station[[1]]$etd[[3]]$estimate[[2]]$bikeflag
 [1] "1"
 
 $root$station[[1]]$etd[[3]]$estimate[[2]]$delay
-[1] "0"
+[1] "62"
 
 $root$station[[1]]$etd[[3]]$estimate[[2]]$cancelflag
 [1] "0"
@@ -1204,7 +1203,7 @@ $root$station[[1]]$etd[[3]]$estimate[[2]]$dynamicflag
 
 $root$station[[1]]$etd[[3]]$estimate[[3]]
 $root$station[[1]]$etd[[3]]$estimate[[3]]$minutes
-[1] "23"
+[1] "18"
 
 $root$station[[1]]$etd[[3]]$estimate[[3]]$platform
 [1] "1"
@@ -1213,13 +1212,13 @@ $root$station[[1]]$etd[[3]]$estimate[[3]]$direction
 [1] "North"
 
 $root$station[[1]]$etd[[3]]$estimate[[3]]$length
-[1] "6"
+[1] "10"
 
 $root$station[[1]]$etd[[3]]$estimate[[3]]$color
-[1] "ORANGE"
+[1] "RED"
 
 $root$station[[1]]$etd[[3]]$estimate[[3]]$hexcolor
-[1] "#ff9933"
+[1] "#ff0000"
 
 $root$station[[1]]$etd[[3]]$estimate[[3]]$bikeflag
 [1] "1"
@@ -1260,7 +1259,7 @@ $root$message
           display:block!important;
       }</style></aside>
 </section>
-<section id="section-15" class="slide level2 intro" data-background-color="var(--intro-bg)">
+<section id="section-14" class="slide level2 intro" data-background-color="var(--intro-bg)">
 <h2></h2>
 <div class="columns">
 <div class="column">
