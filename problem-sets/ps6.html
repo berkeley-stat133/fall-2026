@@ -342,6 +342,7 @@ window.Quarto = {
   <ul>
   <li><a href="#r-packages-ii" id="toc-r-packages-ii" class="nav-link active" data-scroll-target="#r-packages-ii">R Packages II</a></li>
   <li><a href="#testing" id="toc-testing" class="nav-link" data-scroll-target="#testing">Testing</a></li>
+  <li><a href="#apis-i" id="toc-apis-i" class="nav-link" data-scroll-target="#apis-i">APIs I</a></li>
   </ul>
 </nav>
     </div>
@@ -556,6 +557,65 @@ Expected `n_words("two  spaces")` to equal 2.
 <ol start="2" type="a">
 <li>Write <code>letter_grade()</code> so that every test passes, for a vector of scores. Two tools you haven’t seen will help: <code>x %% 10</code> is the last digit of a whole number <code>x</code>, and <code>floor(x + 0.5)</code> rounds halves up (<code>round()</code> rounds halves to the even number, so <code>round(86.5)</code> is 86).</li>
 </ol>
+</section>
+<section id="apis-i" class="level3">
+<h3 class="anchored" data-anchor-id="apis-i">APIs I</h3>
+<p>The BART API serves live data, so some answers in this section (how many trains are about to depart, how long the wait is) depend on when you run your code. For those there is no single right answer: the solutions show the output from when they were run, and yours will differ.</p>
+<p>Revisit the homepage for the BART Legacy API discussed in Lecture.</p>
+<p><a href="https://www.bart.gov/schedules/developers/api" class="uri">https://www.bart.gov/schedules/developers/api</a></p>
+<ol start="16" class="example" type="1">
+<li>What is the public key that can be used to access data through the legacy API?</li>
+</ol>
+<hr>
+<p>Next visit the documentation site: <a href="https://api.bart.gov/docs/overview/index.aspx" class="uri">https://api.bart.gov/docs/overview/index.aspx</a>. Note that each category of data has its own endpoint / base URL, and all take a similar format (e.g.&nbsp;for estimated departure data use <a href="https://api.bart.gov/api/etd.aspx" class="uri">https://api.bart.gov/api/etd.aspx</a>.)</p>
+<ol start="17" class="example" type="1">
+<li>Consider the following URL. Which part is the endpoint, and what are the parameters and their values? Using the documentation, what does this request ask for?</li>
+</ol>
+<pre><code>https://api.bart.gov/api/stn.aspx?cmd=stninfo&amp;orig=12TH&amp;key=MW9S-E7SL-26DU-VV8V&amp;json=y</code></pre>
+<ol start="18" class="example" type="1">
+<li>Provide the URL that will query the API for a list of all BART stations in JSON format.</li>
+</ol>
+<ol start="19" class="example" type="1">
+<li>Provide the corresponding shell/terminal command.</li>
+</ol>
+<ol start="20" class="example" type="1">
+<li>Provide the corresponding R code that will perform the query and parse the JSON response into an R list object. Use <code>simplifyVector = TRUE</code> in <code>resp_body_json()</code>, so that JSON arrays of records become data frames.</li>
+</ol>
+<ol start="21" class="example" type="1">
+<li>Subset the list to return a data frame that contains the station abbreviation, name, latitude, longitude, address, city, county, state, and zipcode for each station. Which county has the greatest number of stations?</li>
+</ol>
+<hr>
+<ol start="22" class="example" type="1">
+<li>Provide the R code that will query the API for estimated departure times (ETDs) from the Downtown Berkeley Station and parse the JSON response into an R list object.</li>
+</ol>
+<ol start="23" class="example" type="1">
+<li>Extract the element called <code>root</code> and then the <code>station</code> element within it. View the object using the data viewer. What type of object is it and what are its dimensions?</li>
+</ol>
+<ol start="24" class="example" type="1">
+<li>The <code>unnest()</code> function from the tidyr package expands a list-column into ordinary rows and columns. Run the code below, then explain what each <code>unnest()</code> step did to the rows and the columns of the data frame.</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>etd_unnested <span class="ot">&lt;-</span> etd <span class="sc">|&gt;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(etd)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>etd_fully_unnested <span class="ot">&lt;-</span> etd_unnested <span class="sc">|&gt;</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(estimate)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<ol start="25" class="example" type="1">
+<li>How long (in minutes) is the shortest estimated wait time for a train departing from Downtown Berkeley Station? Which destination does this train go to? For reference, what time is it now?</li>
+</ol>
+<hr>
+<ol start="26" class="example" type="1">
+<li><em>Optional</em>: Query the BSA (BART System Advisories) endpoint to retrieve the latest system advisory information. You’re welcome to use any method: web browser, command line, or R. What are the different bits of information that they provide through this endpoint?</li>
+</ol>
+<ol start="27" class="example" type="1">
+<li><em>Optional Challenge</em>: Use the data provided by the BART API to construct a map of the BART system showing the locations of all stations. You could make it interactive with leaflet or static like the one below.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../31-apis-1/images/bart-map.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
+</figure>
+</div>
 
 
 </section>

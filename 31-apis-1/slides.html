@@ -439,7 +439,7 @@
 <h2>BART</h2>
 
 <img data-src="images/bart-1.jpg" style="width:50.0%" class="r-stretch"><p><strong>Question:</strong> Brainstorm <em>5 different data sets</em> that BART might maintain. Identify whether each one is best represented by a 1D array (e.g.&nbsp;a text string), a 2D array (e.g.&nbsp;a data frame), or a multi-dimensional array (e.g.&nbsp;a nested list).</p>
-<div id="timer_297db32f2f51e38982e48027c7555fb8cef02597" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_2855cd2f74be79f42088d194d79a226760ed2d0d" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -482,7 +482,7 @@
 </p>
 <p><code>orig=DBRK&amp;json=y&amp;key=MW9S-E7SL-26DU-VV8V</code></p>
 <aside class="notes annotate">
-<p>Annotate: box the endpoint, circle ? and each &amp;, underline each parameter and match it to the table.</p>
+<p>Annotate: box the endpoint, circle ?, bracket everything after it as a query parameter, add <code>name=value</code> for each parmeter and circle each &amp; separator. underline each parameter and match it to the table.</p>
 <p>Live: paste the full URL into a browser and show the JSON that comes back. If the API is down, these screenshots show what to expect:</p>
 <p><img data-src="images/web1.png"></p>
 <p><img data-src="images/web2.png"></p>
@@ -717,6 +717,53 @@ $root$message
           display:block!important;
       }</style></aside>
 </div>
+</section>
+<section id="simplifying-the-response" class="slide level2 smaller">
+<h2>Simplifying the response</h2>
+<p><code>simplifyVector = TRUE</code> turns JSON arrays into R vectors, and arrays of records into data frames.</p>
+<div class="columns">
+<div class="column">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-label="1"></a>data<span class="sc">$</span>root<span class="sc">$</span>stations<span class="sc">$</span>station<span class="sc">$</span>north_routes</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>$route
+$route[[1]]
+[1] "ROUTE 3"
+
+$route[[2]]
+[1] "ROUTE 8"</code></pre>
+</div>
+</div>
+</div><div class="column fragment">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a aria-label="1"></a>data_simple <span class="ot">&lt;-</span> <span class="fu">resp_body_json</span>(</span>
+<span id="cb18-2"><a aria-label="2"></a>  res,</span>
+<span id="cb18-3"><a aria-label="3"></a>  <span class="at">simplifyVector =</span> <span class="cn">TRUE</span></span>
+<span id="cb18-4"><a aria-label="4"></a>)</span>
+<span id="cb18-5"><a aria-label="5"></a>data_simple<span class="sc">$</span>root<span class="sc">$</span>stations<span class="sc">$</span>station<span class="sc">$</span>north_routes</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>$route
+[1] "ROUTE 3" "ROUTE 8"</code></pre>
+</div>
+</div>
+</div></div>
+<aside class="notes">
+<p>Point out that the routes come back as a list of one-element lists with FALSE, and as a character vector with TRUE. The problem set uses TRUE so that the list of all stations arrives as a data frame.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section></section>
 <section>
 <section id="departures" class="title-slide slide level1 center">
@@ -743,20 +790,20 @@ $root$message
 </div>
 </div><div class="column" style="width:55%;">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-label="1"></a><span class="co"># Station Info API request</span></span>
-<span id="cb16-2"><a aria-label="2"></a>res <span class="ot">&lt;-</span> <span class="fu">request</span>(api_url) <span class="sc">|&gt;</span></span>
-<span id="cb16-3"><a aria-label="3"></a>  <span class="fu">req_url_query</span>(<span class="at">cmd  =</span> <span class="st">"stninfo"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb16-4"><a aria-label="4"></a>  <span class="fu">req_url_query</span>(<span class="at">orig =</span> <span class="st">"DBRK"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb16-5"><a aria-label="5"></a>  <span class="fu">req_url_query</span>(<span class="at">key  =</span> <span class="st">"MW9S-E7SL-26DU-VV8V"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb16-6"><a aria-label="6"></a>  <span class="fu">req_url_query</span>(<span class="at">json =</span> <span class="st">"y"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb16-7"><a aria-label="7"></a>  <span class="fu">req_perform</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a aria-label="1"></a><span class="co"># Station Info API request</span></span>
+<span id="cb20-2"><a aria-label="2"></a>res <span class="ot">&lt;-</span> <span class="fu">request</span>(api_url) <span class="sc">|&gt;</span></span>
+<span id="cb20-3"><a aria-label="3"></a>  <span class="fu">req_url_query</span>(<span class="at">cmd  =</span> <span class="st">"stninfo"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb20-4"><a aria-label="4"></a>  <span class="fu">req_url_query</span>(<span class="at">orig =</span> <span class="st">"DBRK"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb20-5"><a aria-label="5"></a>  <span class="fu">req_url_query</span>(<span class="at">key  =</span> <span class="st">"MW9S-E7SL-26DU-VV8V"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb20-6"><a aria-label="6"></a>  <span class="fu">req_url_query</span>(<span class="at">json =</span> <span class="st">"y"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb20-7"><a aria-label="7"></a>  <span class="fu">req_perform</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 
 </div>
 <p><strong>Question</strong>: How would you modify this request to get estimated departure times (ETDs) for trains leaving from the Downtown Berkeley station (DBRK)?</p>
 </div></div>
-<div id="timer_297db32f2f51e38982e48027c7555fb8cef02597" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_2855cd2f74be79f42088d194d79a226760ed2d0d" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -780,15 +827,15 @@ $root$message
 <section id="recall-station-call" class="slide level2 smaller" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Recall: Station Call</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb17-1" class="hljs-ln-code"><a aria-label="1"></a><span class="fu">library</span>(httr2)</span>
-<span id="cb17-2" class="hljs-ln-code"><a aria-label="2"></a>api_url <span class="ot">&lt;-</span> <span class="st">"https://api.bart.gov/api/stn.aspx"</span></span>
-<span id="cb17-3" class="hljs-ln-code"><a aria-label="3"></a>res <span class="ot">&lt;-</span> <span class="fu">request</span>(api_url) <span class="sc">|&gt;</span></span>
-<span id="cb17-4" class="hljs-ln-code"><a aria-label="4"></a>  <span class="fu">req_url_query</span>(<span class="at">cmd  =</span> <span class="st">"stninfo"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb17-5" class="hljs-ln-code"><a aria-label="5"></a>  <span class="fu">req_url_query</span>(<span class="at">orig =</span> <span class="st">"DBRK"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb17-6" class="hljs-ln-code"><a aria-label="6"></a>  <span class="fu">req_url_query</span>(<span class="at">key  =</span> <span class="st">"MW9S-E7SL-26DU-VV8V"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb17-7" class="hljs-ln-code"><a aria-label="7"></a>  <span class="fu">req_url_query</span>(<span class="at">json =</span> <span class="st">"y"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb17-8" class="hljs-ln-code"><a aria-label="8"></a>  <span class="fu">req_perform</span>()</span>
-<span id="cb17-9" class="hljs-ln-code"><a aria-label="9"></a>res</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb21-1" class="hljs-ln-code"><a aria-label="1"></a><span class="fu">library</span>(httr2)</span>
+<span id="cb21-2" class="hljs-ln-code"><a aria-label="2"></a>api_url <span class="ot">&lt;-</span> <span class="st">"https://api.bart.gov/api/stn.aspx"</span></span>
+<span id="cb21-3" class="hljs-ln-code"><a aria-label="3"></a>res <span class="ot">&lt;-</span> <span class="fu">request</span>(api_url) <span class="sc">|&gt;</span></span>
+<span id="cb21-4" class="hljs-ln-code"><a aria-label="4"></a>  <span class="fu">req_url_query</span>(<span class="at">cmd  =</span> <span class="st">"stninfo"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb21-5" class="hljs-ln-code"><a aria-label="5"></a>  <span class="fu">req_url_query</span>(<span class="at">orig =</span> <span class="st">"DBRK"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb21-6" class="hljs-ln-code"><a aria-label="6"></a>  <span class="fu">req_url_query</span>(<span class="at">key  =</span> <span class="st">"MW9S-E7SL-26DU-VV8V"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb21-7" class="hljs-ln-code"><a aria-label="7"></a>  <span class="fu">req_url_query</span>(<span class="at">json =</span> <span class="st">"y"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb21-8" class="hljs-ln-code"><a aria-label="8"></a>  <span class="fu">req_perform</span>()</span>
+<span id="cb21-9" class="hljs-ln-code"><a aria-label="9"></a>res</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -803,14 +850,14 @@ Body: In memory (1810 bytes)</code></pre>
 <section id="etd-call" class="slide level2 smaller" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">ETD Call</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb19-1" class="hljs-ln-code"><a aria-label="1"></a>api_url <span class="ot">&lt;-</span> <span class="st">"https://api.bart.gov/api/etd.aspx"</span></span>
-<span id="cb19-2" class="hljs-ln-code"><a aria-label="2"></a>res <span class="ot">&lt;-</span> <span class="fu">request</span>(api_url) <span class="sc">|&gt;</span></span>
-<span id="cb19-3" class="hljs-ln-code"><a aria-label="3"></a>  <span class="fu">req_url_query</span>(<span class="at">cmd  =</span> <span class="st">"etd"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb19-4" class="hljs-ln-code"><a aria-label="4"></a>  <span class="fu">req_url_query</span>(<span class="at">orig =</span> <span class="st">"DBRK"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb19-5" class="hljs-ln-code"><a aria-label="5"></a>  <span class="fu">req_url_query</span>(<span class="at">key  =</span> <span class="st">"MW9S-E7SL-26DU-VV8V"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb19-6" class="hljs-ln-code"><a aria-label="6"></a>  <span class="fu">req_url_query</span>(<span class="at">json =</span> <span class="st">"y"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb19-7" class="hljs-ln-code"><a aria-label="7"></a>  <span class="fu">req_perform</span>()</span>
-<span id="cb19-8" class="hljs-ln-code"><a aria-label="8"></a>res</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb23-1" class="hljs-ln-code"><a aria-label="1"></a>api_url <span class="ot">&lt;-</span> <span class="st">"https://api.bart.gov/api/etd.aspx"</span></span>
+<span id="cb23-2" class="hljs-ln-code"><a aria-label="2"></a>res <span class="ot">&lt;-</span> <span class="fu">request</span>(api_url) <span class="sc">|&gt;</span></span>
+<span id="cb23-3" class="hljs-ln-code"><a aria-label="3"></a>  <span class="fu">req_url_query</span>(<span class="at">cmd  =</span> <span class="st">"etd"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb23-4" class="hljs-ln-code"><a aria-label="4"></a>  <span class="fu">req_url_query</span>(<span class="at">orig =</span> <span class="st">"DBRK"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb23-5" class="hljs-ln-code"><a aria-label="5"></a>  <span class="fu">req_url_query</span>(<span class="at">key  =</span> <span class="st">"MW9S-E7SL-26DU-VV8V"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb23-6" class="hljs-ln-code"><a aria-label="6"></a>  <span class="fu">req_url_query</span>(<span class="at">json =</span> <span class="st">"y"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb23-7" class="hljs-ln-code"><a aria-label="7"></a>  <span class="fu">req_perform</span>()</span>
+<span id="cb23-8" class="hljs-ln-code"><a aria-label="8"></a>res</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -825,8 +872,8 @@ Body: In memory (1976 bytes)</code></pre>
 <section id="section-14" class="slide level2">
 <h2></h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a aria-label="1"></a>data <span class="ot">&lt;-</span> <span class="fu">resp_body_json</span>(res, <span class="at">simplifyVector =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb21-2"><a aria-label="2"></a>data</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a aria-label="1"></a>data <span class="ot">&lt;-</span> <span class="fu">resp_body_json</span>(res, <span class="at">simplifyVector =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb25-2"><a aria-label="2"></a>data</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
@@ -851,7 +898,7 @@ $root$date
 [1] "11/06/2026"
 
 $root$time
-[1] "07:23:04 AM PST"
+[1] "08:20:47 AM PST"
 
 $root$station
 $root$station[[1]]
@@ -875,7 +922,7 @@ $root$station[[1]]$etd[[1]]$limited
 $root$station[[1]]$etd[[1]]$estimate
 $root$station[[1]]$etd[[1]]$estimate[[1]]
 $root$station[[1]]$etd[[1]]$estimate[[1]]$minutes
-[1] "15"
+[1] "17"
 
 $root$station[[1]]$etd[[1]]$estimate[[1]]$platform
 [1] "2"
@@ -884,7 +931,7 @@ $root$station[[1]]$etd[[1]]$estimate[[1]]$direction
 [1] "South"
 
 $root$station[[1]]$etd[[1]]$estimate[[1]]$length
-[1] "6"
+[1] "5"
 
 $root$station[[1]]$etd[[1]]$estimate[[1]]$color
 [1] "ORANGE"
@@ -907,7 +954,7 @@ $root$station[[1]]$etd[[1]]$estimate[[1]]$dynamicflag
 
 $root$station[[1]]$etd[[1]]$estimate[[2]]
 $root$station[[1]]$etd[[1]]$estimate[[2]]$minutes
-[1] "35"
+[1] "37"
 
 $root$station[[1]]$etd[[1]]$estimate[[2]]$platform
 [1] "2"
@@ -916,7 +963,7 @@ $root$station[[1]]$etd[[1]]$estimate[[2]]$direction
 [1] "South"
 
 $root$station[[1]]$etd[[1]]$estimate[[2]]$length
-[1] "6"
+[1] "5"
 
 $root$station[[1]]$etd[[1]]$estimate[[2]]$color
 [1] "ORANGE"
@@ -939,7 +986,7 @@ $root$station[[1]]$etd[[1]]$estimate[[2]]$dynamicflag
 
 $root$station[[1]]$etd[[1]]$estimate[[3]]
 $root$station[[1]]$etd[[1]]$estimate[[3]]$minutes
-[1] "55"
+[1] "57"
 
 $root$station[[1]]$etd[[1]]$estimate[[3]]$platform
 [1] "2"
@@ -984,7 +1031,7 @@ $root$station[[1]]$etd[[2]]$limited
 $root$station[[1]]$etd[[2]]$estimate
 $root$station[[1]]$etd[[2]]$estimate[[1]]
 $root$station[[1]]$etd[[2]]$estimate[[1]]$minutes
-[1] "2"
+[1] "5"
 
 $root$station[[1]]$etd[[2]]$estimate[[1]]$platform
 [1] "2"
@@ -1016,7 +1063,7 @@ $root$station[[1]]$etd[[2]]$estimate[[1]]$dynamicflag
 
 $root$station[[1]]$etd[[2]]$estimate[[2]]
 $root$station[[1]]$etd[[2]]$estimate[[2]]$minutes
-[1] "22"
+[1] "25"
 
 $root$station[[1]]$etd[[2]]$estimate[[2]]$platform
 [1] "2"
@@ -1048,7 +1095,7 @@ $root$station[[1]]$etd[[2]]$estimate[[2]]$dynamicflag
 
 $root$station[[1]]$etd[[2]]$estimate[[3]]
 $root$station[[1]]$etd[[2]]$estimate[[3]]$minutes
-[1] "42"
+[1] "45"
 
 $root$station[[1]]$etd[[2]]$estimate[[3]]$platform
 [1] "2"
@@ -1093,7 +1140,7 @@ $root$station[[1]]$etd[[3]]$limited
 $root$station[[1]]$etd[[3]]$estimate
 $root$station[[1]]$etd[[3]]$estimate[[1]]
 $root$station[[1]]$etd[[3]]$estimate[[1]]$minutes
-[1] "2"
+[1] "4"
 
 $root$station[[1]]$etd[[3]]$estimate[[1]]$platform
 [1] "1"
@@ -1114,7 +1161,7 @@ $root$station[[1]]$etd[[3]]$estimate[[1]]$bikeflag
 [1] "1"
 
 $root$station[[1]]$etd[[3]]$estimate[[1]]$delay
-[1] "60"
+[1] "0"
 
 $root$station[[1]]$etd[[3]]$estimate[[1]]$cancelflag
 [1] "0"
@@ -1125,7 +1172,7 @@ $root$station[[1]]$etd[[3]]$estimate[[1]]$dynamicflag
 
 $root$station[[1]]$etd[[3]]$estimate[[2]]
 $root$station[[1]]$etd[[3]]$estimate[[2]]$minutes
-[1] "11"
+[1] "15"
 
 $root$station[[1]]$etd[[3]]$estimate[[2]]$platform
 [1] "1"
@@ -1134,7 +1181,7 @@ $root$station[[1]]$etd[[3]]$estimate[[2]]$direction
 [1] "North"
 
 $root$station[[1]]$etd[[3]]$estimate[[2]]$length
-[1] "5"
+[1] "10"
 
 $root$station[[1]]$etd[[3]]$estimate[[2]]$color
 [1] "RED"
@@ -1157,7 +1204,7 @@ $root$station[[1]]$etd[[3]]$estimate[[2]]$dynamicflag
 
 $root$station[[1]]$etd[[3]]$estimate[[3]]
 $root$station[[1]]$etd[[3]]$estimate[[3]]$minutes
-[1] "21"
+[1] "23"
 
 $root$station[[1]]$etd[[3]]$estimate[[3]]$platform
 [1] "1"
@@ -1166,7 +1213,7 @@ $root$station[[1]]$etd[[3]]$estimate[[3]]$direction
 [1] "North"
 
 $root$station[[1]]$etd[[3]]$estimate[[3]]$length
-[1] "5"
+[1] "6"
 
 $root$station[[1]]$etd[[3]]$estimate[[3]]$color
 [1] "ORANGE"
