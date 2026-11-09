@@ -102,7 +102,7 @@
     code span.vs { color: #032f62; } /* VerbatimString */
     code span.wa { color: #ff5555; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-4b2986a98c479737a68edbabff215be5.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-048dd6ad118ee2dc7db1ac3daabf611a.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -231,39 +231,6 @@
 <li class="fragment"><em>Pivots</em> reshape data longer or wider, toward <em>tidy data</em>.</li>
 </ol>
 </div></div>
-<aside class="notes">
-<h4 id="concept-acquisition">Concept Acquisition</h4>
-<ol type="1">
-<li>A join links the rows of two data frames through a key column; the key can have different names in each (<code>join_by(name == Name)</code>).</li>
-<li>The four mutating joins (left, right, full, inner) add the columns of <code>y</code> to <code>x</code> and differ only in which unmatched rows they keep.</li>
-<li>The two filtering joins (semi, anti) keep or drop rows of <code>x</code> based on whether they match <code>y</code>, and add no columns.</li>
-<li>When a key value appears more than once in <code>y</code>, a left join returns every combination of matches, so it can add rows.</li>
-<li>Tidy data puts each variable in a column, each observation in a row, and each value in a cell; the same data can be stored in tidy and untidy shapes.</li>
-</ol>
-<h4 id="tool-acquisition">Tool Acquisition</h4>
-<ol type="1">
-<li><code>left_join()</code>, <code>right_join()</code>, <code>full_join()</code>, <code>inner_join()</code>, <code>semi_join()</code>, and <code>anti_join()</code>, with <code>by = join_by()</code>.</li>
-<li><code>pivot_longer(data, cols, names_to, values_to)</code> and <code>pivot_wider(data, names_from, values_from)</code> from <code>tidyr</code>.</li>
-<li><code>unite()</code> to combine columns into one.</li>
-</ol>
-<h4 id="concept-application">Concept Application</h4>
-<ol type="1">
-<li>Sketch the data frame that combines <code>sw1</code> and <code>sw2</code>, then predict the dimensions of each join before running it.</li>
-<li>Predict the dimensions of <code>left_join(sw1, sw3)</code> versus <code>left_join(sw3, sw1)</code>.</li>
-<li>Replace <code>filter()</code> with a semi join and <code>mutate()</code> + <code>case_when()</code> with a left join on the penguins data.</li>
-<li>Move between <code>table1</code>, <code>table2</code>, <code>table3</code>, and <code>table4a</code> with pivots and <code>unite()</code>.</li>
-</ol>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="while-youre-waiting" class="slide level2">
 <h2>While you’re waiting…</h2>
@@ -306,19 +273,6 @@
 <span id="cb2-11"><a aria-label="11"></a>              <span class="at">avg_temp_c =</span> <span class="fu">c</span>(<span class="dv">43</span>, <span class="dv">22</span>, <span class="dv">5</span>),</span>
 <span id="cb2-12"><a aria-label="12"></a>              <span class="at">pop_millions =</span> <span class="fu">c</span>(.<span class="dv">3</span>, <span class="dv">4600</span>, <span class="fl">2.3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<aside class="notes code">
-<p>This slide is just to have the data frames at hand to copy and paste to use at the console.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="a-tale-of-two-tables" class="slide level2">
 <h2>A tale of two tables</h2>
@@ -350,27 +304,13 @@
 </div>
 </div></div>
 <p><strong>Task</strong>: Sketch a data frame that combines the data from these two tables.</p>
-<div id="timer_89de3312321d4df305e38969febc26f4817c202c" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_ac846ea20f468dcfb595c5dba0b853c570d3074a" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
  </div>
  <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
  </div>
-<aside class="notes board">
-<p>Ask for a few answers and sketch them on the board. Specifically, ask for the number of rows and columns.</p>
-<p>They will likely suggest a full join, but some might suggest left join.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="section-2" class="slide level2 smaller">
 <h2></h2>
@@ -453,19 +393,6 @@
 </div>
 </div>
 </div></div>
-<aside class="notes">
-<p>Ask: what will the dimensions will be once I join?</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="left-join-3" class="slide level2" data-auto-animate="true">
@@ -484,19 +411,6 @@
 3 Luke   Tatooine     1.7 Tea      19</code></pre>
 </div>
 </div>
-<aside class="notes code">
-<p>Experiment to show that if they share the same key name, you can just use <code>by = name</code> or omit it.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="section-3" class="slide level2">
 <h2></h2>
@@ -559,19 +473,6 @@
 </div>
 </div>
 </div></div>
-<aside class="notes">
-<p>Ask: what will the dimensions will be once I join?</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="right-join-3" class="slide level2" data-auto-animate="true">
@@ -646,19 +547,6 @@
 </div>
 </div>
 </div></div>
-<aside class="notes">
-<p>Ask: what will the dimensions will be once I join?</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="full-join-3" class="slide level2" data-auto-animate="true">
@@ -734,19 +622,6 @@
 </div>
 </div>
 </div></div>
-<aside class="notes">
-<p>Ask: what will the dimensions will be once I join?</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="inner-join-3" class="slide level2" data-auto-animate="true">
@@ -806,7 +681,7 @@
 <span id="cb35-2"><a aria-label="2"></a>df_B <span class="ot">&lt;-</span> <span class="fu">left_join</span>(sw3, sw1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><strong>Question</strong>: What are the dimensions of <code>df_A</code> and <code>df_B</code>?</p>
-<div id="timer_89de3312321d4df305e38969febc26f4817c202c" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_ac846ea20f468dcfb595c5dba0b853c570d3074a" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -965,19 +840,6 @@
 </div>
 </div>
 </div></div>
-<aside class="notes">
-<p>Ask: what will the dimensions will be once I join?</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="semi-join-3" class="slide level2" data-auto-animate="true">
@@ -1050,19 +912,6 @@
 </div>
 </div>
 </div></div>
-<aside class="notes">
-<p>Ask: what will the dimensions will be once I join?</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="anti-join-3" class="slide level2" data-auto-animate="true">
@@ -1330,19 +1179,6 @@
 </div><div class="column">
 <p><img data-src="images/original-dfs.png"></p>
 </div></div>
-<aside class="notes annotate">
-<p>Annotate joins 1-4 with “Mutating” and joins 5-6 with “Filtering”</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="guess-the-metaphor" class="slide level2 intro" data-background-color="var(--intro-bg)">
 <h2>Guess the Metaphor</h2>
@@ -1530,19 +1366,6 @@ rows whose element is empty instead of dropping them.
 </div>
 </div>
 </div></div>
-<aside class="notes annotate">
-<p>Annotate with the unit of observation. Also note the <em>names</em> and the <em>values</em>.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="section-11" class="slide level2 smaller">
 <h2></h2>
@@ -1578,19 +1401,6 @@ rows whose element is empty instead of dropping them.
 <blockquote>
 <p>How do you get from <code>table4a</code> to <code>table1</code>?</p>
 </blockquote>
-<aside class="notes annotate">
-<p>Annotate that you need to move the names 1999 and 2000 into the values of a new column called “year” and move the values into a values of a new column called “cases”.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="section-12" class="slide level2">
 <h2></h2>
@@ -1769,7 +1579,7 @@ rows whose element is empty instead of dropping them.
 <blockquote>
 <p>How do you get from <code>table1</code> to <code>table2</code>?</p>
 </blockquote>
-<div id="timer_89de3312321d4df305e38969febc26f4817c202c" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_ac846ea20f468dcfb595c5dba0b853c570d3074a" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -1945,6 +1755,7 @@ rows whose element is empty instead of dropping them.
   <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-drop/drop-runtime.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-magic-move/magic-move.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-sticky-annotations/sticky-annotations.js"></script>
   <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -2140,7 +1951,7 @@ rows whose element is empty instead of dropping them.
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, RevealStickyAnnotations, QuartoSupport,
 
           RevealMath,
           RevealNotes,

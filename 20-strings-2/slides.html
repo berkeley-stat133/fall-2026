@@ -102,7 +102,7 @@
     code span.vs { color: #032f62; } /* VerbatimString */
     code span.wa { color: #ff5555; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-4b2986a98c479737a68edbabff215be5.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-048dd6ad118ee2dc7db1ac3daabf611a.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -231,39 +231,6 @@
 <li class="fragment"><em>Alternation</em> matches one pattern or another.</li>
 </ol>
 </div></div>
-<aside class="notes board">
-<p>On the pinned board, continue the regex toolkit from Strings I. Add each new tool as it appears: ranges and negation, shortcut classes, anchors, grouping, alternation.</p>
-<h4 id="concept-acquisition">Concept Acquisition</h4>
-<ol type="1">
-<li>A character class matches any one character from a set; <code>^</code> at its start negates it and <code>-</code> expresses a range.</li>
-<li>Shortcut classes (<code>\d</code>, <code>\s</code>, <code>\w</code> and their capitals) name common sets, and need a second backslash inside an R string.</li>
-<li>Anchors (<code>^</code>, <code>$</code>) match positions, not characters, so they pin a pattern to the start or end of a string.</li>
-<li>Parentheses group characters so a quantifier applies to the whole group, and <code>|</code> matches one pattern or another; grouping limits how far an alternation reaches.</li>
-</ol>
-<h4 id="tool-acquisition">Tool Acquisition</h4>
-<ol type="1">
-<li>Regex syntax: <code>^</code>, <code>$</code>, <code>[...]</code>, <code>[^...]</code>, <code>[a-z]</code>, <code>\\d</code>, <code>\\s</code>, <code>\\w</code>, <code>()</code>, and <code>|</code>.</li>
-<li><code>str_view(..., match = NA)</code>, <code>str_count()</code>, and <code>str_extract()</code> from <code>stringr</code>.</li>
-<li>A regex tester such as <a href="https://regexr.com/" class="uri">https://regexr.com/</a>.</li>
-</ol>
-<h4 id="concept-application">Concept Application</h4>
-<ol type="1">
-<li>Write patterns for file names: a <code>webp</code> extension, images starting with p, and a three-digit number.</li>
-<li>Write patterns for license plates, spellings of “color”, and valid phone numbers.</li>
-<li>Predict which strings <code>"^cat|dog$"</code> and <code>"^(cat|dog)$"</code> match.</li>
-<li>Extract the file name from each path with <code>str_extract()</code>.</li>
-</ol>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="section-1" class="slide level2">
 <h2></h2>
@@ -284,7 +251,7 @@
 <li class="fragment">Images with a name that starts with the letter p.</li>
 <li class="fragment">Files with a three digit number.</li>
 </ol>
-<div id="timer_f7f2b2169dd00fd7086347f72a11b57e5ebc1ee5" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_dccd2e758f8eff9f12fca084bcd70a12f2248f33" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -464,20 +431,6 @@
 <pre><code>[1] │ abcd&lt; ABCD &gt;12345&lt; -!@#%.&gt;</code></pre>
 </div>
 </div>
-<aside class="notes board">
-<p>On the pinned board: “<code>^</code> inside <code>[ ]</code> = not; <code>^</code> outside = start.” Return to it at Anchors.</p>
-<p>Ask: is there a shorter way to write the warm-up’s <code>[0123456789]{3}</code>? Hold the answer for the recap at the end of this section.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="section-5" class="slide level2 smaller">
@@ -761,7 +714,7 @@
 <li class="fragment">Valid full spellings of the word “color”.</li>
 <li class="fragment">Strings that contain only valid phone number with area code (no country code).</li>
 </ol>
-<div id="timer_f7f2b2169dd00fd7086347f72a11b57e5ebc1ee5" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_dccd2e758f8eff9f12fca084bcd70a12f2248f33" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -1391,6 +1344,7 @@
   <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-drop/drop-runtime.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-magic-move/magic-move.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-sticky-annotations/sticky-annotations.js"></script>
   <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -1586,7 +1540,7 @@
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, RevealStickyAnnotations, QuartoSupport,
 
           RevealMath,
           RevealNotes,

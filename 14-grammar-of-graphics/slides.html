@@ -102,7 +102,7 @@
     code span.vs { color: #032f62; } /* VerbatimString */
     code span.wa { color: #ff5555; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-4b2986a98c479737a68edbabff215be5.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-048dd6ad118ee2dc7db1ac3daabf611a.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -231,38 +231,6 @@
 <li class="fragment"><em>Mapping</em> an aesthetic to a variable is different from <em>setting</em> it to a constant.</li>
 </ol>
 </div></div>
-<aside class="notes">
-<h4 id="concept-acquisition">Concept Acquisition</h4>
-<ol type="1">
-<li>Plots that look different (histogram, density, box plot, bar chart, scatterplot) share a common underlying structure.</li>
-<li>A plot can be decomposed into data, aesthetic mappings, and a geometry.</li>
-<li>Visual channels differ in how well they encode ordered versus unordered variables.</li>
-<li>Mapping an aesthetic to a variable encodes variation in the data; setting it to a constant does not.</li>
-</ol>
-<h4 id="tool-acquisition">Tool Acquisition</h4>
-<ol type="1">
-<li><code>ggplot()</code> to create the canvas and <code>aes()</code> to declare mappings.</li>
-<li>Common aesthetics: <code>x</code>, <code>y</code>, <code>color</code>, <code>fill</code>, <code>size</code>, <code>shape</code>, <code>alpha</code>.</li>
-<li>Common geometries: <code>geom_point()</code>, <code>geom_bar()</code>/<code>geom_col()</code>, <code>geom_line()</code>, <code>geom_histogram()</code>, <code>geom_boxplot()</code>, <code>geom_violin()</code>, <code>geom_density()</code>.</li>
-<li>Adding layers with <code>+</code> (not <code>|&gt;</code>).</li>
-</ol>
-<h4 id="concept-application">Concept Application</h4>
-<ol type="1">
-<li>Identify what the a series of plots have in common and how they differ.</li>
-<li>Name the aesthetic mappings and geometries in a multi-variable scatterplot.</li>
-<li>Translate a plot into <code>ggplot2</code> code, and vice versa.</li>
-</ol>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="meet-the-palmer-penguins" class="slide level2 smaller">
 <h2>Meet the Palmer Penguins <img data-src="images/penguins-hex.png" width="80"></h2>
@@ -295,7 +263,7 @@
 <p><strong>Question</strong>: In terms of the way they are constructed…</p>
 
 <img data-src="slides_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" width="1536"><p>What do these plots have in common? How do they differ?</p>
-<div id="timer_2354775278b22fc582fd5da8f51ad0149265c924" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_50e5410687b09dfd866b11355ff53c70c88a4fb0" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -307,7 +275,7 @@
 <h2></h2>
 <p><strong>Question</strong>: What do these plots have in common? How do they differ?</p>
 
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"><div id="timer_2354775278b22fc582fd5da8f51ad0149265c924" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"><div id="timer_50e5410687b09dfd866b11355ff53c70c88a4fb0" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -392,19 +360,6 @@
 </section>
 <section id="named-plots" class="slide level2">
 <h2>Named plots</h2>
-<aside class="notes">
-<p>Draw “Scatterplot” and “barchart” along with their description in the g of g.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="redux-1" class="slide level2">
 <h2>Redux 1</h2>
@@ -418,7 +373,7 @@
 <h2></h2>
 <p><strong>Question</strong>: What are the aesthetic mappings and geometries used here?</p>
 
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"><div id="timer_2354775278b22fc582fd5da8f51ad0149265c924" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"><div id="timer_50e5410687b09dfd866b11355ff53c70c88a4fb0" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -434,7 +389,7 @@
 <li class="fragment">Write down the visual channels (there are 3).</li>
 <li class="fragment">Sketch the data frame behind the plot.</li>
 </ol>
-<div id="timer_2354775278b22fc582fd5da8f51ad0149265c924" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_50e5410687b09dfd866b11355ff53c70c88a4fb0" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -444,7 +399,7 @@
 </section>
 <section id="section-8" class="slide level2" data-background-image="images/newsmap.png" data-background-size="contain">
 <h2></h2>
-<div id="timer_2354775278b22fc582fd5da8f51ad0149265c924" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_50e5410687b09dfd866b11355ff53c70c88a4fb0" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -537,19 +492,6 @@
 </div>
 </div>
 </div></div>
-<aside class="notes">
-<p>Draw arrows mapping variables to visual cues</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="section-13" class="slide level2 smaller" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
@@ -753,6 +695,7 @@ Exploratory:
   <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-drop/drop-runtime.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-magic-move/magic-move.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-sticky-annotations/sticky-annotations.js"></script>
   <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -948,7 +891,7 @@ Exploratory:
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, RevealStickyAnnotations, QuartoSupport,
 
           RevealMath,
           RevealNotes,

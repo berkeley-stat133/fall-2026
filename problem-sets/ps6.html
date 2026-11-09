@@ -343,6 +343,7 @@ window.Quarto = {
   <li><a href="#r-packages-ii" id="toc-r-packages-ii" class="nav-link active" data-scroll-target="#r-packages-ii">R Packages II</a></li>
   <li><a href="#testing" id="toc-testing" class="nav-link" data-scroll-target="#testing">Testing</a></li>
   <li><a href="#apis-i" id="toc-apis-i" class="nav-link" data-scroll-target="#apis-i">APIs I</a></li>
+  <li><a href="#apis-ii" id="toc-apis-ii" class="nav-link" data-scroll-target="#apis-ii">APIs II</a></li>
   </ul>
 </nav>
     </div>
@@ -616,6 +617,50 @@ Expected `n_words("two  spaces")` to equal 2.
 <p><img src="../31-apis-1/images/bart-map.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="400"></p>
 </figure>
 </div>
+</section>
+<section id="apis-ii" class="level3">
+<h3 class="anchored" data-anchor-id="apis-ii">APIs II</h3>
+<p>Make a folder for these problems with an R script called <code>stat133-api.R</code>. Copy in the <code>/greet</code> and <code>/babynames</code> endpoints from the lecture slides, and this <code>/grade</code> endpoint, which computes a course grade from the four parts of the syllabus. Plumber passes the fields of a POST’s JSON body to the function’s arguments by name, as it did for the guestbook.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#* Compute final course grade</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#* @post /grade</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="cf">function</span>(problem_sets, projects, quizzes, final) {</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  course_grade <span class="ot">&lt;-</span> <span class="fl">0.01</span> <span class="sc">*</span> problem_sets <span class="sc">+</span> <span class="fl">0.20</span> <span class="sc">*</span> projects <span class="sc">+</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.49</span> <span class="sc">*</span> quizzes <span class="sc">+</span> <span class="fl">0.30</span> <span class="sc">*</span> final</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(<span class="at">course_grade =</span> course_grade)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Start the API with <code>plumb()</code> and <code>pr_run()</code> on port 8080, as in lecture. While it runs, that R session is busy, so send requests from a second one: in Positron, start another R console with the <strong>+</strong> in the Console pane; in RStudio, choose <em>Session &gt; New Session</em>. After each change to <code>stat133-api.R</code>, stop the API (Esc) and start it again.</p>
+<ol start="28" class="example" type="1">
+<li><p>Before you try them, predict what your browser shows at each of these addresses, and say in a sentence why. Then check.</p>
+<ol type="a">
+<li><code>http://localhost:8080/greet?name=Oski</code></li>
+<li><code>http://localhost:8080/</code></li>
+<li><code>http://localhost:8080/grade</code></li>
+</ol></li>
+</ol>
+<ol start="29" class="example" type="1">
+<li><p>Add two optional parameters to <code>/babynames</code>: <code>babysex</code>, which keeps only the rows for that sex, and <code>babyyear</code>, which keeps only the rows for that year. With neither, the endpoint returns every row for the name, as before. Give them empty-string defaults (as <code>/greet</code> does with <code>name = ""</code>) and filter only when a value was given. How many rows does each of these return?</p>
+<ul>
+<li><code>http://localhost:8080/babynames?babyname=Jordan</code></li>
+<li><code>http://localhost:8080/babynames?babyname=Jordan&amp;babysex=M</code></li>
+<li><code>http://localhost:8080/babynames?babyname=Jordan&amp;babyyear=2000</code></li>
+<li><code>http://localhost:8080/babynames?babyname=Jordan&amp;babysex=F&amp;babyyear=2000</code></li>
+</ul></li>
+</ol>
+<ol start="30" class="example" type="1">
+<li>Add an endpoint <code>/compare</code> that takes two names, <code>name1</code> and <code>name2</code>, and returns an SVG plot of both names’ popularity over time, one colored line per name. Give the code and describe the plot for <code>/compare?name1=Jordan&amp;name2=Taylor</code>.</li>
+</ol>
+<ol start="31" class="example" type="1">
+<li><p>A café wants an API for its orders, built like the lecture’s guestbook. Add:</p>
+<ul>
+<li>code at the top of <code>stat133-api.R</code> that starts an empty <code>orders.csv</code> with the columns <code>dish</code>, <code>quantity</code>, and <code>vegetarian</code>;</li>
+<li><code>POST /order</code>, which takes <code>dish</code>, <code>quantity</code>, and <code>vegetarian</code> and adds the order as a row of <code>orders.csv</code>;</li>
+<li><code>GET /orders</code>, which returns every order so far.</li>
+</ul>
+<p>Then, from your second R session, use <code>httr2</code> to send two orders: <code>list(dish = "Turkey", quantity = 1, vegetarian = FALSE)</code> and one of your own. Read the orders back with <code>GET /orders</code> as a data frame. Give your endpoints, your requests, and the data frame you get back.</p></li>
+</ol>
+<ol start="32" class="example" type="1">
+<li><em>Challenging.</em> <code>/grade</code> treats <code>quizzes</code> as a single score. Change it so <code>quizzes</code> is a vector of all of a student’s quiz scores, averaged before it’s weighted. Then send a request from R for a student with problem sets 100, projects 90, quiz scores 80, 92, 75, and 88, and a final of 85. What course grade does it return?</li>
+</ol>
 
 
 </section>

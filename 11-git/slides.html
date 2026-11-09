@@ -100,7 +100,7 @@
     code span.vs { color: #032f62; } /* VerbatimString */
     code span.wa { color: #ff5555; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-4b2986a98c479737a68edbabff215be5.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-048dd6ad118ee2dc7db1ac3daabf611a.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -235,37 +235,6 @@
 <li class="fragment">A <em>remote</em> is a web-hosted repo (GitHub) you <em>push</em> to and <em>clone</em> from.</li>
 </ol>
 </div></div>
-<aside class="notes">
-<h4 id="concept-acquisition">Concept Acquisition</h4>
-<ol type="1">
-<li>git is a free, open-source command-line tool for tracking changes to files, built to coordinate collaborative coding; it lets you save work, document your process, share, and collaborate.</li>
-<li>A repository is a directory tracked by git; changes move from working directory to staging area (<code>add</code>) to a saved snapshot (<code>commit</code>).</li>
-<li>A commit pairs a snapshot with a message, building a history you can review with <code>git log</code>.</li>
-<li>GitHub hosts remote repos so work can be shared and synced across machines and collaborators.</li>
-</ol>
-<h4 id="tool-acquisition">Tool Acquisition</h4>
-<ol type="1">
-<li><code>git init</code>, <code>git add</code>, <code>git commit -m</code>, <code>git log --oneline</code>.</li>
-<li><code>git remote add</code>, <code>git push -u origin main</code>, <code>git clone</code>.</li>
-<li>Non-git shell commands used alongside: <code>mkdir</code>, <code>cd</code>, <code>echo</code>.</li>
-</ol>
-<h4 id="concept-application">Concept Application</h4>
-<ol type="1">
-<li>Initialize a repo for a new project, stage a file, and commit it with a message.</li>
-<li>Edit a file, then stage and commit the change to build a two-commit history.</li>
-<li>Create a GitHub repo, link it as <code>origin</code>, and push local commits to it.</li>
-</ol>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="computational-toolbox" class="slide level2">
 <h2>Computational Toolbox</h2>
@@ -347,19 +316,6 @@
 <li class="fragment"><code>commit</code>: take a snapshot of files in the staging area with a message (<code>-m</code>)</li>
 <li class="fragment"><code>push</code>: send commits to another repo</li>
 </ul>
-<aside class="notes">
-<p>Before showing these commands, open a terminal and type <code>git --help</code> to show the menu of commands.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="section-5" class="slide level2" data-auto-animate="true">
@@ -410,19 +366,6 @@
 <li>Create new directory for my project.</li>
 </ol>
 </div></div>
-<aside class="notes">
-<p>Live code alongside, setting up this repo on your desktop. In the second half, you will be linking it to GitHub.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="section-8" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
@@ -591,19 +534,6 @@
 <section id="guess-the-metaphor" class="slide level2 intro" data-background-color="var(--intro-bg)">
 <h2>Guess the Metaphor</h2>
 <p>A tracking files on git is like wandering into <em>Medusa’s Lair</em>: first you walk into the lair (<code>git add</code>) then she petrifies you where you stand (<code>git commit</code>).</p>
-<aside class="notes">
-<p>Okay, this isn’t a great metaphor actually because you can keep walking around after being petrified. It’s more like the terracotta soldiers of xian, each commit you leave a snapshop of yourself.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="section-16" class="slide level2">
 <h2></h2>
@@ -712,19 +642,6 @@
 <section id="project-workflow-1" class="slide level2">
 <h2>Project Workflow</h2>
 <p>boardwork</p>
-<aside class="notes">
-<p>Sketch repo on github with GSI and student access, clone step into Positron, commit/push to turn in work.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="section-19" class="slide level2 intro" data-background-color="var(--intro-bg)">
 <h2></h2>
@@ -769,6 +686,7 @@
   <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-drop/drop-runtime.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-magic-move/magic-move.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-sticky-annotations/sticky-annotations.js"></script>
   <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -964,7 +882,7 @@
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, RevealStickyAnnotations, QuartoSupport,
 
           RevealMath,
           RevealNotes,

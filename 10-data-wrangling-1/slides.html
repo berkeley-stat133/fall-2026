@@ -102,7 +102,7 @@
     code span.vs { color: #032f62; } /* VerbatimString */
     code span.wa { color: #ff5555; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-4b2986a98c479737a68edbabff215be5.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-048dd6ad118ee2dc7db1ac3daabf611a.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -237,38 +237,6 @@
 </ul></li>
 </ol>
 </div></div>
-<aside class="notes">
-<h4 id="concept-acquisition">Concept Acquisition</h4>
-<ol type="1">
-<li>Base R subsetting (<code>[ , ]</code>, <code>$</code>) can accomplish common wrangling tasks, but the syntax is dense and hard to read back later.</li>
-<li>Every <code>dplyr</code> verb takes a data frame as its first argument, returns a data frame, and lets you refer to columns by name unquoted — a consistent interface that composes well.</li>
-<li><code>filter()</code> returns the rows that meet a logical condition; multiple conditions separated by commas are combined with an implicit AND.</li>
-<li><code>mutate()</code> adds a new column as a function of existing columns; <code>arrange()</code> reorders rows by one or more variables (<code>desc()</code> for descending); <code>summarize()</code> reduces a column to one or more summary statistics.</li>
-<li>Selection helpers (e.g.&nbsp;<code>contains()</code>) and ranges (e.g.&nbsp;<code>name:height</code>) let <code>select()</code> pick columns by pattern rather than listing each one.</li>
-</ol>
-<h4 id="tool-acquisition">Tool Acquisition</h4>
-<ol type="1">
-<li><code>slice()</code>, <code>select()</code>, <code>filter()</code>, <code>mutate()</code>, <code>arrange()</code>, <code>summarize()</code>, <code>group_by()</code> from <code>dplyr</code>.</li>
-<li><code>desc()</code> for descending sorts inside <code>arrange()</code>.</li>
-<li>Selection helpers such as <code>contains()</code> and the <code>:</code> range syntax inside <code>select()</code>.</li>
-</ol>
-<h4 id="concept-application">Concept Application</h4>
-<ol type="1">
-<li>Rewrite a base R subsetting task (filter rows, add a derived column, compute a grouped mean) using <code>dplyr</code> verbs and compare readability.</li>
-<li>Combine multiple conditions in a single <code>filter()</code> call.</li>
-<li>Use <code>select()</code> with a helper or a range to grab several related columns at once.</li>
-</ol>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section>
 <section id="room-for-improvement-in-base-r" class="title-slide slide level1 center">
@@ -292,7 +260,7 @@
 <li class="fragment">A data frame that contains the four original cols plus the one with the height in inches.</li>
 <li class="fragment">The average height of characters from Tatooine</li>
 </ol>
-<div id="timer_e0a28e56958f9cbe3c2b88eb4eb8e81d7d78f7da" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_c9462e3471c62b3da1b1d3c04fad42d397381129" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -336,32 +304,6 @@
 <section id="recall-comparison-operators" class="slide level2">
 <h2>Recall: comparison operators</h2>
 <p>You can form a logical vector through a logical comparison:</p>
-<aside class="notes">
-<p>Annotate board with:</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><code>&lt;</code><br>
-<code>&gt;</code><br>
-<code>&lt;=</code><br>
-<code>&gt;=</code><br>
-</p>
-</div><div class="column" style="width:50%;">
-<p><code>==</code><br>
-<code>!=</code><br>
-<code>%in%</code><br>
-</p>
-</div></div>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="lets-make-this-better" class="slide level2">
 <h2>Let’s make this better</h2>
@@ -389,19 +331,6 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a><span class="fu">mean</span>(star_wars<span class="sc">$</span>height[star_wars<span class="sc">$</span>homeworld <span class="sc">==</span> <span class="st">"Tatooine"</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
-<aside class="notes">
-<p>Annotate with the dplyr equivalent</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="guess-the-metaphor" class="slide level2 intro" data-background-color="var(--intro-bg)">
@@ -1166,7 +1095,7 @@
 <li class="fragment">A data frame that contains the four original cols plus the one with the height in inches.</li>
 <li class="fragment">The average height of characters from Tatooine</li>
 </ol>
-<div id="timer_e0a28e56958f9cbe3c2b88eb4eb8e81d7d78f7da" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_c9462e3471c62b3da1b1d3c04fad42d397381129" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -1303,6 +1232,7 @@
   <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-drop/drop-runtime.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-magic-move/magic-move.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-sticky-annotations/sticky-annotations.js"></script>
   <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -1498,7 +1428,7 @@
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, RevealStickyAnnotations, QuartoSupport,
 
           RevealMath,
           RevealNotes,

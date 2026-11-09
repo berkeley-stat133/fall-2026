@@ -102,7 +102,7 @@
     code span.vs { color: #032f62; } /* VerbatimString */
     code span.wa { color: #ff5555; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-4b2986a98c479737a68edbabff215be5.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-048dd6ad118ee2dc7db1ac3daabf611a.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -233,39 +233,6 @@
 <li class="fragment"><code>$</code> allows subsetting by <em>name</em>.</li>
 </ol>
 </div></div>
-<aside class="notes">
-<h4 id="concept-acquisition">Concept Acquisition</h4>
-<ol type="1">
-<li>Atomic means one type and no nesting; lists relax both restrictions.</li>
-<li>A list is still a vector: it has a length and an order.</li>
-<li><code>[]</code> preserves the container; <code>[[ ]]</code> and <code>$</code> extract the contents.</li>
-<li>Elements of a list can be named, and named lists can be subset by name.</li>
-<li>Lists can contain lists, which is what makes them a <em>recursive</em> structure.</li>
-</ol>
-<h4 id="tool-acquisition">Tool Acquisition</h4>
-<ol type="1">
-<li><code>list()</code>, <code>length()</code>, <code>typeof()</code>.</li>
-<li><code>x[i]</code>, <code>x[-i]</code>, <code>x[c("a", "b")]</code>, <code>x[log_vec]</code>.</li>
-<li><code>x[[i]]</code>, <code>x$name</code>.</li>
-<li><code>str()</code> for peering into nested lists.</li>
-</ol>
-<h4 id="concept-application">Concept Application</h4>
-<ol type="1">
-<li>Predict whether an expression returns a list or the object inside it.</li>
-<li>Draw the train diagram for a given subsetting expression.</li>
-<li>Write the shortest expression that extracts a value from a nested list.</li>
-</ol>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="one-more-way-to-subset-a-vector" class="slide level2">
 <h2>One more way to subset a vector…</h2>
@@ -292,26 +259,13 @@
 <span id="cb3-3" class="hljs-ln-code"><a aria-label="3"></a><span class="fu">c</span>(<span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="fu">seq</span>(<span class="dv">4</span>, <span class="dv">6</span>))</span>
 <span id="cb3-4" class="hljs-ln-code"><a aria-label="4"></a><span class="fu">c</span>(<span class="fu">c</span>(<span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="fu">seq</span>(<span class="dv">4</span>, <span class="dv">6</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="timer_c7543c6bf9197c9cf0595f987bdbaf94acce0940" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_c708a3a7b3d8af241bc46d8205956a318cbe8cf5" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
  </div>
  <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">30</span></code>
  </div>
-<aside class="notes">
-<p>Draw attention to why the last two are the same: <code>c()</code> flattens, so nesting <code>c()</code> inside <code>c()</code> buys you nothing. That is the constraint we relax today.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="section-2" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
@@ -343,19 +297,6 @@
 <li class="fragment">All elements of the same type</li>
 <li class="fragment">Cannot contain other vectors</li>
 </ol>
-<aside class="notes">
-<p>On the board: the row of boxes from two lectures ago, with a note under it listing the two restrictions. Today we cross both of them out.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section>
 <section id="introducing-lists" class="title-slide slide level1 center">
@@ -385,19 +326,6 @@
 [1] "rabbit"</code></pre>
 </div>
 </div>
-<aside class="notes">
-<p>Read the printed output together — the <code>[[1]]</code> and <code>[[2]]</code> headers are new, and they are the first hint that a list element is a container rather than a value.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="contains-atomic-vectors-of-different-types" class="slide level2">
@@ -433,19 +361,6 @@
 </div>
 </div>
 </div></div>
-<aside class="notes">
-<p>Ask for <code>length()</code> of the right-hand list before running it. Three, not seven — each element is one slot no matter how much it holds. That is the idea the train metaphor will make concrete.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section></section>
 <section>
 <section id="subsetting-with" class="title-slide slide level1 center">
@@ -525,19 +440,6 @@
 [1] 4 5 6</code></pre>
 </div>
 </div>
-<aside class="notes">
-<p>The key line is <code>x[1]</code>: it returns a <em>list of length one</em>, not the vector <code>1:3</code>. Everything students know about subsetting vectors still applies — index, negative index, name, logical — the only new thing is what comes back.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="yes-you-can-name-elements-of-a-list" class="slide level2 scrollable">
@@ -617,19 +519,6 @@ $Cat
 </div>
 <div class="fragment">
 <p>To tell <code>[]</code> and <code>[[ ]]</code> apart, let’s use a metaphor of a train.</p>
-<aside class="notes">
-<p>Sketch first of the following image slides.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="guess-the-metaphor" class="slide level2 intro" data-background-color="var(--intro-bg)">
@@ -666,7 +555,7 @@ $Cat
 <li class="fragment"><code>x[c(1, 1)]</code></li>
 <li class="fragment"><code>c(x[[3]], x[[1]])</code></li>
 </ol>
-<div id="timer_c7543c6bf9197c9cf0595f987bdbaf94acce0940" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_c708a3a7b3d8af241bc46d8205956a318cbe8cf5" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -709,19 +598,6 @@ $Cat
 </div>
 <div class="fragment">
 <p>Permits partial matching.</p>
-<aside class="notes">
-<p>Partial matching is convenient at the console and dangerous in a script: adding an element named <code>Cow</code> later would break <code>named_x$C</code>. <code>[[ ]]</code> requires the full name, which is why it is the safer choice in saved code.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section></section>
 <section>
@@ -758,19 +634,6 @@ $Cat
 [1] 1 2 3</code></pre>
 </div>
 </div>
-<aside class="notes">
-<p>Point at the nested <code>[[3]][[1]]</code> labels in the printed output. R is telling you the path you would type to get there.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="implications-for-subsetting" class="slide level2">
@@ -785,22 +648,6 @@ $Cat
 </div>
 <div class="fragment">
 <p>Draw the train:</p>
-<aside class="notes">
-<p>Drop:</p>
-<ol type="1">
-<li><code>length(y[3])</code> vs.&nbsp;<code>length(y[[3]])</code></li>
-</ol>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="your-turn" class="slide level2">
@@ -819,26 +666,13 @@ $Cat
 <li class="fragment">The vector <code>1:3</code></li>
 <li class="fragment">The element <code>2</code></li>
 </ol>
-<div id="timer_c7543c6bf9197c9cf0595f987bdbaf94acce0940" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_c708a3a7b3d8af241bc46d8205956a318cbe8cf5" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
  </div>
  <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
  </div>
-<aside class="notes">
-<p>The last one is trickiest: <code>y[[3]][[2]][2]</code> chains all three operations.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="section-7" class="slide level2 intro" data-background-color="var(--intro-bg)">
 <h2></h2>
@@ -888,6 +722,7 @@ $Cat
   <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-drop/drop-runtime.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-magic-move/magic-move.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-sticky-annotations/sticky-annotations.js"></script>
   <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -1083,7 +918,7 @@ $Cat
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, RevealStickyAnnotations, QuartoSupport,
 
           RevealMath,
           RevealNotes,

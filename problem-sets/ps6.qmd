@@ -190,3 +190,44 @@ etd_fully_unnested <- etd_unnested |>
 @. *Optional Challenge*: Use the data provided by the BART API to construct a map of the BART system showing the locations of all stations. You could make it interactive with leaflet or static like the one below.
 
 ![](/31-apis-1/images/bart-map.png){fig-align="center" width="400px"}
+
+### APIs II
+
+Make a folder for these problems with an R script called `stat133-api.R`. Copy in the `/greet` and `/babynames` endpoints from the lecture slides, and this `/grade` endpoint, which computes a course grade from the four parts of the syllabus. Plumber passes the fields of a POST's JSON body to the function's arguments by name, as it did for the guestbook.
+
+```r
+#* Compute final course grade
+#* @post /grade
+function(problem_sets, projects, quizzes, final) {
+  course_grade <- 0.01 * problem_sets + 0.20 * projects +
+    0.49 * quizzes + 0.30 * final
+  list(course_grade = course_grade)
+}
+```
+
+Start the API with `plumb()` and `pr_run()` on port 8080, as in lecture. While it runs, that R session is busy, so send requests from a second one: in Positron, start another R console with the **+** in the Console pane; in RStudio, choose *Session > New Session*. After each change to `stat133-api.R`, stop the API (Esc) and start it again.
+
+@. Before you try them, predict what your browser shows at each of these addresses, and say in a sentence why. Then check.
+
+    a. `http://localhost:8080/greet?name=Oski`
+    b. `http://localhost:8080/`
+    c. `http://localhost:8080/grade`
+
+@. Add two optional parameters to `/babynames`: `babysex`, which keeps only the rows for that sex, and `babyyear`, which keeps only the rows for that year. With neither, the endpoint returns every row for the name, as before. Give them empty-string defaults (as `/greet` does with `name = ""`) and filter only when a value was given. How many rows does each of these return?
+
+    - `http://localhost:8080/babynames?babyname=Jordan`
+    - `http://localhost:8080/babynames?babyname=Jordan&babysex=M`
+    - `http://localhost:8080/babynames?babyname=Jordan&babyyear=2000`
+    - `http://localhost:8080/babynames?babyname=Jordan&babysex=F&babyyear=2000`
+
+@. Add an endpoint `/compare` that takes two names, `name1` and `name2`, and returns an SVG plot of both names' popularity over time, one colored line per name. Give the code and describe the plot for `/compare?name1=Jordan&name2=Taylor`.
+
+@. A café wants an API for its orders, built like the lecture's guestbook. Add:
+
+    - code at the top of `stat133-api.R` that starts an empty `orders.csv` with the columns `dish`, `quantity`, and `vegetarian`;
+    - `POST /order`, which takes `dish`, `quantity`, and `vegetarian` and adds the order as a row of `orders.csv`;
+    - `GET /orders`, which returns every order so far.
+
+    Then, from your second R session, use `httr2` to send two orders: `list(dish = "Turkey", quantity = 1, vegetarian = FALSE)` and one of your own. Read the orders back with `GET /orders` as a data frame. Give your endpoints, your requests, and the data frame you get back.
+
+@. *Challenging.* `/grade` treats `quizzes` as a single score. Change it so `quizzes` is a vector of all of a student's quiz scores, averaged before it's weighted. Then send a request from R for a student with problem sets 100, projects 90, quiz scores 80, 92, 75, and 88, and a final of 85. What course grade does it return?

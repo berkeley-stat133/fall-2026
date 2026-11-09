@@ -102,7 +102,7 @@
     code span.vs { color: #032f62; } /* VerbatimString */
     code span.wa { color: #ff5555; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-4b2986a98c479737a68edbabff215be5.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-048dd6ad118ee2dc7db1ac3daabf611a.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -229,57 +229,11 @@
 <li class="fragment"><em>Themes</em> and set aesthetics polish the look.</li>
 </ol>
 </div></div>
-<aside class="notes">
-<h4 id="concept-acquisition">Concept Acquisition</h4>
-<ol type="1">
-<li>EDA is for the analyst: its goal is to uncover structure and generate new questions, guided by a set of common exploratory questions.</li>
-<li>Exploratory and explanatory visualizations differ in audience, goal, and level of polish.</li>
-<li>Axis limits, non-linear scales, and the ordering of categories decide which comparisons a plot makes easy.</li>
-<li>A theme controls the non-data elements of a plot; <code>theme()</code> tweaks the current theme, so add it after a complete theme.</li>
-</ol>
-<h4 id="tool-acquisition">Tool Acquisition</h4>
-<ol type="1">
-<li><code>dim()</code>, <code>sapply(df, class)</code>, and <code>sum()</code> / <code>mean()</code> of <code>is.na()</code> for a first look.</li>
-<li><code>geom_bar()</code>, <code>geom_col()</code>, and <code>count()</code>.</li>
-<li><code>labs()</code> for titles, axis labels, and legends.</li>
-<li><code>lims()</code>, <code>scale_x_log10()</code>, <code>scale_y_sqrt()</code>, <code>fct_infreq()</code>, and <code>fct_reorder()</code>.</li>
-<li><code>theme_gray()</code> / <code>theme_bw()</code> / <code>theme_minimal()</code>, <code>theme(axis.text.x = element_text(...))</code>, and setting <code>color</code> / <code>fill</code>.</li>
-</ol>
-<h4 id="concept-application">Concept Application</h4>
-<ol type="1">
-<li>Your Turn: sketch the data frame behind the EV bar chart, describe its mappings and geometry, and state its main story.</li>
-<li>Work through the common exploratory questions on the EV registrations data.</li>
-<li>Build two explanatory versions of the EV plot, each for a different story.</li>
-</ol>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section>
 <section id="eda" class="title-slide slide level1 center">
 <h1>EDA</h1>
-<aside class="notes">
-<p>Draw a diagram showing the “computational machine” fron day one with the question originating outside the box and the first phase within it being Data Cleaning.</p>
-<p>Then draw an arrow from Data Cleaning to a second phase, EDA, that can generate it’s own questions. Draw those questions outside the box but with arrows to and fro. Then draw arrow an arrow from EDA back to Data Cleaning.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+
 </section>
 <section id="exploratory-data-analysis-eda" class="slide level2">
 <h2>Exploratory Data Analysis (EDA)</h2>
@@ -320,42 +274,16 @@
 <li>Describe the aesthetic mappings and geometry used.</li>
 <li>What is the main story?</li>
 </ol>
-<aside class="notes">
-<p>Write these on the board.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="section-1" class="slide level2" data-background-image="images/ev-barchart-full.png" data-background-size="contain">
 <h2></h2>
-<div id="timer_a33638c3544f20742ef339370acf900f460b7a05" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_c83ce8f6fefb2a83546fef74cd55978fc77b938a" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
  </div>
  <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">30</span></code>
  </div>
-<aside class="notes">
-<p>As you debrief can also ask an explanatory question: “what is effective about this plot? How could it be improved?””</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section></section>
 <section>
 <section id="exploratory-data-analysis" class="title-slide slide level1 center">
@@ -785,20 +713,7 @@
 <section id="section-10" class="slide level2">
 <h2></h2>
 
-<img data-src="slides_files/figure-revealjs/penguins-scatter-annotate-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"><aside class="notes">
-<p>Annotate plot showing the following labels: x, y, color, main, subtitle.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
+<img data-src="slides_files/figure-revealjs/penguins-scatter-annotate-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="labels-with-labs" class="slide level2">
 <h2>Labels with <code>labs()</code></h2>
 <p>The labels on the plot can refer to many different places where text is added to describe what is plotted.</p>
@@ -1023,19 +938,7 @@ An alternative method uses a separate layer for each label.
 <section>
 <section id="polish-your-look" class="title-slide slide level1 center">
 <h1>Polish Your Look</h1>
-<aside class="notes">
-<p>Return to the previous slide and note the aspects of the plot that aren’t data and aren’t labels: the grid lines, the axis tick marks, the font, the font size, the background. These are all elements of the theme.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+
 </section>
 <section id="section-23" class="slide level2">
 <h2></h2>
@@ -1658,6 +1561,7 @@ Write the ggplot2 code that has generated the following plot. -->
   <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-drop/drop-runtime.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-magic-move/magic-move.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-sticky-annotations/sticky-annotations.js"></script>
   <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -1853,7 +1757,7 @@ Write the ggplot2 code that has generated the following plot. -->
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, RevealStickyAnnotations, QuartoSupport,
 
           RevealMath,
           RevealNotes,

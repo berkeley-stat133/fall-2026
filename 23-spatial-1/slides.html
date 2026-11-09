@@ -102,7 +102,7 @@
     code span.vs { color: #032f62; } /* VerbatimString */
     code span.wa { color: #ff5555; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-4b2986a98c479737a68edbabff215be5.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-048dd6ad118ee2dc7db1ac3daabf611a.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -234,44 +234,6 @@
 <li class="fragment">A <em>simple feature</em> pairs a geometry with attributes.</li>
 </ol>
 </div></div>
-<aside class="notes">
-<h4 id="concept-acquisition">Concept Acquisition</h4>
-<ol type="1">
-<li>Spatial data are different: nearby observations tend to be similar, distances aren’t straight lines, coordinates come in pairs, and observations are often areas rather than points.</li>
-<li>A location is defined relative to an origin, in Cartesian or polar coordinates; longitude and latitude are polar coordinates on the earth.</li>
-<li>A datum is a model of the earth’s shape plus reference points; WGS 84 is the most common, and mapping data recorded in one datum onto another can put locations hundreds of meters off.</li>
-<li>A projection transforms ellipsoidal coordinates into projected coordinates and must distort at least one of area, shape, distance, or angles.</li>
-<li>A coordinate reference system (CRS) is a datum, a coordinate system, and optionally a projection; each has an EPSG code.</li>
-<li>A simple feature is an object with a geometry (point, point set, polygon, …) and non-spatial attributes.</li>
-<li>An sf object records its CRS; a data frame of longitude and latitude does not, and ggplot2 assumes it matches the map. Every layer needs a declared CRS before the layers can be brought into one.</li>
-</ol>
-<h4 id="tool-acquisition">Tool Acquisition</h4>
-<ol type="1">
-<li><code>geom_path()</code> with <code>group =</code> to draw tracks from longitude and latitude columns.</li>
-<li><code>ne_countries()</code> from <code>rnaturalearth</code>, with <code>returnclass = "sf"</code>.</li>
-<li><code>st_crs()</code> from <code>sf</code> to see an object’s coordinate reference system.</li>
-<li><code>geom_sf()</code> to draw an sf object.</li>
-<li><code>st_as_sf()</code> with <code>coords =</code> and <code>crs =</code> to turn a data frame of longitude and latitude into an sf object with a declared CRS.</li>
-<li><code>st_transform()</code> to change an sf object’s CRS.</li>
-</ol>
-<h4 id="concept-application">Concept Application</h4>
-<ol type="1">
-<li>Decide how to calculate the distance between the first two rows of <code>storms</code>.</li>
-<li>Layer the 1975 storms on a map of North America with <code>geom_point()</code> over <code>geom_sf()</code>.</li>
-<li>See the storms vanish on an Albers map, then fix it with <code>st_as_sf()</code> and <code>st_transform()</code>.</li>
-<li>PS 5: map a country of your choice, report its datum, and compare California counties under the default datum and the Albers projection.</li>
-</ol>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="data" class="slide level2 smaller">
 <h2>Data</h2>
@@ -339,25 +301,6 @@
 </div>
 <div class="fragment">
 <p><strong>Polar</strong>: (<span class="math inline">\(r\)</span>, <span class="math inline">\(\phi\)</span>)</p>
-<aside class="notes board">
-<p>Draw on board:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/fig-polar-1.png" class="quarto-figure quarto-figure-center"></p>
-</figure>
-</div>
-<p>Start with: how do I define the location of this point? I need to define it relative to an origin.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="three-dimensions" class="slide level2" data-auto-animate="true">
@@ -367,67 +310,23 @@
 </div>
 <div class="fragment">
 <p><strong>Polar</strong>: (<span class="math inline">\(r\)</span>, <span class="math inline">\(\lambda\)</span>, <span class="math inline">\(\phi\)</span>); (long, lat)</p>
-<aside class="notes board">
-<p>Draw on board:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/fig-sphere-1.png" class="quarto-figure quarto-figure-center"></p>
-</figure>
-</div>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="your-turn" class="slide level2">
 <h2>Your Turn</h2>
 <p><strong>Question</strong>: Storm Amy moved from (−79, 27.5) to (−79, 28.5). The earth’s radius is about 6,371 km. How far did it travel?</p>
-<div id="timer_c0abc95d73dea03fe45a4c6b1acf8b4170dd1339" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_461bd9b987780fe0683577451684a4d780d154b4" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
  </div>
  <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
  </div>
-<aside class="notes board">
-<p>Debrief on the board: 2π · 6371 / 360 ≈ 111 km per degree of latitude. Then ask: what if it had moved 1° east instead? Only 111 · cos(27.5°) ≈ 99 km, since longitude lines converge. This is why distance isn’t a straight line in (long, lat).</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="relative-to-what" class="slide level2">
 <h2>Relative to what?</h2>
 
-<img data-src="images/meades-ranch.jpg" class="quarto-figure quarto-figure-center r-stretch"><aside class="notes">
-<p>Like the Unix Epoch, we need to store our measurements relative to an agreed upon reference point. Starting in 1901, that reference point for North America was Meades Ranch in Kansas. This system was formalized as the North American Datum (NAD 1927).</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
+<img data-src="images/meades-ranch.jpg" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="section-1" class="slide level2">
 <h2></h2>
 <div class="definition">
@@ -512,26 +411,13 @@
 <p><img data-src="images/projections.jpg" class="quarto-figure quarto-figure-center" height="520"></p>
 </figure>
 </div>
-<div id="timer_c0abc95d73dea03fe45a4c6b1acf8b4170dd1339" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_461bd9b987780fe0683577451684a4d780d154b4" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
  </div>
  <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
  </div>
-<aside class="notes annotate">
-<p>Ask: in which projection does Greenland look about as big as Africa? Africa is really about 14 times larger. Circle Greenland and Africa in Mercator and Gall-Peters. Mercator keeps shapes (angles) and pays in area; Gall-Peters, Goode, and Albers keep area and pay in shape. PS 5 uses Albers.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="section-4" class="slide level2 smaller">
 <h2></h2>
@@ -555,19 +441,6 @@
 <li class="fragment"><code>5070</code>: NAD83 + Albers for the US, in meters</li>
 <li class="fragment"><code>3310</code>: NAD83 + Albers for California, in meters</li>
 </ul>
-<aside class="notes">
-<p>This ties the last two sections together: a datum alone doesn’t say what (−79, 27.5) means. You also need the coordinate system (degrees, lon first) and, for a flat map, a projection. 4326 has no projection; 5070 and 3310 are NAD83 plus an Albers projection, in meters. The storms case study uses 4326 and 5070; PS 5 uses 3310. Students will see all three parts when we run <code>st_crs()</code> later today.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section></section>
 <section>
@@ -585,19 +458,6 @@
 <li class="fragment">What is its <strong>datum</strong>?</li>
 <li class="fragment">What is its <strong>projection</strong>?</li>
 </ol>
-<aside class="notes board">
-<p>Start a table on the board with one row per layer and columns for coordinate system, datum, and projection. Fill in a row each time a new layer appears: <code>storms</code> (long/lat degrees, not recorded, none), <code>map_north_america</code> (long/lat degrees, WGS 84, equirectangular when plotted), and <code>na_albers</code> at the end (meters, NAD83, Albers).</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="data-1" class="slide level2 smaller">
@@ -774,20 +634,6 @@
 <li class="fragment">Its datum is in the documentation (<code>?storms</code>: NOAA’s HURDAT), not the data.</li>
 <li class="fragment"><code>ggplot()</code> drew <code>long</code> as x and <code>lat</code> as y, stretched to fit the figure.</li>
 </ul>
-<aside class="notes">
-<p>Fill in the <code>storms</code> row on the board: long/lat in degrees, datum not recorded, no projection. The aspect ratio of these plots came from the 14 × 9 figure, not from the earth.</p>
-<p>Why the datum barely matters here: every <code>lat</code> and <code>long</code> in <code>storms</code> is rounded to 0.1°, about 11 km, while switching datums moves points by hundreds of meters. The projection matters a lot more for storms. A datum matters when the data are finer than the shift: GPS tracks, surveying, property lines (the datum gif earlier).</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section></section>
 <section>
@@ -1185,19 +1031,6 @@ First 10 features:
 36      &lt;NA&gt;      &lt;NA&gt; MULTIPOLYGON (((-83.65561 1...</code></pre>
 </div>
 </div>
-<aside class="notes annotate">
-<p>Circle <code>Geodetic CRS: WGS 84</code> in the header. Unlike <code>storms</code>, this object records its own CRS. PS 5 asks students to read the datum off this line.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="section-15" class="slide level2">
 <h2></h2>
@@ -1226,19 +1059,6 @@ GEOGCRS["WGS 84",
     ID["EPSG",4326]]</code></pre>
 </div>
 </div>
-<aside class="notes annotate">
-<p>Label the three parts of a CRS in the output. Datum: <code>ENSEMBLE</code> and <code>ELLIPSOID</code> (WGS 84). Coordinate system: <code>CS[ellipsoidal,2]</code> and its <code>AXIS</code> lines, in degrees; officially latitude comes first, though sf uses longitude first. Projection: there is no <code>CONVERSION</code>, so these coordinates are not projected. Fill in the <code>map_north_america</code> row on the board.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="section-16" class="slide level2">
 <h2></h2>
@@ -1249,19 +1069,6 @@ GEOGCRS["WGS 84",
 </div>
 
 <p><code>geom_sf()</code> still has to flatten (long, lat): it plots long as x and lat as y, the <strong>equirectangular</strong> projection.</p>
-<aside class="notes">
-<p>Compare with the storms-only plots: there the aspect ratio came from the figure; here <code>geom_sf()</code> sets it so that a degree of longitude is as wide as it really is at the map’s middle latitude.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="section-16-output" class="slide level2 output-location-slide"><h2></h2><div class="cell output-location-slide" data-layout-align="center">
 <div class="cell-output-display">
@@ -1325,19 +1132,6 @@ GEOGCRS["WGS 84",
 </tr>
 </tbody>
 </table>
-<aside class="notes">
-<p>The overlay on the next slide works only because both layers happen to be long/lat in degrees, in (about) the same datum. Keep this table in mind for the end of the case study.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="section-18" class="slide level2">
@@ -1352,19 +1146,6 @@ GEOGCRS["WGS 84",
 <span id="cb21-7"><a aria-label="7"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"North Atlantic Storms (1975)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
-<aside class="notes annotate">
-<p>Step through one layer per highlight. Line 1: the data, still a plain data frame. Lines 2-3: the map layer, an sf object in WGS 84, so <code>geom_sf()</code> knows its CRS. Lines 4-5: the storms layer, the same points as the storms-only plots, now with <code>data =</code> in the layer because the two layers use different data. We drop the paths from here on, so the only thing that changes between this map and the Albers one is the CRS. The storms layer has no CRS: ggplot2 assumes their <code>long</code> and <code>lat</code> match the map’s. Point to the layer table from the last slide before showing the map.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="section-18-output" class="slide level2 output-location-slide"><h2></h2><div class="cell output-location-slide" data-layout-align="center">
 <div class="cell-output-display">
@@ -1413,19 +1194,6 @@ GEOGCRS["WGS 84",
 <blockquote>
 <p>What happens if we want a new map projection?</p>
 </blockquote>
-<aside class="notes">
-<p><code>$units_gdal</code> pulls one piece out of a CRS, a shortcut for reading the long <code>st_crs()</code> printout. The storms’ numbers are degrees only because NOAA recorded them that way: <code>storms75</code> is a data frame, so its CRS is <code>NA</code> and so are its units. ggplot2 drew those numbers in whatever units the map uses. Here that’s degrees; at the end of the case study it won’t be.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="section-19" class="slide level2">
@@ -1438,19 +1206,6 @@ GEOGCRS["WGS 84",
 <span id="cb26-5"><a aria-label="5"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_blank</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
-<aside class="notes">
-<p>EPSG 5070 is NAD83 plus an Albers projection for the US and its neighbors. <code>st_transform()</code> changes both the datum (WGS 84 to NAD83) and the projection. The axes are still labeled in degrees, but the coordinates are now meters.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="section-19-output" class="slide level2 output-location-slide"><h2></h2><div class="cell output-location-slide" data-layout-align="center">
 <div class="cell-output-display">
@@ -1513,37 +1268,11 @@ PROJCRS["NAD83 / Conus Albers",
     ID["EPSG",5070]]</code></pre>
 </div>
 </div>
-<aside class="notes annotate">
-<p>Circle the new parts: <code>BASEGEOGCRS["NAD83"...]</code> (the datum), <code>CONVERSION</code> with <code>METHOD["Albers Equal Area"]</code> (the projection), and <code>CS[Cartesian,2]</code> with <code>LENGTHUNIT["metre",1]</code> (meters, not degrees). Fill in the <code>na_albers</code> row on the board.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="where-did-the-storms-go" class="slide level2">
 <h2>Where did the storms go?</h2>
 
-<img data-src="slides_files/figure-revealjs/storms-albers-broken-1.png" class="quarto-figure quarto-figure-center r-stretch" width="1344"><aside class="notes annotate">
-<p>The legend lists all eight storms, but no storms show. ggplot2 took the storms’ degrees to be meters in the map’s CRS, so every storm lies within about 100 m of the Albers origin at 96° W, 23° N: circle that spot in the Gulf of Mexico. Point back to the layer table: the storms layer has no CRS, so ggplot2 assumed it matched the map.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
+<img data-src="slides_files/figure-revealjs/storms-albers-broken-1.png" class="quarto-figure quarto-figure-center r-stretch" width="1344"></section>
 <section id="why-didnt-that-work" class="slide level2 smaller">
 <h2>Why didn’t that work?</h2>
 <div class="columns">
@@ -1580,19 +1309,6 @@ PROJCRS["NAD83 / Conus Albers",
 </div></div>
 <div class="fragment">
 <p>ggplot2 drew the storms’ degrees as meters: (−79, 27.5) became 79 m west and 27.5 m north of the origin.</p>
-<aside class="notes">
-<p>Same two layers as the “Why did that work?” slide, but now the map is in meters. The storms layer didn’t change; only the map did, and ggplot2 still drew the storms in the map’s units. Fill in the <code>na_albers</code> row on the board if it isn’t there yet.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="section-21" class="slide level2">
@@ -1613,20 +1329,6 @@ PROJCRS["NAD83 / Conus Albers",
 <span id="cb33-8"><a aria-label="8"></a>  <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_blank</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
-<aside class="notes">
-<p>Line 2 turns each row into a POINT and records that its numbers are WGS 84 degrees; line 3 converts them to Albers meters, the same function that made <code>na_albers</code>. Now both layers are sf objects in 5070, so <code>geom_sf()</code> draws both. PS 5 does exactly this with earthquakes in California.</p>
-<p>Two asides if asked. <code>geom_sf()</code> will quietly reproject any sf layer into the first layer’s CRS, so the map still looks right if you skip line 3; line 2 is the step you can’t skip. And the storms are points now, not tracks: joining them back into lines takes <code>summarize()</code> on an sf object, which comes in Spatial II.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="section-21-output" class="slide level2 output-location-slide"><h2></h2><div class="cell output-location-slide" data-layout-align="center">
@@ -1646,19 +1348,6 @@ PROJCRS["NAD83 / Conus Albers",
 </ul>
 <div class="fragment">
 <p>If the layers have differing CRS, <strong>transform</strong> them with <code>st_transform()</code>.</p>
-<aside class="notes">
-<p>This answers “how do you move data from one datum to another?”: declare the CRS the data are actually in, then <code>st_transform()</code> to the one you want. Setting a new CRS on old numbers is how points end up hundreds of meters off, as in the datum gif.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="section-22" class="slide level2 intro" data-background-color="var(--intro-bg)">
@@ -1701,6 +1390,7 @@ PROJCRS["NAD83 / Conus Albers",
   <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-drop/drop-runtime.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-magic-move/magic-move.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-sticky-annotations/sticky-annotations.js"></script>
   <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -1896,7 +1586,7 @@ PROJCRS["NAD83 / Conus Albers",
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, RevealStickyAnnotations, QuartoSupport,
 
           RevealMath,
           RevealNotes,

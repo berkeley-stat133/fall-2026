@@ -102,7 +102,7 @@
     code span.vs { color: #032f62; } /* VerbatimString */
     code span.wa { color: #ff5555; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-4b2986a98c479737a68edbabff215be5.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-048dd6ad118ee2dc7db1ac3daabf611a.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -231,37 +231,6 @@
 <li class="fragment">Send requests from a <em>browser</em>, the <em>shell</em>, or <em>R</em>.</li>
 </ol>
 </div></div>
-<aside class="notes">
-<h4 id="concept-acquisition">Concept Acquisition</h4>
-<ol type="1">
-<li>Review: JSON is a text format for nested data: objects (key-value pairs), arrays, and values. It maps onto R lists.</li>
-<li>An API lets one program request data from another over the internet: the client sends a request, the server sends back a response, usually JSON.</li>
-<li>A request URL is an endpoint (the base URL) plus query parameters; most APIs also require a key.</li>
-<li>The same request can be sent from a web browser, from the command line with <code>curl</code>, or from R.</li>
-</ol>
-<h4 id="tool-acquisition">Tool Acquisition</h4>
-<ol type="1">
-<li><code>jsonlite::toJSON()</code>.</li>
-<li><code>curl</code> at the command line.</li>
-<li><code>httr2</code>: <code>request()</code>, <code>req_url_query()</code>, <code>req_perform()</code>, and <code>resp_body_json()</code>.</li>
-</ol>
-<h4 id="concept-application">Concept Application</h4>
-<ol type="1">
-<li>Choose a file format (text, CSV, JSON) for a string, a data frame, and a nested list.</li>
-<li>Read the BART API documentation and build a request URL from its endpoint and parameters.</li>
-<li>Change a station-info request into an estimated-departures (ETD) request, and pull a value out of the parsed response.</li>
-</ol>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="section-1" class="slide level2">
 <h2></h2>
@@ -384,20 +353,6 @@
 </blockquote>
 </div>
 </div></div>
-<aside class="notes annotate">
-<p>Annotate with: what if the analyst is a machine? how can they programatiically download the data?</p>
-<p>What if the data comes in in real-time? how can we make the data available instantaneously?</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="section-3" class="slide level2 smaller">
 <h2></h2>
@@ -438,7 +393,7 @@
 <h2>BART</h2>
 
 <img data-src="images/bart-1.jpg" style="width:50.0%" class="r-stretch"><p><strong>Question:</strong> Brainstorm <em>5 different data sets</em> that BART might maintain. Identify whether each one is best represented by a 1D array (e.g.&nbsp;a text string), a 2D array (e.g.&nbsp;a data frame), or a multi-dimensional array (e.g.&nbsp;a nested list).</p>
-<div id="timer_20b8e5b5717eca421b00f12a4f416963bdb686cc" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_916fe39778c8de42dca0e65a9794eba4c0fbdf2a" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -480,22 +435,6 @@
 <p><br>
 </p>
 <p><code>orig=DBRK&amp;json=y&amp;key=MW9S-E7SL-26DU-VV8V</code></p>
-<aside class="notes annotate">
-<p>Annotate: box the endpoint, circle ?, bracket everything after it as a query parameter, add <code>name=value</code> for each parmeter and circle each &amp; separator. underline each parameter and match it to the table.</p>
-<p>Live: paste the full URL into a browser and show the JSON that comes back. If the API is down, these screenshots show what to expect:</p>
-<p><img data-src="images/web1.png"></p>
-<p><img data-src="images/web2.png"></p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="interacting-from-command-line" class="slide level2">
@@ -503,21 +442,6 @@
 <p>Most shells have <code>curl</code> command for making HTTP requests.</p>
 <div class="fragment">
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a aria-label="1"></a><span class="ex">curl</span> <span class="st">"https://api.bart.gov/api/stn.aspx?cmd=stninfo&amp;orig=DBRK&amp;json=y&amp;key=MW9S-E7SL-26DU-VV8V"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<aside class="notes code">
-<p>Live: run the curl command in a terminal and show the JSON it prints. If the API is down, these screenshots show what to expect:</p>
-<p><img data-src="images/curl1.png"></p>
-<p><img data-src="images/curl2.png"></p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="interacting-from-r" class="slide level2">
@@ -702,19 +626,6 @@ $root$message
 <pre><code>[1] "37.870104"</code></pre>
 </div>
 </div>
-<aside class="notes board">
-<p>Draw the parsed response as a tree (root → stations → station → gtfs_latitude) and trace the $ path.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="simplifying-the-response" class="slide level2 smaller">
@@ -750,19 +661,6 @@ $route[[2]]
 </div>
 </div>
 </div></div>
-<aside class="notes">
-<p>Point out that the routes come back as a list of one-element lists with FALSE, and as a character vector with TRUE. The problem set uses TRUE so that the list of all stations arrives as a data frame.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section></section>
 <section>
 <section id="departures" class="title-slide slide level1 center">
@@ -802,26 +700,13 @@ $route[[2]]
 </div>
 <p><strong>Question</strong>: How would you modify this request to get estimated departure times (ETDs) for trains leaving from the Downtown Berkeley station (DBRK)?</p>
 </div></div>
-<div id="timer_20b8e5b5717eca421b00f12a4f416963bdb686cc" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_916fe39778c8de42dca0e65a9794eba4c0fbdf2a" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
  </div>
  <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
  </div>
-<aside class="notes">
-<p>Debrief: two changes, the endpoint (stn.aspx → etd.aspx) and cmd (stninfo → etd). Reveal on ETD Call.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="recall-station-call" class="slide level2 smaller" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Recall: Station Call</h2>
@@ -864,7 +749,7 @@ Body: In memory (1810 bytes)</code></pre>
 GET https://api.bart.gov/api/etd.aspx?cmd=etd&amp;orig=DBRK&amp;key=MW9S-E7SL-26DU-VV8V&amp;json=y
 Status: 200 OK
 Content-Type: application/json
-Body: In memory (1975 bytes)</code></pre>
+Body: In memory (1976 bytes)</code></pre>
 </div>
 </div>
 </section>
@@ -894,10 +779,10 @@ $root$uri$`#cdata-section`
 
 
 $root$date
-[1] "11/06/2026"
+[1] "11/09/2026"
 
 $root$time
-[1] "10:54:17 AM PST"
+[1] "08:31:47 AM PST"
 
 $root$station
 $root$station[[1]]
@@ -921,7 +806,7 @@ $root$station[[1]]$etd[[1]]$limited
 $root$station[[1]]$etd[[1]]$estimate
 $root$station[[1]]$etd[[1]]$estimate[[1]]
 $root$station[[1]]$etd[[1]]$estimate[[1]]$minutes
-[1] "5"
+[1] "6"
 
 $root$station[[1]]$etd[[1]]$estimate[[1]]$platform
 [1] "2"
@@ -930,7 +815,7 @@ $root$station[[1]]$etd[[1]]$estimate[[1]]$direction
 [1] "South"
 
 $root$station[[1]]$etd[[1]]$estimate[[1]]$length
-[1] "6"
+[1] "5"
 
 $root$station[[1]]$etd[[1]]$estimate[[1]]$color
 [1] "ORANGE"
@@ -942,7 +827,7 @@ $root$station[[1]]$etd[[1]]$estimate[[1]]$bikeflag
 [1] "1"
 
 $root$station[[1]]$etd[[1]]$estimate[[1]]$delay
-[1] "88"
+[1] "0"
 
 $root$station[[1]]$etd[[1]]$estimate[[1]]$cancelflag
 [1] "0"
@@ -953,7 +838,7 @@ $root$station[[1]]$etd[[1]]$estimate[[1]]$dynamicflag
 
 $root$station[[1]]$etd[[1]]$estimate[[2]]
 $root$station[[1]]$etd[[1]]$estimate[[2]]$minutes
-[1] "24"
+[1] "26"
 
 $root$station[[1]]$etd[[1]]$estimate[[2]]$platform
 [1] "2"
@@ -962,7 +847,7 @@ $root$station[[1]]$etd[[1]]$estimate[[2]]$direction
 [1] "South"
 
 $root$station[[1]]$etd[[1]]$estimate[[2]]$length
-[1] "6"
+[1] "5"
 
 $root$station[[1]]$etd[[1]]$estimate[[2]]$color
 [1] "ORANGE"
@@ -985,7 +870,7 @@ $root$station[[1]]$etd[[1]]$estimate[[2]]$dynamicflag
 
 $root$station[[1]]$etd[[1]]$estimate[[3]]
 $root$station[[1]]$etd[[1]]$estimate[[3]]$minutes
-[1] "44"
+[1] "46"
 
 $root$station[[1]]$etd[[1]]$estimate[[3]]$platform
 [1] "2"
@@ -1030,7 +915,7 @@ $root$station[[1]]$etd[[2]]$limited
 $root$station[[1]]$etd[[2]]$estimate
 $root$station[[1]]$etd[[2]]$estimate[[1]]
 $root$station[[1]]$etd[[2]]$estimate[[1]]$minutes
-[1] "11"
+[1] "14"
 
 $root$station[[1]]$etd[[2]]$estimate[[1]]$platform
 [1] "2"
@@ -1039,7 +924,7 @@ $root$station[[1]]$etd[[2]]$estimate[[1]]$direction
 [1] "South"
 
 $root$station[[1]]$etd[[2]]$estimate[[1]]$length
-[1] "5"
+[1] "10"
 
 $root$station[[1]]$etd[[2]]$estimate[[1]]$color
 [1] "RED"
@@ -1062,7 +947,7 @@ $root$station[[1]]$etd[[2]]$estimate[[1]]$dynamicflag
 
 $root$station[[1]]$etd[[2]]$estimate[[2]]
 $root$station[[1]]$etd[[2]]$estimate[[2]]$minutes
-[1] "31"
+[1] "34"
 
 $root$station[[1]]$etd[[2]]$estimate[[2]]$platform
 [1] "2"
@@ -1071,7 +956,7 @@ $root$station[[1]]$etd[[2]]$estimate[[2]]$direction
 [1] "South"
 
 $root$station[[1]]$etd[[2]]$estimate[[2]]$length
-[1] "5"
+[1] "10"
 
 $root$station[[1]]$etd[[2]]$estimate[[2]]$color
 [1] "RED"
@@ -1094,7 +979,7 @@ $root$station[[1]]$etd[[2]]$estimate[[2]]$dynamicflag
 
 $root$station[[1]]$etd[[2]]$estimate[[3]]
 $root$station[[1]]$etd[[2]]$estimate[[3]]$minutes
-[1] "51"
+[1] "54"
 
 $root$station[[1]]$etd[[2]]$estimate[[3]]$platform
 [1] "2"
@@ -1103,7 +988,7 @@ $root$station[[1]]$etd[[2]]$estimate[[3]]$direction
 [1] "South"
 
 $root$station[[1]]$etd[[2]]$estimate[[3]]$length
-[1] "5"
+[1] "10"
 
 $root$station[[1]]$etd[[2]]$estimate[[3]]$color
 [1] "RED"
@@ -1139,7 +1024,7 @@ $root$station[[1]]$etd[[3]]$limited
 $root$station[[1]]$etd[[3]]$estimate
 $root$station[[1]]$etd[[3]]$estimate[[1]]
 $root$station[[1]]$etd[[3]]$estimate[[1]]$minutes
-[1] "3"
+[1] "2"
 
 $root$station[[1]]$etd[[3]]$estimate[[1]]$platform
 [1] "1"
@@ -1160,7 +1045,7 @@ $root$station[[1]]$etd[[3]]$estimate[[1]]$bikeflag
 [1] "1"
 
 $root$station[[1]]$etd[[3]]$estimate[[1]]$delay
-[1] "297"
+[1] "62"
 
 $root$station[[1]]$etd[[3]]$estimate[[1]]$cancelflag
 [1] "0"
@@ -1171,7 +1056,7 @@ $root$station[[1]]$etd[[3]]$estimate[[1]]$dynamicflag
 
 $root$station[[1]]$etd[[3]]$estimate[[2]]
 $root$station[[1]]$etd[[3]]$estimate[[2]]$minutes
-[1] "11"
+[1] "13"
 
 $root$station[[1]]$etd[[3]]$estimate[[2]]$platform
 [1] "1"
@@ -1180,7 +1065,7 @@ $root$station[[1]]$etd[[3]]$estimate[[2]]$direction
 [1] "North"
 
 $root$station[[1]]$etd[[3]]$estimate[[2]]$length
-[1] "5"
+[1] "6"
 
 $root$station[[1]]$etd[[3]]$estimate[[2]]$color
 [1] "ORANGE"
@@ -1192,7 +1077,7 @@ $root$station[[1]]$etd[[3]]$estimate[[2]]$bikeflag
 [1] "1"
 
 $root$station[[1]]$etd[[3]]$estimate[[2]]$delay
-[1] "62"
+[1] "0"
 
 $root$station[[1]]$etd[[3]]$estimate[[2]]$cancelflag
 [1] "0"
@@ -1203,7 +1088,7 @@ $root$station[[1]]$etd[[3]]$estimate[[2]]$dynamicflag
 
 $root$station[[1]]$etd[[3]]$estimate[[3]]
 $root$station[[1]]$etd[[3]]$estimate[[3]]$minutes
-[1] "18"
+[1] "22"
 
 $root$station[[1]]$etd[[3]]$estimate[[3]]$platform
 [1] "1"
@@ -1224,7 +1109,7 @@ $root$station[[1]]$etd[[3]]$estimate[[3]]$bikeflag
 [1] "1"
 
 $root$station[[1]]$etd[[3]]$estimate[[3]]$delay
-[1] "0"
+[1] "64"
 
 $root$station[[1]]$etd[[3]]$estimate[[3]]$cancelflag
 [1] "0"
@@ -1245,19 +1130,6 @@ $root$message
 </section>
 <section id="apis-another-data-product" class="slide level2">
 <h2>APIs: another Data Product</h2>
-<aside class="notes board">
-<p>Draw picture of computing diagram except this time have the whole thing be in the cloud and the data product be another data set or a prediction.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="section-14" class="slide level2 intro" data-background-color="var(--intro-bg)">
 <h2></h2>
@@ -1299,6 +1171,7 @@ $root$message
   <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-drop/drop-runtime.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-magic-move/magic-move.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-sticky-annotations/sticky-annotations.js"></script>
   <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -1494,7 +1367,7 @@ $root$message
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, RevealStickyAnnotations, QuartoSupport,
 
           RevealMath,
           RevealNotes,

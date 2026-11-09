@@ -102,7 +102,7 @@
     code span.vs { color: #032f62; } /* VerbatimString */
     code span.wa { color: #ff5555; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-4b2986a98c479737a68edbabff215be5.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-048dd6ad118ee2dc7db1ac3daabf611a.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -233,40 +233,6 @@
 <li class="fragment"><code>ifelse()</code> is a <em>vectorized</em> if-else.</li>
 </ol>
 </div></div>
-<aside class="notes">
-<h4 id="concept-acquisition">Concept Acquisition</h4>
-<ol type="1">
-<li>If-then executes code only when its condition evaluates to <code>TRUE</code>; otherwise nothing happens.</li>
-<li>If-else guarantees that exactly one of two blocks runs.</li>
-<li>Chaining <code>else if</code> clauses lets a decision tree with many branches be expressed in R.</li>
-<li>A for loop repeats an action once per element, with a loop variable taking each value (or index) in turn.</li>
-<li>Wrapping an if-then inside a for loop applies conditional logic element-by-element; <code>ifelse()</code> does the same thing vectorized, without an explicit loop.</li>
-</ol>
-<h4 id="tool-acquisition">Tool Acquisition</h4>
-<ol type="1">
-<li><code>if (condition) { ... }</code></li>
-<li><code>if (condition) { ... } else { ... }</code></li>
-<li><code>if (condition) { ... } else if (condition) { ... } else { ... }</code></li>
-<li><code>for (item in vector) { ... }</code></li>
-<li><code>ifelse(test, yes, no)</code></li>
-</ol>
-<h4 id="concept-application">Concept Application</h4>
-<ol type="1">
-<li>Translate a decision tree (e.g.&nbsp;how to get to campus) into nested if-then statements.</li>
-<li>Predict the output of a for loop paired with an if statement, run over a vector of random values.</li>
-<li>Rewrite an explicit for + if loop as a single vectorized <code>ifelse()</code> call.</li>
-</ol>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section>
 <section id="comparisons" class="title-slide slide level1 center">
@@ -297,19 +263,6 @@
 <code>%in%</code><br>
 </p>
 </div></div>
-<aside class="notes">
-<p>Live code simple numerical examples like a &lt;- 3; a &lt; 5</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="examples" class="slide level2">
@@ -428,20 +381,7 @@
 <section>
 <section id="choices" class="title-slide slide level1 center">
 <h1>Choices</h1>
-<aside class="notes">
-<p>Ask: raise your hand if you walked here today. Took a scooter? Drove? Took the bus?</p>
-<p>Do you always do that routine or do you decide how to get here based on conditions of the moment?</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+
 </section>
 <section id="getting-to-campus" class="slide level2">
 <h2>Getting to Campus</h2>
@@ -464,7 +404,7 @@
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 7</code></pre>
+<pre><code>[1] 2</code></pre>
 </div>
 </div>
 </div>
@@ -490,24 +430,6 @@
 <span id="cb23-4"><a aria-label="4"></a>  <span class="fu">print</span>(<span class="st">"x is positive :)"</span>)</span>
 <span id="cb23-5"><a aria-label="5"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<aside class="notes">
-<p>Drop:</p>
-<ul>
-<li>Run this multiple times to see how it’s random.</li>
-<li>Could set x &lt;- 1 to make it deterministic or even just TRUE.</li>
-<li>Annotate code with different colors: if-then syntax, logical condition, and what to do.</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="section-2" class="slide level2">
@@ -530,19 +452,6 @@
 <span id="cb24-6"><a aria-label="6"></a>  <span class="fu">print</span>(<span class="st">"x is negative :("</span>)</span>
 <span id="cb24-7"><a aria-label="7"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<aside class="notes">
-<p>Similarly, run it multiple times and annotate code with different colors: if-then syntax, logical condition, and what to do.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="nested-ifs" class="slide level2">
@@ -559,19 +468,6 @@
 <span id="cb25-8"><a aria-label="8"></a>  <span class="fu">print</span>(<span class="st">"x is zero :|"</span>)</span>
 <span id="cb25-9"><a aria-label="9"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<aside class="notes">
-<p>Run it multiple times, then get the zero to toggle using x &lt;- 0</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="getting-to-campus-1" class="slide level2">
@@ -587,7 +483,7 @@
 <div class="fragment">
 <h4 id="your-turn">Your Turn</h4>
 <p>Using the R objects <code>bike_working</code> and <code>enough_time</code>, both logical vectors of length 1, write this decision tree in R using nested if-then statements and <code>print()</code>.</p>
-<div id="timer_1eada657da415ca03956e18f379e381a2be97755" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_5f32c01fe03668d733330a15984daceb04b93b29" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -607,19 +503,6 @@
 <span id="cb26-6"><a aria-label="6"></a>  <span class="fu">print</span>(<span class="st">"call cab"</span>)</span>
 <span id="cb26-7"><a aria-label="7"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<aside class="notes">
-<p>If time you can set the values of bike_working and enough_time to verify that it works.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section></section>
 <section>
 <section id="iteration" class="title-slide slide level1 center">
@@ -684,7 +567,7 @@
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1]  0.74970641  0.07949231 -0.48274139</code></pre>
+<pre><code>[1] -0.9112656  0.6452916  0.3941463</code></pre>
 </div>
 </div>
 </div>
@@ -700,19 +583,6 @@
 <span id="cb32-3"><a aria-label="3"></a>      }</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
-<aside class="notes">
-<p>Annotate this if-then by wrapping it in a for loop.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="option-1" class="slide level2" data-auto-animate="true">
@@ -742,8 +612,8 @@
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "element 1 is positive :)"
-[1] "element 2 is positive :)"</code></pre>
+<pre><code>[1] "element 2 is positive :)"
+[1] "element 3 is positive :)"</code></pre>
 </div>
 </div>
 </section>
@@ -758,8 +628,8 @@
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "0.749706413562847 is positive :)"
-[1] "0.07949231133321 is positive :)"</code></pre>
+<pre><code>[1] "0.645291600919679 is positive :)"
+[1] "0.394146337378048 is positive :)"</code></pre>
 </div>
 </div>
 </section>
@@ -779,7 +649,7 @@
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] FALSE FALSE  TRUE</code></pre>
+<pre><code>[1]  TRUE FALSE FALSE</code></pre>
 </div>
 </div>
 </div>
@@ -789,7 +659,7 @@
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "is negative :(" "is negative :(" "is positive :)"</code></pre>
+<pre><code>[1] "is positive :)" "is negative :(" "is negative :("</code></pre>
 </div>
 </div>
 </div>
@@ -842,6 +712,7 @@
   <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-drop/drop-runtime.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-magic-move/magic-move.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-sticky-annotations/sticky-annotations.js"></script>
   <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -1037,7 +908,7 @@
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, RevealStickyAnnotations, QuartoSupport,
 
           RevealMath,
           RevealNotes,

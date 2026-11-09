@@ -102,7 +102,7 @@
     code span.vs { color: #032f62; } /* VerbatimString */
     code span.wa { color: #ff5555; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-4b2986a98c479737a68edbabff215be5.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-048dd6ad118ee2dc7db1ac3daabf611a.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -230,38 +230,6 @@
 <li class="fragment"><em>Build</em>, <em>install</em>, then <em>share</em>.</li>
 </ol>
 </div></div>
-<aside class="notes">
-<h4 id="concept-acquisition">Concept Acquisition</h4>
-<ol type="1">
-<li>A GitHub repo for your own projects tracks their history and showcases your work; a <code>.gitignore</code> keeps private or large files out of it.</li>
-<li>An R package is a structured way to DRY out, document, test, version, and share code.</li>
-<li>A package is a directory with a <code>DESCRIPTION</code> (metadata), an <code>R/</code> subdirectory (functions), and a <code>NAMESPACE</code> (exports and imports), often with <code>man/</code>, <code>data/</code>, <code>tests/</code>, and a <code>README.md</code>.</li>
-<li>A package must be built and installed before it can be loaded with <code>library()</code>.</li>
-</ol>
-<h4 id="tool-acquisition">Tool Acquisition</h4>
-<ol type="1">
-<li>Creating a repo on GitHub and cloning it into a new Positron / RStudio project; <code>.gitignore</code>.</li>
-<li><code>package.skeleton()</code> to scaffold a package.</li>
-<li><code>R CMD build</code> and <code>R CMD INSTALL</code> at the terminal.</li>
-<li><code>remotes::install_github()</code> to install a package from GitHub.</li>
-</ol>
-<h4 id="concept-application">Concept Application</h4>
-<ol type="1">
-<li>Predict the data structure returned by <code>strsplit()</code> and <code>stringr::str_split()</code>.</li>
-<li>Write <code>strsplit1()</code>, wrap it in a package, then build, install, and load it.</li>
-<li>Read the <code>DESCRIPTION</code>, <code>R/</code>, and <code>NAMESPACE</code> of a real package (<code>dplyr</code>).</li>
-</ol>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="agenda" class="slide level2">
 <h2>Agenda</h2>
@@ -276,19 +244,6 @@
 <blockquote>
 <p>Reference: R Packages by Hadley Wickham and Jenny Bryan <a href="https://r-pkgs.org/" class="uri">https://r-pkgs.org/</a></p>
 </blockquote>
-<aside class="notes code">
-<p>In a fresh IDE window, use the Prequel to link a local dir to a github repo, then during My first package add to it.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section>
@@ -349,26 +304,7 @@
 <section>
 <section id="why-package" class="title-slide slide level1 center">
 <h1>Why Package?</h1>
-<aside class="notes board">
-<p>On the board sketch the process of the evolution of a script similar to evolution of man from the ape (that famous comic).</p>
-<ol type="1">
-<li>All code in a long script.</li>
-<li>DRYs out code into a function at top of script.</li>
-<li>Separates off the functions into a separate r script.</li>
-<li>Adds comments for other users (and future self)</li>
-</ol>
-<p>That’s essentially an R package.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+
 </section>
 <section id="why-write-a-package" class="slide level2">
 <h2>Why Write a Package?</h2>
@@ -381,19 +317,6 @@
 <li class="fragment">Document your functions</li>
 <li class="fragment">Test your functions</li>
 </ol>
-<aside class="notes board">
-<p>On the right half of the pinned board, title it “Beyond R” and draw three columns: Principle | In R | Elsewhere. Add row 1: “Write it once, reuse it everywhere (DRY)” | functions → packages | modules and libraries in any language. Callback: the mill from Functions.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section></section>
 <section>
 <section id="structure-of-a-package" class="title-slide slide level1 center">
@@ -453,19 +376,6 @@
 <li class="fragment"><code>tests/</code>: a subdir of tests in <code>.r</code> files</li>
 <li class="fragment"><code>README.md</code>: a brief how-to for users</li>
 </ol>
-<aside class="notes board">
-<p>On the left half of the pinned board, draw the package tree: DESCRIPTION, NAMESPACE, R/. Grow it through the lecture.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="section-6" class="slide level2 smaller">
@@ -495,19 +405,6 @@
 </div>
 <div class="fragment">
 <p>Often also includes information on software that it relies upon (dependencies).</p>
-<aside class="notes board">
-<p>On the pinned board, add row 2: “Describe your code for machines: name, version, dependencies” | DESCRIPTION | Python <code>pyproject.toml</code>, JavaScript <code>package.json</code>.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="section-7" class="slide level2">
@@ -588,19 +485,6 @@
 <div class="cell fragment">
 
 </div>
-<aside class="notes annotate">
-<p>Annotate Imports (“needs”) vs Suggests (“nice to have”) to show dependencies.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="section-8" class="slide level2">
 <h2></h2>
@@ -937,19 +821,6 @@
 <span id="cb6-293"><a aria-label="293"></a>  x</span>
 <span id="cb6-294"><a aria-label="294"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<aside class="notes annotate">
-<p>Circle <span class="citation" data-cites="export">@export</span> here; circle export(arrange) on the NAMESPACE slide and connect them.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="section-11" class="slide level2">
 <h2></h2>
@@ -967,19 +838,6 @@
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" data-filename="NAMESPACE"><pre class="sourceCode numberSource plaintext number-lines code-with-copy"><code class="sourceCode"><span id="cb7-1"><a aria-label="1"></a>export(hello)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<aside class="notes board">
-<p>On the pinned board, add row 3: “Small public interface, private internals” | NAMESPACE <code>export()</code> | Python <code>__all__</code>, JavaScript <code>export</code>. Point out they’ve been reaching into namespaces with <code>pkg::fn()</code> since Data Cleaning (<code>readr::parse_number()</code>); callback to encapsulation from Functions.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="your-turn" class="slide level2">
 <h2>Your Turn</h2>
@@ -989,26 +847,13 @@
 <li class="fragment">add a new function, <code>strjoin1()</code>?</li>
 <li class="fragment">let users call <code>strjoin1()</code> after <code>library(mypkg)</code>?</li>
 </ol>
-<div id="timer_67c58ef593bc66ee3c04c32a1c646e02ca9fd6a7" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_a850d12424f91de68ce95d5d85b7504e595d9d9c" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
  </div>
  <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
  </div>
-<aside class="notes">
-<p>Debrief: DESCRIPTION, R/, NAMESPACE. Point back to the R Package definition.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="section-12" class="slide level2">
 <h2></h2>
@@ -1558,7 +1403,7 @@
 <p>A. An atomic vector</p>
 <p>B. A list</p>
 <p>C. A tibble</p>
-<div id="timer_67c58ef593bc66ee3c04c32a1c646e02ca9fd6a7" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_a850d12424f91de68ce95d5d85b7504e595d9d9c" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -1622,26 +1467,13 @@
 <section id="your-turn-1" class="slide level2">
 <h2>Your Turn</h2>
 <p><strong>Question</strong>: Sketch the file tree of a package <code>mypkg</code> that holds only <code>strsplit1()</code>.</p>
-<div id="timer_67c58ef593bc66ee3c04c32a1c646e02ca9fd6a7" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_a850d12424f91de68ce95d5d85b7504e595d9d9c" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
  </div>
  <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
  </div>
-<aside class="notes">
-<p>Debrief by drawing one student’s tree, then run package.skeleton() and compare (it also adds man/).</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="lets-make-a-package" class="slide level2 smaller">
 <h2>Let’s make a package</h2>
@@ -1661,20 +1493,6 @@ Saving functions and data ...
 Making help files ...
 Done.
 Further steps are described in './mypkg/Read-and-delete-me'.</code></pre>
-<aside class="notes code board">
-<p>Live-code: run package.skeleton() in the prequel repo, then build and install at the terminal.</p>
-<p>On the pinned board, add <code>mypkg/</code> to the package tree, with man/.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="build-and-install" class="slide level2">
@@ -1682,20 +1500,6 @@ Further steps are described in './mypkg/Read-and-delete-me'.</code></pre>
 <p>Before use, an R package must be <em>built</em> and then <em>installed</em>. First fill in the template <code>DESCRIPTION</code> (it starts at version 1.0), then at the terminal:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb21-1"><a aria-label="1"></a><span class="ex">R</span> CMD build mypkg</span>
 <span id="cb21-2"><a aria-label="2"></a><span class="ex">R</span> CMD INSTALL mypkg_0.1.0.tar.gz</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<aside class="notes board">
-<p>On the board: source dir → build → .tar.gz → INSTALL → library → library(mypkg).</p>
-<p>On the pinned board, add <code>mypkg_0.1.0.tar.gz</code> beside the package tree.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="load-it-test-it" class="slide level2">
 <h2>Load it / test it</h2>
@@ -1726,20 +1530,6 @@ Further steps are described in './mypkg/Read-and-delete-me'.</code></pre>
 <li class="fragment">Host the package on r-universe.dev</li>
 <li class="fragment">Host the package on GitHub</li>
 </ol>
-<aside class="notes board">
-<p>On the pinned board, add row 4: “Share through a registry” | CRAN (reviewed), GitHub (open) | Python PyPI, JavaScript npm. Connect to the <code>install.packages()</code> lines they’ve seen since Extending Vectors.</p>
-<p>On the left half, draw arrows from the tarball out to CRAN and GitHub.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="section-15" class="slide level2" data-background-image="images/cran1.png" data-background-size="contain">
 <h2></h2>
@@ -1782,19 +1572,6 @@ Further steps are described in './mypkg/Read-and-delete-me'.</code></pre>
 <li class="fragment">Project Studio 4 is the week of 11/2.</li>
 </ol>
 </div></div>
-<aside class="notes board">
-<p>Press Q for the pinned board and read the four rows back: these ideas outlive R.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 
 
 </section></section>
@@ -1816,6 +1593,7 @@ Further steps are described in './mypkg/Read-and-delete-me'.</code></pre>
   <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-drop/drop-runtime.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-magic-move/magic-move.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-sticky-annotations/sticky-annotations.js"></script>
   <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -2011,7 +1789,7 @@ Further steps are described in './mypkg/Read-and-delete-me'.</code></pre>
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, RevealStickyAnnotations, QuartoSupport,
 
           RevealMath,
           RevealNotes,

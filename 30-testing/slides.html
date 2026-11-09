@@ -102,7 +102,7 @@
     code span.vs { color: #032f62; } /* VerbatimString */
     code span.wa { color: #ff5555; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-4b2986a98c479737a68edbabff215be5.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-048dd6ad118ee2dc7db1ac3daabf611a.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -231,36 +231,6 @@
 <li class="fragment">Turn every <em>bug</em> into a test.</li>
 </ol>
 </div></div>
-<aside class="notes">
-<h4 id="concept-acquisition">Concept Acquisition</h4>
-<ol type="1">
-<li>A change can break behavior you already checked (a regression); checking by eye doesn’t scale, but a test runs every time.</li>
-<li>A unit test pairs an input with the output you expect, so a set of tests is a specification of what a function should do.</li>
-<li>Good test cases cover typical inputs, edge cases (empty, boundary, unusual characters), and the errors a function should raise.</li>
-<li>Test-driven development: write the failing test first, make it pass, then clean up. A bug report becomes a test before it becomes a fix.</li>
-</ol>
-<h4 id="tool-acquisition">Tool Acquisition</h4>
-<ol type="1">
-<li><code>usethis::use_testthat()</code> and <code>use_test()</code>.</li>
-<li><code>test_that()</code> with <code>expect_equal()</code>, <code>expect_type()</code>, <code>expect_length()</code>, and <code>expect_error()</code>.</li>
-<li><code>devtools::test()</code>, and reading its failure report.</li>
-</ol>
-<h4 id="concept-application">Concept Application</h4>
-<ol type="1">
-<li>Add tests for <code>strsplit1()</code> to <code>mypkg</code>, find the bug they reveal, and fix it.</li>
-<li>Turn a bug report into a failing test, then make it pass.</li>
-</ol>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="agenda" class="slide level2">
 <h2>Agenda</h2>
@@ -419,19 +389,6 @@ Debrief, with the next slide in mind:
 <li><strong>Letter: 90+ is A, 80+ is B, 70+ is C, 60+ is D, otherwise F.</strong></li>
 </ol>
 <p><strong>Check</strong>: Does 95 get an A? Does 42 get an F?</p>
-<aside class="notes">
-<p>No laptops: students run the steps in their heads. Frame it: “The registrar keeps changing the rules, and we’ll update our steps each time. After each change, check the new examples.” Thumbs up or down for each check, about 20 seconds per slide. Don’t suggest re-checking earlier examples; the last slide does that.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="a-grade-calculator-1" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">A grade calculator</h2>
@@ -441,19 +398,6 @@ Debrief, with the next slide in mind:
 <li><strong>Add “+” if the last digit is 7 to 9, and “−” if it’s 0 to 2.</strong></li>
 </ol>
 <p><strong>Check</strong>: Does 98 get an A+? Does 91 get an A−?</p>
-<aside class="notes">
-<p>Both pass. This step looks harmless, but it silently breaks 100 (last digit 0, so A−), 58 (F+), and 42 (F−). Don’t point that out.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="a-grade-calculator-2" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">A grade calculator</h2>
@@ -464,19 +408,6 @@ Debrief, with the next slide in mind:
 <li>Add “+” if the last digit is 7 to 9, and “−” if it’s 0 to 2.</li>
 </ol>
 <p><strong>Check</strong>: Does 86.5 get a B+?</p>
-<aside class="notes">
-<p>It passes: 86.5 rounds to 87, a B+. The new step went in at the top, the way people really patch code.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="a-grade-calculator-3" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">A grade calculator</h2>
@@ -488,19 +419,6 @@ Debrief, with the next slide in mind:
 <li>Add “+” if the last digit is 7 to 9, and “−” if it’s 0 to 2.</li>
 </ol>
 <p><strong>Check</strong>: Does 0.91 get an A−?</p>
-<aside class="notes">
-<p>It passes, but only by luck: 0.91 rounds to 1, becomes 100, and the last digit 0 gives an A−. The right answer and the wrong reasoning happen to agree. If a student notices, great; save it for the next slide.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="did-we-keep-our-promises" class="slide level2">
 <h2>Did we keep our promises?</h2>
@@ -532,32 +450,13 @@ Debrief, with the next slide in mind:
 </tr>
 </tbody>
 </table>
-<div id="timer_6ccfb841fc049c8f6f076be8e64260ec65a03f10" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_c784baad1e523411737116b15fb7682aad65f6ce" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
  </div>
  <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
  </div>
-<aside class="notes">
-<p>All four are broken: 100 gets A− (last digit 0), 58 gets F+, 42 gets F−, and 0.85 rounds to 1 before the proportion step, becoming 100 and an A−. Every check passed along the way.</p>
-<p>Debrief:</p>
-<ol type="1">
-<li>Each change passed its own check and broke one we had already checked. We checked each example once and never again.</li>
-<li>A list of promises like this one is a test suite. Written down after the first slide, it would have been rerun after every change.</li>
-<li>What should a score of 1 get: F (1 point) or A+ (100%)? The rules contradict each other, and you only notice when you write down what you expect. Tests are a specification.</li>
-</ol>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="bugs-come-back" class="slide level2">
 <h2>Bugs come back</h2>
@@ -566,19 +465,6 @@ Debrief, with the next slide in mind:
 <li class="fragment">Later changes broke behavior you had already checked.</li>
 <li class="fragment">Checking by eye happens once. A test runs every time you change the code.</li>
 </ul>
-<aside class="notes board">
-<p>Draw a timeline of the four rule changes. Under each one, write the check that passed. Then circle the earlier checks it broke (100, 58, 42 under the plus/minus step; 0.85 under the proportion step). Label the circles: regressions.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="section-1" class="slide level2">
 <h2></h2>
@@ -599,19 +485,6 @@ Debrief, with the next slide in mind:
 <p>Code that runs a function on a known input and checks its output against the output you expect.</p>
 </div>
 </div>
-<aside class="notes">
-<p>The promises table on the last activity slide was a set of unit tests written on paper. Today we write them in R and let R run them.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="tests-as-a-specification" class="slide level2">
@@ -651,19 +524,6 @@ Debrief, with the next slide in mind:
     ├── testthat.R
     └── testthat/test-strsplit1.R</code></pre>
 </div></div>
-<aside class="notes code">
-<p>Live-code in mypkg from last time: run both lines, then open the two new files. tests/testthat.R runs the tests during check(); leave it alone. test-strsplit1.R starts with a placeholder test (“multiplication works”); delete it.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="anatomy-of-a-test" class="slide level2">
@@ -682,19 +542,6 @@ Debrief, with the next slide in mind:
 <li class="fragment">The description finishes the sentence “Test that …”.</li>
 <li class="fragment">Inside are one or more <em>expectations</em>: each one checks a single thing.</li>
 </ul>
-<aside class="notes annotate">
-<p>Label the three parts: the description, the curly braces holding the test code, and the expectation with its actual (the call) and expected (the vector) arguments.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="expectations" class="slide level2">
 <h2>Expectations</h2>
@@ -732,54 +579,22 @@ Debrief, with the next slide in mind:
 </tr>
 </tbody>
 </table>
-<aside class="notes">
-<p>expect_equal() allows tiny numeric differences; expect_identical() doesn’t. msg is matched against the error or warning message, so a different error won’t pass.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="your-turn" class="slide level2">
 <h2>Your Turn</h2>
 <p><strong>Task</strong>: Write a test that <code>strsplit1("a,b,c", split = ",")</code> gives a character vector (not a list) with three elements.</p>
-<div id="timer_6ccfb841fc049c8f6f076be8e64260ec65a03f10" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_c784baad1e523411737116b15fb7682aad65f6ce" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
  </div>
  <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
  </div>
-<aside class="notes code">
-<p>Answer:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a><span class="fu">test_that</span>(<span class="st">"strsplit1() returns a character vector, not a list"</span>, {</span>
-<span id="cb4-2"><a aria-label="2"></a>  out <span class="ot">&lt;-</span> <span class="fu">strsplit1</span>(<span class="st">"a,b,c"</span>, <span class="at">split =</span> <span class="st">","</span>)</span>
-<span id="cb4-3"><a aria-label="3"></a>  <span class="fu">expect_type</span>(out, <span class="st">"character"</span>)</span>
-<span id="cb4-4"><a aria-label="4"></a>  <span class="fu">expect_length</span>(out, <span class="dv">3</span>)</span>
-<span id="cb4-5"><a aria-label="5"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Paste a student’s version into test-strsplit1.R; it’s the second test for the next slide. If someone uses <code>expect_true(is.character(out))</code>, it works, but <code>expect_type()</code> gives a clearer message when it fails.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="running-tests-with-test" class="slide level2">
 <h2>Running tests with <code>test()</code></h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>devtools<span class="sc">::</span><span class="fu">test</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>devtools<span class="sc">::</span><span class="fu">test</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 
@@ -794,19 +609,6 @@ Debrief, with the next slide in mind:
 <li class="fragment">Counts <em>expectations</em>, not tests: two tests, three expectations.</li>
 <li class="fragment"><code>check()</code> runs the tests too.</li>
 </ul>
-<aside class="notes code">
-<p>Run test() in mypkg. Keyboard shortcut in Positron/RStudio: Ctrl/Cmd + Shift + T.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="reading-a-failure" class="slide level2">
@@ -816,9 +618,9 @@ Debrief, with the next slide in mind:
 <div class="code-with-filename-file">
 <pre><strong>tests/testthat/test-strsplit1.R</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" data-filename="tests/testthat/test-strsplit1.R"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a><span class="fu">test_that</span>(<span class="st">"strsplit1() splits on a period"</span>, {</span>
-<span id="cb7-2"><a aria-label="2"></a>  <span class="fu">expect_equal</span>(<span class="fu">strsplit1</span>(<span class="st">"3.14"</span>, <span class="at">split =</span> <span class="st">"."</span>), <span class="fu">c</span>(<span class="st">"3"</span>, <span class="st">"14"</span>))</span>
-<span id="cb7-3"><a aria-label="3"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" data-filename="tests/testthat/test-strsplit1.R"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a><span class="fu">test_that</span>(<span class="st">"strsplit1() splits on a period"</span>, {</span>
+<span id="cb6-2"><a aria-label="2"></a>  <span class="fu">expect_equal</span>(<span class="fu">strsplit1</span>(<span class="st">"3.14"</span>, <span class="at">split =</span> <span class="st">"."</span>), <span class="fu">c</span>(<span class="st">"3"</span>, <span class="st">"14"</span>))</span>
+<span id="cb6-3"><a aria-label="3"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="fragment">
 <pre><code>Failure ('test-strsplit1.R:12:3'): strsplit1() splits on a period
@@ -826,42 +628,12 @@ Expected `strsplit1("3.14", split = ".")` to equal `c("3", "14")`.
 `actual`:   ""  ""   "" ""
 `expected`: "3" "14"
 [ FAIL 1 | WARN 0 | SKIP 0 | PASS 3 ]</code></pre>
-<aside class="notes annotate">
-<p>Annotate the report: the file and line (12:3), the test’s description, the call, and actual against expected. Then ask the room why we got four empty strings. <code>split</code> is a regular expression (Strings II), and <code>.</code> matches any character, so every character is a delimiter. The fix comes in the TDD section: <code>fixed = TRUE</code>. A test we expected to be boring found a real bug.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section></section>
 <section>
 <section id="choosing-test-cases" class="title-slide slide level1 center">
 <h1>Choosing Test Cases</h1>
-<aside class="notes annotate">
-<p>List the following cases you’ll discuss:</p>
-<ol type="1">
-<li>typical inputs</li>
-<li>edge cases</li>
-<li>errors and warnings</li>
-</ol>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+
 </section>
 <section id="typical-inputs" class="slide level2">
 <h2>Typical inputs</h2>
@@ -896,53 +668,33 @@ Expected `strsplit1("3.14", split = ".")` to equal `c("3", "14")`.
 <h2>Your Turn</h2>
 <p><strong>Question</strong>: Predict what each call returns. Which results are bugs?</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a><span class="fu">strsplit1</span>(<span class="st">""</span>, <span class="at">split =</span> <span class="st">","</span>)</span>
-<span id="cb9-2"><a aria-label="2"></a><span class="fu">strsplit1</span>(<span class="st">",a"</span>, <span class="at">split =</span> <span class="st">","</span>)</span>
-<span id="cb9-3"><a aria-label="3"></a><span class="fu">strsplit1</span>(<span class="st">"a,b,"</span>, <span class="at">split =</span> <span class="st">","</span>)</span>
-<span id="cb9-4"><a aria-label="4"></a><span class="fu">strsplit1</span>(<span class="fu">c</span>(<span class="st">"a,b"</span>, <span class="st">"c,d"</span>), <span class="at">split =</span> <span class="st">","</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a><span class="fu">strsplit1</span>(<span class="st">""</span>, <span class="at">split =</span> <span class="st">","</span>)</span>
+<span id="cb8-2"><a aria-label="2"></a><span class="fu">strsplit1</span>(<span class="st">",a"</span>, <span class="at">split =</span> <span class="st">","</span>)</span>
+<span id="cb8-3"><a aria-label="3"></a><span class="fu">strsplit1</span>(<span class="st">"a,b,"</span>, <span class="at">split =</span> <span class="st">","</span>)</span>
+<span id="cb8-4"><a aria-label="4"></a><span class="fu">strsplit1</span>(<span class="fu">c</span>(<span class="st">"a,b"</span>, <span class="st">"c,d"</span>), <span class="at">split =</span> <span class="st">","</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 
 </div>
-<div id="timer_6ccfb841fc049c8f6f076be8e64260ec65a03f10" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_c784baad1e523411737116b15fb7682aad65f6ce" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
  </div>
  <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
  </div>
-<aside class="notes code">
-<p>Run each line after the countdown.</p>
-<ol type="1">
-<li><code>character(0)</code>: no pieces. Defensible.</li>
-<li><code>c("", "a")</code>: a leading empty piece. Defensible.</li>
-<li><code>c("a", "b")</code>: the trailing empty piece is dropped, so <code>"a,b,"</code> and <code>"a,b"</code> split the same way. Surprising.</li>
-<li><code>c("a", "b")</code>: <code>"c,d"</code> silently disappears, because of the <code>[[1]]</code>. A bug: no error, wrong answer.</li>
-</ol>
-<p>Whether 1 to 3 are bugs is a decision, not a fact. Writing the test is where you make it.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="errors-and-warnings" class="slide level2">
 <h2>Errors and warnings</h2>
 <p>Some inputs <em>should</em> fail. Test that they fail, and for the right reason.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a><span class="fu">test_that</span>(<span class="st">"log() rejects text"</span>, {</span>
-<span id="cb10-2"><a aria-label="2"></a>  <span class="fu">expect_error</span>(<span class="fu">log</span>(<span class="st">"a"</span>), <span class="st">"non-numeric"</span>)</span>
-<span id="cb10-3"><a aria-label="3"></a>})</span>
-<span id="cb10-4"><a aria-label="4"></a></span>
-<span id="cb10-5"><a aria-label="5"></a><span class="fu">test_that</span>(<span class="st">"as.numeric() warns when it can't convert"</span>, {</span>
-<span id="cb10-6"><a aria-label="6"></a>  <span class="fu">expect_warning</span>(<span class="fu">as.numeric</span>(<span class="st">"a"</span>), <span class="st">"NAs introduced"</span>)</span>
-<span id="cb10-7"><a aria-label="7"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a><span class="fu">test_that</span>(<span class="st">"log() rejects text"</span>, {</span>
+<span id="cb9-2"><a aria-label="2"></a>  <span class="fu">expect_error</span>(<span class="fu">log</span>(<span class="st">"a"</span>), <span class="st">"non-numeric"</span>)</span>
+<span id="cb9-3"><a aria-label="3"></a>})</span>
+<span id="cb9-4"><a aria-label="4"></a></span>
+<span id="cb9-5"><a aria-label="5"></a><span class="fu">test_that</span>(<span class="st">"as.numeric() warns when it can't convert"</span>, {</span>
+<span id="cb9-6"><a aria-label="6"></a>  <span class="fu">expect_warning</span>(<span class="fu">as.numeric</span>(<span class="st">"a"</span>), <span class="st">"NAs introduced"</span>)</span>
+<span id="cb9-7"><a aria-label="7"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 
@@ -964,19 +716,6 @@ Expected `strsplit1("3.14", split = ".")` to equal `c("3", "14")`.
 <li class="fragment"><strong>Green</strong>: write the simplest code that makes it pass.</li>
 <li class="fragment"><strong>Refactor</strong>: revise the code. The tests stay green.</li>
 </ol>
-<aside class="notes board">
-<p>Draw the cycle as three arrows: red, green, refactor, back to red. The red step matters: a test that has never failed might not be testing anything.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="turning-a-bug-report-into-a-test" class="slide level2">
 <h2>Turning a bug report into a test</h2>
@@ -988,24 +727,11 @@ Expected `strsplit1("3.14", split = ".")` to equal `c("3", "14")`.
 <div class="code-with-filename-file">
 <pre><strong>tests/testthat/test-strsplit1.R</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" data-filename="tests/testthat/test-strsplit1.R"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a><span class="fu">test_that</span>(<span class="st">"strsplit1() errors on more than one string"</span>, {</span>
-<span id="cb11-2"><a aria-label="2"></a>  <span class="fu">expect_error</span>(<span class="fu">strsplit1</span>(<span class="fu">c</span>(<span class="st">"a,b"</span>, <span class="st">"c,d"</span>), <span class="at">split =</span> <span class="st">","</span>),</span>
-<span id="cb11-3"><a aria-label="3"></a>               <span class="st">"single string"</span>)</span>
-<span id="cb11-4"><a aria-label="4"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10" data-filename="tests/testthat/test-strsplit1.R"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a><span class="fu">test_that</span>(<span class="st">"strsplit1() errors on more than one string"</span>, {</span>
+<span id="cb10-2"><a aria-label="2"></a>  <span class="fu">expect_error</span>(<span class="fu">strsplit1</span>(<span class="fu">c</span>(<span class="st">"a,b"</span>, <span class="st">"c,d"</span>), <span class="at">split =</span> <span class="st">","</span>),</span>
+<span id="cb10-3"><a aria-label="3"></a>               <span class="st">"single string"</span>)</span>
+<span id="cb10-4"><a aria-label="4"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<aside class="notes code">
-<p>Add the test and run test(): it fails, because strsplit1() returns a value instead of throwing an error. That’s the red step. Mention the other possible fix: make strsplit1() work on a vector and return a list. Erroring is the choice for a function that promises one string in and one vector out, and the test records that choice.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="make-it-pass" class="slide level2">
 <h2>Make it pass</h2>
@@ -1014,31 +740,18 @@ Expected `strsplit1("3.14", split = ".")` to equal `c("3", "14")`.
 <div class="code-with-filename-file">
 <pre><strong>R/strsplit1.R</strong></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12" data-filename="R/strsplit1.R"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a>strsplit1 <span class="ot">&lt;-</span> <span class="cf">function</span>(x, split) {</span>
-<span id="cb12-2"><a aria-label="2"></a>  <span class="cf">if</span> (<span class="fu">length</span>(x) <span class="sc">!=</span> <span class="dv">1</span>) {</span>
-<span id="cb12-3"><a aria-label="3"></a>    <span class="fu">stop</span>(<span class="st">"`x` must be a single string, not "</span>,</span>
-<span id="cb12-4"><a aria-label="4"></a>         <span class="fu">length</span>(x), <span class="st">" strings."</span>)</span>
-<span id="cb12-5"><a aria-label="5"></a>  }</span>
-<span id="cb12-6"><a aria-label="6"></a>  <span class="fu">strsplit</span>(x, <span class="at">split =</span> split, <span class="at">fixed =</span> <span class="cn">TRUE</span>)[[<span class="dv">1</span>]]</span>
-<span id="cb12-7"><a aria-label="7"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11" data-filename="R/strsplit1.R"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a>strsplit1 <span class="ot">&lt;-</span> <span class="cf">function</span>(x, split) {</span>
+<span id="cb11-2"><a aria-label="2"></a>  <span class="cf">if</span> (<span class="fu">length</span>(x) <span class="sc">!=</span> <span class="dv">1</span>) {</span>
+<span id="cb11-3"><a aria-label="3"></a>    <span class="fu">stop</span>(<span class="st">"`x` must be a single string, not "</span>,</span>
+<span id="cb11-4"><a aria-label="4"></a>         <span class="fu">length</span>(x), <span class="st">" strings."</span>)</span>
+<span id="cb11-5"><a aria-label="5"></a>  }</span>
+<span id="cb11-6"><a aria-label="6"></a>  <span class="fu">strsplit</span>(x, <span class="at">split =</span> split, <span class="at">fixed =</span> <span class="cn">TRUE</span>)[[<span class="dv">1</span>]]</span>
+<span id="cb11-7"><a aria-label="7"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li class="fragment">The check fixes the bug report; <code>fixed = TRUE</code> fixes the period test.</li>
 <li class="fragment">The test stays in the package, so this bug can’t come back silently.</li>
 </ul>
-<aside class="notes code">
-<p>Make both changes and run test(): all green. stop() is new; it’s base R’s way to throw an error, and its arguments are pasted together into the message.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 <!--
 Set aside for now, to come back to later: snapshot tests, property tests,
 tolerance and randomness, and evals. Delete this comment's opening and
@@ -1170,19 +883,6 @@ A preview for the LLM lectures (36 and 37). Keep it to a minute.
 </tbody>
 </table>
 <p>Shortcuts are Ctrl/Cmd + Shift + a letter in Positron/RStudio.</p>
-<aside class="notes board">
-<p>Add test() to the development-cycle drawing from last time (https://r-pkgs.org/whole-game.html#fig-package-dev-workflow), between load_all() and check().</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section></section>
 <section>
 <section id="testing-in-data-analysis" class="title-slide slide level1 center">
@@ -1192,20 +892,20 @@ A preview for the LLM lectures (36 and 37). Keep it to a minute.
 <section id="expectations-in-a-cleaning-script" class="slide level2 smaller">
 <h2>Expectations in a cleaning script</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-label="1"></a>zev_raw <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/raw/New_ZEV_Sales_Last_updated_07-17-2026_ada.xlsx"</span>,</span>
-<span id="cb13-2"><a aria-label="2"></a>                      <span class="at">sheet =</span> <span class="st">"County"</span>)</span>
-<span id="cb13-3"><a aria-label="3"></a>zev <span class="ot">&lt;-</span> zev_raw <span class="sc">|&gt;</span></span>
-<span id="cb13-4"><a aria-label="4"></a>  <span class="fu">rename</span>(<span class="at">year =</span> <span class="st">`</span><span class="at">Data Year</span><span class="st">`</span>, <span class="at">quarter =</span> Quarter, <span class="at">county =</span> COUNTY,</span>
-<span id="cb13-5"><a aria-label="5"></a>         <span class="at">fuel_type =</span> FUEL_TYPE, <span class="at">make =</span> MAKE, <span class="at">model =</span> MODEL,</span>
-<span id="cb13-6"><a aria-label="6"></a>         <span class="at">n_vehicles =</span> <span class="st">`</span><span class="at">Number of Vehicles</span><span class="st">`</span>) <span class="sc">|&gt;</span></span>
-<span id="cb13-7"><a aria-label="7"></a>  <span class="fu">mutate</span>(<span class="at">in_state =</span> county <span class="sc">!=</span> <span class="st">"Out Of State"</span>)</span>
-<span id="cb13-8"><a aria-label="8"></a></span>
-<span id="cb13-9"><a aria-label="9"></a><span class="co"># Nothing dropped; expectations still hold</span></span>
-<span id="cb13-10"><a aria-label="10"></a><span class="fu">stopifnot</span>(</span>
-<span id="cb13-11"><a aria-label="11"></a>  <span class="fu">nrow</span>(zev) <span class="sc">==</span> <span class="fu">nrow</span>(zev_raw),</span>
-<span id="cb13-12"><a aria-label="12"></a>  <span class="fu">all</span>(zev<span class="sc">$</span>quarter <span class="sc">%in%</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>),</span>
-<span id="cb13-13"><a aria-label="13"></a>  <span class="fu">all</span>(zev<span class="sc">$</span>n_vehicles <span class="sc">&gt;=</span> <span class="dv">1</span>)</span>
-<span id="cb13-14"><a aria-label="14"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a>zev_raw <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/raw/New_ZEV_Sales_Last_updated_07-17-2026_ada.xlsx"</span>,</span>
+<span id="cb12-2"><a aria-label="2"></a>                      <span class="at">sheet =</span> <span class="st">"County"</span>)</span>
+<span id="cb12-3"><a aria-label="3"></a>zev <span class="ot">&lt;-</span> zev_raw <span class="sc">|&gt;</span></span>
+<span id="cb12-4"><a aria-label="4"></a>  <span class="fu">rename</span>(<span class="at">year =</span> <span class="st">`</span><span class="at">Data Year</span><span class="st">`</span>, <span class="at">quarter =</span> Quarter, <span class="at">county =</span> COUNTY,</span>
+<span id="cb12-5"><a aria-label="5"></a>         <span class="at">fuel_type =</span> FUEL_TYPE, <span class="at">make =</span> MAKE, <span class="at">model =</span> MODEL,</span>
+<span id="cb12-6"><a aria-label="6"></a>         <span class="at">n_vehicles =</span> <span class="st">`</span><span class="at">Number of Vehicles</span><span class="st">`</span>) <span class="sc">|&gt;</span></span>
+<span id="cb12-7"><a aria-label="7"></a>  <span class="fu">mutate</span>(<span class="at">in_state =</span> county <span class="sc">!=</span> <span class="st">"Out Of State"</span>)</span>
+<span id="cb12-8"><a aria-label="8"></a></span>
+<span id="cb12-9"><a aria-label="9"></a><span class="co"># Nothing dropped; expectations still hold</span></span>
+<span id="cb12-10"><a aria-label="10"></a><span class="fu">stopifnot</span>(</span>
+<span id="cb12-11"><a aria-label="11"></a>  <span class="fu">nrow</span>(zev) <span class="sc">==</span> <span class="fu">nrow</span>(zev_raw),</span>
+<span id="cb12-12"><a aria-label="12"></a>  <span class="fu">all</span>(zev<span class="sc">$</span>quarter <span class="sc">%in%</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>),</span>
+<span id="cb12-13"><a aria-label="13"></a>  <span class="fu">all</span>(zev<span class="sc">$</span>n_vehicles <span class="sc">&gt;=</span> <span class="dv">1</span>)</span>
+<span id="cb12-14"><a aria-label="14"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell fragment">
 
@@ -1214,19 +914,6 @@ A preview for the LLM lectures (36 and 37). Keep it to a minute.
 <blockquote>
 <p>When the data are updated next quarter, a broken expectation fails <em>loudly</em>.</p>
 </blockquote>
-<aside class="notes">
-<p>From Data Cleaning (“Decide, Record, Re-check”), trimmed to fit: the comments and the final write_csv() are gone. The <code>stopifnot()</code> block is a test suite for the data: nothing dropped, quarters in 1 to 4, counts at least 1. When next quarter’s file arrives and you rerun the script, it guards against regressions in the data the way <code>test()</code> guards against regressions in the code.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="testing-an-llm" class="slide level2">
@@ -1271,6 +958,7 @@ A preview for the LLM lectures (36 and 37). Keep it to a minute.
   <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-drop/drop-runtime.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-magic-move/magic-move.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-sticky-annotations/sticky-annotations.js"></script>
   <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -1466,7 +1154,7 @@ A preview for the LLM lectures (36 and 37). Keep it to a minute.
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, RevealStickyAnnotations, QuartoSupport,
 
           RevealMath,
           RevealNotes,

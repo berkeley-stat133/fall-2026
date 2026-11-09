@@ -102,7 +102,7 @@
     code span.vs { color: #032f62; } /* VerbatimString */
     code span.wa { color: #ff5555; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-4b2986a98c479737a68edbabff215be5.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-048dd6ad118ee2dc7db1ac3daabf611a.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -233,40 +233,6 @@
 <li class="fragment">Data frames subset like a list <code>$</code>, <code>[[]]</code>, <code>[]</code> and like a matrix <code>[r,c]</code>.</li>
 </ol>
 </div></div>
-<aside class="notes">
-<h4 id="concept-acquisition">Concept Acquisition</h4>
-<ol type="1">
-<li>A factor encodes categorical data as an integer vector paired with a <code>levels</code> attribute, which is more compact than a character vector and preserves meaning.</li>
-<li>An object’s <code>class</code> attribute lets generic functions like <code>summary()</code> dispatch different behavior — a first taste of object-oriented programming.</li>
-<li>Ordered factors (<code>ordered = TRUE</code>) can be sorted meaningfully, not just alphabetically.</li>
-<li>Atomic vectors, matrices, and lists are each insufficient for storing related, mixed-type, rectangular data.</li>
-<li>A data frame is a named list of equal-length vectors, giving it both list-like and matrix-like subsetting.</li>
-</ol>
-<h4 id="tool-acquisition">Tool Acquisition</h4>
-<ol type="1">
-<li><code>factor()</code>, <code>levels()</code>, <code>ordered = TRUE</code>.</li>
-<li><code>class()</code>, <code>summary()</code>, <code>sort()</code>.</li>
-<li><code>data.frame()</code>, <code>names()</code>, <code>row.names()</code>, <code>str()</code>, <code>dim()</code>, <code>nrow()</code>, <code>ncol()</code>.</li>
-<li><code>as_tibble()</code> from the tibble package.</li>
-</ol>
-<h4 id="concept-application">Concept Application</h4>
-<ol type="1">
-<li>Convert a character vector to a factor and visualize its distribution with <code>barplot()</code>.</li>
-<li>Add a level and reorder a factor sensibly, then re-plot.</li>
-<li>Construct a data frame using <code>dataframe()</code>.</li>
-<li>Subset a data frame using both matrix- and list-style syntax.</li>
-</ol>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="something-to-ponder-.-.-." class="slide level2">
 <h2>Something to ponder . . .</h2>
@@ -324,19 +290,6 @@
 Levels: DATA ECON STAT</code></pre>
 </div>
 </div>
-<aside class="notes">
-<p>Draw two versions of the same data: as a character vector as an integer vector coupled with a levels lookup table.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="section-2" class="slide level2">
@@ -470,19 +423,6 @@ Levels: DATA ECON STATISTICS BIO</code></pre>
          1          2          2          0 </code></pre>
 </div>
 </div>
-<aside class="notes">
-<p>live code to compare vectors to matrices in terms of class and typeof</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="ordering-levels" class="slide level2">
@@ -737,38 +677,11 @@ Levels: 4me4u Golden by Huntrix Stay with me</code></pre>
 <li class="fragment">Lists <em>can</em> hold different types.</li>
 <li class="fragment">But are complicated to subset 🤯.</li>
 </ul>
-<aside class="notes">
-<p>You could also point out that there is nothing enforcing the fact that the two vectors are the same length, so a for loop that iterated over the index might error out.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="data-structures-in-r" class="slide level2">
 <h2>Data Structures in R</h2>
 <p>boardwork</p>
-<aside class="notes">
-<p>Sketch the following diagram.</p>
-<p><img data-src="images/data-structures.png" width="350"></p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section></section>
 <section>
 <section id="data-frames" class="title-slide slide level1 center">
@@ -857,19 +770,6 @@ Levels: 4me4u Golden by Huntrix Stay with me</code></pre>
 <span id="cb66-5"><a aria-label="5"></a>    <span class="at">weight =</span> <span class="fu">c</span>(<span class="dv">84</span>, <span class="dv">45</span>, <span class="dv">77</span>, <span class="dv">49</span>)</span>
 <span id="cb66-6"><a aria-label="6"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<aside class="notes">
-<p>live code</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="index-cards-as-a-data-frame" class="slide level2">
 <h2>Index Cards as a Data Frame</h2>
@@ -956,7 +856,7 @@ Levels: 4me4u Golden by Huntrix Stay with me</code></pre>
 <li>The data frame containing only the last row.</li>
 <li>The value <code>1.88</code></li>
 </ol>
-<div id="timer_c9906adb13b4983cdadec4ace3a498d00fc66423" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_0b334eb8e457c3d0c589fa106636ed1b2e637674" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -1064,6 +964,7 @@ Levels: 4me4u Golden by Huntrix Stay with me</code></pre>
   <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-drop/drop-runtime.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-magic-move/magic-move.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-sticky-annotations/sticky-annotations.js"></script>
   <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -1259,7 +1160,7 @@ Levels: 4me4u Golden by Huntrix Stay with me</code></pre>
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, RevealStickyAnnotations, QuartoSupport,
 
           RevealMath,
           RevealNotes,

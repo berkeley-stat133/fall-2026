@@ -102,7 +102,7 @@
     code span.vs { color: #032f62; } /* VerbatimString */
     code span.wa { color: #ff5555; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-4b2986a98c479737a68edbabff215be5.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-048dd6ad118ee2dc7db1ac3daabf611a.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -232,50 +232,6 @@
 <li class="fragment"><em><code>group_by()</code></em> puts rows into groups for downstream verbs.</li>
 </ol>
 </div></div>
-<aside class="notes">
-<h4 id="concept-acquisition">Concept Acquisition</h4>
-<ol type="1">
-<li>Nesting, step-by-step objects, and pipelines are three ways to express the same multi-step computation; each trades off readability, intermediate clutter, and repetition of the data frame name.</li>
-<li>The native pipe <code>|&gt;</code> follows <code>magrittr</code>’s <code>%&gt;%</code> and works with any function, not just <code>dplyr</code> verbs.</li>
-<li>Grouping changes the <em>scope</em> of the functions inside a verb: <code>summarize()</code> returns one row per group, <code>filter()</code> and <code>mutate()</code> evaluate within groups, and <code>arrange()</code> ignores grouping entirely.</li>
-<li>A grouped data frame stays grouped until it is reduced to one row per group or explicitly ungrouped.</li>
-</ol>
-<h4 id="tool-acquisition">Tool Acquisition</h4>
-<ol type="1">
-<li><code>|&gt;</code>.</li>
-<li><code>group_by()</code>, <code>ungroup()</code>, and the <code>.by</code> argument.</li>
-<li>Grouped forms of <code>summarize()</code>, <code>filter()</code>, <code>mutate()</code>, and <code>arrange()</code>.</li>
-</ol>
-<h4 id="concept-application">Concept Application</h4>
-<ol type="1">
-<li>Rewrite a nested or step-by-step computation as a pipeline.</li>
-<li>Predict the dimensions of the data frame at each stage of a pipe (the A/B/C/D question).</li>
-<li>Compute a group-wise summary and a group-wise z-score, and explain why the second requires <code>ungroup()</code> or <code>.by</code> downstream.</li>
-</ol>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-<aside class="notes">
-<p>Before class, sketch out the effect that the different dplyr verbs from last class have on the shape of a data frame.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section>
 <section id="two-more-verbs" class="title-slide slide level1 center">
@@ -691,26 +647,13 @@ Caused by error:
 
 </div>
 <p><strong>Question:</strong> What are the dimensions of the data frame at each stage of the pipe: A, B, C, and D?</p>
-<div id="timer_ad121fedeaff09e9a4909925eeeab76fcc803c19" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_067b2c694e74a06c1495801d57b2839609964cb7" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
  </div>
  <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
  </div>
-<aside class="notes">
-<p>Show answer in drop by breaking the pipe</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="works-everywhere" class="slide level2">
 <h2><code>|&gt;</code> works everywhere</h2>
@@ -935,19 +878,6 @@ Caused by error:
 <blockquote>
 <p>Changes the scope of functions inside <code>filter()</code> to operate within groups.</p>
 </blockquote>
-<aside class="notes">
-<p>Can bring up drop to demonstrate how a condition like height &gt; 1.7 will operate the same with or without the grouping.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="group_by-with-arrange" class="slide level2" data-auto-animate="true">
@@ -1077,19 +1007,6 @@ Caused by error:
 <blockquote>
 <p>Once grouped, a data frame stays grouped until reduced to one-row-per group or it is ungrouped.</p>
 </blockquote>
-<aside class="notes">
-<p>can break the pipe after mutate to show it is still grouped</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="statefulness-1" class="slide level2">
@@ -1234,6 +1151,7 @@ Note each *cell* contains a value.
   <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-drop/drop-runtime.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-magic-move/magic-move.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-sticky-annotations/sticky-annotations.js"></script>
   <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -1429,7 +1347,7 @@ Note each *cell* contains a value.
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, RevealStickyAnnotations, QuartoSupport,
 
           RevealMath,
           RevealNotes,

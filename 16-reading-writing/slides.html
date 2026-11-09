@@ -100,7 +100,7 @@
     code span.vs { color: #032f62; } /* VerbatimString */
     code span.wa { color: #ff5555; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-4b2986a98c479737a68edbabff215be5.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-048dd6ad118ee2dc7db1ac3daabf611a.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -226,34 +226,6 @@
 <li class="fragment"><em>YAML</em>, <em>CSV</em>, and <em>JSON</em> add structure to plain text.</li>
 </ol>
 </div></div>
-<aside class="notes">
-<h4 id="concept-acquisition">Concept Acquisition</h4>
-<ol type="1">
-<li>Plain text files store characters, binary files (PDF, Excel) need specific software to decode.</li>
-<li>Plain text formats span a spectrum of structure, from none (<code>.txt</code>) to tabular (<code>.csv</code>) to nested (<code>.yml</code>, <code>.json</code>), and the structure determines the R object you get back (character vector, data frame, list).</li>
-</ol>
-<h4 id="tool-acquisition">Tool Acquisition</h4>
-<ol type="1">
-<li><code>readLines()</code> / <code>writeLines()</code> and <code>read_lines()</code> / <code>write_lines()</code> for <code>.txt</code>.</li>
-<li><code>read.csv()</code> / <code>write.csv()</code> and <code>read_csv()</code> / <code>write_csv()</code> for <code>.csv</code>.</li>
-<li><code>read_yaml()</code> / <code>write_yaml()</code>, <code>fromJSON()</code> / <code>toJSON()</code> / <code>write_json()</code>, and <code>excel_sheets()</code> / <code>read_excel()</code>.</li>
-</ol>
-<h4 id="concept-application">Concept Application</h4>
-<ol type="1">
-<li>Explain why <code>read.csv()</code> reads <code>"13,047"</code> as character while <code>read_csv()</code> parses it as a number.</li>
-<li>Request personal data exports for Project 3, looking for multiple files and at least one JSON.</li>
-</ol>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section>
 <section id="reading-and-writing-data" class="title-slide slide level1 center">
@@ -727,19 +699,6 @@ Adelie,Torgersen,40.3,18,195,3250,female,2007</code></pre>
 <div class="cell fragment">
 
 </div>
-<aside class="notes">
-<p>Ask: why are most of the counts wrapped in quotes, but not North Dakota’s? (A comma inside a value would otherwise be read as a column delimiter.)</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="reading-csvs" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Reading CSVs</h2>
@@ -1140,6 +1099,7 @@ Adelie,Torgersen,40.3,18,195,3250,female,2007</code></pre>
   <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-drop/drop-runtime.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-magic-move/magic-move.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-sticky-annotations/sticky-annotations.js"></script>
   <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -1335,7 +1295,7 @@ Adelie,Torgersen,40.3,18,195,3250,female,2007</code></pre>
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, RevealStickyAnnotations, QuartoSupport,
 
           RevealMath,
           RevealNotes,

@@ -102,7 +102,7 @@
     code span.vs { color: #032f62; } /* VerbatimString */
     code span.wa { color: #ff5555; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-4b2986a98c479737a68edbabff215be5.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-048dd6ad118ee2dc7db1ac3daabf611a.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -231,38 +231,6 @@
 <li class="fragment">A <em>spatial join</em> matches rows by location.</li>
 </ol>
 </div></div>
-<aside class="notes">
-<h4 id="concept-acquisition">Concept Acquisition</h4>
-<ol type="1">
-<li>Spatial data come from R packages and web APIs, shapefiles, GeoJSON, and KML.</li>
-<li>An sf object is a data frame of attributes plus a geometry column (an <code>sfc</code>) built from individual <code>st_</code> geometries and a CRS.</li>
-<li>dplyr verbs work on the attributes of an sf object and carry the geometry along; <code>summarize()</code> also combines the geometries.</li>
-<li>Unary measures (dimension, area, length) return a number for each geometry; unary transformers (centroid, jitter, buffer) return a new geometry.</li>
-<li>A binary predicate such as within tests how two geometries relate; a spatial join uses one to match rows, keeping (left) or dropping (inner) unmatched rows.</li>
-</ol>
-<h4 id="tool-acquisition">Tool Acquisition</h4>
-<ol type="1">
-<li><code>st_read()</code>, <code>st_geometry()</code>, and base <code>plot()</code> / <code>points()</code>.</li>
-<li><code>st_point()</code>, <code>st_polygon()</code>, <code>st_sfc()</code>, and <code>st_sf()</code>.</li>
-<li><code>st_dimension()</code>, <code>st_area()</code>, <code>st_length()</code>, <code>st_centroid()</code>, <code>st_jitter()</code>, and <code>st_buffer()</code>.</li>
-<li><code>st_within()</code> and <code>st_join()</code> with <code>join =</code> and <code>left =</code>.</li>
-</ol>
-<h4 id="concept-application">Concept Application</h4>
-<ol type="1">
-<li>Predict the rows and columns of a left join with <code>st_within</code> (timed, 1:00).</li>
-<li>PS 5: map the centroid of California (and, as a challenge, find its county with a spatial join); build lines and a polygon from scratch, compute their measures, split the polygon with the lines, and join the pieces to a triangle.</li>
-</ol>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="last-time-simple-feature-object" class="slide level2">
 <h2>(Last Time) Simple Feature Object:</h2>
@@ -292,19 +260,6 @@
 <li class="fragment">web APIs</li>
 <li class="fragment">Shapefiles</li>
 </ol>
-<aside class="notes">
-<p>We saw R packages last time. web APIs is coming soon.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="section-1" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
@@ -360,19 +315,6 @@ Projected CRS: Popular Visualisation CRS / Mercator
 1    5258041 671892661618 MULTIPOLYGON (((-13060109 3...</code></pre>
 </div>
 </div>
-<aside class="notes annotate">
-<p>Annotate the header: geometry type, bounding box, CRS. Then box the attribute columns vs.&nbsp;the geometry column.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="ca-shapefile-2" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">CA Shapefile</h2>
@@ -388,19 +330,6 @@ Projected CRS: Popular Visualisation CRS / Mercator
 </div>
 </div>
 </div>
-<aside class="notes code">
-<p>This is a good teaching moment of a “getter” like we saw with lubridate (<code>st_geometry()</code>) as well as a plot method for the geometry class.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="sources-of-sf-data-1" class="slide level2">
 <h2>Sources of sf data</h2>
@@ -439,20 +368,6 @@ Bounding box:  xmin: 7.22 ymin: 52.18 xmax: 7.44 ymax: 52.31
 Geodetic CRS:  WGS 84 (CRS84)</code></pre>
 </div>
 </div>
-<aside class="notes code board">
-<p>Check typeof and class as you run each line.</p>
-<p>On the pinned board: start the sf table with a “build” column (st_point, st_sfc, st_sf). Add to it at each section.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="building-a-point-set-1" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Building a point set</h2>
@@ -475,20 +390,6 @@ Geodetic CRS:  WGS 84 (CRS84)
 3 81.2   Id03 POINT (7.44 52.19)</code></pre>
 </div>
 </div>
-<aside class="notes annotate">
-<p>Draw:</p>
-<p><img data-src="images/sf-schema.png"></p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="quick-plotting" class="slide level2">
 <h2>Quick plotting</h2>
@@ -531,19 +432,6 @@ Geodetic CRS:  WGS 84 (CRS84)
 <div class="cell fragment">
 
 </div>
-<aside class="notes annotate">
-<p>Number each row of the matrix and sketch the square with matching corner numbers; circle the repeated first point.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="building-a-polygon-1" class="slide level2">
@@ -666,36 +554,11 @@ Geodetic CRS:  WGS 84 (CRS84)
 </div>
 </div>
 <p><img data-src="images/geometry-types.png" class="fragment absolute" style="top: 20px; left: 150px; "></p>
-<aside class="notes">
-<p>The image is a lead-in to “Computing on Geometries” and shows the different types that exist.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section></section>
 <section>
 <section id="computing-on-geometries" class="title-slide slide level1 center">
 <h1>Computing on Geometries</h1>
-<aside class="notes">
-<p>I’ll be showing just a subset of the functions that can be used for computations on geometries. The important part is not to memorize them exhaustively, but think in a structured manner about the types of functions that should be runnable on different types of geometries.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+
 </section>
 <section id="unary-measures" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Unary Measures</h2>
@@ -803,19 +666,6 @@ Geodetic CRS:  WGS 84 (CRS84)
 </div>
 </div>
 </div></div>
-<aside class="notes">
-<p>The objective here is to show that not every measure is computable for every geometry. Can show that <code>st_perimeter()</code> is the appropriate measure for a polygon.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="unary-transformers" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Unary Transformers</h2>
@@ -1183,26 +1033,13 @@ Geodetic CRS:  WGS 84 (CRS84)
 <section id="your-turn" class="slide level2">
 <h2>Your Turn</h2>
 <p><strong>Question</strong>: How many rows and columns will <code>st_join(my_point_sf, my_square_sf, join = st_within)</code> return? What goes in the square’s columns for <code>Id03</code>?</p>
-<div id="timer_49daf5def4cdfd6d9c4727a61da0196c938970ad" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_93f19cb657a9e3b1715b0b70274c2440c14bb525" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
  </div>
  <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
  </div>
-<aside class="notes">
-<p>Debrief by asking for dimensions, then reveal on the next slide.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="left-join-within" class="slide level2">
 <h2>Left join within</h2>
@@ -1437,6 +1274,7 @@ moved to 26-interpolation (Spatial Interpolation) in Fa26.
   <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-drop/drop-runtime.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-magic-move/magic-move.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-sticky-annotations/sticky-annotations.js"></script>
   <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -1632,7 +1470,7 @@ moved to 26-interpolation (Spatial Interpolation) in Fa26.
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, RevealStickyAnnotations, QuartoSupport,
 
           RevealMath,
           RevealNotes,

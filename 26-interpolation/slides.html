@@ -102,7 +102,7 @@
     code span.vs { color: #032f62; } /* VerbatimString */
     code span.wa { color: #ff5555; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-4b2986a98c479737a68edbabff215be5.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-048dd6ad118ee2dc7db1ac3daabf611a.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -231,61 +231,18 @@
 <li class="fragment">Two <em>approaches</em> estimate new-map votes.</li>
 </ol>
 </div></div>
-<aside class="notes">
-<h4 id="concept-acquisition">Concept Acquisition</h4>
-<ol type="1">
-<li>Area-weighted interpolation moves values from source polygons to target polygons in proportion to overlapping area, assuming each value is spread evenly over its source.</li>
-<li>Counts like votes are spatially extensive (split with area); rates and shares are intensive (averaged).</li>
-<li>SV precincts are drawn by counties each election and may not match a geographic area; SR precincts are stable statewide units with both vote counts and shapefiles.</li>
-<li>The project’s new-map votes can be estimated by area (Approach A) or through census blocks weighted by registered voters (Approach B).</li>
-</ol>
-<h4 id="tool-acquisition">Tool Acquisition</h4>
-<ol type="1">
-<li><code>st_interpolate_aw()</code> and its <code>extensive</code> argument.</li>
-<li><code>st_intersection()</code> to cut one layer by another.</li>
-</ol>
-<h4 id="concept-application">Concept Application</h4>
-<ol type="1">
-<li>Find the total of a target polygon from area shares (the pink-polygon warm-up).</li>
-<li>Sketch the sf data frame behind the project’s 2024 map: its rows and its columns.</li>
-<li>Choose Approach A or B for the project’s new-map analysis.</li>
-</ol>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="your-turn" class="slide level2">
 <h2>Your Turn</h2>
 
 <img data-src="images/spatial-join.png" class="quarto-figure quarto-figure-center r-stretch"><p><strong>Question</strong>: What is the total value of the pink polygon on the right?</p>
-<div id="timer_a7463f32c52b2ddbb78f1b7f66bc718bce429898" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_91bf935bbbe912225b478f9ca806db383a2114c9" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
  </div>
  <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">30</span></code>
  </div>
-<aside class="notes annotate">
-<p>Collect answers. Annotate the right figure: shade the part of each piece inside the pink box and write its share of that piece’s area. Any answer needs those shares and the assumption that each value is spread evenly over its piece.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="agenda" class="slide level2">
 <h2>Agenda</h2>
@@ -333,19 +290,6 @@
 <span id="cb1-11"><a aria-label="11"></a>    <span class="fu">st_polygon</span>(<span class="fu">list</span>(<span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>), <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>), <span class="fu">c</span>(<span class="dv">1</span>,.<span class="dv">5</span>), <span class="fu">c</span>(<span class="dv">0</span>,.<span class="dv">5</span>), <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>))))),</span>
 <span id="cb1-12"><a aria-label="12"></a>  <span class="at">crs =</span> <span class="dv">3310</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<aside class="notes code">
-<p>Live-code: build both sf objects and print each one.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="a-toy-map-1" class="slide level2 smaller">
 <h2>A toy map</h2>
@@ -356,19 +300,6 @@
 <span id="cb2-4"><a aria-label="4"></a><span class="fu">text</span>(<span class="fu">st_coordinates</span>(<span class="fu">st_centroid</span>(<span class="fu">st_geometry</span>(precincts_sf))),</span>
 <span id="cb2-5"><a aria-label="5"></a>     <span class="at">labels =</span> precincts_sf<span class="sc">$</span>votes, <span class="at">cex =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<aside class="notes code">
-<p>Live-code the plot one layer at a time; check it against the sketch.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="by-hand" class="slide level2 smaller">
 <h2>By hand</h2>
@@ -382,19 +313,6 @@
 </div>
 <div class="fragment">
 <p><code>st_intersection()</code> cuts one layer by another: each piece keeps the columns of both.</p>
-<aside class="notes code">
-<p>Live-code the pipeline one step at a time, printing after each. The 40 precinct touches South only at its tip, so its South piece has zero area and gets 0 votes: touching isn’t overlapping.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="by-hand-1" class="slide level2 smaller">
@@ -404,19 +322,6 @@
 <span id="cb4-2"><a aria-label="2"></a>  <span class="fu">group_by</span>(district) <span class="sc">|&gt;</span></span>
 <span id="cb4-3"><a aria-label="3"></a>  <span class="fu">summarize</span>(<span class="at">votes =</span> <span class="fu">sum</span>(piece_votes))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<aside class="notes code">
-<p>Live-code the totals: North 70, South 60, adding back to 130.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="or-in-one-step" class="slide level2 smaller">
 <h2>Or, in one step</h2>
@@ -424,19 +329,6 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>interp <span class="ot">&lt;-</span> <span class="fu">st_interpolate_aw</span>(precincts_sf[<span class="st">"votes"</span>], districts_sf, <span class="at">extensive =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb5-2"><a aria-label="2"></a>interp</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<aside class="notes code">
-<p>Live-code it and compare with the by-hand totals; then rerun with extensive = FALSE.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 <div class="fragment">
 <p>Votes are counts: they’re <em>spatially extensive</em> (split them with the area). A rate or a share is <em>intensive</em>.</p>
 </div>
@@ -492,7 +384,7 @@
 <li class="fragment">Names and types of columns</li>
 </ol>
 </div></div>
-<div id="timer_a7463f32c52b2ddbb78f1b7f66bc718bce429898" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_91bf935bbbe912225b478f9ca806db383a2114c9" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -668,6 +560,7 @@
   <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-drop/drop-runtime.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-magic-move/magic-move.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-sticky-annotations/sticky-annotations.js"></script>
   <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -863,7 +756,7 @@
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, RevealStickyAnnotations, QuartoSupport,
 
           RevealMath,
           RevealNotes,

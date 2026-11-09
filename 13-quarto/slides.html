@@ -102,7 +102,7 @@
     code span.vs { color: #032f62; } /* VerbatimString */
     code span.wa { color: #ff5555; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-4b2986a98c479737a68edbabff215be5.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-048dd6ad118ee2dc7db1ac3daabf611a.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -231,58 +231,11 @@
 <li class="fragment">Configure the <em>metadata</em> (YAML) to set its format and options.</li>
 </ol>
 </div></div>
-<aside class="notes">
-<h4 id="concept-acquisition">Concept Acquisition</h4>
-<ol type="1">
-<li>Literate programming interleaves natural-language explanation with source code, so a single document produces both the report and the analysis behind it.</li>
-<li>A Quarto document keeps prose, code, and metadata in separate regions of one file.</li>
-<li>Source is kept separate from output: one <code>.qmd</code> can be rendered to many formats (HTML, PDF, Word, slides).</li>
-<li>Positron brings the file system, shell, R/Python, git, and Quarto together in one environment.</li>
-</ol>
-<h4 id="tool-acquisition">Tool Acquisition</h4>
-<ol type="1">
-<li><code>quarto render</code> and <code>quarto preview</code> at the command line.</li>
-<li>Markdown syntax for headers, italics, bold, ordered and unordered lists, footnotes, and images.</li>
-<li>Code cell syntax: opening and closing fences, language, and <code>#|</code> cell options (<code>eval</code>, <code>echo</code>, <code>message</code>, <code>warning</code>, figure size), plus displaying tables.</li>
-<li>YAML metadata: opening and closing fences and common <code>format</code> values.</li>
-<li>The Quarto Guide and Quarto Reference as documentation for finding new options.</li>
-</ol>
-<h4 id="concept-application">Concept Application</h4>
-<ol type="1">
-<li>Open <code>hello-penguins.qmd</code> in Positron and work through its Markdown, code cells, and metadata, re-rendering along the way.</li>
-<li>Use the Quarto documentation to change the HTML theme, add a table of contents, and switch to <code>typst</code> or <code>pdf</code>.</li>
-<li>Convert the document to <code>revealjs</code> slides, add a slide, and change the transition style (bonus: install and use a Quarto extension theme).</li>
-</ol>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section>
 <section id="quarto-at-the-command-line" class="title-slide slide level1 center">
 <h1>Quarto at the Command Line</h1>
-<aside class="notes">
-<p>Motivation: our analyses are getting more complicated. Just providing code is a very insufficient way to communicate what the code is doing. Comments help but are messy.</p>
-<p>Start with a blackboard definition:</p>
-<p><strong>Literate programming</strong> is a programming paradigm introduced in 1984 by Donald Knuth in which a computer program is given as an explanation of how it works in a natural language, such as English, interspersed (embedded) with snippets of macros and traditional source code, from which compilable source code can be generated</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+
 </section>
 <section id="the-plan" class="slide level2">
 <h2>The Plan</h2>
@@ -294,20 +247,6 @@
 <li>Add code cells.</li>
 <li>Add metadata.</li>
 </ol>
-<aside class="notes">
-<p>Ask students to just watch, not follow along.</p>
-<p>Open terminal and go into dir on desktop. Run echo “hello world” &gt; hello.qmd then open that file with a text editor and go back and forth between the terminal and the editor to</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="section-1" class="slide level2">
 <h2></h2>
@@ -354,26 +293,6 @@
 <section id="section-3" class="slide level2">
 <h2></h2>
 <p>boardwork</p>
-<aside class="notes">
-<p>Draw diagram with a qmd file on the left with three sections, text, code, and yaml. Right arrow from that to a circle (the pandoc AST but don’t call it that) then arrows from the circle to three files: html, pdf, and docx.</p>
-<p>Below, write:</p>
-<p>Advantages:</p>
-<ul>
-<li>Separation of code and text but bundled in the same file</li>
-<li>Separation of source and output</li>
-<li>All while Literate Programming</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="section-4" class="slide level2">
 <h2></h2>
@@ -395,19 +314,6 @@
 </ul>
 <div class="fragment">
 <p>boardwork</p>
-<aside class="notes">
-<p>Draw diagram of positron as putting the file system, the terminal, R/Py, git, and quarto all in the same place.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section></section>
 <section>
@@ -465,7 +371,7 @@
 <li class="fragment">Add a table of contents</li>
 <li class="fragment">Change format to either <code>typst</code> or <code>pdf</code></li>
 </ol>
-<div id="timer_34d151b971744326bb2d47394fd3df89bf2f081d" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_733a1e57204bf65d29f2b70db397910a4c927616" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -482,7 +388,7 @@
 <li class="fragment">Change the transition style</li>
 <li class="fragment"><em>Bonus</em>: Run <code>quarto add schochastics/quarto-blackboard-theme</code> at the terminal (say yes to everything) then change format to <code>blackboard-revealjs</code>.</li>
 </ol>
-<div id="timer_34d151b971744326bb2d47394fd3df89bf2f081d" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_733a1e57204bf65d29f2b70db397910a4c927616" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -528,6 +434,7 @@
   <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-drop/drop-runtime.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-magic-move/magic-move.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-sticky-annotations/sticky-annotations.js"></script>
   <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -723,7 +630,7 @@
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, RevealStickyAnnotations, QuartoSupport,
 
           RevealMath,
           RevealNotes,

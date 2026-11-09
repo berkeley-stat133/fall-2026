@@ -102,7 +102,7 @@
     code span.vs { color: #032f62; } /* VerbatimString */
     code span.wa { color: #ff5555; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-4b2986a98c479737a68edbabff215be5.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-048dd6ad118ee2dc7db1ac3daabf611a.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -233,57 +233,9 @@
 <li class="fragment"><em>Scoping</em> determines where a function looks for objects.</li>
 </ol>
 </div></div>
-<aside class="notes">
-<h4 id="concept-acquisition">Concept Acquisition</h4>
-<ol type="1">
-<li>A function generalizes a computation: write it once, run it on many inputs.</li>
-<li>Writing functions makes code readable, avoids repetition (DRY), and is easier to test and update.</li>
-<li>A function definition has three parts: name, arguments, body.</li>
-<li>A function returns the value of its last expression unless <code>return()</code> is used earlier.</li>
-<li>Arguments can be given default values, which are used when the argument is not supplied.</li>
-<li>A function body is evaluated in its own environment, which can see the environment one level up; objects defined inside mask those outside. Encapsulated functions are safer.</li>
-</ol>
-<h4 id="tool-acquisition">Tool Acquisition</h4>
-<ol type="1">
-<li><code>function(args) { ... }</code> and assignment of the function to a name.</li>
-<li><code>return()</code>.</li>
-<li>Default arguments: <code>function(n_sides = 6)</code>.</li>
-<li><code>sample()</code>, <code>rep()</code>, <code>ncol()</code> inside function bodies.</li>
-</ol>
-<h4 id="concept-application">Concept Application</h4>
-<ol type="1">
-<li>Rewrite a for loop as a function.</li>
-<li>Predict the output of a function whose body redefines objects from the global environment.</li>
-<li>Extend <code>roll_die()</code> to take arbitrary numbers of sides and rolls.</li>
-<li>Write <code>course_grade()</code> and generalize it with arguments and defaults.</li>
-</ol>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="section-1" class="slide level2">
 <h2></h2>
-<aside class="notes">
-<p>You can get this function running in the background before the start of class then return to it later. It demonstrates both a function and a for loop.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="a-question-to-ponder-.-.-." class="slide level2">
 <h2>A question to ponder . . .</h2>
@@ -298,19 +250,6 @@
 <span id="cb1-7"><a aria-label="7"></a>}</span>
 <span id="cb1-8"><a aria-label="8"></a><span class="fu">g02</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<aside class="notes">
-<p>Don’t answer this question right now; just let them wonder. It comes back later in the lecture.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section>
 <section id="defining-a-function" class="title-slide slide level1 center">
@@ -405,20 +344,6 @@
 <span id="cb11-2" class="hljs-ln-code"><a aria-label="2"></a>  (<span class="dv">9</span><span class="sc">/</span><span class="dv">5</span>) <span class="sc">*</span> temp_c <span class="sc">+</span> <span class="dv">32</span></span>
 <span id="cb11-3" class="hljs-ln-code"><a aria-label="3"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<aside class="notes">
-<p>Annotate with function name, arguments, expression.</p>
-<p>Drop: - run <code>ls()</code>: appears in environment - add temp_c to first line to show it will not be returned</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="building-a-function-2" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Building a function</h2>
@@ -482,19 +407,6 @@
 <pre><code>[1] 1 2</code></pre>
 </div>
 </div>
-<aside class="notes">
-<p>Live code</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="section-6" class="slide level2">
 <h2></h2>
@@ -545,7 +457,7 @@
 <li><span class="fragment highlight-red">work for arbitrary n-sided dice</span></li>
 <li>return more than 1 roll of the die</li>
 </ol>
-<div id="timer_9189b5aec2cb1b4a947ea91438a051646115ac51" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_4bbaeb43a286a3825c3ad2995d4ea0d51c740a8f" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -594,7 +506,7 @@
 <h2>Your Turn</h2>
 
 <img data-src="images/grades-zoomed.png" class="r-stretch"><p>Write a function called <code>course_grade()</code> that takes assignment scores as inputs as outputs your current grade in the course.</p>
-<div id="timer_9189b5aec2cb1b4a947ea91438a051646115ac51" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_4bbaeb43a286a3825c3ad2995d4ea0d51c740a8f" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -676,19 +588,6 @@
 <blockquote>
 <p><em>Save typing and head off errors by setting defaults.</em></p>
 </blockquote>
-<aside class="notes">
-<p>You can use <code>rm(final_exam)</code> to simulate this and see the error message.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="section-11" class="slide level2" data-auto-animate="true">
@@ -705,19 +604,6 @@
 <p><br>
 </p>
 <p>How else can we generalize this function for other policies?</p>
-<aside class="notes">
-<p>I’m looking for someone to mention this fact that the grading policy drops the lowest quiz. This will be a question on the problem set.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="why-write-functions" class="slide level2">
@@ -770,6 +656,7 @@
   <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-drop/drop-runtime.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-magic-move/magic-move.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-sticky-annotations/sticky-annotations.js"></script>
   <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -965,7 +852,7 @@
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, RevealStickyAnnotations, QuartoSupport,
 
           RevealMath,
           RevealNotes,

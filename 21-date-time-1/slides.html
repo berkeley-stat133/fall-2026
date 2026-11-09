@@ -102,7 +102,7 @@
     code span.vs { color: #032f62; } /* VerbatimString */
     code span.wa { color: #ff5555; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-4b2986a98c479737a68edbabff215be5.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-048dd6ad118ee2dc7db1ac3daabf611a.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -231,40 +231,6 @@
 <li class="fragment">Some parts, like months, are <em>circular</em>.</li>
 </ol>
 </div></div>
-<aside class="notes">
-<h4 id="concept-acquisition">Concept Acquisition</h4>
-<ol type="1">
-<li>Computers store a date-time as the number of seconds since the Unix epoch, midnight UTC on 1 January 1970.</li>
-<li>A <code>POSIXct</code> vector is a double vector with a class, so it prints as a legible date-time but still supports arithmetic, rounding, and other formats.</li>
-<li>A <code>Date</code> vector is a simpler class that stores dates without times.</li>
-<li>Date-time strings come in many formats; parsing one requires knowing the order of its components.</li>
-<li>The components of a date-time (year, month, weekday, hour) can be extracted and changed in place.</li>
-<li>Some components are circular, so averaging them as plain numbers gives nonsense; average the date-times instead.</li>
-</ol>
-<h4 id="tool-acquisition">Tool Acquisition</h4>
-<ol type="1">
-<li><code>Sys.time()</code>, <code>as.POSIXct()</code> (with <code>tz</code> and <code>format</code>), <code>as.Date()</code>, and <code>format()</code>.</li>
-<li><code>lubridate</code> parsers such as <code>mdy_hm()</code> and <code>dmy_hm()</code>.</li>
-<li>Getters and setters: <code>year()</code>, <code>month()</code>, <code>week()</code>, <code>day()</code>, <code>wday(label =, abbr =)</code>, <code>hour()</code>.</li>
-<li><code>make_datetime()</code>.</li>
-</ol>
-<h4 id="concept-application">Concept Application</h4>
-<ol type="1">
-<li>Predict the result of arithmetic on an unquoted date like <code>2026-10-14+1</code>.</li>
-<li>Find the day of the week of New Year’s Eve and of Independence Day, and the corresponding Unix time.</li>
-<li>Find the average month of observations that span a new year.</li>
-</ol>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="section-1" class="slide level2">
 <h2></h2>
@@ -276,7 +242,7 @@
 <div class="cell fragment">
 
 </div>
-<div id="timer_f5a35799e3aa4ea21b5e98c8d295648182e11544" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_aa36a5c8f4e172cd37ca8e9995fb383d5be358f7" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -299,20 +265,6 @@
 </section>
 <section id="section-2" class="slide level2">
 <h2></h2>
-<aside class="notes board">
-<p>On the pinned board, draw the two october dates on a timeline and show the existence of a duration as well as absolute positioning relative to a milestone called an epoch (indicate with a star).</p>
-<p>On the next slides, return to the pinned board after each row of the table and add that date to the timeline.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="section-3" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title"></h2>
@@ -461,7 +413,7 @@
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2026-11-06 18:53:56 UTC"</code></pre>
+<pre><code>[1] "2026-11-09 16:31:28 UTC"</code></pre>
 </div>
 </div>
 </div>
@@ -474,19 +426,6 @@
 <pre><code>[1] "POSIXct" "POSIXt" </code></pre>
 </div>
 </div>
-<aside class="notes">
-<p>Start off with reminder about factors: a integer vector with the factor class that allows it to store the levels look up table.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="why-not-just-use-a-double-vector" class="slide level2">
@@ -498,7 +437,7 @@
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2026-11-06 18:53:56 UTC"</code></pre>
+<pre><code>[1] "2026-11-09 16:31:28 UTC"</code></pre>
 </div>
 </div>
 </div>
@@ -509,7 +448,7 @@
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2026-11-06 18:53:57 UTC"</code></pre>
+<pre><code>[1] "2026-11-09 16:31:29 UTC"</code></pre>
 </div>
 </div>
 </div>
@@ -520,7 +459,7 @@
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2026-11-06 19:00:00 UTC"</code></pre>
+<pre><code>[1] "2026-11-09 17:00:00 UTC"</code></pre>
 </div>
 </div>
 </div>
@@ -531,7 +470,7 @@
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "11/06/26"</code></pre>
+<pre><code>[1] "11/09/26"</code></pre>
 </div>
 </div>
 </div>
@@ -633,20 +572,6 @@
 <blockquote>
 <p>Formats: <a href="https://r4ds.hadley.nz/datetimes.html#tbl-date-formats" data-preview-link="true">https://r4ds.hadley.nz/datetimes.html#tbl-date-formats</a></p>
 </blockquote>
-<aside class="notes annotate code">
-<p>Annotate each format code and connect it to the matching piece of the string.</p>
-<p>Call class() and typeof() on this object.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="section-10" class="slide level2" data-auto-animate="true">
@@ -695,20 +620,6 @@
 <pre><code>[1] "1970-01-01 00:01:00 UTC"</code></pre>
 </div>
 </div>
-<aside class="notes annotate code">
-<p>Underline the letters in mdy_hm and draw arrows to the parts of the string they parse.</p>
-<p>Call class() and typeof() on this object.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="your-turn" class="slide level2">
@@ -719,26 +630,13 @@
 <li class="fragment"><code>"10/14/26 9:00"</code></li>
 <li class="fragment"><code>"2026-10-14 12:00:00"</code></li>
 </ol>
-<div id="timer_f5a35799e3aa4ea21b5e98c8d295648182e11544" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_aa36a5c8f4e172cd37ca8e9995fb383d5be358f7" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
  </div>
  <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
  </div>
-<aside class="notes">
-<p>Pair up. Debrief, then run <code>dmy()</code>, <code>mdy_hm()</code>, and <code>ymd_hms()</code> on the next slide.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="parsing-each-string" class="slide level2">
 <h2>Parsing each string</h2>
@@ -795,7 +693,7 @@
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 6</code></pre>
+<pre><code>[1] 9</code></pre>
 </div>
 </div>
 </div>
@@ -805,7 +703,7 @@
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 6</code></pre>
+<pre><code>[1] 2</code></pre>
 </div>
 </div>
 </div>
@@ -822,7 +720,7 @@
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a aria-label="1"></a><span class="fu">day</span>(now)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 6</code></pre>
+<pre><code>[1] 9</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -830,7 +728,7 @@
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] Fri
+<pre><code>[1] Mon
 Levels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat</code></pre>
 </div>
 </div>
@@ -847,7 +745,7 @@ Levels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat</code></pre>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a aria-label="1"></a><span class="fu">day</span>(now)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 6</code></pre>
+<pre><code>[1] 9</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -855,7 +753,7 @@ Levels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat</code></pre>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] Friday
+<pre><code>[1] Monday
 7 Levels: Sunday &lt; Monday &lt; Tuesday &lt; Wednesday &lt; Thursday &lt; ... &lt; Saturday</code></pre>
 </div>
 </div>
@@ -870,7 +768,7 @@ Levels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat</code></pre>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2027-11-06 18:53:56 UTC"</code></pre>
+<pre><code>[1] "2027-11-09 16:31:28 UTC"</code></pre>
 </div>
 </div>
 </div>
@@ -880,7 +778,7 @@ Levels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat</code></pre>
 </div>
 <div class="cell fragment">
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] Saturday
+<pre><code>[1] Tuesday
 7 Levels: Sunday &lt; Monday &lt; Tuesday &lt; Wednesday &lt; Thursday &lt; ... &lt; Saturday</code></pre>
 </div>
 </div>
@@ -894,7 +792,7 @@ Levels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat</code></pre>
 <li class="fragment">What day of the week was US Independence Day?</li>
 <li class="fragment"><em>Bonus</em> What was the corresponding Unix time?</li>
 </ol>
-<div id="timer_f5a35799e3aa4ea21b5e98c8d295648182e11544" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_aa36a5c8f4e172cd37ca8e9995fb383d5be358f7" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
@@ -944,19 +842,6 @@ Levels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat</code></pre>
 <pre><code>[1] 1783123200</code></pre>
 </div>
 </div>
-<aside class="notes">
-<p><code>ymd()</code> returns a <code>Date</code>, which counts days since 1970. Supplying <code>tz</code> makes it return a <code>POSIXct</code>, which counts seconds.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section></section>
 <section>
@@ -1058,19 +943,6 @@ Levels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat</code></pre>
 1 2026-01-04 20:00:00          1</code></pre>
 </div>
 </div>
-<aside class="notes board">
-<p>On the board, draw the months as a clock face, mark the six observations, then the mean month (July) and the month of the mean date.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="guess-the-metaphor" class="slide level2 intro" data-background-color="var(--intro-bg)">
 <h2>Guess the Metaphor</h2>
@@ -1122,6 +994,7 @@ Levels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat</code></pre>
   <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-drop/drop-runtime.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-magic-move/magic-move.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-sticky-annotations/sticky-annotations.js"></script>
   <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -1317,7 +1190,7 @@ Levels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat</code></pre>
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, RevealStickyAnnotations, QuartoSupport,
 
           RevealMath,
           RevealNotes,

@@ -100,7 +100,7 @@
     code span.vs { color: #032f62; } /* VerbatimString */
     code span.wa { color: #ff5555; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-4b2986a98c479737a68edbabff215be5.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-048dd6ad118ee2dc7db1ac3daabf611a.css">
   <link rel="stylesheet" href="phases.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -229,40 +229,6 @@
 <li class="fragment"><em>Audit</em> a data set against a checklist before analyzing.</li>
 </ol>
 </div></div>
-<aside class="notes">
-<h4 id="concept-acquisition">Concept Acquisition</h4>
-<ol type="1">
-<li>Every cleaning step (dropping a row, recoding a label, treating <code>-99</code> as missing) is a decision that changes what the analysis can conclude.</li>
-<li>Good cleaning has three parts: audit systematically, decide (and justify), and record the decision in code.</li>
-<li>The audit is a fixed checklist that can be run the same way on any data set; the decisions depend on the question being asked.</li>
-<li>“No <code>NA</code>s” does not mean “no missing information”: values can be disguised (sentinels, empty strings) or implicit (rows that are simply absent).</li>
-<li>Unusual values can be legitimate; impossible values are errors. Validity constraints tell them apart.</li>
-</ol>
-<h4 id="tool-acquisition">Tool Acquisition</h4>
-<ol type="1">
-<li><code>glimpse()</code> for a first look.</li>
-<li><code>rename()</code> and backticks for non-syntactic names.</li>
-<li><code>na_if()</code> to convert sentinels to <code>NA</code>; <code>colSums(is.na(df))</code> to check every column at once.</li>
-<li><code>tolower()</code>, <code>trimws()</code>, <code>case_when()</code>, and <code>if_else()</code> for recoding.</li>
-<li><code>readr::parse_number()</code> for numbers stored as text.</li>
-<li><code>stopifnot()</code> to encode expectations as assertions.</li>
-</ol>
-<h4 id="concept-application">Concept Application</h4>
-<ol type="1">
-<li>Walk through the checklist on the <code>zev</code> data (familiar from Project 2) and vote on each decision point.</li>
-<li>Audit a small, deliberately messy survey data frame in pairs and propose a fix for each problem.</li>
-</ol>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section>
 <section id="garbage-in-garbage-out" class="title-slide slide level1 center">
@@ -292,19 +258,6 @@
 <blockquote>
 <p>Only one of those three was a typo. The other two were <em>decisions</em>.</p>
 </blockquote>
-<aside class="notes">
-<p>Herndon, Ash, and Pollin (2013), “Does High Public Debt Consistently Stifle Economic Growth?” The Excel error (omitting Australia, Austria, Belgium, Canada, Denmark) got the headlines, but most of the change came from the exclusions and the weighting, which were choices about how to prepare the data.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="section-1" class="slide level2">
@@ -324,19 +277,6 @@
 <li class="fragment">Is <code>"UCB"</code> the same as <code>"Berkeley"</code>?</li>
 <li class="fragment">What is meant by <code>0</code>?</li>
 </ul>
-<aside class="notes">
-<p>Cleaning decisions change what your analysis can conclude, so they deserve the same care as the analysis itself.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="data-cleaning-three-phases" class="slide level2">
@@ -358,19 +298,6 @@
 <blockquote>
 <p>The audit is systematic enough that anyone, or anything, could follow it, but the decisions are made by the analyst</p>
 </blockquote>
-<aside class="notes">
-<p>Plant this idea now: the checklist is mechanical, but choosing what to do is judgment. It comes back later in the course when we use tools that automate the audit (Posit Assitant Data Cleaning mode)</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="recording-reproducibly" class="slide level2">
@@ -646,19 +573,6 @@
 <blockquote>
 <p>Another argument for keeping raw data read-only and doing all changes in code.</p>
 </blockquote>
-<aside class="notes">
-<p>Ziemann, Eren, and El-Osta (2016), Genome Biology. The HUGO Gene Nomenclature Committee renamed 27 genes in 2020 partly for this reason.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="step-4-missing-values" class="slide level2">
@@ -927,19 +841,6 @@ C. Keep them, but add a column that flags them</p>
 </div>
 </div>
 <p><strong>Discuss:</strong> Toyota, Subaru, or its own make?</p>
-<aside class="notes">
-<p>The only model is the bZ4X/Solterra, one car co-developed by Toyota and sold under both brands. There is no single right answer. For market share by brand (e.g.&nbsp;the Project 2 concentration question), the choice changes the numbers a bit, so it should be stated.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="recoding-messy-labels" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Recoding messy labels</h2>
@@ -1223,19 +1124,6 @@ berkeley    laney      ucb
 <blockquote>
 <p>Reshaping between these (pivoting) comes in Lecture 18.</p>
 </blockquote>
-<aside class="notes">
-<p>Numbers in these small tables are illustrative, not from zev.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="decide-record-re-check" class="slide level2 smaller">
@@ -1321,6 +1209,7 @@ berkeley    laney      ucb
   <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-drop/drop-runtime.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-magic-move/magic-move.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-sticky-annotations/sticky-annotations.js"></script>
   <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -1516,7 +1405,7 @@ berkeley    laney      ucb
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, RevealStickyAnnotations, QuartoSupport,
 
           RevealMath,
           RevealNotes,

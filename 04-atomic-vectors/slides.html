@@ -102,7 +102,7 @@
     code span.vs { color: #032f62; } /* VerbatimString */
     code span.wa { color: #ff5555; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-4b2986a98c479737a68edbabff215be5.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-048dd6ad118ee2dc7db1ac3daabf611a.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -236,61 +236,11 @@
 <li class="fragment">Elements are pulled out by <em>subsetting</em>.</li>
 </ol>
 </div></div>
-<aside class="notes">
-<h4 id="concept-acquisition">Concept Acquisition</h4>
-<ol type="1">
-<li>An atomic vector is an ordered collection of elements of the same type.</li>
-<li>The four common types: logical, integer, double, character.</li>
-<li><code>NULL</code>, <code>NA</code>, <code>NaN</code>, and <code>Inf</code> behave differently from one another.</li>
-<li>Vectorization and vector recycling.</li>
-<li>Implicit coercion follows a hierarchy; explicit coercion is done by hand.</li>
-<li>Subsetting by index, by name, and by logical.</li>
-</ol>
-<h4 id="tool-acquisition">Tool Acquisition</h4>
-<ol type="1">
-<li><code>c()</code>, <code>typeof()</code>, <code>length()</code>.</li>
-<li><code>:</code>, <code>seq()</code>, <code>rep()</code>.</li>
-<li><code>na.rm = TRUE</code>.</li>
-<li><code>as.double()</code> and friends.</li>
-<li><code>vec[...]</code>.</li>
-</ol>
-<h4 id="concept-application">Concept Application</h4>
-<ol type="1">
-<li>Predict the type of a vector built from mixed inputs.</li>
-<li>Write the shortest command that generates a given vector.</li>
-<li>Predict the result of arithmetic on vectors of unequal length.</li>
-<li>Extract a subset of elements three different ways.</li>
-</ol>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section>
 <section id="atomic-vectors" class="title-slide slide level1 center">
 <h1>Atomic Vectors</h1>
-<aside class="notes">
-<p>Maybe start with the teaser: this lecture will show at least TWO features of R that show it was designed for data analysis (relative to Python): vectorization and 1-indexing.</p>
-<p>In a separate window bring up JupyterHub with the code from last time: <code>distances</code> came in from <code>readLines()</code> and we called <code>mean()</code> on it. That object wasn’t a single number — it was a <em>vector</em> of many numbers. Today we look at that structure directly, since it is the workhorse of everything that follows.</p>
-<p>In general, today work from R at the Terminal, since they should now all have it on their computers.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+
 </section>
 <section id="atomic-vectors-1" class="slide level2">
 <h2>Atomic Vectors</h2>
@@ -302,19 +252,6 @@
 <p>R’s principal data structure: an ordered collection of elements of the same <strong>type</strong>. Created with the <code>c()</code> function (for <em>combine</em>).</p>
 </div>
 </div>
-<aside class="notes">
-<p>Draw a row of boxes on the board — an ordered sequence of cells, each holding one element. Emphasize <em>ordered</em> (position matters) and <em>same type</em> (no mixing).</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="the-four-common-types" class="slide level2">
 <h2>The four common types</h2>
@@ -354,19 +291,6 @@
 </tr>
 </tbody>
 </table>
-<aside class="notes">
-<p>Live-code each assignment, then call the object on its own to print it. Point out the <code>[1]</code> index marker at the start of the printed line. Ask why <code>c(3, 5, 1.2)</code> is a double and not an integer — because <code>3</code> without the <code>L</code> is a double.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="inspecting-vectors" class="slide level2">
@@ -381,19 +305,6 @@
 <span id="cb2-5"><a aria-label="5"></a></span>
 <span id="cb2-6"><a aria-label="6"></a><span class="fu">length</span>(char_vec)</span>
 <span id="cb2-7"><a aria-label="7"></a><span class="fu">length</span>(dbl_vec)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<aside class="notes">
-<p>These two functions answer the two questions you can ask of any atomic vector: <em>what’s in it?</em> and <em>how many?</em> Run <code>typeof()</code> on all four and read the answers out loud — note <code>"double"</code> not <code>"numeric"</code>.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="guess-the-metaphor" class="slide level2 intro" data-background-color="var(--intro-bg)">
@@ -419,19 +330,6 @@
 <span id="cb3-2"><a aria-label="2"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>, <span class="at">to =</span> <span class="dv">3</span>, <span class="at">by =</span> .<span class="dv">1</span>)</span>
 <span id="cb3-3"><a aria-label="3"></a><span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">3</span>, .<span class="dv">1</span>)</span>
 <span id="cb3-4"><a aria-label="4"></a><span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">times =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<aside class="notes">
-<p>Connect back to the last lecture: <code>seq(1, 3, .1)</code> and <code>seq(from = 1, to = 3, by = .1)</code> are the same call, one by position and one by name. Pull up <code>?seq</code> and <code>?rep</code> to show there are more arguments than we’re using (<code>length.out</code>, <code>each</code>) — a hook for the problem set.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="your-turn" class="slide level2">
@@ -440,26 +338,13 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>[<span class="dv">1</span>] <span class="fl">5.0</span> <span class="fl">5.5</span> <span class="fl">6.0</span> <span class="fl">6.5</span> <span class="fl">7.0</span></span>
 <span id="cb4-2"><a aria-label="2"></a>[<span class="dv">1</span>]  <span class="dv">2</span>  <span class="dv">1</span>  <span class="dv">0</span> <span class="sc">-</span><span class="dv">1</span> <span class="sc">-</span><span class="dv">2</span></span>
 <span id="cb4-3"><a aria-label="3"></a>[<span class="dv">1</span>] <span class="st">"cat"</span>   <span class="st">"dog"</span>   <span class="st">"dingo"</span> <span class="st">"cat"</span>   <span class="st">"dog"</span>   <span class="st">"dingo"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div id="timer_5c4e414ae6b14006be7412d1bd874db36aa3433d" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_1cc8d3062ac0c7b71123e344b91850e89574a1d4" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
  </div>
  <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
  </div>
-<aside class="notes">
-<p>The middle one is the interesting case: <code>by</code> must be negative to count down. <code>seq(from = 2, to = -2, by = 1)</code> errors — a good moment to read the error message together.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="solutions" class="slide level2">
 <h2>Solutions</h2>
@@ -467,19 +352,6 @@
 <span id="cb5-2"><a aria-label="2"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">2</span>, <span class="at">to =</span> <span class="sc">-</span><span class="dv">2</span>, <span class="at">by =</span> <span class="sc">-</span><span class="dv">1</span>)</span>
 <span id="cb5-3"><a aria-label="3"></a><span class="dv">2</span><span class="sc">:-</span><span class="dv">2</span>        <span class="co"># also works!</span></span>
 <span id="cb5-4"><a aria-label="4"></a><span class="fu">rep</span>(char_vec, <span class="at">times =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<aside class="notes">
-<p>Note that the third answer reuses an object we already made rather than retyping the strings — that’s the point of saving objects.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section></section>
 <section>
 <section id="special-values" class="title-slide slide level1 center">
@@ -514,38 +386,12 @@
 </tr>
 </tbody>
 </table>
-<aside class="notes">
-<p><code>NA</code> is the one you’ll meet constantly in real data. <code>NULL</code> is the odd one: it is the <em>absence</em> of a value, so it takes up no room in a vector. Demonstrate on the board by drawing the row of boxes for <code>c(NA, NULL, 1)</code> — two boxes, not three.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="missing-values-are-contagious" class="slide level2">
 <h2>Missing values are contagious</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a><span class="fu">c</span>(<span class="cn">NA</span>, <span class="cn">NULL</span>, <span class="dv">1</span>)</span>
 <span id="cb6-2"><a aria-label="2"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="cn">NA</span>, <span class="cn">NULL</span>, <span class="dv">1</span>))</span>
 <span id="cb6-3"><a aria-label="3"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="cn">NA</span>, <span class="cn">NULL</span>, <span class="dv">1</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<aside class="notes">
-<p>Ask what <code>length(c(NA, NULL, 1))</code> will be before running it. Then: why is the mean <code>NA</code>? Because the mean of a set that includes an unknown value is itself unknown — R is being careful, not broken. <code>na.rm = TRUE</code> tells R to drop the missing values first. Stress that this is a <em>choice you are making about your data</em>, not a bug fix.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section></section>
 <section>
 <section id="behavior-of-vectors" class="title-slide slide level1 center">
@@ -558,26 +404,13 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="sc">+</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)</span>
 <span id="cb7-2"><a aria-label="2"></a><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="sc">+</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>)</span>
 <span id="cb7-3"><a aria-label="3"></a><span class="fu">c</span>(<span class="dv">1</span>, <span class="st">"dog"</span>, <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div id="timer_5c4e414ae6b14006be7412d1bd874db36aa3433d" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
+<div id="timer_1cc8d3062ac0c7b71123e344b91850e89574a1d4" class="countdown" data-warn-when="0" data-update-every="1" data-play-sound="false" data-blink-colon="false" data-start-immediately="false" tabindex="0" style="right: 0;bottom: 0;">
   <div class="countdown-controls">
     <button class="countdown-bump-down">−</button>
     <button class="countdown-bump-up">+</button>
  </div>
  <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
  </div>
-<aside class="notes">
-<p>Poll the room on each line before running it. All three surprise people in different ways, and each one motivates a concept on the next slides: vectorization, recycling, and coercion.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="vectorization-and-recycling" class="slide level2">
 <h2>Vectorization and recycling</h2>
@@ -605,20 +438,6 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a><span class="fu">log</span>(<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">6</span>, <span class="dv">1</span>))</span>
 <span id="cb8-2"><a aria-label="2"></a><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="sc">+</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>)</span>
 <span id="cb8-3"><a aria-label="3"></a><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="sc">+</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<aside class="notes">
-<p>On the board, write the two vectors next to one another and draw the element-wise pairing. For the recycled case, write the shorter vector out again underneath — <code>2, 3, 2</code> — so students see where the third element came from. Note that R warns here because 3 isn’t a multiple of 2; when it <em>is</em> a multiple you get no warning at all, which is what makes recycling dangerous.</p>
-<p>In most other languages, adding two collections requires writing a loop. Vectorization is a defining feature of R.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="type-coercion" class="slide level2">
 <h2>Type coercion</h2>
@@ -630,40 +449,12 @@
 <p>When you mix types, R converts them all to a single type so the vector stays atomic. It follows a hierarchy, always moving <strong>up</strong>:</p>
 </div>
 </div>
-<aside class="notes">
-<p>Annotate slide with:</p>
-<p>logical &lt; integer &lt; double &lt; character</p>
-<p>Write the hierarchy on the board as an arrow. The rule: R picks the least-general type that can hold everything. <code>c(1, "dog", TRUE)</code> must go all the way up to character because only character can represent all three.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="implicit-coercion" class="slide level2">
 <h2>Implicit coercion</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a><span class="fu">c</span>(<span class="dv">1</span>, <span class="st">"dog"</span>, <span class="cn">TRUE</span>)</span>
 <span id="cb9-2"><a aria-label="2"></a><span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="dv">3</span>)</span>
 <span id="cb9-3"><a aria-label="3"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<aside class="notes">
-<p>The last line is worth dwelling on: <code>TRUE</code> becomes <code>1</code> and <code>FALSE</code> becomes <code>0</code>, so the mean of a logical vector is the <em>proportion of TRUEs</em>. That’s a trick we’ll use over and over once we start filtering data.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="explicit-coercion" class="slide level2">
 <h2>Explicit coercion</h2>
@@ -676,20 +467,6 @@
 <span id="cb10-5"><a aria-label="5"></a>distances <span class="ot">&lt;-</span> <span class="fu">as.double</span>(distances)</span>
 <span id="cb10-6"><a aria-label="6"></a>distances</span>
 <span id="cb10-7"><a aria-label="7"></a><span class="fu">mean</span>(distances)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<aside class="notes">
-<p>This isthe bug from last lecture. <code>readLines()</code> gives us character data; <code>mean()</code> on characters returns <code>NA</code> with a warning. Point out the quotes disappearing in the printed output after coercion.</p>
-<p>Ask what <code>as.double("dog")</code> returns. <code>NA</code>, with a warning. Coercion that can’t succeed produces missing values, so always check afterward.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section></section>
 <section>
@@ -705,21 +482,6 @@
 <span id="cb11-2"><a aria-label="2"></a>char_vec[<span class="dv">2</span>]</span>
 <span id="cb11-3"><a aria-label="3"></a>char_vec[<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>]</span>
 <span id="cb11-4"><a aria-label="4"></a>char_vec[<span class="fu">rep</span>(<span class="dv">3</span>, <span class="dv">10</span>)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<aside class="notes">
-<p>Annotate the anatomy on the board: the <em>vector</em>, the <em>square bracket</em>, and inside it another <em>numeric vector</em> of positions. That last point is the key insight — the thing inside the brackets is itself a vector, which is why <code>2:3</code> and <code>rep(3, 10)</code> both work.</p>
-<p>R indexes from 1, unlike Python and most other languages.</p>
-<p>The <code>rep(3, 10)</code> example shows the result can be <em>longer</em> than the original.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="subsetting-by-name" class="slide level2">
@@ -730,37 +492,10 @@
 <span id="cb12-4"><a aria-label="4"></a>named_char_vec</span>
 <span id="cb12-5"><a aria-label="5"></a>named_char_vec[<span class="st">"buzz"</span>]</span>
 <span id="cb12-6"><a aria-label="6"></a>named_char_vec[<span class="fu">rep</span>(<span class="st">"poppy"</span>, <span class="dv">10</span>)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<aside class="notes">
-<p>Names are an attribute attached to a vector; note how printing changes to show a header row of names. The same pattern holds: whatever is inside the brackets is a vector, here a character vector.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="subsetting-by-logicals" class="slide level2">
 <h2>Subsetting by logicals</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-label="1"></a>named_char_vec[<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<aside class="notes">
-<p>The logical vector acts as a mask, one entry per element: keep, drop, keep. This is the least intuitive of the three but by far the most useful — next lecture we’ll generate those logicals from comparisons instead of typing them out, and that’s how filtering works.</p>
-<p>If time permits, ask what happens when the logical vector is shorter than the vector being subset. Recycling, again.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="section-1" class="slide level2 intro" data-background-color="var(--intro-bg)">
 <h2></h2>
@@ -805,6 +540,7 @@
   <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-drop/drop-runtime.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-magic-move/magic-move.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-sticky-annotations/sticky-annotations.js"></script>
   <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -1000,7 +736,7 @@
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, RevealStickyAnnotations, QuartoSupport,
 
           RevealMath,
           RevealNotes,

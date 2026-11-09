@@ -100,7 +100,7 @@
     code span.vs { color: #032f62; } /* VerbatimString */
     code span.wa { color: #ff5555; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-4b2986a98c479737a68edbabff215be5.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-048dd6ad118ee2dc7db1ac3daabf611a.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -234,41 +234,6 @@
 <li class="fragment"><em>Warnings</em> vs.&nbsp;<em>errors</em>.</li>
 </ol>
 </div></div>
-<aside class="notes">
-<h4 id="concept-acquisition">Concept Acquisition</h4>
-<ol type="1">
-<li>R evaluates expressions, like a calculator.</li>
-<li>Functions take arguments (by position or by name) and can have defaults.</li>
-<li>Values can be saved as objects in the environment.</li>
-<li>An R session, like the shell, has a working directory.</li>
-<li>Warnings vs.&nbsp;errors.</li>
-</ol>
-<h4 id="tool-acquisition">Tool Acquisition</h4>
-<ol type="1">
-<li>Arithmetic and <code>sqrt()</code>, <code>log()</code>.</li>
-<li><code>&lt;-</code> for assignment; <code>?</code> for help.</li>
-<li><code>getwd()</code>, <code>list.files()</code>, <code>setwd()</code>, <code>readLines()</code>.</li>
-<li><code>as.numeric()</code>, <code>mean()</code>, <code>sd()</code>, <code>summary()</code>.</li>
-</ol>
-<h4 id="concept-application">Concept Application</h4>
-<ol type="1">
-<li>Predict the output of a chain of assignments and arithmetic.</li>
-<li>Call a function using arguments by position and by name.</li>
-<li>Navigate the file system from within R and read a file’s contents.</li>
-<li>Convert character data to numeric and summarize it.</li>
-</ol>
-<p>This lecture is live-coded. Bring up the R console with the drop plugin (press <code>`</code>) and use the chalkboard to annotate.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section>
 <section id="unix-shell-bonus-round" class="title-slide slide level1 center">
@@ -302,58 +267,17 @@
 </tr>
 </tbody>
 </table>
-<aside class="notes">
-<p>Start this slide by asking: we learned four key shell commands last time, what were they? And add them to the slide via annotation.</p>
-<p>After showing the options, demo them on datahub in the data in trees repo.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section></section>
 <section>
 <section id="intro-to-r" class="title-slide slide level1 center">
 <h1>Intro to R</h1>
-<aside class="notes">
-<p>Bring up the blackboard and continue the data computing workflow diagram for “What is the song of the summer?” by adding a “Calculate Summary Statistics” after the “Store and Organize Files” box.</p>
-<p>Change the question to “what is the typical distance travelled over the summer”?</p>
-<p>Say, “Last time we learned how we can store and organize data into files in our file system. If we want to answer this question with a summary statistic, we need a tool for executing statistical computation on these file. The tool we will turn to is R.”</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+
 </section>
 <section id="section-1" class="slide level2">
 <h2></h2>
 
-<img data-src="images/R-1.png" class="quarto-figure quarto-figure-center r-stretch"><aside class="notes">
-<p>Click through these to demonstrate how to</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
+<img data-src="images/R-1.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="section-2" class="slide level2">
 <h2></h2>
 
@@ -377,19 +301,6 @@
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a><span class="dv">3</span> <span class="sc">+</span> <span class="dv">6</span></span>
 <span id="cb2-2"><a aria-label="2"></a><span class="dv">3</span> <span class="sc">*</span> <span class="dv">6</span></span>
 <span id="cb2-3"><a aria-label="3"></a><span class="fu">sqrt</span>(<span class="dv">9</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<aside class="notes">
-<p>Start off by starting R at the command line on JupyterHub. In time, transition over to the drop console (<code>`</code>) and type these live. Point out that R prints the result of each expression.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="structure-of-an-r-function" class="slide level2">
@@ -402,43 +313,16 @@
 <p>A named procedure that takes <strong>arguments</strong> (inputs) and returns a value. Arguments can be supplied by <strong>position</strong> or by <strong>name</strong>, and some have <strong>default</strong> values.</p>
 </div>
 </div>
-<aside class="notes">
-<p>Live-code the one at a time. Draw out the anatomy on the chalkboard: function name, then arguments inside <code>()</code>.</p>
-<ul>
-<li><code>log(10)</code> uses the default base <code>e</code>.</li>
-<li>Naming an argument (<code>base = 10</code>) is unambiguous.</li>
-<li>By position, the second argument <em>is</em> <code>base</code>, so <code>log(10, 5)</code> and <code>log(5, 10)</code> differ.</li>
-<li>When you name every argument, order stops mattering: <code>log(base = 5, x = 10)</code>.</li>
-<li>You can learn more about the function by pulling up it’s help file with <code>?</code></li>
-</ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="fu">log</span>(<span class="dv">10</span>)</span>
-<span id="cb3-2"><a aria-label="2"></a><span class="fu">log</span>(<span class="dv">10</span>, <span class="at">base =</span> <span class="dv">10</span>)</span>
-<span id="cb3-3"><a aria-label="3"></a>?log</span>
-<span id="cb3-4"><a aria-label="4"></a><span class="fu">log</span>(<span class="dv">10</span>, <span class="at">base =</span> <span class="dv">5</span>)</span>
-<span id="cb3-5"><a aria-label="5"></a><span class="fu">log</span>(<span class="dv">10</span>, <span class="dv">5</span>)</span>
-<span id="cb3-6"><a aria-label="6"></a><span class="fu">log</span>(<span class="dv">5</span>, <span class="dv">10</span>)</span>
-<span id="cb3-7"><a aria-label="7"></a><span class="fu">log</span>(<span class="at">base =</span> <span class="dv">5</span>, <span class="at">x =</span> <span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section>
 <section id="structure-of-an-r-function-1" class="slide level2">
 <h2>Structure of an R function</h2>
 <div class="fragment">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a><span class="fu">log</span>(<span class="dv">10</span>)</span>
-<span id="cb4-2"><a aria-label="2"></a><span class="fu">log</span>(<span class="dv">10</span>, <span class="at">base =</span> <span class="dv">10</span>)</span>
-<span id="cb4-3"><a aria-label="3"></a>?log</span>
-<span id="cb4-4"><a aria-label="4"></a><span class="fu">log</span>(<span class="dv">10</span>, <span class="dv">5</span>)</span>
-<span id="cb4-5"><a aria-label="5"></a><span class="fu">log</span>(<span class="dv">5</span>, <span class="dv">10</span>)</span>
-<span id="cb4-6"><a aria-label="6"></a><span class="fu">log</span>(<span class="at">base =</span> <span class="dv">5</span>, <span class="at">x =</span> <span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="fu">log</span>(<span class="dv">10</span>)</span>
+<span id="cb3-2"><a aria-label="2"></a><span class="fu">log</span>(<span class="dv">10</span>, <span class="at">base =</span> <span class="dv">10</span>)</span>
+<span id="cb3-3"><a aria-label="3"></a>?log</span>
+<span id="cb3-4"><a aria-label="4"></a><span class="fu">log</span>(<span class="dv">10</span>, <span class="dv">5</span>)</span>
+<span id="cb3-5"><a aria-label="5"></a><span class="fu">log</span>(<span class="dv">5</span>, <span class="dv">10</span>)</span>
+<span id="cb3-6"><a aria-label="6"></a><span class="fu">log</span>(<span class="at">base =</span> <span class="dv">5</span>, <span class="at">x =</span> <span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="creating-objects" class="slide level2">
@@ -454,25 +338,12 @@
 </section>
 <section id="creating-objects-1" class="slide level2">
 <h2>Creating objects</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>a <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="sc">+</span> <span class="dv">5</span>      <span class="co"># save the result into an object named a</span></span>
-<span id="cb5-2"><a aria-label="2"></a><span class="fu">print</span>(a)</span>
-<span id="cb5-3"><a aria-label="3"></a>a               <span class="co"># calling an object invokes print()</span></span>
-<span id="cb5-4"><a aria-label="4"></a>a <span class="sc">+</span> <span class="dv">2</span></span>
-<span id="cb5-5"><a aria-label="5"></a>a <span class="ot">&lt;-</span> a <span class="sc">+</span> <span class="dv">2</span>      <span class="co"># overwrite a with a new value</span></span>
-<span id="cb5-6"><a aria-label="6"></a><span class="fu">ls</span>()            <span class="co"># list objects in environment</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<aside class="notes">
-<p>Emphasize that <code>&lt;-</code> does not print anything — the value is stored. Show the object appearing in the Environment. The last line is worth pausing on: the right side is computed first, then assigned back to <code>a</code>.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>a <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="sc">+</span> <span class="dv">5</span>      <span class="co"># save the result into an object named a</span></span>
+<span id="cb4-2"><a aria-label="2"></a><span class="fu">print</span>(a)</span>
+<span id="cb4-3"><a aria-label="3"></a>a               <span class="co"># calling an object invokes print()</span></span>
+<span id="cb4-4"><a aria-label="4"></a>a <span class="sc">+</span> <span class="dv">2</span></span>
+<span id="cb4-5"><a aria-label="5"></a>a <span class="ot">&lt;-</span> a <span class="sc">+</span> <span class="dv">2</span>      <span class="co"># overwrite a with a new value</span></span>
+<span id="cb4-6"><a aria-label="6"></a><span class="fu">ls</span>()            <span class="co"># list objects in environment</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="the-r-environment" class="slide level2">
 <h2>The R environment</h2>
@@ -484,19 +355,6 @@
 <p>The collection of all objects currently defined in your R session, each stored under its name. Assignment adds or updates an object in the environment; <code>ls()</code> lists what it contains.</p>
 </div>
 </div>
-<aside class="notes">
-<p>Tie this back to the previous slide: the objects created with <code>&lt;-</code> all live in the environment. Show the Environment pane so students can see the names and values accumulating as they run code.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section></section>
 <section>
 <section id="r-on-the-file-system" class="title-slide slide level1 center">
@@ -538,60 +396,21 @@
 </tr>
 </tbody>
 </table>
-<aside class="notes">
-<p>On the board, sketch the file system tree and draw two boxes next to it, one labelled “shell” and one labelled “R”. Both have a working directory that you can move. Then live-code the R column.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </div>
 </section>
 <section id="where-am-i-whats-around-me" class="slide level2">
 <h2>Where am I? What’s around me?</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a><span class="fu">getwd</span>()</span>
-<span id="cb6-2"><a aria-label="2"></a><span class="fu">ls</span>()            <span class="co"># careful: lists objects, not files!</span></span>
-<span id="cb6-3"><a aria-label="3"></a><span class="fu">list.files</span>()</span>
-<span id="cb6-4"><a aria-label="4"></a><span class="fu">setwd</span>()</span>
-<span id="cb6-5"><a aria-label="5"></a><span class="fu">system</span>(<span class="st">"tree ."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<aside class="notes">
-<p>The gotcha: <code>ls()</code> in R lists objects in your environment, not files on disk — a false friend from the shell. <code>list.files()</code> is the file lister. <code>system("tree .")</code> shells out to draw the tree we studied last time.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="fu">getwd</span>()</span>
+<span id="cb5-2"><a aria-label="2"></a><span class="fu">ls</span>()            <span class="co"># careful: lists objects, not files!</span></span>
+<span id="cb5-3"><a aria-label="3"></a><span class="fu">list.files</span>()</span>
+<span id="cb5-4"><a aria-label="4"></a><span class="fu">setwd</span>()</span>
+<span id="cb5-5"><a aria-label="5"></a><span class="fu">system</span>(<span class="st">"tree ."</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="moving-and-reading-files" class="slide level2">
 <h2>Moving and reading files</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a><span class="fu">setwd</span>(<span class="st">"data-in-trees/blue/stat/101/1"</span>)</span>
-<span id="cb7-2"><a aria-label="2"></a><span class="fu">cat</span>(<span class="st">"109.txt"</span>)          <span class="co"># not what you'd expect...</span></span>
-<span id="cb7-3"><a aria-label="3"></a><span class="fu">readLines</span>(<span class="st">"109.txt"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<aside class="notes">
-<p><code>cat("108.txt")</code> prints the <em>string</em> <code>108.txt</code>, not the file — a nice teachable surprise. Ask Gemini for the function that reads a file; land on <code>readLines()</code>. Reading <code>108.txt</code> produces a warning about an incomplete final line — segue to the next slide.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a><span class="fu">setwd</span>(<span class="st">"data-in-trees/blue/stat/101/1"</span>)</span>
+<span id="cb6-2"><a aria-label="2"></a><span class="fu">cat</span>(<span class="st">"109.txt"</span>)          <span class="co"># not what you'd expect...</span></span>
+<span id="cb6-3"><a aria-label="3"></a><span class="fu">readLines</span>(<span class="st">"109.txt"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="warnings-and-errors" class="slide level2">
 <h2>Warnings and errors</h2>
@@ -616,21 +435,8 @@
 </section>
 <section id="warnings-and-errors-1" class="slide level2">
 <h2>Warnings and errors</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a><span class="fu">setwd</span>(<span class="st">"../../../non-stat"</span>)</span>
-<span id="cb8-2"><a aria-label="2"></a><span class="fu">readLines</span>(<span class="st">"100/1/100.txt"</span>)   <span class="co"># note the typo</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<aside class="notes">
-<p>Move the working directory up and over with a relative path (reinforcing last lecture). Then deliberately fumble the path — — to trigger a “cannot open file” error. Contrast: the warning earlier still returned the file’s lines; this error returns nothing.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a><span class="fu">setwd</span>(<span class="st">"../../../non-stat"</span>)</span>
+<span id="cb7-2"><a aria-label="2"></a><span class="fu">readLines</span>(<span class="st">"100/1/100.txt"</span>)   <span class="co"># note the typo</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section></section>
 <section>
 <section id="case-study-distances-traveled" class="title-slide slide level1 center">
@@ -642,63 +448,24 @@
 <p>Recall the second question on your index card: <em>the farthest you were from Cal this summer, in miles.</em></p>
 <div class="fragment">
 <p>All of those values have been pulled out of the individual files and stacked into one:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a aria-label="1"></a><span class="fu">find</span> . <span class="at">-type</span> f <span class="at">-name</span> <span class="st">"*.txt"</span> <span class="at">-print0</span> <span class="dt">\</span></span>
-<span id="cb9-2"><a aria-label="2"></a>  <span class="kw">|</span> <span class="fu">xargs</span> <span class="at">-0</span> awk <span class="st">'FNR==2 &amp;&amp; /^[0-9,]+$/'</span> <span class="dt">\</span></span>
-<span id="cb9-3"><a aria-label="3"></a>  <span class="op">&gt;</span> combined_output.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<aside class="notes">
-<p>This connects today’s tools back to the index-card data from lectures 1–2. Don’t dwell on the <code>find | xargs | awk</code> incantation — just note that the command line let us grab the second line of every file and combine them. This is <em>why</em> the command line is worth knowing.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a aria-label="1"></a><span class="fu">find</span> . <span class="at">-type</span> f <span class="at">-name</span> <span class="st">"*.txt"</span> <span class="at">-print0</span> <span class="dt">\</span></span>
+<span id="cb8-2"><a aria-label="2"></a>  <span class="kw">|</span> <span class="fu">xargs</span> <span class="at">-0</span> awk <span class="st">'FNR==2 &amp;&amp; /^[0-9,]+$/'</span> <span class="dt">\</span></span>
+<span id="cb8-3"><a aria-label="3"></a>  <span class="op">&gt;</span> combined_output.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="reading-the-distances-into-r" class="slide level2">
 <h2>Reading the distances into R</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a><span class="fu">readLines</span>(<span class="st">"combined_output.txt"</span>)</span>
-<span id="cb10-2"><a aria-label="2"></a>distances <span class="ot">&lt;-</span> <span class="fu">readLines</span>(<span class="st">"combined_output.txt"</span>)</span>
-<span id="cb10-3"><a aria-label="3"></a></span>
-<span id="cb10-4"><a aria-label="4"></a><span class="fu">mean</span>(distances)      <span class="co"># whoops — a mean of character strings</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<aside class="notes">
-<p><code>readLines()</code> gives us a value per line, but each is a <em>character string</em>. <code>mean()</code> on characters returns <code>NA</code> with a warning. Ask the students what went wrong before revealing the fix.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a><span class="fu">readLines</span>(<span class="st">"combined_output.txt"</span>)</span>
+<span id="cb9-2"><a aria-label="2"></a>distances <span class="ot">&lt;-</span> <span class="fu">readLines</span>(<span class="st">"combined_output.txt"</span>)</span>
+<span id="cb9-3"><a aria-label="3"></a></span>
+<span id="cb9-4"><a aria-label="4"></a><span class="fu">mean</span>(distances)      <span class="co"># whoops — a mean of character strings</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="converting-and-summarizing" class="slide level2">
 <h2>Converting and summarizing</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a>distances <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(distances)   <span class="co"># text -&gt; numbers</span></span>
-<span id="cb11-2"><a aria-label="2"></a><span class="fu">mean</span>(distances)</span>
-<span id="cb11-3"><a aria-label="3"></a><span class="fu">sd</span>(distances)</span>
-<span id="cb11-4"><a aria-label="4"></a><span class="fu">summary</span>(distances)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<aside class="notes">
-<p><code>as.numeric()</code> coerces the strings to numbers; now the summaries work. Read <code>summary()</code> together — min, quartiles, median, mean, max — as a first look at the distribution. If any value fails to convert it becomes <code>NA</code>; watch for that.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a>distances <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(distances)   <span class="co"># text -&gt; numbers</span></span>
+<span id="cb10-2"><a aria-label="2"></a><span class="fu">mean</span>(distances)</span>
+<span id="cb10-3"><a aria-label="3"></a><span class="fu">sd</span>(distances)</span>
+<span id="cb10-4"><a aria-label="4"></a><span class="fu">summary</span>(distances)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="section-4" class="slide level2 intro" data-background-color="var(--intro-bg)">
 <h2></h2>
@@ -743,6 +510,7 @@
   <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-drop/drop-runtime.js"></script>
   <script src="../site_libs/revealjs/plugin/reveal-magic-move/magic-move.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-sticky-annotations/sticky-annotations.js"></script>
   <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -938,7 +706,7 @@
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealDrop, RevealMagicMove, RevealStickyAnnotations, QuartoSupport,
 
           RevealMath,
           RevealNotes,
