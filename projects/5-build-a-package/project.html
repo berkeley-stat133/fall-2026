@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Project 5: Build a Package – STAT 133</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-0f05cba98e93abd5bfacabf37e46c573.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-36489fe9f95e83378e31b3375ef0b6a4.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-0f05cba98e93abd5bfacabf37e46c573.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-da7db8378078b9acee2daab36e777593.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-da7db8378078b9acee2daab36e777593.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-da7db8378078b9acee2daab36e777593.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="assets/scroll-branding.js"></script>
+
+
+<link rel="stylesheet" href="../../assets/neural.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">STAT 133</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../projects/1-sampsons-monks/project.html">Projects</a></li><li class="breadcrumb-item"><a href="../../projects/5-build-a-package/project.html">Build a Package</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../office-hours.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Office Hours</span></a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../tools/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tools</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tools/datahub.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">DataHub</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tools/shell.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Shell</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tools/r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tools/r-app.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R App</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tools/git.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Git</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../tools/positron.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Positron</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Projects</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../projects/1-sampsons-monks/project.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sampson’s Monks</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../projects/2-zero-emission-vehicles/project.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Zero Emission Vehicles</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../projects/3-your-life-in-data/project.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Your Life in Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../projects/4-gerrymandering/project.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Gerrymandering</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../projects/5-build-a-package/project.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Build a Package</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Problem Sets</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../problem-sets/ps1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PS 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../problem-sets/ps2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PS 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../problem-sets/ps3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PS 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../problem-sets/ps4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PS 4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../problem-sets/ps5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PS 5</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../problem-sets/ps6.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">PS 6</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#choose-your-route" id="toc-choose-your-route" class="nav-link active" data-scroll-target="#choose-your-route">Choose your route</a></li>
+  <li><a href="#what-your-package-needs" id="toc-what-your-package-needs" class="nav-link" data-scroll-target="#what-your-package-needs">What your package needs</a></li>
+  <li><a href="#your-template-repo" id="toc-your-template-repo" class="nav-link" data-scroll-target="#your-template-repo">Your template repo</a></li>
+  <li><a href="#part-1-wrap-the-api" id="toc-part-1-wrap-the-api" class="nav-link" data-scroll-target="#part-1-wrap-the-api">Part 1: Wrap the API</a></li>
+  <li><a href="#part-2-test-it" id="toc-part-2-test-it" class="nav-link" data-scroll-target="#part-2-test-it">Part 2: Test It</a></li>
+  <li><a href="#part-3-store-and-answer" id="toc-part-3-store-and-answer" class="nav-link" data-scroll-target="#part-3-store-and-answer">Part 3: Store and Answer</a></li>
+  <li><a href="#part-4-ship-it" id="toc-part-4-ship-it" class="nav-link" data-scroll-target="#part-4-ship-it">Part 4: Ship It</a></li>
+  <li><a href="#part-5-write-the-readme" id="toc-part-5-write-the-readme" class="nav-link" data-scroll-target="#part-5-write-the-readme">Part 5: Write the README</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../projects/1-sampsons-monks/project.html">Projects</a></li><li class="breadcrumb-item"><a href="../../projects/5-build-a-package/project.html">Build a Package</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Project 5: Build a Package</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/hex-question.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="A teal hexagon in the style of an R package sticker, with a large yellow question mark in the middle and the words 'your package' along the bottom." width="260"></p>
+</figure>
+</div>
+<p>Every package you’ve used this semester started as someone’s functions for a job they kept doing by hand. In this project you’ll write your own: an R package that wraps a web API, with documentation, tests, a data set it built, and a README that shows how to use it.</p>
+<p>By completing this project, you will:</p>
+<ul>
+<li>Wrap requests to an API in documented functions in an R package</li>
+<li>Test functions whose output changes from day to day</li>
+<li>Store a data set in a package and document it</li>
+<li>Answer a question with data from your own package</li>
+<li>Ship a package that someone else can install and use</li>
+</ul>
+<section id="choose-your-route" class="level3">
+<h3 class="anchored" data-anchor-id="choose-your-route">Choose your route</h3>
+<p>Build a package of your own design, or take the BART route, where the API, the question, and the functions are chosen for you. The tabs below all switch together.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="route">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Your package</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">BART</a></li></ul>
+<div class="tab-content" data-group="route">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>Pick a public API with data you’re curious about, and a question it could answer. These work from R without a key:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>API</th>
+<th>Example question</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://open-meteo.com/en/docs">Open-Meteo</a> (weather)</td>
+<td>How much warmer are Berkeley’s Septembers now than in the 1990s?</td>
+</tr>
+<tr class="even">
+<td><a href="https://earthquake.usgs.gov/fdsnws/event/1/">USGS Earthquakes</a></td>
+<td>Where in California did this year’s earthquakes over magnitude 3 happen?</td>
+</tr>
+<tr class="odd">
+<td><a href="https://api.inaturalist.org/v1/docs/">iNaturalist</a> (wildlife sightings)</td>
+<td>When in the year are monarch butterflies seen in the Bay Area?</td>
+</tr>
+<tr class="even">
+<td><a href="https://openlibrary.org/developers/api">Open Library</a> (books)</td>
+<td>How has the length of an author’s books changed over their career?</td>
+</tr>
+<tr class="odd">
+<td><a href="https://www.federalregister.gov/developers/documentation/api/v1">Federal Register</a> (federal rules)</td>
+<td>Which agencies publish the most rules on wildfire?</td>
+</tr>
+</tbody>
+</table>
+<p>APIs with a free key, like <a href="https://api.nasa.gov/">NASA’s</a> or <a href="https://fred.stlouisfed.org/docs/api/fred/">FRED’s</a>, are fine too (see “If your API needs a key” below). Your API must:</p>
+<ul>
+<li>answer requests built with <code>request()</code> and <code>req_url_query()</code> with JSON;</li>
+<li>be free, with no sign-in or “authorize an app” step (so not Spotify, Google, or Reddit);</li>
+<li>allow enough requests to build your data set (check its rate limit).</li>
+</ul>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/bart-train.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="A white BART train with the blue BART logo pulls into an elevated station platform." width="500"></p>
+</figure>
+</div>
+<p>Many Berkeley students live farther out and ride BART to Downtown Berkeley. Your question:</p>
+<p><em>Which BART stations could you live near and still make a 9:00 am class on campus, and what would the commute cost you each week?</em></p>
+<p>Your package, <code>bartcommute</code>, has two functions, <code>bart_stations()</code> and <code>bart_trip()</code>, specified in Part 1.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="what-your-package-needs" class="level3">
+<h3 class="anchored" data-anchor-id="what-your-package-needs">What your package needs</h3>
+<p>Your deliverable is your repo: an R package that installs from GitHub and</p>
+<ol type="1">
+<li>is <strong>useful or interesting</strong>: its functions together answer a question, and at least one takes arguments that change what it does (Parts 1 and 3);</li>
+<li><strong>calls a web API</strong> (Part 1);</li>
+<li>has <strong>at least two exported functions</strong>, at least one of which wraps the API and returns a tidy data frame with the right types. The other may wrap the API too, or summarize or plot your package’s data (Part 1);</li>
+<li><strong>stores a data set</strong> built with its own functions, from at least 10 requests and under 5 MB (Part 3);</li>
+<li>is <strong>documented</strong>: Roxygen for every exported function (title, <code>@param</code>, <code>@returns</code>, <code>@examples</code>, <code>@export</code>) and for the data set (<code>@format</code>, <code>@source</code>) (Parts 1 and 3);</li>
+<li>has passing <strong>tests</strong> of a typical input, an edge case, and an error (Part 2);</li>
+<li>has a complete <strong><code>DESCRIPTION</code></strong> and <code>NAMESPACE</code>, so that <code>check()</code> reports no errors or warnings (Parts 1 and 4);</li>
+<li>has a <strong>README</strong> that explains the package and walks through examples and your analysis (Part 5).</li>
+</ol>
+<p>Optionally, it also has a pkgdown website (see the end of this page).</p>
+</section>
+<section id="your-template-repo" class="level3">
+<h3 class="anchored" data-anchor-id="your-template-repo">Your template repo</h3>
+<p>Your template repo <em>is</em> an R package. Its <code>project.qmd</code> renders to <code>README.md</code>, the front page of your repo on GitHub (like <a href="https://github.com/tidyverse/dplyr">dplyr’s</a>). It holds:</p>
+<ul>
+<li><code>DESCRIPTION</code>, <code>NAMESPACE</code>, and <code>LICENSE</code>: a package skeleton. You’ll fill in <code>DESCRIPTION</code> and <code>LICENSE</code>.</li>
+<li><code>project.qmd</code>: your README’s source. Its top comment explains the setup.</li>
+<li><code>.Rbuildignore</code>: files in your repo that aren’t part of the package. Leave it as it is.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>If your API needs a key
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A key works like a password, so it must never appear in your repo.</p>
+<ol type="1">
+<li>Run <code>usethis::edit_r_environ()</code>, add a line like <code>NASA_KEY=abc123</code>, save, and restart R. <code>.Renviron</code> lives in your home folder, so git never sees it.</li>
+<li>Give each function a <code>key</code> argument whose default is <code>Sys.getenv("NASA_KEY")</code>, and <code>stop()</code> with a clear message when it’s <code>""</code>.</li>
+<li>If a key is ever pushed, replace it: deleting it later doesn’t remove it from your repo’s history.</li>
+<li>Start each test that calls the API with <code>skip_if(Sys.getenv("NASA_KEY") == "", "no API key")</code>, and use <code>@examplesIf nzchar(Sys.getenv("NASA_KEY"))</code> instead of <code>@examples</code>, so someone without your key, like your GSI, gets skips instead of failures.</li>
+<li>In your README, say where to get a key and what to name it.</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="part-1-wrap-the-api" class="level3">
+<h3 class="anchored" data-anchor-id="part-1-wrap-the-api">Part 1: Wrap the API</h3>
+<p>Write functions that send requests to the API and return tidy data frames, and document them as you go.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Fill in <code>DESCRIPTION</code> (<code>Package</code>, <code>Title</code>, <code>Authors@R</code>, <code>Description</code>) and put your name in <code>LICENSE</code>. On your own route, choose a package name of letters and numbers and use it as the <code>title</code> of <code>project.qmd</code>.</li>
+<li>Run <code>usethis::use_package("httr2")</code>. Whenever your functions call another package, run it for that package too. Inside a package, call functions with <code>::</code> (<code>httr2::request()</code>), never <code>library()</code>.</li>
+</ol>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="route">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Your package</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">BART</a></li></ul>
+<div class="tab-content" data-group="route">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<ol start="3" type="1">
+<li><p>Send a request in a browser, then from R with <code>req_url_query()</code> and <code>resp_body_json(simplifyVector = TRUE)</code>, as in APIs I. Find the path of <code>$</code>s to your data.</p></li>
+<li><p>Note the type of each value you’ll keep, and which need converting (numbers stored as strings, dates, codes).</p></li>
+<li><p>In a file made with <code>use_r()</code>, write your first function. It takes arguments that change the request and returns a data frame with one row per observation and a column of the right type for each value. Give it a Roxygen block: a title, <code>@param</code>s, <code>@returns</code>, <code>@examples</code>, and <code>@export</code>.</p></li>
+<li><p>Write a second function. It can wrap the API too (another endpoint, as <code>bart_stations()</code> feeds <code>bart_trip()</code>), or summarize or plot your package’s data: it takes your first function’s output or your data set, plus an argument that changes the result, like which column to plot. Document and export it like the first. Inside a package, name columns in <code>dplyr</code> and <code>ggplot2</code> with the <code>.data</code> pronoun, so <code>check()</code> knows they’re columns:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(trips, <span class="fu">aes</span>(<span class="at">x =</span> .data<span class="sc">$</span>minutes, <span class="at">y =</span> .data<span class="sc">$</span>fare)) <span class="sc">+</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></li>
+</ol>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p>The trip planner is the endpoint <code>sched.aspx</code>. This request asks for the last trip from Millbrae (<code>MLBR</code>) that reaches Downtown Berkeley (<code>DBRK</code>) by 8:45 am on November 18, 2026, 15 minutes before a 9:00 am class:</p>
+<pre><code>https://api.bart.gov/api/sched.aspx?cmd=arrive&amp;orig=MLBR&amp;dest=DBRK&amp;date=11/18/2026&amp;time=8:45am&amp;b=0&amp;a=0&amp;key=MW9S-E7SL-26DU-VV8V&amp;json=y</code></pre>
+<p><code>cmd=arrive</code> asks for trips that arrive by <code>time</code>, and <code>b=0&amp;a=0</code> returns only the last of them. (BART’s <a href="https://api.bart.gov/docs/sched/arrive.aspx">documentation</a> describes <code>b</code> and <code>a</code> differently; this is how they behave.)</p>
+<ol start="3" type="1">
+<li><p>Send the request in a browser, then from R as in APIs I, and find the path of <code>$</code>s to the trip. Look at the start of the response to see why so many names begin with <code>@</code>.</p></li>
+<li><p>Work out which of <code>@fare</code>, <code>@clipper</code>, and <code>fares</code> is the adult Clipper fare, and check it on <a href="https://www.bart.gov/planner">bart.gov’s trip planner</a>.</p></li>
+<li><p>In <code>R/stations.R</code> (<code>use_r("stations")</code>), write <code>bart_stations()</code>. Its one argument, <code>key</code>, defaults to BART’s public key, <code>"MW9S-E7SL-26DU-VV8V"</code>. It requests the station list from PS 6 and returns one row per station with the columns <code>abbr</code>, <code>name</code>, <code>city</code>, <code>county</code>, <code>lat</code>, and <code>lon</code>, with <code>lat</code> and <code>lon</code> (BART’s <code>gtfs_latitude</code> and <code>gtfs_longitude</code>) as numbers. Give it a Roxygen block: a title, <code>@param</code>, <code>@returns</code>, <code>@examples</code>, and <code>@export</code>.</p></li>
+<li><p>In <code>R/trip.R</code>, write <code>bart_trip()</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>bart_trip <span class="ot">&lt;-</span> <span class="cf">function</span>(orig, <span class="at">dest =</span> <span class="st">"DBRK"</span>, <span class="at">arrive_by =</span> <span class="st">"8:45am"</span>,</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">date =</span> <span class="st">"11/18/2026"</span>, <span class="at">key =</span> <span class="st">"MW9S-E7SL-26DU-VV8V"</span>) {</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Your code here.</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>It sends the request above with its arguments filled in, and returns one row:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 53%">
+<col style="width: 46%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Column</th>
+<th>Holds</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>orig</code>, <code>dest</code></td>
+<td>the abbreviations of the stations the trip starts and ends at</td>
+</tr>
+<tr class="even">
+<td><code>depart</code>, <code>arrive</code></td>
+<td>when the trip leaves <code>orig</code> and reaches <code>dest</code>, as date-times in Pacific time</td>
+</tr>
+<tr class="odd">
+<td><code>minutes</code></td>
+<td>the length of the trip, in minutes</td>
+</tr>
+<tr class="even">
+<td><code>fare</code></td>
+<td>the fare with a Clipper card, in dollars</td>
+</tr>
+<tr class="odd">
+<td><code>transfers</code></td>
+<td>the number of times you change trains</td>
+</tr>
+</tbody>
+</table>
+<p>Every value BART sends is a string, so convert <code>minutes</code> and <code>fare</code> to numbers. <code>lubridate::mdy_hm()</code> parses <code>"11/18/2026 07:31 AM"</code>, and each train you ride is a row of the trip’s <code>leg</code>. Give each argument an <code>@param</code>.</p></li>
+</ol>
+</div>
+</div>
+</div>
+<ol start="7" type="1">
+<li>Run <code>document()</code> and <code>load_all()</code>, and try each function and its help page. Then run <code>check()</code> and fix everything it reports. (A “no visible binding for global variable” note means a function names a column bare, as in <code>filter(fare &gt; 5)</code>; write <code>.data$fare</code> instead.)</li>
+</ol>
+</section>
+<section id="part-2-test-it" class="level3">
+<h3 class="anchored" data-anchor-id="part-2-test-it">Part 2: Test It</h3>
+<p>Test your functions on typical inputs, edge cases, and errors, as in the Testing lecture. Because the API’s data changes, don’t test today’s exact values: test what your function promises, the shape and types of its output and rules every response follows, which <code>expect_true(all(...))</code> checks for every value at once. For <code>celsius()</code> from PS 6:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">test_that</span>(<span class="st">"temperatures above freezing are above 0 °C"</span>, {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  temps <span class="ot">&lt;-</span> <span class="fu">celsius</span>(<span class="fu">c</span>(<span class="dv">33</span>, <span class="dv">50</span>, <span class="dv">72</span>, <span class="fl">98.6</span>, <span class="dv">212</span>))</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expect_true</span>(<span class="fu">all</span>(temps <span class="sc">&gt;</span> <span class="dv">0</span>))</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>})</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Run <code>use_testthat()</code>, then <code>use_test()</code> for each file in <code>R/</code>.</li>
+</ol>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="route">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">Your package</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">BART</a></li></ul>
+<div class="tab-content" data-group="route">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<ol start="2" type="1">
+<li>Typical input, shape: test for the columns you documented, in order, with the right types.</li>
+<li>Typical input, rules: test at least two rules every response follows, like dates in the range you asked for, counts that are never negative, or IDs that are unique.</li>
+<li>Edge case: find an input that makes the output unusual (no matches, one match, a missing value), decide what your function should return, and test it.</li>
+<li>Errors: make your function <code>stop()</code> with a clear message on bad input (the wrong type, more than one value), and test each case with <code>expect_error()</code> and its message.</li>
+<li>Hunt for a bug on inputs you didn’t design for, like every value of a lookup or the ends of a date range. Write a failing test first, then fix the function until it passes.</li>
+</ol>
+<p>If your second function summarizes or plots, test it with steps 2–5 too. For a plot, <code>expect_true(inherits(p, "ggplot"))</code> checks that it made one; for a summary, check its columns and number of rows.</p>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<ol start="2" type="1">
+<li>Typical input, shape: test that <code>bart_stations()</code> returns Part 1’s six columns, in order, with <code>lat</code> and <code>lon</code> as numbers, and that <code>bart_trip("MLBR")</code> returns one row with Part 1’s seven columns, in order.</li>
+<li>Typical input, rules: test at least two rules every trip follows, like arriving by <code>arrive_by</code>, <code>minutes</code> matching <code>difftime(arrive, depart, units = "mins")</code>, or a positive <code>fare</code> and <code>minutes</code>.</li>
+<li>Edge cases: test a trip with no transfers (from <code>MLBR</code>) and one with a transfer (from <code>DUBL</code>).</li>
+<li>Errors: make <code>bart_trip()</code> <code>stop()</code> with a clear message when <code>orig</code> isn’t a single string, and test <code>bart_trip(c("MLBR", "DUBL"))</code> with <code>expect_error()</code> and your message. Then test that <code>bart_trip("XXXX")</code>, a station that doesn’t exist, gives an error too: BART’s own <code>HTTP 400</code> message is fine there.</li>
+<li>A classmate reports: “<code>bart_trip()</code> stopped at Downtown Berkeley with <code>HTTP 400 Bad Request</code>.” Decide what <code>bart_trip("DBRK")</code> should do (open the Part 1 URL with <code>orig=DBRK</code> to see why BART refuses). Write a failing test first, then fix <code>bart_trip()</code> until it passes.</li>
+</ol>
+</div>
+</div>
+</div>
+<ol start="7" type="1">
+<li>Run <code>test()</code> and <code>check()</code>, and fix anything that fails.</li>
+</ol>
+</section>
+<section id="part-3-store-and-answer" class="level3">
+<h3 class="anchored" data-anchor-id="part-3-store-and-answer">Part 3: Store and Answer</h3>
+<p>Build a data set with your functions, store it in your package, and use it to answer your question.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li><p>Build your data set by calling your functions many times. Run <code>usethis::use_data_raw("name")</code>, naming your data set (the BART route’s is <code>commutes</code>); it creates the script <code>data-raw/name.R</code>. Start it with <code>devtools::load_all()</code>, so the script can find your functions. Then call your function once for each thing you want to ask about (each date, place, or name), and stack the results into one data frame. It’s the pattern you used in Project 3, with requests in place of files:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Project 3: read one file per path</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>events <span class="ot">&lt;-</span> <span class="fu">lapply</span>(paths, fromJSON) <span class="sc">|&gt;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>()</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Here: send one request per input</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">lapply</span>(inputs, your_function) <span class="sc">|&gt;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>End the script with <code>usethis::use_data(name, overwrite = TRUE)</code>, which saves the data frame in your package as <code>data/name.rda</code>, and run the script once at the console. Your package now carries a snapshot of the data, so your analysis never has to ask the API again. (<code>data-raw/</code> isn’t part of the installed package.)</p>
+<p><strong>Size:</strong> build it from at least 10 requests, and keep <code>data/name.rda</code> under 5 MB (check with <code>file.size("data/name.rda") / 1e6</code>). GitHub refuses files over 100 MB, and CRAN keeps a package’s data under 5 MB. If yours is too big, keep only the rows and columns your analysis uses. Stay within your API’s rate limit: a few hundred requests is plenty.</p></li>
+<li><p>Document the data set in <code>R/data.R</code> with a title, <code>@format</code> (every column, with units), and <code>@source</code> (where and when you got it). Run <code>document()</code> only after <code>use_data()</code>: it errors if the data set doesn’t exist yet.</p></li>
+</ol>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="route">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true" href="">Your package</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false" href="">BART</a></li></ul>
+<div class="tab-content" data-group="route">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<ol start="3" type="1">
+<li>Make a plot that speaks to your question.</li>
+<li>Find a place where the data doesn’t do what you’d expect, show it in a plot or table, and explain it.</li>
+<li>Answer your question in a paragraph, citing your plots, and name one limitation of the data.</li>
+</ol>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<p>In step 1, <code>commutes</code> joins <code>bart_stations()</code> to each station’s <code>bart_trip()</code>, using <code>lapply(stations$abbr, bart_trip)</code> (50 requests).</p>
+<ol start="3" type="1">
+<li>Map the stations colored by commute time (<code>st_as_sf(coords = c("lon", "lat"), crs = 4326)</code>, then <code>geom_sf()</code>), and make a table of those within 30 minutes.</li>
+<li>Add a weekly cost (a round trip, five days a week) and plot commute time against it, colored by transfers. Find the stations that break the pattern and explain them with bart.gov’s fares.</li>
+<li>Name up to three stations you’d live near and say why, using time, cost, and transfers. Give one limitation of these data.</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+<section id="part-4-ship-it" class="level3">
+<h3 class="anchored" data-anchor-id="part-4-ship-it">Part 4: Ship It</h3>
+<p>Make sure someone else can install and use your package.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Run <code>check()</code>: 0 errors and 0 warnings, and fix or explain any notes.</li>
+<li>Run <code>devtools::install()</code>, restart R, and load your package with <code>library()</code>. Try an example and your data set’s help page.</li>
+<li>Commit and push.</li>
+</ol>
+</section>
+<section id="part-5-write-the-readme" class="level3">
+<h3 class="anchored" data-anchor-id="part-5-write-the-readme">Part 5: Write the README</h3>
+<p>Your README is your package’s front page. Write it in <code>project.qmd</code>, in the five sections below. Run anything that calls the API at the console and paste its output (see the template’s comment), so the README renders without the API.</p>
+<section id="a.-overview" class="level4">
+<h4 class="anchored" data-anchor-id="a.-overview">A. Overview</h4>
+<p>What your package does, the API it wraps, and the question it answers.</p>
+</section>
+<section id="b.-installation" class="level4">
+<h4 class="anchored" data-anchor-id="b.-installation">B. Installation</h4>
+<p>The <code>remotes::install_github()</code> line for your repo, and how to set up a key if it needs one. Your repo is private for now, so the line won’t work for other people yet. At the end of the course we’ll show you how to make your repos public, if you’d like a portfolio of your work.</p>
+</section>
+<section id="c.-usage" class="level4">
+<h4 class="anchored" data-anchor-id="c.-usage">C. Usage</h4>
+<p>An example of each exported function with its output, and the first rows of your data set. On the BART route, show <code>bart_stations()</code> and <code>bart_trip("MLBR")</code>.</p>
+</section>
+<section id="d.-analysis" class="level4">
+<h4 class="anchored" data-anchor-id="d.-analysis">D. Analysis</h4>
+<p>Your question, your plots (each with a <code>fig-cap</code>) and tables, your answer, and its limitation, from Part 3.</p>
+</section>
+<section id="e.-testing" class="level4">
+<h4 class="anchored" data-anchor-id="e.-testing">E. Testing</h4>
+<p>Your test descriptions (the sentences that finish “Test that …”) grouped as typical inputs, edge cases, and errors; your bug test from Part 2 and what it found; and the last lines of <code>test()</code> and <code>check()</code>.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Render <code>project.qmd</code>.</li>
+<li>Turn off your wifi and render it again. If it fails, find the chunk that calls the API and fix it.</li>
+<li>Push, and read your README on GitHub as a stranger would: once your repo is public, could they install your package and run your examples?</li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Optional: Publish your package’s website
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://pkgdown.r-lib.org/">pkgdown</a> builds a website for your package: the README as its home page, plus a help page for every function and data set (see <a href="https://dplyr.tidyverse.org/">dplyr’s</a>).</p>
+<ol type="1">
+<li>Run <code>install.packages("pkgdown")</code>, then <code>usethis::use_pkgdown()</code> once.</li>
+<li>Give every plot a <code>fig-cap</code>, render <code>project.qmd</code>, and run <code>pkgdown::build_site()</code>.</li>
+<li>Drag the <code>docs/</code> folder onto <a href="https://app.netlify.com/drop" class="uri">https://app.netlify.com/drop</a>, signed in to the Netlify account you made for Project 4. To update the site, rebuild it and drag <code>docs/</code> onto the site’s <strong>Deploys</strong> page.</li>
+</ol>
+<p>Bring the link to your Project Studio.</p>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../license.html">
+<p>License</p>
+</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

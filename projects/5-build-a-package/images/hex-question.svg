@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 460" width="400" height="460" role="img" aria-labelledby="title desc">
+  <title id="title">A blank package hex sticker</title>
+  <desc id="desc">A teal hexagon in the style of an R package sticker, with a large yellow question mark in the middle and the words "your package" along the bottom.</desc>
+  <!-- outer border -->
+  <polygon points="200,10 390.5,120 390.5,340 200,450 9.5,340 9.5,120" fill="#004c4c"/>
+  <!-- face -->
+  <polygon points="200,28 374.9,129 374.9,331 200,432 25.1,331 25.1,129" fill="#006666"/>
+  <!-- inner rule -->
+  <polygon points="200,48 357.6,139 357.6,321 200,412 42.4,321 42.4,139" fill="none" stroke="#FFC107" stroke-width="3" stroke-opacity="0.55"/>
+  <!-- question mark -->
+  <path d="M 148 168 A 52 52 0 1 1 230 210 Q 200 228 200 264 L 200 278" fill="none" stroke="#FFC107" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="200" cy="318" r="18" fill="#FFC107"/>
+  <!-- name -->
+  <text x="200" y="372" text-anchor="middle" font-family="'IBM Plex Mono', Menlo, Consolas, monospace" font-size="18" font-weight="600" fill="#ffffff">your package</text>
+</svg>
