@@ -402,7 +402,7 @@ window.Quarto = {
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ol start="4" class="example" type="1">
-<li>Document this data set using <code>roxygen2</code> so that when a user types <code>?greetings</code> at the console they see a description of the data set, its format (the columns and their values), and its source (you can cite STAT 133). Please transcribe your documentation below.</li>
+<li>Document this data set using <code>roxygen2</code> so that when a user types <code>?greetings</code> at the console they see a description of the data set, its format (the columns and their values), and its source (you can cite STAT 133). Put the Roxygen block in a new file, <code>R/data.R</code>, and end it with the data set’s name in quotes, <code>"greetings"</code>, where a function’s definition would go. Please transcribe your documentation below.</li>
 </ol>
 <ol start="5" class="example" type="1">
 <li>Paste this Roxygen block into <code>R/hello.R</code>, directly above <code>hello()</code>, and fill in the three blanks: the argument, the return value, and an example. Run <code>devtools::document()</code> and preview the result with <code>?hello</code>. Write your three completed lines below.</li>
@@ -424,7 +424,7 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="testing">Testing</h3>
 <p>You’ll need the <code>testthat</code> package for these problems: install it with <code>install.packages("testthat")</code> if you haven’t already. To run tests at the console, outside a package, load it with <code>library(testthat)</code>.</p>
 <ol start="7" class="example" type="1">
-<li>Here is a function and three tests for it. Without running the code, predict the <code>?</code> values in the report that is returned by <code>test()</code>: <code>[ FAIL ? | WARN 0 | SKIP 0 | PASS ? ]</code>. For any test that fails, is the function wrong or the test?</li>
+<li>Here is a function and three tests for it. Suppose the function were in a package and the tests in its test file. Without running the code, predict the <code>?</code> values in the report that <code>test()</code> would return: <code>[ FAIL ? | WARN 0 | SKIP 0 | PASS ? ]</code>. For any test that fails, is the function wrong or the test?</li>
 </ol>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>celsius <span class="ot">&lt;-</span> <span class="cf">function</span>(f) {</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  (f <span class="sc">-</span> <span class="dv">32</span>) <span class="sc">*</span> <span class="dv">5</span> <span class="sc">/</span> <span class="dv">9</span></span>
@@ -589,7 +589,7 @@ Expected `n_words("two  spaces")` to equal 2.
 <li>Provide the corresponding R code that will perform the query and parse the JSON response into an R list object. Use <code>simplifyVector = TRUE</code> in <code>resp_body_json()</code>, so that JSON arrays of records become data frames.</li>
 </ol>
 <ol start="21" class="example" type="1">
-<li>Subset the list to return a data frame that contains the station abbreviation, name, latitude, longitude, address, city, county, state, and zipcode for each station. Which county has the greatest number of stations?</li>
+<li>Subset the list to return the data frame that has one row for each station. What are its dimensions, and what information does it give about each station? Which county has the greatest number of stations?</li>
 </ol>
 <hr>
 <ol start="22" class="example" type="1">

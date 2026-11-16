@@ -25,7 +25,7 @@ greetings <- tibble(
 )
 ```
 
-@. Document this data set using `roxygen2` so that when a user types `?greetings` at the console they see a description of the data set, its format (the columns and their values), and its source (you can cite STAT 133). Please transcribe your documentation below.
+@. Document this data set using `roxygen2` so that when a user types `?greetings` at the console they see a description of the data set, its format (the columns and their values), and its source (you can cite STAT 133). Put the Roxygen block in a new file, `R/data.R`, and end it with the data set's name in quotes, `"greetings"`, where a function's definition would go. Please transcribe your documentation below.
 
 @. Paste this Roxygen block into `R/hello.R`, directly above `hello()`, and fill in the three blanks: the argument, the return value, and an example. Run `devtools::document()` and preview the result with `?hello`. Write your three completed lines below.
 
@@ -47,7 +47,7 @@ greetings <- tibble(
 
 You'll need the `testthat` package for these problems: install it with `install.packages("testthat")` if you haven't already. To run tests at the console, outside a package, load it with `library(testthat)`.
 
-@. Here is a function and three tests for it. Without running the code, predict the `?` values in the report that is returned by `test()`: `[ FAIL ? | WARN 0 | SKIP 0 | PASS ? ]`. For any test that fails, is the function wrong or the test?
+@. Here is a function and three tests for it. Suppose the function were in a package and the tests in its test file. Without running the code, predict the `?` values in the report that `test()` would return: `[ FAIL ? | WARN 0 | SKIP 0 | PASS ? ]`. For any test that fails, is the function wrong or the test?
 
 ```r
 celsius <- function(f) {
@@ -162,7 +162,7 @@ https://api.bart.gov/api/stn.aspx?cmd=stninfo&orig=12TH&key=MW9S-E7SL-26DU-VV8V&
 
 @. Provide the corresponding R code that will perform the query and parse the JSON response into an R list object. Use `simplifyVector = TRUE` in `resp_body_json()`, so that JSON arrays of records become data frames.
 
-@. Subset the list to return a data frame that contains the station abbreviation, name, latitude, longitude, address, city, county, state, and zipcode for each station. Which county has the greatest number of stations?
+@. Subset the list to return the data frame that has one row for each station. What are its dimensions, and what information does it give about each station? Which county has the greatest number of stations?
 
 * * *
 

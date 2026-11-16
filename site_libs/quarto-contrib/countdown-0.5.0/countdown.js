@@ -9,8 +9,8 @@ class CountdownTimer {
       return el.counter
     }
 
-    const minutes = parseInt(el.querySelector('.minutes').innerText || '0')
-    const seconds = parseInt(el.querySelector('.seconds').innerText || '0')
+    const minutes = parseInt(el.querySelector('.minutes').textContent || '0')
+    const seconds = parseInt(el.querySelector('.seconds').textContent || '0')
     const duration = minutes * 60 + seconds
 
     function attrIsTrue (x) {

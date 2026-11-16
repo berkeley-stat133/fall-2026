@@ -569,76 +569,115 @@
     "text": "Lab 2 Project\n\n  \n    −\n    +\n \n 15:00\n \nWorksheet:\n\nWritten responses. Please code along on your laptop. This is for your own practice / not turned in.\n\nProject:\n\nFour parts\nSubmit: project.R + README.md on GitHub Classroom\n\nWork on selected problems."
   },
   {
-    "objectID": "problem-sets/ps6.html",
-    "href": "problem-sets/ps6.html",
-    "title": "6",
+    "objectID": "problem-sets/ps7.html",
+    "href": "problem-sets/ps7.html",
+    "title": "7",
     "section": "",
-    "text": "Download\n PDF\n Quarto (.qmd)\n\n\nR Packages II\nThe first two questions refer to the kknn package (https://github.com/KlausVigo/kknn), which implements a popular predictive modeling algorithm called \\(k\\)-nearest neighbors. Install it with install.packages(\"kknn\") and load it with library(kknn) before you start.\n\nUse data() to list the data sets stored in kknn. Then try typing the name of one of them, glass, at the console: unlike most packages you’ve used, it isn’t there until you run data(glass). What is this property of a package called, and which field of DESCRIPTION turns it on? Is that field in kknn’s DESCRIPTION?\n\n\nWhat is the name of the file in the package that is edited to create the help files for these data sets?\n\n\nThe rest of the questions use greetr, the package you made in PS 5, rebuilt with usethis the way we rebuilt mypkg in lecture. Download greetr.zip, unzip it, and open the greetr folder in Positron (or RStudio). hello() is in R/hello.R, and DESCRIPTION is filled in.\n\nAdd the following tibble to your package as a data set called greetings. Write the command you used, and say which file it created.\n\n\nlibrary(tibble)\ngreetings &lt;- tibble(\n  greeting = c(\"Hello\", \"你好\", \"Hola\", \"Hei\", \"السلام علیکم\"),\n  language = c(\"English\", \"Chinese\", \"Spanish\", \"Norwegian\", \"Urdu\")\n)\n\n\nDocument this data set using roxygen2 so that when a user types ?greetings at the console they see a description of the data set, its format (the columns and their values), and its source (you can cite STAT 133). Please transcribe your documentation below.\n\n\nPaste this Roxygen block into R/hello.R, directly above hello(), and fill in the three blanks: the argument, the return value, and an example. Run devtools::document() and preview the result with ?hello. Write your three completed lines below.\n\n#' Say hello\n#'\n#' Prints a greeting to whoever is named in `x`.\n#'\n#' @param ___\n#' @returns ___\n#' @examples\n#' ___\n#' @export\n\nRun devtools::check(). How many errors, warnings, and notes does it report, and what does the note say needs fixing? Fix it: change the License field in DESCRIPTION to MIT + file LICENSE, and add a plain-text file called LICENSE at the top of the package with two lines, YEAR: 2026 and COPYRIGHT HOLDER: followed by your name. Run check() again. What does it report now?\n\n\n\nTesting\nYou’ll need the testthat package for these problems: install it with install.packages(\"testthat\") if you haven’t already. To run tests at the console, outside a package, load it with library(testthat).\n\nHere is a function and three tests for it. Without running the code, predict the ? values in the report that is returned by test(): [ FAIL ? | WARN 0 | SKIP 0 | PASS ? ]. For any test that fails, is the function wrong or the test?\n\ncelsius &lt;- function(f) {\n  (f - 32) * 5 / 9\n}\n\ntest_that(\"celsius() converts the boiling point\", {\n  expect_equal(celsius(212), 100)\n})\n\ntest_that(\"celsius() converts the freezing point\", {\n  expect_equal(celsius(0), 32)\n})\n\ntest_that(\"celsius() converts a vector of temperatures\", {\n  temps &lt;- celsius(c(32, 212))\n  expect_length(temps, 2)\n  expect_equal(temps, c(0, 100))\n})\n\nA classmate wrote this test for celsius() from the last problem, ran it, and it passed. Why did it pass? Change the test so it would catch the mistake.\n\ntest_that(\"celsius() rejects text\", {\n  expect_error(celsuis(\"hot\"))\n})\n\nHere is part of a package with the strsplit1() from lecture and a new function that counts the words in a sentence, followed by the report from test().\n\n\n\nR/n_words.R\n\nn_words &lt;- function(x) {\n  length(strsplit1(x, split = \" \"))\n}\n\nFailure ('test-n_words.R:6:3'): n_words() counts words with extra spaces\nExpected `n_words(\"two  spaces\")` to equal 2.\n`actual`:   3\n`expected`: 2\n[ FAIL 1 | WARN 0 | SKIP 0 | PASS 4 ]\n\nWhich file and line holds the expectation that failed, and what is the test’s description?\nHow many expectations passed?\nWhy does n_words() return 3? (Hint: look closely at the input, and run strsplit1() on it.)\nIs this input a typical input, an edge case, or an error case?\n\n\nThe next four problems use your greetr package from the R Packages II problems. Open it in Positron (or RStudio), and run library(devtools) at the console.\n\nSet greetr up for testing, with a test file for hello(). Write the two commands you used. What files did they create, and what changed in DESCRIPTION?\n\n\nReplace the placeholder in test-hello.R with two tests: one that hello(\"Oski\") returns \"Hello Oski!\", and one that hello() given two names returns a character vector of length 2. Run test(). What does its last line say?\n\n\nhello() prints its greeting as well as returning it, which clutters the output of test(). Refactor hello(): remove the print() so it just returns the string. Run test() again. Do the tests still pass, and what does that tell you? Does hello(\"Oski\") still show its greeting when you run it at the console?\n\n\nA user files a bug report: “hello(NA) says Hello NA!.” Fix it with test-driven development:\n\n\nRed: add a test to test-hello.R that hello(NA) throws an error whose message mentions \"missing\". Run test() and confirm that it fails.\nGreen: change hello() so it throws that error, using stop(), whenever any element of x is NA. Run test() until it passes.\n\n\nTesting isn’t only for packages. Suppose you’re about to analyze storms (from dplyr) and are relying on two facts about it:\n\n\nno row appears twice;\nevery row with hurricane-force winds (wind of 64 knots or more) has a category.\n\nWrite each as its own stopifnot() call. Both fail. For each, look at the rows that break it and decide whether the data or the expectation is wrong.\n\nOptional Challenge: Write the grade calculator from lecture, test first.\n\n\nCreate a test file for a function letter_grade() that holds every promise from the lecture’s activity:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nScore\n95\n85\n42\n98\n91\n100\n58\n62\nNA\n0.85\n0.91\n86.5\n89.5\n0.865\n\n\n\n\nGrade\nA\nB\nF\nA+\nA-\nA+\nF\nD-\nF\nB\nA-\nB+\nA-\nB+\n\n\n\nAdd a test for a score of 1, deciding what it should get.\n\nWrite letter_grade() so that every test passes, for a vector of scores. Two tools you haven’t seen will help: x %% 10 is the last digit of a whole number x, and floor(x + 0.5) rounds halves up (round() rounds halves to the even number, so round(86.5) is 86).\n\n\n\nAPIs I\nThe BART API serves live data, so some answers in this section (how many trains are about to depart, how long the wait is) depend on when you run your code. For those there is no single right answer.\nRevisit the homepage for the BART Legacy API discussed in Lecture.\nhttps://www.bart.gov/schedules/developers/api\n\nWhat is the public key that can be used to access data through the legacy API?\n\n\nNext visit the documentation site: https://api.bart.gov/docs/overview/index.aspx. Note that each category of data has its own endpoint / base URL, and all take a similar format (e.g. for estimated departure data use https://api.bart.gov/api/etd.aspx.)\n\nConsider the following URL. Which part is the endpoint, and what are the parameters and their values? Using the documentation, what does this request ask for?\n\nhttps://api.bart.gov/api/stn.aspx?cmd=stninfo&orig=12TH&key=MW9S-E7SL-26DU-VV8V&json=y\n\nProvide the URL that will query the API for a list of all BART stations in JSON format.\n\n\nProvide the corresponding shell/terminal command.\n\n\nProvide the corresponding R code that will perform the query and parse the JSON response into an R list object. Use simplifyVector = TRUE in resp_body_json(), so that JSON arrays of records become data frames.\n\n\nSubset the list to return a data frame that contains the station abbreviation, name, latitude, longitude, address, city, county, state, and zipcode for each station. Which county has the greatest number of stations?\n\n\n\nProvide the R code that will query the API for estimated departure times (ETDs) from the Downtown Berkeley Station and parse the JSON response into an R list object.\n\n\nExtract the element called root and then the station element within it. View the object using the data viewer. What type of object is it and what are its dimensions?\n\n\nThe unnest() function from the tidyr package expands a list-column into ordinary rows and columns. Run the code below, then explain what each unnest() step did to the rows and the columns of the data frame.\n\n\nlibrary(tidyr)\netd_unnested &lt;- etd |&gt;\n  unnest(etd)\netd_fully_unnested &lt;- etd_unnested |&gt;\n  unnest(estimate)\n\n\nHow long (in minutes) is the shortest estimated wait time for a train departing from Downtown Berkeley Station? Which destination does this train go to? For reference, what time is it now?\n\n\n\nOptional: Query the BSA (BART System Advisories) endpoint to retrieve the latest system advisory information. You’re welcome to use any method: web browser, command line, or R. What are the different bits of information that they provide through this endpoint?\n\n\nOptional Challenge: Use the data provided by the BART API to construct a map of the BART system showing the locations of all stations. You could make it interactive with leaflet or static like the one below.\n\n\n\n\n\n\n\n\nAPIs II\nMake a folder for these problems with an R script called stat133-api.R. Copy in the /greet and /babynames endpoints from the lecture slides, and this /grade endpoint, which computes a course grade from the four parts of the syllabus. Plumber passes the fields of a POST’s JSON body to the function’s arguments by name, as it did for the guestbook.\n#* Compute final course grade\n#* @post /grade\nfunction(problem_sets, projects, quizzes, final) {\n  course_grade &lt;- 0.01 * problem_sets + 0.20 * projects +\n    0.49 * quizzes + 0.30 * final\n  list(course_grade = course_grade)\n}\nStart the API with plumb() and pr_run() on port 8080, as in lecture. While it runs, that R session is busy, so send requests from a second one: in Positron, start another R console with the + in the Console pane; in RStudio, choose Session &gt; New Session. After each change to stat133-api.R, stop the API (Esc) and start it again.\n\nBefore you try them, predict what your browser shows at each of these addresses, and say in a sentence why. Then check.\n\nhttp://localhost:8080/greet?name=Oski\nhttp://localhost:8080/\nhttp://localhost:8080/grade\n\n\n\nAdd two optional parameters to /babynames: babysex, which keeps only the rows for that sex, and babyyear, which keeps only the rows for that year. With neither, the endpoint returns every row for the name, as before. Give them empty-string defaults (as /greet does with name = \"\") and filter only when a value was given. How many rows does each of these return?\n\nhttp://localhost:8080/babynames?babyname=Jordan\nhttp://localhost:8080/babynames?babyname=Jordan&babysex=M\nhttp://localhost:8080/babynames?babyname=Jordan&babyyear=2000\nhttp://localhost:8080/babynames?babyname=Jordan&babysex=F&babyyear=2000\n\n\n\nAdd an endpoint /compare that takes two names, name1 and name2, and returns an SVG plot of both names’ popularity over time, one colored line per name. Give the code and describe the plot for /compare?name1=Jordan&name2=Taylor.\n\n\nA café wants an API for its orders, built like the lecture’s guestbook. Add:\n\ncode at the top of stat133-api.R that starts an empty orders.csv with the columns dish, quantity, and vegetarian;\nPOST /order, which takes dish, quantity, and vegetarian and adds the order as a row of orders.csv;\nGET /orders, which returns every order so far.\n\nThen, from your second R session, use httr2 to send two orders: list(dish = \"Turkey\", quantity = 1, vegetarian = FALSE) and one of your own. Read the orders back with GET /orders as a data frame. Give your endpoints, your requests, and the data frame you get back.\n\n\nChallenging. /grade treats quizzes as a single score. Change it so quizzes is a vector of all of a student’s quiz scores, averaged before it’s weighted. Then send a request from R for a student with problem sets 100, projects 90, quiz scores 80, 92, 75, and 88, and a final of 85. What course grade does it return?",
-    "crumbs": [
-      "Problem Sets",
-      "PS 6"
-    ]
+    "text": "Download\n PDF\n Quarto (.qmd)"
   },
   {
-    "objectID": "problem-sets/ps4.html",
-    "href": "problem-sets/ps4.html",
-    "title": "4",
+    "objectID": "problem-sets/ps7.html#footnotes",
+    "href": "problem-sets/ps7.html#footnotes",
+    "title": "7",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nIf it doesn’t prompt you to create an API key right away, go to your account settings (top right corner) and find the “Keys” section.↩︎\nUse the filters available in the left sidebar. Note that some models are free up to a certain number of queries per day, so be judicious.↩︎\nIf the response is an authentication error, the variable is not set in this terminal. Run echo ${#OPENROUTER_API_KEY} to check: it prints the length of your key, or 0 if the variable is empty.↩︎"
+  },
+  {
+    "objectID": "problem-sets/ps5.html",
+    "href": "problem-sets/ps5.html",
+    "title": "5",
     "section": "",
     "text": "Download\n PDF\n Quarto (.qmd)",
     "crumbs": [
       "Problem Sets",
-      "PS 4"
+      "PS 5"
     ]
   },
   {
-    "objectID": "problem-sets/ps4.html#footnotes",
-    "href": "problem-sets/ps4.html#footnotes",
-    "title": "4",
+    "objectID": "problem-sets/ps5.html#footnotes",
+    "href": "problem-sets/ps5.html#footnotes",
+    "title": "5",
     "section": "Footnotes",
-    "text": "Footnotes\n\n\nHint: there is a handy shortcut that saves you from typing all of the column names: starts_with() inside the tidyselect package↩︎\nNote that geom_line() permits the use of a group aesthetic mapping to make one line for each group.↩︎\nEach emoji is defined by an 8 digit code called Unicode. See https://r4ds.hadley.nz/strings.html#other-special-characters.↩︎\nWrite a pattern that matches only names with at least two \"o\"s, using the wildcard and a quantifier. Then extend it to three, four, and so on until nothing matches.↩︎\nYou can parse these clock times using what you know about string manipulation or by using handy math operators %/% and %%. Another hint: see the Circular Data example from the slides.↩︎",
+    "text": "Footnotes\n\n\nIf you are unsatisfied with the resolution of your map, you can tinker with the scale argument of the ne_countries() function.↩︎\nEach projection has a numeric code (its EPSG code). The Albers Equal Area projection for California is 3310. Pass that code to the crs argument of the st_transform() function in sf.↩︎\nHint: since quakes_albers is an sf object instead of a tibble, geom_point() will no longer work. You can add it in a second geom_sf() layer (the first will be for the basemap).↩︎\nCompare the CRS of ca_counties with the CRS of your centroid.↩︎\nEach object will require a separate call to plot(). You can add add = TRUE to plot() so that the contents of the second get added to the first. Note that these plot additions don’t carry over from code cell to code cell.↩︎\nYou can add colors to plot() using the col argument and call colors() at the console to see the color names available in base R. I used col = c(\"skyblue\", \"tomato\") but you’re welcome to pick your own colors.↩︎\nThe functions for these set operations in sf are exactly as you’d expect: the name of the operation prepended by st_. Note also that the union operation will drop the sf class. You’ll need to run your object through st_sf() to get it back.↩︎\nIt may be helpful to write a function that takes a vector of votes across districts for party A and a vector of votes for party B and returns a vector of the number of votes wasted by party A across districts.↩︎\nDashboards collect the colors and fonts into themes similar to ggplot2. You can find the list of themes here: https://quarto.org/docs/dashboards/theming.html.↩︎\nQuarto dashboards can use any of the icons in a large collection called Bootstrap. Search for an icon and then use the corresponding name as a string: https://icons.getbootstrap.com/.↩︎",
     "crumbs": [
       "Problem Sets",
-      "PS 4"
+      "PS 5"
     ]
   },
   {
-    "objectID": "problem-sets/ps2.html",
-    "href": "problem-sets/ps2.html",
-    "title": "2",
+    "objectID": "problem-sets/ps3.html",
+    "href": "problem-sets/ps3.html",
+    "title": "3",
     "section": "",
     "text": "Download\n PDF\n Quarto (.qmd)",
     "crumbs": [
       "Problem Sets",
-      "PS 2"
+      "PS 3"
     ]
   },
   {
-    "objectID": "problem-sets/ps2.html#footnotes",
-    "href": "problem-sets/ps2.html#footnotes",
-    "title": "2",
+    "objectID": "problem-sets/ps3.html#footnotes",
+    "href": "problem-sets/ps3.html#footnotes",
+    "title": "3",
     "section": "Footnotes",
-    "text": "Footnotes\n\n\nAlternatively, you’re welcome to look into how to return the hot face emoji (and its analog for freezing).↩︎\nThere is a clever way to do this that avoids having to type the names of the columns that are factors. See the help file for select(), particularly about predicate functions.↩︎",
+    "text": "Footnotes\n\n\nThere are several other ways to do this. Feel free to check online for different methods.↩︎\nHint 1: n() is a function that returns the row count when used inside summarize(). Hint 2: You can group by more than one variable.↩︎\nHint: If you group by multiple variables, a call to summarize() will peel off the outermost grouping (the last argument in group_by()) and keep the others↩︎\nThere are several ways to reduce the data frame to contain only one row for each named storm. The simplest is probably to group the data frame, then slice it and take the first record↩︎\nIf you’d like to a slightly more sophisticated version of this plot, read about geom_path(). Instead of lines, this can plot paths with an arrowhead indicating the progression of that storm.↩︎\nTo convert text like \"8,200\" into a number, use parse_number() from the readr package. You can call it without loading the package by writing readr::parse_number().↩︎\nSee the slides for a side-by-side comparison of YAML and JSON syntax.↩︎",
     "crumbs": [
       "Problem Sets",
-      "PS 2"
+      "PS 3"
     ]
   },
   {
-    "objectID": "office-hours.html",
-    "href": "office-hours.html",
-    "title": "Office Hours",
+    "objectID": "problem-sets/ps1.html",
+    "href": "problem-sets/ps1.html",
+    "title": "1",
     "section": "",
-    "text": "Office Hours\nPlease stop by during office hours to chat in a small group setting course staff.",
+    "text": "Download\n PDF\n Quarto (.qmd)",
     "crumbs": [
-      "Office Hours"
+      "Problem Sets",
+      "PS 1"
     ]
   },
   {
-    "objectID": "labs.html",
-    "href": "labs.html",
-    "title": "Labs",
+    "objectID": "problem-sets/ps1.html#footnotes",
+    "href": "problem-sets/ps1.html#footnotes",
+    "title": "1",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nYou can research the answer to this question online.↩︎\nYou can research the answer to this question online.↩︎",
+    "crumbs": [
+      "Problem Sets",
+      "PS 1"
+    ]
+  },
+  {
+    "objectID": "license.html",
+    "href": "license.html",
+    "title": "License",
     "section": "",
-    "text": "Labs\nComing soon!"
+    "text": "Unless otherwise noted, all curricular content on this site — lecture slides, notes, problem sets, projects, and accompanying code — is licensed under a Creative Commons Attribution 4.0 International License (CC BY 4.0).\nYou are free to share and adapt this material for any purpose, including commercially, provided you give appropriate credit, link to the license, and indicate if changes were made.\nSuggested attribution:\n\nMaterials from Stat 133: Concepts in Computing with Data, Department of Statistics, UC Berkeley, used under CC BY 4.0."
+  },
+  {
+    "objectID": "license.html#curricular-content",
+    "href": "license.html#curricular-content",
+    "title": "License",
+    "section": "",
+    "text": "Unless otherwise noted, all curricular content on this site — lecture slides, notes, problem sets, projects, and accompanying code — is licensed under a Creative Commons Attribution 4.0 International License (CC BY 4.0).\nYou are free to share and adapt this material for any purpose, including commercially, provided you give appropriate credit, link to the license, and indicate if changes were made.\nSuggested attribution:\n\nMaterials from Stat 133: Concepts in Computing with Data, Department of Statistics, UC Berkeley, used under CC BY 4.0."
+  },
+  {
+    "objectID": "license.html#artwork",
+    "href": "license.html#artwork",
+    "title": "License",
+    "section": "Artwork",
+    "text": "Artwork\nThe fantasy scenes appearing on the course calendar and elsewhere on this site are Scenes by Czepeku and are used under Czepeku’s Commercial Use Licence. They are reproduced here in watermarked form, as that license requires.\nThese images are not covered by the CC BY 4.0 license above and are not offered for download, redistribution, or resale as standalone items. All rights in them remain with Czepeku. If you wish to use them, see czepeku.com."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "STAT 133",
+    "section": "",
+    "text": "Concepts in Computing with Data\nStat 133 UC Berkeley\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n  \n  \n  \n    \n    \n    \n    Nov 16\n    \n  \n  \n  Completion and Context\n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n    Slides\n    \n  \n  \n  \n    Quiz 6: 11/16-11/17\n  \n    Project Studio 5 this week\n  \n  \n  \n  \n\n  \n  \n  \n  \n    Nov 18\n  \n  \n  Tool Calls\n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n\n  \n  \n  \n  \n    Nov 20\n  \n  \n  Agents\n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Aug 24\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 26\n      \n    \n    \n    Welcome\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 28\n      \n    \n    \n    Data in Trees\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 31\n      \n    \n    \n    Intro to R\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 2\n      \n    \n    \n    Atomic Vectors\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 4\n      \n    \n    \n    Extending Vectors\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n      Sign up for Quiz 1\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Sep 7\n    \n    \n    No Class: Labor Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 9\n      \n    \n    \n    Lists\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 1: 9/10-9/11\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 11\n      \n    \n    \n    Control Flow\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 14\n      \n    \n    \n    Functions\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 2\n    \n      Project Studio 1 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 16\n      \n    \n    \n    Factors and Data Frames\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 18\n      \n    \n    \n    Data Wrangling I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 2 due 9/19 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 21\n      \n    \n    \n    Git & GitHub\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n      Quiz 2: 9/21-9/22\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 23\n      \n    \n    \n    Data Wrangling II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 25\n      \n    \n    \n    Quarto\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 28\n      \n    \n    \n    Grammar of Graphics\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 3\n    \n      Project Studio 2 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 30\n      \n    \n    \n    Data Cleaning\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 2\n      \n    \n    \n    Reading and Writing Data\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 3 due 10/03 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 5\n      \n    \n    \n    Exploratory and Explanatory DA\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 3: 10/5-10/6\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 7\n      \n    \n    \n    Joins and Pivots\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 9\n      \n    \n    \n    Strings I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 12\n      \n    \n    \n    Strings II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 4\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 14\n      \n    \n    \n    Dates and Times I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 16\n      \n    \n    \n    Dates and Times II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 4 due 10/17 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 19\n      \n    \n    \n    Spatial Data I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 4: 10/19-10/20\n    \n      Project Studio 3 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 21\n      \n    \n    \n    Spatial Data II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 23\n      \n    \n    \n    Gerrymandering\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 26\n      \n    \n    \n    Spatial Interpolation\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 5\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 28\n      \n    \n    \n    Dashboards\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 30\n      \n    \n    \n    R Packages I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 5 due 10/31 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Nov 2\n      \n    \n    \n    R Packages II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 5: 11/2-11/3\n    \n      Project Studio 4 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Nov 4\n      \n    \n    \n    Testing\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Nov 6\n      \n    \n    \n    APIs I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Nov 9\n      \n    \n    \n    APIs II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n      Sign up for Quiz 6\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 11\n    \n    \n    No Class: Veterans Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Nov 13\n      \n    \n    \n    LLMs\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 6 due 11/14 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Nov 16\n      \n    \n    \n    Completion and Context\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 6: 11/16-11/17\n    \n      Project Studio 5 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 18\n    \n    \n    Tool Calls\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 20\n    \n    \n    Agents\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 23\n    \n    \n    Agentic Data Analysis\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n      Sign up for Quiz 7\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 25\n    \n    \n    No Class: Non-Instructional Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 27\n    \n    \n    No Class: Thanksgiving\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 30\n    \n    \n    SQL through dplyr\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n      PS 7 due today at 6:00 pm\n    \n      Quiz 7: 12/1-12/4\n    \n      Project Studio 6 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 2\n    \n    \n    Comparing AI Setups\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 4\n    \n    \n    Abstraction\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Dec 7\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 9\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 11\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Dec 14\n    \n    \n    Final Exam 7-10 pm\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 16\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 18\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n\n\nNo matching items",
+    "crumbs": [
+      "Home"
+    ]
   },
   {
     "objectID": "33-llms/slides.html#section",
@@ -967,14 +1006,14 @@
     "href": "31-apis-1/slides.html#etd-call",
     "title": "APIs",
     "section": "ETD Call",
-    "text": "ETD Call\n\napi_url &lt;- \"https://api.bart.gov/api/etd.aspx\"\nres &lt;- request(api_url) |&gt;\n  req_url_query(cmd  = \"etd\") |&gt;\n  req_url_query(orig = \"DBRK\") |&gt;\n  req_url_query(key  = \"MW9S-E7SL-26DU-VV8V\") |&gt;\n  req_url_query(json = \"y\") |&gt;\n  req_perform()\nres\n\n\n\n&lt;httr2_response&gt;\nGET https://api.bart.gov/api/etd.aspx?cmd=etd&orig=DBRK&key=MW9S-E7SL-26DU-VV8V&json=y\nStatus: 200 OK\nContent-Type: application/json\nBody: In memory (1979 bytes)"
+    "text": "ETD Call\n\napi_url &lt;- \"https://api.bart.gov/api/etd.aspx\"\nres &lt;- request(api_url) |&gt;\n  req_url_query(cmd  = \"etd\") |&gt;\n  req_url_query(orig = \"DBRK\") |&gt;\n  req_url_query(key  = \"MW9S-E7SL-26DU-VV8V\") |&gt;\n  req_url_query(json = \"y\") |&gt;\n  req_perform()\nres\n\n\n\n&lt;httr2_response&gt;\nGET https://api.bart.gov/api/etd.aspx?cmd=etd&orig=DBRK&key=MW9S-E7SL-26DU-VV8V&json=y\nStatus: 200 OK\nContent-Type: application/json\nBody: In memory (1812 bytes)"
   },
   {
     "objectID": "31-apis-1/slides.html#section-13",
     "href": "31-apis-1/slides.html#section-13",
     "title": "APIs",
     "section": "",
-    "text": "data &lt;- resp_body_json(res, simplifyVector = FALSE)\ndata\n\n\n\n$`?xml`\n$`?xml`$`@version`\n[1] \"1.0\"\n\n$`?xml`$`@encoding`\n[1] \"utf-8\"\n\n\n$root\n$root$`@id`\n[1] \"1\"\n\n$root$uri\n$root$uri$`#cdata-section`\n[1] \"http://api.bart.gov/api/etd.aspx?cmd=etd&orig=DBRK&json=y\"\n\n\n$root$date\n[1] \"11/13/2026\"\n\n$root$time\n[1] \"08:35:48 AM PST\"\n\n$root$station\n$root$station[[1]]\n$root$station[[1]]$name\n[1] \"Downtown Berkeley\"\n\n$root$station[[1]]$abbr\n[1] \"DBRK\"\n\n$root$station[[1]]$etd\n$root$station[[1]]$etd[[1]]\n$root$station[[1]]$etd[[1]]$destination\n[1] \"Berryessa\"\n\n$root$station[[1]]$etd[[1]]$abbreviation\n[1] \"BERY\"\n\n$root$station[[1]]$etd[[1]]$limited\n[1] \"0\"\n\n$root$station[[1]]$etd[[1]]$estimate\n$root$station[[1]]$etd[[1]]$estimate[[1]]\n$root$station[[1]]$etd[[1]]$estimate[[1]]$minutes\n[1] \"3\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$platform\n[1] \"2\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$direction\n[1] \"South\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$length\n[1] \"5\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$color\n[1] \"ORANGE\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$hexcolor\n[1] \"#ff9933\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$delay\n[1] \"61\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$dynamicflag\n[1] \"0\"\n\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]\n$root$station[[1]]$etd[[1]]$estimate[[2]]$minutes\n[1] \"22\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$platform\n[1] \"2\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$direction\n[1] \"South\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$length\n[1] \"5\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$color\n[1] \"ORANGE\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$hexcolor\n[1] \"#ff9933\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$delay\n[1] \"0\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$dynamicflag\n[1] \"0\"\n\n\n$root$station[[1]]$etd[[1]]$estimate[[3]]\n$root$station[[1]]$etd[[1]]$estimate[[3]]$minutes\n[1] \"42\"\n\n$root$station[[1]]$etd[[1]]$estimate[[3]]$platform\n[1] \"2\"\n\n$root$station[[1]]$etd[[1]]$estimate[[3]]$direction\n[1] \"South\"\n\n$root$station[[1]]$etd[[1]]$estimate[[3]]$length\n[1] \"5\"\n\n$root$station[[1]]$etd[[1]]$estimate[[3]]$color\n[1] \"ORANGE\"\n\n$root$station[[1]]$etd[[1]]$estimate[[3]]$hexcolor\n[1] \"#ff9933\"\n\n$root$station[[1]]$etd[[1]]$estimate[[3]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[1]]$estimate[[3]]$delay\n[1] \"0\"\n\n$root$station[[1]]$etd[[1]]$estimate[[3]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[1]]$estimate[[3]]$dynamicflag\n[1] \"0\"\n\n\n\n\n$root$station[[1]]$etd[[2]]\n$root$station[[1]]$etd[[2]]$destination\n[1] \"Millbrae\"\n\n$root$station[[1]]$etd[[2]]$abbreviation\n[1] \"MLBR\"\n\n$root$station[[1]]$etd[[2]]$limited\n[1] \"0\"\n\n$root$station[[1]]$etd[[2]]$estimate\n$root$station[[1]]$etd[[2]]$estimate[[1]]\n$root$station[[1]]$etd[[2]]$estimate[[1]]$minutes\n[1] \"10\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$platform\n[1] \"2\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$direction\n[1] \"South\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$length\n[1] \"10\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$color\n[1] \"RED\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$hexcolor\n[1] \"#ff0000\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$delay\n[1] \"0\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$dynamicflag\n[1] \"0\"\n\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]\n$root$station[[1]]$etd[[2]]$estimate[[2]]$minutes\n[1] \"30\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$platform\n[1] \"2\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$direction\n[1] \"South\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$length\n[1] \"10\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$color\n[1] \"RED\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$hexcolor\n[1] \"#ff0000\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$delay\n[1] \"0\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$dynamicflag\n[1] \"0\"\n\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]\n$root$station[[1]]$etd[[2]]$estimate[[3]]$minutes\n[1] \"50\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$platform\n[1] \"2\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$direction\n[1] \"South\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$length\n[1] \"10\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$color\n[1] \"RED\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$hexcolor\n[1] \"#ff0000\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$delay\n[1] \"0\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$dynamicflag\n[1] \"0\"\n\n\n\n\n$root$station[[1]]$etd[[3]]\n$root$station[[1]]$etd[[3]]$destination\n[1] \"Richmond\"\n\n$root$station[[1]]$etd[[3]]$abbreviation\n[1] \"RICH\"\n\n$root$station[[1]]$etd[[3]]$limited\n[1] \"0\"\n\n$root$station[[1]]$etd[[3]]$estimate\n$root$station[[1]]$etd[[3]]$estimate[[1]]\n$root$station[[1]]$etd[[3]]$estimate[[1]]$minutes\n[1] \"9\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$platform\n[1] \"1\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$direction\n[1] \"North\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$length\n[1] \"6\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$color\n[1] \"ORANGE\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$hexcolor\n[1] \"#ff9933\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$delay\n[1] \"0\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$dynamicflag\n[1] \"0\"\n\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]\n$root$station[[1]]$etd[[3]]$estimate[[2]]$minutes\n[1] \"21\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$platform\n[1] \"1\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$direction\n[1] \"North\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$length\n[1] \"10\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$color\n[1] \"RED\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$hexcolor\n[1] \"#ff0000\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$delay\n[1] \"221\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$dynamicflag\n[1] \"0\"\n\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]\n$root$station[[1]]$etd[[3]]$estimate[[3]]$minutes\n[1] \"28\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$platform\n[1] \"1\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$direction\n[1] \"North\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$length\n[1] \"6\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$color\n[1] \"ORANGE\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$hexcolor\n[1] \"#ff9933\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$delay\n[1] \"0\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$dynamicflag\n[1] \"0\"\n\n\n\n\n\n\n\n$root$message\n[1] \"\""
+    "text": "data &lt;- resp_body_json(res, simplifyVector = FALSE)\ndata\n\n\n\n$`?xml`\n$`?xml`$`@version`\n[1] \"1.0\"\n\n$`?xml`$`@encoding`\n[1] \"utf-8\"\n\n\n$root\n$root$`@id`\n[1] \"1\"\n\n$root$uri\n$root$uri$`#cdata-section`\n[1] \"http://api.bart.gov/api/etd.aspx?cmd=etd&orig=DBRK&json=y\"\n\n\n$root$date\n[1] \"11/16/2026\"\n\n$root$time\n[1] \"08:39:18 AM PST\"\n\n$root$station\n$root$station[[1]]\n$root$station[[1]]$name\n[1] \"Downtown Berkeley\"\n\n$root$station[[1]]$abbr\n[1] \"DBRK\"\n\n$root$station[[1]]$etd\n$root$station[[1]]$etd[[1]]\n$root$station[[1]]$etd[[1]]$destination\n[1] \"Berryessa\"\n\n$root$station[[1]]$etd[[1]]$abbreviation\n[1] \"BERY\"\n\n$root$station[[1]]$etd[[1]]$limited\n[1] \"0\"\n\n$root$station[[1]]$etd[[1]]$estimate\n$root$station[[1]]$etd[[1]]$estimate[[1]]\n$root$station[[1]]$etd[[1]]$estimate[[1]]$minutes\n[1] \"19\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$platform\n[1] \"2\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$direction\n[1] \"South\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$length\n[1] \"5\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$color\n[1] \"ORANGE\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$hexcolor\n[1] \"#ff9933\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$delay\n[1] \"0\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$dynamicflag\n[1] \"0\"\n\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]\n$root$station[[1]]$etd[[1]]$estimate[[2]]$minutes\n[1] \"39\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$platform\n[1] \"2\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$direction\n[1] \"South\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$length\n[1] \"5\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$color\n[1] \"ORANGE\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$hexcolor\n[1] \"#ff9933\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$delay\n[1] \"0\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$dynamicflag\n[1] \"0\"\n\n\n\n\n$root$station[[1]]$etd[[2]]\n$root$station[[1]]$etd[[2]]$destination\n[1] \"Millbrae\"\n\n$root$station[[1]]$etd[[2]]$abbreviation\n[1] \"MLBR\"\n\n$root$station[[1]]$etd[[2]]$limited\n[1] \"0\"\n\n$root$station[[1]]$etd[[2]]$estimate\n$root$station[[1]]$etd[[2]]$estimate[[1]]\n$root$station[[1]]$etd[[2]]$estimate[[1]]$minutes\n[1] \"7\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$platform\n[1] \"2\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$direction\n[1] \"South\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$length\n[1] \"10\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$color\n[1] \"RED\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$hexcolor\n[1] \"#ff0000\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$delay\n[1] \"0\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$dynamicflag\n[1] \"0\"\n\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]\n$root$station[[1]]$etd[[2]]$estimate[[2]]$minutes\n[1] \"26\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$platform\n[1] \"2\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$direction\n[1] \"South\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$length\n[1] \"10\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$color\n[1] \"RED\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$hexcolor\n[1] \"#ff0000\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$delay\n[1] \"0\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$dynamicflag\n[1] \"0\"\n\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]\n$root$station[[1]]$etd[[2]]$estimate[[3]]$minutes\n[1] \"46\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$platform\n[1] \"2\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$direction\n[1] \"South\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$length\n[1] \"10\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$color\n[1] \"RED\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$hexcolor\n[1] \"#ff0000\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$delay\n[1] \"0\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$dynamicflag\n[1] \"0\"\n\n\n\n\n$root$station[[1]]$etd[[3]]\n$root$station[[1]]$etd[[3]]$destination\n[1] \"Richmond\"\n\n$root$station[[1]]$etd[[3]]$abbreviation\n[1] \"RICH\"\n\n$root$station[[1]]$etd[[3]]$limited\n[1] \"0\"\n\n$root$station[[1]]$etd[[3]]$estimate\n$root$station[[1]]$etd[[3]]$estimate[[1]]\n$root$station[[1]]$etd[[3]]$estimate[[1]]$minutes\n[1] \"6\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$platform\n[1] \"1\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$direction\n[1] \"North\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$length\n[1] \"6\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$color\n[1] \"ORANGE\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$hexcolor\n[1] \"#ff9933\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$delay\n[1] \"64\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$dynamicflag\n[1] \"0\"\n\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]\n$root$station[[1]]$etd[[3]]$estimate[[2]]$minutes\n[1] \"14\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$platform\n[1] \"1\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$direction\n[1] \"North\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$length\n[1] \"10\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$color\n[1] \"RED\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$hexcolor\n[1] \"#ff0000\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$delay\n[1] \"0\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$dynamicflag\n[1] \"0\"\n\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]\n$root$station[[1]]$etd[[3]]$estimate[[3]]$minutes\n[1] \"25\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$platform\n[1] \"1\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$direction\n[1] \"North\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$length\n[1] \"6\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$color\n[1] \"ORANGE\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$hexcolor\n[1] \"#ff9933\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$delay\n[1] \"0\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$dynamicflag\n[1] \"0\"\n\n\n\n\n\n\n\n$root$message\n[1] \"\""
   },
   {
     "objectID": "31-apis-1/slides.html#apis-another-data-product",
@@ -1828,14 +1867,14 @@
     "href": "21-date-time-1/slides.html#section-8",
     "title": "Dates and Times I",
     "section": "",
-    "text": "POSIXct\n\n\nPOSIXct (Portable Operating System Interface Calendar Time) is an atomic vector to store date-times that is built on top of a double vector.\n\n\n\n\nnow &lt;- Sys.time()\nnow\n\n\n\n[1] \"2026-11-13 16:35:36 UTC\"\n\n\n\n\n\nclass(now)\n\n\n\n[1] \"POSIXct\" \"POSIXt\""
+    "text": "POSIXct\n\n\nPOSIXct (Portable Operating System Interface Calendar Time) is an atomic vector to store date-times that is built on top of a double vector.\n\n\n\n\nnow &lt;- Sys.time()\nnow\n\n\n\n[1] \"2026-11-16 16:38:50 UTC\"\n\n\n\n\n\nclass(now)\n\n\n\n[1] \"POSIXct\" \"POSIXt\""
   },
   {
     "objectID": "21-date-time-1/slides.html#why-not-just-use-a-double-vector",
     "href": "21-date-time-1/slides.html#why-not-just-use-a-double-vector",
     "title": "Dates and Times I",
     "section": "Why not just use a double vector?",
-    "text": "Why not just use a double vector?\n\n\n# it prints as a legible string\nnow\n\n\n\n[1] \"2026-11-13 16:35:36 UTC\"\n\n\n\n\n\n# while respecting artithmetic\nnow + 1\n\n\n\n[1] \"2026-11-13 16:35:37 UTC\"\n\n\n\n\n\n# and other sensible operations\nround(now, units = \"hours\")\n\n\n\n[1] \"2026-11-13 17:00:00 UTC\"\n\n\n\n\n\n# and makes it easy to use other formats\nformat(now, \"%m/%d/%y\")\n\n\n\n[1] \"11/13/26\""
+    "text": "Why not just use a double vector?\n\n\n# it prints as a legible string\nnow\n\n\n\n[1] \"2026-11-16 16:38:50 UTC\"\n\n\n\n\n\n# while respecting artithmetic\nnow + 1\n\n\n\n[1] \"2026-11-16 16:38:51 UTC\"\n\n\n\n\n\n# and other sensible operations\nround(now, units = \"hours\")\n\n\n\n[1] \"2026-11-16 17:00:00 UTC\"\n\n\n\n\n\n# and makes it easy to use other formats\nformat(now, \"%m/%d/%y\")\n\n\n\n[1] \"11/16/26\""
   },
   {
     "objectID": "21-date-time-1/slides.html#section-9",
@@ -1884,28 +1923,28 @@
     "href": "21-date-time-1/slides.html#getting",
     "title": "Dates and Times I",
     "section": "Getting",
-    "text": "Getting\nYou can extract components of the date-time object using year(), month(), week(), day(), wday(), hour(), etc.\n\n\nyear(now)\n\n\n\n[1] 2026\n\n\n\n\n\nday(now)\n\n\n\n[1] 13\n\n\n\n\n\nwday(now)\n\n\n\n[1] 6"
+    "text": "Getting\nYou can extract components of the date-time object using year(), month(), week(), day(), wday(), hour(), etc.\n\n\nyear(now)\n\n\n\n[1] 2026\n\n\n\n\n\nday(now)\n\n\n\n[1] 16\n\n\n\n\n\nwday(now)\n\n\n\n[1] 2"
   },
   {
     "objectID": "21-date-time-1/slides.html#getting-1",
     "href": "21-date-time-1/slides.html#getting-1",
     "title": "Dates and Times I",
     "section": "Getting",
-    "text": "Getting\nYou can extract components of the date-time object using year(), month(), week(), day(), wday(), hour(), etc.\n\nyear(now)\n\n[1] 2026\n\n\n\nday(now)\n\n[1] 13\n\n\n\nwday(now, label = TRUE)\n\n\n\n[1] Fri\nLevels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat"
+    "text": "Getting\nYou can extract components of the date-time object using year(), month(), week(), day(), wday(), hour(), etc.\n\nyear(now)\n\n[1] 2026\n\n\n\nday(now)\n\n[1] 16\n\n\n\nwday(now, label = TRUE)\n\n\n\n[1] Mon\nLevels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat"
   },
   {
     "objectID": "21-date-time-1/slides.html#getting-2",
     "href": "21-date-time-1/slides.html#getting-2",
     "title": "Dates and Times I",
     "section": "Getting",
-    "text": "Getting\nYou can extract components of the date-time object using year(), month(), week(), day(), wday(), hour(), etc.\n\nyear(now)\n\n[1] 2026\n\n\n\nday(now)\n\n[1] 13\n\n\n\nwday(now, label = TRUE, abbr = FALSE)\n\n\n\n[1] Friday\n7 Levels: Sunday &lt; Monday &lt; Tuesday &lt; Wednesday &lt; Thursday &lt; ... &lt; Saturday"
+    "text": "Getting\nYou can extract components of the date-time object using year(), month(), week(), day(), wday(), hour(), etc.\n\nyear(now)\n\n[1] 2026\n\n\n\nday(now)\n\n[1] 16\n\n\n\nwday(now, label = TRUE, abbr = FALSE)\n\n\n\n[1] Monday\n7 Levels: Sunday &lt; Monday &lt; Tuesday &lt; Wednesday &lt; Thursday &lt; ... &lt; Saturday"
   },
   {
     "objectID": "21-date-time-1/slides.html#setting",
     "href": "21-date-time-1/slides.html#setting",
     "title": "Dates and Times I",
     "section": "Setting",
-    "text": "Setting\nYou can set those same components in an existing date-time object using change-in-place notation.\n\n\nyear(now) &lt;- 2027\nnow\n\n\n\n[1] \"2027-11-13 16:35:36 UTC\"\n\n\n\n\n\nwday(now, label = TRUE, abbr = FALSE)\n\n\n\n[1] Saturday\n7 Levels: Sunday &lt; Monday &lt; Tuesday &lt; Wednesday &lt; Thursday &lt; ... &lt; Saturday"
+    "text": "Setting\nYou can set those same components in an existing date-time object using change-in-place notation.\n\n\nyear(now) &lt;- 2027\nnow\n\n\n\n[1] \"2027-11-16 16:38:50 UTC\"\n\n\n\n\n\nwday(now, label = TRUE, abbr = FALSE)\n\n\n\n[1] Tuesday\n7 Levels: Sunday &lt; Monday &lt; Tuesday &lt; Wednesday &lt; Thursday &lt; ... &lt; Saturday"
   },
   {
     "objectID": "21-date-time-1/slides.html#your-turn-1",
@@ -4628,7 +4667,7 @@
     "href": "07-control-flow/slides.html#a-random-condition-in-r",
     "title": "Control Flow",
     "section": "A random condition in R",
-    "text": "A random condition in R\n\n\nsample(x = -10:10, size = 1)\n\n\n\n[1] -8\n\n\n\n\nsample() will randomly sample 1 element from the vector x."
+    "text": "A random condition in R\n\n\nsample(x = -10:10, size = 1)\n\n\n\n[1] 6\n\n\n\n\nsample() will randomly sample 1 element from the vector x."
   },
   {
     "objectID": "07-control-flow/slides.html#section-1",
@@ -4684,35 +4723,35 @@
     "href": "07-control-flow/slides.html#what-if-x-has-multiple-elements",
     "title": "Control Flow",
     "section": "What if x has multiple elements?",
-    "text": "What if x has multiple elements?\n\n\nx &lt;- rnorm(3)\nx\n\n\n\n[1] -0.1228821 -1.6080817 -0.8505642\n\n\n\n\n\n\n\n\n\n\n      if (x &gt; 0) {\n        print(\"x is positive :)\")\n      }"
+    "text": "What if x has multiple elements?\n\n\nx &lt;- rnorm(3)\nx\n\n\n\n[1] -1.3987513  0.1346237 -0.6657293\n\n\n\n\n\n\n\n\n\n\n      if (x &gt; 0) {\n        print(\"x is positive :)\")\n      }"
   },
   {
     "objectID": "07-control-flow/slides.html#option-1",
     "href": "07-control-flow/slides.html#option-1",
     "title": "Control Flow",
     "section": "Option 1",
-    "text": "Option 1\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(\"x is positive :)\")\n  }\n}"
+    "text": "Option 1\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(\"x is positive :)\")\n  }\n}\n\n\n\n[1] \"x is positive :)\""
   },
   {
     "objectID": "07-control-flow/slides.html#option-2",
     "href": "07-control-flow/slides.html#option-2",
     "title": "Control Flow",
     "section": "Option 2",
-    "text": "Option 2\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(paste(\"element\", i, \"is positive :)\"))\n  }\n}"
+    "text": "Option 2\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(paste(\"element\", i, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"element 2 is positive :)\""
   },
   {
     "objectID": "07-control-flow/slides.html#option-3",
     "href": "07-control-flow/slides.html#option-3",
     "title": "Control Flow",
     "section": "Option 3",
-    "text": "Option 3\n\nfor (x_elem in x) {\n  if (x_elem &gt; 0) {\n    print(paste(x_elem, \"is positive :)\"))\n  }\n}"
+    "text": "Option 3\n\nfor (x_elem in x) {\n  if (x_elem &gt; 0) {\n    print(paste(x_elem, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"0.134623661323657 is positive :)\""
   },
   {
     "objectID": "07-control-flow/slides.html#ifelse",
     "href": "07-control-flow/slides.html#ifelse",
     "title": "Control Flow",
     "section": "ifelse()",
-    "text": "ifelse()\n\n\nifelse()\n\n\nA vectorized if-else: applies a condition to every element of a vector at once, without an explicit loop.\n\n\n\n\nx &lt; 0 \n\n\n\n[1] TRUE TRUE TRUE\n\n\n\n\n\nifelse(test = x &lt; 0, yes = \"is positive :)\", no = \"is negative :(\")\n\n\n\n[1] \"is positive :)\" \"is positive :)\" \"is positive :)\""
+    "text": "ifelse()\n\n\nifelse()\n\n\nA vectorized if-else: applies a condition to every element of a vector at once, without an explicit loop.\n\n\n\n\nx &lt; 0 \n\n\n\n[1]  TRUE FALSE  TRUE\n\n\n\n\n\nifelse(test = x &lt; 0, yes = \"is positive :)\", no = \"is negative :(\")\n\n\n\n[1] \"is positive :)\" \"is negative :(\" \"is positive :)\""
   },
   {
     "objectID": "07-control-flow/slides.html#guess-the-metaphor",
@@ -6231,14 +6270,14 @@
     "href": "22-date-time-2/slides.html#how-old-am-i",
     "title": "Dates and Times II",
     "section": "How old am I?",
-    "text": "How old am I?\n\n\nlibrary(lubridate)\na &lt;- today()\nb &lt;- ymd(\"1983-02-28\")\nclass(a)\n\n\n\n[1] \"Date\"\n\nclass(b)\n\n[1] \"Date\"\n\n\n\n\n\na - b\n\n\n\nTime difference of 15964 days"
+    "text": "How old am I?\n\n\nlibrary(lubridate)\na &lt;- today()\nb &lt;- ymd(\"1983-02-28\")\nclass(a)\n\n\n\n[1] \"Date\"\n\nclass(b)\n\n[1] \"Date\"\n\n\n\n\n\na - b\n\n\n\nTime difference of 15967 days"
   },
   {
     "objectID": "22-date-time-2/slides.html#durations",
     "href": "22-date-time-2/slides.html#durations",
     "title": "Dates and Times II",
     "section": "Durations",
-    "text": "Durations\nSubtraction of two Date vectors -&gt; difftime vector.\n\nclass(a - b)\n\n\n\n[1] \"difftime\"\n\n\n\nA difftime can be recorded in many different units, so better to use lubridate::as.duration() to always record it in seconds.\n\n\n\nmy_age_s &lt;- as.duration(a - b)\nclass(my_age_s)\n\n\n\n[1] \"Duration\"\nattr(,\"package\")\n[1] \"lubridate\"\n\n\n\n\n\nmy_age_s\n\n\n\n[1] \"1379289600s (~43.71 years)\""
+    "text": "Durations\nSubtraction of two Date vectors -&gt; difftime vector.\n\nclass(a - b)\n\n\n\n[1] \"difftime\"\n\n\n\nA difftime can be recorded in many different units, so better to use lubridate::as.duration() to always record it in seconds.\n\n\n\nmy_age_s &lt;- as.duration(a - b)\nclass(my_age_s)\n\n\n\n[1] \"Duration\"\nattr(,\"package\")\n[1] \"lubridate\"\n\n\n\n\n\nmy_age_s\n\n\n\n[1] \"1379548800s (~43.72 years)\""
   },
   {
     "objectID": "22-date-time-2/slides.html#section-2",
@@ -6280,14 +6319,14 @@
     "href": "22-date-time-2/slides.html#how-old-will-i-be",
     "title": "Dates and Times II",
     "section": "How old will I be…",
-    "text": "How old will I be…\nIn a year?\n\n\nmy_age_s\n\n\n\n[1] \"1379289600s (~43.71 years)\"\n\n\n\nmy_age_s + dyears(1) # adding average seconds in a year\n\n\n\n[1] \"1410847200s (~44.71 years)\"\n\n\n\n\n\nmy_age_s + years(1) # adding a calendar year\n\n\n\nError:\n! Incompatible classes: &lt;Duration&gt; + &lt;Period&gt;"
+    "text": "How old will I be…\nIn a year?\n\n\nmy_age_s\n\n\n\n[1] \"1379548800s (~43.72 years)\"\n\n\n\nmy_age_s + dyears(1) # adding average seconds in a year\n\n\n\n[1] \"1411106400s (~44.72 years)\"\n\n\n\n\n\nmy_age_s + years(1) # adding a calendar year\n\n\n\nError:\n! Incompatible classes: &lt;Duration&gt; + &lt;Period&gt;"
   },
   {
     "objectID": "22-date-time-2/slides.html#section-5",
     "href": "22-date-time-2/slides.html#section-5",
     "title": "Dates and Times II",
     "section": "",
-    "text": "Interval\n\n\nIn lubridate, a time span with a specific start and end. Because it knows where it starts, it can be measured in seconds or in calendar units.\n\n\n\n\n\nleap &lt;- interval(ymd(\"2024-01-01\"),\n                 ymd(\"2025-01-01\"))\nleap\n\n[1] 2024-01-01 UTC--2025-01-01 UTC\n\nas.duration(leap)\n\n[1] \"31622400s (~1 years)\"\n\nas.period(leap)\n\n[1] \"1y 0m 0d 0H 0M 0S\"\n\n\n\nHow old will I be in a year?\n\nmy_age_i &lt;- interval(b, a)\nas.period(my_age_i)\n\n[1] \"43y 8m 16d 0H 0M 0S\"\n\nas.period(my_age_i) + years(1)\n\n[1] \"44y 8m 16d 0H 0M 0S\""
+    "text": "Interval\n\n\nIn lubridate, a time span with a specific start and end. Because it knows where it starts, it can be measured in seconds or in calendar units.\n\n\n\n\n\nleap &lt;- interval(ymd(\"2024-01-01\"),\n                 ymd(\"2025-01-01\"))\nleap\n\n[1] 2024-01-01 UTC--2025-01-01 UTC\n\nas.duration(leap)\n\n[1] \"31622400s (~1 years)\"\n\nas.period(leap)\n\n[1] \"1y 0m 0d 0H 0M 0S\"\n\n\n\nHow old will I be in a year?\n\nmy_age_i &lt;- interval(b, a)\nas.period(my_age_i)\n\n[1] \"43y 8m 19d 0H 0M 0S\"\n\nas.period(my_age_i) + years(1)\n\n[1] \"44y 8m 19d 0H 0M 0S\""
   },
   {
     "objectID": "22-date-time-2/slides.html#time-spans-recap",
@@ -7396,100 +7435,208 @@
     "text": "Key Ideas for Today\n\nAn endpoint is a function the server runs.\nPlumber annotations turn R functions into endpoints.\nA serializer sets the format of the response.\nGET sends data in the URL; POST sends it in the body.\n\n\nFor Next Time\n\nPS 6 due 11/14.\nSign up for Quiz 6 (11/16-11/17).\nNo class Wednesday (Veterans Day); next time: LLMs."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "STAT 133",
+    "objectID": "34-llms-in-ides/slides.html#section",
+    "href": "34-llms-in-ides/slides.html#section",
+    "title": "Completion and Context",
     "section": "",
-    "text": "Concepts in Computing with Data\nStat 133 UC Berkeley\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n  \n  \n  \n    \n    \n    \n    Nov 9\n    \n  \n  \n  APIs II\n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n    SlidesProject\n    \n  \n  \n  \n    Sign up for Quiz 6\n  \n  \n  \n  \n\n  \n  \n  \n  \n    Nov 11\n  \n  \n  No Class: Veterans Day\n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n\n  \n  \n  \n  \n    \n    \n    \n    Nov 13\n    \n  \n  \n  LLMs\n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n    Slides\n    \n  \n  \n  \n    PS 6 due 11/14 at 11:59 pm\n  \n  \n  \n  \n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Aug 24\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 26\n      \n    \n    \n    Welcome\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 28\n      \n    \n    \n    Data in Trees\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 31\n      \n    \n    \n    Intro to R\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 2\n      \n    \n    \n    Atomic Vectors\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 4\n      \n    \n    \n    Extending Vectors\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n      Sign up for Quiz 1\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Sep 7\n    \n    \n    No Class: Labor Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 9\n      \n    \n    \n    Lists\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 1: 9/10-9/11\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 11\n      \n    \n    \n    Control Flow\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 14\n      \n    \n    \n    Functions\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 2\n    \n      Project Studio 1 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 16\n      \n    \n    \n    Factors and Data Frames\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 18\n      \n    \n    \n    Data Wrangling I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 2 due 9/19 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 21\n      \n    \n    \n    Git & GitHub\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n      Quiz 2: 9/21-9/22\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 23\n      \n    \n    \n    Data Wrangling II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 25\n      \n    \n    \n    Quarto\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 28\n      \n    \n    \n    Grammar of Graphics\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 3\n    \n      Project Studio 2 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 30\n      \n    \n    \n    Data Cleaning\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 2\n      \n    \n    \n    Reading and Writing Data\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 3 due 10/03 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 5\n      \n    \n    \n    Exploratory and Explanatory DA\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 3: 10/5-10/6\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 7\n      \n    \n    \n    Joins and Pivots\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 9\n      \n    \n    \n    Strings I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 12\n      \n    \n    \n    Strings II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 4\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 14\n      \n    \n    \n    Dates and Times I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 16\n      \n    \n    \n    Dates and Times II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 4 due 10/17 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 19\n      \n    \n    \n    Spatial Data I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 4: 10/19-10/20\n    \n      Project Studio 3 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 21\n      \n    \n    \n    Spatial Data II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 23\n      \n    \n    \n    Gerrymandering\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 26\n      \n    \n    \n    Spatial Interpolation\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 5\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 28\n      \n    \n    \n    Dashboards\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 30\n      \n    \n    \n    R Packages I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 5 due 10/31 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Nov 2\n      \n    \n    \n    R Packages II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 5: 11/2-11/3\n    \n      Project Studio 4 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Nov 4\n      \n    \n    \n    Testing\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Nov 6\n      \n    \n    \n    APIs I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Nov 9\n      \n    \n    \n    APIs II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n      Sign up for Quiz 6\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 11\n    \n    \n    No Class: Veterans Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Nov 13\n      \n    \n    \n    LLMs\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 6 due 11/14 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 16\n    \n    \n    LLMs in IDEs\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 6: 11/16-11/17\n    \n      Project Studio 5 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 18\n    \n    \n    Abstraction\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 20\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 23\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n      Sign up for Quiz 7\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 25\n    \n    \n    No Class: Non-Instructional Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 27\n    \n    \n    No Class: Thanksgiving\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 30\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n      PS 7 due today at 6:00 pm\n    \n      Quiz 7: 12/1-12/4\n    \n      Project Studio 6 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 2\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 4\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Dec 7\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 9\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 11\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Dec 14\n    \n    \n    Final Exam 7-10 pm\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 16\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 18\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n\n\nNo matching items",
+    "text": "Last Time\n\nAn LLM predicts the next token.\nIt learns its probabilities from vast text.\nA chat app is a client of an LLM’s API.\nSend a prompt from the shell or from R.\n\n\nKey Ideas for Today\n\nCode completion predicts your next tokens.\nAn LLM API is stateless.\nContext is all the text sent with a request.\nA system prompt leads every request."
+  },
+  {
+    "objectID": "34-llms-in-ides/slides.html#informal-next-code-prediction",
+    "href": "34-llms-in-ides/slides.html#informal-next-code-prediction",
+    "title": "Completion and Context",
+    "section": "Informal Next Code Prediction",
+    "text": "Informal Next Code Prediction\n\nI will show you three commands, one at a time, each one unfinished.\nYou will have 10 seconds to predict the characters that best complete it.\nHere, “best” means the characters most likely to appear next, given what came before, when you look at all code on GitHub."
+  },
+  {
+    "objectID": "34-llms-in-ides/slides.html#predict-the-code",
+    "href": "34-llms-in-ides/slides.html#predict-the-code",
+    "title": "Completion and Context",
+    "section": "",
+    "text": "my_list &lt;- list(1:2, data.frame(v1 = c(\"a\", \"b\"), v2 = c(T, F)))\nsecond_el_as_df &lt;- my_list[\n\n\n  \n    −\n    +\n \n 00:10\n \n\n\n\nlibrary(palmerpenguins)\nggplot(penguins, aes(x = body_mass_g, y = species)) +\n  geom_\n\n\n  \n    −\n    +\n \n 00:10\n \n\n\n\nsample(1:5, 3,\n\n\n  \n    −\n    +\n \n 00:10"
+  },
+  {
+    "objectID": "34-llms-in-ides/slides.html#section-5",
+    "href": "34-llms-in-ides/slides.html#section-5",
+    "title": "Completion and Context",
+    "section": "",
+    "text": "Code Completion\n\n\nA feature of an IDE that sends the code around your cursor to an LLM and shows the predicted next tokens as a suggestion, which you can accept or ignore.\n\n\n\nIn Positron:\n\nSuggestions appear in grey as you type.\nTab accepts, Esc dismisses, or just keep typing.\nWorks in R scripts, Quarto documents, and the console."
+  },
+  {
+    "objectID": "34-llms-in-ides/slides.html#before-you-press-tab",
+    "href": "34-llms-in-ides/slides.html#before-you-press-tab",
+    "title": "Completion and Context",
+    "section": "Before you press Tab",
+    "text": "Before you press Tab\nA suggestion is the likely next code. Whether it’s the right next code depends on what you’re trying to do.\n\n\n# draw a 3-card hand from a 5-card deck\nhand &lt;- sample(1:5, 3, replace = TRUE)\n\n\n\n\n\n\n\nDoes this code run? Does it do what the comment says?"
+  },
+  {
+    "objectID": "34-llms-in-ides/slides.html#recall-paris",
+    "href": "34-llms-in-ides/slides.html#recall-paris",
+    "title": "Completion and Context",
+    "section": "Recall Paris…",
+    "text": "Recall Paris…\n\nlibrary(ellmer)\n\nclaude &lt;- chat_claude(model = \"claude-haiku-5-5\")\nclaude$chat(\"The capital of France is\")\n\n\n\n\nThe capital of France is Paris.\n\n\nclaude$chat(\"What is the biggest city?\")\n\n\n\n\n\n\nThe biggest city in France is Paris. It has about 2.1 million residents\nwithin its city limits, and its metropolitan area has roughly 12 to 13\nmillion people."
+  },
+  {
+    "objectID": "34-llms-in-ides/slides.html#a-new-chat",
+    "href": "34-llms-in-ides/slides.html#a-new-chat",
+    "title": "Completion and Context",
+    "section": "A new chat",
+    "text": "A new chat\n\n\nclaude2 &lt;- chat_claude(model = \"claude-haiku-5-5\")\nclaude2$chat(\"What is the biggest city?\")\n\n\n\n\n\n\nIt depends on how you measure \"city\":\n\n- Largest metropolitan area: Tokyo, Japan, with about 37 million people\n  in its greater metropolitan area.\n- Largest city proper (administrative limits): Chongqing, China, with\n  about 32 million people, though much of that population is rural.\n- Largest by area: Chongqing (administrative area of about 82,000 km²).\n\nIf you meant a specific country or measure, let me know.\n\n\n\n\nSame model, same prompt, different answer. What differed?"
+  },
+  {
+    "objectID": "34-llms-in-ides/slides.html#where-is-the-memory",
+    "href": "34-llms-in-ides/slides.html#where-is-the-memory",
+    "title": "Completion and Context",
+    "section": "Where is the memory?",
+    "text": "Where is the memory?\n\nclaude\n\n\n\n\n\n&lt;Chat Anthropic/claude-haiku-5-5 turns=4 input=52 output=128&gt;\n── user ──────────────────────────────────────────────────────────\nThe capital of France is\n── assistant [input=14 output=14] ────────────────────────────────\nThe capital of France is **Paris**.\n── user ──────────────────────────────────────────────────────────\nWhat is the biggest city?\n── assistant [input=38 output=114] ───────────────────────────────\nThe biggest city in France is **Paris**. It has about 2.1 million\nresidents within its city limits, and its metropolitan area has\nroughly 12 to 13 million people."
+  },
+  {
+    "objectID": "34-llms-in-ides/slides.html#the-second-request",
+    "href": "34-llms-in-ides/slides.html#the-second-request",
+    "title": "Completion and Context",
+    "section": "The second request",
+    "text": "The second request\n\n{\n  \"model\": \"claude-haiku-5-5\",\n  \"messages\": [\n    {\"role\": \"user\",\n     \"content\": \"The capital of France is\"},\n    {\"role\": \"assistant\",\n     \"content\": \"The capital of France is **Paris**.\"},\n    {\"role\": \"user\",\n     \"content\": \"What is the biggest city?\"}\n  ]\n}"
+  },
+  {
+    "objectID": "34-llms-in-ides/slides.html#section-7",
+    "href": "34-llms-in-ides/slides.html#section-7",
+    "title": "Completion and Context",
+    "section": "",
+    "text": "Stateless\n\n\nA server is stateless if it keeps nothing from one request to the next. An LLM API is stateless: to continue a conversation, the client sends the whole conversation again.\n\n\n\nYour turn. I run a third line:\n\nclaude$chat(\"How far is it from Berkeley?\")\n\n\n\n\nWrite the role of each message in the request, in order. How many are there?\n\n  \n    −\n    +\n \n 01:00"
+  },
+  {
+    "objectID": "34-llms-in-ides/slides.html#section-8",
+    "href": "34-llms-in-ides/slides.html#section-8",
+    "title": "Completion and Context",
+    "section": "",
+    "text": "Context\n\n\nAll of the text that a model reads when it generates a response: the instructions, the earlier turns of the conversation, and any code, data, or documentation sent along with the prompt.\n\n\n\nThe model has two sources for an answer:\n\nwhat it learned in training (fixed, and the same for everyone);\nwhat is in the context (chosen by the client, for each request)."
+  },
+  {
+    "objectID": "34-llms-in-ides/slides.html#a-question-with-no-instructions",
+    "href": "34-llms-in-ides/slides.html#a-question-with-no-instructions",
+    "title": "Completion and Context",
+    "section": "A question, with no instructions",
+    "text": "A question, with no instructions\n\n\n\nplain &lt;- chat_claude(model = \"claude-haiku-5-5\")\nplain$chat(\n  \"How do I find the mean body mass for each species of penguin in R?\"\n)\n\n\n\n\n\n\n\nThe easiest way is with `dplyr`:\n\n```r\npenguins %&gt;%\n  group_by(species) %&gt;%\n  summarise(mean_body_mass = mean(body_mass_g, na.rm = TRUE))\n```\n\n**Base R alternative**:\n\n```r\ntapply(penguins$body_mass_g, penguins$species, mean, na.rm = TRUE)\n```"
+  },
+  {
+    "objectID": "34-llms-in-ides/slides.html#the-same-question-with-a-system-prompt",
+    "href": "34-llms-in-ides/slides.html#the-same-question-with-a-system-prompt",
+    "title": "Completion and Context",
+    "section": "The same question, with a system prompt",
+    "text": "The same question, with a system prompt\n\n\ntutor &lt;- chat_claude(\n  model = \"claude-haiku-5-5\",\n  system_prompt = \"You are a tutor for Stat 133. Students use the\n    tidyverse and the native pipe. Never write the code for them.\n    Reply in two sentences: name one function to look at, then ask\n    one question.\"\n)\ntutor$chat(\n  \"How do I find the mean body mass for each species of penguin in R?\"\n)\n\n\n\n\n\n\n\nLook at `group_by()` and `summarize()` from dplyr, since grouping by\nspecies and then summarizing the mean of body mass is the key idea. What\ndo you think the grouping variable should be called in the penguins\ndataset, and which column holds body mass?"
+  },
+  {
+    "objectID": "34-llms-in-ides/slides.html#section-9",
+    "href": "34-llms-in-ides/slides.html#section-9",
+    "title": "Completion and Context",
+    "section": "",
+    "text": "System Prompt\n\n\nInstructions that the client places at the start of the context and sends with every request. It sets the model’s role, its conventions, and what it should and shouldn’t do.\n\n\n\n\n{\n  \"model\": \"claude-haiku-5-5\",\n  \"system\": \"You are a tutor for Stat 133. Students use the ...\",\n  \"messages\": [\n    {\"role\": \"user\",\n     \"content\": \"How do I find the mean body mass for each ...\"}\n  ]\n}"
+  },
+  {
+    "objectID": "34-llms-in-ides/slides.html#what-about-your-data",
+    "href": "34-llms-in-ides/slides.html#what-about-your-data",
+    "title": "Completion and Context",
+    "section": "What about your data?",
+    "text": "What about your data?\n\nlibrary(tibble)\nbake_sale &lt;- tibble(item  = c(\"cookie\", \"brownie\", \"scone\"),\n                    price = c(2, 3, 2.5),\n                    sold  = c(40, 25, 12))\n\n\n\n\n\n\nclaude3 &lt;- chat_claude(model = \"claude-haiku-5-5\")\nclaude3$chat(\"What was the total revenue from my bake sale?\")\n\n\n\n\n\n\n\nWhat will it say?\n\n\n\n\nI don't have any information about your bake sale. I can't see sales\nrecords, receipts, or files unless you share them here."
+  },
+  {
+    "objectID": "34-llms-in-ides/slides.html#put-the-data-in-the-context",
+    "href": "34-llms-in-ides/slides.html#put-the-data-in-the-context",
+    "title": "Completion and Context",
+    "section": "Put the data in the context",
+    "text": "Put the data in the context\n\n\nlibrary(readr)\nformat_csv(bake_sale) |&gt; cat()\n\n\n\nitem,price,sold\ncookie,2,40\nbrownie,3,25\nscone,2.5,12\n\n\n\n\n\n\nclaude3$chat(\n  \"Here is my bake sale data:\",\n  format_csv(bake_sale),\n  \"What was the total revenue from my bake sale?\",\n  \"Answer in one sentence.\"\n)\n\n\n\n\n\n\n\n\nYour bake sale brought in a total revenue of $185 (cookies $80,\nbrownies $75, scones $30)."
+  },
+  {
+    "objectID": "34-llms-in-ides/slides.html#is-it-right",
+    "href": "34-llms-in-ides/slides.html#is-it-right",
+    "title": "Completion and Context",
+    "section": "Is it right?",
+    "text": "Is it right?\nThe model produced $185 the way it produces every token: by prediction.\n\nYour turn. Compute the total revenue from bake_sale yourself, with a dplyr pipeline.\n\n  \n    −\n    +\n \n 01:00\n \n\n\n\nlibrary(dplyr)\nbake_sale |&gt;\n  summarize(revenue = sum(price * sold))\n\n\n\n# A tibble: 1 × 1\n  revenue\n    &lt;dbl&gt;\n1     185"
+  },
+  {
+    "objectID": "34-llms-in-ides/slides.html#guess-the-metaphor",
+    "href": "34-llms-in-ides/slides.html#guess-the-metaphor",
+    "title": "Completion and Context",
+    "section": "Guess the Metaphor",
+    "text": "Guess the Metaphor\n\n\n\nAn LLM is like a judge: it rules only on what’s entered into the record (the context). At every hearing, the clerk reads the whole record aloud again, starting with the law posted above the bench (the system prompt)."
+  },
+  {
+    "objectID": "34-llms-in-ides/slides.html#section-12",
+    "href": "34-llms-in-ides/slides.html#section-12",
+    "title": "Completion and Context",
+    "section": "",
+    "text": "Key Ideas for Today\n\nCode completion predicts your next tokens.\nAn LLM API is stateless.\nContext is all the text sent with a request.\nA system prompt leads every request.\n\n\nFor Next Time\n\nQuiz 6 is today and tomorrow.\nProject Studio 5 this week.\nNext time: how a model runs code."
+  },
+  {
+    "objectID": "labs.html",
+    "href": "labs.html",
+    "title": "Labs",
+    "section": "",
+    "text": "Labs\nComing soon!"
+  },
+  {
+    "objectID": "office-hours.html",
+    "href": "office-hours.html",
+    "title": "Office Hours",
+    "section": "",
+    "text": "Office Hours\nPlease stop by during office hours to chat in a small group setting course staff.",
     "crumbs": [
-      "Home"
+      "Office Hours"
     ]
   },
   {
-    "objectID": "license.html",
-    "href": "license.html",
-    "title": "License",
-    "section": "",
-    "text": "Unless otherwise noted, all curricular content on this site — lecture slides, notes, problem sets, projects, and accompanying code — is licensed under a Creative Commons Attribution 4.0 International License (CC BY 4.0).\nYou are free to share and adapt this material for any purpose, including commercially, provided you give appropriate credit, link to the license, and indicate if changes were made.\nSuggested attribution:\n\nMaterials from Stat 133: Concepts in Computing with Data, Department of Statistics, UC Berkeley, used under CC BY 4.0."
-  },
-  {
-    "objectID": "license.html#curricular-content",
-    "href": "license.html#curricular-content",
-    "title": "License",
-    "section": "",
-    "text": "Unless otherwise noted, all curricular content on this site — lecture slides, notes, problem sets, projects, and accompanying code — is licensed under a Creative Commons Attribution 4.0 International License (CC BY 4.0).\nYou are free to share and adapt this material for any purpose, including commercially, provided you give appropriate credit, link to the license, and indicate if changes were made.\nSuggested attribution:\n\nMaterials from Stat 133: Concepts in Computing with Data, Department of Statistics, UC Berkeley, used under CC BY 4.0."
-  },
-  {
-    "objectID": "license.html#artwork",
-    "href": "license.html#artwork",
-    "title": "License",
-    "section": "Artwork",
-    "text": "Artwork\nThe fantasy scenes appearing on the course calendar and elsewhere on this site are Scenes by Czepeku and are used under Czepeku’s Commercial Use Licence. They are reproduced here in watermarked form, as that license requires.\nThese images are not covered by the CC BY 4.0 license above and are not offered for download, redistribution, or resale as standalone items. All rights in them remain with Czepeku. If you wish to use them, see czepeku.com."
-  },
-  {
-    "objectID": "problem-sets/ps1.html",
-    "href": "problem-sets/ps1.html",
-    "title": "1",
+    "objectID": "problem-sets/ps2.html",
+    "href": "problem-sets/ps2.html",
+    "title": "2",
     "section": "",
     "text": "Download\n PDF\n Quarto (.qmd)",
     "crumbs": [
       "Problem Sets",
-      "PS 1"
+      "PS 2"
     ]
   },
   {
-    "objectID": "problem-sets/ps1.html#footnotes",
-    "href": "problem-sets/ps1.html#footnotes",
-    "title": "1",
+    "objectID": "problem-sets/ps2.html#footnotes",
+    "href": "problem-sets/ps2.html#footnotes",
+    "title": "2",
     "section": "Footnotes",
-    "text": "Footnotes\n\n\nYou can research the answer to this question online.↩︎\nYou can research the answer to this question online.↩︎",
+    "text": "Footnotes\n\n\nAlternatively, you’re welcome to look into how to return the hot face emoji (and its analog for freezing).↩︎\nThere is a clever way to do this that avoids having to type the names of the columns that are factors. See the help file for select(), particularly about predicate functions.↩︎",
     "crumbs": [
       "Problem Sets",
-      "PS 1"
+      "PS 2"
     ]
   },
   {
-    "objectID": "problem-sets/ps3.html",
-    "href": "problem-sets/ps3.html",
-    "title": "3",
+    "objectID": "problem-sets/ps4.html",
+    "href": "problem-sets/ps4.html",
+    "title": "4",
     "section": "",
     "text": "Download\n PDF\n Quarto (.qmd)",
     "crumbs": [
       "Problem Sets",
-      "PS 3"
+      "PS 4"
     ]
   },
   {
-    "objectID": "problem-sets/ps3.html#footnotes",
-    "href": "problem-sets/ps3.html#footnotes",
-    "title": "3",
+    "objectID": "problem-sets/ps4.html#footnotes",
+    "href": "problem-sets/ps4.html#footnotes",
+    "title": "4",
     "section": "Footnotes",
-    "text": "Footnotes\n\n\nThere are several other ways to do this. Feel free to check online for different methods.↩︎\nHint 1: n() is a function that returns the row count when used inside summarize(). Hint 2: You can group by more than one variable.↩︎\nHint: If you group by multiple variables, a call to summarize() will peel off the outermost grouping (the last argument in group_by()) and keep the others↩︎\nThere are several ways to reduce the data frame to contain only one row for each named storm. The simplest is probably to group the data frame, then slice it and take the first record↩︎\nIf you’d like to a slightly more sophisticated version of this plot, read about geom_path(). Instead of lines, this can plot paths with an arrowhead indicating the progression of that storm.↩︎\nTo convert text like \"8,200\" into a number, use parse_number() from the readr package. You can call it without loading the package by writing readr::parse_number().↩︎\nSee the slides for a side-by-side comparison of YAML and JSON syntax.↩︎",
+    "text": "Footnotes\n\n\nHint: there is a handy shortcut that saves you from typing all of the column names: starts_with() inside the tidyselect package↩︎\nNote that geom_line() permits the use of a group aesthetic mapping to make one line for each group.↩︎\nEach emoji is defined by an 8 digit code called Unicode. See https://r4ds.hadley.nz/strings.html#other-special-characters.↩︎\nWrite a pattern that matches only names with at least two \"o\"s, using the wildcard and a quantifier. Then extend it to three, four, and so on until nothing matches.↩︎\nYou can parse these clock times using what you know about string manipulation or by using handy math operators %/% and %%. Another hint: see the Circular Data example from the slides.↩︎",
     "crumbs": [
       "Problem Sets",
-      "PS 3"
+      "PS 4"
     ]
   },
   {
-    "objectID": "problem-sets/ps5.html",
-    "href": "problem-sets/ps5.html",
-    "title": "5",
+    "objectID": "problem-sets/ps6.html",
+    "href": "problem-sets/ps6.html",
+    "title": "6",
     "section": "",
-    "text": "Download\n PDF\n Quarto (.qmd)",
+    "text": "Download\n PDF\n Quarto (.qmd)\n\n\nR Packages II\nThe first two questions refer to the kknn package (https://github.com/KlausVigo/kknn), which implements a popular predictive modeling algorithm called \\(k\\)-nearest neighbors. Install it with install.packages(\"kknn\") and load it with library(kknn) before you start.\n\nUse data() to list the data sets stored in kknn. Then try typing the name of one of them, glass, at the console: unlike most packages you’ve used, it isn’t there until you run data(glass). What is this property of a package called, and which field of DESCRIPTION turns it on? Is that field in kknn’s DESCRIPTION?\n\n\nWhat is the name of the file in the package that is edited to create the help files for these data sets?\n\n\nThe rest of the questions use greetr, the package you made in PS 5, rebuilt with usethis the way we rebuilt mypkg in lecture. Download greetr.zip, unzip it, and open the greetr folder in Positron (or RStudio). hello() is in R/hello.R, and DESCRIPTION is filled in.\n\nAdd the following tibble to your package as a data set called greetings. Write the command you used, and say which file it created.\n\n\nlibrary(tibble)\ngreetings &lt;- tibble(\n  greeting = c(\"Hello\", \"你好\", \"Hola\", \"Hei\", \"السلام علیکم\"),\n  language = c(\"English\", \"Chinese\", \"Spanish\", \"Norwegian\", \"Urdu\")\n)\n\n\nDocument this data set using roxygen2 so that when a user types ?greetings at the console they see a description of the data set, its format (the columns and their values), and its source (you can cite STAT 133). Put the Roxygen block in a new file, R/data.R, and end it with the data set’s name in quotes, \"greetings\", where a function’s definition would go. Please transcribe your documentation below.\n\n\nPaste this Roxygen block into R/hello.R, directly above hello(), and fill in the three blanks: the argument, the return value, and an example. Run devtools::document() and preview the result with ?hello. Write your three completed lines below.\n\n#' Say hello\n#'\n#' Prints a greeting to whoever is named in `x`.\n#'\n#' @param ___\n#' @returns ___\n#' @examples\n#' ___\n#' @export\n\nRun devtools::check(). How many errors, warnings, and notes does it report, and what does the note say needs fixing? Fix it: change the License field in DESCRIPTION to MIT + file LICENSE, and add a plain-text file called LICENSE at the top of the package with two lines, YEAR: 2026 and COPYRIGHT HOLDER: followed by your name. Run check() again. What does it report now?\n\n\n\nTesting\nYou’ll need the testthat package for these problems: install it with install.packages(\"testthat\") if you haven’t already. To run tests at the console, outside a package, load it with library(testthat).\n\nHere is a function and three tests for it. Suppose the function were in a package and the tests in its test file. Without running the code, predict the ? values in the report that test() would return: [ FAIL ? | WARN 0 | SKIP 0 | PASS ? ]. For any test that fails, is the function wrong or the test?\n\ncelsius &lt;- function(f) {\n  (f - 32) * 5 / 9\n}\n\ntest_that(\"celsius() converts the boiling point\", {\n  expect_equal(celsius(212), 100)\n})\n\ntest_that(\"celsius() converts the freezing point\", {\n  expect_equal(celsius(0), 32)\n})\n\ntest_that(\"celsius() converts a vector of temperatures\", {\n  temps &lt;- celsius(c(32, 212))\n  expect_length(temps, 2)\n  expect_equal(temps, c(0, 100))\n})\n\nA classmate wrote this test for celsius() from the last problem, ran it, and it passed. Why did it pass? Change the test so it would catch the mistake.\n\ntest_that(\"celsius() rejects text\", {\n  expect_error(celsuis(\"hot\"))\n})\n\nHere is part of a package with the strsplit1() from lecture and a new function that counts the words in a sentence, followed by the report from test().\n\n\n\nR/n_words.R\n\nn_words &lt;- function(x) {\n  length(strsplit1(x, split = \" \"))\n}\n\nFailure ('test-n_words.R:6:3'): n_words() counts words with extra spaces\nExpected `n_words(\"two  spaces\")` to equal 2.\n`actual`:   3\n`expected`: 2\n[ FAIL 1 | WARN 0 | SKIP 0 | PASS 4 ]\n\nWhich file and line holds the expectation that failed, and what is the test’s description?\nHow many expectations passed?\nWhy does n_words() return 3? (Hint: look closely at the input, and run strsplit1() on it.)\nIs this input a typical input, an edge case, or an error case?\n\n\nThe next four problems use your greetr package from the R Packages II problems. Open it in Positron (or RStudio), and run library(devtools) at the console.\n\nSet greetr up for testing, with a test file for hello(). Write the two commands you used. What files did they create, and what changed in DESCRIPTION?\n\n\nReplace the placeholder in test-hello.R with two tests: one that hello(\"Oski\") returns \"Hello Oski!\", and one that hello() given two names returns a character vector of length 2. Run test(). What does its last line say?\n\n\nhello() prints its greeting as well as returning it, which clutters the output of test(). Refactor hello(): remove the print() so it just returns the string. Run test() again. Do the tests still pass, and what does that tell you? Does hello(\"Oski\") still show its greeting when you run it at the console?\n\n\nA user files a bug report: “hello(NA) says Hello NA!.” Fix it with test-driven development:\n\n\nRed: add a test to test-hello.R that hello(NA) throws an error whose message mentions \"missing\". Run test() and confirm that it fails.\nGreen: change hello() so it throws that error, using stop(), whenever any element of x is NA. Run test() until it passes.\n\n\nTesting isn’t only for packages. Suppose you’re about to analyze storms (from dplyr) and are relying on two facts about it:\n\n\nno row appears twice;\nevery row with hurricane-force winds (wind of 64 knots or more) has a category.\n\nWrite each as its own stopifnot() call. Both fail. For each, look at the rows that break it and decide whether the data or the expectation is wrong.\n\nOptional Challenge: Write the grade calculator from lecture, test first.\n\n\nCreate a test file for a function letter_grade() that holds every promise from the lecture’s activity:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nScore\n95\n85\n42\n98\n91\n100\n58\n62\nNA\n0.85\n0.91\n86.5\n89.5\n0.865\n\n\n\n\nGrade\nA\nB\nF\nA+\nA-\nA+\nF\nD-\nF\nB\nA-\nB+\nA-\nB+\n\n\n\nAdd a test for a score of 1, deciding what it should get.\n\nWrite letter_grade() so that every test passes, for a vector of scores. Two tools you haven’t seen will help: x %% 10 is the last digit of a whole number x, and floor(x + 0.5) rounds halves up (round() rounds halves to the even number, so round(86.5) is 86).\n\n\n\nAPIs I\nThe BART API serves live data, so some answers in this section (how many trains are about to depart, how long the wait is) depend on when you run your code. For those there is no single right answer.\nRevisit the homepage for the BART Legacy API discussed in Lecture.\nhttps://www.bart.gov/schedules/developers/api\n\nWhat is the public key that can be used to access data through the legacy API?\n\n\nNext visit the documentation site: https://api.bart.gov/docs/overview/index.aspx. Note that each category of data has its own endpoint / base URL, and all take a similar format (e.g. for estimated departure data use https://api.bart.gov/api/etd.aspx.)\n\nConsider the following URL. Which part is the endpoint, and what are the parameters and their values? Using the documentation, what does this request ask for?\n\nhttps://api.bart.gov/api/stn.aspx?cmd=stninfo&orig=12TH&key=MW9S-E7SL-26DU-VV8V&json=y\n\nProvide the URL that will query the API for a list of all BART stations in JSON format.\n\n\nProvide the corresponding shell/terminal command.\n\n\nProvide the corresponding R code that will perform the query and parse the JSON response into an R list object. Use simplifyVector = TRUE in resp_body_json(), so that JSON arrays of records become data frames.\n\n\nSubset the list to return the data frame that has one row for each station. What are its dimensions, and what information does it give about each station? Which county has the greatest number of stations?\n\n\n\nProvide the R code that will query the API for estimated departure times (ETDs) from the Downtown Berkeley Station and parse the JSON response into an R list object.\n\n\nExtract the element called root and then the station element within it. View the object using the data viewer. What type of object is it and what are its dimensions?\n\n\nThe unnest() function from the tidyr package expands a list-column into ordinary rows and columns. Run the code below, then explain what each unnest() step did to the rows and the columns of the data frame.\n\n\nlibrary(tidyr)\netd_unnested &lt;- etd |&gt;\n  unnest(etd)\netd_fully_unnested &lt;- etd_unnested |&gt;\n  unnest(estimate)\n\n\nHow long (in minutes) is the shortest estimated wait time for a train departing from Downtown Berkeley Station? Which destination does this train go to? For reference, what time is it now?\n\n\n\nOptional: Query the BSA (BART System Advisories) endpoint to retrieve the latest system advisory information. You’re welcome to use any method: web browser, command line, or R. What are the different bits of information that they provide through this endpoint?\n\n\nOptional Challenge: Use the data provided by the BART API to construct a map of the BART system showing the locations of all stations. You could make it interactive with leaflet or static like the one below.\n\n\n\n\n\n\n\n\nAPIs II\nMake a folder for these problems with an R script called stat133-api.R. Copy in the /greet and /babynames endpoints from the lecture slides, and this /grade endpoint, which computes a course grade from the four parts of the syllabus. Plumber passes the fields of a POST’s JSON body to the function’s arguments by name, as it did for the guestbook.\n#* Compute final course grade\n#* @post /grade\nfunction(problem_sets, projects, quizzes, final) {\n  course_grade &lt;- 0.01 * problem_sets + 0.20 * projects +\n    0.49 * quizzes + 0.30 * final\n  list(course_grade = course_grade)\n}\nStart the API with plumb() and pr_run() on port 8080, as in lecture. While it runs, that R session is busy, so send requests from a second one: in Positron, start another R console with the + in the Console pane; in RStudio, choose Session &gt; New Session. After each change to stat133-api.R, stop the API (Esc) and start it again.\n\nBefore you try them, predict what your browser shows at each of these addresses, and say in a sentence why. Then check.\n\nhttp://localhost:8080/greet?name=Oski\nhttp://localhost:8080/\nhttp://localhost:8080/grade\n\n\n\nAdd two optional parameters to /babynames: babysex, which keeps only the rows for that sex, and babyyear, which keeps only the rows for that year. With neither, the endpoint returns every row for the name, as before. Give them empty-string defaults (as /greet does with name = \"\") and filter only when a value was given. How many rows does each of these return?\n\nhttp://localhost:8080/babynames?babyname=Jordan\nhttp://localhost:8080/babynames?babyname=Jordan&babysex=M\nhttp://localhost:8080/babynames?babyname=Jordan&babyyear=2000\nhttp://localhost:8080/babynames?babyname=Jordan&babysex=F&babyyear=2000\n\n\n\nAdd an endpoint /compare that takes two names, name1 and name2, and returns an SVG plot of both names’ popularity over time, one colored line per name. Give the code and describe the plot for /compare?name1=Jordan&name2=Taylor.\n\n\nA café wants an API for its orders, built like the lecture’s guestbook. Add:\n\ncode at the top of stat133-api.R that starts an empty orders.csv with the columns dish, quantity, and vegetarian;\nPOST /order, which takes dish, quantity, and vegetarian and adds the order as a row of orders.csv;\nGET /orders, which returns every order so far.\n\nThen, from your second R session, use httr2 to send two orders: list(dish = \"Turkey\", quantity = 1, vegetarian = FALSE) and one of your own. Read the orders back with GET /orders as a data frame. Give your endpoints, your requests, and the data frame you get back.\n\n\nChallenging. /grade treats quizzes as a single score. Change it so quizzes is a vector of all of a student’s quiz scores, averaged before it’s weighted. Then send a request from R for a student with problem sets 100, projects 90, quiz scores 80, 92, 75, and 88, and a final of 85. What course grade does it return?",
     "crumbs": [
       "Problem Sets",
-      "PS 5"
-    ]
-  },
-  {
-    "objectID": "problem-sets/ps5.html#footnotes",
-    "href": "problem-sets/ps5.html#footnotes",
-    "title": "5",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nIf you are unsatisfied with the resolution of your map, you can tinker with the scale argument of the ne_countries() function.↩︎\nEach projection has a numeric code (its EPSG code). The Albers Equal Area projection for California is 3310. Pass that code to the crs argument of the st_transform() function in sf.↩︎\nHint: since quakes_albers is an sf object instead of a tibble, geom_point() will no longer work. You can add it in a second geom_sf() layer (the first will be for the basemap).↩︎\nCompare the CRS of ca_counties with the CRS of your centroid.↩︎\nEach object will require a separate call to plot(). You can add add = TRUE to plot() so that the contents of the second get added to the first. Note that these plot additions don’t carry over from code cell to code cell.↩︎\nYou can add colors to plot() using the col argument and call colors() at the console to see the color names available in base R. I used col = c(\"skyblue\", \"tomato\") but you’re welcome to pick your own colors.↩︎\nThe functions for these set operations in sf are exactly as you’d expect: the name of the operation prepended by st_. Note also that the union operation will drop the sf class. You’ll need to run your object through st_sf() to get it back.↩︎\nIt may be helpful to write a function that takes a vector of votes across districts for party A and a vector of votes for party B and returns a vector of the number of votes wasted by party A across districts.↩︎\nDashboards collect the colors and fonts into themes similar to ggplot2. You can find the list of themes here: https://quarto.org/docs/dashboards/theming.html.↩︎\nQuarto dashboards can use any of the icons in a large collection called Bootstrap. Search for an icon and then use the corresponding name as a string: https://icons.getbootstrap.com/.↩︎",
-    "crumbs": [
-      "Problem Sets",
-      "PS 5"
+      "PS 6"
     ]
   },
   {
