@@ -139,7 +139,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">7</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../problem-sets/ps1.html">Problem Sets</a></li><li class="breadcrumb-item"><a href="../problem-sets/ps7.html">PS 7</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -305,6 +305,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">PS 6</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../problem-sets/ps7.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">PS 7</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -317,16 +323,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#llms" id="toc-llms" class="nav-link active" data-scroll-target="#llms">LLMs</a></li>
+  <li><a href="#llm-via-api" id="toc-llm-via-api" class="nav-link active" data-scroll-target="#llm-via-api">LLM via API</a></li>
   <li><a href="#completion-and-context" id="toc-completion-and-context" class="nav-link" data-scroll-target="#completion-and-context">Completion and Context</a></li>
-  <li><a href="#a-world-of-abstraction" id="toc-a-world-of-abstraction" class="nav-link" data-scroll-target="#a-world-of-abstraction">A World of Abstraction</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../problem-sets/ps1.html">Problem Sets</a></li><li class="breadcrumb-item"><a href="../problem-sets/ps7.html">PS 7</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">7</h1>
 </div>
@@ -350,8 +355,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <a href="ps7.pdf"><i class="bi bi-file-earmark-pdf"></i> PDF</a>
 <a href="../problem-sets/ps7.qmd" download=""><i class="bi bi-file-earmark-code"></i> Quarto (.qmd)</a>
 </div>
-<section id="llms" class="level3">
-<h3 class="anchored" data-anchor-id="llms">LLMs</h3>
+<section id="llm-via-api" class="level3">
+<h3 class="anchored" data-anchor-id="llm-via-api">LLM via API</h3>
 <p>OpenRouter is a service that provides access to many LLMs through a web app and an API. Some are paid, others are free up to a certain number of queries. Set up an account at <a href="https://openrouter.ai/">OpenRouter</a> using your GitHub account and create an API key<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. I suggest setting your usage limit to $0 and using only the free models. Copy your API key when it is created: OpenRouter shows it only once.</p>
 <p>As in lecture, you will keep your key out of your code by storing it in an <em>environment variable</em> called <code>OPENROUTER_API_KEY</code>. In your terminal, run the line below with your own key between the quotes. The variable lasts until you close that terminal.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">OPENROUTER_API_KEY</span><span class="op">=</span><span class="st">"paste-your-key-here"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -362,12 +367,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Search for and then click on a model called “Google: Gemma 4 31B (free)” and read the documentation page. What are its capabilities?</li>
 </ol>
 <hr>
-<p>At the bottom of the page, it shows example API calls in several programming languages. Copy the <code>curl</code> example paste it into a JSON file in Positron (create a new file and give it a .JSON file extension). You can select all of the contents of that file, right click it, and select “Format Document” to make it more readable.</p>
+<p>At the bottom of the page, it shows example API calls in several programming languages. Copy the <code>curl</code> example and paste it into a JSON file in Positron (create a new file and give it a <code>.json</code> file extension). You can select all of the contents of that file, right click it, and select “Format Document” to make it more readable.</p>
 <ol start="3" class="example" type="1">
 <li>What is the endpoint URL for the API call?</li>
 </ol>
 <ol start="4" class="example" type="1">
-<li>“Headers” (indicated with <code>-H</code>) are similar to parameters included in the URL of a GET request. What are the names of the header that you will pass and what are their values?</li>
+<li>“Headers” (indicated with <code>-H</code>) are similar to parameters included in the URL of a GET request. What are the names of the headers that you will pass and what are their values?</li>
 </ol>
 <ol start="5" class="example" type="1">
 <li>The data that your computer sends with the request is flagged with <code>-d</code> and is sent as a JSON object. What are the names of the keys in this object?</li>
@@ -396,26 +401,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol start="12" class="example" type="1">
 <li>Use <code>or1</code> to send the prompt “The capital of Canada is”. What is the response?</li>
 </ol>
-<ol start="13" class="example" type="1">
-<li>Use <code>or1</code> to send a second prompt: “What is the most popular sport?”. Write the gist of the response below.</li>
-</ol>
-<ol start="14" class="example" type="1">
-<li>Create a second chat object called <code>or2</code> using the same model. Send the same prompt: “What is the most popular sport?. How does the response compare to the one from <code>or1</code>?</li>
-</ol>
-<ol start="15" class="example" type="1">
-<li>Print <code>or1</code> and <code>or2</code> at the console. How does this explain the difference in responses?</li>
-</ol>
 <hr>
-<p>(Optional but cool): Most models have a standard set of other parameters that you can send that will determin how the model generates its text response. You can explore these by reading <code>?chat_openrouter()</code>. Max tokens is the maximum length of the response (in tokens, where 1 token is roughly 4 characters of text). Temperature controls how “creative” the model is allowed to be: a temperature of 0 means it will always pick the most likely next token, while values closer to 2 will make it more likely to pick less probable tokens, resulting in more varied and creative responses. You pass these parameters as a named list to the <code>params</code> argument of <code>chat_openrouter()</code>.</p>
-<ol start="16" class="example" type="1">
-<li>Create a new chat object called <code>or3</code> that uses the “google/gemma-4-31b-it:free” model but sets the <code>temperature</code> parameter to 2 and the <code>max_tokens</code> parameter to 500. Use <code>or3</code> to send the prompt “Describe new types of punctuation and the emotions they evoke”. Resend initialize <code>or3</code> and send the same prompt several times to get a sense of how the responses vary. Change the temperate of <code>or3</code> to 0 and send the same query several times. Write your observations below.</li>
+<p>(Optional but cool): Most models have a standard set of other parameters that you can send that will determine how the model generates its text response. You can explore these by reading <code>?chat_openrouter()</code>. Max tokens is the maximum length of the response (in tokens, where 1 token is roughly 4 characters of text). Temperature controls how “creative” the model is allowed to be: a temperature of 0 means it will always pick the most likely next token, while values closer to 2 will make it more likely to pick less probable tokens, resulting in more varied and creative responses. You pass these parameters as a named list to the <code>params</code> argument of <code>chat_openrouter()</code>.</p>
+<ol start="13" class="example" type="1">
+<li>Create a new chat object called <code>or3</code> that uses the “google/gemma-4-31b-it:free” model but sets the <code>temperature</code> parameter to 2 and the <code>max_tokens</code> parameter to 500. Use <code>or3</code> to send the prompt “Describe new types of punctuation and the emotions they evoke”. Initialize <code>or3</code> again and send the same prompt several times to get a sense of how the responses vary. Change the temperature of <code>or3</code> to 0 and send the same query several times. Write your observations below.</li>
 </ol>
 </section>
 <section id="completion-and-context" class="level3">
 <h3 class="anchored" data-anchor-id="completion-and-context">Completion and Context</h3>
-<p>These problems use the <code>OPENROUTER_API_KEY</code> and the free model from the last section. If you’ve started a new R session, set the key again with <code>Sys.setenv()</code> at the console.</p>
+<p>These problems continue with <code>or1</code> from the last section, which you asked for the capital of Canada. If you’ve started a new R session, set the key again with <code>Sys.setenv()</code> at the console, then create <code>or1</code> again and resend that prompt.</p>
+<ol start="14" class="example" type="1">
+<li>Use <code>or1</code> to send a second prompt: “What is the most popular sport?”. Write the gist of the response below.</li>
+</ol>
+<ol start="15" class="example" type="1">
+<li>Create a second chat object called <code>or2</code> using the same model. Send the same prompt: “What is the most popular sport?”. How does the response compare to the one from <code>or1</code>?</li>
+</ol>
+<ol start="16" class="example" type="1">
+<li>Print <code>or1</code> and <code>or2</code> at the console. How does this explain the difference in responses?</li>
+</ol>
+<hr>
 <ol start="17" class="example" type="1">
-<li>In the last section you printed <code>or1</code> after sending it two prompts. Each assistant turn is labeled with <code>input=</code> and <code>output=</code>, counted in tokens. Which turn had the larger <code>input</code>? Explain why, using what the client sends with each request.</li>
+<li>Look again at the printout of <code>or1</code>, which holds two prompts and their answers. Each assistant turn is labeled with <code>input=</code> and <code>output=</code>, counted in tokens. Which turn had the larger <code>input</code>? Explain why, using what the client sends with each request.</li>
 </ol>
 <ol start="18" class="example" type="1">
 <li>Without running it, suppose you send <code>or1</code> a third prompt: “Where is it played the most?”. List the <code>role</code> of every message in the body of that request, in order.</li>
@@ -455,21 +461,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Dee has no score for quiz 1. What did the model do with Dee, and what did your pipeline do? Which one told you that it had made a choice?</li>
 </ol>
 <hr>
-<p>(Optional, for those with code completion set up in Positron or RStudio; see the instructions on Ed.)</p>
+<p>(Optional, for those with code completion set up in Positron or RStudio)</p>
 <ol start="28" class="example" type="1">
 <li>In an empty R script, type the comment <code># a function that returns the mean and sd of a numeric vector as a named list</code> and start a new line. Before accepting any suggestion, write down the first line that you expect. Then accept the suggestions until the function is complete. Where did the suggestion differ from what you expected, and is the suggested function correct when the vector contains an <code>NA</code>?</li>
 </ol>
-</section>
-<section id="a-world-of-abstraction" class="level3">
-<h3 class="anchored" data-anchor-id="a-world-of-abstraction">A World of Abstraction</h3>
-<p>In lecture we looked through the log of the exchange of text data between me on my laptop and the LLM (i.e.&nbsp;DataBot).</p>
-<ul>
-<li><a href="../35-abstraction/conversation-export.html">Conversation HTML file</a></li>
-<li><a href="../35-abstraction/conversation-export.json">Conversation JSON file</a></li>
-</ul>
-<p>The first substantive (although poorly spelled) request that I made was: “I’m working on my gerrmadering prooject. could you please load the g24 sv precinct data and tell me a bit about it?”. We saw how the result was impressive (it found the issue with <code>***</code>) but also faulty: it didn’t catch that some of the rows were totals of other rows, so it greatly overstated the number of votes.</p>
-<p>In the space below, rewrite this prompt in a way that you think will give the model a better chance of finding the issue with the row totals. Your rewrite shouldn’t show that you already know the answer (e.g.&nbsp;“some rows are totals of other rows”), but it should guide the model to think more carefully about the data.</p>
-<p>If you have access to DataBot, you can start it in your project directory (or a new clone of the project repository) and try your prompt there. Is the response fully correct? Are there any other issues that occurred?</p>
 
 
 </section>

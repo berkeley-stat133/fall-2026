@@ -573,14 +573,22 @@
     "href": "problem-sets/ps7.html",
     "title": "7",
     "section": "",
-    "text": "Download\n PDF\n Quarto (.qmd)"
+    "text": "Download\n PDF\n Quarto (.qmd)",
+    "crumbs": [
+      "Problem Sets",
+      "PS 7"
+    ]
   },
   {
     "objectID": "problem-sets/ps7.html#footnotes",
     "href": "problem-sets/ps7.html#footnotes",
     "title": "7",
     "section": "Footnotes",
-    "text": "Footnotes\n\n\nIf it doesn’t prompt you to create an API key right away, go to your account settings (top right corner) and find the “Keys” section.↩︎\nUse the filters available in the left sidebar. Note that some models are free up to a certain number of queries per day, so be judicious.↩︎\nIf the response is an authentication error, the variable is not set in this terminal. Run echo ${#OPENROUTER_API_KEY} to check: it prints the length of your key, or 0 if the variable is empty.↩︎"
+    "text": "Footnotes\n\n\nIf it doesn’t prompt you to create an API key right away, go to your account settings (top right corner) and find the “Keys” section.↩︎\nUse the filters available in the left sidebar. Note that some models are free up to a certain number of queries per day, so be judicious.↩︎\nIf the response is an authentication error, the variable is not set in this terminal. Run echo ${#OPENROUTER_API_KEY} to check: it prints the length of your key, or 0 if the variable is empty.↩︎",
+    "crumbs": [
+      "Problem Sets",
+      "PS 7"
+    ]
   },
   {
     "objectID": "problem-sets/ps5.html",
@@ -674,185 +682,185 @@
     "href": "index.html",
     "title": "STAT 133",
     "section": "",
-    "text": "Concepts in Computing with Data\nStat 133 UC Berkeley\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n  \n  \n  \n    \n    \n    \n    Nov 16\n    \n  \n  \n  Completion and Context\n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n    Slides\n    \n  \n  \n  \n    Quiz 6: 11/16-11/17\n  \n    Project Studio 5 this week\n  \n  \n  \n  \n\n  \n  \n  \n  \n    Nov 18\n  \n  \n  Tool Calls\n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n\n  \n  \n  \n  \n    Nov 20\n  \n  \n  Agents\n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Aug 24\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 26\n      \n    \n    \n    Welcome\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 28\n      \n    \n    \n    Data in Trees\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 31\n      \n    \n    \n    Intro to R\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 2\n      \n    \n    \n    Atomic Vectors\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 4\n      \n    \n    \n    Extending Vectors\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n      Sign up for Quiz 1\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Sep 7\n    \n    \n    No Class: Labor Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 9\n      \n    \n    \n    Lists\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 1: 9/10-9/11\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 11\n      \n    \n    \n    Control Flow\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 14\n      \n    \n    \n    Functions\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 2\n    \n      Project Studio 1 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 16\n      \n    \n    \n    Factors and Data Frames\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 18\n      \n    \n    \n    Data Wrangling I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 2 due 9/19 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 21\n      \n    \n    \n    Git & GitHub\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n      Quiz 2: 9/21-9/22\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 23\n      \n    \n    \n    Data Wrangling II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 25\n      \n    \n    \n    Quarto\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 28\n      \n    \n    \n    Grammar of Graphics\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 3\n    \n      Project Studio 2 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 30\n      \n    \n    \n    Data Cleaning\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 2\n      \n    \n    \n    Reading and Writing Data\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 3 due 10/03 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 5\n      \n    \n    \n    Exploratory and Explanatory DA\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 3: 10/5-10/6\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 7\n      \n    \n    \n    Joins and Pivots\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 9\n      \n    \n    \n    Strings I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 12\n      \n    \n    \n    Strings II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 4\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 14\n      \n    \n    \n    Dates and Times I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 16\n      \n    \n    \n    Dates and Times II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 4 due 10/17 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 19\n      \n    \n    \n    Spatial Data I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 4: 10/19-10/20\n    \n      Project Studio 3 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 21\n      \n    \n    \n    Spatial Data II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 23\n      \n    \n    \n    Gerrymandering\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 26\n      \n    \n    \n    Spatial Interpolation\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 5\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 28\n      \n    \n    \n    Dashboards\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 30\n      \n    \n    \n    R Packages I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 5 due 10/31 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Nov 2\n      \n    \n    \n    R Packages II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 5: 11/2-11/3\n    \n      Project Studio 4 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Nov 4\n      \n    \n    \n    Testing\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Nov 6\n      \n    \n    \n    APIs I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Nov 9\n      \n    \n    \n    APIs II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n      Sign up for Quiz 6\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 11\n    \n    \n    No Class: Veterans Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Nov 13\n      \n    \n    \n    LLMs\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 6 due 11/14 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Nov 16\n      \n    \n    \n    Completion and Context\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 6: 11/16-11/17\n    \n      Project Studio 5 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 18\n    \n    \n    Tool Calls\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 20\n    \n    \n    Agents\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 23\n    \n    \n    Agentic Data Analysis\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n      Sign up for Quiz 7\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 25\n    \n    \n    No Class: Non-Instructional Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 27\n    \n    \n    No Class: Thanksgiving\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 30\n    \n    \n    SQL through dplyr\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n      PS 7 due today at 6:00 pm\n    \n      Quiz 7: 12/1-12/4\n    \n      Project Studio 6 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 2\n    \n    \n    Comparing AI Setups\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 4\n    \n    \n    Abstraction\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Dec 7\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 9\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 11\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Dec 14\n    \n    \n    Final Exam 7-10 pm\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 16\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 18\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n\n\nNo matching items",
+    "text": "Concepts in Computing with Data\nStat 133 UC Berkeley\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n  \n  \n  \n    \n    \n    \n    Nov 16\n    \n  \n  \n  Completion and Context\n  \n  \n  \n  \n  \n  \n  \n  \n  \n    \n    Slides\n    \n  \n  \n  \n    Quiz 6: 11/16-11/17\n  \n    Project Studio 5 this week\n  \n  \n  \n  \n\n  \n  \n  \n  \n    Nov 18\n  \n  \n  Tool Calls\n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n\n  \n  \n  \n  \n    Nov 20\n  \n  \n  Agents\n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n\n\n\n\nNo matching items\n\n\n\n\n\n\n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Aug 24\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 26\n      \n    \n    \n    Welcome\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 28\n      \n    \n    \n    Data in Trees\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Aug 31\n      \n    \n    \n    Intro to R\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 2\n      \n    \n    \n    Atomic Vectors\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 4\n      \n    \n    \n    Extending Vectors\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n      Sign up for Quiz 1\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Sep 7\n    \n    \n    No Class: Labor Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 9\n      \n    \n    \n    Lists\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 1: 9/10-9/11\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 11\n      \n    \n    \n    Control Flow\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 14\n      \n    \n    \n    Functions\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 2\n    \n      Project Studio 1 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 16\n      \n    \n    \n    Factors and Data Frames\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 18\n      \n    \n    \n    Data Wrangling I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 2 due 9/19 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 21\n      \n    \n    \n    Git & GitHub\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n      Quiz 2: 9/21-9/22\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 23\n      \n    \n    \n    Data Wrangling II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 25\n      \n    \n    \n    Quarto\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 28\n      \n    \n    \n    Grammar of Graphics\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 3\n    \n      Project Studio 2 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Sep 30\n      \n    \n    \n    Data Cleaning\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 2\n      \n    \n    \n    Reading and Writing Data\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 3 due 10/03 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 5\n      \n    \n    \n    Exploratory and Explanatory DA\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 3: 10/5-10/6\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 7\n      \n    \n    \n    Joins and Pivots\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 9\n      \n    \n    \n    Strings I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 12\n      \n    \n    \n    Strings II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 4\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 14\n      \n    \n    \n    Dates and Times I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 16\n      \n    \n    \n    Dates and Times II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 4 due 10/17 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 19\n      \n    \n    \n    Spatial Data I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 4: 10/19-10/20\n    \n      Project Studio 3 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 21\n      \n    \n    \n    Spatial Data II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 23\n      \n    \n    \n    Gerrymandering\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 26\n      \n    \n    \n    Spatial Interpolation\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Sign up for Quiz 5\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 28\n      \n    \n    \n    Dashboards\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Oct 30\n      \n    \n    \n    R Packages I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 5 due 10/31 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Nov 2\n      \n    \n    \n    R Packages II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 5: 11/2-11/3\n    \n      Project Studio 4 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Nov 4\n      \n    \n    \n    Testing\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Nov 6\n      \n    \n    \n    APIs I\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Nov 9\n      \n    \n    \n    APIs II\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      SlidesProject\n      \n    \n    \n    \n      Sign up for Quiz 6\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 11\n    \n    \n    No Class: Veterans Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Nov 13\n      \n    \n    \n    LLM via API\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 6 due 11/14 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      \n      \n      \n      Nov 16\n      \n    \n    \n    Completion and Context\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      Quiz 6: 11/16-11/17\n    \n      Project Studio 5 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 18\n    \n    \n    Tool Calls\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 20\n    \n    \n    Agents\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 23\n    \n    \n    Agentic Data Analysis\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n      Sign up for Quiz 7\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 25\n    \n    \n    No Class: Non-Instructional Day\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Nov 27\n    \n    \n    No Class: Thanksgiving\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Nov 30\n    \n    \n    SQL through dplyr\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n      Quiz 7: 12/1-12/4\n    \n      Project Studio 6 this week\n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 2\n    \n    \n    Comparing AI Setups\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 4\n    \n    \n    Abstraction\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n      PS 7 due 12/05 at 11:59 pm\n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Dec 7\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n      \n      Slides\n      \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 9\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 11\n    \n    \n    RRR\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n  \n  \n  \n\n  \n    \n    \n    \n    \n    \n      Dec 14\n    \n    \n    Final Exam 7-10 pm\n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 16\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n    \n    \n    \n    \n    \n      Dec 18\n    \n    \n    \n    \n\n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n    \n  \n  \n  \n\n\n\nNo matching items",
     "crumbs": [
       "Home"
     ]
   },
   {
-    "objectID": "33-llms/slides.html#section",
-    "href": "33-llms/slides.html#section",
-    "title": "LLMs",
+    "objectID": "33-llm-via-api/slides.html#section",
+    "href": "33-llm-via-api/slides.html#section",
+    "title": "LLM via API",
     "section": "",
     "text": "Last Time\n\nAn endpoint is a function the server runs.\nPlumber annotations turn R functions into endpoints.\nA serializer sets the format of the response.\nGET sends data in the URL; POST sends it in the body.\n\n\nKey Ideas for Today\n\nAn LLM predicts the next token.\nIt learns its probabilities from vast text.\nA chat app is a client of an LLM’s API.\nSend a prompt from the shell or from R."
   },
   {
-    "objectID": "33-llms/slides.html#examples-so-far",
-    "href": "33-llms/slides.html#examples-so-far",
-    "title": "LLMs",
+    "objectID": "33-llm-via-api/slides.html#examples-so-far",
+    "href": "33-llm-via-api/slides.html#examples-so-far",
+    "title": "LLM via API",
     "section": "Examples so far",
     "text": "Examples so far"
   },
   {
-    "objectID": "33-llms/slides.html#how-are-apis-different",
-    "href": "33-llms/slides.html#how-are-apis-different",
-    "title": "LLMs",
+    "objectID": "33-llm-via-api/slides.html#how-are-apis-different",
+    "href": "33-llm-via-api/slides.html#how-are-apis-different",
+    "title": "LLM via API",
     "section": "How are APIs different?",
     "text": "How are APIs different?\n\nModularizes part of computational workflow to run on dedicated (powerful) server.\nFunctionality called by client through a simple interface: HTTP request.\n\nAnyone with internet can use it.\nAny software with internet can use it.\nNo need to install complex software locally."
   },
   {
-    "objectID": "33-llms/slides.html#example-bart-arrivals",
-    "href": "33-llms/slides.html#example-bart-arrivals",
-    "title": "LLMs",
+    "objectID": "33-llm-via-api/slides.html#example-bart-arrivals",
+    "href": "33-llm-via-api/slides.html#example-bart-arrivals",
+    "title": "LLM via API",
     "section": "Example: BART Arrivals",
     "text": "Example: BART Arrivals\n\n\nServer: BART API server.\nClient: Me, on my phone."
   },
   {
-    "objectID": "33-llms/slides.html#example-bart-arrivals-1",
-    "href": "33-llms/slides.html#example-bart-arrivals-1",
-    "title": "LLMs",
+    "objectID": "33-llm-via-api/slides.html#example-bart-arrivals-1",
+    "href": "33-llm-via-api/slides.html#example-bart-arrivals-1",
+    "title": "LLM via API",
     "section": "Example: BART Arrivals",
     "text": "Example: BART Arrivals\n\n\nServer: BART API server.\nClient: Me, on the Transit App."
   },
   {
-    "objectID": "33-llms/slides.html#example-bart-arrivals-2",
-    "href": "33-llms/slides.html#example-bart-arrivals-2",
-    "title": "LLMs",
+    "objectID": "33-llm-via-api/slides.html#example-bart-arrivals-2",
+    "href": "33-llm-via-api/slides.html#example-bart-arrivals-2",
+    "title": "LLM via API",
     "section": "Example: BART Arrivals",
     "text": "Example: BART Arrivals\n\n\nServer: BART API server.\nClient: Me, on the Transit App."
   },
   {
-    "objectID": "33-llms/slides.html#example-stat-133-guestbook",
-    "href": "33-llms/slides.html#example-stat-133-guestbook",
-    "title": "LLMs",
+    "objectID": "33-llm-via-api/slides.html#example-stat-133-guestbook",
+    "href": "33-llm-via-api/slides.html#example-stat-133-guestbook",
+    "title": "LLM via API",
     "section": "Example: Stat 133 Guestbook",
     "text": "Example: Stat 133 Guestbook\nServer: My laptop, running the Plumber API.\n\nClient 1: You, on the sign-in page on your phone.\n\n\nClient 2: An R script using httr2."
   },
   {
-    "objectID": "33-llms/slides.html#a-model-learned-from-data",
-    "href": "33-llms/slides.html#a-model-learned-from-data",
-    "title": "LLMs",
+    "objectID": "33-llm-via-api/slides.html#a-model-learned-from-data",
+    "href": "33-llm-via-api/slides.html#a-model-learned-from-data",
+    "title": "LLM via API",
     "section": "A model learned from data",
     "text": "A model learned from data\n\nA predictive model is a rule learned from data: 342 penguins in, one line out.\n\\[\\widehat{\\text{body mass}} = -5781 + 49.7 \\times \\text{flipper length}\\]"
   },
   {
-    "objectID": "33-llms/slides.html#serving-the-model",
-    "href": "33-llms/slides.html#serving-the-model",
-    "title": "LLMs",
+    "objectID": "33-llm-via-api/slides.html#serving-the-model",
+    "href": "33-llm-via-api/slides.html#serving-the-model",
+    "title": "LLM via API",
     "section": "Serving the model",
     "text": "Serving the model\nAdded to stat133-api.R:\n\n# Fit once, when the API starts\npenguin_model &lt;- lm(body_mass_g ~ flipper_length_mm,\n                    data = penguins)\n\n#* Predict a penguin's body mass from its flipper length\n#* @param flipper Flipper length, in mm\n#* @get /predict\nfunction(flipper = 200){\n  new_penguin &lt;- tibble(flipper_length_mm = as.numeric(flipper))\n  list(body_mass_g = predict(penguin_model, new_penguin))\n}\n\n\n/predict?flipper=200 returns {\"body_mass_g\":[4156.2819]}"
   },
   {
-    "objectID": "33-llms/slides.html#informal-next-word-prediction",
-    "href": "33-llms/slides.html#informal-next-word-prediction",
-    "title": "LLMs",
+    "objectID": "33-llm-via-api/slides.html#informal-next-word-prediction",
+    "href": "33-llm-via-api/slides.html#informal-next-word-prediction",
+    "title": "LLM via API",
     "section": "Informal Next Word Prediction",
     "text": "Informal Next Word Prediction\n\nI will show you three sentences, one at a time, each one with a missing word.\nYou will have 3 seconds to predict the next word that best completes the sentence.\nHere, “best” means the word that is most likely to appear next, given the words that came before it, when you look at all text on the internet."
   },
   {
-    "objectID": "33-llms/slides.html#section-1",
-    "href": "33-llms/slides.html#section-1",
-    "title": "LLMs",
+    "objectID": "33-llm-via-api/slides.html#section-1",
+    "href": "33-llm-via-api/slides.html#section-1",
+    "title": "LLM via API",
     "section": "",
     "text": "“The capital of France is _____”"
   },
   {
-    "objectID": "33-llms/slides.html#section-2",
-    "href": "33-llms/slides.html#section-2",
-    "title": "LLMs",
+    "objectID": "33-llm-via-api/slides.html#section-2",
+    "href": "33-llm-via-api/slides.html#section-2",
+    "title": "LLM via API",
     "section": "",
     "text": "“He added milk to his _____”"
   },
   {
-    "objectID": "33-llms/slides.html#section-3",
-    "href": "33-llms/slides.html#section-3",
-    "title": "LLMs",
+    "objectID": "33-llm-via-api/slides.html#section-3",
+    "href": "33-llm-via-api/slides.html#section-3",
+    "title": "LLM via API",
     "section": "",
     "text": "“She walked into the room and everyone started to ______”"
   },
   {
-    "objectID": "33-llms/slides.html#section-4",
-    "href": "33-llms/slides.html#section-4",
-    "title": "LLMs",
+    "objectID": "33-llm-via-api/slides.html#section-4",
+    "href": "33-llm-via-api/slides.html#section-4",
+    "title": "LLM via API",
     "section": "",
     "text": "Token\n\n\nA unit of text that a model reads and writes: a word, a piece of a word, or a punctuation mark. One token is roughly four characters of English."
   },
   {
-    "objectID": "33-llms/slides.html#section-5",
-    "href": "33-llms/slides.html#section-5",
-    "title": "LLMs",
+    "objectID": "33-llm-via-api/slides.html#section-5",
+    "href": "33-llm-via-api/slides.html#section-5",
+    "title": "LLM via API",
     "section": "",
     "text": "Large Language Model (LLM)\n\n\nA model that predicts the next word (or token) \\(w_n\\) given the sequence before it, \\(w_1, w_2, \\ldots, w_{n-1}\\), by estimating the probability distribution \\(P(w_n | w_1, w_2, \\ldots, w_{n-1})\\). It learns these probabilities by training on vast amounts of text data."
   },
   {
-    "objectID": "33-llms/slides.html#guess-the-metaphor",
-    "href": "33-llms/slides.html#guess-the-metaphor",
-    "title": "LLMs",
+    "objectID": "33-llm-via-api/slides.html#guess-the-metaphor",
+    "href": "33-llm-via-api/slides.html#guess-the-metaphor",
+    "title": "LLM via API",
     "section": "Guess the Metaphor",
     "text": "Guess the Metaphor\n\n\n\nAn LLM is like a printing press: it has cases of type (tokens) and sets them one at a time, each drawn according to how often it came next in everything ever printed."
   },
   {
-    "objectID": "33-llms/slides.html#example-chatgpt",
-    "href": "33-llms/slides.html#example-chatgpt",
-    "title": "LLMs",
+    "objectID": "33-llm-via-api/slides.html#example-chatgpt",
+    "href": "33-llm-via-api/slides.html#example-chatgpt",
+    "title": "LLM via API",
     "section": "Example: ChatGPT",
     "text": "Example: ChatGPT\n\n\nServer: OpenAI API server.\nClient: Me, on the ChatGPT App."
   },
   {
-    "objectID": "33-llms/slides.html#example-claude",
-    "href": "33-llms/slides.html#example-claude",
-    "title": "LLMs",
+    "objectID": "33-llm-via-api/slides.html#example-claude",
+    "href": "33-llm-via-api/slides.html#example-claude",
+    "title": "LLM via API",
     "section": "Example: Claude",
     "text": "Example: Claude\n\n\nServer: Anthropic API server.\nClient: Me, on the Claude.ai App."
   },
   {
-    "objectID": "33-llms/slides.html#example-claude-1",
-    "href": "33-llms/slides.html#example-claude-1",
-    "title": "LLMs",
+    "objectID": "33-llm-via-api/slides.html#example-claude-1",
+    "href": "33-llm-via-api/slides.html#example-claude-1",
+    "title": "LLM via API",
     "section": "Example: Claude",
     "text": "Example: Claude\n\n\nServer: Anthropic API server.\nClient: Me, at the terminal."
   },
   {
-    "objectID": "33-llms/slides.html#keep-the-key-out-of-your-code",
-    "href": "33-llms/slides.html#keep-the-key-out-of-your-code",
-    "title": "LLMs",
+    "objectID": "33-llm-via-api/slides.html#keep-the-key-out-of-your-code",
+    "href": "33-llm-via-api/slides.html#keep-the-key-out-of-your-code",
+    "title": "LLM via API",
     "section": "Keep the key out of your code",
     "text": "Keep the key out of your code\nStore it in an environment variable: a named value that the shell or R holds for the session.\nIn the shell:\nexport ANTHROPIC_API_KEY=\"paste-your-key-here\"\n\nIn R, at the console:\nSys.setenv(ANTHROPIC_API_KEY = \"paste-your-key-here\")"
   },
   {
-    "objectID": "33-llms/slides.html#me-at-the-terminal",
-    "href": "33-llms/slides.html#me-at-the-terminal",
-    "title": "LLMs",
+    "objectID": "33-llm-via-api/slides.html#me-at-the-terminal",
+    "href": "33-llm-via-api/slides.html#me-at-the-terminal",
+    "title": "LLM via API",
     "section": "Me, at the terminal",
     "text": "Me, at the terminal\n\n\ncurl https://api.anthropic.com/v1/messages \\\n  -H \"x-api-key: $ANTHROPIC_API_KEY\" \\\n  -H \"anthropic-version: 2023-06-01\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n        \"model\": \"claude-haiku-5-5\",\n        \"max_tokens\": 100,\n        \"messages\": [\n          {\n            \"role\": \"user\",\n            \"content\": \"The capital of France is\"\n          }\n        ]\n      }'\n\nThe prompt is the text we send: the content of the message."
   },
   {
-    "objectID": "33-llms/slides.html#the-response",
-    "href": "33-llms/slides.html#the-response",
-    "title": "LLMs",
+    "objectID": "33-llm-via-api/slides.html#the-response",
+    "href": "33-llm-via-api/slides.html#the-response",
+    "title": "LLM via API",
     "section": "The response",
     "text": "The response\n\n\n{\n  \"model\":\"claude-haiku-5-5\",\n  \"id\":\"msg_011Ch17KKE8Ut9fN6N5ufjvu\",\n  \"type\":\"message\",\n  \"role\":\"assistant\",\n  \"content\":[{\"type\":\"text\",\"text\":\"Paris.\"}],\n  \"container\":null,\n  \"stop_reason\":\"end_turn\",\"stop_sequence\":null,\"stop_details\":null,\n  \"usage\":{\n    \"input_tokens\":14,\n    \"cache_creation_input_tokens\":0,\"cache_read_input_tokens\":0,\n    \"cache_creation\":{\"ephemeral_5m_input_tokens\":0,\"ephemeral_1h_input_tokens\":0},\n    \"output_tokens\":6,\n    \"output_tokens_details\":{\"thinking_tokens\":0},\n    \"service_tier\":\"standard\",\"inference_geo\":\"global\",\"speed\":\"standard\"},\n  \"diagnostics\":null\n}"
   },
   {
-    "objectID": "33-llms/slides.html#the-ellmer-r-package",
-    "href": "33-llms/slides.html#the-ellmer-r-package",
-    "title": "LLMs",
+    "objectID": "33-llm-via-api/slides.html#the-ellmer-r-package",
+    "href": "33-llm-via-api/slides.html#the-ellmer-r-package",
+    "title": "LLM via API",
     "section": "The ellmer R package",
     "text": "The ellmer R package\nWhat it does:\n\nSimplifies making requests to the many LLM APIs.\nHandles authentication and response parsing.\nOffers functions for common tasks."
   },
   {
-    "objectID": "33-llms/slides.html#me-in-r",
-    "href": "33-llms/slides.html#me-in-r",
-    "title": "LLMs",
+    "objectID": "33-llm-via-api/slides.html#me-in-r",
+    "href": "33-llm-via-api/slides.html#me-in-r",
+    "title": "LLM via API",
     "section": "Me, in R",
     "text": "Me, in R\nI’ll demonstrate with Claude:\n\nlibrary(ellmer)\n\nclaude &lt;- chat_claude(model = \"claude-haiku-5-5\")\nclaude$chat(\n  \"The capital of France is\"\n)\n\n\n\n\nchat_claude() reads the key from the ANTHROPIC_API_KEY environment variable, the same one curl used."
   },
   {
-    "objectID": "33-llms/slides.html#section-18",
-    "href": "33-llms/slides.html#section-18",
-    "title": "LLMs",
+    "objectID": "33-llm-via-api/slides.html#section-18",
+    "href": "33-llm-via-api/slides.html#section-18",
+    "title": "LLM via API",
     "section": "",
-    "text": "Key Ideas for Today\n\nAn LLM predicts the next token.\nIt learns its probabilities from vast text.\nA chat app is a client of an LLM’s API.\nSend a prompt from the shell or from R.\n\n\nFor Next Time\n\nPS 6 due 11/14.\nSign up for Quiz 6 (11/16-11/17).\nNext time: LLMs inside your IDE."
+    "text": "Key Ideas for Today\n\nAn LLM predicts the next token.\nIt learns its probabilities from vast text.\nA chat app is a client of an LLM’s API.\nSend a prompt from the shell or from R.\n\n\nFor Next Time\n\nPS 6 due 11/14.\nSign up for Quiz 6 (11/16-11/17).\nNext time: Completion and Context."
   },
   {
     "objectID": "31-apis-1/slides.html#section",
@@ -1006,14 +1014,14 @@
     "href": "31-apis-1/slides.html#etd-call",
     "title": "APIs",
     "section": "ETD Call",
-    "text": "ETD Call\n\napi_url &lt;- \"https://api.bart.gov/api/etd.aspx\"\nres &lt;- request(api_url) |&gt;\n  req_url_query(cmd  = \"etd\") |&gt;\n  req_url_query(orig = \"DBRK\") |&gt;\n  req_url_query(key  = \"MW9S-E7SL-26DU-VV8V\") |&gt;\n  req_url_query(json = \"y\") |&gt;\n  req_perform()\nres\n\n\n\n&lt;httr2_response&gt;\nGET https://api.bart.gov/api/etd.aspx?cmd=etd&orig=DBRK&key=MW9S-E7SL-26DU-VV8V&json=y\nStatus: 200 OK\nContent-Type: application/json\nBody: In memory (1812 bytes)"
+    "text": "ETD Call\n\napi_url &lt;- \"https://api.bart.gov/api/etd.aspx\"\nres &lt;- request(api_url) |&gt;\n  req_url_query(cmd  = \"etd\") |&gt;\n  req_url_query(orig = \"DBRK\") |&gt;\n  req_url_query(key  = \"MW9S-E7SL-26DU-VV8V\") |&gt;\n  req_url_query(json = \"y\") |&gt;\n  req_perform()\nres\n\n\n\n&lt;httr2_response&gt;\nGET https://api.bart.gov/api/etd.aspx?cmd=etd&orig=DBRK&key=MW9S-E7SL-26DU-VV8V&json=y\nStatus: 200 OK\nContent-Type: application/json\nBody: In memory (1986 bytes)"
   },
   {
     "objectID": "31-apis-1/slides.html#section-13",
     "href": "31-apis-1/slides.html#section-13",
     "title": "APIs",
     "section": "",
-    "text": "data &lt;- resp_body_json(res, simplifyVector = FALSE)\ndata\n\n\n\n$`?xml`\n$`?xml`$`@version`\n[1] \"1.0\"\n\n$`?xml`$`@encoding`\n[1] \"utf-8\"\n\n\n$root\n$root$`@id`\n[1] \"1\"\n\n$root$uri\n$root$uri$`#cdata-section`\n[1] \"http://api.bart.gov/api/etd.aspx?cmd=etd&orig=DBRK&json=y\"\n\n\n$root$date\n[1] \"11/16/2026\"\n\n$root$time\n[1] \"08:39:18 AM PST\"\n\n$root$station\n$root$station[[1]]\n$root$station[[1]]$name\n[1] \"Downtown Berkeley\"\n\n$root$station[[1]]$abbr\n[1] \"DBRK\"\n\n$root$station[[1]]$etd\n$root$station[[1]]$etd[[1]]\n$root$station[[1]]$etd[[1]]$destination\n[1] \"Berryessa\"\n\n$root$station[[1]]$etd[[1]]$abbreviation\n[1] \"BERY\"\n\n$root$station[[1]]$etd[[1]]$limited\n[1] \"0\"\n\n$root$station[[1]]$etd[[1]]$estimate\n$root$station[[1]]$etd[[1]]$estimate[[1]]\n$root$station[[1]]$etd[[1]]$estimate[[1]]$minutes\n[1] \"19\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$platform\n[1] \"2\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$direction\n[1] \"South\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$length\n[1] \"5\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$color\n[1] \"ORANGE\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$hexcolor\n[1] \"#ff9933\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$delay\n[1] \"0\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$dynamicflag\n[1] \"0\"\n\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]\n$root$station[[1]]$etd[[1]]$estimate[[2]]$minutes\n[1] \"39\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$platform\n[1] \"2\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$direction\n[1] \"South\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$length\n[1] \"5\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$color\n[1] \"ORANGE\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$hexcolor\n[1] \"#ff9933\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$delay\n[1] \"0\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$dynamicflag\n[1] \"0\"\n\n\n\n\n$root$station[[1]]$etd[[2]]\n$root$station[[1]]$etd[[2]]$destination\n[1] \"Millbrae\"\n\n$root$station[[1]]$etd[[2]]$abbreviation\n[1] \"MLBR\"\n\n$root$station[[1]]$etd[[2]]$limited\n[1] \"0\"\n\n$root$station[[1]]$etd[[2]]$estimate\n$root$station[[1]]$etd[[2]]$estimate[[1]]\n$root$station[[1]]$etd[[2]]$estimate[[1]]$minutes\n[1] \"7\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$platform\n[1] \"2\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$direction\n[1] \"South\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$length\n[1] \"10\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$color\n[1] \"RED\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$hexcolor\n[1] \"#ff0000\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$delay\n[1] \"0\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$dynamicflag\n[1] \"0\"\n\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]\n$root$station[[1]]$etd[[2]]$estimate[[2]]$minutes\n[1] \"26\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$platform\n[1] \"2\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$direction\n[1] \"South\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$length\n[1] \"10\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$color\n[1] \"RED\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$hexcolor\n[1] \"#ff0000\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$delay\n[1] \"0\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$dynamicflag\n[1] \"0\"\n\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]\n$root$station[[1]]$etd[[2]]$estimate[[3]]$minutes\n[1] \"46\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$platform\n[1] \"2\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$direction\n[1] \"South\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$length\n[1] \"10\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$color\n[1] \"RED\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$hexcolor\n[1] \"#ff0000\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$delay\n[1] \"0\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$dynamicflag\n[1] \"0\"\n\n\n\n\n$root$station[[1]]$etd[[3]]\n$root$station[[1]]$etd[[3]]$destination\n[1] \"Richmond\"\n\n$root$station[[1]]$etd[[3]]$abbreviation\n[1] \"RICH\"\n\n$root$station[[1]]$etd[[3]]$limited\n[1] \"0\"\n\n$root$station[[1]]$etd[[3]]$estimate\n$root$station[[1]]$etd[[3]]$estimate[[1]]\n$root$station[[1]]$etd[[3]]$estimate[[1]]$minutes\n[1] \"6\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$platform\n[1] \"1\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$direction\n[1] \"North\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$length\n[1] \"6\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$color\n[1] \"ORANGE\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$hexcolor\n[1] \"#ff9933\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$delay\n[1] \"64\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$dynamicflag\n[1] \"0\"\n\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]\n$root$station[[1]]$etd[[3]]$estimate[[2]]$minutes\n[1] \"14\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$platform\n[1] \"1\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$direction\n[1] \"North\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$length\n[1] \"10\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$color\n[1] \"RED\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$hexcolor\n[1] \"#ff0000\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$delay\n[1] \"0\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$dynamicflag\n[1] \"0\"\n\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]\n$root$station[[1]]$etd[[3]]$estimate[[3]]$minutes\n[1] \"25\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$platform\n[1] \"1\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$direction\n[1] \"North\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$length\n[1] \"6\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$color\n[1] \"ORANGE\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$hexcolor\n[1] \"#ff9933\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$delay\n[1] \"0\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$dynamicflag\n[1] \"0\"\n\n\n\n\n\n\n\n$root$message\n[1] \"\""
+    "text": "data &lt;- resp_body_json(res, simplifyVector = FALSE)\ndata\n\n\n\n$`?xml`\n$`?xml`$`@version`\n[1] \"1.0\"\n\n$`?xml`$`@encoding`\n[1] \"utf-8\"\n\n\n$root\n$root$`@id`\n[1] \"1\"\n\n$root$uri\n$root$uri$`#cdata-section`\n[1] \"http://api.bart.gov/api/etd.aspx?cmd=etd&orig=DBRK&json=y\"\n\n\n$root$date\n[1] \"11/16/2026\"\n\n$root$time\n[1] \"02:38:02 PM PST\"\n\n$root$station\n$root$station[[1]]\n$root$station[[1]]$name\n[1] \"Downtown Berkeley\"\n\n$root$station[[1]]$abbr\n[1] \"DBRK\"\n\n$root$station[[1]]$etd\n$root$station[[1]]$etd[[1]]\n$root$station[[1]]$etd[[1]]$destination\n[1] \"Berryessa\"\n\n$root$station[[1]]$etd[[1]]$abbreviation\n[1] \"BERY\"\n\n$root$station[[1]]$etd[[1]]$limited\n[1] \"0\"\n\n$root$station[[1]]$etd[[1]]$estimate\n$root$station[[1]]$etd[[1]]$estimate[[1]]\n$root$station[[1]]$etd[[1]]$estimate[[1]]$minutes\n[1] \"Leaving\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$platform\n[1] \"2\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$direction\n[1] \"South\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$length\n[1] \"6\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$color\n[1] \"ORANGE\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$hexcolor\n[1] \"#ff9933\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$delay\n[1] \"0\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$dynamicflag\n[1] \"0\"\n\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]\n$root$station[[1]]$etd[[1]]$estimate[[2]]$minutes\n[1] \"20\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$platform\n[1] \"2\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$direction\n[1] \"South\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$length\n[1] \"5\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$color\n[1] \"ORANGE\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$hexcolor\n[1] \"#ff9933\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$delay\n[1] \"0\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$dynamicflag\n[1] \"0\"\n\n\n$root$station[[1]]$etd[[1]]$estimate[[3]]\n$root$station[[1]]$etd[[1]]$estimate[[3]]$minutes\n[1] \"40\"\n\n$root$station[[1]]$etd[[1]]$estimate[[3]]$platform\n[1] \"2\"\n\n$root$station[[1]]$etd[[1]]$estimate[[3]]$direction\n[1] \"South\"\n\n$root$station[[1]]$etd[[1]]$estimate[[3]]$length\n[1] \"5\"\n\n$root$station[[1]]$etd[[1]]$estimate[[3]]$color\n[1] \"ORANGE\"\n\n$root$station[[1]]$etd[[1]]$estimate[[3]]$hexcolor\n[1] \"#ff9933\"\n\n$root$station[[1]]$etd[[1]]$estimate[[3]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[1]]$estimate[[3]]$delay\n[1] \"0\"\n\n$root$station[[1]]$etd[[1]]$estimate[[3]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[1]]$estimate[[3]]$dynamicflag\n[1] \"0\"\n\n\n\n\n$root$station[[1]]$etd[[2]]\n$root$station[[1]]$etd[[2]]$destination\n[1] \"Millbrae\"\n\n$root$station[[1]]$etd[[2]]$abbreviation\n[1] \"MLBR\"\n\n$root$station[[1]]$etd[[2]]$limited\n[1] \"0\"\n\n$root$station[[1]]$etd[[2]]$estimate\n$root$station[[1]]$etd[[2]]$estimate[[1]]\n$root$station[[1]]$etd[[2]]$estimate[[1]]$minutes\n[1] \"9\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$platform\n[1] \"2\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$direction\n[1] \"South\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$length\n[1] \"10\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$color\n[1] \"RED\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$hexcolor\n[1] \"#ff0000\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$delay\n[1] \"65\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$dynamicflag\n[1] \"0\"\n\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]\n$root$station[[1]]$etd[[2]]$estimate[[2]]$minutes\n[1] \"27\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$platform\n[1] \"2\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$direction\n[1] \"South\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$length\n[1] \"10\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$color\n[1] \"RED\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$hexcolor\n[1] \"#ff0000\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$delay\n[1] \"0\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$dynamicflag\n[1] \"0\"\n\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]\n$root$station[[1]]$etd[[2]]$estimate[[3]]$minutes\n[1] \"47\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$platform\n[1] \"2\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$direction\n[1] \"South\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$length\n[1] \"10\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$color\n[1] \"RED\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$hexcolor\n[1] \"#ff0000\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$delay\n[1] \"0\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$dynamicflag\n[1] \"0\"\n\n\n\n\n$root$station[[1]]$etd[[3]]\n$root$station[[1]]$etd[[3]]$destination\n[1] \"Richmond\"\n\n$root$station[[1]]$etd[[3]]$abbreviation\n[1] \"RICH\"\n\n$root$station[[1]]$etd[[3]]$limited\n[1] \"0\"\n\n$root$station[[1]]$etd[[3]]$estimate\n$root$station[[1]]$etd[[3]]$estimate[[1]]\n$root$station[[1]]$etd[[3]]$estimate[[1]]$minutes\n[1] \"9\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$platform\n[1] \"1\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$direction\n[1] \"North\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$length\n[1] \"5\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$color\n[1] \"ORANGE\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$hexcolor\n[1] \"#ff9933\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$delay\n[1] \"179\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$dynamicflag\n[1] \"0\"\n\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]\n$root$station[[1]]$etd[[3]]$estimate[[2]]$minutes\n[1] \"17\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$platform\n[1] \"1\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$direction\n[1] \"North\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$length\n[1] \"10\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$color\n[1] \"RED\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$hexcolor\n[1] \"#ff0000\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$delay\n[1] \"128\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$dynamicflag\n[1] \"0\"\n\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]\n$root$station[[1]]$etd[[3]]$estimate[[3]]$minutes\n[1] \"26\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$platform\n[1] \"1\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$direction\n[1] \"North\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$length\n[1] \"5\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$color\n[1] \"ORANGE\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$hexcolor\n[1] \"#ff9933\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$delay\n[1] \"0\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$dynamicflag\n[1] \"0\"\n\n\n\n\n\n\n\n$root$message\n[1] \"\""
   },
   {
     "objectID": "31-apis-1/slides.html#apis-another-data-product",
@@ -1867,14 +1875,14 @@
     "href": "21-date-time-1/slides.html#section-8",
     "title": "Dates and Times I",
     "section": "",
-    "text": "POSIXct\n\n\nPOSIXct (Portable Operating System Interface Calendar Time) is an atomic vector to store date-times that is built on top of a double vector.\n\n\n\n\nnow &lt;- Sys.time()\nnow\n\n\n\n[1] \"2026-11-16 16:38:50 UTC\"\n\n\n\n\n\nclass(now)\n\n\n\n[1] \"POSIXct\" \"POSIXt\""
+    "text": "POSIXct\n\n\nPOSIXct (Portable Operating System Interface Calendar Time) is an atomic vector to store date-times that is built on top of a double vector.\n\n\n\n\nnow &lt;- Sys.time()\nnow\n\n\n\n[1] \"2026-11-16 22:37:34 UTC\"\n\n\n\n\n\nclass(now)\n\n\n\n[1] \"POSIXct\" \"POSIXt\""
   },
   {
     "objectID": "21-date-time-1/slides.html#why-not-just-use-a-double-vector",
     "href": "21-date-time-1/slides.html#why-not-just-use-a-double-vector",
     "title": "Dates and Times I",
     "section": "Why not just use a double vector?",
-    "text": "Why not just use a double vector?\n\n\n# it prints as a legible string\nnow\n\n\n\n[1] \"2026-11-16 16:38:50 UTC\"\n\n\n\n\n\n# while respecting artithmetic\nnow + 1\n\n\n\n[1] \"2026-11-16 16:38:51 UTC\"\n\n\n\n\n\n# and other sensible operations\nround(now, units = \"hours\")\n\n\n\n[1] \"2026-11-16 17:00:00 UTC\"\n\n\n\n\n\n# and makes it easy to use other formats\nformat(now, \"%m/%d/%y\")\n\n\n\n[1] \"11/16/26\""
+    "text": "Why not just use a double vector?\n\n\n# it prints as a legible string\nnow\n\n\n\n[1] \"2026-11-16 22:37:34 UTC\"\n\n\n\n\n\n# while respecting artithmetic\nnow + 1\n\n\n\n[1] \"2026-11-16 22:37:35 UTC\"\n\n\n\n\n\n# and other sensible operations\nround(now, units = \"hours\")\n\n\n\n[1] \"2026-11-16 23:00:00 UTC\"\n\n\n\n\n\n# and makes it easy to use other formats\nformat(now, \"%m/%d/%y\")\n\n\n\n[1] \"11/16/26\""
   },
   {
     "objectID": "21-date-time-1/slides.html#section-9",
@@ -1944,7 +1952,7 @@
     "href": "21-date-time-1/slides.html#setting",
     "title": "Dates and Times I",
     "section": "Setting",
-    "text": "Setting\nYou can set those same components in an existing date-time object using change-in-place notation.\n\n\nyear(now) &lt;- 2027\nnow\n\n\n\n[1] \"2027-11-16 16:38:50 UTC\"\n\n\n\n\n\nwday(now, label = TRUE, abbr = FALSE)\n\n\n\n[1] Tuesday\n7 Levels: Sunday &lt; Monday &lt; Tuesday &lt; Wednesday &lt; Thursday &lt; ... &lt; Saturday"
+    "text": "Setting\nYou can set those same components in an existing date-time object using change-in-place notation.\n\n\nyear(now) &lt;- 2027\nnow\n\n\n\n[1] \"2027-11-16 22:37:34 UTC\"\n\n\n\n\n\nwday(now, label = TRUE, abbr = FALSE)\n\n\n\n[1] Tuesday\n7 Levels: Sunday &lt; Monday &lt; Tuesday &lt; Wednesday &lt; Thursday &lt; ... &lt; Saturday"
   },
   {
     "objectID": "21-date-time-1/slides.html#your-turn-1",
@@ -4667,7 +4675,7 @@
     "href": "07-control-flow/slides.html#a-random-condition-in-r",
     "title": "Control Flow",
     "section": "A random condition in R",
-    "text": "A random condition in R\n\n\nsample(x = -10:10, size = 1)\n\n\n\n[1] 6\n\n\n\n\nsample() will randomly sample 1 element from the vector x."
+    "text": "A random condition in R\n\n\nsample(x = -10:10, size = 1)\n\n\n\n[1] -4\n\n\n\n\nsample() will randomly sample 1 element from the vector x."
   },
   {
     "objectID": "07-control-flow/slides.html#section-1",
@@ -4723,35 +4731,35 @@
     "href": "07-control-flow/slides.html#what-if-x-has-multiple-elements",
     "title": "Control Flow",
     "section": "What if x has multiple elements?",
-    "text": "What if x has multiple elements?\n\n\nx &lt;- rnorm(3)\nx\n\n\n\n[1] -1.3987513  0.1346237 -0.6657293\n\n\n\n\n\n\n\n\n\n\n      if (x &gt; 0) {\n        print(\"x is positive :)\")\n      }"
+    "text": "What if x has multiple elements?\n\n\nx &lt;- rnorm(3)\nx\n\n\n\n[1]  0.6419838  0.7650728 -0.6524063\n\n\n\n\n\n\n\n\n\n\n      if (x &gt; 0) {\n        print(\"x is positive :)\")\n      }"
   },
   {
     "objectID": "07-control-flow/slides.html#option-1",
     "href": "07-control-flow/slides.html#option-1",
     "title": "Control Flow",
     "section": "Option 1",
-    "text": "Option 1\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(\"x is positive :)\")\n  }\n}\n\n\n\n[1] \"x is positive :)\""
+    "text": "Option 1\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(\"x is positive :)\")\n  }\n}\n\n\n\n[1] \"x is positive :)\"\n[1] \"x is positive :)\""
   },
   {
     "objectID": "07-control-flow/slides.html#option-2",
     "href": "07-control-flow/slides.html#option-2",
     "title": "Control Flow",
     "section": "Option 2",
-    "text": "Option 2\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(paste(\"element\", i, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"element 2 is positive :)\""
+    "text": "Option 2\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(paste(\"element\", i, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"element 1 is positive :)\"\n[1] \"element 2 is positive :)\""
   },
   {
     "objectID": "07-control-flow/slides.html#option-3",
     "href": "07-control-flow/slides.html#option-3",
     "title": "Control Flow",
     "section": "Option 3",
-    "text": "Option 3\n\nfor (x_elem in x) {\n  if (x_elem &gt; 0) {\n    print(paste(x_elem, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"0.134623661323657 is positive :)\""
+    "text": "Option 3\n\nfor (x_elem in x) {\n  if (x_elem &gt; 0) {\n    print(paste(x_elem, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"0.641983752350511 is positive :)\"\n[1] \"0.765072803730238 is positive :)\""
   },
   {
     "objectID": "07-control-flow/slides.html#ifelse",
     "href": "07-control-flow/slides.html#ifelse",
     "title": "Control Flow",
     "section": "ifelse()",
-    "text": "ifelse()\n\n\nifelse()\n\n\nA vectorized if-else: applies a condition to every element of a vector at once, without an explicit loop.\n\n\n\n\nx &lt; 0 \n\n\n\n[1]  TRUE FALSE  TRUE\n\n\n\n\n\nifelse(test = x &lt; 0, yes = \"is positive :)\", no = \"is negative :(\")\n\n\n\n[1] \"is positive :)\" \"is negative :(\" \"is positive :)\""
+    "text": "ifelse()\n\n\nifelse()\n\n\nA vectorized if-else: applies a condition to every element of a vector at once, without an explicit loop.\n\n\n\n\nx &lt; 0 \n\n\n\n[1] FALSE FALSE  TRUE\n\n\n\n\n\nifelse(test = x &lt; 0, yes = \"is positive :)\", no = \"is negative :(\")\n\n\n\n[1] \"is negative :(\" \"is negative :(\" \"is positive :)\""
   },
   {
     "objectID": "07-control-flow/slides.html#guess-the-metaphor",
@@ -7435,134 +7443,134 @@
     "text": "Key Ideas for Today\n\nAn endpoint is a function the server runs.\nPlumber annotations turn R functions into endpoints.\nA serializer sets the format of the response.\nGET sends data in the URL; POST sends it in the body.\n\n\nFor Next Time\n\nPS 6 due 11/14.\nSign up for Quiz 6 (11/16-11/17).\nNo class Wednesday (Veterans Day); next time: LLMs."
   },
   {
-    "objectID": "34-llms-in-ides/slides.html#section",
-    "href": "34-llms-in-ides/slides.html#section",
+    "objectID": "34-completion-and-context/slides.html#section",
+    "href": "34-completion-and-context/slides.html#section",
     "title": "Completion and Context",
     "section": "",
     "text": "Last Time\n\nAn LLM predicts the next token.\nIt learns its probabilities from vast text.\nA chat app is a client of an LLM’s API.\nSend a prompt from the shell or from R.\n\n\nKey Ideas for Today\n\nCode completion predicts your next tokens.\nAn LLM API is stateless.\nContext is all the text sent with a request.\nA system prompt leads every request."
   },
   {
-    "objectID": "34-llms-in-ides/slides.html#informal-next-code-prediction",
-    "href": "34-llms-in-ides/slides.html#informal-next-code-prediction",
+    "objectID": "34-completion-and-context/slides.html#informal-next-code-prediction",
+    "href": "34-completion-and-context/slides.html#informal-next-code-prediction",
     "title": "Completion and Context",
     "section": "Informal Next Code Prediction",
     "text": "Informal Next Code Prediction\n\nI will show you three commands, one at a time, each one unfinished.\nYou will have 10 seconds to predict the characters that best complete it.\nHere, “best” means the characters most likely to appear next, given what came before, when you look at all code on GitHub."
   },
   {
-    "objectID": "34-llms-in-ides/slides.html#predict-the-code",
-    "href": "34-llms-in-ides/slides.html#predict-the-code",
+    "objectID": "34-completion-and-context/slides.html#predict-the-code",
+    "href": "34-completion-and-context/slides.html#predict-the-code",
     "title": "Completion and Context",
     "section": "",
     "text": "my_list &lt;- list(1:2, data.frame(v1 = c(\"a\", \"b\"), v2 = c(T, F)))\nsecond_el_as_df &lt;- my_list[\n\n\n  \n    −\n    +\n \n 00:10\n \n\n\n\nlibrary(palmerpenguins)\nggplot(penguins, aes(x = body_mass_g, y = species)) +\n  geom_\n\n\n  \n    −\n    +\n \n 00:10\n \n\n\n\nsample(1:5, 3,\n\n\n  \n    −\n    +\n \n 00:10"
   },
   {
-    "objectID": "34-llms-in-ides/slides.html#section-5",
-    "href": "34-llms-in-ides/slides.html#section-5",
+    "objectID": "34-completion-and-context/slides.html#section-5",
+    "href": "34-completion-and-context/slides.html#section-5",
     "title": "Completion and Context",
     "section": "",
     "text": "Code Completion\n\n\nA feature of an IDE that sends the code around your cursor to an LLM and shows the predicted next tokens as a suggestion, which you can accept or ignore.\n\n\n\nIn Positron:\n\nSuggestions appear in grey as you type.\nTab accepts, Esc dismisses, or just keep typing.\nWorks in R scripts, Quarto documents, and the console."
   },
   {
-    "objectID": "34-llms-in-ides/slides.html#before-you-press-tab",
-    "href": "34-llms-in-ides/slides.html#before-you-press-tab",
+    "objectID": "34-completion-and-context/slides.html#before-you-press-tab",
+    "href": "34-completion-and-context/slides.html#before-you-press-tab",
     "title": "Completion and Context",
     "section": "Before you press Tab",
     "text": "Before you press Tab\nA suggestion is the likely next code. Whether it’s the right next code depends on what you’re trying to do.\n\n\n# draw a 3-card hand from a 5-card deck\nhand &lt;- sample(1:5, 3, replace = TRUE)\n\n\n\n\n\n\n\nDoes this code run? Does it do what the comment says?"
   },
   {
-    "objectID": "34-llms-in-ides/slides.html#recall-paris",
-    "href": "34-llms-in-ides/slides.html#recall-paris",
+    "objectID": "34-completion-and-context/slides.html#recall-paris",
+    "href": "34-completion-and-context/slides.html#recall-paris",
     "title": "Completion and Context",
     "section": "Recall Paris…",
     "text": "Recall Paris…\n\nlibrary(ellmer)\n\nclaude &lt;- chat_claude(model = \"claude-haiku-5-5\")\nclaude$chat(\"The capital of France is\")\n\n\n\n\nThe capital of France is Paris.\n\n\nclaude$chat(\"What is the biggest city?\")\n\n\n\n\n\n\nThe biggest city in France is Paris. It has about 2.1 million residents\nwithin its city limits, and its metropolitan area has roughly 12 to 13\nmillion people."
   },
   {
-    "objectID": "34-llms-in-ides/slides.html#a-new-chat",
-    "href": "34-llms-in-ides/slides.html#a-new-chat",
+    "objectID": "34-completion-and-context/slides.html#a-new-chat",
+    "href": "34-completion-and-context/slides.html#a-new-chat",
     "title": "Completion and Context",
     "section": "A new chat",
     "text": "A new chat\n\n\nclaude2 &lt;- chat_claude(model = \"claude-haiku-5-5\")\nclaude2$chat(\"What is the biggest city?\")\n\n\n\n\n\n\nIt depends on how you measure \"city\":\n\n- Largest metropolitan area: Tokyo, Japan, with about 37 million people\n  in its greater metropolitan area.\n- Largest city proper (administrative limits): Chongqing, China, with\n  about 32 million people, though much of that population is rural.\n- Largest by area: Chongqing (administrative area of about 82,000 km²).\n\nIf you meant a specific country or measure, let me know.\n\n\n\n\nSame model, same prompt, different answer. What differed?"
   },
   {
-    "objectID": "34-llms-in-ides/slides.html#where-is-the-memory",
-    "href": "34-llms-in-ides/slides.html#where-is-the-memory",
+    "objectID": "34-completion-and-context/slides.html#where-is-the-memory",
+    "href": "34-completion-and-context/slides.html#where-is-the-memory",
     "title": "Completion and Context",
     "section": "Where is the memory?",
     "text": "Where is the memory?\n\nclaude\n\n\n\n\n\n&lt;Chat Anthropic/claude-haiku-5-5 turns=4 input=52 output=128&gt;\n── user ──────────────────────────────────────────────────────────\nThe capital of France is\n── assistant [input=14 output=14] ────────────────────────────────\nThe capital of France is **Paris**.\n── user ──────────────────────────────────────────────────────────\nWhat is the biggest city?\n── assistant [input=38 output=114] ───────────────────────────────\nThe biggest city in France is **Paris**. It has about 2.1 million\nresidents within its city limits, and its metropolitan area has\nroughly 12 to 13 million people."
   },
   {
-    "objectID": "34-llms-in-ides/slides.html#the-second-request",
-    "href": "34-llms-in-ides/slides.html#the-second-request",
+    "objectID": "34-completion-and-context/slides.html#the-second-request",
+    "href": "34-completion-and-context/slides.html#the-second-request",
     "title": "Completion and Context",
     "section": "The second request",
     "text": "The second request\n\n{\n  \"model\": \"claude-haiku-5-5\",\n  \"messages\": [\n    {\"role\": \"user\",\n     \"content\": \"The capital of France is\"},\n    {\"role\": \"assistant\",\n     \"content\": \"The capital of France is **Paris**.\"},\n    {\"role\": \"user\",\n     \"content\": \"What is the biggest city?\"}\n  ]\n}"
   },
   {
-    "objectID": "34-llms-in-ides/slides.html#section-7",
-    "href": "34-llms-in-ides/slides.html#section-7",
+    "objectID": "34-completion-and-context/slides.html#section-7",
+    "href": "34-completion-and-context/slides.html#section-7",
     "title": "Completion and Context",
     "section": "",
     "text": "Stateless\n\n\nA server is stateless if it keeps nothing from one request to the next. An LLM API is stateless: to continue a conversation, the client sends the whole conversation again.\n\n\n\nYour turn. I run a third line:\n\nclaude$chat(\"How far is it from Berkeley?\")\n\n\n\n\nWrite the role of each message in the request, in order. How many are there?\n\n  \n    −\n    +\n \n 01:00"
   },
   {
-    "objectID": "34-llms-in-ides/slides.html#section-8",
-    "href": "34-llms-in-ides/slides.html#section-8",
+    "objectID": "34-completion-and-context/slides.html#section-8",
+    "href": "34-completion-and-context/slides.html#section-8",
     "title": "Completion and Context",
     "section": "",
     "text": "Context\n\n\nAll of the text that a model reads when it generates a response: the instructions, the earlier turns of the conversation, and any code, data, or documentation sent along with the prompt.\n\n\n\nThe model has two sources for an answer:\n\nwhat it learned in training (fixed, and the same for everyone);\nwhat is in the context (chosen by the client, for each request)."
   },
   {
-    "objectID": "34-llms-in-ides/slides.html#a-question-with-no-instructions",
-    "href": "34-llms-in-ides/slides.html#a-question-with-no-instructions",
+    "objectID": "34-completion-and-context/slides.html#a-question-with-no-instructions",
+    "href": "34-completion-and-context/slides.html#a-question-with-no-instructions",
     "title": "Completion and Context",
     "section": "A question, with no instructions",
     "text": "A question, with no instructions\n\n\n\nplain &lt;- chat_claude(model = \"claude-haiku-5-5\")\nplain$chat(\n  \"How do I find the mean body mass for each species of penguin in R?\"\n)\n\n\n\n\n\n\n\nThe easiest way is with `dplyr`:\n\n```r\npenguins %&gt;%\n  group_by(species) %&gt;%\n  summarise(mean_body_mass = mean(body_mass_g, na.rm = TRUE))\n```\n\n**Base R alternative**:\n\n```r\ntapply(penguins$body_mass_g, penguins$species, mean, na.rm = TRUE)\n```"
   },
   {
-    "objectID": "34-llms-in-ides/slides.html#the-same-question-with-a-system-prompt",
-    "href": "34-llms-in-ides/slides.html#the-same-question-with-a-system-prompt",
+    "objectID": "34-completion-and-context/slides.html#the-same-question-with-a-system-prompt",
+    "href": "34-completion-and-context/slides.html#the-same-question-with-a-system-prompt",
     "title": "Completion and Context",
     "section": "The same question, with a system prompt",
     "text": "The same question, with a system prompt\n\n\ntutor &lt;- chat_claude(\n  model = \"claude-haiku-5-5\",\n  system_prompt = \"You are a tutor for Stat 133. Students use the\n    tidyverse and the native pipe. Never write the code for them.\n    Reply in two sentences: name one function to look at, then ask\n    one question.\"\n)\ntutor$chat(\n  \"How do I find the mean body mass for each species of penguin in R?\"\n)\n\n\n\n\n\n\n\nLook at `group_by()` and `summarize()` from dplyr, since grouping by\nspecies and then summarizing the mean of body mass is the key idea. What\ndo you think the grouping variable should be called in the penguins\ndataset, and which column holds body mass?"
   },
   {
-    "objectID": "34-llms-in-ides/slides.html#section-9",
-    "href": "34-llms-in-ides/slides.html#section-9",
+    "objectID": "34-completion-and-context/slides.html#section-9",
+    "href": "34-completion-and-context/slides.html#section-9",
     "title": "Completion and Context",
     "section": "",
     "text": "System Prompt\n\n\nInstructions that the client places at the start of the context and sends with every request. It sets the model’s role, its conventions, and what it should and shouldn’t do.\n\n\n\n\n{\n  \"model\": \"claude-haiku-5-5\",\n  \"system\": \"You are a tutor for Stat 133. Students use the ...\",\n  \"messages\": [\n    {\"role\": \"user\",\n     \"content\": \"How do I find the mean body mass for each ...\"}\n  ]\n}"
   },
   {
-    "objectID": "34-llms-in-ides/slides.html#what-about-your-data",
-    "href": "34-llms-in-ides/slides.html#what-about-your-data",
+    "objectID": "34-completion-and-context/slides.html#what-about-your-data",
+    "href": "34-completion-and-context/slides.html#what-about-your-data",
     "title": "Completion and Context",
     "section": "What about your data?",
     "text": "What about your data?\n\nlibrary(tibble)\nbake_sale &lt;- tibble(item  = c(\"cookie\", \"brownie\", \"scone\"),\n                    price = c(2, 3, 2.5),\n                    sold  = c(40, 25, 12))\n\n\n\n\n\n\nclaude3 &lt;- chat_claude(model = \"claude-haiku-5-5\")\nclaude3$chat(\"What was the total revenue from my bake sale?\")\n\n\n\n\n\n\n\nWhat will it say?\n\n\n\n\nI don't have any information about your bake sale. I can't see sales\nrecords, receipts, or files unless you share them here."
   },
   {
-    "objectID": "34-llms-in-ides/slides.html#put-the-data-in-the-context",
-    "href": "34-llms-in-ides/slides.html#put-the-data-in-the-context",
+    "objectID": "34-completion-and-context/slides.html#put-the-data-in-the-context",
+    "href": "34-completion-and-context/slides.html#put-the-data-in-the-context",
     "title": "Completion and Context",
     "section": "Put the data in the context",
     "text": "Put the data in the context\n\n\nlibrary(readr)\nformat_csv(bake_sale) |&gt; cat()\n\n\n\nitem,price,sold\ncookie,2,40\nbrownie,3,25\nscone,2.5,12\n\n\n\n\n\n\nclaude3$chat(\n  \"Here is my bake sale data:\",\n  format_csv(bake_sale),\n  \"What was the total revenue from my bake sale?\",\n  \"Answer in one sentence.\"\n)\n\n\n\n\n\n\n\n\nYour bake sale brought in a total revenue of $185 (cookies $80,\nbrownies $75, scones $30)."
   },
   {
-    "objectID": "34-llms-in-ides/slides.html#is-it-right",
-    "href": "34-llms-in-ides/slides.html#is-it-right",
+    "objectID": "34-completion-and-context/slides.html#is-it-right",
+    "href": "34-completion-and-context/slides.html#is-it-right",
     "title": "Completion and Context",
     "section": "Is it right?",
     "text": "Is it right?\nThe model produced $185 the way it produces every token: by prediction.\n\nYour turn. Compute the total revenue from bake_sale yourself, with a dplyr pipeline.\n\n  \n    −\n    +\n \n 01:00\n \n\n\n\nlibrary(dplyr)\nbake_sale |&gt;\n  summarize(revenue = sum(price * sold))\n\n\n\n# A tibble: 1 × 1\n  revenue\n    &lt;dbl&gt;\n1     185"
   },
   {
-    "objectID": "34-llms-in-ides/slides.html#guess-the-metaphor",
-    "href": "34-llms-in-ides/slides.html#guess-the-metaphor",
+    "objectID": "34-completion-and-context/slides.html#guess-the-metaphor",
+    "href": "34-completion-and-context/slides.html#guess-the-metaphor",
     "title": "Completion and Context",
     "section": "Guess the Metaphor",
     "text": "Guess the Metaphor\n\n\n\nAn LLM is like a judge: it rules only on what’s entered into the record (the context). At every hearing, the clerk reads the whole record aloud again, starting with the law posted above the bench (the system prompt)."
   },
   {
-    "objectID": "34-llms-in-ides/slides.html#section-12",
-    "href": "34-llms-in-ides/slides.html#section-12",
+    "objectID": "34-completion-and-context/slides.html#section-12",
+    "href": "34-completion-and-context/slides.html#section-12",
     "title": "Completion and Context",
     "section": "",
     "text": "Key Ideas for Today\n\nCode completion predicts your next tokens.\nAn LLM API is stateless.\nContext is all the text sent with a request.\nA system prompt leads every request.\n\n\nFor Next Time\n\nQuiz 6 is today and tomorrow.\nProject Studio 5 this week.\nNext time: how a model runs code."

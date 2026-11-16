@@ -3,7 +3,7 @@ title: "PS 7"
 format: html
 ---
 
-### LLMs
+### LLM via API
 
 OpenRouter is a service that provides access to many LLMs through a web app and an API. Some are paid, others are free up to a certain number of queries. Set up an account at [OpenRouter](https://openrouter.ai/) using your GitHub account and create an API key[^key]. I suggest setting your usage limit to $0 and using only the free models. Copy your API key when it is created: OpenRouter shows it only once.
 
@@ -23,11 +23,11 @@ export OPENROUTER_API_KEY="paste-your-key-here"
 
 * * *
 
-At the bottom of the page, it shows example API calls in several programming languages. Copy the `curl` example paste it into a JSON file in Positron (create a new file and give it a .JSON file extension). You can select all of the contents of that file, right click it, and select "Format Document" to make it more readable.
+At the bottom of the page, it shows example API calls in several programming languages. Copy the `curl` example and paste it into a JSON file in Positron (create a new file and give it a `.json` file extension). You can select all of the contents of that file, right click it, and select "Format Document" to make it more readable.
 
 @. What is the endpoint URL for the API call?
 
-@. "Headers" (indicated with `-H`) are similar to parameters included in the URL of a GET request. What are the names of the header that you will pass and what are their values?
+@. "Headers" (indicated with `-H`) are similar to parameters included in the URL of a GET request. What are the names of the headers that you will pass and what are their values?
 
 @. The data that your computer sends with the request is flagged with `-d` and is sent as a JSON object. What are the names of the keys in this object?
 
@@ -55,23 +55,25 @@ Sys.setenv(OPENROUTER_API_KEY = "paste-your-key-here")
 
 @. Use `or1` to send the prompt "The capital of Canada is". What is the response?
 
+* * *
+
+(Optional but cool): Most models have a standard set of other parameters that you can send that will determine how the model generates its text response. You can explore these by reading `?chat_openrouter()`. Max tokens is the maximum length of the response (in tokens, where 1 token is roughly 4 characters of text). Temperature controls how "creative" the model is allowed to be: a temperature of 0 means it will always pick the most likely next token, while values closer to 2 will make it more likely to pick less probable tokens, resulting in more varied and creative responses. You pass these parameters as a named list to the `params` argument of `chat_openrouter()`.
+
+@. Create a new chat object called `or3` that uses the "google/gemma-4-31b-it:free" model but sets the `temperature` parameter to 2 and the `max_tokens` parameter to 500. Use `or3` to send the prompt "Describe new types of punctuation and the emotions they evoke". Initialize `or3` again and send the same prompt several times to get a sense of how the responses vary. Change the temperature of `or3` to 0 and send the same query several times. Write your observations below.
+
+### Completion and Context
+
+These problems continue with `or1` from the last section, which you asked for the capital of Canada. If you've started a new R session, set the key again with `Sys.setenv()` at the console, then create `or1` again and resend that prompt.
+
 @. Use `or1` to send a second prompt: "What is the most popular sport?". Write the gist of the response below.
 
-@. Create a second chat object called `or2` using the same model. Send the same prompt: "What is the most popular sport?. How does the response compare to the one from `or1`?
+@. Create a second chat object called `or2` using the same model. Send the same prompt: "What is the most popular sport?". How does the response compare to the one from `or1`?
 
 @. Print `or1` and `or2` at the console. How does this explain the difference in responses?
 
 * * *
 
-(Optional but cool): Most models have a standard set of other parameters that you can send that will determin how the model generates its text response. You can explore these by reading `?chat_openrouter()`. Max tokens is the maximum length of the response (in tokens, where 1 token is roughly 4 characters of text). Temperature controls how "creative" the model is allowed to be: a temperature of 0 means it will always pick the most likely next token, while values closer to 2 will make it more likely to pick less probable tokens, resulting in more varied and creative responses. You pass these parameters as a named list to the `params` argument of `chat_openrouter()`.
-
-@. Create a new chat object called `or3` that uses the "google/gemma-4-31b-it:free" model but sets the `temperature` parameter to 2 and the `max_tokens` parameter to 500. Use `or3` to send the prompt "Describe new types of punctuation and the emotions they evoke". Resend initialize `or3` and send the same prompt several times to get a sense of how the responses vary. Change the temperate of `or3` to 0 and send the same query several times. Write your observations below.
-
-### Completion and Context
-
-These problems use the `OPENROUTER_API_KEY` and the free model from the last section. If you've started a new R session, set the key again with `Sys.setenv()` at the console.
-
-@. In the last section you printed `or1` after sending it two prompts. Each assistant turn is labeled with `input=` and `output=`, counted in tokens. Which turn had the larger `input`? Explain why, using what the client sends with each request.
+@. Look again at the printout of `or1`, which holds two prompts and their answers. Each assistant turn is labeled with `input=` and `output=`, counted in tokens. Which turn had the larger `input`? Explain why, using what the client sends with each request.
 
 @. Without running it, suppose you send `or1` a third prompt: "Where is it played the most?". List the `role` of every message in the body of that request, in order.
 
@@ -108,19 +110,6 @@ scores <- tibble(student = c("Ana", "Ben", "Chen", "Dee", "Eli"),
 
 * * *
 
-(Optional, for those with code completion set up in Positron or RStudio; see the instructions on Ed.)
+(Optional, for those with code completion set up in Positron or RStudio)
 
 @. In an empty R script, type the comment `# a function that returns the mean and sd of a numeric vector as a named list` and start a new line. Before accepting any suggestion, write down the first line that you expect. Then accept the suggestions until the function is complete. Where did the suggestion differ from what you expected, and is the suggested function correct when the vector contains an `NA`?
-
-### A World of Abstraction
-
-In lecture we looked through the log of the exchange of text data between me on my laptop and the LLM (i.e. DataBot).
-
-- [Conversation HTML file](/35-abstraction/conversation-export.html)
-- [Conversation JSON file](/35-abstraction/conversation-export.json)
-
-The first substantive (although poorly spelled) request that I made was: "I'm working on my gerrmadering prooject. could you please load the g24 sv precinct data and tell me a bit about it?". We saw how the result was impressive (it found the issue with `***`) but also faulty: it didn't catch that some of the rows were totals of other rows, so it greatly overstated the number of votes.
-
-In the space below, rewrite this prompt in a way that you think will give the model a better chance of finding the issue with the row totals. Your rewrite shouldn't show that you already know the answer (e.g. "some rows are totals of other rows"), but it should guide the model to think more carefully about the data.
-
-If you have access to DataBot, you can start it in your project directory (or a new clone of the project repository) and try your prompt there. Is the response fully correct? Are there any other issues that occurred?
