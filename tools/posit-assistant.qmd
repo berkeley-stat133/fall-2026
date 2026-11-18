@@ -1,0 +1,120 @@
+---
+title: "Posit Assistant"
+page-layout: full
+toc: false
+body-classes: tools-page
+---
+
+![](images/posit-assistant.png){.tool-logo height=84 fig-alt="Posit Assistant logo"}
+
+**Posit Assistant** is an AI agent built into [Positron](positron.qmd). You
+chat with it in a panel beside your code, and, unlike a plain chat window, it
+can act: it reads the files in your folder, looks at the objects in your R
+session, runs R code and shell commands, and edits files. You decide how much
+of that it may do without asking.
+
+Posit Assistant needs a language model to work with. In Stat 133 we use the
+models that come with [GitHub Copilot](code-completion.qmd).
+
+## 1. Before you start
+
+- Follow the [GitHub Copilot](code-completion.qmd) guide through step 3, so that
+  Copilot is on for your GitHub account and connected to Positron. That
+  connection is all Posit Assistant needs; there's no separate key.
+- Open a project folder in Positron (**File → Open Folder**). Posit Assistant
+  works inside the open folder.
+- If Positron shows a **Restricted Mode** bar at the top of the window, click
+  **Manage**, then **Trust**, so the assistant can run code in this folder.
+  Only trust folders you created or cloned yourself.
+
+## 2. Open the chat
+
+Click the **Posit Assistant** icon in the activity bar (the column of icons on
+the far left of the window). You can also open the Command Palette
+(<kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> on macOS,
+<kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> on Windows) and run
+**View: Show Posit Assistant**.
+
+The chat panel opens with a text box at the bottom.
+
+## 3. Choose a model
+
+Click the **model picker** in the bottom right of the chat box and choose one of the models listed
+under **GitHub Copilot**.
+
+Each chat message can use several model requests, because the agent works in
+steps. With Copilot Free you get about 50 chat requests a month, so pick a
+smaller, cheaper model while you learn. With Copilot Pro (through GitHub
+Education) you have more room. GitHub lists which models each plan includes
+and how many requests each one costs at
+<https://docs.github.com/en/copilot/concepts/billing/copilot-requests>.
+
+If no GitHub Copilot models appear, run **Posit Assistant: Configure AI
+Providers** from the Command Palette and check that the GitHub Copilot row is
+connected.
+
+## 4. Choose a mode
+
+The **mode picker** in the status bar, at the bottom of the window, sets how
+much the assistant may do on its own:
+
+| Mode | What it does | Type |
+|------|--------------|------|
+| **Ask** | Reads and searches only. It can't edit files or run code; it shows you code to run yourself. | `/ask` |
+| **Normal** | Asks for your approval before it runs code or edits a file. | `/normal` |
+| **Auto** | A second model approves or rejects each action, and asks you only some of the time. This is the default. | `/auto` |
+| **Plan** | Writes a plan for a larger change for you to approve before it starts. | `/plan` |
+
+In this class, use **Ask** or **Normal** while you learn, so that you see every
+action before it happens. You can type the command in the chat box or use the
+picker, and you can switch at any point in a conversation.
+
+## 5. Have a first conversation
+
+Type a message and press <kbd>Return</kbd>. For example, with a script from a
+problem set open:
+
+```
+What does each pipeline in this file do?
+```
+
+Along with your message, the assistant sends the model **context**:
+
+- **Your R session.** It sees the names and types of the objects in your
+  environment, not their values. Click the **eye** icon in the status bar to
+  turn this off.
+- **Files you mention.** Type `@` in the chat box to pick a file or folder
+  from your project. Click the paperclip to attach a file from elsewhere, or
+  paste an image.
+- **What it looks up.** As it works, it may read more files or run code to
+  inspect your data. Each step shows in the chat.
+
+When it wants to run code or change a file (in Normal mode), it shows you
+exactly what, with buttons to approve or reject. Read it first. You can also
+run something yourself without involving the model: start a message with
+`!r` for R code (`!r summary(penguins)`) or `!` for a shell command
+(`! git status`), and the result joins the conversation.
+
+## 6. Manage the conversation
+
+- **New chat.** Run **Posit Assistant: New Chat** to start fresh. A new chat
+  starts with empty context, which often works better than a long one that has
+  wandered.
+- **Token counter.** The counter in the status bar shows how much of the
+  model's context window the conversation is using. Click it for a breakdown.
+  When the conversation gets close to the limit, the assistant summarizes the
+  earlier messages to make room.
+
+## Tips
+
+- **Commit before you let it edit.** With your work committed in
+  [Git](git.qmd), you can see exactly what the assistant changed
+  (`git diff`) and undo it.
+- **Check its work with code you understand.** The assistant's answers are
+  predictions, like every other model output. Run the code, look at the
+  result, and ask yourself whether it's right.
+- **Give context, not just a question.** Name the data, the columns, and what
+  you've already tried.
+- Posit Assistant changes quickly. If a button or command here has a different
+  name in your version, see the
+  [Posit Assistant docs](https://assistant.posit.co/docs/).
