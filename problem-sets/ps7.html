@@ -81,9 +81,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-0f05cba98e93abd5bfacabf37e46c573.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-da7db8378078b9acee2daab36e777593.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark-da7db8378078b9acee2daab36e777593.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-da7db8378078b9acee2daab36e777593.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-b9142f6425b1dfa0ac920fead2c97321.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-b9142f6425b1dfa0ac920fead2c97321.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-b9142f6425b1dfa0ac920fead2c97321.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/stat133ps-0.1.0/stat133ps.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
@@ -343,6 +343,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#llm-via-api" id="toc-llm-via-api" class="nav-link active" data-scroll-target="#llm-via-api">LLM via API</a></li>
   <li><a href="#completion-and-context" id="toc-completion-and-context" class="nav-link" data-scroll-target="#completion-and-context">Completion and Context</a></li>
+  <li><a href="#tool-calls" id="toc-tool-calls" class="nav-link" data-scroll-target="#tool-calls">Tool Calls</a></li>
   </ul>
 </nav>
     </div>
@@ -479,6 +480,62 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>(Optional, for those with code completion set up in Positron or RStudio)</p>
 <ol start="28" class="example" type="1">
 <li>In an empty R script, type the comment <code># a function that returns the mean and sd of a numeric vector as a named list</code> and start a new line. Before accepting any suggestion, write down the first line that you expect. Then accept the suggestions until the function is complete. Where did the suggestion differ from what you expected, and is the suggested function correct when the vector contains an <code>NA</code>?</li>
+</ol>
+</section>
+<section id="tool-calls" class="level3">
+<h3 class="anchored" data-anchor-id="tool-calls">Tool Calls</h3>
+<p>These problems use <code>chat_openrouter()</code> with the same free model as the last two sections, <code>google/gemma-4-31b-it:free</code>, which supports tools. If Gemma is busy, select another free model to use such as <code>nvidia/nemotron-3.5-super-vl:free</code>. If you’ve started a new R session, check that your key is set (see “Check that it worked” in the <a href="../tools/openrouter.html">OpenRouter guide</a>) and load <code>ellmer</code>.</p>
+<p>In lecture we offered the model a function that predicts a penguin’s body mass from its flipper length:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>predict_mass <span class="ot">&lt;-</span> <span class="cf">function</span>(flipper) {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  new_penguin <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">flipper_length_mm =</span> flipper)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">predict</span>(penguin_model, new_penguin)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>mass_tool <span class="ot">&lt;-</span> <span class="fu">tool</span>(</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  predict_mass,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">name =</span> <span class="st">"predict_mass"</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">description =</span> <span class="st">"Predicts a penguin's body mass, in grams, from its flipper length."</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">arguments =</span> <span class="fu">list</span>(</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">flipper =</span> <span class="fu">type_number</span>(<span class="st">"Flipper length, in mm."</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Here is a chat that has <code>mass_tool</code> registered, printed after one call to <code>$chat()</code>:</p>
+<pre><code>&lt;Chat Anthropic/claude-haiku-5-5 turns=4 input=947 output=83&gt;
+── user ─────────────────────────────────────────────────────────────
+How heavy is a penguin with 210 mm flippers? Answer in one sentence.
+── assistant [input=443 output=51] ──────────────────────────────────
+[tool request (toolu_015GQa...)]: predict_mass(flipper = 210L)
+── user ─────────────────────────────────────────────────────────────
+[tool result  (toolu_015GQa...)]: 4653.1376
+── assistant [input=504 output=32] ──────────────────────────────────
+A penguin with 210 mm flippers is predicted to weigh about 4,653 grams.</code></pre>
+<ol start="29" class="example" type="1">
+<li>For each of the four turns, say who wrote it: the person at the keyboard, the model, or <code>ellmer</code> (which coordinates the tools). Then say how many requests this one call to <code>$chat()</code> sent to the API, and where <code>4653.1376</code> was computed. Last, the first request had <code>input=443</code> tokens, though its question is only about 15 tokens long. What else did the client send with it?</li>
+</ol>
+<hr>
+<ol start="30" class="example" type="1">
+<li>Create a chat object, <code>or6</code>, with no tools, and send it the prompt “Roll two six-sided dice and tell me the total.” What does the response say? Where did its numbers come from?</li>
+</ol>
+<ol start="31" class="example" type="1">
+<li>Write a function, <code>roll_dice()</code>, with arguments <code>n</code> (how many dice) and <code>sides</code> (how many sides each die has), that returns the number on each die. Use <code>sample()</code>, and call it to roll two six-sided dice. Then write <code>dice_tool</code>, a <code>tool()</code> that offers <code>roll_dice()</code> to a model, with a name, a description, and a description and type for each argument.</li>
+</ol>
+<ol start="32" class="example" type="1">
+<li>Create a chat object, <code>dice</code>, register <code>dice_tool</code>, and send it “Roll two six-sided dice and tell me the total.” Print <code>dice</code>. Which turn holds the numbers that R rolled, and does the model’s total match them?</li>
+</ol>
+<ol start="33" class="example" type="1">
+<li>Without running it yet, suppose you now send <code>dice</code> the prompt “Roll them again.” How many requests will that call to <code>$chat()</code> send, if the model calls the tool once? List the <code>role</code> of each message in the <em>last</em> request, in order. Then run it and print <code>dice</code> to check the order of the turns.</li>
+</ol>
+<hr>
+<p>In APIs II you wrote requests to a <code>/babynames</code> endpoint that took a name and a year. A tool can do the same job.</p>
+<ol start="34" class="example" type="1">
+<li>Write a function, <code>name_count()</code>, with arguments <code>babyname</code> and <code>babyyear</code>, that returns the number of babies given that name in that year in the <code>babynames</code> data, girls and boys together. Check it: how many babies were named Taylor in 1993?</li>
+</ol>
+<ol start="35" class="example" type="1">
+<li>Write <code>name_tool</code> for <code>name_count()</code>, register it with a new chat object, <code>names_chat</code>, and ask “How many babies were named Taylor in 1993, and how many in 2013?” Print the chat. What tool calls did the model make, and do its numbers agree with <code>name_count()</code>?</li>
+</ol>
+<hr>
+<ol start="36" class="example" type="1">
+<li><em>Challenging</em>: In APIs I you requested estimated departures from BART’s API and unnested them into one row per train. Write a function, <code>next_trains()</code>, that takes a station’s abbreviation (such as <code>"DBRK"</code>) and returns the destination and minutes until departure of each train, as text from <code>format_csv()</code>. Offer it to a chat as a tool, then ask the chat “When does the next train leave Downtown Berkeley for Richmond?” Check its answer against your function’s output.</li>
 </ol>
 
 

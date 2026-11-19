@@ -101,3 +101,63 @@ scores <- tibble(student = c("Ana", "Ben", "Chen", "Dee", "Eli"),
 (Optional, for those with code completion set up in Positron or RStudio)
 
 @. In an empty R script, type the comment `# a function that returns the mean and sd of a numeric vector as a named list` and start a new line. Before accepting any suggestion, write down the first line that you expect. Then accept the suggestions until the function is complete. Where did the suggestion differ from what you expected, and is the suggested function correct when the vector contains an `NA`?
+
+### Tool Calls
+
+These problems use `chat_openrouter()` with the same free model as the last two sections, `google/gemma-4-31b-it:free`, which supports tools. If Gemma is busy, select another free model to use such as `nvidia/nemotron-3.5-super-vl:free`. If you've started a new R session, check that your key is set (see "Check that it worked" in the [OpenRouter guide](../tools/openrouter.qmd)) and load `ellmer`.
+
+In lecture we offered the model a function that predicts a penguin's body mass from its flipper length:
+
+```r
+predict_mass <- function(flipper) {
+  new_penguin <- tibble(flipper_length_mm = flipper)
+  predict(penguin_model, new_penguin)
+}
+
+mass_tool <- tool(
+  predict_mass,
+  name = "predict_mass",
+  description = "Predicts a penguin's body mass, in grams, from its flipper length.",
+  arguments = list(
+    flipper = type_number("Flipper length, in mm.")
+  )
+)
+```
+
+Here is a chat that has `mass_tool` registered, printed after one call to `$chat()`:
+
+```
+<Chat Anthropic/claude-haiku-5-5 turns=4 input=947 output=83>
+── user ─────────────────────────────────────────────────────────────
+How heavy is a penguin with 210 mm flippers? Answer in one sentence.
+── assistant [input=443 output=51] ──────────────────────────────────
+[tool request (toolu_015GQa...)]: predict_mass(flipper = 210L)
+── user ─────────────────────────────────────────────────────────────
+[tool result  (toolu_015GQa...)]: 4653.1376
+── assistant [input=504 output=32] ──────────────────────────────────
+A penguin with 210 mm flippers is predicted to weigh about 4,653 grams.
+```
+
+@. For each of the four turns, say who wrote it: the person at the keyboard, the model, or `ellmer` (which coordinates the tools). Then say how many requests this one call to `$chat()` sent to the API, and where `4653.1376` was computed. Last, the first request had `input=443` tokens, though its question is only about 15 tokens long. What else did the client send with it?
+
+* * *
+
+@. Create a chat object, `or6`, with no tools, and send it the prompt "Roll two six-sided dice and tell me the total." What does the response say? Where did its numbers come from?
+
+@. Write a function, `roll_dice()`, with arguments `n` (how many dice) and `sides` (how many sides each die has), that returns the number on each die. Use `sample()`, and call it to roll two six-sided dice. Then write `dice_tool`, a `tool()` that offers `roll_dice()` to a model, with a name, a description, and a description and type for each argument.
+
+@. Create a chat object, `dice`, register `dice_tool`, and send it "Roll two six-sided dice and tell me the total." Print `dice`. Which turn holds the numbers that R rolled, and does the model's total match them?
+
+@. Without running it yet, suppose you now send `dice` the prompt "Roll them again." How many requests will that call to `$chat()` send, if the model calls the tool once? List the `role` of each message in the *last* request, in order. Then run it and print `dice` to check the order of the turns.
+
+* * *
+
+In APIs II you wrote requests to a `/babynames` endpoint that took a name and a year. A tool can do the same job.
+
+@. Write a function, `name_count()`, with arguments `babyname` and `babyyear`, that returns the number of babies given that name in that year in the `babynames` data, girls and boys together. Check it: how many babies were named Taylor in 1993?
+
+@. Write `name_tool` for `name_count()`, register it with a new chat object, `names_chat`, and ask "How many babies were named Taylor in 1993, and how many in 2013?" Print the chat. What tool calls did the model make, and do its numbers agree with `name_count()`?
+
+* * *
+
+@. *Challenging*: In APIs I you requested estimated departures from BART's API and unnested them into one row per train. Write a function, `next_trains()`, that takes a station's abbreviation (such as `"DBRK"`) and returns the destination and minutes until departure of each train, as text from `format_csv()`. Offer it to a chat as a tool, then ask the chat "When does the next train leave Downtown Berkeley for Richmond?" Check its answer against your function's output.

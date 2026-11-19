@@ -1873,14 +1873,14 @@
     "href": "22-date-time-2/slides.html#how-old-am-i",
     "title": "Dates and Times II",
     "section": "How old am I?",
-    "text": "How old am I?\n\n\nlibrary(lubridate)\na &lt;- today()\nb &lt;- ymd(\"1983-02-28\")\nclass(a)\n\n\n\n[1] \"Date\"\n\nclass(b)\n\n[1] \"Date\"\n\n\n\n\n\na - b\n\n\n\nTime difference of 15969 days"
+    "text": "How old am I?\n\n\nlibrary(lubridate)\na &lt;- today()\nb &lt;- ymd(\"1983-02-28\")\nclass(a)\n\n\n\n[1] \"Date\"\n\nclass(b)\n\n[1] \"Date\"\n\n\n\n\n\na - b\n\n\n\nTime difference of 15970 days"
   },
   {
     "objectID": "22-date-time-2/slides.html#durations",
     "href": "22-date-time-2/slides.html#durations",
     "title": "Dates and Times II",
     "section": "Durations",
-    "text": "Durations\nSubtraction of two Date vectors -&gt; difftime vector.\n\nclass(a - b)\n\n\n\n[1] \"difftime\"\n\n\n\nA difftime can be recorded in many different units, so better to use lubridate::as.duration() to always record it in seconds.\n\n\n\nmy_age_s &lt;- as.duration(a - b)\nclass(my_age_s)\n\n\n\n[1] \"Duration\"\nattr(,\"package\")\n[1] \"lubridate\"\n\n\n\n\n\nmy_age_s\n\n\n\n[1] \"1379721600s (~43.72 years)\""
+    "text": "Durations\nSubtraction of two Date vectors -&gt; difftime vector.\n\nclass(a - b)\n\n\n\n[1] \"difftime\"\n\n\n\nA difftime can be recorded in many different units, so better to use lubridate::as.duration() to always record it in seconds.\n\n\n\nmy_age_s &lt;- as.duration(a - b)\nclass(my_age_s)\n\n\n\n[1] \"Duration\"\nattr(,\"package\")\n[1] \"lubridate\"\n\n\n\n\n\nmy_age_s\n\n\n\n[1] \"1379808000s (~43.72 years)\""
   },
   {
     "objectID": "22-date-time-2/slides.html#section-2",
@@ -1922,14 +1922,14 @@
     "href": "22-date-time-2/slides.html#how-old-will-i-be",
     "title": "Dates and Times II",
     "section": "How old will I be…",
-    "text": "How old will I be…\nIn a year?\n\n\nmy_age_s\n\n\n\n[1] \"1379721600s (~43.72 years)\"\n\n\n\nmy_age_s + dyears(1) # adding average seconds in a year\n\n\n\n[1] \"1411279200s (~44.72 years)\"\n\n\n\n\n\nmy_age_s + years(1) # adding a calendar year\n\n\n\nError:\n! Incompatible classes: &lt;Duration&gt; + &lt;Period&gt;"
+    "text": "How old will I be…\nIn a year?\n\n\nmy_age_s\n\n\n\n[1] \"1379808000s (~43.72 years)\"\n\n\n\nmy_age_s + dyears(1) # adding average seconds in a year\n\n\n\n[1] \"1411365600s (~44.72 years)\"\n\n\n\n\n\nmy_age_s + years(1) # adding a calendar year\n\n\n\nError:\n! Incompatible classes: &lt;Duration&gt; + &lt;Period&gt;"
   },
   {
     "objectID": "22-date-time-2/slides.html#section-5",
     "href": "22-date-time-2/slides.html#section-5",
     "title": "Dates and Times II",
     "section": "",
-    "text": "Interval\n\n\nIn lubridate, a time span with a specific start and end. Because it knows where it starts, it can be measured in seconds or in calendar units.\n\n\n\n\n\nleap &lt;- interval(ymd(\"2024-01-01\"),\n                 ymd(\"2025-01-01\"))\nleap\n\n[1] 2024-01-01 UTC--2025-01-01 UTC\n\nas.duration(leap)\n\n[1] \"31622400s (~1 years)\"\n\nas.period(leap)\n\n[1] \"1y 0m 0d 0H 0M 0S\"\n\n\n\nHow old will I be in a year?\n\nmy_age_i &lt;- interval(b, a)\nas.period(my_age_i)\n\n[1] \"43y 8m 21d 0H 0M 0S\"\n\nas.period(my_age_i) + years(1)\n\n[1] \"44y 8m 21d 0H 0M 0S\""
+    "text": "Interval\n\n\nIn lubridate, a time span with a specific start and end. Because it knows where it starts, it can be measured in seconds or in calendar units.\n\n\n\n\n\nleap &lt;- interval(ymd(\"2024-01-01\"),\n                 ymd(\"2025-01-01\"))\nleap\n\n[1] 2024-01-01 UTC--2025-01-01 UTC\n\nas.duration(leap)\n\n[1] \"31622400s (~1 years)\"\n\nas.period(leap)\n\n[1] \"1y 0m 0d 0H 0M 0S\"\n\n\n\nHow old will I be in a year?\n\nmy_age_i &lt;- interval(b, a)\nas.period(my_age_i)\n\n[1] \"43y 8m 22d 0H 0M 0S\"\n\nas.period(my_age_i) + years(1)\n\n[1] \"44y 8m 22d 0H 0M 0S\""
   },
   {
     "objectID": "22-date-time-2/slides.html#time-spans-recap",
@@ -3511,7 +3511,7 @@
     "href": "07-control-flow/slides.html#a-random-condition-in-r",
     "title": "Control Flow",
     "section": "A random condition in R",
-    "text": "A random condition in R\n\n\nsample(x = -10:10, size = 1)\n\n\n\n[1] -8\n\n\n\n\nsample() will randomly sample 1 element from the vector x."
+    "text": "A random condition in R\n\n\nsample(x = -10:10, size = 1)\n\n\n\n[1] 5\n\n\n\n\nsample() will randomly sample 1 element from the vector x."
   },
   {
     "objectID": "07-control-flow/slides.html#section-1",
@@ -3567,35 +3567,35 @@
     "href": "07-control-flow/slides.html#what-if-x-has-multiple-elements",
     "title": "Control Flow",
     "section": "What if x has multiple elements?",
-    "text": "What if x has multiple elements?\n\n\nx &lt;- rnorm(3)\nx\n\n\n\n[1] -0.2634794 -0.8540329 -0.3140626\n\n\n\n\n\n\n\n\n\n\n      if (x &gt; 0) {\n        print(\"x is positive :)\")\n      }"
+    "text": "What if x has multiple elements?\n\n\nx &lt;- rnorm(3)\nx\n\n\n\n[1]  1.13909957 -1.09899189  0.01338206\n\n\n\n\n\n\n\n\n\n\n      if (x &gt; 0) {\n        print(\"x is positive :)\")\n      }"
   },
   {
     "objectID": "07-control-flow/slides.html#option-1",
     "href": "07-control-flow/slides.html#option-1",
     "title": "Control Flow",
     "section": "Option 1",
-    "text": "Option 1\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(\"x is positive :)\")\n  }\n}"
+    "text": "Option 1\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(\"x is positive :)\")\n  }\n}\n\n\n\n[1] \"x is positive :)\"\n[1] \"x is positive :)\""
   },
   {
     "objectID": "07-control-flow/slides.html#option-2",
     "href": "07-control-flow/slides.html#option-2",
     "title": "Control Flow",
     "section": "Option 2",
-    "text": "Option 2\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(paste(\"element\", i, \"is positive :)\"))\n  }\n}"
+    "text": "Option 2\n\nfor (i in 1:length(x)) {\n  if (x[i] &gt; 0) {\n    print(paste(\"element\", i, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"element 1 is positive :)\"\n[1] \"element 3 is positive :)\""
   },
   {
     "objectID": "07-control-flow/slides.html#option-3",
     "href": "07-control-flow/slides.html#option-3",
     "title": "Control Flow",
     "section": "Option 3",
-    "text": "Option 3\n\nfor (x_elem in x) {\n  if (x_elem &gt; 0) {\n    print(paste(x_elem, \"is positive :)\"))\n  }\n}"
+    "text": "Option 3\n\nfor (x_elem in x) {\n  if (x_elem &gt; 0) {\n    print(paste(x_elem, \"is positive :)\"))\n  }\n}\n\n\n\n[1] \"1.13909956735661 is positive :)\"\n[1] \"0.0133820615271109 is positive :)\""
   },
   {
     "objectID": "07-control-flow/slides.html#ifelse",
     "href": "07-control-flow/slides.html#ifelse",
     "title": "Control Flow",
     "section": "ifelse()",
-    "text": "ifelse()\n\n\nifelse()\n\n\nA vectorized if-else: applies a condition to every element of a vector at once, without an explicit loop.\n\n\n\n\nx &lt; 0 \n\n\n\n[1] TRUE TRUE TRUE\n\n\n\n\n\nifelse(test = x &lt; 0, yes = \"is positive :)\", no = \"is negative :(\")\n\n\n\n[1] \"is positive :)\" \"is positive :)\" \"is positive :)\""
+    "text": "ifelse()\n\n\nifelse()\n\n\nA vectorized if-else: applies a condition to every element of a vector at once, without an explicit loop.\n\n\n\n\nx &lt; 0 \n\n\n\n[1] FALSE  TRUE FALSE\n\n\n\n\n\nifelse(test = x &lt; 0, yes = \"is positive :)\", no = \"is negative :(\")\n\n\n\n[1] \"is negative :(\" \"is positive :)\" \"is negative :(\""
   },
   {
     "objectID": "07-control-flow/slides.html#guess-the-metaphor",
@@ -6283,14 +6283,14 @@
     "href": "21-date-time-1/slides.html#section-8",
     "title": "Dates and Times I",
     "section": "",
-    "text": "POSIXct\n\n\nPOSIXct (Portable Operating System Interface Calendar Time) is an atomic vector to store date-times that is built on top of a double vector.\n\n\n\n\nnow &lt;- Sys.time()\nnow\n\n\n\n[1] \"2026-11-18 16:44:55 UTC\"\n\n\n\n\n\nclass(now)\n\n\n\n[1] \"POSIXct\" \"POSIXt\""
+    "text": "POSIXct\n\n\nPOSIXct (Portable Operating System Interface Calendar Time) is an atomic vector to store date-times that is built on top of a double vector.\n\n\n\n\nnow &lt;- Sys.time()\nnow\n\n\n\n[1] \"2026-11-19 18:17:32 UTC\"\n\n\n\n\n\nclass(now)\n\n\n\n[1] \"POSIXct\" \"POSIXt\""
   },
   {
     "objectID": "21-date-time-1/slides.html#why-not-just-use-a-double-vector",
     "href": "21-date-time-1/slides.html#why-not-just-use-a-double-vector",
     "title": "Dates and Times I",
     "section": "Why not just use a double vector?",
-    "text": "Why not just use a double vector?\n\n\n# it prints as a legible string\nnow\n\n\n\n[1] \"2026-11-18 16:44:55 UTC\"\n\n\n\n\n\n# while respecting artithmetic\nnow + 1\n\n\n\n[1] \"2026-11-18 16:44:56 UTC\"\n\n\n\n\n\n# and other sensible operations\nround(now, units = \"hours\")\n\n\n\n[1] \"2026-11-18 17:00:00 UTC\"\n\n\n\n\n\n# and makes it easy to use other formats\nformat(now, \"%m/%d/%y\")\n\n\n\n[1] \"11/18/26\""
+    "text": "Why not just use a double vector?\n\n\n# it prints as a legible string\nnow\n\n\n\n[1] \"2026-11-19 18:17:32 UTC\"\n\n\n\n\n\n# while respecting artithmetic\nnow + 1\n\n\n\n[1] \"2026-11-19 18:17:33 UTC\"\n\n\n\n\n\n# and other sensible operations\nround(now, units = \"hours\")\n\n\n\n[1] \"2026-11-19 18:00:00 UTC\"\n\n\n\n\n\n# and makes it easy to use other formats\nformat(now, \"%m/%d/%y\")\n\n\n\n[1] \"11/19/26\""
   },
   {
     "objectID": "21-date-time-1/slides.html#section-9",
@@ -6339,28 +6339,28 @@
     "href": "21-date-time-1/slides.html#getting",
     "title": "Dates and Times I",
     "section": "Getting",
-    "text": "Getting\nYou can extract components of the date-time object using year(), month(), week(), day(), wday(), hour(), etc.\n\n\nyear(now)\n\n\n\n[1] 2026\n\n\n\n\n\nday(now)\n\n\n\n[1] 18\n\n\n\n\n\nwday(now)\n\n\n\n[1] 4"
+    "text": "Getting\nYou can extract components of the date-time object using year(), month(), week(), day(), wday(), hour(), etc.\n\n\nyear(now)\n\n\n\n[1] 2026\n\n\n\n\n\nday(now)\n\n\n\n[1] 19\n\n\n\n\n\nwday(now)\n\n\n\n[1] 5"
   },
   {
     "objectID": "21-date-time-1/slides.html#getting-1",
     "href": "21-date-time-1/slides.html#getting-1",
     "title": "Dates and Times I",
     "section": "Getting",
-    "text": "Getting\nYou can extract components of the date-time object using year(), month(), week(), day(), wday(), hour(), etc.\n\nyear(now)\n\n[1] 2026\n\n\n\nday(now)\n\n[1] 18\n\n\n\nwday(now, label = TRUE)\n\n\n\n[1] Wed\nLevels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat"
+    "text": "Getting\nYou can extract components of the date-time object using year(), month(), week(), day(), wday(), hour(), etc.\n\nyear(now)\n\n[1] 2026\n\n\n\nday(now)\n\n[1] 19\n\n\n\nwday(now, label = TRUE)\n\n\n\n[1] Thu\nLevels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat"
   },
   {
     "objectID": "21-date-time-1/slides.html#getting-2",
     "href": "21-date-time-1/slides.html#getting-2",
     "title": "Dates and Times I",
     "section": "Getting",
-    "text": "Getting\nYou can extract components of the date-time object using year(), month(), week(), day(), wday(), hour(), etc.\n\nyear(now)\n\n[1] 2026\n\n\n\nday(now)\n\n[1] 18\n\n\n\nwday(now, label = TRUE, abbr = FALSE)\n\n\n\n[1] Wednesday\n7 Levels: Sunday &lt; Monday &lt; Tuesday &lt; Wednesday &lt; Thursday &lt; ... &lt; Saturday"
+    "text": "Getting\nYou can extract components of the date-time object using year(), month(), week(), day(), wday(), hour(), etc.\n\nyear(now)\n\n[1] 2026\n\n\n\nday(now)\n\n[1] 19\n\n\n\nwday(now, label = TRUE, abbr = FALSE)\n\n\n\n[1] Thursday\n7 Levels: Sunday &lt; Monday &lt; Tuesday &lt; Wednesday &lt; Thursday &lt; ... &lt; Saturday"
   },
   {
     "objectID": "21-date-time-1/slides.html#setting",
     "href": "21-date-time-1/slides.html#setting",
     "title": "Dates and Times I",
     "section": "Setting",
-    "text": "Setting\nYou can set those same components in an existing date-time object using change-in-place notation.\n\n\nyear(now) &lt;- 2027\nnow\n\n\n\n[1] \"2027-11-18 16:44:55 UTC\"\n\n\n\n\n\nwday(now, label = TRUE, abbr = FALSE)\n\n\n\n[1] Thursday\n7 Levels: Sunday &lt; Monday &lt; Tuesday &lt; Wednesday &lt; Thursday &lt; ... &lt; Saturday"
+    "text": "Setting\nYou can set those same components in an existing date-time object using change-in-place notation.\n\n\nyear(now) &lt;- 2027\nnow\n\n\n\n[1] \"2027-11-19 18:17:32 UTC\"\n\n\n\n\n\nwday(now, label = TRUE, abbr = FALSE)\n\n\n\n[1] Friday\n7 Levels: Sunday &lt; Monday &lt; Tuesday &lt; Wednesday &lt; Thursday &lt; ... &lt; Saturday"
   },
   {
     "objectID": "21-date-time-1/slides.html#your-turn-1",
@@ -7354,14 +7354,14 @@
     "href": "31-apis-1/slides.html#etd-call",
     "title": "APIs",
     "section": "ETD Call",
-    "text": "ETD Call\n\napi_url &lt;- \"https://api.bart.gov/api/etd.aspx\"\nres &lt;- request(api_url) |&gt;\n  req_url_query(cmd  = \"etd\") |&gt;\n  req_url_query(orig = \"DBRK\") |&gt;\n  req_url_query(key  = \"MW9S-E7SL-26DU-VV8V\") |&gt;\n  req_url_query(json = \"y\") |&gt;\n  req_perform()\nres\n\n\n\n&lt;httr2_response&gt;\nGET https://api.bart.gov/api/etd.aspx?cmd=etd&orig=DBRK&key=MW9S-E7SL-26DU-VV8V&json=y\nStatus: 200 OK\nContent-Type: application/json\nBody: In memory (1985 bytes)"
+    "text": "ETD Call\n\napi_url &lt;- \"https://api.bart.gov/api/etd.aspx\"\nres &lt;- request(api_url) |&gt;\n  req_url_query(cmd  = \"etd\") |&gt;\n  req_url_query(orig = \"DBRK\") |&gt;\n  req_url_query(key  = \"MW9S-E7SL-26DU-VV8V\") |&gt;\n  req_url_query(json = \"y\") |&gt;\n  req_perform()\nres\n\n\n\n&lt;httr2_response&gt;\nGET https://api.bart.gov/api/etd.aspx?cmd=etd&orig=DBRK&key=MW9S-E7SL-26DU-VV8V&json=y\nStatus: 200 OK\nContent-Type: application/json\nBody: In memory (1980 bytes)"
   },
   {
     "objectID": "31-apis-1/slides.html#section-13",
     "href": "31-apis-1/slides.html#section-13",
     "title": "APIs",
     "section": "",
-    "text": "data &lt;- resp_body_json(res, simplifyVector = FALSE)\ndata\n\n\n\n$`?xml`\n$`?xml`$`@version`\n[1] \"1.0\"\n\n$`?xml`$`@encoding`\n[1] \"utf-8\"\n\n\n$root\n$root$`@id`\n[1] \"1\"\n\n$root$uri\n$root$uri$`#cdata-section`\n[1] \"http://api.bart.gov/api/etd.aspx?cmd=etd&orig=DBRK&json=y\"\n\n\n$root$date\n[1] \"11/18/2026\"\n\n$root$time\n[1] \"08:45:18 AM PST\"\n\n$root$station\n$root$station[[1]]\n$root$station[[1]]$name\n[1] \"Downtown Berkeley\"\n\n$root$station[[1]]$abbr\n[1] \"DBRK\"\n\n$root$station[[1]]$etd\n$root$station[[1]]$etd[[1]]\n$root$station[[1]]$etd[[1]]$destination\n[1] \"Berryessa\"\n\n$root$station[[1]]$etd[[1]]$abbreviation\n[1] \"BERY\"\n\n$root$station[[1]]$etd[[1]]$limited\n[1] \"0\"\n\n$root$station[[1]]$etd[[1]]$estimate\n$root$station[[1]]$etd[[1]]$estimate[[1]]\n$root$station[[1]]$etd[[1]]$estimate[[1]]$minutes\n[1] \"13\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$platform\n[1] \"2\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$direction\n[1] \"South\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$length\n[1] \"5\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$color\n[1] \"ORANGE\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$hexcolor\n[1] \"#ff9933\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$delay\n[1] \"0\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$dynamicflag\n[1] \"0\"\n\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]\n$root$station[[1]]$etd[[1]]$estimate[[2]]$minutes\n[1] \"33\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$platform\n[1] \"2\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$direction\n[1] \"South\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$length\n[1] \"5\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$color\n[1] \"ORANGE\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$hexcolor\n[1] \"#ff9933\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$delay\n[1] \"0\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$dynamicflag\n[1] \"0\"\n\n\n$root$station[[1]]$etd[[1]]$estimate[[3]]\n$root$station[[1]]$etd[[1]]$estimate[[3]]$minutes\n[1] \"53\"\n\n$root$station[[1]]$etd[[1]]$estimate[[3]]$platform\n[1] \"2\"\n\n$root$station[[1]]$etd[[1]]$estimate[[3]]$direction\n[1] \"South\"\n\n$root$station[[1]]$etd[[1]]$estimate[[3]]$length\n[1] \"6\"\n\n$root$station[[1]]$etd[[1]]$estimate[[3]]$color\n[1] \"ORANGE\"\n\n$root$station[[1]]$etd[[1]]$estimate[[3]]$hexcolor\n[1] \"#ff9933\"\n\n$root$station[[1]]$etd[[1]]$estimate[[3]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[1]]$estimate[[3]]$delay\n[1] \"0\"\n\n$root$station[[1]]$etd[[1]]$estimate[[3]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[1]]$estimate[[3]]$dynamicflag\n[1] \"0\"\n\n\n\n\n$root$station[[1]]$etd[[2]]\n$root$station[[1]]$etd[[2]]$destination\n[1] \"Millbrae\"\n\n$root$station[[1]]$etd[[2]]$abbreviation\n[1] \"MLBR\"\n\n$root$station[[1]]$etd[[2]]$limited\n[1] \"0\"\n\n$root$station[[1]]$etd[[2]]$estimate\n$root$station[[1]]$etd[[2]]$estimate[[1]]\n$root$station[[1]]$etd[[2]]$estimate[[1]]$minutes\n[1] \"Leaving\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$platform\n[1] \"2\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$direction\n[1] \"South\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$length\n[1] \"10\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$color\n[1] \"RED\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$hexcolor\n[1] \"#ff0000\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$delay\n[1] \"0\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$dynamicflag\n[1] \"0\"\n\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]\n$root$station[[1]]$etd[[2]]$estimate[[2]]$minutes\n[1] \"20\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$platform\n[1] \"2\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$direction\n[1] \"South\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$length\n[1] \"10\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$color\n[1] \"RED\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$hexcolor\n[1] \"#ff0000\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$delay\n[1] \"0\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$dynamicflag\n[1] \"0\"\n\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]\n$root$station[[1]]$etd[[2]]$estimate[[3]]$minutes\n[1] \"40\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$platform\n[1] \"2\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$direction\n[1] \"South\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$length\n[1] \"10\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$color\n[1] \"RED\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$hexcolor\n[1] \"#ff0000\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$delay\n[1] \"0\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$dynamicflag\n[1] \"0\"\n\n\n\n\n$root$station[[1]]$etd[[3]]\n$root$station[[1]]$etd[[3]]$destination\n[1] \"Richmond\"\n\n$root$station[[1]]$etd[[3]]$abbreviation\n[1] \"RICH\"\n\n$root$station[[1]]$etd[[3]]$limited\n[1] \"0\"\n\n$root$station[[1]]$etd[[3]]$estimate\n$root$station[[1]]$etd[[3]]$estimate[[1]]\n$root$station[[1]]$etd[[3]]$estimate[[1]]$minutes\n[1] \"1\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$platform\n[1] \"1\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$direction\n[1] \"North\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$length\n[1] \"6\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$color\n[1] \"ORANGE\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$hexcolor\n[1] \"#ff9933\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$delay\n[1] \"118\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$dynamicflag\n[1] \"0\"\n\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]\n$root$station[[1]]$etd[[3]]$estimate[[2]]$minutes\n[1] \"9\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$platform\n[1] \"1\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$direction\n[1] \"North\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$length\n[1] \"10\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$color\n[1] \"RED\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$hexcolor\n[1] \"#ff0000\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$delay\n[1] \"102\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$dynamicflag\n[1] \"0\"\n\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]\n$root$station[[1]]$etd[[3]]$estimate[[3]]$minutes\n[1] \"19\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$platform\n[1] \"1\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$direction\n[1] \"North\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$length\n[1] \"6\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$color\n[1] \"ORANGE\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$hexcolor\n[1] \"#ff9933\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$delay\n[1] \"0\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$dynamicflag\n[1] \"0\"\n\n\n\n\n\n\n\n$root$message\n[1] \"\""
+    "text": "data &lt;- resp_body_json(res, simplifyVector = FALSE)\ndata\n\n\n\n$`?xml`\n$`?xml`$`@version`\n[1] \"1.0\"\n\n$`?xml`$`@encoding`\n[1] \"utf-8\"\n\n\n$root\n$root$`@id`\n[1] \"1\"\n\n$root$uri\n$root$uri$`#cdata-section`\n[1] \"http://api.bart.gov/api/etd.aspx?cmd=etd&orig=DBRK&json=y\"\n\n\n$root$date\n[1] \"11/19/2026\"\n\n$root$time\n[1] \"10:17:47 AM PST\"\n\n$root$station\n$root$station[[1]]\n$root$station[[1]]$name\n[1] \"Downtown Berkeley\"\n\n$root$station[[1]]$abbr\n[1] \"DBRK\"\n\n$root$station[[1]]$etd\n$root$station[[1]]$etd[[1]]\n$root$station[[1]]$etd[[1]]$destination\n[1] \"Berryessa\"\n\n$root$station[[1]]$etd[[1]]$abbreviation\n[1] \"BERY\"\n\n$root$station[[1]]$etd[[1]]$limited\n[1] \"0\"\n\n$root$station[[1]]$etd[[1]]$estimate\n$root$station[[1]]$etd[[1]]$estimate[[1]]\n$root$station[[1]]$etd[[1]]$estimate[[1]]$minutes\n[1] \"Leaving\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$platform\n[1] \"2\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$direction\n[1] \"South\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$length\n[1] \"6\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$color\n[1] \"ORANGE\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$hexcolor\n[1] \"#ff9933\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$delay\n[1] \"0\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[1]]$estimate[[1]]$dynamicflag\n[1] \"0\"\n\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]\n$root$station[[1]]$etd[[1]]$estimate[[2]]$minutes\n[1] \"20\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$platform\n[1] \"2\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$direction\n[1] \"South\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$length\n[1] \"6\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$color\n[1] \"ORANGE\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$hexcolor\n[1] \"#ff9933\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$delay\n[1] \"0\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[1]]$estimate[[2]]$dynamicflag\n[1] \"0\"\n\n\n$root$station[[1]]$etd[[1]]$estimate[[3]]\n$root$station[[1]]$etd[[1]]$estimate[[3]]$minutes\n[1] \"40\"\n\n$root$station[[1]]$etd[[1]]$estimate[[3]]$platform\n[1] \"2\"\n\n$root$station[[1]]$etd[[1]]$estimate[[3]]$direction\n[1] \"South\"\n\n$root$station[[1]]$etd[[1]]$estimate[[3]]$length\n[1] \"6\"\n\n$root$station[[1]]$etd[[1]]$estimate[[3]]$color\n[1] \"ORANGE\"\n\n$root$station[[1]]$etd[[1]]$estimate[[3]]$hexcolor\n[1] \"#ff9933\"\n\n$root$station[[1]]$etd[[1]]$estimate[[3]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[1]]$estimate[[3]]$delay\n[1] \"0\"\n\n$root$station[[1]]$etd[[1]]$estimate[[3]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[1]]$estimate[[3]]$dynamicflag\n[1] \"0\"\n\n\n\n\n$root$station[[1]]$etd[[2]]\n$root$station[[1]]$etd[[2]]$destination\n[1] \"Millbrae\"\n\n$root$station[[1]]$etd[[2]]$abbreviation\n[1] \"MLBR\"\n\n$root$station[[1]]$etd[[2]]$limited\n[1] \"0\"\n\n$root$station[[1]]$etd[[2]]$estimate\n$root$station[[1]]$etd[[2]]$estimate[[1]]\n$root$station[[1]]$etd[[2]]$estimate[[1]]$minutes\n[1] \"8\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$platform\n[1] \"2\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$direction\n[1] \"South\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$length\n[1] \"10\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$color\n[1] \"RED\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$hexcolor\n[1] \"#ff0000\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$delay\n[1] \"0\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[2]]$estimate[[1]]$dynamicflag\n[1] \"0\"\n\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]\n$root$station[[1]]$etd[[2]]$estimate[[2]]$minutes\n[1] \"28\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$platform\n[1] \"2\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$direction\n[1] \"South\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$length\n[1] \"5\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$color\n[1] \"RED\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$hexcolor\n[1] \"#ff0000\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$delay\n[1] \"0\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[2]]$estimate[[2]]$dynamicflag\n[1] \"0\"\n\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]\n$root$station[[1]]$etd[[2]]$estimate[[3]]$minutes\n[1] \"48\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$platform\n[1] \"2\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$direction\n[1] \"South\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$length\n[1] \"5\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$color\n[1] \"RED\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$hexcolor\n[1] \"#ff0000\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$delay\n[1] \"0\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[2]]$estimate[[3]]$dynamicflag\n[1] \"0\"\n\n\n\n\n$root$station[[1]]$etd[[3]]\n$root$station[[1]]$etd[[3]]$destination\n[1] \"Richmond\"\n\n$root$station[[1]]$etd[[3]]$abbreviation\n[1] \"RICH\"\n\n$root$station[[1]]$etd[[3]]$limited\n[1] \"0\"\n\n$root$station[[1]]$etd[[3]]$estimate\n$root$station[[1]]$etd[[3]]$estimate[[1]]\n$root$station[[1]]$etd[[3]]$estimate[[1]]$minutes\n[1] \"1\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$platform\n[1] \"1\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$direction\n[1] \"North\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$length\n[1] \"10\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$color\n[1] \"RED\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$hexcolor\n[1] \"#ff0000\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$delay\n[1] \"365\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[3]]$estimate[[1]]$dynamicflag\n[1] \"0\"\n\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]\n$root$station[[1]]$etd[[3]]$estimate[[2]]$minutes\n[1] \"6\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$platform\n[1] \"1\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$direction\n[1] \"North\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$length\n[1] \"6\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$color\n[1] \"ORANGE\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$hexcolor\n[1] \"#ff9933\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$delay\n[1] \"0\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[3]]$estimate[[2]]$dynamicflag\n[1] \"0\"\n\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]\n$root$station[[1]]$etd[[3]]$estimate[[3]]$minutes\n[1] \"20\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$platform\n[1] \"1\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$direction\n[1] \"North\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$length\n[1] \"10\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$color\n[1] \"RED\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$hexcolor\n[1] \"#ff0000\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$bikeflag\n[1] \"1\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$delay\n[1] \"308\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$cancelflag\n[1] \"0\"\n\n$root$station[[1]]$etd[[3]]$estimate[[3]]$dynamicflag\n[1] \"0\"\n\n\n\n\n\n\n\n$root$message\n[1] \"\""
   },
   {
     "objectID": "31-apis-1/slides.html#apis-another-data-product",
@@ -7578,14 +7578,14 @@
     "href": "35-tool-calls/slides.html#asking-for-the-time",
     "title": "Tool Calls",
     "section": "Asking for the time",
-    "text": "Asking for the time\n\nlibrary(ellmer)\n\nclaude &lt;- chat_claude(model = \"claude-haiku-5-5\")\nclaude$chat(\n  \"What time is it in Berkeley right now? Answer in one sentence.\"\n)\n\n\n\n\n\nI don't have access to real-time information, so I can't tell you the\ncurrent time in Berkeley, but you can check your device's clock or search\n\"time in Berkeley\" for the current local time.\n\n\nBut R knows:\n\nSys.time()\n\n\n\n[1] \"2026-11-18 16:45:32 UTC\""
+    "text": "Asking for the time\n\nlibrary(ellmer)\n\nclaude &lt;- chat_claude(model = \"claude-haiku-5-5\")\nclaude$chat(\n  \"What time is it in Berkeley right now? Answer in one sentence.\"\n)\n\n\n\n\n\nI don't have access to real-time information, so I can't tell you the\ncurrent time in Berkeley, but you can check your device's clock or search\n\"time in Berkeley\" for the current local time.\n\n\nBut R knows:\n\nSys.time()\n\n\n\n[1] \"2026-11-19 18:18:04 UTC\""
   },
   {
     "objectID": "35-tool-calls/slides.html#a-function-for-the-model",
     "href": "35-tool-calls/slides.html#a-function-for-the-model",
     "title": "Tool Calls",
     "section": "A function for the model",
-    "text": "A function for the model\nWrite an ordinary R function that does the job:\n\nget_current_time &lt;- function(tz = \"America/Los_Angeles\") {\n  format(Sys.time(), tz = tz, usetz = TRUE)\n}\n\nget_current_time()\n\n\n\n[1] \"2026-11-18 08:45:32 PST\"\n\nget_current_time(\"Asia/Tokyo\")\n\n[1] \"2026-11-19 01:45:32 JST\""
+    "text": "A function for the model\nWrite an ordinary R function that does the job:\n\nget_current_time &lt;- function(tz = \"America/Los_Angeles\") {\n  format(Sys.time(), tz = tz, usetz = TRUE)\n}\n\nget_current_time()\n\n\n\n[1] \"2026-11-19 10:18:04 PST\"\n\nget_current_time(\"Asia/Tokyo\")\n\n[1] \"2026-11-20 03:18:04 JST\""
   },
   {
     "objectID": "35-tool-calls/slides.html#describe-it-to-the-model",
