@@ -1,0 +1,15 @@
+/* Staff-only blocks on project pages (staff site only), in the staff
+   site's teal, matching problem-set solutions (stat133ps.css). */
+
+.staff-note .callout.callout-note {
+  border-left-color: #008080 !important;
+  border-color: rgba(0, 128, 128, 0.45);
+}
+
+.staff-note .callout.callout-note > .callout-header {
+  background-color: rgba(0, 128, 128, 0.08);
+}
+
+.staff-note .callout.callout-note .callout-title-container {
+  color: #006666;
+}
